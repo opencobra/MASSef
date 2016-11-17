@@ -1,0 +1,135 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      4065,        127]
+NotebookOptionsPosition[      3502,        103]
+NotebookOutlinePosition[      3842,        118]
+CellTagsIndexPosition[      3799,        115]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell["\<\
+The idea here is just to make sure the database is imported without errors.
+  \
+\>", "Input",
+ CellChangeTimes->{{3.688382023206702*^9, 3.6883820482682457`*^9}},
+ FormatType->"TextForm"],
+
+Cell[BoxData[
+ RowBox[{"Quit", "[", "]"}]], "Input",
+ CellChangeTimes->{{3.688382095579933*^9, 3.688382096539401*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"SetDirectory", "[", 
+   RowBox[{"NotebookDirectory", "[", "]"}], "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"Import", "[", "\"\<../src/import_data.m\>\"", "]"}], 
+  "\n"}], "\n", 
+ RowBox[{
+  RowBox[{"data", " ", "=", " ", 
+   RowBox[{"Import", "[", 
+    RowBox[{
+    "\"\<../../enzyme_data/kinetics_db_v0.xls\>\"", ",", " ", "\"\<XLS\>\""}],
+     "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"data", " ", "=", " ", 
+    RowBox[{"data", "[", 
+     RowBox[{"[", "1", "]"}], "]"}]}], ";"}], "\n"}], "\n", 
+ RowBox[{
+  RowBox[{"enzymeNames", "=", 
+   RowBox[{"{", 
+    RowBox[{
+    "\"\<ADK1\>\"", ",", " ", "\"\<GAPD\>\"", ",", " ", "\"\<PFK1\>\"", ",", 
+     " ", "\"\<TALA2\>\""}], "}"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.68838193097313*^9, 3.6883819309807577`*^9}, 
+   3.6883820106116667`*^9, {3.688382068123302*^9, 3.6883820926808*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Table", "[", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Print", "[", "enzName", "]"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"result", "=", 
+      RowBox[{"getEnzymeData", "[", 
+       RowBox[{"enzName", ",", " ", "data"}], "]"}]}], ";"}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"{", 
+     RowBox[{"enzName", ",", " ", "enzymeNames"}], "}"}]}], "]"}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.68837680299233*^9, 3.688376809170438*^9}, {
+   3.688377062946416*^9, 3.688377063582418*^9}, 3.6883771745770893`*^9, {
+   3.688377876439951*^9, 3.688377877362*^9}, {3.68837936496352*^9, 
+   3.6883794219045477`*^9}, {3.6883794554191933`*^9, 
+   3.6883794659892817`*^9}, {3.688379526705597*^9, 3.688379541045879*^9}, {
+   3.688379625149222*^9, 3.68837965731959*^9}, {3.6883797837253523`*^9, 
+   3.688379800208049*^9}, {3.688380104942625*^9, 3.688380121194428*^9}, {
+   3.688380618414201*^9, 3.6883806231734667`*^9}, {3.688381967949679*^9, 
+   3.6883819985850563`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["\<\"ADK1\"\>"], "Print",
+ CellChangeTimes->{{3.6883819960673647`*^9, 3.688381998990288*^9}, {
+  3.688382104250657*^9, 3.688382107177545*^9}}],
+
+Cell[BoxData["\<\"GAPD\"\>"], "Print",
+ CellChangeTimes->{{3.6883819960673647`*^9, 3.688381998990288*^9}, {
+  3.688382104250657*^9, 3.688382107178596*^9}}],
+
+Cell[BoxData["\<\"PFK1\"\>"], "Print",
+ CellChangeTimes->{{3.6883819960673647`*^9, 3.688381998990288*^9}, {
+  3.688382104250657*^9, 3.688382107179494*^9}}],
+
+Cell[BoxData["\<\"TALA2\"\>"], "Print",
+ CellChangeTimes->{{3.6883819960673647`*^9, 3.688381998990288*^9}, {
+  3.688382104250657*^9, 3.688382107180254*^9}}]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{808, 867},
+WindowMargins->{{255, Automatic}, {23, Automatic}},
+FrontEndVersion->"11.0 for Linux x86 (64-bit) (September 21, 2016)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 196, 5, 50, "Input"],
+Cell[757, 27, 118, 2, 32, "Input"],
+Cell[878, 31, 891, 25, 170, "Input"],
+Cell[CellGroupData[{
+Cell[1794, 60, 1025, 21, 102, "Input"],
+Cell[CellGroupData[{
+Cell[2844, 85, 155, 2, 24, "Print"],
+Cell[3002, 89, 155, 2, 24, "Print"],
+Cell[3160, 93, 155, 2, 24, "Print"],
+Cell[3318, 97, 156, 2, 24, "Print"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
