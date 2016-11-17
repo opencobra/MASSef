@@ -1,0 +1,39 @@
+SetDirectory[NotebookDirectory[]];
+Import["../src/import_data.m"]
+
+data=Import["test_files/test_database.xls","XLS"];
+data=data[[1]];
+
+testResults={};
+
+test GetEnzymeData - PFK1
+
+enzName="PFK1";
+expectedResult={Overscript[atp^c+f6p^c⇌adp^c+fbp^c+h^c, PFK1],"Bi Bi (iso-ordered),[f6p,atp,fbp,adp]",4.`,4.`,4.`,{{"atp",0.00009`,{{"gdp,0.001"},{"f6p,0.001"}},"M",8.5`,30.`,{{"detam,0.051"},{"netmphn,0.051"},{"mes,0.1"}},{}},{"gdp",0.004200000000000001`,{{"f6p,0.00004"},{"atp,0.005"}},"M",8.5`,30.`,{{"detam,0.051"},{"netmphn,0.051"},{"mes,0.1"}},{}}},{{"f6p",0.00009`,{{"gdp,0.001"},{"atp,0.001"}},"M",8.5`,30.`,{{"detam,0.051"},{"netmphn,0.051"},{"mes,0.1"}},{}}},{{{{"gdp,0.001"},{"atp,null"},{"f6p,Null"}},110.7`,"1/s",8.5`,30.`,{{"detam,0.051"},{"netmphn,0.051"},{"mes,0.1"}},{}}},{{"Ki","pep",0.00075`,{{"NonCompetitive,Null,142,atp"},{"NonCompetitive,Null,142,f6p"}},"M",8.5`,28.`,{{"tris,0.05"}},{}},{"Ki","adp",0.0002`,{{"Competitive,Null,141,atp"}},"M",8.5`,28.`,{{"tris,0.05"}},{}}},{{"Ka","adp",0.000024999999999999998`,{},"M",8.5`,28.`,{{"tris,0.05"}},{}},{"Ka","gdp",0.00004`,{},"M",8.5`,28.`,{{"tris,0.05"}},{}}},{{"n","",2.11`,"Null",8.5`,30.`,{{"detam,0.051"},{"netmphn,0.051"},{"mes,0.1"}},{}},{"L0","",4.`*^6,"Null",8.5`,28.`,{{"tris,0.05"}},{}}}};
+
+result=getEnzymeData[enzName, data] ;
+
+AppendTo[testResults,
+VerificationTest[result,expectedResult , TestID->"getEnzymeDataPFK1"]
+];
+
+test GetEnzymeData - TALA2
+
+enzName="TALA2";
+
+expectedResult={Overscript[e4p^c+f6p^c⇌g3p^c+s7p^c, TALA2],"Ping Pong Bi Bi,[f6p,g3p,e4p,s7p]",2.`,2.`,0.`,{{"g3p",0.000037999999999999995`,{{"f6p,0.0285"}},"M",8.5`,30.`,{{"glygly,0.05"}},{}},{"e4p",0.00009`,{{"f6p,0.0285"}},"M",8.5`,30.`,{{"glygly,0.05"}},{}},{"r5p",0.031`,{{"f6p,0.0285"}},"M",8.5`,30.`,{{"glygly,0.05"}},{}},{"f6p",0.0012000000000000001`,{{"g3p,0.0038"}},"M",8.5`,30.`,{{"glygly,0.05"}},{}},{"s7p",0.000285`,{{"g3p,0.0038"}},"M",8.5`,30.`,{{"glygly,0.05"}},{}}},{},{{{{"f6p,Null"},{"e4p,0.002"}},71.4`,"1/s",8.5`,30.`,{{"glygly,0.05"}},{}},{{{"e4p,Null"},{"f6p,0.05"}},79.4`,"1/s",8.5`,30.`,{{"glygly,0.05"}},{}}},{{"Ki","pi",0.019`,{{"Competitive,Null,Null,Null"}},"M",8.5`,30.`,{{"glygly,0.05"}},{}}},{},{}};
+
+result=getEnzymeData[enzName, data] ;
+
+AppendTo[testResults,
+VerificationTest[result,expectedResult , TestID->"getEnzymeDataTALA2"]
+];
+
+In[16]:= testResults
+Out[16]= {TestResultObject[Outcome: Success
+Test ID: getEnzymeDataPFK1
+
+],TestResultObject[Outcome: Success
+Test ID: getEnzymeDataTALA2
+
+]}
