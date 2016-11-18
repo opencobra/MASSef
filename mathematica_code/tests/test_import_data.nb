@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     59189,       1436]
-NotebookOptionsPosition[     58601,       1411]
-NotebookOutlinePosition[     58932,       1426]
-CellTagsIndexPosition[     58889,       1423]
+NotebookDataLength[     92948,       2290]
+NotebookOptionsPosition[     92108,       2257]
+NotebookOutlinePosition[     92447,       2272]
+CellTagsIndexPosition[     92404,       2269]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -27,15 +27,20 @@ Cell[BoxData[{
   RowBox[{"Import", "[", "\"\<../src/import_data.m\>\"", "]"}], 
   "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
  RowBox[{
-  RowBox[{"data", "=", 
-   RowBox[{"Import", "[", 
-    RowBox[{"\"\<test_files/test_database.xls\>\"", ",", "\"\<XLS\>\""}], 
-    "]"}]}], ";"}], "\[IndentingNewLine]", 
+  RowBox[{
+  "kineticDataPath", " ", "=", " ", 
+   "\"\<test_files/test_db_kinetic_data.xls\>\""}], 
+  ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
-   RowBox[{"data", "=", 
-    RowBox[{"data", "[", 
-     RowBox[{"[", "1", "]"}], "]"}]}], ";"}], 
+  "ionChargeDataPath", " ", "=", " ", 
+   "\"\<test_files/test_db_ion_charge.xls\>\""}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+   "bufferInfoDataPath", " ", "=", " ", 
+    "\"\<test_files/test_db_buffer_info.xls\>\""}], ";"}], 
   "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"testResults", "=", 
@@ -44,7 +49,263 @@ Cell[BoxData[{
   3.672692743107355*^9, 3.6726927434106083`*^9}, {3.688379314519944*^9, 
   3.688379323937272*^9}, {3.688379500528048*^9, 3.688379505413515*^9}, {
   3.688379610834086*^9, 3.688379615162458*^9}, {3.6883796704649563`*^9, 
-  3.6883796795516977`*^9}, {3.68838057838741*^9, 3.688380615452154*^9}}],
+  3.6883796795516977`*^9}, {3.68838057838741*^9, 3.688380615452154*^9}, {
+  3.688463975330852*^9, 3.688464039417232*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["test getBufferInfoData", "Subsubsection",
+ CellChangeTimes->{{3.688379404633004*^9, 3.688379429043716*^9}, {
+  3.688464189533341*^9, 3.688464194468556*^9}, {3.688464387337203*^9, 
+  3.688464392473873*^9}}],
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"expectedResult", "=", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"\"\<trishcl\>\"", ",", "\"\<Tris-HCl\>\""}], "}"}], ",", 
+         "8.14`", ",", "1.`", ",", "0.`"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"\"\<tris\>\"", ",", "\"\<Tris\>\""}], "}"}], ",", "8.14`", 
+         ",", "1.`", ",", "0.`"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"\"\<trisac\>\"", ",", "\"\<Tris-acetate\>\""}], "}"}], ",",
+          "8.14`", ",", "1.`", ",", "0.`"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"\"\<edta\>\"", ",", "\"\<EDTA\>\""}], "}"}], ",", "Null", 
+         ",", "Null", ",", "Null"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"\"\<tric\>\"", ",", "\"\<Tricine\>\""}], "}"}], ",", 
+         "8.07`", ",", "0.`", ",", 
+         RowBox[{"-", "1.`"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"\"\<tricna\>\"", ",", "\"\<Tricine-Na\>\""}], "}"}], ",", 
+         "8.07`", ",", "0.`", ",", 
+         RowBox[{"-", "1.`"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"\"\<hepesnaoh\>\"", ",", "\"\<Hepes-NaOH\>\""}], "}"}], 
+         ",", "7.5`", ",", "0.`", ",", 
+         RowBox[{"-", "1.`"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"\"\<pipeskoh\>\"", ",", "\"\<PIPES-KOH\>\""}], "}"}], ",", 
+         "6.64`", ",", 
+         RowBox[{"-", "1.`"}], ",", 
+         RowBox[{"-", "2.`"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"\"\<kpi\>\"", ",", "\"\<KPO4\>\""}], "}"}], ",", "6.88`", 
+         ",", 
+         RowBox[{"-", "1.`"}], ",", 
+         RowBox[{"-", "2.`"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"\"\<napi\>\"", ",", "\"\<sodium phosphate\>\""}], "}"}], 
+         ",", "6.88`", ",", 
+         RowBox[{"-", "1.`"}], ",", 
+         RowBox[{"-", "2.`"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"\"\<nakpi\>\"", ",", "\"\<Na+/K+ phosphate\>\""}], "}"}], 
+         ",", "6.88`", ",", 
+         RowBox[{"-", "1.`"}], ",", 
+         RowBox[{"-", "2.`"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"\"\<chesk\>\"", ",", "\"\<CHES-K\>\""}], "}"}], ",", 
+         "9.37`", ",", "0.`", ",", 
+         RowBox[{"-", "1.`"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"\"\<hepes\>\"", ",", "\"\<Hepes\>\""}], "}"}], ",", "7.5`",
+          ",", "0.`", ",", 
+         RowBox[{"-", "1.`"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"\"\<hepesbtp\>\"", ",", "\"\<HEPES\[Dash]BTP\>\""}], "}"}],
+          ",", "Null", ",", "Null", ",", "Null"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"\"\<pipes\>\"", ",", "\"\<Pipes\>\""}], "}"}], ",", 
+         "6.64`", ",", 
+         RowBox[{"-", "1.`"}], ",", 
+         RowBox[{"-", "2.`"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"\"\<mops\>\"", ",", "\"\<MOPS\>\""}], "}"}], ",", "7.12`", 
+         ",", "0.`", ",", 
+         RowBox[{"-", "1.`"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"\"\<mopsnaoh\>\"", ",", "\"\<MOPS/NaOH\>\""}], "}"}], ",", 
+         "7.12`", ",", "0.`", ",", 
+         RowBox[{"-", "1.`"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"\"\<mopskoh\>\"", ",", "\"\<MOPS-KOH\>\""}], "}"}], ",", 
+         "7.12`", ",", "0.`", ",", 
+         RowBox[{"-", "1.`"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"\"\<mes\>\"", ",", "\"\<MES\>\""}], "}"}], ",", "6.14`", 
+         ",", "0.`", ",", 
+         RowBox[{"-", "1.`"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"\"\<netmphn\>\"", ",", "\"\<N-ethylmorpholine\>\""}], 
+          "}"}], ",", "7.83`", ",", "1.`", ",", "0.`"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"\"\<detam\>\"", ",", "\"\<diethanolamine\>\""}], "}"}], 
+         ",", "8.95`", ",", "1.`", ",", "0.`"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"\"\<glygly\>\"", ",", "\"\<glycylglycine\>\""}], "}"}], 
+         ",", "8.2`", ",", "0.`", ",", 
+         RowBox[{"-", "1.`"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"\"\<imdzcl\>\"", ",", "\"\<imidazole-Cl\>\""}], "}"}], ",",
+          "7.06`", ",", "1.`", ",", "0.`"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"\"\<imdz_MIXED\>\"", ",", "\"\<mixed imidazoles\>\""}], 
+          "}"}], ",", "Null", ",", "Null", ",", "Null"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"\"\<24dmid\>\"", ",", "\"\<2,4-dimethylimidazole\>\""}], 
+          "}"}], ",", "Null", ",", "Null", ",", "Null"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"\"\<teoa\>\"", ",", "\"\<triethanolamine\>\""}], "}"}], 
+         ",", "7.83`", ",", "1.`", ",", "0.`"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"\"\<teoahcl\>\"", ",", "\"\<triethanolamine-HCl\>\""}], 
+          "}"}], ",", "7.83`", ",", "1.`", ",", "0.`"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"\"\<pi_buffer\>\"", ",", "\"\<Phosphoric acid\>\""}], 
+          "}"}], ",", "7.198`", ",", 
+         RowBox[{"-", "1.`"}], ",", 
+         RowBox[{"-", "2.`"}]}], "}"}]}], "}"}]}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"result", "=", 
+     RowBox[{"getBufferInfoData", "[", "bufferInfoDataPath", "]"}]}], " ", 
+    ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"AppendTo", "[", 
+     RowBox[{"testResults", ",", "\[IndentingNewLine]", 
+      RowBox[{"VerificationTest", "[", 
+       RowBox[{"result", ",", "expectedResult", " ", ",", " ", 
+        RowBox[{"TestID", "\[Rule]", "\"\<getBufferInfoData\>\""}]}], "]"}]}],
+      "\[IndentingNewLine]", "]"}], ";"}], "\[IndentingNewLine]"}]}]], "Input",\
+
+ CellChangeTimes->{{3.68837680299233*^9, 3.688376809170438*^9}, {
+   3.688377062946416*^9, 3.688377063582418*^9}, 3.6883771745770893`*^9, {
+   3.688377876439951*^9, 3.688377877362*^9}, {3.68837936496352*^9, 
+   3.6883794219045477`*^9}, {3.6883794554191933`*^9, 
+   3.6883794659892817`*^9}, {3.688379526705597*^9, 3.688379541045879*^9}, {
+   3.688379625149222*^9, 3.68837965731959*^9}, {3.6883806192131443`*^9, 
+   3.6883806224017076`*^9}, 3.688464044787023*^9, {3.688464202085072*^9, 
+   3.6884642364977417`*^9}, {3.6884643258423147`*^9, 3.688464365250352*^9}, {
+   3.688464397683638*^9, 3.6884644968457127`*^9}, {3.688464526872285*^9, 
+   3.688464540787015*^9}, {3.688464944308197*^9, 3.688464946368619*^9}, 
+   3.6884658531585283`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["test getIonData", "Subsubsection",
+ CellChangeTimes->{{3.688379404633004*^9, 3.688379429043716*^9}, {
+  3.688464189533341*^9, 3.688464194468556*^9}}],
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"expectedResult", "=", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"\"\<cl\>\"", ",", 
+         RowBox[{"-", "1."}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"\"\<mg2\>\"", ",", "2."}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"\"\<k\>\"", ",", "1."}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"\"\<so4\>\"", ",", 
+         RowBox[{"-", "2."}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"\"\<mn2\>\"", ",", "2."}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"\"\<na1\>\"", ",", "1."}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"\"\<hco3\>\"", ",", 
+         RowBox[{"-", "1."}]}], "}"}]}], "}"}]}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"result", "=", 
+     RowBox[{"getIonData", "[", "ionChargeDataPath", "]"}]}], " ", ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"AppendTo", "[", 
+     RowBox[{"testResults", ",", "\[IndentingNewLine]", 
+      RowBox[{"VerificationTest", "[", 
+       RowBox[{"result", ",", "expectedResult", " ", ",", " ", 
+        RowBox[{"TestID", "\[Rule]", "\"\<getIonData\>\""}]}], "]"}]}], 
+     "\[IndentingNewLine]", "]"}], ";"}], "\[IndentingNewLine]"}]}]], "Input",\
+
+ CellChangeTimes->{{3.68837680299233*^9, 3.688376809170438*^9}, {
+   3.688377062946416*^9, 3.688377063582418*^9}, 3.6883771745770893`*^9, {
+   3.688377876439951*^9, 3.688377877362*^9}, {3.68837936496352*^9, 
+   3.6883794219045477`*^9}, {3.6883794554191933`*^9, 
+   3.6883794659892817`*^9}, {3.688379526705597*^9, 3.688379541045879*^9}, {
+   3.688379625149222*^9, 3.68837965731959*^9}, {3.6883806192131443`*^9, 
+   3.6883806224017076`*^9}, 3.688464044787023*^9, {3.688464202085072*^9, 
+   3.6884642364977417`*^9}, {3.6884643258423147`*^9, 3.688464365250352*^9}}]
+}, Open  ]],
 
 Cell[CellGroupData[{
 
@@ -329,7 +590,7 @@ Cell[BoxData[
    RowBox[{
     RowBox[{"result", "=", 
      RowBox[{"getEnzymeData", "[", 
-      RowBox[{"enzName", ",", " ", "data"}], "]"}]}], " ", ";"}], 
+      RowBox[{"enzName", ",", " ", "kineticDataPath"}], "]"}]}], " ", ";"}], 
    "\[IndentingNewLine]", "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"AppendTo", "[", 
@@ -346,7 +607,7 @@ Cell[BoxData[
    3.6883794659892817`*^9}, {3.688379526705597*^9, 3.688379541045879*^9}, {
    3.688379625149222*^9, 3.68837965731959*^9}, {3.6883797837253523`*^9, 
    3.688379800208049*^9}, {3.688380104942625*^9, 3.688380121194428*^9}, {
-   3.688380618414201*^9, 3.6883806231734667`*^9}}]
+   3.688380618414201*^9, 3.6883806231734667`*^9}, 3.688464042702177*^9}]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -567,7 +828,7 @@ Cell[BoxData[
    RowBox[{
     RowBox[{"result", "=", 
      RowBox[{"getEnzymeData", "[", 
-      RowBox[{"enzName", ",", " ", "data"}], "]"}]}], " ", ";"}], 
+      RowBox[{"enzName", ",", " ", "kineticDataPath"}], "]"}]}], " ", ";"}], 
    "\[IndentingNewLine]", "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"AppendTo", "[", 
@@ -583,7 +844,7 @@ Cell[BoxData[
    3.6883794219045477`*^9}, {3.6883794554191933`*^9, 
    3.6883794659892817`*^9}, {3.688379526705597*^9, 3.688379541045879*^9}, {
    3.688379625149222*^9, 3.68837965731959*^9}, {3.6883806192131443`*^9, 
-   3.6883806224017076`*^9}}],
+   3.6883806224017076`*^9}, 3.688464044787023*^9}],
 
 Cell[CellGroupData[{
 
@@ -592,6 +853,583 @@ Cell[BoxData["testResults"], "Input"],
 Cell[BoxData[
  RowBox[{"{", 
   RowBox[{
+   InterpretationBox[
+    RowBox[{
+     TagBox["TestResultObject",
+      "SummaryHead"], "[", 
+     DynamicModuleBox[{Typeset`open$$ = False}, 
+      PanelBox[
+       PaneSelectorBox[{False->GridBox[{
+          {
+           PaneBox[
+            ButtonBox[
+             
+             DynamicBox[FEPrivate`FrontEndResource[
+              "FEBitmaps", "SquarePlusIconMedium"],
+              ImageSizeCache->{12., {0., 12.}}],
+             Appearance->None,
+             ButtonFunction:>(Typeset`open$$ = True),
+             Evaluator->Automatic,
+             Method->"Preemptive"],
+            Alignment->{Center, Center},
+            
+            ImageSize->
+             Dynamic[{
+              Automatic, 3.5 CurrentValue["FontCapHeight"]/
+               AbsoluteCurrentValue[Magnification]}]], 
+           GraphicsBox[InsetBox[
+             PaneBox[
+              
+              DynamicBox[FEPrivate`FrontEndResource[
+               "MUnitExpressions", "SuccessIcon"],
+               ImageSizeCache->{16., {3., 9.}}],
+              Alignment->Center,
+              
+              ImageSize->
+               Dynamic[{
+                Automatic, 3.5 CurrentValue["FontCapHeight"]/
+                 AbsoluteCurrentValue[Magnification]}]]],
+            AspectRatio->1,
+            Axes->False,
+            Background->GrayLevel[0.93],
+            Frame->True,
+            FrameStyle->Directive[
+              Thickness[Tiny], 
+              GrayLevel[0.55]],
+            FrameTicks->None,
+            ImageSize->{Automatic, 
+              Dynamic[
+              3.5 CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+               Magnification]]},
+            PlotRange->{{0, 1}, {0, 1}}], GridBox[{
+             {
+              RowBox[{
+               TagBox["\<\"Outcome: \"\>",
+                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+               TagBox["\<\"Success\"\>",
+                "SummaryItem"]}]},
+             {
+              RowBox[{
+               TagBox["\<\"Test ID: \"\>",
+                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+               TagBox["\<\"getBufferInfoData\"\>",
+                "SummaryItem"]}]}
+            },
+            AutoDelete->False,
+            
+            BaseStyle->{
+             ShowStringCharacters -> False, NumberMarks -> False, 
+              PrintPrecision -> 3, ShowSyntaxStyles -> False},
+            GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Automatic}}},
+            
+            GridBoxItemSize->{
+             "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+            GridBoxSpacings->{"Columns" -> {{2}}, "Rows" -> {{Automatic}}}]}
+         },
+         AutoDelete->False,
+         BaselinePosition->{1, 1},
+         GridBoxAlignment->{"Rows" -> {{Top}}},
+         GridBoxItemSize->{
+          "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], True->
+        GridBox[{
+          {
+           PaneBox[
+            ButtonBox[
+             
+             DynamicBox[FEPrivate`FrontEndResource[
+              "FEBitmaps", "SquareMinusIconMedium"]],
+             Appearance->None,
+             ButtonFunction:>(Typeset`open$$ = False),
+             Evaluator->Automatic,
+             Method->"Preemptive"],
+            Alignment->{Center, Center},
+            
+            ImageSize->
+             Dynamic[{
+              Automatic, 3.5 CurrentValue["FontCapHeight"]/
+               AbsoluteCurrentValue[Magnification]}]], 
+           GraphicsBox[InsetBox[
+             PaneBox[
+              
+              DynamicBox[FEPrivate`FrontEndResource[
+               "MUnitExpressions", "SuccessIcon"]],
+              Alignment->Center,
+              
+              ImageSize->
+               Dynamic[{
+                Automatic, 3.5 CurrentValue["FontCapHeight"]/
+                 AbsoluteCurrentValue[Magnification]}]]],
+            AspectRatio->1,
+            Axes->False,
+            Background->GrayLevel[0.93],
+            Frame->True,
+            FrameStyle->Directive[
+              Thickness[Tiny], 
+              GrayLevel[0.55]],
+            FrameTicks->None,
+            ImageSize->{Automatic, 
+              Dynamic[
+              3.5 CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+               Magnification]]},
+            PlotRange->{{0, 1}, {0, 1}}], GridBox[{
+             {
+              RowBox[{
+               TagBox["\<\"Outcome: \"\>",
+                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+               TagBox["\<\"Success\"\>",
+                "SummaryItem"]}]},
+             {
+              RowBox[{
+               TagBox["\<\"Test ID: \"\>",
+                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+               TagBox["\<\"getBufferInfoData\"\>",
+                "SummaryItem"]}]},
+             {
+              RowBox[{
+               TagBox["\<\"Input: \"\>",
+                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+               TagBox[
+                PaneBox[
+                 TagBox["result",
+                  Short[#, 
+                   Rational[2, 3]]& ],
+                 BaselinePosition->Baseline,
+                 ContentPadding->False,
+                 FrameMargins->0,
+                 ImageSize->{{1, 500}, Automatic},
+                 StripOnInput->True],
+                "SummaryItem"]}]},
+             {
+              RowBox[{
+               TagBox["\<\"Expected output: \"\>",
+                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+               TagBox[
+                PaneBox[
+                 TagBox[
+                  RowBox[{"{", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"\<\"trishcl\"\>", ",", "\<\"Tris-HCl\"\>"}], 
+                    "}"}], ",", "8.14`", ",", "1.`", ",", "0.`"}], "}"}], ",", 
+                    RowBox[{"\[LeftSkeleton]", "26", "\[RightSkeleton]"}], 
+                    ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"pi_buffer\"\>", 
+                    ",", "\<\"Phosphoric acid\"\>"}], "}"}], ",", "7.198`", 
+                    ",", 
+                    RowBox[{"-", "1.`"}], ",", 
+                    RowBox[{"-", "2.`"}]}], "}"}]}], "}"}],
+                  Short[#, 
+                   Rational[2, 3]]& ],
+                 BaselinePosition->Baseline,
+                 ContentPadding->False,
+                 FrameMargins->0,
+                 ImageSize->{{1, 500}, Automatic},
+                 StripOnInput->True],
+                "SummaryItem"]}]},
+             {
+              RowBox[{
+               TagBox["\<\"Actual output: \"\>",
+                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+               TagBox[
+                PaneBox[
+                 TagBox[
+                  RowBox[{"{", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"\<\"trishcl\"\>", ",", "\<\"Tris-HCl\"\>"}], 
+                    "}"}], ",", "8.14`", ",", "1.`", ",", "0.`"}], "}"}], ",", 
+                    RowBox[{"\[LeftSkeleton]", "26", "\[RightSkeleton]"}], 
+                    ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"pi_buffer\"\>", 
+                    ",", "\<\"Phosphoric acid\"\>"}], "}"}], ",", "7.198`", 
+                    ",", 
+                    RowBox[{"-", "1.`"}], ",", 
+                    RowBox[{"-", "2.`"}]}], "}"}]}], "}"}],
+                  Short[#, 
+                   Rational[2, 3]]& ],
+                 BaselinePosition->Baseline,
+                 ContentPadding->False,
+                 FrameMargins->0,
+                 ImageSize->{{1, 500}, Automatic},
+                 StripOnInput->True],
+                "SummaryItem"]}]},
+             {
+              RowBox[{
+               TagBox["\<\"Time Taken: \"\>",
+                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+               TagBox[
+                PaneBox[
+                 TagBox[
+                  
+                  TemplateBox[{
+                   "0.04833`4.834731792970874","\"s\"","seconds",
+                    "\"Seconds\""},
+                   "Quantity"],
+                  Short[#, 
+                   Rational[2, 3]]& ],
+                 BaselinePosition->Baseline,
+                 ContentPadding->False,
+                 FrameMargins->0,
+                 ImageSize->{{1, 500}, Automatic},
+                 StripOnInput->True],
+                "SummaryItem"]}]}
+            },
+            AutoDelete->False,
+            
+            BaseStyle->{
+             ShowStringCharacters -> False, NumberMarks -> False, 
+              PrintPrecision -> 3, ShowSyntaxStyles -> False},
+            GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Automatic}}},
+            
+            GridBoxItemSize->{
+             "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+            GridBoxSpacings->{"Columns" -> {{2}}, "Rows" -> {{Automatic}}}]}
+         },
+         AutoDelete->False,
+         BaselinePosition->{1, 1},
+         GridBoxAlignment->{"Rows" -> {{Top}}},
+         GridBoxItemSize->{
+          "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}]}, Dynamic[
+        Typeset`open$$],
+        ImageSize->Automatic],
+       BaselinePosition->Baseline],
+      DynamicModuleValues:>{}], "]"}],
+    TestResultObject[
+     Association[
+     "TestIndex" -> 1, "TestID" -> "getBufferInfoData", "Outcome" -> 
+      "Success", "Input" -> HoldForm[$CellContext`result], "ExpectedOutput" -> 
+      HoldForm[{{{"trishcl", "Tris-HCl"}, 8.14, 1., 0.}, {{"tris", "Tris"}, 
+          8.14, 1., 0.}, {{"trisac", "Tris-acetate"}, 8.14, 1., 0.}, {{
+          "edta", "EDTA"}, Null, Null, Null}, {{"tric", "Tricine"}, 8.07, 
+          0., -1.}, {{"tricna", "Tricine-Na"}, 8.07, 0., -1.}, {{
+          "hepesnaoh", "Hepes-NaOH"}, 7.5, 0., -1.}, {{
+          "pipeskoh", "PIPES-KOH"}, 6.64, -1., -2.}, {{"kpi", "KPO4"}, 
+          6.88, -1., -2.}, {{"napi", "sodium phosphate"}, 6.88, -1., -2.}, {{
+          "nakpi", "Na+/K+ phosphate"}, 6.88, -1., -2.}, {{"chesk", "CHES-K"},
+           9.37, 0., -1.}, {{"hepes", "Hepes"}, 7.5, 0., -1.}, {{
+          "hepesbtp", "HEPES\[Dash]BTP"}, Null, Null, Null}, {{
+          "pipes", "Pipes"}, 6.64, -1., -2.}, {{"mops", "MOPS"}, 7.12, 
+          0., -1.}, {{"mopsnaoh", "MOPS/NaOH"}, 7.12, 0., -1.}, {{
+          "mopskoh", "MOPS-KOH"}, 7.12, 0., -1.}, {{"mes", "MES"}, 6.14, 
+          0., -1.}, {{"netmphn", "N-ethylmorpholine"}, 7.83, 1., 0.}, {{
+          "detam", "diethanolamine"}, 8.95, 1., 0.}, {{
+          "glygly", "glycylglycine"}, 8.2, 0., -1.}, {{
+          "imdzcl", "imidazole-Cl"}, 7.06, 1., 0.}, {{
+          "imdz_MIXED", "mixed imidazoles"}, Null, Null, Null}, {{
+          "24dmid", "2,4-dimethylimidazole"}, Null, Null, Null}, {{
+          "teoa", "triethanolamine"}, 7.83, 1., 0.}, {{
+          "teoahcl", "triethanolamine-HCl"}, 7.83, 1., 0.}, {{
+          "pi_buffer", "Phosphoric acid"}, 7.198, -1., -2.}}], "ActualOutput" -> 
+      HoldForm[{{{"trishcl", "Tris-HCl"}, 8.14, 1., 0.}, {{"tris", "Tris"}, 
+          8.14, 1., 0.}, {{"trisac", "Tris-acetate"}, 8.14, 1., 0.}, {{
+          "edta", "EDTA"}, Null, Null, Null}, {{"tric", "Tricine"}, 8.07, 
+          0., -1.}, {{"tricna", "Tricine-Na"}, 8.07, 0., -1.}, {{
+          "hepesnaoh", "Hepes-NaOH"}, 7.5, 0., -1.}, {{
+          "pipeskoh", "PIPES-KOH"}, 6.64, -1., -2.}, {{"kpi", "KPO4"}, 
+          6.88, -1., -2.}, {{"napi", "sodium phosphate"}, 6.88, -1., -2.}, {{
+          "nakpi", "Na+/K+ phosphate"}, 6.88, -1., -2.}, {{"chesk", "CHES-K"},
+           9.37, 0., -1.}, {{"hepes", "Hepes"}, 7.5, 0., -1.}, {{
+          "hepesbtp", "HEPES\[Dash]BTP"}, Null, Null, Null}, {{
+          "pipes", "Pipes"}, 6.64, -1., -2.}, {{"mops", "MOPS"}, 7.12, 
+          0., -1.}, {{"mopsnaoh", "MOPS/NaOH"}, 7.12, 0., -1.}, {{
+          "mopskoh", "MOPS-KOH"}, 7.12, 0., -1.}, {{"mes", "MES"}, 6.14, 
+          0., -1.}, {{"netmphn", "N-ethylmorpholine"}, 7.83, 1., 0.}, {{
+          "detam", "diethanolamine"}, 8.95, 1., 0.}, {{
+          "glygly", "glycylglycine"}, 8.2, 0., -1.}, {{
+          "imdzcl", "imidazole-Cl"}, 7.06, 1., 0.}, {{
+          "imdz_MIXED", "mixed imidazoles"}, Null, Null, Null}, {{
+          "24dmid", "2,4-dimethylimidazole"}, Null, Null, Null}, {{
+          "teoa", "triethanolamine"}, 7.83, 1., 0.}, {{
+          "teoahcl", "triethanolamine-HCl"}, 7.83, 1., 0.}, {{
+          "pi_buffer", "Phosphoric acid"}, 7.198, -1., -2.}}], 
+      "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
+      Quantity[0.04833`4.834731792970874, "Seconds"], "CPUTimeUsed" -> 
+      Quantity[0.04800000000000004, "Seconds"], "MemoryUsed" -> 
+      Quantity[3026680, "Bytes"]]],
+    Editable->False,
+    SelectWithContents->True,
+    Selectable->False], ",", 
+   InterpretationBox[
+    RowBox[{
+     TagBox["TestResultObject",
+      "SummaryHead"], "[", 
+     DynamicModuleBox[{Typeset`open$$ = False}, 
+      PanelBox[
+       PaneSelectorBox[{False->GridBox[{
+          {
+           PaneBox[
+            ButtonBox[
+             
+             DynamicBox[FEPrivate`FrontEndResource[
+              "FEBitmaps", "SquarePlusIconMedium"],
+              ImageSizeCache->{12., {0., 12.}}],
+             Appearance->None,
+             ButtonFunction:>(Typeset`open$$ = True),
+             Evaluator->Automatic,
+             Method->"Preemptive"],
+            Alignment->{Center, Center},
+            
+            ImageSize->
+             Dynamic[{
+              Automatic, 3.5 CurrentValue["FontCapHeight"]/
+               AbsoluteCurrentValue[Magnification]}]], 
+           GraphicsBox[InsetBox[
+             PaneBox[
+              
+              DynamicBox[FEPrivate`FrontEndResource[
+               "MUnitExpressions", "SuccessIcon"],
+               ImageSizeCache->{16., {3., 9.}}],
+              Alignment->Center,
+              
+              ImageSize->
+               Dynamic[{
+                Automatic, 3.5 CurrentValue["FontCapHeight"]/
+                 AbsoluteCurrentValue[Magnification]}]]],
+            AspectRatio->1,
+            Axes->False,
+            Background->GrayLevel[0.93],
+            Frame->True,
+            FrameStyle->Directive[
+              Thickness[Tiny], 
+              GrayLevel[0.55]],
+            FrameTicks->None,
+            ImageSize->{Automatic, 
+              Dynamic[
+              3.5 CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+               Magnification]]},
+            PlotRange->{{0, 1}, {0, 1}}], GridBox[{
+             {
+              RowBox[{
+               TagBox["\<\"Outcome: \"\>",
+                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+               TagBox["\<\"Success\"\>",
+                "SummaryItem"]}]},
+             {
+              RowBox[{
+               TagBox["\<\"Test ID: \"\>",
+                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+               TagBox["\<\"getIonData\"\>",
+                "SummaryItem"]}]}
+            },
+            AutoDelete->False,
+            
+            BaseStyle->{
+             ShowStringCharacters -> False, NumberMarks -> False, 
+              PrintPrecision -> 3, ShowSyntaxStyles -> False},
+            GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Automatic}}},
+            
+            GridBoxItemSize->{
+             "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+            GridBoxSpacings->{"Columns" -> {{2}}, "Rows" -> {{Automatic}}}]}
+         },
+         AutoDelete->False,
+         BaselinePosition->{1, 1},
+         GridBoxAlignment->{"Rows" -> {{Top}}},
+         GridBoxItemSize->{
+          "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], True->
+        GridBox[{
+          {
+           PaneBox[
+            ButtonBox[
+             
+             DynamicBox[FEPrivate`FrontEndResource[
+              "FEBitmaps", "SquareMinusIconMedium"]],
+             Appearance->None,
+             ButtonFunction:>(Typeset`open$$ = False),
+             Evaluator->Automatic,
+             Method->"Preemptive"],
+            Alignment->{Center, Center},
+            
+            ImageSize->
+             Dynamic[{
+              Automatic, 3.5 CurrentValue["FontCapHeight"]/
+               AbsoluteCurrentValue[Magnification]}]], 
+           GraphicsBox[InsetBox[
+             PaneBox[
+              
+              DynamicBox[FEPrivate`FrontEndResource[
+               "MUnitExpressions", "SuccessIcon"]],
+              Alignment->Center,
+              
+              ImageSize->
+               Dynamic[{
+                Automatic, 3.5 CurrentValue["FontCapHeight"]/
+                 AbsoluteCurrentValue[Magnification]}]]],
+            AspectRatio->1,
+            Axes->False,
+            Background->GrayLevel[0.93],
+            Frame->True,
+            FrameStyle->Directive[
+              Thickness[Tiny], 
+              GrayLevel[0.55]],
+            FrameTicks->None,
+            ImageSize->{Automatic, 
+              Dynamic[
+              3.5 CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+               Magnification]]},
+            PlotRange->{{0, 1}, {0, 1}}], GridBox[{
+             {
+              RowBox[{
+               TagBox["\<\"Outcome: \"\>",
+                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+               TagBox["\<\"Success\"\>",
+                "SummaryItem"]}]},
+             {
+              RowBox[{
+               TagBox["\<\"Test ID: \"\>",
+                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+               TagBox["\<\"getIonData\"\>",
+                "SummaryItem"]}]},
+             {
+              RowBox[{
+               TagBox["\<\"Input: \"\>",
+                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+               TagBox[
+                PaneBox[
+                 TagBox["result",
+                  Short[#, 
+                   Rational[2, 3]]& ],
+                 BaselinePosition->Baseline,
+                 ContentPadding->False,
+                 FrameMargins->0,
+                 ImageSize->{{1, 500}, Automatic},
+                 StripOnInput->True],
+                "SummaryItem"]}]},
+             {
+              RowBox[{
+               TagBox["\<\"Expected output: \"\>",
+                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+               TagBox[
+                PaneBox[
+                 TagBox[
+                  RowBox[{"{", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"\<\"cl\"\>", ",", 
+                    RowBox[{"-", "1.`"}]}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"\<\"mg2\"\>", ",", "2.`"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"\<\"k\"\>", ",", "1.`"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"\<\"so4\"\>", ",", 
+                    RowBox[{"-", "2.`"}]}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"\<\"mn2\"\>", ",", "2.`"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"\<\"na1\"\>", ",", "1.`"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"\<\"hco3\"\>", ",", 
+                    RowBox[{"-", "1.`"}]}], "}"}]}], "}"}],
+                  Short[#, 
+                   Rational[2, 3]]& ],
+                 BaselinePosition->Baseline,
+                 ContentPadding->False,
+                 FrameMargins->0,
+                 ImageSize->{{1, 500}, Automatic},
+                 StripOnInput->True],
+                "SummaryItem"]}]},
+             {
+              RowBox[{
+               TagBox["\<\"Actual output: \"\>",
+                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+               TagBox[
+                PaneBox[
+                 TagBox[
+                  RowBox[{"{", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"\<\"cl\"\>", ",", 
+                    RowBox[{"-", "1.`"}]}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"\<\"mg2\"\>", ",", "2.`"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"\<\"k\"\>", ",", "1.`"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"\<\"so4\"\>", ",", 
+                    RowBox[{"-", "2.`"}]}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"\<\"mn2\"\>", ",", "2.`"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"\<\"na1\"\>", ",", "1.`"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"\<\"hco3\"\>", ",", 
+                    RowBox[{"-", "1.`"}]}], "}"}]}], "}"}],
+                  Short[#, 
+                   Rational[2, 3]]& ],
+                 BaselinePosition->Baseline,
+                 ContentPadding->False,
+                 FrameMargins->0,
+                 ImageSize->{{1, 500}, Automatic},
+                 StripOnInput->True],
+                "SummaryItem"]}]},
+             {
+              RowBox[{
+               TagBox["\<\"Time Taken: \"\>",
+                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+               TagBox[
+                PaneBox[
+                 TagBox[
+                  
+                  TemplateBox[{
+                   "0.000105`2.171704296901932","\"s\"","seconds",
+                    "\"Seconds\""},
+                   "Quantity"],
+                  Short[#, 
+                   Rational[2, 3]]& ],
+                 BaselinePosition->Baseline,
+                 ContentPadding->False,
+                 FrameMargins->0,
+                 ImageSize->{{1, 500}, Automatic},
+                 StripOnInput->True],
+                "SummaryItem"]}]}
+            },
+            AutoDelete->False,
+            
+            BaseStyle->{
+             ShowStringCharacters -> False, NumberMarks -> False, 
+              PrintPrecision -> 3, ShowSyntaxStyles -> False},
+            GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Automatic}}},
+            
+            GridBoxItemSize->{
+             "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+            GridBoxSpacings->{"Columns" -> {{2}}, "Rows" -> {{Automatic}}}]}
+         },
+         AutoDelete->False,
+         BaselinePosition->{1, 1},
+         GridBoxAlignment->{"Rows" -> {{Top}}},
+         GridBoxItemSize->{
+          "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}]}, Dynamic[
+        Typeset`open$$],
+        ImageSize->Automatic],
+       BaselinePosition->Baseline],
+      DynamicModuleValues:>{}], "]"}],
+    TestResultObject[
+     Association[
+     "TestIndex" -> 2, "TestID" -> "getIonData", "Outcome" -> "Success", 
+      "Input" -> HoldForm[$CellContext`result], "ExpectedOutput" -> 
+      HoldForm[{{"cl", -1.}, {"mg2", 2.}, {"k", 1.}, {"so4", -2.}, {
+         "mn2", 2.}, {"na1", 1.}, {"hco3", -1.}}], "ActualOutput" -> 
+      HoldForm[{{"cl", -1.}, {"mg2", 2.}, {"k", 1.}, {"so4", -2.}, {
+         "mn2", 2.}, {"na1", 1.}, {"hco3", -1.}}], "ExpectedMessages" -> {}, 
+      "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
+      Quantity[0.000105`2.171704296901932, "Seconds"], "CPUTimeUsed" -> 
+      Quantity[0., "Seconds"], "MemoryUsed" -> Quantity[96, "Bytes"]]],
+    Editable->False,
+    SelectWithContents->True,
+    Selectable->False], ",", 
    InterpretationBox[
     RowBox[{
      TagBox["TestResultObject",
@@ -746,73 +1584,7 @@ Cell[BoxData[
                 PaneBox[
                  TagBox[
                   RowBox[{"{", 
-                   RowBox[{
-                    InterpretationBox[
-                    OverscriptBox[
-                    RowBox[{
-                    RowBox[{
-                    InterpretationBox[
-                    SuperscriptBox[
-                    StyleBox[
-                    RowBox[{"\[LeftSkeleton]", "3", "\[RightSkeleton]"}],
-                    StripOnInput->False,
-                    ShowSyntaxStyles->False,
-                    AutoSpacing->False,
-                    ZeroWidthTimes->True,
-                    LineColor->RGBColor[0, 0, 0],
-                    FrontFaceColor->RGBColor[0, 0, 0],
-                    BackFaceColor->RGBColor[0, 0, 0],
-                    GraphicsColor->RGBColor[0, 0, 0],
-                    FontColor->RGBColor[0, 0, 0]], 
-                    StyleBox["c",
-                    StripOnInput->False,
-                    ShowSyntaxStyles->False,
-                    AutoSpacing->False,
-                    ZeroWidthTimes->True,
-                    LineColor->RGBColor[0, 0, 0],
-                    FrontFaceColor->RGBColor[0, 0, 0],
-                    BackFaceColor->RGBColor[0, 0, 0],
-                    GraphicsColor->RGBColor[0, 0, 0],
-                    FontColor->RGBColor[0, 0, 0]]],
-                    Toolbox`metabolite["atp", "c"],
-                    Editable->False,
-                    Selectable->False], "+", 
-                    InterpretationBox[
-                    SuperscriptBox[
-                    RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], 
-                    RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}]],
-                    Toolbox`metabolite["f6p", "c"],
-                    Editable->False,
-                    Selectable->False]}], "\[Equilibrium]", 
-                    RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}]}], 
-                    StyleBox["PFK1",
-                    StripOnInput->False,
-                    ShowSyntaxStyles->False,
-                    AutoSpacing->False,
-                    ZeroWidthTimes->True,
-                    LineColor->RGBColor[0, 0, 0],
-                    FrontFaceColor->RGBColor[0, 0, 0],
-                    BackFaceColor->RGBColor[0, 0, 0],
-                    GraphicsColor->RGBColor[0, 0, 0],
-                    FontColor->RGBColor[0, 0, 0]]],
-                    Toolbox`reaction["PFK1", {
-                    Toolbox`metabolite["atp", "c"], 
-                    Toolbox`metabolite["f6p", "c"]}, {
-                    Toolbox`metabolite["adp", "c"], 
-                    Toolbox`metabolite["fbp", "c"], 
-                    Toolbox`metabolite["h", "c"]}, {1, 1, 1, 1, 1}, True],
-                    Editable->False,
-                    Selectable->False], ",", 
-                    RowBox[{"\[LeftSkeleton]", "9", "\[RightSkeleton]"}], ",", 
-                    RowBox[{"{", 
-                    RowBox[{
-                    RowBox[{"{", 
-                    RowBox[{"\<\"n\"\>", ",", "\<\"\"\>", ",", 
-                    RowBox[{"\[LeftSkeleton]", "5", "\[RightSkeleton]"}], ",", 
-                    RowBox[{"{", "}"}]}], "}"}], ",", 
-                    RowBox[{"{", 
-                    RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], 
-                    "}"}]}], "}"}]}], "}"}],
+                   RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], "}"}],
                   Short[#, 
                    Rational[2, 3]]& ],
                  BaselinePosition->Baseline,
@@ -829,73 +1601,7 @@ Cell[BoxData[
                 PaneBox[
                  TagBox[
                   RowBox[{"{", 
-                   RowBox[{
-                    InterpretationBox[
-                    OverscriptBox[
-                    RowBox[{
-                    RowBox[{
-                    InterpretationBox[
-                    SuperscriptBox[
-                    StyleBox[
-                    RowBox[{"\[LeftSkeleton]", "3", "\[RightSkeleton]"}],
-                    StripOnInput->False,
-                    ShowSyntaxStyles->False,
-                    AutoSpacing->False,
-                    ZeroWidthTimes->True,
-                    LineColor->RGBColor[0, 0, 0],
-                    FrontFaceColor->RGBColor[0, 0, 0],
-                    BackFaceColor->RGBColor[0, 0, 0],
-                    GraphicsColor->RGBColor[0, 0, 0],
-                    FontColor->RGBColor[0, 0, 0]], 
-                    StyleBox["c",
-                    StripOnInput->False,
-                    ShowSyntaxStyles->False,
-                    AutoSpacing->False,
-                    ZeroWidthTimes->True,
-                    LineColor->RGBColor[0, 0, 0],
-                    FrontFaceColor->RGBColor[0, 0, 0],
-                    BackFaceColor->RGBColor[0, 0, 0],
-                    GraphicsColor->RGBColor[0, 0, 0],
-                    FontColor->RGBColor[0, 0, 0]]],
-                    Toolbox`metabolite["atp", "c"],
-                    Editable->False,
-                    Selectable->False], "+", 
-                    InterpretationBox[
-                    SuperscriptBox[
-                    RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], 
-                    RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}]],
-                    Toolbox`metabolite["f6p", "c"],
-                    Editable->False,
-                    Selectable->False]}], "\[Equilibrium]", 
-                    RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}]}], 
-                    StyleBox["PFK1",
-                    StripOnInput->False,
-                    ShowSyntaxStyles->False,
-                    AutoSpacing->False,
-                    ZeroWidthTimes->True,
-                    LineColor->RGBColor[0, 0, 0],
-                    FrontFaceColor->RGBColor[0, 0, 0],
-                    BackFaceColor->RGBColor[0, 0, 0],
-                    GraphicsColor->RGBColor[0, 0, 0],
-                    FontColor->RGBColor[0, 0, 0]]],
-                    Toolbox`reaction["PFK1", {
-                    Toolbox`metabolite["atp", "c"], 
-                    Toolbox`metabolite["f6p", "c"]}, {
-                    Toolbox`metabolite["adp", "c"], 
-                    Toolbox`metabolite["fbp", "c"], 
-                    Toolbox`metabolite["h", "c"]}, {1, 1, 1, 1, 1}, True],
-                    Editable->False,
-                    Selectable->False], ",", 
-                    RowBox[{"\[LeftSkeleton]", "9", "\[RightSkeleton]"}], ",", 
-                    RowBox[{"{", 
-                    RowBox[{
-                    RowBox[{"{", 
-                    RowBox[{"\<\"n\"\>", ",", "\<\"\"\>", ",", 
-                    RowBox[{"\[LeftSkeleton]", "5", "\[RightSkeleton]"}], ",", 
-                    RowBox[{"{", "}"}]}], "}"}], ",", 
-                    RowBox[{"{", 
-                    RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], 
-                    "}"}]}], "}"}]}], "}"}],
+                   RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], "}"}],
                   Short[#, 
                    Rational[2, 3]]& ],
                  BaselinePosition->Baseline,
@@ -913,7 +1619,7 @@ Cell[BoxData[
                  TagBox[
                   
                   TemplateBox[{
-                   "0.047982`4.831593344232901","\"s\"","seconds",
+                   "0.000105`2.171704296901932","\"s\"","seconds",
                     "\"Seconds\""},
                    "Quantity"],
                   Short[#, 
@@ -931,7 +1637,6 @@ Cell[BoxData[
              ShowStringCharacters -> False, NumberMarks -> False, 
               PrintPrecision -> 3, ShowSyntaxStyles -> False},
             GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Automatic}}},
-            
             GridBoxItemSize->{
              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
             GridBoxSpacings->{"Columns" -> {{2}}, "Rows" -> {{Automatic}}}]}
@@ -947,7 +1652,7 @@ Cell[BoxData[
       DynamicModuleValues:>{}], "]"}],
     TestResultObject[
      Association[
-     "TestIndex" -> 1, "TestID" -> "getEnzymeDataPFK1", "Outcome" -> 
+     "TestIndex" -> 3, "TestID" -> "getEnzymeDataPFK1", "Outcome" -> 
       "Success", "Input" -> HoldForm[$CellContext`result], "ExpectedOutput" -> 
       HoldForm[{
          Toolbox`reaction["PFK1", {
@@ -1008,9 +1713,8 @@ Cell[BoxData[
            30., {{"detam,0.051"}, {"netmphn,0.051"}, {"mes,0.1"}}, {}}, {
           "L0", "", 4.*^6, "Null", 8.5, 28., {{"tris,0.05"}}, {}}}}], 
       "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
-      Quantity[0.047982`4.831593344232901, "Seconds"], "CPUTimeUsed" -> 
-      Quantity[0.052000000000000046`, "Seconds"], "MemoryUsed" -> 
-      Quantity[3026616, "Bytes"]]],
+      Quantity[0.000105`2.171704296901932, "Seconds"], "CPUTimeUsed" -> 
+      Quantity[0., "Seconds"], "MemoryUsed" -> Quantity[104, "Bytes"]]],
     Editable->False,
     SelectWithContents->True,
     Selectable->False], ",", 
@@ -1175,8 +1879,7 @@ Cell[BoxData[
                     RowBox[{
                     InterpretationBox[
                     SuperscriptBox[
-                    StyleBox[
-                    RowBox[{"\[LeftSkeleton]", "3", "\[RightSkeleton]"}],
+                    StyleBox["e4p",
                     StripOnInput->False,
                     ShowSyntaxStyles->False,
                     AutoSpacing->False,
@@ -1201,12 +1904,80 @@ Cell[BoxData[
                     Selectable->False], "+", 
                     InterpretationBox[
                     SuperscriptBox[
-                    RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], 
-                    RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}]],
+                    StyleBox["f6p",
+                    StripOnInput->False,
+                    ShowSyntaxStyles->False,
+                    AutoSpacing->False,
+                    ZeroWidthTimes->True,
+                    LineColor->RGBColor[0, 0, 0],
+                    FrontFaceColor->RGBColor[0, 0, 0],
+                    BackFaceColor->RGBColor[0, 0, 0],
+                    GraphicsColor->RGBColor[0, 0, 0],
+                    FontColor->RGBColor[0, 0, 0]], 
+                    StyleBox["c",
+                    StripOnInput->False,
+                    ShowSyntaxStyles->False,
+                    AutoSpacing->False,
+                    ZeroWidthTimes->True,
+                    LineColor->RGBColor[0, 0, 0],
+                    FrontFaceColor->RGBColor[0, 0, 0],
+                    BackFaceColor->RGBColor[0, 0, 0],
+                    GraphicsColor->RGBColor[0, 0, 0],
+                    FontColor->RGBColor[0, 0, 0]]],
                     Toolbox`metabolite["f6p", "c"],
                     Editable->False,
                     Selectable->False]}], "\[Equilibrium]", 
-                    RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}]}], 
+                    RowBox[{
+                    InterpretationBox[
+                    SuperscriptBox[
+                    StyleBox["g3p",
+                    StripOnInput->False,
+                    ShowSyntaxStyles->False,
+                    AutoSpacing->False,
+                    ZeroWidthTimes->True,
+                    LineColor->RGBColor[0, 0, 0],
+                    FrontFaceColor->RGBColor[0, 0, 0],
+                    BackFaceColor->RGBColor[0, 0, 0],
+                    GraphicsColor->RGBColor[0, 0, 0],
+                    FontColor->RGBColor[0, 0, 0]], 
+                    StyleBox["c",
+                    StripOnInput->False,
+                    ShowSyntaxStyles->False,
+                    AutoSpacing->False,
+                    ZeroWidthTimes->True,
+                    LineColor->RGBColor[0, 0, 0],
+                    FrontFaceColor->RGBColor[0, 0, 0],
+                    BackFaceColor->RGBColor[0, 0, 0],
+                    GraphicsColor->RGBColor[0, 0, 0],
+                    FontColor->RGBColor[0, 0, 0]]],
+                    Toolbox`metabolite["g3p", "c"],
+                    Editable->False,
+                    Selectable->False], "+", 
+                    InterpretationBox[
+                    SuperscriptBox[
+                    StyleBox["s7p",
+                    StripOnInput->False,
+                    ShowSyntaxStyles->False,
+                    AutoSpacing->False,
+                    ZeroWidthTimes->True,
+                    LineColor->RGBColor[0, 0, 0],
+                    FrontFaceColor->RGBColor[0, 0, 0],
+                    BackFaceColor->RGBColor[0, 0, 0],
+                    GraphicsColor->RGBColor[0, 0, 0],
+                    FontColor->RGBColor[0, 0, 0]], 
+                    StyleBox["c",
+                    StripOnInput->False,
+                    ShowSyntaxStyles->False,
+                    AutoSpacing->False,
+                    ZeroWidthTimes->True,
+                    LineColor->RGBColor[0, 0, 0],
+                    FrontFaceColor->RGBColor[0, 0, 0],
+                    BackFaceColor->RGBColor[0, 0, 0],
+                    GraphicsColor->RGBColor[0, 0, 0],
+                    FontColor->RGBColor[0, 0, 0]]],
+                    Toolbox`metabolite["s7p", "c"],
+                    Editable->False,
+                    Selectable->False]}]}], 
                     StyleBox["TALA2",
                     StripOnInput->False,
                     ShowSyntaxStyles->False,
@@ -1223,8 +1994,11 @@ Cell[BoxData[
                     Toolbox`metabolite["g3p", "c"], 
                     Toolbox`metabolite["s7p", "c"]}, {1, 1, 1, 1}, True],
                     Editable->False,
-                    Selectable->False], ",", 
-                    RowBox[{"\[LeftSkeleton]", "9", "\[RightSkeleton]"}], ",", 
+                    Selectable->False], 
+                    ",", "\<\"Ping Pong Bi Bi,[f6p,g3p,e4p,s7p]\"\>", ",", 
+                    "2.`", ",", 
+                    RowBox[{"\[LeftSkeleton]", "6", "\[RightSkeleton]"}], ",", 
+                    RowBox[{"{", "}"}], ",", 
                     RowBox[{"{", "}"}]}], "}"}],
                   Short[#, 
                    Rational[2, 3]]& ],
@@ -1249,8 +2023,7 @@ Cell[BoxData[
                     RowBox[{
                     InterpretationBox[
                     SuperscriptBox[
-                    StyleBox[
-                    RowBox[{"\[LeftSkeleton]", "3", "\[RightSkeleton]"}],
+                    StyleBox["e4p",
                     StripOnInput->False,
                     ShowSyntaxStyles->False,
                     AutoSpacing->False,
@@ -1275,12 +2048,80 @@ Cell[BoxData[
                     Selectable->False], "+", 
                     InterpretationBox[
                     SuperscriptBox[
-                    RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], 
-                    RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}]],
+                    StyleBox["f6p",
+                    StripOnInput->False,
+                    ShowSyntaxStyles->False,
+                    AutoSpacing->False,
+                    ZeroWidthTimes->True,
+                    LineColor->RGBColor[0, 0, 0],
+                    FrontFaceColor->RGBColor[0, 0, 0],
+                    BackFaceColor->RGBColor[0, 0, 0],
+                    GraphicsColor->RGBColor[0, 0, 0],
+                    FontColor->RGBColor[0, 0, 0]], 
+                    StyleBox["c",
+                    StripOnInput->False,
+                    ShowSyntaxStyles->False,
+                    AutoSpacing->False,
+                    ZeroWidthTimes->True,
+                    LineColor->RGBColor[0, 0, 0],
+                    FrontFaceColor->RGBColor[0, 0, 0],
+                    BackFaceColor->RGBColor[0, 0, 0],
+                    GraphicsColor->RGBColor[0, 0, 0],
+                    FontColor->RGBColor[0, 0, 0]]],
                     Toolbox`metabolite["f6p", "c"],
                     Editable->False,
                     Selectable->False]}], "\[Equilibrium]", 
-                    RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}]}], 
+                    RowBox[{
+                    InterpretationBox[
+                    SuperscriptBox[
+                    StyleBox["g3p",
+                    StripOnInput->False,
+                    ShowSyntaxStyles->False,
+                    AutoSpacing->False,
+                    ZeroWidthTimes->True,
+                    LineColor->RGBColor[0, 0, 0],
+                    FrontFaceColor->RGBColor[0, 0, 0],
+                    BackFaceColor->RGBColor[0, 0, 0],
+                    GraphicsColor->RGBColor[0, 0, 0],
+                    FontColor->RGBColor[0, 0, 0]], 
+                    StyleBox["c",
+                    StripOnInput->False,
+                    ShowSyntaxStyles->False,
+                    AutoSpacing->False,
+                    ZeroWidthTimes->True,
+                    LineColor->RGBColor[0, 0, 0],
+                    FrontFaceColor->RGBColor[0, 0, 0],
+                    BackFaceColor->RGBColor[0, 0, 0],
+                    GraphicsColor->RGBColor[0, 0, 0],
+                    FontColor->RGBColor[0, 0, 0]]],
+                    Toolbox`metabolite["g3p", "c"],
+                    Editable->False,
+                    Selectable->False], "+", 
+                    InterpretationBox[
+                    SuperscriptBox[
+                    StyleBox["s7p",
+                    StripOnInput->False,
+                    ShowSyntaxStyles->False,
+                    AutoSpacing->False,
+                    ZeroWidthTimes->True,
+                    LineColor->RGBColor[0, 0, 0],
+                    FrontFaceColor->RGBColor[0, 0, 0],
+                    BackFaceColor->RGBColor[0, 0, 0],
+                    GraphicsColor->RGBColor[0, 0, 0],
+                    FontColor->RGBColor[0, 0, 0]], 
+                    StyleBox["c",
+                    StripOnInput->False,
+                    ShowSyntaxStyles->False,
+                    AutoSpacing->False,
+                    ZeroWidthTimes->True,
+                    LineColor->RGBColor[0, 0, 0],
+                    FrontFaceColor->RGBColor[0, 0, 0],
+                    BackFaceColor->RGBColor[0, 0, 0],
+                    GraphicsColor->RGBColor[0, 0, 0],
+                    FontColor->RGBColor[0, 0, 0]]],
+                    Toolbox`metabolite["s7p", "c"],
+                    Editable->False,
+                    Selectable->False]}]}], 
                     StyleBox["TALA2",
                     StripOnInput->False,
                     ShowSyntaxStyles->False,
@@ -1297,8 +2138,11 @@ Cell[BoxData[
                     Toolbox`metabolite["g3p", "c"], 
                     Toolbox`metabolite["s7p", "c"]}, {1, 1, 1, 1}, True],
                     Editable->False,
-                    Selectable->False], ",", 
-                    RowBox[{"\[LeftSkeleton]", "9", "\[RightSkeleton]"}], ",", 
+                    Selectable->False], 
+                    ",", "\<\"Ping Pong Bi Bi,[f6p,g3p,e4p,s7p]\"\>", ",", 
+                    "2.`", ",", 
+                    RowBox[{"\[LeftSkeleton]", "6", "\[RightSkeleton]"}], ",", 
+                    RowBox[{"{", "}"}], ",", 
                     RowBox[{"{", "}"}]}], "}"}],
                   Short[#, 
                    Rational[2, 3]]& ],
@@ -1317,7 +2161,7 @@ Cell[BoxData[
                  TagBox[
                   
                   TemplateBox[{
-                   "0.000099`2.146150192429541","\"s\"","seconds",
+                   "0.000167`2.373231468979577","\"s\"","seconds",
                     "\"Seconds\""},
                    "Quantity"],
                   Short[#, 
@@ -1351,7 +2195,7 @@ Cell[BoxData[
       DynamicModuleValues:>{}], "]"}],
     TestResultObject[
      Association[
-     "TestIndex" -> 2, "TestID" -> "getEnzymeDataTALA2", "Outcome" -> 
+     "TestIndex" -> 4, "TestID" -> "getEnzymeDataTALA2", "Outcome" -> 
       "Success", "Input" -> HoldForm[$CellContext`result], "ExpectedOutput" -> 
       HoldForm[{
          Toolbox`reaction["TALA2", {
@@ -1397,20 +2241,22 @@ Cell[BoxData[
           "Ki", "pi", 0.019, {{"Competitive,Null,Null,Null"}}, "M", 8.5, 
            30., {{"glygly,0.05"}}, {}}}, {}, {}}], "ExpectedMessages" -> {}, 
       "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
-      Quantity[0.000099`2.146150192429541, "Seconds"], "CPUTimeUsed" -> 
-      Quantity[0., "Seconds"], "MemoryUsed" -> Quantity[96, "Bytes"]]],
+      Quantity[0.000167`2.373231468979577, "Seconds"], "CPUTimeUsed" -> 
+      Quantity[0.0040000000000000036`, "Seconds"], "MemoryUsed" -> 
+      Quantity[48, "Bytes"]]],
     Editable->False,
     SelectWithContents->True,
     Selectable->False]}], "}"}]], "Output",
  CellChangeTimes->{
   3.688379695112771*^9, 3.688380162069522*^9, 3.688380198087*^9, {
    3.688380230517737*^9, 3.688380249769689*^9}, 3.688380600316486*^9, 
-   3.688381858541191*^9}]
+   3.688381858541191*^9, 3.68844819892598*^9, 3.6884640991302843`*^9, {
+   3.688464149025647*^9, 3.688464172810822*^9}, 3.688465883141364*^9}]
 }, Open  ]]
 }, Open  ]]
 },
-WindowSize->{954, 1020},
-WindowMargins->{{6, Automatic}, {3, 24}},
+WindowSize->{1920, 1023},
+WindowMargins->{{0, Automatic}, {0, Automatic}},
 FrontEndVersion->"11.0 for Linux x86 (64-bit) (September 21, 2016)",
 StyleDefinitions->"Default.nb"
 ]
@@ -1425,17 +2271,25 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[558, 20, 1085, 26, 192, "Input"],
+Cell[558, 20, 1257, 32, 215, "Input"],
 Cell[CellGroupData[{
-Cell[1668, 50, 165, 2, 35, "Subsubsection"],
-Cell[1836, 54, 12212, 294, 610, "Input"]
+Cell[1840, 56, 211, 3, 35, "Subsubsection"],
+Cell[2054, 61, 7537, 192, 352, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[14085, 353, 117, 1, 35, "Subsubsection"],
-Cell[14205, 356, 9449, 229, 494, "Input"],
+Cell[9628, 258, 155, 2, 35, "Subsubsection"],
+Cell[9786, 262, 1905, 44, 214, "Input"]
+}, Open  ]],
 Cell[CellGroupData[{
-Cell[23679, 589, 37, 0, 32, "Input"],
-Cell[23719, 591, 34854, 816, 122, "Output"]
+Cell[11728, 311, 165, 2, 35, "Subsubsection"],
+Cell[11896, 315, 12245, 294, 449, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[24178, 614, 117, 1, 35, "Subsubsection"],
+Cell[24298, 617, 9482, 229, 402, "Input"],
+Cell[CellGroupData[{
+Cell[33805, 850, 37, 0, 32, "Input"],
+Cell[33845, 852, 58235, 1401, 122, "Output"]
 }, Open  ]]
 }, Open  ]]
 }
