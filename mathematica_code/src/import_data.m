@@ -4,10 +4,58 @@ Needs["Toolbox`"]
 On[Assert];
 
 
-getEnzymeData[enzName_, data_] := Module[{enzymesInd, curEnzymeInd, nextEnzymeInd, curEnzymeData, ecNumber, 
-										  rxn, mechanism, structure, nActiveSites, nAllostericSites, line, 
-										  dataType, kmList={}, kcatList={}, s05List={}, inhibitionList={}, 
-										  activationList={}, otherParmsList={}},
+(* ::Subsubsection:: *)
+(*Get ion data*)
+
+
+getIonData[dataPath_] := Module[{data, ionChargeData},
+	data = Import[dataPath, "XLS"];
+	ionChargeData = data[[1]][[2;;, All]];
+	Return[ionChargeData];
+];
+
+
+(* ::Subsubsection:: *)
+(*Get buffer data*)
+
+
+getBufferInfoData[dataPath_] := 
+	Module[{data, nLines, bufferInfoData, line, bufferID, bufferName, pKa, acidCharge, baseCharge, row},
+	
+	data = Import[dataPath, "XLS"];
+	data = data[[1]][[2;;, All]];
+	nLines = Dimensions[data][[1]];
+	
+	bufferInfoData = 
+		Table[
+			line = data[[i, All]];
+			bufferID = line[[1]];
+			bufferName = line[[2]];
+			pKa = line[[3]];
+			If[pKa == "", pKa=Null];
+			acidCharge = line[[4]];
+			If[acidCharge== "", acidCharge=Null];
+			baseCharge = line[[5]];
+			If[baseCharge == "", baseCharge=Null];	
+			
+			row = {{bufferID, bufferName}, pKa, acidCharge, baseCharge},
+		{i, 1, nLines}];
+		
+	Return[bufferInfoData];
+];
+
+
+
+(* ::Subsubsection:: *)
+(*Get enzyme data*)
+
+
+getEnzymeData[enzName_, dataPath_] := Module[{data, enzymesInd, curEnzymeInd, nextEnzymeInd, curEnzymeData, 
+										       ecNumber, rxn, mechanism, structure, nActiveSites, nAllostericSites, 
+										       line, dataType, kmList={}, kcatList={}, s05List={}, inhibitionList={}, 
+										       activationList={}, otherParmsList={}},
+	data = Import[dataPath, "XLS"];
+	data = data[[1]];
 										  
 	enzymesInd = Flatten@Position[Map[StringLength[#] > 1&, data[[All,1]]], True];
 	curEnzymeInd = Flatten[Position[data[[All,1]], enzName]][[1]];
