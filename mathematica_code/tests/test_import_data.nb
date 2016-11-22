@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     92948,       2290]
-NotebookOptionsPosition[     92108,       2257]
-NotebookOutlinePosition[     92447,       2272]
-CellTagsIndexPosition[     92404,       2269]
+NotebookDataLength[    111205,       2706]
+NotebookOptionsPosition[    110325,       2672]
+NotebookOutlinePosition[    110664,       2687]
+CellTagsIndexPosition[    110621,       2684]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -478,56 +478,79 @@ Cell[BoxData[
           RowBox[{"\"\<atp\>\"", ",", "0.00009`", ",", 
            RowBox[{"{", 
             RowBox[{
-             RowBox[{"{", "\"\<gdp,0.001\>\"", "}"}], ",", 
-             RowBox[{"{", "\"\<f6p,0.001\>\"", "}"}]}], "}"}], ",", 
-           "\"\<M\>\"", ",", "8.5`", ",", "30.`", ",", 
+             RowBox[{"{", 
+              RowBox[{"\"\<gdp\>\"", ",", "\"\<0.001\>\""}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"\"\<f6p\>\"", ",", "\"\<0.001\>\""}], "}"}]}], "}"}], 
+           ",", "\"\<M\>\"", ",", "8.5`", ",", "30.`", ",", 
            RowBox[{"{", 
             RowBox[{
-             RowBox[{"{", "\"\<detam,0.051\>\"", "}"}], ",", 
-             RowBox[{"{", "\"\<netmphn,0.051\>\"", "}"}], ",", 
-             RowBox[{"{", "\"\<mes,0.1\>\"", "}"}]}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"\"\<detam\>\"", ",", "\"\<0.051\>\""}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"\"\<netmphn\>\"", ",", "\"\<0.051\>\""}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"\"\<mes\>\"", ",", "\"\<0.1\>\""}], "}"}]}], "}"}], 
+           ",", 
            RowBox[{"{", "}"}]}], "}"}], ",", 
          RowBox[{"{", 
           RowBox[{"\"\<gdp\>\"", ",", "0.004200000000000001`", ",", 
            RowBox[{"{", 
             RowBox[{
-             RowBox[{"{", "\"\<f6p,0.00004\>\"", "}"}], ",", 
-             RowBox[{"{", "\"\<atp,0.005\>\"", "}"}]}], "}"}], ",", 
-           "\"\<M\>\"", ",", "8.5`", ",", "30.`", ",", 
+             RowBox[{"{", 
+              RowBox[{"\"\<f6p\>\"", ",", "\"\<0.00004\>\""}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"\"\<atp\>\"", ",", "\"\<0.005\>\""}], "}"}]}], "}"}], 
+           ",", "\"\<M\>\"", ",", "8.5`", ",", "30.`", ",", 
            RowBox[{"{", 
             RowBox[{
-             RowBox[{"{", "\"\<detam,0.051\>\"", "}"}], ",", 
-             RowBox[{"{", "\"\<netmphn,0.051\>\"", "}"}], ",", 
-             RowBox[{"{", "\"\<mes,0.1\>\"", "}"}]}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"\"\<detam\>\"", ",", "\"\<0.051\>\""}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"\"\<netmphn\>\"", ",", "\"\<0.051\>\""}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"\"\<mes\>\"", ",", "\"\<0.1\>\""}], "}"}]}], "}"}], 
+           ",", 
            RowBox[{"{", "}"}]}], "}"}]}], "}"}], ",", 
        RowBox[{"{", 
         RowBox[{"{", 
          RowBox[{"\"\<f6p\>\"", ",", "0.00009`", ",", 
           RowBox[{"{", 
            RowBox[{
-            RowBox[{"{", "\"\<gdp,0.001\>\"", "}"}], ",", 
-            RowBox[{"{", "\"\<atp,0.001\>\"", "}"}]}], "}"}], ",", 
-          "\"\<M\>\"", ",", "8.5`", ",", "30.`", ",", 
+            RowBox[{"{", 
+             RowBox[{"\"\<gdp\>\"", ",", "\"\<0.001\>\""}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"\"\<atp\>\"", ",", "\"\<0.001\>\""}], "}"}]}], "}"}], 
+          ",", "\"\<M\>\"", ",", "8.5`", ",", "30.`", ",", 
           RowBox[{"{", 
            RowBox[{
-            RowBox[{"{", "\"\<detam,0.051\>\"", "}"}], ",", 
-            RowBox[{"{", "\"\<netmphn,0.051\>\"", "}"}], ",", 
-            RowBox[{"{", "\"\<mes,0.1\>\"", "}"}]}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"\"\<detam\>\"", ",", "\"\<0.051\>\""}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"\"\<netmphn\>\"", ",", "\"\<0.051\>\""}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"\"\<mes\>\"", ",", "\"\<0.1\>\""}], "}"}]}], "}"}], ",", 
           RowBox[{"{", "}"}]}], "}"}], "}"}], ",", 
        RowBox[{"{", 
         RowBox[{"{", 
          RowBox[{
           RowBox[{"{", 
            RowBox[{
-            RowBox[{"{", "\"\<gdp,0.001\>\"", "}"}], ",", 
-            RowBox[{"{", "\"\<atp,null\>\"", "}"}], ",", 
-            RowBox[{"{", "\"\<f6p,Null\>\"", "}"}]}], "}"}], ",", "110.7`", 
-          ",", "\"\<1/s\>\"", ",", "8.5`", ",", "30.`", ",", 
+            RowBox[{"{", 
+             RowBox[{"\"\<gdp\>\"", ",", "\"\<0.001\>\""}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"\"\<atp\>\"", ",", "\"\<null\>\""}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"\"\<f6p\>\"", ",", "\"\<Null\>\""}], "}"}]}], "}"}], 
+          ",", "110.7`", ",", "\"\<1/s\>\"", ",", "8.5`", ",", "30.`", ",", 
           RowBox[{"{", 
            RowBox[{
-            RowBox[{"{", "\"\<detam,0.051\>\"", "}"}], ",", 
-            RowBox[{"{", "\"\<netmphn,0.051\>\"", "}"}], ",", 
-            RowBox[{"{", "\"\<mes,0.1\>\"", "}"}]}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"\"\<detam\>\"", ",", "\"\<0.051\>\""}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"\"\<netmphn\>\"", ",", "\"\<0.051\>\""}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"\"\<mes\>\"", ",", "\"\<0.1\>\""}], "}"}]}], "}"}], ",", 
           RowBox[{"{", "}"}]}], "}"}], "}"}], ",", 
        RowBox[{"{", 
         RowBox[{
@@ -539,7 +562,8 @@ Cell[BoxData[
              RowBox[{"{", "\"\<NonCompetitive,Null,142,f6p\>\"", "}"}]}], 
             "}"}], ",", "\"\<M\>\"", ",", "8.5`", ",", "28.`", ",", 
            RowBox[{"{", 
-            RowBox[{"{", "\"\<tris,0.05\>\"", "}"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"\"\<tris\>\"", ",", "\"\<0.05\>\""}], "}"}], "}"}], ",", 
            RowBox[{"{", "}"}]}], "}"}], ",", 
          RowBox[{"{", 
           RowBox[{"\"\<Ki\>\"", ",", "\"\<adp\>\"", ",", "0.0002`", ",", 
@@ -547,7 +571,8 @@ Cell[BoxData[
             RowBox[{"{", "\"\<Competitive,Null,141,atp\>\"", "}"}], "}"}], 
            ",", "\"\<M\>\"", ",", "8.5`", ",", "28.`", ",", 
            RowBox[{"{", 
-            RowBox[{"{", "\"\<tris,0.05\>\"", "}"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"\"\<tris\>\"", ",", "\"\<0.05\>\""}], "}"}], "}"}], ",", 
            RowBox[{"{", "}"}]}], "}"}]}], "}"}], ",", 
        RowBox[{"{", 
         RowBox[{
@@ -558,14 +583,16 @@ Cell[BoxData[
            RowBox[{"{", "}"}], ",", "\"\<M\>\"", ",", "8.5`", ",", "28.`", 
            ",", 
            RowBox[{"{", 
-            RowBox[{"{", "\"\<tris,0.05\>\"", "}"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"\"\<tris\>\"", ",", "\"\<0.05\>\""}], "}"}], "}"}], ",", 
            RowBox[{"{", "}"}]}], "}"}], ",", 
          RowBox[{"{", 
           RowBox[{"\"\<Ka\>\"", ",", "\"\<gdp\>\"", ",", "0.00004`", ",", 
            RowBox[{"{", "}"}], ",", "\"\<M\>\"", ",", "8.5`", ",", "28.`", 
            ",", 
            RowBox[{"{", 
-            RowBox[{"{", "\"\<tris,0.05\>\"", "}"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"\"\<tris\>\"", ",", "\"\<0.05\>\""}], "}"}], "}"}], ",", 
            RowBox[{"{", "}"}]}], "}"}]}], "}"}], ",", 
        RowBox[{"{", 
         RowBox[{
@@ -575,16 +602,21 @@ Cell[BoxData[
            ",", "8.5`", ",", "30.`", ",", 
            RowBox[{"{", 
             RowBox[{
-             RowBox[{"{", "\"\<detam,0.051\>\"", "}"}], ",", 
-             RowBox[{"{", "\"\<netmphn,0.051\>\"", "}"}], ",", 
-             RowBox[{"{", "\"\<mes,0.1\>\"", "}"}]}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"\"\<detam\>\"", ",", "\"\<0.051\>\""}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"\"\<netmphn\>\"", ",", "\"\<0.051\>\""}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"\"\<mes\>\"", ",", "\"\<0.1\>\""}], "}"}]}], "}"}], 
+           ",", 
            RowBox[{"{", "}"}]}], "}"}], ",", 
          RowBox[{"{", 
           RowBox[{
           "\"\<L0\>\"", ",", "\"\<\>\"", ",", "4.`*^6", ",", "\"\<Null\>\"", 
            ",", "8.5`", ",", "28.`", ",", 
            RowBox[{"{", 
-            RowBox[{"{", "\"\<tris,0.05\>\"", "}"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"\"\<tris\>\"", ",", "\"\<0.05\>\""}], "}"}], "}"}], ",", 
            RowBox[{"{", "}"}]}], "}"}]}], "}"}]}], "}"}]}], ";"}], 
    "\[IndentingNewLine]", "\[IndentingNewLine]", 
    RowBox[{
@@ -607,7 +639,8 @@ Cell[BoxData[
    3.6883794659892817`*^9}, {3.688379526705597*^9, 3.688379541045879*^9}, {
    3.688379625149222*^9, 3.68837965731959*^9}, {3.6883797837253523`*^9, 
    3.688379800208049*^9}, {3.688380104942625*^9, 3.688380121194428*^9}, {
-   3.688380618414201*^9, 3.6883806231734667`*^9}, 3.688464042702177*^9}]
+   3.688380618414201*^9, 3.6883806231734667`*^9}, 3.688464042702177*^9, {
+   3.688813057607407*^9, 3.6888131289692793`*^9}}]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -753,42 +786,57 @@ Cell[BoxData[
          RowBox[{"{", 
           RowBox[{"\"\<g3p\>\"", ",", "0.000037999999999999995`", ",", 
            RowBox[{"{", 
-            RowBox[{"{", "\"\<f6p,0.0285\>\"", "}"}], "}"}], ",", "\"\<M\>\"",
-            ",", "8.5`", ",", "30.`", ",", 
+            RowBox[{"{", 
+             RowBox[{"\"\<f6p\>\"", ",", "\"\<0.0285\>\""}], "}"}], "}"}], 
+           ",", "\"\<M\>\"", ",", "8.5`", ",", "30.`", ",", 
            RowBox[{"{", 
-            RowBox[{"{", "\"\<glygly,0.05\>\"", "}"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"\"\<glygly\>\"", ",", "\"\<0.05\>\""}], "}"}], "}"}], 
+           ",", 
            RowBox[{"{", "}"}]}], "}"}], ",", 
          RowBox[{"{", 
           RowBox[{"\"\<e4p\>\"", ",", "0.00009`", ",", 
            RowBox[{"{", 
-            RowBox[{"{", "\"\<f6p,0.0285\>\"", "}"}], "}"}], ",", "\"\<M\>\"",
-            ",", "8.5`", ",", "30.`", ",", 
+            RowBox[{"{", 
+             RowBox[{"\"\<f6p\>\"", ",", "\"\<0.0285\>\""}], "}"}], "}"}], 
+           ",", "\"\<M\>\"", ",", "8.5`", ",", "30.`", ",", 
            RowBox[{"{", 
-            RowBox[{"{", "\"\<glygly,0.05\>\"", "}"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"\"\<glygly\>\"", ",", "\"\<0.05\>\""}], "}"}], "}"}], 
+           ",", 
            RowBox[{"{", "}"}]}], "}"}], ",", 
          RowBox[{"{", 
           RowBox[{"\"\<r5p\>\"", ",", "0.031`", ",", 
            RowBox[{"{", 
-            RowBox[{"{", "\"\<f6p,0.0285\>\"", "}"}], "}"}], ",", "\"\<M\>\"",
-            ",", "8.5`", ",", "30.`", ",", 
+            RowBox[{"{", 
+             RowBox[{"\"\<f6p\>\"", ",", "\"\<0.0285\>\""}], "}"}], "}"}], 
+           ",", "\"\<M\>\"", ",", "8.5`", ",", "30.`", ",", 
            RowBox[{"{", 
-            RowBox[{"{", "\"\<glygly,0.05\>\"", "}"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"\"\<glygly\>\"", ",", "\"\<0.05\>\""}], "}"}], "}"}], 
+           ",", 
            RowBox[{"{", "}"}]}], "}"}], ",", 
          RowBox[{"{", 
           RowBox[{"\"\<f6p\>\"", ",", "0.0012000000000000001`", ",", 
            RowBox[{"{", 
-            RowBox[{"{", "\"\<g3p,0.0038\>\"", "}"}], "}"}], ",", "\"\<M\>\"",
-            ",", "8.5`", ",", "30.`", ",", 
+            RowBox[{"{", 
+             RowBox[{"\"\<g3p\>\"", ",", "\"\<0.0038\>\""}], "}"}], "}"}], 
+           ",", "\"\<M\>\"", ",", "8.5`", ",", "30.`", ",", 
            RowBox[{"{", 
-            RowBox[{"{", "\"\<glygly,0.05\>\"", "}"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"\"\<glygly\>\"", ",", "\"\<0.05\>\""}], "}"}], "}"}], 
+           ",", 
            RowBox[{"{", "}"}]}], "}"}], ",", 
          RowBox[{"{", 
           RowBox[{"\"\<s7p\>\"", ",", "0.000285`", ",", 
            RowBox[{"{", 
-            RowBox[{"{", "\"\<g3p,0.0038\>\"", "}"}], "}"}], ",", "\"\<M\>\"",
-            ",", "8.5`", ",", "30.`", ",", 
+            RowBox[{"{", 
+             RowBox[{"\"\<g3p\>\"", ",", "\"\<0.0038\>\""}], "}"}], "}"}], 
+           ",", "\"\<M\>\"", ",", "8.5`", ",", "30.`", ",", 
            RowBox[{"{", 
-            RowBox[{"{", "\"\<glygly,0.05\>\"", "}"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"\"\<glygly\>\"", ",", "\"\<0.05\>\""}], "}"}], "}"}], 
+           ",", 
            RowBox[{"{", "}"}]}], "}"}]}], "}"}], ",", 
        RowBox[{"{", "}"}], ",", 
        RowBox[{"{", 
@@ -797,21 +845,29 @@ Cell[BoxData[
           RowBox[{
            RowBox[{"{", 
             RowBox[{
-             RowBox[{"{", "\"\<f6p,Null\>\"", "}"}], ",", 
-             RowBox[{"{", "\"\<e4p,0.002\>\"", "}"}]}], "}"}], ",", "71.4`", 
-           ",", "\"\<1/s\>\"", ",", "8.5`", ",", "30.`", ",", 
+             RowBox[{"{", 
+              RowBox[{"\"\<f6p\>\"", ",", "\"\<Null\>\""}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"\"\<e4p\>\"", ",", "\"\<0.002\>\""}], "}"}]}], "}"}], 
+           ",", "71.4`", ",", "\"\<1/s\>\"", ",", "8.5`", ",", "30.`", ",", 
            RowBox[{"{", 
-            RowBox[{"{", "\"\<glygly,0.05\>\"", "}"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"\"\<glygly\>\"", ",", "\"\<0.05\>\""}], "}"}], "}"}], 
+           ",", 
            RowBox[{"{", "}"}]}], "}"}], ",", 
          RowBox[{"{", 
           RowBox[{
            RowBox[{"{", 
             RowBox[{
-             RowBox[{"{", "\"\<e4p,Null\>\"", "}"}], ",", 
-             RowBox[{"{", "\"\<f6p,0.05\>\"", "}"}]}], "}"}], ",", "79.4`", 
-           ",", "\"\<1/s\>\"", ",", "8.5`", ",", "30.`", ",", 
+             RowBox[{"{", 
+              RowBox[{"\"\<e4p\>\"", ",", "\"\<Null\>\""}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"\"\<f6p\>\"", ",", "\"\<0.05\>\""}], "}"}]}], "}"}], 
+           ",", "79.4`", ",", "\"\<1/s\>\"", ",", "8.5`", ",", "30.`", ",", 
            RowBox[{"{", 
-            RowBox[{"{", "\"\<glygly,0.05\>\"", "}"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"\"\<glygly\>\"", ",", "\"\<0.05\>\""}], "}"}], "}"}], 
+           ",", 
            RowBox[{"{", "}"}]}], "}"}]}], "}"}], ",", 
        RowBox[{"{", 
         RowBox[{"{", 
@@ -820,7 +876,9 @@ Cell[BoxData[
            RowBox[{"{", "\"\<Competitive,Null,Null,Null\>\"", "}"}], "}"}], 
           ",", "\"\<M\>\"", ",", "8.5`", ",", "30.`", ",", 
           RowBox[{"{", 
-           RowBox[{"{", "\"\<glygly,0.05\>\"", "}"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"\"\<glygly\>\"", ",", "\"\<0.05\>\""}], "}"}], "}"}], 
+          ",", 
           RowBox[{"{", "}"}]}], "}"}], "}"}], ",", 
        RowBox[{"{", "}"}], ",", 
        RowBox[{"{", "}"}]}], "}"}]}], ";"}], "\[IndentingNewLine]", 
@@ -844,7 +902,8 @@ Cell[BoxData[
    3.6883794219045477`*^9}, {3.6883794554191933`*^9, 
    3.6883794659892817`*^9}, {3.688379526705597*^9, 3.688379541045879*^9}, {
    3.688379625149222*^9, 3.68837965731959*^9}, {3.6883806192131443`*^9, 
-   3.6883806224017076`*^9}, 3.688464044787023*^9}],
+   3.6883806224017076`*^9}, 3.688464044787023*^9, {3.688813137097087*^9, 
+   3.688813171632275*^9}, 3.6888133091495943`*^9}],
 
 Cell[CellGroupData[{
 
@@ -1074,7 +1133,7 @@ Cell[BoxData[
                  TagBox[
                   
                   TemplateBox[{
-                   "0.04833`4.834731792970874","\"s\"","seconds",
+                   "0.050535`4.854107267868795","\"s\"","seconds",
                     "\"Seconds\""},
                    "Quantity"],
                   Short[#, 
@@ -1155,9 +1214,9 @@ Cell[BoxData[
           "teoahcl", "triethanolamine-HCl"}, 7.83, 1., 0.}, {{
           "pi_buffer", "Phosphoric acid"}, 7.198, -1., -2.}}], 
       "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
-      Quantity[0.04833`4.834731792970874, "Seconds"], "CPUTimeUsed" -> 
+      Quantity[0.050535`4.854107267868795, "Seconds"], "CPUTimeUsed" -> 
       Quantity[0.04800000000000004, "Seconds"], "MemoryUsed" -> 
-      Quantity[3026680, "Bytes"]]],
+      Quantity[3026576, "Bytes"]]],
     Editable->False,
     SelectWithContents->True,
     Selectable->False], ",", 
@@ -1384,7 +1443,7 @@ Cell[BoxData[
                  TagBox[
                   
                   TemplateBox[{
-                   "0.000105`2.171704296901932","\"s\"","seconds",
+                   "0.000106`2.175820863096764","\"s\"","seconds",
                     "\"Seconds\""},
                    "Quantity"],
                   Short[#, 
@@ -1425,7 +1484,7 @@ Cell[BoxData[
       HoldForm[{{"cl", -1.}, {"mg2", 2.}, {"k", 1.}, {"so4", -2.}, {
          "mn2", 2.}, {"na1", 1.}, {"hco3", -1.}}], "ExpectedMessages" -> {}, 
       "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
-      Quantity[0.000105`2.171704296901932, "Seconds"], "CPUTimeUsed" -> 
+      Quantity[0.000106`2.175820863096764, "Seconds"], "CPUTimeUsed" -> 
       Quantity[0., "Seconds"], "MemoryUsed" -> Quantity[96, "Bytes"]]],
     Editable->False,
     SelectWithContents->True,
@@ -1584,7 +1643,176 @@ Cell[BoxData[
                 PaneBox[
                  TagBox[
                   RowBox[{"{", 
-                   RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], "}"}],
+                   RowBox[{
+                    InterpretationBox[
+                    OverscriptBox[
+                    RowBox[{
+                    RowBox[{
+                    InterpretationBox[
+                    SuperscriptBox[
+                    StyleBox["atp",
+                    StripOnInput->False,
+                    ShowSyntaxStyles->False,
+                    AutoSpacing->False,
+                    ZeroWidthTimes->True,
+                    LineColor->RGBColor[0, 0, 0],
+                    FrontFaceColor->RGBColor[0, 0, 0],
+                    BackFaceColor->RGBColor[0, 0, 0],
+                    GraphicsColor->RGBColor[0, 0, 0],
+                    FontColor->RGBColor[0, 0, 0]], 
+                    StyleBox["c",
+                    StripOnInput->False,
+                    ShowSyntaxStyles->False,
+                    AutoSpacing->False,
+                    ZeroWidthTimes->True,
+                    LineColor->RGBColor[0, 0, 0],
+                    FrontFaceColor->RGBColor[0, 0, 0],
+                    BackFaceColor->RGBColor[0, 0, 0],
+                    GraphicsColor->RGBColor[0, 0, 0],
+                    FontColor->RGBColor[0, 0, 0]]],
+                    Toolbox`metabolite["atp", "c"],
+                    Editable->False,
+                    Selectable->False], "+", 
+                    InterpretationBox[
+                    SuperscriptBox[
+                    StyleBox["f6p",
+                    StripOnInput->False,
+                    ShowSyntaxStyles->False,
+                    AutoSpacing->False,
+                    ZeroWidthTimes->True,
+                    LineColor->RGBColor[0, 0, 0],
+                    FrontFaceColor->RGBColor[0, 0, 0],
+                    BackFaceColor->RGBColor[0, 0, 0],
+                    GraphicsColor->RGBColor[0, 0, 0],
+                    FontColor->RGBColor[0, 0, 0]], 
+                    StyleBox["c",
+                    StripOnInput->False,
+                    ShowSyntaxStyles->False,
+                    AutoSpacing->False,
+                    ZeroWidthTimes->True,
+                    LineColor->RGBColor[0, 0, 0],
+                    FrontFaceColor->RGBColor[0, 0, 0],
+                    BackFaceColor->RGBColor[0, 0, 0],
+                    GraphicsColor->RGBColor[0, 0, 0],
+                    FontColor->RGBColor[0, 0, 0]]],
+                    Toolbox`metabolite["f6p", "c"],
+                    Editable->False,
+                    Selectable->False]}], "\[Equilibrium]", 
+                    RowBox[{
+                    InterpretationBox[
+                    SuperscriptBox[
+                    StyleBox["adp",
+                    StripOnInput->False,
+                    ShowSyntaxStyles->False,
+                    AutoSpacing->False,
+                    ZeroWidthTimes->True,
+                    LineColor->RGBColor[0, 0, 0],
+                    FrontFaceColor->RGBColor[0, 0, 0],
+                    BackFaceColor->RGBColor[0, 0, 0],
+                    GraphicsColor->RGBColor[0, 0, 0],
+                    FontColor->RGBColor[0, 0, 0]], 
+                    StyleBox["c",
+                    StripOnInput->False,
+                    ShowSyntaxStyles->False,
+                    AutoSpacing->False,
+                    ZeroWidthTimes->True,
+                    LineColor->RGBColor[0, 0, 0],
+                    FrontFaceColor->RGBColor[0, 0, 0],
+                    BackFaceColor->RGBColor[0, 0, 0],
+                    GraphicsColor->RGBColor[0, 0, 0],
+                    FontColor->RGBColor[0, 0, 0]]],
+                    Toolbox`metabolite["adp", "c"],
+                    Editable->False,
+                    Selectable->False], "+", 
+                    InterpretationBox[
+                    SuperscriptBox[
+                    StyleBox["fbp",
+                    StripOnInput->False,
+                    ShowSyntaxStyles->False,
+                    AutoSpacing->False,
+                    ZeroWidthTimes->True,
+                    LineColor->RGBColor[0, 0, 0],
+                    FrontFaceColor->RGBColor[0, 0, 0],
+                    BackFaceColor->RGBColor[0, 0, 0],
+                    GraphicsColor->RGBColor[0, 0, 0],
+                    FontColor->RGBColor[0, 0, 0]], 
+                    StyleBox["c",
+                    StripOnInput->False,
+                    ShowSyntaxStyles->False,
+                    AutoSpacing->False,
+                    ZeroWidthTimes->True,
+                    LineColor->RGBColor[0, 0, 0],
+                    FrontFaceColor->RGBColor[0, 0, 0],
+                    BackFaceColor->RGBColor[0, 0, 0],
+                    GraphicsColor->RGBColor[0, 0, 0],
+                    FontColor->RGBColor[0, 0, 0]]],
+                    Toolbox`metabolite["fbp", "c"],
+                    Editable->False,
+                    Selectable->False], "+", 
+                    InterpretationBox[
+                    SuperscriptBox[
+                    StyleBox["h",
+                    StripOnInput->False,
+                    ShowSyntaxStyles->False,
+                    AutoSpacing->False,
+                    ZeroWidthTimes->True,
+                    LineColor->RGBColor[0, 0, 0],
+                    FrontFaceColor->RGBColor[0, 0, 0],
+                    BackFaceColor->RGBColor[0, 0, 0],
+                    GraphicsColor->RGBColor[0, 0, 0],
+                    FontColor->RGBColor[0, 0, 0]], 
+                    StyleBox["c",
+                    StripOnInput->False,
+                    ShowSyntaxStyles->False,
+                    AutoSpacing->False,
+                    ZeroWidthTimes->True,
+                    LineColor->RGBColor[0, 0, 0],
+                    FrontFaceColor->RGBColor[0, 0, 0],
+                    BackFaceColor->RGBColor[0, 0, 0],
+                    GraphicsColor->RGBColor[0, 0, 0],
+                    FontColor->RGBColor[0, 0, 0]]],
+                    Toolbox`metabolite["h", "c"],
+                    Editable->False,
+                    Selectable->False]}]}], 
+                    StyleBox["PFK1",
+                    StripOnInput->False,
+                    ShowSyntaxStyles->False,
+                    AutoSpacing->False,
+                    ZeroWidthTimes->True,
+                    LineColor->RGBColor[0, 0, 0],
+                    FrontFaceColor->RGBColor[0, 0, 0],
+                    BackFaceColor->RGBColor[0, 0, 0],
+                    GraphicsColor->RGBColor[0, 0, 0],
+                    FontColor->RGBColor[0, 0, 0]]],
+                    Toolbox`reaction["PFK1", {
+                    Toolbox`metabolite["atp", "c"], 
+                    Toolbox`metabolite["f6p", "c"]}, {
+                    Toolbox`metabolite["adp", "c"], 
+                    Toolbox`metabolite["fbp", "c"], 
+                    Toolbox`metabolite["h", "c"]}, {1, 1, 1, 1, 1}, True],
+                    Editable->False,
+                    Selectable->False], ",", 
+                    RowBox[{"\[LeftSkeleton]", "9", "\[RightSkeleton]"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"\<\"n\"\>", ",", "\<\"\"\>", ",", 
+                    RowBox[{"\[LeftSkeleton]", "4", "\[RightSkeleton]"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"\<\"detam\"\>", ",", "\<\"0.051\"\>"}], "}"}], 
+                    ",", 
+                    RowBox[{"{", 
+                    RowBox[{"\<\"netmphn\"\>", ",", "\<\"0.051\"\>"}], "}"}], 
+                    ",", 
+                    RowBox[{"{", 
+                    RowBox[{"\<\"mes\"\>", ",", "\<\"0.1\"\>"}], "}"}]}], 
+                    "}"}], ",", 
+                    RowBox[{"{", "}"}]}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], 
+                    "}"}]}], "}"}]}], "}"}],
                   Short[#, 
                    Rational[2, 3]]& ],
                  BaselinePosition->Baseline,
@@ -1601,7 +1829,176 @@ Cell[BoxData[
                 PaneBox[
                  TagBox[
                   RowBox[{"{", 
-                   RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], "}"}],
+                   RowBox[{
+                    InterpretationBox[
+                    OverscriptBox[
+                    RowBox[{
+                    RowBox[{
+                    InterpretationBox[
+                    SuperscriptBox[
+                    StyleBox["atp",
+                    StripOnInput->False,
+                    ShowSyntaxStyles->False,
+                    AutoSpacing->False,
+                    ZeroWidthTimes->True,
+                    LineColor->RGBColor[0, 0, 0],
+                    FrontFaceColor->RGBColor[0, 0, 0],
+                    BackFaceColor->RGBColor[0, 0, 0],
+                    GraphicsColor->RGBColor[0, 0, 0],
+                    FontColor->RGBColor[0, 0, 0]], 
+                    StyleBox["c",
+                    StripOnInput->False,
+                    ShowSyntaxStyles->False,
+                    AutoSpacing->False,
+                    ZeroWidthTimes->True,
+                    LineColor->RGBColor[0, 0, 0],
+                    FrontFaceColor->RGBColor[0, 0, 0],
+                    BackFaceColor->RGBColor[0, 0, 0],
+                    GraphicsColor->RGBColor[0, 0, 0],
+                    FontColor->RGBColor[0, 0, 0]]],
+                    Toolbox`metabolite["atp", "c"],
+                    Editable->False,
+                    Selectable->False], "+", 
+                    InterpretationBox[
+                    SuperscriptBox[
+                    StyleBox["f6p",
+                    StripOnInput->False,
+                    ShowSyntaxStyles->False,
+                    AutoSpacing->False,
+                    ZeroWidthTimes->True,
+                    LineColor->RGBColor[0, 0, 0],
+                    FrontFaceColor->RGBColor[0, 0, 0],
+                    BackFaceColor->RGBColor[0, 0, 0],
+                    GraphicsColor->RGBColor[0, 0, 0],
+                    FontColor->RGBColor[0, 0, 0]], 
+                    StyleBox["c",
+                    StripOnInput->False,
+                    ShowSyntaxStyles->False,
+                    AutoSpacing->False,
+                    ZeroWidthTimes->True,
+                    LineColor->RGBColor[0, 0, 0],
+                    FrontFaceColor->RGBColor[0, 0, 0],
+                    BackFaceColor->RGBColor[0, 0, 0],
+                    GraphicsColor->RGBColor[0, 0, 0],
+                    FontColor->RGBColor[0, 0, 0]]],
+                    Toolbox`metabolite["f6p", "c"],
+                    Editable->False,
+                    Selectable->False]}], "\[Equilibrium]", 
+                    RowBox[{
+                    InterpretationBox[
+                    SuperscriptBox[
+                    StyleBox["adp",
+                    StripOnInput->False,
+                    ShowSyntaxStyles->False,
+                    AutoSpacing->False,
+                    ZeroWidthTimes->True,
+                    LineColor->RGBColor[0, 0, 0],
+                    FrontFaceColor->RGBColor[0, 0, 0],
+                    BackFaceColor->RGBColor[0, 0, 0],
+                    GraphicsColor->RGBColor[0, 0, 0],
+                    FontColor->RGBColor[0, 0, 0]], 
+                    StyleBox["c",
+                    StripOnInput->False,
+                    ShowSyntaxStyles->False,
+                    AutoSpacing->False,
+                    ZeroWidthTimes->True,
+                    LineColor->RGBColor[0, 0, 0],
+                    FrontFaceColor->RGBColor[0, 0, 0],
+                    BackFaceColor->RGBColor[0, 0, 0],
+                    GraphicsColor->RGBColor[0, 0, 0],
+                    FontColor->RGBColor[0, 0, 0]]],
+                    Toolbox`metabolite["adp", "c"],
+                    Editable->False,
+                    Selectable->False], "+", 
+                    InterpretationBox[
+                    SuperscriptBox[
+                    StyleBox["fbp",
+                    StripOnInput->False,
+                    ShowSyntaxStyles->False,
+                    AutoSpacing->False,
+                    ZeroWidthTimes->True,
+                    LineColor->RGBColor[0, 0, 0],
+                    FrontFaceColor->RGBColor[0, 0, 0],
+                    BackFaceColor->RGBColor[0, 0, 0],
+                    GraphicsColor->RGBColor[0, 0, 0],
+                    FontColor->RGBColor[0, 0, 0]], 
+                    StyleBox["c",
+                    StripOnInput->False,
+                    ShowSyntaxStyles->False,
+                    AutoSpacing->False,
+                    ZeroWidthTimes->True,
+                    LineColor->RGBColor[0, 0, 0],
+                    FrontFaceColor->RGBColor[0, 0, 0],
+                    BackFaceColor->RGBColor[0, 0, 0],
+                    GraphicsColor->RGBColor[0, 0, 0],
+                    FontColor->RGBColor[0, 0, 0]]],
+                    Toolbox`metabolite["fbp", "c"],
+                    Editable->False,
+                    Selectable->False], "+", 
+                    InterpretationBox[
+                    SuperscriptBox[
+                    StyleBox["h",
+                    StripOnInput->False,
+                    ShowSyntaxStyles->False,
+                    AutoSpacing->False,
+                    ZeroWidthTimes->True,
+                    LineColor->RGBColor[0, 0, 0],
+                    FrontFaceColor->RGBColor[0, 0, 0],
+                    BackFaceColor->RGBColor[0, 0, 0],
+                    GraphicsColor->RGBColor[0, 0, 0],
+                    FontColor->RGBColor[0, 0, 0]], 
+                    StyleBox["c",
+                    StripOnInput->False,
+                    ShowSyntaxStyles->False,
+                    AutoSpacing->False,
+                    ZeroWidthTimes->True,
+                    LineColor->RGBColor[0, 0, 0],
+                    FrontFaceColor->RGBColor[0, 0, 0],
+                    BackFaceColor->RGBColor[0, 0, 0],
+                    GraphicsColor->RGBColor[0, 0, 0],
+                    FontColor->RGBColor[0, 0, 0]]],
+                    Toolbox`metabolite["h", "c"],
+                    Editable->False,
+                    Selectable->False]}]}], 
+                    StyleBox["PFK1",
+                    StripOnInput->False,
+                    ShowSyntaxStyles->False,
+                    AutoSpacing->False,
+                    ZeroWidthTimes->True,
+                    LineColor->RGBColor[0, 0, 0],
+                    FrontFaceColor->RGBColor[0, 0, 0],
+                    BackFaceColor->RGBColor[0, 0, 0],
+                    GraphicsColor->RGBColor[0, 0, 0],
+                    FontColor->RGBColor[0, 0, 0]]],
+                    Toolbox`reaction["PFK1", {
+                    Toolbox`metabolite["atp", "c"], 
+                    Toolbox`metabolite["f6p", "c"]}, {
+                    Toolbox`metabolite["adp", "c"], 
+                    Toolbox`metabolite["fbp", "c"], 
+                    Toolbox`metabolite["h", "c"]}, {1, 1, 1, 1, 1}, True],
+                    Editable->False,
+                    Selectable->False], ",", 
+                    RowBox[{"\[LeftSkeleton]", "9", "\[RightSkeleton]"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"\<\"n\"\>", ",", "\<\"\"\>", ",", 
+                    RowBox[{"\[LeftSkeleton]", "4", "\[RightSkeleton]"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"\<\"detam\"\>", ",", "\<\"0.051\"\>"}], "}"}], 
+                    ",", 
+                    RowBox[{"{", 
+                    RowBox[{"\<\"netmphn\"\>", ",", "\<\"0.051\"\>"}], "}"}], 
+                    ",", 
+                    RowBox[{"{", 
+                    RowBox[{"\<\"mes\"\>", ",", "\<\"0.1\"\>"}], "}"}]}], 
+                    "}"}], ",", 
+                    RowBox[{"{", "}"}]}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], 
+                    "}"}]}], "}"}]}], "}"}],
                   Short[#, 
                    Rational[2, 3]]& ],
                  BaselinePosition->Baseline,
@@ -1619,7 +2016,7 @@ Cell[BoxData[
                  TagBox[
                   
                   TemplateBox[{
-                   "0.000105`2.171704296901932","\"s\"","seconds",
+                   "0.000097`2.137286732098239","\"s\"","seconds",
                     "\"Seconds\""},
                    "Quantity"],
                   Short[#, 
@@ -1637,6 +2034,7 @@ Cell[BoxData[
              ShowStringCharacters -> False, NumberMarks -> False, 
               PrintPrecision -> 3, ShowSyntaxStyles -> False},
             GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Automatic}}},
+            
             GridBoxItemSize->{
              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
             GridBoxSpacings->{"Columns" -> {{2}}, "Rows" -> {{Automatic}}}]}
@@ -1662,27 +2060,33 @@ Cell[BoxData[
            Toolbox`metabolite["fbp", "c"], 
            Toolbox`metabolite["h", "c"]}, {1, 1, 1, 1, 1}, True], 
          "Bi Bi (iso-ordered),[f6p,atp,fbp,adp]", 4., 4., 
-         4., {{"atp", 0.00009, {{"gdp,0.001"}, {"f6p,0.001"}}, "M", 8.5, 
-           30., {{"detam,0.051"}, {"netmphn,0.051"}, {"mes,0.1"}}, {}}, {
-          "gdp", 0.004200000000000001, {{"f6p,0.00004"}, {"atp,0.005"}}, "M", 
-           8.5, 30., {{"detam,0.051"}, {"netmphn,0.051"}, {
-            "mes,0.1"}}, {}}}, {{
-          "f6p", 0.00009, {{"gdp,0.001"}, {"atp,0.001"}}, "M", 8.5, 
-           30., {{"detam,0.051"}, {"netmphn,0.051"}, {"mes,0.1"}}, {}}}, {{{{
-            "gdp,0.001"}, {"atp,null"}, {"f6p,Null"}}, 110.7, "1/s", 8.5, 
-           30., {{"detam,0.051"}, {"netmphn,0.051"}, {"mes,0.1"}}, {}}}, {{
+         4., {{"atp", 0.00009, {{"gdp", "0.001"}, {"f6p", "0.001"}}, "M", 8.5,
+            30., {{"detam", "0.051"}, {"netmphn", "0.051"}, {
+            "mes", "0.1"}}, {}}, {
+          "gdp", 0.004200000000000001, {{"f6p", "0.00004"}, {"atp", "0.005"}},
+            "M", 8.5, 
+           30., {{"detam", "0.051"}, {"netmphn", "0.051"}, {
+            "mes", "0.1"}}, {}}}, {{
+          "f6p", 0.00009, {{"gdp", "0.001"}, {"atp", "0.001"}}, "M", 8.5, 
+           30., {{"detam", "0.051"}, {"netmphn", "0.051"}, {
+            "mes", "0.1"}}, {}}}, {{{{"gdp", "0.001"}, {"atp", "null"}, {
+            "f6p", "Null"}}, 110.7, "1/s", 8.5, 
+           30., {{"detam", "0.051"}, {"netmphn", "0.051"}, {
+            "mes", "0.1"}}, {}}}, {{
           "Ki", "pep", 
            0.00075, {{"NonCompetitive,Null,142,atp"}, {
             "NonCompetitive,Null,142,f6p"}}, "M", 8.5, 
-           28., {{"tris,0.05"}}, {}}, {
+           28., {{"tris", "0.05"}}, {}}, {
           "Ki", "adp", 0.0002, {{"Competitive,Null,141,atp"}}, "M", 8.5, 
-           28., {{"tris,0.05"}}, {}}}, {{
+           28., {{"tris", "0.05"}}, {}}}, {{
           "Ka", "adp", 0.000024999999999999998`, {}, "M", 8.5, 
-           28., {{"tris,0.05"}}, {}}, {
-          "Ka", "gdp", 0.00004, {}, "M", 8.5, 28., {{"tris,0.05"}}, {}}}, {{
+           28., {{"tris", "0.05"}}, {}}, {
+          "Ka", "gdp", 0.00004, {}, "M", 8.5, 
+           28., {{"tris", "0.05"}}, {}}}, {{
           "n", "", 2.11, "Null", 8.5, 
-           30., {{"detam,0.051"}, {"netmphn,0.051"}, {"mes,0.1"}}, {}}, {
-          "L0", "", 4.*^6, "Null", 8.5, 28., {{"tris,0.05"}}, {}}}}], 
+           30., {{"detam", "0.051"}, {"netmphn", "0.051"}, {
+            "mes", "0.1"}}, {}}, {
+          "L0", "", 4.*^6, "Null", 8.5, 28., {{"tris", "0.05"}}, {}}}}], 
       "ActualOutput" -> HoldForm[{
          Toolbox`reaction["PFK1", {
            Toolbox`metabolite["atp", "c"], 
@@ -1691,29 +2095,35 @@ Cell[BoxData[
            Toolbox`metabolite["fbp", "c"], 
            Toolbox`metabolite["h", "c"]}, {1, 1, 1, 1, 1}, True], 
          "Bi Bi (iso-ordered),[f6p,atp,fbp,adp]", 4., 4., 
-         4., {{"atp", 0.00009, {{"gdp,0.001"}, {"f6p,0.001"}}, "M", 8.5, 
-           30., {{"detam,0.051"}, {"netmphn,0.051"}, {"mes,0.1"}}, {}}, {
-          "gdp", 0.004200000000000001, {{"f6p,0.00004"}, {"atp,0.005"}}, "M", 
-           8.5, 30., {{"detam,0.051"}, {"netmphn,0.051"}, {
-            "mes,0.1"}}, {}}}, {{
-          "f6p", 0.00009, {{"gdp,0.001"}, {"atp,0.001"}}, "M", 8.5, 
-           30., {{"detam,0.051"}, {"netmphn,0.051"}, {"mes,0.1"}}, {}}}, {{{{
-            "gdp,0.001"}, {"atp,null"}, {"f6p,Null"}}, 110.7, "1/s", 8.5, 
-           30., {{"detam,0.051"}, {"netmphn,0.051"}, {"mes,0.1"}}, {}}}, {{
+         4., {{"atp", 0.00009, {{"gdp", "0.001"}, {"f6p", "0.001"}}, "M", 8.5,
+            30., {{"detam", "0.051"}, {"netmphn", "0.051"}, {
+            "mes", "0.1"}}, {}}, {
+          "gdp", 0.004200000000000001, {{"f6p", "0.00004"}, {"atp", "0.005"}},
+            "M", 8.5, 
+           30., {{"detam", "0.051"}, {"netmphn", "0.051"}, {
+            "mes", "0.1"}}, {}}}, {{
+          "f6p", 0.00009, {{"gdp", "0.001"}, {"atp", "0.001"}}, "M", 8.5, 
+           30., {{"detam", "0.051"}, {"netmphn", "0.051"}, {
+            "mes", "0.1"}}, {}}}, {{{{"gdp", "0.001"}, {"atp", "null"}, {
+            "f6p", "Null"}}, 110.7, "1/s", 8.5, 
+           30., {{"detam", "0.051"}, {"netmphn", "0.051"}, {
+            "mes", "0.1"}}, {}}}, {{
           "Ki", "pep", 
            0.00075, {{"NonCompetitive,Null,142,atp"}, {
             "NonCompetitive,Null,142,f6p"}}, "M", 8.5, 
-           28., {{"tris,0.05"}}, {}}, {
+           28., {{"tris", "0.05"}}, {}}, {
           "Ki", "adp", 0.0002, {{"Competitive,Null,141,atp"}}, "M", 8.5, 
-           28., {{"tris,0.05"}}, {}}}, {{
+           28., {{"tris", "0.05"}}, {}}}, {{
           "Ka", "adp", 0.000024999999999999998`, {}, "M", 8.5, 
-           28., {{"tris,0.05"}}, {}}, {
-          "Ka", "gdp", 0.00004, {}, "M", 8.5, 28., {{"tris,0.05"}}, {}}}, {{
+           28., {{"tris", "0.05"}}, {}}, {
+          "Ka", "gdp", 0.00004, {}, "M", 8.5, 
+           28., {{"tris", "0.05"}}, {}}}, {{
           "n", "", 2.11, "Null", 8.5, 
-           30., {{"detam,0.051"}, {"netmphn,0.051"}, {"mes,0.1"}}, {}}, {
-          "L0", "", 4.*^6, "Null", 8.5, 28., {{"tris,0.05"}}, {}}}}], 
+           30., {{"detam", "0.051"}, {"netmphn", "0.051"}, {
+            "mes", "0.1"}}, {}}, {
+          "L0", "", 4.*^6, "Null", 8.5, 28., {{"tris", "0.05"}}, {}}}}], 
       "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
-      Quantity[0.000105`2.171704296901932, "Seconds"], "CPUTimeUsed" -> 
+      Quantity[0.000097`2.137286732098239, "Seconds"], "CPUTimeUsed" -> 
       Quantity[0., "Seconds"], "MemoryUsed" -> Quantity[104, "Bytes"]]],
     Editable->False,
     SelectWithContents->True,
@@ -1815,7 +2225,6 @@ Cell[BoxData[
                AbsoluteCurrentValue[Magnification]}]], 
            GraphicsBox[InsetBox[
              PaneBox[
-              
               DynamicBox[FEPrivate`FrontEndResource[
                "MUnitExpressions", "SuccessIcon"]],
               Alignment->Center,
@@ -2161,7 +2570,7 @@ Cell[BoxData[
                  TagBox[
                   
                   TemplateBox[{
-                   "0.000167`2.373231468979577","\"s\"","seconds",
+                   "0.000093`2.118997946385929","\"s\"","seconds",
                     "\"Seconds\""},
                    "Quantity"],
                   Short[#, 
@@ -2204,46 +2613,48 @@ Cell[BoxData[
            Toolbox`metabolite["g3p", "c"], 
            Toolbox`metabolite["s7p", "c"]}, {1, 1, 1, 1}, True], 
          "Ping Pong Bi Bi,[f6p,g3p,e4p,s7p]", 2., 2., 
-         0., {{"g3p", 0.000037999999999999995`, {{"f6p,0.0285"}}, "M", 8.5, 
-           30., {{"glygly,0.05"}}, {}}, {
-          "e4p", 0.00009, {{"f6p,0.0285"}}, "M", 8.5, 
-           30., {{"glygly,0.05"}}, {}}, {
-          "r5p", 0.031, {{"f6p,0.0285"}}, "M", 8.5, 
-           30., {{"glygly,0.05"}}, {}}, {
-          "f6p", 0.0012000000000000001`, {{"g3p,0.0038"}}, "M", 8.5, 
-           30., {{"glygly,0.05"}}, {}}, {
-          "s7p", 0.000285, {{"g3p,0.0038"}}, "M", 8.5, 
-           30., {{"glygly,0.05"}}, {}}}, {}, {{{{"f6p,Null"}, {"e4p,0.002"}}, 
-           71.4, "1/s", 8.5, 
-           30., {{"glygly,0.05"}}, {}}, {{{"e4p,Null"}, {"f6p,0.05"}}, 79.4, 
-           "1/s", 8.5, 30., {{"glygly,0.05"}}, {}}}, {{
+         0., {{"g3p", 0.000037999999999999995`, {{"f6p", "0.0285"}}, "M", 8.5,
+            30., {{"glygly", "0.05"}}, {}}, {
+          "e4p", 0.00009, {{"f6p", "0.0285"}}, "M", 8.5, 
+           30., {{"glygly", "0.05"}}, {}}, {
+          "r5p", 0.031, {{"f6p", "0.0285"}}, "M", 8.5, 
+           30., {{"glygly", "0.05"}}, {}}, {
+          "f6p", 0.0012000000000000001`, {{"g3p", "0.0038"}}, "M", 8.5, 
+           30., {{"glygly", "0.05"}}, {}}, {
+          "s7p", 0.000285, {{"g3p", "0.0038"}}, "M", 8.5, 
+           30., {{"glygly", "0.05"}}, {}}}, {}, {{{{"f6p", "Null"}, {
+            "e4p", "0.002"}}, 71.4, "1/s", 8.5, 
+           30., {{"glygly", "0.05"}}, {}}, {{{"e4p", "Null"}, {
+            "f6p", "0.05"}}, 79.4, "1/s", 8.5, 
+           30., {{"glygly", "0.05"}}, {}}}, {{
           "Ki", "pi", 0.019, {{"Competitive,Null,Null,Null"}}, "M", 8.5, 
-           30., {{"glygly,0.05"}}, {}}}, {}, {}}], "ActualOutput" -> HoldForm[{
+           30., {{"glygly", "0.05"}}, {}}}, {}, {}}], "ActualOutput" -> 
+      HoldForm[{
          Toolbox`reaction["TALA2", {
            Toolbox`metabolite["e4p", "c"], 
            Toolbox`metabolite["f6p", "c"]}, {
            Toolbox`metabolite["g3p", "c"], 
            Toolbox`metabolite["s7p", "c"]}, {1, 1, 1, 1}, True], 
          "Ping Pong Bi Bi,[f6p,g3p,e4p,s7p]", 2., 2., 
-         0., {{"g3p", 0.000037999999999999995`, {{"f6p,0.0285"}}, "M", 8.5, 
-           30., {{"glygly,0.05"}}, {}}, {
-          "e4p", 0.00009, {{"f6p,0.0285"}}, "M", 8.5, 
-           30., {{"glygly,0.05"}}, {}}, {
-          "r5p", 0.031, {{"f6p,0.0285"}}, "M", 8.5, 
-           30., {{"glygly,0.05"}}, {}}, {
-          "f6p", 0.0012000000000000001`, {{"g3p,0.0038"}}, "M", 8.5, 
-           30., {{"glygly,0.05"}}, {}}, {
-          "s7p", 0.000285, {{"g3p,0.0038"}}, "M", 8.5, 
-           30., {{"glygly,0.05"}}, {}}}, {}, {{{{"f6p,Null"}, {"e4p,0.002"}}, 
-           71.4, "1/s", 8.5, 
-           30., {{"glygly,0.05"}}, {}}, {{{"e4p,Null"}, {"f6p,0.05"}}, 79.4, 
-           "1/s", 8.5, 30., {{"glygly,0.05"}}, {}}}, {{
+         0., {{"g3p", 0.000037999999999999995`, {{"f6p", "0.0285"}}, "M", 8.5,
+            30., {{"glygly", "0.05"}}, {}}, {
+          "e4p", 0.00009, {{"f6p", "0.0285"}}, "M", 8.5, 
+           30., {{"glygly", "0.05"}}, {}}, {
+          "r5p", 0.031, {{"f6p", "0.0285"}}, "M", 8.5, 
+           30., {{"glygly", "0.05"}}, {}}, {
+          "f6p", 0.0012000000000000001`, {{"g3p", "0.0038"}}, "M", 8.5, 
+           30., {{"glygly", "0.05"}}, {}}, {
+          "s7p", 0.000285, {{"g3p", "0.0038"}}, "M", 8.5, 
+           30., {{"glygly", "0.05"}}, {}}}, {}, {{{{"f6p", "Null"}, {
+            "e4p", "0.002"}}, 71.4, "1/s", 8.5, 
+           30., {{"glygly", "0.05"}}, {}}, {{{"e4p", "Null"}, {
+            "f6p", "0.05"}}, 79.4, "1/s", 8.5, 
+           30., {{"glygly", "0.05"}}, {}}}, {{
           "Ki", "pi", 0.019, {{"Competitive,Null,Null,Null"}}, "M", 8.5, 
-           30., {{"glygly,0.05"}}, {}}}, {}, {}}], "ExpectedMessages" -> {}, 
-      "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
-      Quantity[0.000167`2.373231468979577, "Seconds"], "CPUTimeUsed" -> 
-      Quantity[0.0040000000000000036`, "Seconds"], "MemoryUsed" -> 
-      Quantity[48, "Bytes"]]],
+           30., {{"glygly", "0.05"}}, {}}}, {}, {}}], 
+      "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
+      Quantity[0.000093`2.118997946385929, "Seconds"], "CPUTimeUsed" -> 
+      Quantity[0., "Seconds"], "MemoryUsed" -> Quantity[32, "Bytes"]]],
     Editable->False,
     SelectWithContents->True,
     Selectable->False]}], "}"}]], "Output",
@@ -2251,8 +2662,12 @@ Cell[BoxData[
   3.688379695112771*^9, 3.688380162069522*^9, 3.688380198087*^9, {
    3.688380230517737*^9, 3.688380249769689*^9}, 3.688380600316486*^9, 
    3.688381858541191*^9, 3.68844819892598*^9, 3.6884640991302843`*^9, {
-   3.688464149025647*^9, 3.688464172810822*^9}, 3.688465883141364*^9}]
-}, Open  ]]
+   3.688464149025647*^9, 3.688464172810822*^9}, 3.688465883141364*^9, 
+   3.68881318748592*^9, {3.688813312811335*^9, 3.688813330726493*^9}}]
+}, Open  ]],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.6888133205742702`*^9, 3.6888133232090273`*^9}}]
 }, Open  ]]
 },
 WindowSize->{1920, 1023},
@@ -2282,15 +2697,16 @@ Cell[9786, 262, 1905, 44, 214, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
 Cell[11728, 311, 165, 2, 35, "Subsubsection"],
-Cell[11896, 315, 12245, 294, 449, "Input"]
+Cell[11896, 315, 13506, 327, 449, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[24178, 614, 117, 1, 35, "Subsubsection"],
-Cell[24298, 617, 9482, 229, 402, "Input"],
+Cell[25439, 647, 117, 1, 35, "Subsubsection"],
+Cell[25559, 650, 10334, 255, 402, "Input"],
 Cell[CellGroupData[{
-Cell[33805, 850, 37, 0, 32, "Input"],
-Cell[33845, 852, 58235, 1401, 122, "Output"]
-}, Open  ]]
+Cell[35918, 909, 37, 0, 32, "Input"],
+Cell[35958, 911, 74240, 1754, 65, "Output"]
+}, Open  ]],
+Cell[110213, 2668, 96, 1, 65, "Input"]
 }, Open  ]]
 }
 ]

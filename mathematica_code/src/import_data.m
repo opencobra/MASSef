@@ -100,25 +100,46 @@ getEnzymeData[enzName_, dataPath_] := Module[{data, enzymesInd, curEnzymeInd, ne
 parseKmS05Entry[line_] := Module[{entry, substrate, value, coSubstrates, units, ph, temperature, buffer, salts},
 	substrate = line[[1]];
 	value = line[[2]];
+		
 	coSubstrates = Map[{#}&, StringSplit[line[[3]], ";"]];
+	coSubstrates =Table[
+		StringSplit[coSubstrate, ","],
+	{coSubstrate, coSubstrates}] ~ Flatten~1;
+	 
 	units = line[[4]];
 	ph = line[[5]];
 	temperature = line[[6]];
 	buffer = Map[{#}&, StringSplit[line[[7]], ";"]];
+	buffer =Table[
+		StringSplit[bufferEntry, ","],
+	{bufferEntry, buffer}] ~ Flatten~1;
+	
 	salts = Map[{#}&, StringSplit[line[[8]], ";"]];
+	salts =Table[
+		StringSplit[salt, ","],
+	{salt, salts}] ~ Flatten~1;
 
 	entry = {substrate, value, coSubstrates, units, ph, temperature, buffer, salts};
 	Return[entry];
 ];
 
 parseKcatEntry[line_] := Module[{kcatEntry, kcatValue, substrates, units, ph, temperature, buffer, salts},
-	substrates = Map[{#}&, StringSplit[line[[1]],";"]];
+	substrates = Map[{#}&, StringSplit[line[[1]], ";"]];
+	substrates =Table[
+		StringSplit[substrate, ","],
+	{substrate, substrates}] ~ Flatten~1;
 	kcatValue = line[[2]];
 	units = line[[3]];
 	ph = line[[4]];
 	temperature = line[[5]];
 	buffer = Map[{#}&, StringSplit[line[[6]], ";"]];
+	buffer =Table[
+		StringSplit[bufferEntry, ","],
+	{bufferEntry, buffer}] ~ Flatten~1;
 	salts = Map[{#}&, StringSplit[line[[7]], ";"]];
+	salts =Table[
+		StringSplit[salt, ","],
+	{salt, salts}] ~ Flatten~1;
 
 	kcatEntry = {substrates, kcatValue, units, ph, temperature, buffer, salts};
 	Return[kcatEntry];
@@ -133,7 +154,13 @@ parseInhibActEntry[line_] := Module[{entry, paramType, substrate, paramValue, ac
 	ph = line[[6]];
 	temperature = line[[7]];
 	buffer = Map[{#}&, StringSplit[line[[8]], ";"]];
+	buffer =Table[
+		StringSplit[bufferEntry, ","],
+	{bufferEntry, buffer}] ~ Flatten~1;
 	salts = Map[{#}&, StringSplit[line[[9]], ";"]];
+	salts =Table[
+		StringSplit[salt, ","],
+	{salt, salts}] ~ Flatten~1;
 
 	entry = {paramType, substrate, paramValue, actionType, units, ph, temperature, buffer, salts};
 	Return[entry];
@@ -147,8 +174,14 @@ parseOtherEntry[line_] := Module[{entry, paramType, substrate, paramValue, units
 	ph = line[[5]];
 	temperature = line[[6]];
 	buffer = Map[{#}&, StringSplit[line[[7]], ";"]];
+	buffer =Table[
+		StringSplit[bufferEntry, ","],
+	{bufferEntry, buffer}] ~ Flatten~1;
 	salts = Map[{#}&, StringSplit[line[[8]], ";"]];
-
+	salts =Table[
+		StringSplit[salt, ","],
+	{salt, salts}] ~ Flatten~1;
+	
 	entry = {paramType, substrate, paramValue, units, ph, temperature, buffer, salts};
 	Return[entry];
 ];
