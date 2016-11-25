@@ -1,0 +1,1204 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     48722,       1196]
+NotebookOptionsPosition[     48118,       1171]
+NotebookOutlinePosition[     48461,       1186]
+CellTagsIndexPosition[     48418,       1183]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"SetDirectory", "[", 
+   RowBox[{"NotebookDirectory", "[", "]"}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Import", "[", "\"\<../MASSFittingPackage/configure_fit.m\>\"", 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Import", "[", "\"\<../MASSFittingPackage/utils.m\>\"", 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Import", "[", 
+  "\"\<test_files/analyze_fit_results/test_inputs.m\>\"", 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"testResults", "=", 
+   RowBox[{"{", "}"}]}], ";"}], "\[IndentingNewLine]"}], "Input",
+ CellChangeTimes->{{3.637645027489709*^9, 3.6376450280971107`*^9}, {
+   3.672692743107355*^9, 3.6726927434106083`*^9}, {3.688379314519944*^9, 
+   3.688379323937272*^9}, {3.688379500528048*^9, 3.688379505413515*^9}, {
+   3.688379610834086*^9, 3.688379615162458*^9}, {3.6883796704649563`*^9, 
+   3.6883796795516977`*^9}, {3.68838057838741*^9, 3.688380615452154*^9}, {
+   3.688463975330852*^9, 3.688464039417232*^9}, {3.688909809865691*^9, 
+   3.688909814709023*^9}, {3.689075056017684*^9, 3.689075067769087*^9}, 
+   3.689075334393753*^9, {3.689075971852508*^9, 3.6890759722061234`*^9}, {
+   3.6890765023000917`*^9, 3.6890765138497562`*^9}, 3.689076713980986*^9, {
+   3.689081888449293*^9, 3.689081891663143*^9}, {3.689082271557028*^9, 
+   3.689082275176916*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "test ",
+ Cell[BoxData["definePSOparameters"], "Input",
+  CellChangeTimes->{{3.689073593921864*^9, 3.689073608262086*^9}, 
+    3.6890743936720457`*^9, {3.689074482987183*^9, 3.689074524706436*^9}, {
+    3.689074681114654*^9, 3.689074682771686*^9}, {3.6890748099030647`*^9, 
+    3.689074810147764*^9}, {3.689074981362872*^9, 3.6890750134056873`*^9}}]
+}], "Subsubsection",
+ CellChangeTimes->{{3.688379404633004*^9, 3.688379429043716*^9}, {
+   3.688464189533341*^9, 3.688464194468556*^9}, {3.688464387337203*^9, 
+   3.688464392473873*^9}, 3.6890750785401487`*^9, {3.6890760297602797`*^9, 
+   3.68907602976038*^9}, {3.689081819708583*^9, 3.6890818321311913`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"expectedResult", " ", "=", " ", 
+     RowBox[{
+     "Import", "[", "\"\<test_files/configure_fit/true_psoParameters.txt\>\"",
+       "]"}]}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"inputPath", " ", "=", " ", "\"\<test_files/configure_fit/\>\""}],
+     ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"outputPath", " ", "=", " ", "inputPath"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+    "dataPath", " ", "=", " ", "\"\<test_files/configure_fit/GAPD.dat\>\""}], 
+    ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"finalRateConsts", " ", "=", " ", 
+     RowBox[{"{", 
+      RowBox[{
+       InterpretationBox[
+        SubsuperscriptBox["k", 
+         StyleBox["GAPD1",
+          StripOnInput->False,
+          ShowSyntaxStyles->False,
+          AutoSpacing->False,
+          ZeroWidthTimes->True,
+          LineColor->RGBColor[0, 0, 0],
+          FrontFaceColor->RGBColor[0, 0, 0],
+          BackFaceColor->RGBColor[0, 0, 0],
+          GraphicsColor->RGBColor[0, 0, 0],
+          FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
+        Toolbox`rateconst["GAPD1", False],
+        Editable->False,
+        Selectable->False], ",", 
+       InterpretationBox[
+        SubsuperscriptBox["k", 
+         StyleBox["GAPD1",
+          StripOnInput->False,
+          ShowSyntaxStyles->False,
+          AutoSpacing->False,
+          ZeroWidthTimes->True,
+          LineColor->RGBColor[0, 0, 0],
+          FrontFaceColor->RGBColor[0, 0, 0],
+          BackFaceColor->RGBColor[0, 0, 0],
+          GraphicsColor->RGBColor[0, 0, 0],
+          FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+        Toolbox`rateconst["GAPD1", True],
+        Editable->False,
+        Selectable->False], ",", 
+       InterpretationBox[
+        SubsuperscriptBox["k", 
+         StyleBox["GAPD2",
+          StripOnInput->False,
+          ShowSyntaxStyles->False,
+          AutoSpacing->False,
+          ZeroWidthTimes->True,
+          LineColor->RGBColor[0, 0, 0],
+          FrontFaceColor->RGBColor[0, 0, 0],
+          BackFaceColor->RGBColor[0, 0, 0],
+          GraphicsColor->RGBColor[0, 0, 0],
+          FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
+        Toolbox`rateconst["GAPD2", False],
+        Editable->False,
+        Selectable->False], ",", 
+       InterpretationBox[
+        SubsuperscriptBox["k", 
+         StyleBox["GAPD2",
+          StripOnInput->False,
+          ShowSyntaxStyles->False,
+          AutoSpacing->False,
+          ZeroWidthTimes->True,
+          LineColor->RGBColor[0, 0, 0],
+          FrontFaceColor->RGBColor[0, 0, 0],
+          BackFaceColor->RGBColor[0, 0, 0],
+          GraphicsColor->RGBColor[0, 0, 0],
+          FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+        Toolbox`rateconst["GAPD2", True],
+        Editable->False,
+        Selectable->False], ",", 
+       InterpretationBox[
+        SubsuperscriptBox["k", 
+         StyleBox["GAPD3",
+          StripOnInput->False,
+          ShowSyntaxStyles->False,
+          AutoSpacing->False,
+          ZeroWidthTimes->True,
+          LineColor->RGBColor[0, 0, 0],
+          FrontFaceColor->RGBColor[0, 0, 0],
+          BackFaceColor->RGBColor[0, 0, 0],
+          GraphicsColor->RGBColor[0, 0, 0],
+          FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
+        Toolbox`rateconst["GAPD3", False],
+        Editable->False,
+        Selectable->False], ",", 
+       InterpretationBox[
+        SubsuperscriptBox["k", 
+         StyleBox["GAPD3",
+          StripOnInput->False,
+          ShowSyntaxStyles->False,
+          AutoSpacing->False,
+          ZeroWidthTimes->True,
+          LineColor->RGBColor[0, 0, 0],
+          FrontFaceColor->RGBColor[0, 0, 0],
+          BackFaceColor->RGBColor[0, 0, 0],
+          GraphicsColor->RGBColor[0, 0, 0],
+          FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+        Toolbox`rateconst["GAPD3", True],
+        Editable->False,
+        Selectable->False], ",", 
+       InterpretationBox[
+        SubsuperscriptBox["k", 
+         StyleBox["GAPD4",
+          StripOnInput->False,
+          ShowSyntaxStyles->False,
+          AutoSpacing->False,
+          ZeroWidthTimes->True,
+          LineColor->RGBColor[0, 0, 0],
+          FrontFaceColor->RGBColor[0, 0, 0],
+          BackFaceColor->RGBColor[0, 0, 0],
+          GraphicsColor->RGBColor[0, 0, 0],
+          FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
+        Toolbox`rateconst["GAPD4", False],
+        Editable->False,
+        Selectable->False], ",", 
+       InterpretationBox[
+        SubsuperscriptBox["k", 
+         StyleBox["GAPD4",
+          StripOnInput->False,
+          ShowSyntaxStyles->False,
+          AutoSpacing->False,
+          ZeroWidthTimes->True,
+          LineColor->RGBColor[0, 0, 0],
+          FrontFaceColor->RGBColor[0, 0, 0],
+          BackFaceColor->RGBColor[0, 0, 0],
+          GraphicsColor->RGBColor[0, 0, 0],
+          FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+        Toolbox`rateconst["GAPD4", True],
+        Editable->False,
+        Selectable->False], ",", 
+       InterpretationBox[
+        SubsuperscriptBox["k", 
+         StyleBox["GAPD5",
+          StripOnInput->False,
+          ShowSyntaxStyles->False,
+          AutoSpacing->False,
+          ZeroWidthTimes->True,
+          LineColor->RGBColor[0, 0, 0],
+          FrontFaceColor->RGBColor[0, 0, 0],
+          BackFaceColor->RGBColor[0, 0, 0],
+          GraphicsColor->RGBColor[0, 0, 0],
+          FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
+        Toolbox`rateconst["GAPD5", False],
+        Editable->False,
+        Selectable->False], ",", 
+       InterpretationBox[
+        SubsuperscriptBox["k", 
+         StyleBox["GAPD5",
+          StripOnInput->False,
+          ShowSyntaxStyles->False,
+          AutoSpacing->False,
+          ZeroWidthTimes->True,
+          LineColor->RGBColor[0, 0, 0],
+          FrontFaceColor->RGBColor[0, 0, 0],
+          BackFaceColor->RGBColor[0, 0, 0],
+          GraphicsColor->RGBColor[0, 0, 0],
+          FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+        Toolbox`rateconst["GAPD5", True],
+        Editable->False,
+        Selectable->False], ",", 
+       InterpretationBox[
+        SubsuperscriptBox["k", 
+         StyleBox["GAPD6",
+          StripOnInput->False,
+          ShowSyntaxStyles->False,
+          AutoSpacing->False,
+          ZeroWidthTimes->True,
+          LineColor->RGBColor[0, 0, 0],
+          FrontFaceColor->RGBColor[0, 0, 0],
+          BackFaceColor->RGBColor[0, 0, 0],
+          GraphicsColor->RGBColor[0, 0, 0],
+          FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
+        Toolbox`rateconst["GAPD6", False],
+        Editable->False,
+        Selectable->False], ",", 
+       InterpretationBox[
+        SubsuperscriptBox["k", 
+         StyleBox["GAPD6",
+          StripOnInput->False,
+          ShowSyntaxStyles->False,
+          AutoSpacing->False,
+          ZeroWidthTimes->True,
+          LineColor->RGBColor[0, 0, 0],
+          FrontFaceColor->RGBColor[0, 0, 0],
+          BackFaceColor->RGBColor[0, 0, 0],
+          GraphicsColor->RGBColor[0, 0, 0],
+          FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+        Toolbox`rateconst["GAPD6", True],
+        Editable->False,
+        Selectable->False]}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"fileList", " ", "=", " ", 
+     RowBox[{"{", 
+      RowBox[{
+      "\"\<test_files/configure_fit/absRateFor.txt\>\"", ",", 
+       "\"\<test_files/configure_fit/absRateRev.txt\>\"", ",", 
+       "\"\<test_files/configure_fit/relRateFor_g3p.txt\>\"", ",", 
+       "\"\<test_files/configure_fit/relRateFor_nad.txt\>\"", ",", 
+       "\"\<test_files/configure_fit/relRateFor_pi.txt\>\"", ",", 
+       "\"\<test_files/configure_fit/relRateRev_13dpg.txt\>\"", ",", 
+       "\"\<test_files/configure_fit/relRateRev_nadh.txt\>\"", ",", 
+       "\"\<test_files/configure_fit/dKdRatio.txt\>\"", ",", 
+       "\"\<test_files/configure_fit/KdRatio.txt\>\"", ",", 
+       "\"\<test_files/configure_fit/haldaneRatio.txt\>\""}], "}"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"lowerParamBound", " ", "=", " ", 
+     RowBox[{"-", "6"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"upperParamBound", " ", "=", " ", "9"}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+   "Import", "[", "\"\<../MASSFittingPackage/configure_fit.m\>\"", "]"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"numTrial", "=", "5"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"definePSOparameters", "[", 
+     RowBox[{
+     "inputPath", ",", " ", "outputPath", ",", " ", "dataPath", ",", " ", 
+      "finalRateConsts", ",", " ", "fileList", ",", " ", "numTrial", ",", 
+      "lowerParamBound", ",", " ", "upperParamBound"}], "]"}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"result", "=", 
+     RowBox[{
+     "Import", "[", "\"\<test_files/configure_fit/psoParameters.txt\>\"", 
+      "]"}]}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"AppendTo", "[", 
+     RowBox[{"testResults", ",", "\[IndentingNewLine]", 
+      RowBox[{"VerificationTest", "[", 
+       RowBox[{"result", ",", "expectedResult", " ", ",", " ", 
+        RowBox[{"TestID", "\[Rule]", "\"\<definePSOparameters\>\""}]}], 
+       "]"}]}], "\[IndentingNewLine]", "]"}], ";"}], 
+   "\[IndentingNewLine]"}]}]], "Input",
+ CellChangeTimes->{{3.68837680299233*^9, 3.688376809170438*^9}, {
+   3.688377062946416*^9, 3.688377063582418*^9}, 3.6883771745770893`*^9, {
+   3.688377876439951*^9, 3.688377877362*^9}, {3.68837936496352*^9, 
+   3.6883794219045477`*^9}, {3.6883794554191933`*^9, 
+   3.6883794659892817`*^9}, {3.688379526705597*^9, 3.688379541045879*^9}, {
+   3.688379625149222*^9, 3.68837965731959*^9}, {3.6883806192131443`*^9, 
+   3.6883806224017076`*^9}, 3.688464044787023*^9, {3.688464202085072*^9, 
+   3.6884642364977417`*^9}, {3.6884643258423147`*^9, 3.688464365250352*^9}, {
+   3.688464397683638*^9, 3.6884644968457127`*^9}, {3.688464526872285*^9, 
+   3.688464540787015*^9}, {3.688464944308197*^9, 3.688464946368619*^9}, 
+   3.6884658531585283`*^9, {3.6890750805165567`*^9, 3.689075089331524*^9}, {
+   3.689075166959392*^9, 3.689075197471987*^9}, {3.689075235614242*^9, 
+   3.689075277891634*^9}, {3.6890753096183968`*^9, 3.689075309845642*^9}, {
+   3.68907540624549*^9, 3.689075411028842*^9}, {3.689075443148336*^9, 
+   3.68907544521342*^9}, {3.689075614995034*^9, 3.689075616327045*^9}, {
+   3.689075855615568*^9, 3.689075868775169*^9}, {3.6890759440796824`*^9, 
+   3.689075944431555*^9}, {3.689075996656715*^9, 3.689075998659617*^9}, {
+   3.6890760310778923`*^9, 3.689076114506153*^9}, {3.6890762544287357`*^9, 
+   3.689076266942484*^9}, {3.6890763169068823`*^9, 3.689076324130927*^9}, {
+   3.689076446941704*^9, 3.6890765666552467`*^9}, 3.689076685642913*^9, {
+   3.6890767160748253`*^9, 3.6890767163743*^9}, {3.6890768557940083`*^9, 
+   3.6890768620649*^9}, {3.689077011307601*^9, 3.6890770413329487`*^9}, {
+   3.689077733678404*^9, 3.689077755557207*^9}, {3.689078390330802*^9, 
+   3.689078419263741*^9}, {3.689078540210484*^9, 3.6890785461187057`*^9}, {
+   3.689078635815906*^9, 3.6890786359979267`*^9}, {3.6890818385041122`*^9, 
+   3.689082029143012*^9}, 3.68908208141073*^9, {3.6890821725892887`*^9, 
+   3.689082179108293*^9}, 3.68908251175272*^9, {3.689082583010434*^9, 
+   3.689082592280797*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "test ",
+ Cell[BoxData["defineLMAparameters"], "Input",
+  CellChangeTimes->{{3.689073593921864*^9, 3.689073608262086*^9}, 
+    3.6890743936720457`*^9, {3.689074482987183*^9, 3.689074524706436*^9}, {
+    3.689074681114654*^9, 3.689074682771686*^9}, {3.6890748099030647`*^9, 
+    3.689074810147764*^9}, {3.689074981362872*^9, 3.6890750134056873`*^9}}]
+}], "Subsubsection",
+ CellChangeTimes->{{3.688379404633004*^9, 3.688379429043716*^9}, {
+   3.688464189533341*^9, 3.688464194468556*^9}, {3.688464387337203*^9, 
+   3.688464392473873*^9}, 3.6890750785401487`*^9, {3.6890760297602797`*^9, 
+   3.68907602976038*^9}, {3.689081819708583*^9, 3.6890818321311913`*^9}, {
+   3.689082589497633*^9, 3.689082589700129*^9}}],
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"expectedResult", " ", "=", " ", 
+     RowBox[{
+     "Import", "[", "\"\<test_files/configure_fit/true_lmaParameters.txt\>\"",
+       "]"}]}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"inputPath", " ", "=", " ", "\"\<test_files/configure_fit/\>\""}],
+     ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"outputPath", " ", "=", " ", "inputPath"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+    "dataPath", " ", "=", " ", "\"\<test_files/configure_fit/GAPD.dat\>\""}], 
+    ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"finalRateConsts", " ", "=", " ", 
+     RowBox[{"{", 
+      RowBox[{
+       InterpretationBox[
+        SubsuperscriptBox["k", 
+         StyleBox["GAPD1",
+          StripOnInput->False,
+          ShowSyntaxStyles->False,
+          AutoSpacing->False,
+          ZeroWidthTimes->True,
+          LineColor->RGBColor[0, 0, 0],
+          FrontFaceColor->RGBColor[0, 0, 0],
+          BackFaceColor->RGBColor[0, 0, 0],
+          GraphicsColor->RGBColor[0, 0, 0],
+          FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
+        Toolbox`rateconst["GAPD1", False],
+        Editable->False,
+        Selectable->False], ",", 
+       InterpretationBox[
+        SubsuperscriptBox["k", 
+         StyleBox["GAPD1",
+          StripOnInput->False,
+          ShowSyntaxStyles->False,
+          AutoSpacing->False,
+          ZeroWidthTimes->True,
+          LineColor->RGBColor[0, 0, 0],
+          FrontFaceColor->RGBColor[0, 0, 0],
+          BackFaceColor->RGBColor[0, 0, 0],
+          GraphicsColor->RGBColor[0, 0, 0],
+          FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+        Toolbox`rateconst["GAPD1", True],
+        Editable->False,
+        Selectable->False], ",", 
+       InterpretationBox[
+        SubsuperscriptBox["k", 
+         StyleBox["GAPD2",
+          StripOnInput->False,
+          ShowSyntaxStyles->False,
+          AutoSpacing->False,
+          ZeroWidthTimes->True,
+          LineColor->RGBColor[0, 0, 0],
+          FrontFaceColor->RGBColor[0, 0, 0],
+          BackFaceColor->RGBColor[0, 0, 0],
+          GraphicsColor->RGBColor[0, 0, 0],
+          FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
+        Toolbox`rateconst["GAPD2", False],
+        Editable->False,
+        Selectable->False], ",", 
+       InterpretationBox[
+        SubsuperscriptBox["k", 
+         StyleBox["GAPD2",
+          StripOnInput->False,
+          ShowSyntaxStyles->False,
+          AutoSpacing->False,
+          ZeroWidthTimes->True,
+          LineColor->RGBColor[0, 0, 0],
+          FrontFaceColor->RGBColor[0, 0, 0],
+          BackFaceColor->RGBColor[0, 0, 0],
+          GraphicsColor->RGBColor[0, 0, 0],
+          FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+        Toolbox`rateconst["GAPD2", True],
+        Editable->False,
+        Selectable->False], ",", 
+       InterpretationBox[
+        SubsuperscriptBox["k", 
+         StyleBox["GAPD3",
+          StripOnInput->False,
+          ShowSyntaxStyles->False,
+          AutoSpacing->False,
+          ZeroWidthTimes->True,
+          LineColor->RGBColor[0, 0, 0],
+          FrontFaceColor->RGBColor[0, 0, 0],
+          BackFaceColor->RGBColor[0, 0, 0],
+          GraphicsColor->RGBColor[0, 0, 0],
+          FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
+        Toolbox`rateconst["GAPD3", False],
+        Editable->False,
+        Selectable->False], ",", 
+       InterpretationBox[
+        SubsuperscriptBox["k", 
+         StyleBox["GAPD3",
+          StripOnInput->False,
+          ShowSyntaxStyles->False,
+          AutoSpacing->False,
+          ZeroWidthTimes->True,
+          LineColor->RGBColor[0, 0, 0],
+          FrontFaceColor->RGBColor[0, 0, 0],
+          BackFaceColor->RGBColor[0, 0, 0],
+          GraphicsColor->RGBColor[0, 0, 0],
+          FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+        Toolbox`rateconst["GAPD3", True],
+        Editable->False,
+        Selectable->False], ",", 
+       InterpretationBox[
+        SubsuperscriptBox["k", 
+         StyleBox["GAPD4",
+          StripOnInput->False,
+          ShowSyntaxStyles->False,
+          AutoSpacing->False,
+          ZeroWidthTimes->True,
+          LineColor->RGBColor[0, 0, 0],
+          FrontFaceColor->RGBColor[0, 0, 0],
+          BackFaceColor->RGBColor[0, 0, 0],
+          GraphicsColor->RGBColor[0, 0, 0],
+          FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
+        Toolbox`rateconst["GAPD4", False],
+        Editable->False,
+        Selectable->False], ",", 
+       InterpretationBox[
+        SubsuperscriptBox["k", 
+         StyleBox["GAPD4",
+          StripOnInput->False,
+          ShowSyntaxStyles->False,
+          AutoSpacing->False,
+          ZeroWidthTimes->True,
+          LineColor->RGBColor[0, 0, 0],
+          FrontFaceColor->RGBColor[0, 0, 0],
+          BackFaceColor->RGBColor[0, 0, 0],
+          GraphicsColor->RGBColor[0, 0, 0],
+          FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+        Toolbox`rateconst["GAPD4", True],
+        Editable->False,
+        Selectable->False], ",", 
+       InterpretationBox[
+        SubsuperscriptBox["k", 
+         StyleBox["GAPD5",
+          StripOnInput->False,
+          ShowSyntaxStyles->False,
+          AutoSpacing->False,
+          ZeroWidthTimes->True,
+          LineColor->RGBColor[0, 0, 0],
+          FrontFaceColor->RGBColor[0, 0, 0],
+          BackFaceColor->RGBColor[0, 0, 0],
+          GraphicsColor->RGBColor[0, 0, 0],
+          FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
+        Toolbox`rateconst["GAPD5", False],
+        Editable->False,
+        Selectable->False], ",", 
+       InterpretationBox[
+        SubsuperscriptBox["k", 
+         StyleBox["GAPD5",
+          StripOnInput->False,
+          ShowSyntaxStyles->False,
+          AutoSpacing->False,
+          ZeroWidthTimes->True,
+          LineColor->RGBColor[0, 0, 0],
+          FrontFaceColor->RGBColor[0, 0, 0],
+          BackFaceColor->RGBColor[0, 0, 0],
+          GraphicsColor->RGBColor[0, 0, 0],
+          FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+        Toolbox`rateconst["GAPD5", True],
+        Editable->False,
+        Selectable->False], ",", 
+       InterpretationBox[
+        SubsuperscriptBox["k", 
+         StyleBox["GAPD6",
+          StripOnInput->False,
+          ShowSyntaxStyles->False,
+          AutoSpacing->False,
+          ZeroWidthTimes->True,
+          LineColor->RGBColor[0, 0, 0],
+          FrontFaceColor->RGBColor[0, 0, 0],
+          BackFaceColor->RGBColor[0, 0, 0],
+          GraphicsColor->RGBColor[0, 0, 0],
+          FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
+        Toolbox`rateconst["GAPD6", False],
+        Editable->False,
+        Selectable->False], ",", 
+       InterpretationBox[
+        SubsuperscriptBox["k", 
+         StyleBox["GAPD6",
+          StripOnInput->False,
+          ShowSyntaxStyles->False,
+          AutoSpacing->False,
+          ZeroWidthTimes->True,
+          LineColor->RGBColor[0, 0, 0],
+          FrontFaceColor->RGBColor[0, 0, 0],
+          BackFaceColor->RGBColor[0, 0, 0],
+          GraphicsColor->RGBColor[0, 0, 0],
+          FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+        Toolbox`rateconst["GAPD6", True],
+        Editable->False,
+        Selectable->False]}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"fileList", " ", "=", " ", 
+     RowBox[{"{", 
+      RowBox[{
+      "\"\<test_files/configure_fit/absRateFor.txt\>\"", ",", 
+       "\"\<test_files/configure_fit/absRateRev.txt\>\"", ",", 
+       "\"\<test_files/configure_fit/relRateFor_g3p.txt\>\"", ",", 
+       "\"\<test_files/configure_fit/relRateFor_nad.txt\>\"", ",", 
+       "\"\<test_files/configure_fit/relRateFor_pi.txt\>\"", ",", 
+       "\"\<test_files/configure_fit/relRateRev_13dpg.txt\>\"", ",", 
+       "\"\<test_files/configure_fit/relRateRev_nadh.txt\>\"", ",", 
+       "\"\<test_files/configure_fit/dKdRatio.txt\>\"", ",", 
+       "\"\<test_files/configure_fit/KdRatio.txt\>\"", ",", 
+       "\"\<test_files/configure_fit/haldaneRatio.txt\>\""}], "}"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"lowerParamBound", " ", "=", " ", 
+     RowBox[{"-", "6"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"upperParamBound", " ", "=", " ", "9"}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+   "Import", "[", "\"\<../MASSFittingPackage/configure_fit.m\>\"", "]"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"defineLMAparameters", "[", 
+     RowBox[{
+     "inputPath", ",", " ", "outputPath", ",", " ", "dataPath", ",", " ", 
+      "finalRateConsts", ",", " ", "fileList", ",", " ", "lowerParamBound", 
+      ",", " ", "upperParamBound"}], "]"}], ";"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"result", "=", 
+     RowBox[{
+     "Import", "[", "\"\<test_files/configure_fit/lmaParameters.txt\>\"", 
+      "]"}]}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"AppendTo", "[", 
+     RowBox[{"testResults", ",", "\[IndentingNewLine]", 
+      RowBox[{"VerificationTest", "[", 
+       RowBox[{"result", ",", "expectedResult", " ", ",", " ", 
+        RowBox[{"TestID", "\[Rule]", "\"\<defineLMAparameters\>\""}]}], 
+       "]"}]}], "\[IndentingNewLine]", "]"}], ";"}], 
+   "\[IndentingNewLine]"}]}]], "Input",
+ CellChangeTimes->{{3.68837680299233*^9, 3.688376809170438*^9}, {
+   3.688377062946416*^9, 3.688377063582418*^9}, 3.6883771745770893`*^9, {
+   3.688377876439951*^9, 3.688377877362*^9}, {3.68837936496352*^9, 
+   3.6883794219045477`*^9}, {3.6883794554191933`*^9, 
+   3.6883794659892817`*^9}, {3.688379526705597*^9, 3.688379541045879*^9}, {
+   3.688379625149222*^9, 3.68837965731959*^9}, {3.6883806192131443`*^9, 
+   3.6883806224017076`*^9}, 3.688464044787023*^9, {3.688464202085072*^9, 
+   3.6884642364977417`*^9}, {3.6884643258423147`*^9, 3.688464365250352*^9}, {
+   3.688464397683638*^9, 3.6884644968457127`*^9}, {3.688464526872285*^9, 
+   3.688464540787015*^9}, {3.688464944308197*^9, 3.688464946368619*^9}, 
+   3.6884658531585283`*^9, {3.6890750805165567`*^9, 3.689075089331524*^9}, {
+   3.689075166959392*^9, 3.689075197471987*^9}, {3.689075235614242*^9, 
+   3.689075277891634*^9}, {3.6890753096183968`*^9, 3.689075309845642*^9}, {
+   3.68907540624549*^9, 3.689075411028842*^9}, {3.689075443148336*^9, 
+   3.68907544521342*^9}, {3.689075614995034*^9, 3.689075616327045*^9}, {
+   3.689075855615568*^9, 3.689075868775169*^9}, {3.6890759440796824`*^9, 
+   3.689075944431555*^9}, {3.689075996656715*^9, 3.689075998659617*^9}, {
+   3.6890760310778923`*^9, 3.689076114506153*^9}, {3.6890762544287357`*^9, 
+   3.689076266942484*^9}, {3.6890763169068823`*^9, 3.689076324130927*^9}, {
+   3.689076446941704*^9, 3.6890765666552467`*^9}, 3.689076685642913*^9, {
+   3.6890767160748253`*^9, 3.6890767163743*^9}, {3.6890768557940083`*^9, 
+   3.6890768620649*^9}, {3.689077011307601*^9, 3.6890770413329487`*^9}, {
+   3.689077733678404*^9, 3.689077755557207*^9}, {3.689078390330802*^9, 
+   3.689078419263741*^9}, {3.689078540210484*^9, 3.6890785461187057`*^9}, {
+   3.689078635815906*^9, 3.6890786359979267`*^9}, {3.6890818385041122`*^9, 
+   3.689082029143012*^9}, 3.68908208141073*^9, {3.6890821725892887`*^9, 
+   3.689082179108293*^9}, 3.68908251175272*^9, {3.689082583010434*^9, 
+   3.689082614947809*^9}, {3.689083237571602*^9, 3.689083246822196*^9}, 
+   3.68908344199546*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["testResults"], "Input",
+ CellChangeTimes->{{3.68908346993931*^9, 3.689083470689396*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   InterpretationBox[
+    RowBox[{
+     TagBox["TestResultObject",
+      "SummaryHead"], "[", 
+     DynamicModuleBox[{Typeset`open$$ = False}, 
+      PanelBox[
+       PaneSelectorBox[{False->GridBox[{
+          {
+           PaneBox[
+            ButtonBox[
+             
+             DynamicBox[FEPrivate`FrontEndResource[
+              "FEBitmaps", "SquarePlusIconMedium"],
+              ImageSizeCache->{12., {0., 12.}}],
+             Appearance->None,
+             ButtonFunction:>(Typeset`open$$ = True),
+             Evaluator->Automatic,
+             Method->"Preemptive"],
+            Alignment->{Center, Center},
+            
+            ImageSize->
+             Dynamic[{
+              Automatic, 3.5 CurrentValue["FontCapHeight"]/
+               AbsoluteCurrentValue[Magnification]}]], 
+           GraphicsBox[InsetBox[
+             PaneBox[
+              
+              DynamicBox[FEPrivate`FrontEndResource[
+               "MUnitExpressions", "SuccessIcon"],
+               ImageSizeCache->{16., {3., 9.}}],
+              Alignment->Center,
+              
+              ImageSize->
+               Dynamic[{
+                Automatic, 3.5 CurrentValue["FontCapHeight"]/
+                 AbsoluteCurrentValue[Magnification]}]]],
+            AspectRatio->1,
+            Axes->False,
+            Background->GrayLevel[0.93],
+            Frame->True,
+            FrameStyle->Directive[
+              Thickness[Tiny], 
+              GrayLevel[0.55]],
+            FrameTicks->None,
+            ImageSize->{Automatic, 
+              Dynamic[
+              3.5 CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+               Magnification]]},
+            PlotRange->{{0, 1}, {0, 1}}], GridBox[{
+             {
+              RowBox[{
+               TagBox["\<\"Outcome: \"\>",
+                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+               TagBox["\<\"Success\"\>",
+                "SummaryItem"]}]},
+             {
+              RowBox[{
+               TagBox["\<\"Test ID: \"\>",
+                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+               TagBox["\<\"definePSOparameters\"\>",
+                "SummaryItem"]}]}
+            },
+            AutoDelete->False,
+            
+            BaseStyle->{
+             ShowStringCharacters -> False, NumberMarks -> False, 
+              PrintPrecision -> 3, ShowSyntaxStyles -> False},
+            GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Automatic}}},
+            
+            GridBoxItemSize->{
+             "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+            GridBoxSpacings->{"Columns" -> {{2}}, "Rows" -> {{Automatic}}}]}
+         },
+         AutoDelete->False,
+         BaselinePosition->{1, 1},
+         GridBoxAlignment->{"Rows" -> {{Top}}},
+         GridBoxItemSize->{
+          "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], True->
+        GridBox[{
+          {
+           PaneBox[
+            ButtonBox[
+             
+             DynamicBox[FEPrivate`FrontEndResource[
+              "FEBitmaps", "SquareMinusIconMedium"]],
+             Appearance->None,
+             ButtonFunction:>(Typeset`open$$ = False),
+             Evaluator->Automatic,
+             Method->"Preemptive"],
+            Alignment->{Center, Center},
+            
+            ImageSize->
+             Dynamic[{
+              Automatic, 3.5 CurrentValue["FontCapHeight"]/
+               AbsoluteCurrentValue[Magnification]}]], 
+           GraphicsBox[InsetBox[
+             PaneBox[
+              
+              DynamicBox[FEPrivate`FrontEndResource[
+               "MUnitExpressions", "SuccessIcon"]],
+              Alignment->Center,
+              
+              ImageSize->
+               Dynamic[{
+                Automatic, 3.5 CurrentValue["FontCapHeight"]/
+                 AbsoluteCurrentValue[Magnification]}]]],
+            AspectRatio->1,
+            Axes->False,
+            Background->GrayLevel[0.93],
+            Frame->True,
+            FrameStyle->Directive[
+              Thickness[Tiny], 
+              GrayLevel[0.55]],
+            FrameTicks->None,
+            ImageSize->{Automatic, 
+              Dynamic[
+              3.5 CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+               Magnification]]},
+            PlotRange->{{0, 1}, {0, 1}}], GridBox[{
+             {
+              RowBox[{
+               TagBox["\<\"Outcome: \"\>",
+                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+               TagBox["\<\"Success\"\>",
+                "SummaryItem"]}]},
+             {
+              RowBox[{
+               TagBox["\<\"Test ID: \"\>",
+                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+               TagBox["\<\"definePSOparameters\"\>",
+                "SummaryItem"]}]},
+             {
+              RowBox[{
+               TagBox["\<\"Input: \"\>",
+                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+               TagBox[
+                PaneBox[
+                 TagBox["result",
+                  Short[#, 
+                   Rational[2, 3]]& ],
+                 BaselinePosition->Baseline,
+                 ContentPadding->False,
+                 FrameMargins->0,
+                 ImageSize->{{1, 500}, Automatic},
+                 StripOnInput->True],
+                "SummaryItem"]}]},
+             {
+              RowBox[{
+               TagBox["\<\"Expected output: \"\>",
+                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+               TagBox[
+                PaneBox[
+                 TagBox[
+                  
+                  RowBox[{"\<\"num_Cpus\\t1\\ntemperature_correction\\tF\"\>",
+                    "\[Ellipsis]", \
+"\<\"les/configure_fit/raw/psoResults.txt\"\>"}],
+                  Short[#, 
+                   Rational[2, 3]]& ],
+                 BaselinePosition->Baseline,
+                 ContentPadding->False,
+                 FrameMargins->0,
+                 ImageSize->{{1, 500}, Automatic},
+                 StripOnInput->True],
+                "SummaryItem"]}]},
+             {
+              RowBox[{
+               TagBox["\<\"Actual output: \"\>",
+                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+               TagBox[
+                PaneBox[
+                 TagBox[
+                  
+                  RowBox[{"\<\"num_Cpus\\t1\\ntemperature_correction\\tF\"\>",
+                    "\[Ellipsis]", \
+"\<\"les/configure_fit/raw/psoResults.txt\"\>"}],
+                  Short[#, 
+                   Rational[2, 3]]& ],
+                 BaselinePosition->Baseline,
+                 ContentPadding->False,
+                 FrameMargins->0,
+                 ImageSize->{{1, 500}, Automatic},
+                 StripOnInput->True],
+                "SummaryItem"]}]},
+             {
+              RowBox[{
+               TagBox["\<\"Time Taken: \"\>",
+                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+               TagBox[
+                PaneBox[
+                 TagBox[
+                  
+                  TemplateBox[{
+                   "0.053428`4.878283915132609","\"s\"","seconds",
+                    "\"Seconds\""},
+                   "Quantity"],
+                  Short[#, 
+                   Rational[2, 3]]& ],
+                 BaselinePosition->Baseline,
+                 ContentPadding->False,
+                 FrameMargins->0,
+                 ImageSize->{{1, 500}, Automatic},
+                 StripOnInput->True],
+                "SummaryItem"]}]}
+            },
+            AutoDelete->False,
+            
+            BaseStyle->{
+             ShowStringCharacters -> False, NumberMarks -> False, 
+              PrintPrecision -> 3, ShowSyntaxStyles -> False},
+            GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Automatic}}},
+            
+            GridBoxItemSize->{
+             "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+            GridBoxSpacings->{"Columns" -> {{2}}, "Rows" -> {{Automatic}}}]}
+         },
+         AutoDelete->False,
+         BaselinePosition->{1, 1},
+         GridBoxAlignment->{"Rows" -> {{Top}}},
+         GridBoxItemSize->{
+          "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}]}, Dynamic[
+        Typeset`open$$],
+        ImageSize->Automatic],
+       BaselinePosition->Baseline],
+      DynamicModuleValues:>{}], "]"}],
+    TestResultObject[
+     Association[
+     "TestIndex" -> 1, "TestID" -> "definePSOparameters", "Outcome" -> 
+      "Success", "Input" -> HoldForm[$CellContext`result], "ExpectedOutput" -> 
+      HoldForm["num_Cpus\t1\ntemperature_correction\tFalse\nnum_trial\t5\n\
+num_generations\t2000\nval_pop_size\t20\nbestFitnessCutoff\t1.1\n\
+val_neigh_size\t3\nval_inertia\t1\nval_cogn_rate\t2.1\nval_soc_rate\t2.1\n\
+use_Keep_Best\tTrue\nuse_Random_Replace\tTrue\npercent_Rand\t0.05\n\
+lower_bound\t-6\nupper_bound\t9\nnum_func_var\t12\nfilesWithFunctions\t\
+[test_files/configure_fit/absRateFor.txt,test_files/configure_fit/absRateRev.\
+txt,test_files/configure_fit/relRateFor_g3p.txt,test_files/configure_fit/\
+relRateFor_nad.txt,test_files/configure_fit/relRateFor_pi.txt,test_files/\
+configure_fit/relRateRev_13dpg.txt,test_files/configure_fit/relRateRev_nadh.\
+txt,test_files/configure_fit/dKdRatio.txt,test_files/configure_fit/KdRatio.\
+txt,test_files/configure_fit/haldaneRatio.txt]\ndata_file_name\t\
+test_files/configure_fit/GAPD.dat\nvalue_row\t-1\nfunction_row\t-2\n\
+data_row_high\t-2\nsummary_file_name\t\
+test_files/configure_fit/raw/summary.txt\nultimate_result_name\t\
+test_files/configure_fit/raw/psoResults.txt"], "ActualOutput" -> 
+      HoldForm["num_Cpus\t1\ntemperature_correction\tFalse\nnum_trial\t5\n\
+num_generations\t2000\nval_pop_size\t20\nbestFitnessCutoff\t1.1\n\
+val_neigh_size\t3\nval_inertia\t1\nval_cogn_rate\t2.1\nval_soc_rate\t2.1\n\
+use_Keep_Best\tTrue\nuse_Random_Replace\tTrue\npercent_Rand\t0.05\n\
+lower_bound\t-6\nupper_bound\t9\nnum_func_var\t12\nfilesWithFunctions\t\
+[test_files/configure_fit/absRateFor.txt,test_files/configure_fit/absRateRev.\
+txt,test_files/configure_fit/relRateFor_g3p.txt,test_files/configure_fit/\
+relRateFor_nad.txt,test_files/configure_fit/relRateFor_pi.txt,test_files/\
+configure_fit/relRateRev_13dpg.txt,test_files/configure_fit/relRateRev_nadh.\
+txt,test_files/configure_fit/dKdRatio.txt,test_files/configure_fit/KdRatio.\
+txt,test_files/configure_fit/haldaneRatio.txt]\ndata_file_name\t\
+test_files/configure_fit/GAPD.dat\nvalue_row\t-1\nfunction_row\t-2\n\
+data_row_high\t-2\nsummary_file_name\t\
+test_files/configure_fit/raw/summary.txt\nultimate_result_name\t\
+test_files/configure_fit/raw/psoResults.txt"], "ExpectedMessages" -> {}, 
+      "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
+      Quantity[0.053428`4.878283915132609, "Seconds"], "CPUTimeUsed" -> 
+      Quantity[0.052000000000000046`, "Seconds"], "MemoryUsed" -> 
+      Quantity[3026512, "Bytes"]]],
+    Editable->False,
+    SelectWithContents->True,
+    Selectable->False], ",", 
+   InterpretationBox[
+    RowBox[{
+     TagBox["TestResultObject",
+      "SummaryHead"], "[", 
+     DynamicModuleBox[{Typeset`open$$ = False}, 
+      PanelBox[
+       PaneSelectorBox[{False->GridBox[{
+          {
+           PaneBox[
+            ButtonBox[
+             
+             DynamicBox[FEPrivate`FrontEndResource[
+              "FEBitmaps", "SquarePlusIconMedium"],
+              ImageSizeCache->{12., {0., 12.}}],
+             Appearance->None,
+             ButtonFunction:>(Typeset`open$$ = True),
+             Evaluator->Automatic,
+             Method->"Preemptive"],
+            Alignment->{Center, Center},
+            
+            ImageSize->
+             Dynamic[{
+              Automatic, 3.5 CurrentValue["FontCapHeight"]/
+               AbsoluteCurrentValue[Magnification]}]], 
+           GraphicsBox[InsetBox[
+             PaneBox[
+              
+              DynamicBox[FEPrivate`FrontEndResource[
+               "MUnitExpressions", "SuccessIcon"],
+               ImageSizeCache->{16., {3., 9.}}],
+              Alignment->Center,
+              
+              ImageSize->
+               Dynamic[{
+                Automatic, 3.5 CurrentValue["FontCapHeight"]/
+                 AbsoluteCurrentValue[Magnification]}]]],
+            AspectRatio->1,
+            Axes->False,
+            Background->GrayLevel[0.93],
+            Frame->True,
+            FrameStyle->Directive[
+              Thickness[Tiny], 
+              GrayLevel[0.55]],
+            FrameTicks->None,
+            ImageSize->{Automatic, 
+              Dynamic[
+              3.5 CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+               Magnification]]},
+            PlotRange->{{0, 1}, {0, 1}}], GridBox[{
+             {
+              RowBox[{
+               TagBox["\<\"Outcome: \"\>",
+                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+               TagBox["\<\"Success\"\>",
+                "SummaryItem"]}]},
+             {
+              RowBox[{
+               TagBox["\<\"Test ID: \"\>",
+                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+               TagBox["\<\"defineLMAparameters\"\>",
+                "SummaryItem"]}]}
+            },
+            AutoDelete->False,
+            
+            BaseStyle->{
+             ShowStringCharacters -> False, NumberMarks -> False, 
+              PrintPrecision -> 3, ShowSyntaxStyles -> False},
+            GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Automatic}}},
+            
+            GridBoxItemSize->{
+             "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+            GridBoxSpacings->{"Columns" -> {{2}}, "Rows" -> {{Automatic}}}]}
+         },
+         AutoDelete->False,
+         BaselinePosition->{1, 1},
+         GridBoxAlignment->{"Rows" -> {{Top}}},
+         GridBoxItemSize->{
+          "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], True->
+        GridBox[{
+          {
+           PaneBox[
+            ButtonBox[
+             
+             DynamicBox[FEPrivate`FrontEndResource[
+              "FEBitmaps", "SquareMinusIconMedium"]],
+             Appearance->None,
+             ButtonFunction:>(Typeset`open$$ = False),
+             Evaluator->Automatic,
+             Method->"Preemptive"],
+            Alignment->{Center, Center},
+            
+            ImageSize->
+             Dynamic[{
+              Automatic, 3.5 CurrentValue["FontCapHeight"]/
+               AbsoluteCurrentValue[Magnification]}]], 
+           GraphicsBox[InsetBox[
+             PaneBox[
+              
+              DynamicBox[FEPrivate`FrontEndResource[
+               "MUnitExpressions", "SuccessIcon"]],
+              Alignment->Center,
+              
+              ImageSize->
+               Dynamic[{
+                Automatic, 3.5 CurrentValue["FontCapHeight"]/
+                 AbsoluteCurrentValue[Magnification]}]]],
+            AspectRatio->1,
+            Axes->False,
+            Background->GrayLevel[0.93],
+            Frame->True,
+            FrameStyle->Directive[
+              Thickness[Tiny], 
+              GrayLevel[0.55]],
+            FrameTicks->None,
+            ImageSize->{Automatic, 
+              Dynamic[
+              3.5 CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+               Magnification]]},
+            PlotRange->{{0, 1}, {0, 1}}], GridBox[{
+             {
+              RowBox[{
+               TagBox["\<\"Outcome: \"\>",
+                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+               TagBox["\<\"Success\"\>",
+                "SummaryItem"]}]},
+             {
+              RowBox[{
+               TagBox["\<\"Test ID: \"\>",
+                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+               TagBox["\<\"defineLMAparameters\"\>",
+                "SummaryItem"]}]},
+             {
+              RowBox[{
+               TagBox["\<\"Input: \"\>",
+                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+               TagBox[
+                PaneBox[
+                 TagBox["result",
+                  Short[#, 
+                   Rational[2, 3]]& ],
+                 BaselinePosition->Baseline,
+                 ContentPadding->False,
+                 FrameMargins->0,
+                 ImageSize->{{1, 500}, Automatic},
+                 StripOnInput->True],
+                "SummaryItem"]}]},
+             {
+              RowBox[{
+               TagBox["\<\"Expected output: \"\>",
+                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+               TagBox[
+                PaneBox[
+                 TagBox[
+                  RowBox[{"\<\"num_Cpus\\t1\\ntemperature_correction\\tF\"\>",
+                    "\[Ellipsis]", \
+"\<\"\\t-1\\nfunction_row\\t-2\\ndata_row_high\\t-2\"\>"}],
+                  Short[#, 
+                   Rational[2, 3]]& ],
+                 BaselinePosition->Baseline,
+                 ContentPadding->False,
+                 FrameMargins->0,
+                 ImageSize->{{1, 500}, Automatic},
+                 StripOnInput->True],
+                "SummaryItem"]}]},
+             {
+              RowBox[{
+               TagBox["\<\"Actual output: \"\>",
+                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+               TagBox[
+                PaneBox[
+                 TagBox[
+                  
+                  RowBox[{"\<\"num_Cpus\\t1\\ntemperature_correction\\tF\"\>",
+                    "\[Ellipsis]", \
+"\<\"\\t-1\\nfunction_row\\t-2\\ndata_row_high\\t-2\"\>"}],
+                  Short[#, 
+                   Rational[2, 3]]& ],
+                 BaselinePosition->Baseline,
+                 ContentPadding->False,
+                 FrameMargins->0,
+                 ImageSize->{{1, 500}, Automatic},
+                 StripOnInput->True],
+                "SummaryItem"]}]},
+             {
+              RowBox[{
+               TagBox["\<\"Time Taken: \"\>",
+                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+               TagBox[
+                PaneBox[
+                 TagBox[
+                  
+                  TemplateBox[{
+                   "0.000107`2.1798987755172035","\"s\"","seconds",
+                    "\"Seconds\""},
+                   "Quantity"],
+                  Short[#, 
+                   Rational[2, 3]]& ],
+                 BaselinePosition->Baseline,
+                 ContentPadding->False,
+                 FrameMargins->0,
+                 ImageSize->{{1, 500}, Automatic},
+                 StripOnInput->True],
+                "SummaryItem"]}]}
+            },
+            AutoDelete->False,
+            BaseStyle->{
+             ShowStringCharacters -> False, NumberMarks -> False, 
+              PrintPrecision -> 3, ShowSyntaxStyles -> False},
+            GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Automatic}}},
+            
+            GridBoxItemSize->{
+             "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+            GridBoxSpacings->{"Columns" -> {{2}}, "Rows" -> {{Automatic}}}]}
+         },
+         AutoDelete->False,
+         BaselinePosition->{1, 1},
+         GridBoxAlignment->{"Rows" -> {{Top}}},
+         GridBoxItemSize->{
+          "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}]}, Dynamic[
+        Typeset`open$$],
+        ImageSize->Automatic],
+       BaselinePosition->Baseline],
+      DynamicModuleValues:>{}], "]"}],
+    TestResultObject[
+     Association[
+     "TestIndex" -> 2, "TestID" -> "defineLMAparameters", "Outcome" -> 
+      "Success", "Input" -> HoldForm[$CellContext`result], "ExpectedOutput" -> 
+      HoldForm["num_Cpus\t1\ntemperature_correction\tFalse\nxtol_value\t\
+1.e-15\nftol_value\t1.e-7\ngtol_value\t1.e-7\nepsfcn_min_value\t7\n\
+maxfev_value\t1000\nlower_bound\t-6\nupper_bound\t9\nnum_func_var\t12\n\
+candidates_import_path\ttest_files/configure_fit/raw/psoResults.txt\n\
+candidates_export_path\ttest_files/configure_fit/raw/lmaResults.txt\n\
+filesWithFunctions\t\
+[test_files/configure_fit/absRateFor.txt,test_files/configure_fit/absRateRev.\
+txt,test_files/configure_fit/relRateFor_g3p.txt,test_files/configure_fit/\
+relRateFor_nad.txt,test_files/configure_fit/relRateFor_pi.txt,test_files/\
+configure_fit/relRateRev_13dpg.txt,test_files/configure_fit/relRateRev_nadh.\
+txt,test_files/configure_fit/dKdRatio.txt,test_files/configure_fit/KdRatio.\
+txt,test_files/configure_fit/haldaneRatio.txt]\ndata_file_name\t\
+test_files/configure_fit/GAPD.dat\nvalue_row\t-1\nfunction_row\t-2\n\
+data_row_high\t-2"], "ActualOutput" -> 
+      HoldForm["num_Cpus\t1\ntemperature_correction\tFalse\nxtol_value\t\
+1.e-15\nftol_value\t1.e-7\ngtol_value\t1.e-7\nepsfcn_min_value\t7\n\
+maxfev_value\t1000\nlower_bound\t-6\nupper_bound\t9\nnum_func_var\t12\n\
+candidates_import_path\ttest_files/configure_fit/raw/psoResults.txt\n\
+candidates_export_path\ttest_files/configure_fit/raw/lmaResults.txt\n\
+filesWithFunctions\t\
+[test_files/configure_fit/absRateFor.txt,test_files/configure_fit/absRateRev.\
+txt,test_files/configure_fit/relRateFor_g3p.txt,test_files/configure_fit/\
+relRateFor_nad.txt,test_files/configure_fit/relRateFor_pi.txt,test_files/\
+configure_fit/relRateRev_13dpg.txt,test_files/configure_fit/relRateRev_nadh.\
+txt,test_files/configure_fit/dKdRatio.txt,test_files/configure_fit/KdRatio.\
+txt,test_files/configure_fit/haldaneRatio.txt]\ndata_file_name\t\
+test_files/configure_fit/GAPD.dat\nvalue_row\t-1\nfunction_row\t-2\n\
+data_row_high\t-2"], "ExpectedMessages" -> {}, "ActualMessages" -> {}, 
+      "AbsoluteTimeUsed" -> Quantity[0.000107`2.1798987755172035, "Seconds"], 
+      "CPUTimeUsed" -> Quantity[0., "Seconds"], "MemoryUsed" -> 
+      Quantity[96, "Bytes"]]],
+    Editable->False,
+    SelectWithContents->True,
+    Selectable->False]}], "}"}]], "Output",
+ CellChangeTimes->{3.689083471613372*^9, 3.689083662699472*^9}]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1355, 876},
+WindowMargins->{{Automatic, 533}, {-100, Automatic}},
+FrontEndVersion->"11.0 for Linux x86 (64-bit) (September 21, 2016)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 1332, 25, 147, "Input"],
+Cell[CellGroupData[{
+Cell[1915, 49, 676, 11, 35, "Subsubsection"],
+Cell[2594, 62, 11495, 275, 559, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[14126, 342, 726, 12, 35, "Subsubsection"],
+Cell[14855, 356, 11493, 274, 558, "Input"],
+Cell[CellGroupData[{
+Cell[26373, 634, 102, 1, 32, "Input"],
+Cell[26478, 637, 21612, 530, 122, "Output"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+

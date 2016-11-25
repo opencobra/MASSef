@@ -1,0 +1,611 @@
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[         0,          0]
+NotebookDataLength[     24163,        610]
+NotebookOptionsPosition[     23313,        574]
+NotebookOutlinePosition[     23656,        589]
+CellTagsIndexPosition[     23613,        586]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Setup", "Section",
+ CellChangeTimes->{{3.6261993596174583`*^9, 3.626199365096266*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Quit", "[", "]"}]], "Input",
+ CellChangeTimes->{{3.6239482288267508`*^9, 3.623948229956398*^9}}],
+
+Cell[BoxData[{
+ RowBox[{"<<", "Toolbox`"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"displayTest", "[", "testName_String", "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"notebookName", ",", "nb"}], "}"}], ",", "\[IndentingNewLine]", 
+     
+     RowBox[{
+      RowBox[{"notebookName", "=", 
+       RowBox[{"First", "[", 
+        RowBox[{"StringSplit", "[", 
+         RowBox[{"testName", ",", "\"\<-\>\""}], "]"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"nb", "=", 
+       RowBox[{"NotebookOpen", "[", 
+        RowBox[{"FileNameJoin", "[", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"NotebookDirectory", "[", "]"}], ",", 
+           RowBox[{"notebookName", "<>", "\"\<.nb\>\""}]}], "}"}], "]"}], 
+        "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"SetSelectedNotebook", "[", "nb", "]"}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"NotebookFind", "[", 
+       RowBox[{"nb", ",", "testName", ",", "All"}], "]"}], ";"}]}], 
+    "\[IndentingNewLine]", "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"viewOutput", "[", "test_TestResultObject", "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"expected", ",", "actual"}], "}"}], ",", "\[IndentingNewLine]", 
+     
+     RowBox[{
+      RowBox[{"expected", "=", 
+       RowBox[{"test", "[", "\"\<ExpectedOutput\>\"", "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"CreateDocument", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"TextCell", "[", 
+          RowBox[{"\"\<Actual Output\>\"", ",", "\"\<Section\>\""}], "]"}], 
+         ",", 
+         RowBox[{"ExpressionCell", "[", 
+          RowBox[{
+           RowBox[{"test", "[", "\"\<ActualOutput\>\"", "]"}], ",", 
+           "\"\<Input\>\""}], "]"}], ",", 
+         RowBox[{"TextCell", "[", 
+          RowBox[{"\"\<Expected Output\>\"", ",", "\"\<Section\>\""}], "]"}], 
+         ",", 
+         RowBox[{"ExpressionCell", "[", 
+          RowBox[{
+           RowBox[{"test", "[", "\"\<ExpectedOutput\>\"", "]"}], ",", 
+           "\"\<Input\>\""}], "]"}]}], "}"}], "]"}]}]}], 
+    "\[IndentingNewLine]", "]"}]}], ";"}], "\[IndentingNewLine]"}], "Input",
+ CellChangeTimes->{{3.623786242096077*^9, 3.623786247281707*^9}, {
+   3.623786306185534*^9, 3.623786412932946*^9}, {3.623861700358221*^9, 
+   3.6238617008056173`*^9}, {3.62386174074115*^9, 3.623861741667169*^9}, {
+   3.623862160935178*^9, 3.6238621617204227`*^9}, {3.623862489797049*^9, 
+   3.623862531848665*^9}, {3.6238625938623*^9, 3.623862596917156*^9}, {
+   3.623862767454359*^9, 3.623862821550878*^9}, {3.623862908083373*^9, 
+   3.623862945537455*^9}, {3.623862997837943*^9, 3.623863008884385*^9}, {
+   3.623863123844658*^9, 3.623863166887266*^9}, {3.623863270405038*^9, 
+   3.6238633001033373`*^9}, {3.623863341895726*^9, 3.6238633480401506`*^9}, {
+   3.623863624510748*^9, 3.6238636303563643`*^9}, {3.623864711254011*^9, 
+   3.623864740568141*^9}, {3.623864802404552*^9, 3.623864806237013*^9}, {
+   3.623864905591221*^9, 3.623864914077327*^9}, {3.6238651209893637`*^9, 
+   3.623865122715857*^9}, {3.623865248449477*^9, 3.6238652567280903`*^9}, {
+   3.62386529168337*^9, 3.62386532505072*^9}, {3.623865538907524*^9, 
+   3.623865609764944*^9}, {3.623865719826927*^9, 3.623865762731213*^9}, {
+   3.623871047613627*^9, 3.6238710981903257`*^9}, {3.623871312740251*^9, 
+   3.623871342581726*^9}, {3.6238714146429787`*^9, 3.623871432395342*^9}, {
+   3.623871483749947*^9, 3.623871541744637*^9}, {3.623871647166696*^9, 
+   3.623871669328154*^9}, {3.623947973960188*^9, 3.623947978534238*^9}, {
+   3.6239480996041*^9, 3.6239481134684362`*^9}, 3.623948168221081*^9, {
+   3.623948233080126*^9, 3.623948238552415*^9}, 3.623957477936534*^9, {
+   3.624123541783087*^9, 3.624123553745182*^9}, {3.624123587538237*^9, 
+   3.624123597798946*^9}, {3.6241588430786533`*^9, 3.624158846708009*^9}, {
+   3.624160466073247*^9, 3.6241604690820847`*^9}, {3.624160509743643*^9, 
+   3.624160581057701*^9}, {3.6241613715661163`*^9, 3.624161394463451*^9}, {
+   3.624163157786687*^9, 3.624163164489929*^9}, {3.6241643346999483`*^9, 
+   3.624164338922521*^9}, {3.624164385512415*^9, 3.624164389783505*^9}, {
+   3.624202984858835*^9, 3.62420298691199*^9}, {3.624203163493257*^9, 
+   3.6242031918070183`*^9}, {3.624203457610832*^9, 3.624203466088065*^9}, {
+   3.624205565607074*^9, 3.62420557597816*^9}, {3.624212924576597*^9, 
+   3.624212953502713*^9}, {3.6242130294142237`*^9, 3.624213079674864*^9}, {
+   3.624547582591302*^9, 3.624547618004697*^9}, {3.6261974114501534`*^9, 
+   3.626197462101013*^9}, {3.626197499221789*^9, 3.626197511932768*^9}, {
+   3.6261975695482388`*^9, 3.6261975874705887`*^9}, 3.6261983016985807`*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"testNotebooks", " ", "=", " ", "\[IndentingNewLine]", 
+    RowBox[{"{", 
+     RowBox[{
+     "\"\<test_analyze_fit_results.nb\>\"", ",", "\[IndentingNewLine]", 
+      "\"\<test_build_module.nb\>\"", ",", "\[IndentingNewLine]", 
+      "\"\<test_configure_fit.nb\>\"", ",", "\[IndentingNewLine]", 
+      "\"\<test_import_data.nb\>\"", ",", "\[IndentingNewLine]", 
+      "\"\<test_simulate_data.nb\>\""}], "}"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"rawResults", " ", "=", " ", "\[IndentingNewLine]", 
+   RowBox[{"Map", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"AbsoluteTiming", "[", "\[IndentingNewLine]", "\t", 
+       RowBox[{"NotebookEvaluate", "[", 
+        RowBox[{
+         RowBox[{"FileNameJoin", "[", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"NotebookDirectory", "[", "]"}], ",", "#"}], "}"}], "]"}],
+          ",", 
+         RowBox[{"InsertResults", "\[Rule]", "False"}], ",", " ", 
+         RowBox[{"EvaluationElements", "\[Rule]", "All"}]}], "]"}], "]"}], 
+      "&"}], ",", "\[IndentingNewLine]", "testNotebooks"}], "]"}]}], 
+  ";"}]}], "Input",
+ CellChangeTimes->{{3.6890841726292543`*^9, 3.6890842574097767`*^9}}],
+
+Cell[BoxData["\<\"Working \
+dir:/home/mrama/Dropbox/MASSFittingPackage/mathematica_code/tests/\"\>"], \
+"Print",
+ CellChangeTimes->{3.689084780610211*^9}]
+}, Open  ]],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"results", "=", 
+    RowBox[{"Last", "/@", "rawResults"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"outcome", "=", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"And", "@@", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"MatchQ", "[", 
+            RowBox[{
+             RowBox[{"#", "[", "\"\<Outcome\>\"", "]"}], ",", 
+             "\"\<Success\>\""}], "]"}], "&"}], "/@", "#"}], ")"}]}], "&"}], "/@",
+       "results"}], "/.", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"True", "\[Rule]", 
+        RowBox[{"Style", "[", 
+         RowBox[{"\"\<Success\>\"", ",", 
+          RowBox[{"Darker", "[", "Green", "]"}]}], "]"}]}], ",", 
+       RowBox[{"False", "\[Rule]", 
+        RowBox[{"Style", "[", 
+         RowBox[{"\"\<Failure\>\"", ",", "Red"}], "]"}]}]}], "}"}]}]}], ";"}],
+   "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"failedTests", "=", 
+    RowBox[{"Map", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"If", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"#", "[", "\"\<Outcome\>\"", "]"}], "=!=", 
+          "\"\<Success\>\""}], ",", "#", ",", 
+         RowBox[{
+          RowBox[{"##", "&"}], "[", "]"}]}], "]"}], "&"}], ",", "results", 
+      ",", 
+      RowBox[{"{", "2", "}"}]}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"testButtons", "=", 
+    RowBox[{"Map", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"Button", "[", 
+        RowBox[{
+         RowBox[{"\"\<View \>\"", "<>", 
+          RowBox[{"#", "[", "\"\<TestID\>\"", "]"}]}], ",", 
+         RowBox[{"displayTest", "[", 
+          RowBox[{"#", "[", "\"\<TestID\>\"", "]"}], "]"}]}], "]"}], "&"}], 
+      ",", "failedTests", ",", 
+      RowBox[{"{", "2", "}"}]}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"time", "=", 
+    RowBox[{"First", "/@", "rawResults"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"testNotebookButtons", " ", "=", " ", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Button", "[", 
+       RowBox[{"#", ",", 
+        RowBox[{"NotebookOpen", "[", 
+         RowBox[{"FileNameJoin", "[", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"NotebookDirectory", "[", "]"}], ",", "#"}], "}"}], "]"}],
+          "]"}]}], "]"}], "&"}], "/@", "testNotebooks"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"outputButton", "=", 
+   RowBox[{"Map", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Button", "[", 
+       RowBox[{"\"\<View Outcome\>\"", ",", 
+        RowBox[{"viewOutput", "[", "#", "]"}]}], "]"}], "&"}], ",", 
+     "failedTests", ",", 
+     RowBox[{"{", "2", "}"}]}], "]"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.625457091719592*^9, 3.6254571129678*^9}, {
+  3.625457185317789*^9, 3.625457191534223*^9}, {3.626199433508198*^9, 
+  3.626199468702689*^9}, {3.626199547445424*^9, 3.626199547918448*^9}, {
+  3.627631683015834*^9, 3.627631683351824*^9}, {3.6276899939800663`*^9, 
+  3.627689994361013*^9}, {3.644259555346648*^9, 3.644259555592908*^9}, {
+  3.6890839929930143`*^9, 3.689084035299758*^9}, {3.689084078555441*^9, 
+  3.6890841599243193`*^9}, {3.689084404470406*^9, 3.6890844092618923`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Test Results", "Section",
+ CellChangeTimes->{{3.626199376106031*^9, 3.626199377856846*^9}, {
+  3.644261001299182*^9, 3.644261007241234*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"TableForm", "[", 
+  RowBox[{
+   RowBox[{"Transpose", "[", 
+    RowBox[{"{", 
+     RowBox[{"testNotebookButtons", ",", "outcome", ",", "time", ",", 
+      RowBox[{"Row", "/@", 
+       RowBox[{"Transpose", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"Column", "/@", "outputButton"}], ",", 
+          RowBox[{"Column", "/@", "testButtons"}]}], "}"}], "]"}]}]}], "}"}], 
+    "]"}], ",", 
+   RowBox[{"TableHeadings", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"None", ",", 
+      RowBox[{"{", 
+       RowBox[{
+       "\"\<Test Package\>\"", ",", "\"\<Outcome\>\"", ",", 
+        "\"\<Test Timing\>\"", ",", "\"\<Failed Tests\>\""}], "}"}]}], 
+     "}"}]}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.624161403550104*^9, 3.6241614414957123`*^9}, {
+   3.624161495546268*^9, 3.6241615086744137`*^9}, {3.624161545980329*^9, 
+   3.624161654947135*^9}, {3.6241616962782583`*^9, 3.624161696646761*^9}, {
+   3.6241618984761667`*^9, 3.624161899826084*^9}, {3.6241619668204*^9, 
+   3.624162001659192*^9}, {3.624162037188471*^9, 3.624162045075581*^9}, {
+   3.624162137735305*^9, 3.624162172870336*^9}, {3.624162226682757*^9, 
+   3.624162308022944*^9}, {3.6241623503652143`*^9, 3.624162357168067*^9}, {
+   3.624163223934741*^9, 3.6241632515448923`*^9}, {3.624163281701796*^9, 
+   3.6241632892521763`*^9}, {3.624163430732882*^9, 3.624163542950323*^9}, {
+   3.624163698070674*^9, 3.62416374075613*^9}, {3.6241639096036386`*^9, 
+   3.624163914520163*^9}, {3.6241639908197308`*^9, 3.624164010036251*^9}, {
+   3.624164132043251*^9, 3.624164297634594*^9}, {3.624164327795759*^9, 
+   3.6241643770083237`*^9}, {3.624164407696258*^9, 3.624164505383709*^9}, {
+   3.6241645377855043`*^9, 3.6241645747434*^9}, {3.624164654538784*^9, 
+   3.624164664464293*^9}, {3.6241647841311607`*^9, 3.624164788308716*^9}, {
+   3.6241648659237633`*^9, 3.624164869016326*^9}, {3.6241649838275013`*^9, 
+   3.624165070990552*^9}, {3.624165121394786*^9, 3.624165165443613*^9}, {
+   3.6241653533050957`*^9, 3.62416542430847*^9}, {3.6241654916253853`*^9, 
+   3.624165519311783*^9}, {3.624165566511528*^9, 3.624165582325515*^9}, {
+   3.6241659297070303`*^9, 3.6241660172023*^9}, {3.6241660557580976`*^9, 
+   3.624166059550639*^9}, {3.624203397862487*^9, 3.624203398285532*^9}, {
+   3.6242035287241783`*^9, 3.624203609762882*^9}, {3.6242040163015003`*^9, 
+   3.624204018773881*^9}, 3.624204440112015*^9, {3.624204475803051*^9, 
+   3.624204529594618*^9}, {3.6242047877811117`*^9, 3.624204839415791*^9}, {
+   3.624205242233181*^9, 3.624205244327818*^9}, 3.624206143774218*^9, {
+   3.6242126727505817`*^9, 3.624212677444862*^9}, {3.624212785972077*^9, 
+   3.624212856067398*^9}, {3.6245476059216213`*^9, 3.624547611423387*^9}, {
+   3.624547660677458*^9, 3.62454766647645*^9}, {3.624547809373782*^9, 
+   3.624547811677393*^9}, {3.624547849272376*^9, 3.6245478525099583`*^9}, {
+   3.624920063230756*^9, 3.6249200663101883`*^9}, {3.62492031966673*^9, 
+   3.624920332188599*^9}, {3.62492228523307*^9, 3.6249223046559143`*^9}, {
+   3.624922388333317*^9, 3.624922455955949*^9}, {3.624922582791164*^9, 
+   3.62492258846881*^9}, {3.624931862567935*^9, 3.624931872529284*^9}, {
+   3.624932329497843*^9, 3.62493233315245*^9}, {3.6249327844866962`*^9, 
+   3.6249328257345057`*^9}, {3.6249328936934757`*^9, 3.624932929918104*^9}, {
+   3.62493298705737*^9, 3.624932989247271*^9}, {3.624933036903082*^9, 
+   3.624933069287115*^9}, {3.6254174915214167`*^9, 3.625417499328843*^9}, {
+   3.625457033173987*^9, 3.6254570698756533`*^9}, {3.625457177160965*^9, 
+   3.625457182742885*^9}, 3.625457242777705*^9, {3.626196424512941*^9, 
+   3.626196525279051*^9}, {3.626196711135647*^9, 3.6261967533991423`*^9}, {
+   3.626196786716901*^9, 3.62619681627861*^9}, {3.6261968566723957`*^9, 
+   3.626196941124593*^9}, {3.6261972106880617`*^9, 3.626197211733952*^9}, {
+   3.62619724748519*^9, 3.626197278468136*^9}, {3.626197337526153*^9, 
+   3.626197404007183*^9}, {3.626198427281818*^9, 3.6261984836874533`*^9}, 
+   3.626198657667252*^9, {3.626198691082868*^9, 3.626198729197015*^9}, {
+   3.6261987687032833`*^9, 3.626198790663313*^9}, {3.626199465306004*^9, 
+   3.626199490335678*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  TagBox[GridBox[{
+     {
+      TagBox["\<\"Test Package\"\>",
+       HoldForm], 
+      TagBox["\<\"Outcome\"\>",
+       HoldForm], 
+      TagBox["\<\"Test Timing\"\>",
+       HoldForm], 
+      TagBox["\<\"Failed Tests\"\>",
+       HoldForm]},
+     {
+      ButtonBox["\<\"test_analyze_fit_results.nb\"\>",
+       Appearance->Automatic,
+       ButtonFunction:>NotebookOpen[
+         FileNameJoin[{
+           NotebookDirectory[], "test_analyze_fit_results.nb"}]],
+       Evaluator->Automatic,
+       Method->"Preemptive"], 
+      StyleBox["\<\"Success\"\>",
+       StripOnInput->False,
+       LineColor->RGBColor[0, 
+         Rational[2, 3], 0],
+       FrontFaceColor->RGBColor[0, 
+         Rational[2, 3], 0],
+       BackFaceColor->RGBColor[0, 
+         Rational[2, 3], 0],
+       GraphicsColor->RGBColor[0, 
+         Rational[2, 3], 0],
+       FontColor->RGBColor[0, 
+         Rational[2, 3], 0]], "1.437949`", 
+      TemplateBox[{InterpretationBox[
+         TagBox[
+          
+          GridBox[{{""}}, GridBoxAlignment -> {"Columns" -> {{Left}}}, 
+           DefaultBaseStyle -> "Column", 
+           GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Column"], 
+         
+         Column[{}]],InterpretationBox[
+         TagBox[
+          
+          GridBox[{{""}}, GridBoxAlignment -> {"Columns" -> {{Left}}}, 
+           DefaultBaseStyle -> "Column", 
+           GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Column"], 
+         
+         Column[{}]]},
+       "RowDefault"]},
+     {
+      ButtonBox["\<\"test_build_module.nb\"\>",
+       Appearance->Automatic,
+       ButtonFunction:>NotebookOpen[
+         FileNameJoin[{
+           NotebookDirectory[], "test_build_module.nb"}]],
+       Evaluator->Automatic,
+       Method->"Preemptive"], 
+      StyleBox["\<\"Success\"\>",
+       StripOnInput->False,
+       LineColor->RGBColor[0, 
+         Rational[2, 3], 0],
+       FrontFaceColor->RGBColor[0, 
+         Rational[2, 3], 0],
+       BackFaceColor->RGBColor[0, 
+         Rational[2, 3], 0],
+       GraphicsColor->RGBColor[0, 
+         Rational[2, 3], 0],
+       FontColor->RGBColor[0, 
+         Rational[2, 3], 0]], "4.314527`", 
+      TemplateBox[{InterpretationBox[
+         TagBox[
+          
+          GridBox[{{""}}, GridBoxAlignment -> {"Columns" -> {{Left}}}, 
+           DefaultBaseStyle -> "Column", 
+           GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Column"], 
+         
+         Column[{}]],InterpretationBox[
+         TagBox[
+          
+          GridBox[{{""}}, GridBoxAlignment -> {"Columns" -> {{Left}}}, 
+           DefaultBaseStyle -> "Column", 
+           GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Column"], 
+         
+         Column[{}]]},
+       "RowDefault"]},
+     {
+      ButtonBox["\<\"test_configure_fit.nb\"\>",
+       Appearance->Automatic,
+       ButtonFunction:>NotebookOpen[
+         FileNameJoin[{
+           NotebookDirectory[], "test_configure_fit.nb"}]],
+       Evaluator->Automatic,
+       Method->"Preemptive"], 
+      StyleBox["\<\"Success\"\>",
+       StripOnInput->False,
+       LineColor->RGBColor[0, 
+         Rational[2, 3], 0],
+       FrontFaceColor->RGBColor[0, 
+         Rational[2, 3], 0],
+       BackFaceColor->RGBColor[0, 
+         Rational[2, 3], 0],
+       GraphicsColor->RGBColor[0, 
+         Rational[2, 3], 0],
+       FontColor->RGBColor[0, 
+         Rational[2, 3], 0]], "0.66486`", 
+      TemplateBox[{InterpretationBox[
+         TagBox[
+          
+          GridBox[{{""}}, GridBoxAlignment -> {"Columns" -> {{Left}}}, 
+           DefaultBaseStyle -> "Column", 
+           GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Column"], 
+         
+         Column[{}]],InterpretationBox[
+         TagBox[
+          
+          GridBox[{{""}}, GridBoxAlignment -> {"Columns" -> {{Left}}}, 
+           DefaultBaseStyle -> "Column", 
+           GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Column"], 
+         
+         Column[{}]]},
+       "RowDefault"]},
+     {
+      ButtonBox["\<\"test_import_data.nb\"\>",
+       Appearance->Automatic,
+       ButtonFunction:>NotebookOpen[
+         FileNameJoin[{
+           NotebookDirectory[], "test_import_data.nb"}]],
+       Evaluator->Automatic,
+       Method->"Preemptive"], 
+      StyleBox["\<\"Success\"\>",
+       StripOnInput->False,
+       LineColor->RGBColor[0, 
+         Rational[2, 3], 0],
+       FrontFaceColor->RGBColor[0, 
+         Rational[2, 3], 0],
+       BackFaceColor->RGBColor[0, 
+         Rational[2, 3], 0],
+       GraphicsColor->RGBColor[0, 
+         Rational[2, 3], 0],
+       FontColor->RGBColor[0, 
+         Rational[2, 3], 0]], "1.138573`", 
+      TemplateBox[{InterpretationBox[
+         TagBox[
+          
+          GridBox[{{""}}, GridBoxAlignment -> {"Columns" -> {{Left}}}, 
+           DefaultBaseStyle -> "Column", 
+           GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Column"], 
+         
+         Column[{}]],InterpretationBox[
+         TagBox[
+          
+          GridBox[{{""}}, GridBoxAlignment -> {"Columns" -> {{Left}}}, 
+           DefaultBaseStyle -> "Column", 
+           GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Column"], 
+         
+         Column[{}]]},
+       "RowDefault"]},
+     {
+      ButtonBox["\<\"test_simulate_data.nb\"\>",
+       Appearance->Automatic,
+       ButtonFunction:>NotebookOpen[
+         FileNameJoin[{
+           NotebookDirectory[], "test_simulate_data.nb"}]],
+       Evaluator->Automatic,
+       Method->"Preemptive"], 
+      StyleBox["\<\"Success\"\>",
+       StripOnInput->False,
+       LineColor->RGBColor[0, 
+         Rational[2, 3], 0],
+       FrontFaceColor->RGBColor[0, 
+         Rational[2, 3], 0],
+       BackFaceColor->RGBColor[0, 
+         Rational[2, 3], 0],
+       GraphicsColor->RGBColor[0, 
+         Rational[2, 3], 0],
+       FontColor->RGBColor[0, 
+         Rational[2, 3], 0]], "12.348285`", 
+      TemplateBox[{InterpretationBox[
+         TagBox[
+          
+          GridBox[{{""}}, GridBoxAlignment -> {"Columns" -> {{Left}}}, 
+           DefaultBaseStyle -> "Column", 
+           GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Column"], 
+         
+         Column[{}]],InterpretationBox[
+         TagBox[
+          
+          GridBox[{{""}}, GridBoxAlignment -> {"Columns" -> {{Left}}}, 
+           DefaultBaseStyle -> "Column", 
+           GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Column"], 
+         
+         Column[{}]]},
+       "RowDefault"]}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxDividers->{
+     "Columns" -> {{False}}, "ColumnsIndexed" -> {}, 
+      "Rows" -> {False, True, {False}, False}, "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[2.0999999999999996`]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}],
+   {None, OutputFormsDump`HeadedColumns}],
+  Function[BoxForm`e$, 
+   TableForm[
+   BoxForm`e$, 
+    TableHeadings -> {
+     None, {"Test Package", "Outcome", "Test Timing", 
+       "Failed Tests"}}]]]], "Output",
+ CellChangeTimes->{
+  3.6250761541103783`*^9, 3.62507701967948*^9, 3.6251820601399097`*^9, 
+   3.625182442128901*^9, 3.625263518738364*^9, 3.625457275716309*^9, 
+   3.626014710408122*^9, 3.62601478704846*^9, 3.6260542969596567`*^9, {
+   3.626196504057373*^9, 3.626196528278206*^9}, 3.626196942151505*^9, 
+   3.626197212578989*^9, 3.626198344609625*^9, 3.626198515604001*^9, 
+   3.6261986587473*^9, 3.6261986927755613`*^9, 3.62619873013231*^9, {
+   3.6261987782638683`*^9, 3.626198791751021*^9}, 3.626199520715438*^9, 
+   3.626199569519929*^9, 3.627624920970604*^9, 3.627625363736207*^9, 
+   3.6276271464862127`*^9, 3.627628144270997*^9, 3.627628902427033*^9, 
+   3.627629004954207*^9, 3.627689734107296*^9, 3.6306853012035437`*^9, 
+   3.630685502044681*^9, 3.630685919673807*^9, 3.630686091557816*^9, 
+   3.630686204238865*^9, 3.640486564657529*^9, 3.644259586475499*^9, 
+   3.644259628808795*^9, 3.644259723732836*^9, 3.6442610243936253`*^9, 
+   3.644261143659711*^9, 3.644261756640709*^9, 3.6890843253679323`*^9, {
+   3.689084424200192*^9, 3.6890844347847023`*^9}, 3.689084820454406*^9}]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1502, 1020},
+WindowMargins->{{Automatic, 197}, {-95, Automatic}},
+FrontEndVersion->"11.0 for Linux x86 (64-bit) (September 21, 2016)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[422, 15, 92, 1, 65, "Section"],
+Cell[517, 18, 120, 2, 32, "Input"],
+Cell[640, 22, 4751, 92, 308, "Input"],
+Cell[CellGroupData[{
+Cell[5416, 118, 1247, 29, 260, "Input"],
+Cell[6666, 149, 154, 3, 24, "Print"]
+}, Open  ]],
+Cell[6835, 155, 3419, 97, 304, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[10291, 257, 146, 2, 65, "Section"],
+Cell[CellGroupData[{
+Cell[10462, 263, 4144, 67, 57, "Input"],
+Cell[14609, 332, 8676, 238, 237, "Output"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
