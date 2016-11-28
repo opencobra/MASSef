@@ -1,12 +1,11 @@
 (* ::Package:: *)
 
 rxn = Toolbox`reaction["GAPD", {Toolbox`metabolite["g3p", "c"], Toolbox`metabolite["nad", "c"], Toolbox`metabolite["pi", "c"]}, {Toolbox`metabolite["13dpg", "c"], Toolbox`metabolite["h", "c"], Toolbox`metabolite["nadh", "c"]}, {1, 1, 1, 1, 1, 1}, True];
-rNonModelMets[metList_]:=Delete[Delete[metList,Position[metList,MASSToolbox`metabolite["h", "c"]]],Position[metList,MASSToolbox`metabolite["h2o", "c"]]];
-metSatForSub=#->\[Infinity]&/@rNonModelMets[getSubstrates[rxn]];
-metSatRevSub=#->\[Infinity]&/@rNonModelMets[getProducts[rxn]];
+{reverseZeroSub, forwardZeroSub, metSatForSub, metSatRevSub} = getMetsSub[rxn];
 metsFull = {Toolbox`metabolite["13dpg", "c"],Toolbox`metabolite["g3p", "c"],Toolbox`metabolite["nad", "c"],Toolbox`metabolite["nadh", "c"],Toolbox`metabolite["pi", "c"]};
 logStepSize=0.2;
-nonKmParamWeight=Length[Table[1,{i,minPsDataVal[1],maxPsDataVal[1],logStepSize}]];
+{minPsDataVal,maxPsDataVal} = getMinMaxPsDataVal[1];
+nonKmParamWeight=Length[Table[1,{i,minPsDataVal,maxPsDataVal,logStepSize}]];
 eTotal=1;
 assumedSaturatingConc=0.01 ;
 activeIsoSub=Thread[metsFull->metsFull];

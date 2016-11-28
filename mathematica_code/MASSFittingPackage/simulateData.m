@@ -113,8 +113,15 @@ getDataListFull[rxn_, dataList_, dataListSub_] := Module[{char2met, dataListFull
 ];
 
 
-minPsDataVal[Km_]:=Log10[Km]-1;
-maxPsDataVal[Km_]:=Log10[Km]+1;
+getMinMaxPsDataVal[val_] := Module[{minPsDataVal, maxPsDataVal},
+	minPsDataVal = Log10[val]-1;
+	maxPsDataVal = Log10[val]+1;
+
+	Return[{minPsDataVal, maxPsDataVal}];
+];
+
+minPsDataValFunc[Km_]:=Log10[Km]-1;
+maxPsDataValFunc[Km_]:=Log10[Km]+1;
 
 
 (* ::Subsection:: *)
@@ -148,7 +155,11 @@ simulateKmData[rxn_, metsFull_, metsSub_, metSatForSub_, metSatRevSub_, kmList_,
 	{km,Length[kmListFull]}];
 	
 	(*Generate Data Points (An Order of Magnitude Above and Below the Km's)*)
-	dataRange=Table[{i,km[[2]]},{km,kmListFull},{i,minPsDataVal[km[[2]]],maxPsDataVal[km[[2]]],logStepSize}];
+	dataRange=
+		Table[
+			{i, km[[2]]},
+		{km, kmListFull}, {i,minPsDataValFunc[km[[2]]], maxPsDataValFunc[km[[2]]],logStepSize}];
+
 	
 	(*Generate Resultant Rates*)
 	vValues=Table[
@@ -453,10 +464,11 @@ simulateRateConstRatiosData[dKdRatio_, dKdVal_, KeqVal_, metsFull_, rateConstsSu
 	(*Incorporate the Equation Into the Existing Notebook Framework*)
 	(*Equation Naming and Export*)
 	fileName = outputPath <> eqnName <> ".txt";
+	Export[fileName, dKdRatioPy];
 
 	(*Incorporating the Equation for Down Stream Equation Handling*)
 
-	fileListLocal = DeleteDuplicates @ Append[fileListLocal,fileName];
+	fileListLocal = DeleteDuplicates @ Append[fileListLocal, fileName];
 	fileNameSub  = fileName -> dKdRatio;
 	fileListSubLocal = DeleteDuplicates @ Append[fileListSubLocal, fileNameSub];
 	eqnNameListLocal = DeleteDuplicates @ Append[eqnNameListLocal, eqnName];

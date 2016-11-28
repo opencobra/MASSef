@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    111169,       2701]
-NotebookOptionsPosition[    110213,       2664]
-NotebookOutlinePosition[    110552,       2679]
-CellTagsIndexPosition[    110509,       2676]
+NotebookDataLength[    111331,       2706]
+NotebookOptionsPosition[    110375,       2669]
+NotebookOutlinePosition[    110714,       2684]
+CellTagsIndexPosition[    110671,       2681]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -24,7 +24,11 @@ Cell[BoxData[{
    RowBox[{"NotebookDirectory", "[", "]"}], "]"}], 
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
-  RowBox[{"Import", "[", "\"\<../src/import_data.m\>\"", "]"}], 
+  RowBox[{"Needs", "[", "\"\<Toolbox`\>\"", "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Get", "[", "\"\<MASSFittingPackage`\>\"", "]"}], ";"}], 
   "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
@@ -46,11 +50,12 @@ Cell[BoxData[{
   RowBox[{"testResults", "=", 
    RowBox[{"{", "}"}]}], ";"}], "\[IndentingNewLine]"}], "Input",
  CellChangeTimes->{{3.637645027489709*^9, 3.6376450280971107`*^9}, {
-  3.672692743107355*^9, 3.6726927434106083`*^9}, {3.688379314519944*^9, 
-  3.688379323937272*^9}, {3.688379500528048*^9, 3.688379505413515*^9}, {
-  3.688379610834086*^9, 3.688379615162458*^9}, {3.6883796704649563`*^9, 
-  3.6883796795516977`*^9}, {3.68838057838741*^9, 3.688380615452154*^9}, {
-  3.688463975330852*^9, 3.688464039417232*^9}}],
+   3.672692743107355*^9, 3.6726927434106083`*^9}, {3.688379314519944*^9, 
+   3.688379323937272*^9}, {3.688379500528048*^9, 3.688379505413515*^9}, {
+   3.688379610834086*^9, 3.688379615162458*^9}, {3.6883796704649563`*^9, 
+   3.6883796795516977`*^9}, {3.68838057838741*^9, 3.688380615452154*^9}, {
+   3.688463975330852*^9, 3.688464039417232*^9}, 3.68933879159813*^9, 
+   3.689338918644104*^9}],
 
 Cell[CellGroupData[{
 
@@ -2662,8 +2667,8 @@ Cell[BoxData[""], "Input",
  CellChangeTimes->{{3.6888133205742702`*^9, 3.6888133232090273`*^9}}]
 }, Open  ]]
 },
-WindowSize->{1920, 1023},
-WindowMargins->{{0, Automatic}, {0, Automatic}},
+WindowSize->{1914, 1023},
+WindowMargins->{{Automatic, 3}, {0, Automatic}},
 FrontEndVersion->"11.0 for Linux x86 (64-bit) (September 21, 2016)",
 StyleDefinitions->"Default.nb"
 ]
@@ -2678,30 +2683,30 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[558, 20, 1257, 32, 215, "Input"],
+Cell[558, 20, 1419, 37, 238, "Input"],
 Cell[CellGroupData[{
-Cell[1840, 56, 211, 3, 35, "Subsubsection"],
+Cell[2002, 61, 211, 3, 35, "Subsubsection"],
 Cell[CellGroupData[{
-Cell[2076, 63, 7537, 192, 352, "Input"],
-Cell[9616, 257, 581, 11, 23, "Message"]
+Cell[2238, 68, 7537, 192, 352, "Input"],
+Cell[9778, 262, 581, 11, 23, "Message"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[10246, 274, 155, 2, 35, "Subsubsection"],
-Cell[10404, 278, 1905, 44, 214, "Input"]
+Cell[10408, 279, 155, 2, 35, "Subsubsection"],
+Cell[10566, 283, 1905, 44, 214, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[12346, 327, 165, 2, 35, "Subsubsection"],
-Cell[12514, 331, 13338, 325, 449, "Input"]
+Cell[12508, 332, 165, 2, 35, "Subsubsection"],
+Cell[12676, 336, 13338, 325, 449, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[25889, 661, 117, 1, 35, "Subsubsection"],
-Cell[26009, 664, 10155, 248, 402, "Input"],
+Cell[26051, 666, 117, 1, 35, "Subsubsection"],
+Cell[26171, 669, 10155, 248, 402, "Input"],
 Cell[CellGroupData[{
-Cell[36189, 916, 37, 0, 32, "Input"],
-Cell[36229, 918, 73857, 1739, 65, "Output"]
+Cell[36351, 921, 37, 0, 32, "Input"],
+Cell[36391, 923, 73857, 1739, 65, "Output"]
 }, Open  ]],
-Cell[110101, 2660, 96, 1, 65, "Input"]
+Cell[110263, 2665, 96, 1, 65, "Input"]
 }, Open  ]]
 }
 ]

@@ -109,6 +109,8 @@ definePSOparameters[inputPath_, outputPath_, dataPath_, finalRateConsts_, fileLi
 
 	psoParameterPath = inputPath <> "psoParameters.txt";
 	Export[psoParameterPath, psoParameters, "Table"];
+	
+	Return[{psoParameterPath, psoResultsFileName, psoTrialSummaryFileName}];
 ];
 
 
@@ -177,7 +179,7 @@ defineLMAparameters[inputPath_, outputPath_, dataPath_, finalRateConsts_, fileLi
    
    				{"candidates_import_path", psoResultsFileName = outputPath <> "raw/psoResults.txt"},
    				{"candidates_export_path", lmaResultsFileName = outputPath <> "raw/lmaResults.txt"},
-   				{"filesWithFunctions", fileListPy = listToPython[outputPath <> StringSplit[#, "/"][[-1]] & /@ fileList]},
+   				{"filesWithFunctions", fileListPy = listToPython[inputPath <> StringSplit[#, "/"][[-1]] & /@ fileList]},
    				{"data_file_name", dataPath},
    				{"value_row", valueRow = -1},
    				{"function_row", functionRow = -2},
@@ -187,6 +189,8 @@ defineLMAparameters[inputPath_, outputPath_, dataPath_, finalRateConsts_, fileLi
 
 	lmaParameterPath = inputPath <> "lmaParameters.txt";
 	Export[lmaParameterPath, lmaParameters, "Table"];	
+	
+	Return[{lmaParameterPath, lmaResultsFileName}];
 ];
 
 

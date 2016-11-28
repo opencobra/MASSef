@@ -12,6 +12,7 @@ Get["MASSFittingPackage`buildModule`"];
 Get["MASSFittingPackage`configureFit`"];
 Get["MASSFittingPackage`importData`"];
 Get["MASSFittingPackage`simulateData`"];
+Get["MASSFittingPackage`usage`"];
 Get["MASSFittingPackage`utils`"];
 
 Protect["MASSFittingPackage`*"];

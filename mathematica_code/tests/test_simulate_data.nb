@@ -10,86 +10,71 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    416196,       8283]
-NotebookOptionsPosition[    414768,       8230]
-NotebookOutlinePosition[    415107,       8245]
-CellTagsIndexPosition[    415064,       8242]
+NotebookDataLength[    381558,       7520]
+NotebookOptionsPosition[    380206,       7470]
+NotebookOutlinePosition[    380545,       7485]
+CellTagsIndexPosition[    380502,       7482]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
-Cell[BoxData["\[IndentingNewLine]"], "Input",
- CellChangeTimes->{{3.688902593302958*^9, 3.6889025945226*^9}, 
-   3.6889026344681873`*^9, 3.688904544710268*^9, {3.688904713988123*^9, 
-   3.688904716505265*^9}, {3.6889051683425293`*^9, 3.688905169112028*^9}, 
-   3.688905293363996*^9, {3.688905330816558*^9, 3.688905333513726*^9}, {
-   3.688906402071968*^9, 3.688906404770796*^9}, 3.68890878482139*^9, {
-   3.688909108273756*^9, 3.688909111184526*^9}, {3.688909322751734*^9, 
-   3.688909325225938*^9}, {3.688909434258833*^9, 3.688909437576717*^9}, {
-   3.689083772283854*^9, 3.689083779128804*^9}, {3.689083882594551*^9, 
-   3.689083885023147*^9}}],
-
-Cell[CellGroupData[{
-
 Cell[BoxData[{
  RowBox[{
   RowBox[{
    RowBox[{"SetDirectory", "[", 
     RowBox[{"NotebookDirectory", "[", "]"}], "]"}], ";"}], 
   "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
- RowBox[{"Import", "[", "\"\<../MASSFittingPackage/import_data.m\>\"", 
-  "]"}], "\[IndentingNewLine]", 
- RowBox[{"Import", "[", "\"\<../MASSFittingPackage/simulate_data.m\>\"", 
-  "]"}], "\[IndentingNewLine]", 
  RowBox[{
-  RowBox[{"Import", "[", "\"\<../MASSFittingPackage/utils.m\>\"", "]"}], 
+  RowBox[{"Needs", "[", "\"\<Toolbox`\>\"", "]"}], 
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
-  RowBox[{"pathMASSFittingPath", " ", "=", " ", "\"\<../../\>\""}], 
+  RowBox[{"Get", "[", "\"\<MASSFittingPackage`\>\"", "]"}], 
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
-  RowBox[{"dataFolder", " ", "=", " ", "\"\<test_files/simulate_data\>\""}], 
-  ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{
-   RowBox[{"{", 
-    RowBox[{
-    "workingDir", ",", " ", "pathData", ",", " ", "runFitScriptPath", ",", 
-     " ", "paramOutputPath", ",", " ", "outputPath", ",", " ", 
-     "bigg2equilibrator"}], "}"}], "=", 
-   RowBox[{"initializeNotebook", "[", 
-    RowBox[{"pathMASSFittingPath", ",", " ", "dataFolder"}], "]"}]}], 
-  ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{
-  "Import", "[", "\"\<test_files/simulate_data/test_inputs.m\>\"", "]"}], 
-  ";"}], "\[IndentingNewLine]", 
- RowBox[{
+  RowBox[{"Get", "[", "\"\<MASSFittingPackage`\>\"", "]"}], ";"}]}], "Input",
+ CellChangeTimes->{{3.6893394050794687`*^9, 3.6893394055189323`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
   RowBox[{
    RowBox[{
-   "Import", "[", "\"\<test_files/simulate_data/get_expected_results.m\>\"", 
-    "]"}], ";"}], "\[IndentingNewLine]", 
-  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"testResults", "=", 
-   RowBox[{"{", "}"}]}], ";"}], "\[IndentingNewLine]"}], "Input",
- CellChangeTimes->{{3.637645027489709*^9, 3.6376450280971107`*^9}, {
-  3.672692743107355*^9, 3.6726927434106083`*^9}, {3.688379314519944*^9, 
-  3.688379323937272*^9}, {3.688379500528048*^9, 3.688379505413515*^9}, {
-  3.688379610834086*^9, 3.688379615162458*^9}, {3.6883796704649563`*^9, 
-  3.6883796795516977`*^9}, {3.68838057838741*^9, 3.688380615452154*^9}, {
-  3.688463975330852*^9, 3.688464039417232*^9}, {3.6888962003542356`*^9, 
-  3.688896201244405*^9}, {3.6889026001104403`*^9, 3.688902642636788*^9}, {
-  3.68890369796015*^9, 3.68890376149546*^9}, {3.6889063586221457`*^9, 
-  3.6889063914246187`*^9}, {3.688907014338828*^9, 3.688907056583764*^9}, {
-  3.688907107395343*^9, 3.688907107811594*^9}, {3.688907567394809*^9, 
-  3.688907567765023*^9}, {3.6890837675706253`*^9, 3.6890837702771463`*^9}, {
-  3.689083870838189*^9, 3.689083880005782*^9}}],
+    RowBox[{"pathMASSFittingPath", " ", "=", " ", "\"\<../../\>\""}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"dataFolder", " ", "=", " ", "\"\<test_files/simulate_data\>\""}],
+     ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "workingDir", ",", " ", "pathData", ",", " ", "runFitScriptPath", ",", 
+       " ", "paramOutputPath", ",", " ", "outputPath", ",", " ", 
+       "bigg2equilibrator"}], "}"}], "=", 
+     RowBox[{"initializeNotebook", "[", 
+      RowBox[{"pathMASSFittingPath", ",", " ", "dataFolder"}], "]"}]}], ";"}],
+    "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+    "Import", "[", "\"\<test_files/simulate_data/test_inputs.m\>\"", "]"}], 
+    ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+    "Import", "[", "\"\<test_files/simulate_data/get_expected_results.m\>\"", 
+     "]"}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"testResults", "=", 
+     RowBox[{"{", "}"}]}], ";"}]}]}]], "Input",
+ CellChangeTimes->{
+  3.68933933953122*^9, {3.6893393908756742`*^9, 3.6893393935232143`*^9}, {
+   3.689339449077248*^9, 3.689339461257707*^9}}],
 
 Cell[BoxData["\<\"Working \
-dir:/home/mrama/Dropbox/MASSFittingPackage/mathematica_code/tests/\"\>"], \
+dir:/home/mrama/Dropbox/MASS_fitting_package/mathematica_code/tests/\"\>"], \
 "Print",
- CellChangeTimes->{3.689083896386702*^9}]
+ CellChangeTimes->{3.6893395829206533`*^9}]
 }, Open  ]],
 
 Cell[BoxData["\[IndentingNewLine]"], "Input",
@@ -104,16 +89,13 @@ Cell["test simulateKmData - without Keq value", "Subsubsection",
   3.688464392473873*^9}, {3.6888964464887133`*^9, 3.6888964491204863`*^9}, {
   3.688902367280327*^9, 3.688902371876642*^9}}],
 
-Cell[CellGroupData[{
-
 Cell[BoxData[
  RowBox[{"\[IndentingNewLine]", 
-  RowBox[{
+  RowBox[{"(*", 
    RowBox[{
     RowBox[{"expectedResultKm", "=", 
-     RowBox[{"getExpectedResultKm", "[", "]"}]}], ";"}], 
-   "\[IndentingNewLine]", "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   RowBox[{
+     RowBox[{"getExpectedResultKm", "[", "]"}]}], ";", "\[IndentingNewLine]", 
+    "\[IndentingNewLine]", "\[IndentingNewLine]", 
     RowBox[{"result", "=", " ", 
      RowBox[{"simulateKmData", "[", 
       RowBox[{
@@ -123,15 +105,14 @@ Cell[BoxData[
        "eTotal", ",", "\n", "\t\t\t   ", "logStepSize", ",", "activeIsoSub", 
        ",", " ", "bufferInfo", ",", " ", "ionCharge", ",", " ", 
        "paramOutputPath", ",", " ", "outputPath", ",", " ", "fileList"}], 
-      "]"}]}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   RowBox[{
+      "]"}]}], ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
     RowBox[{"AppendTo", "[", 
      RowBox[{"testResults", ",", "\[IndentingNewLine]", 
       RowBox[{"VerificationTest", "[", 
        RowBox[{"result", ",", "expectedResultKm", " ", ",", " ", 
         RowBox[{"TestID", "\[Rule]", "\"\<simulateKmDataNoKeqVal\>\""}]}], 
-       "]"}]}], "\[IndentingNewLine]", "]"}], ";"}], 
-   "\[IndentingNewLine]"}]}]], "Input",
+       "]"}]}], "\[IndentingNewLine]", "]"}], ";"}], "*)"}], 
+  "\[IndentingNewLine]"}]], "Input",
  CellChangeTimes->{{3.68837680299233*^9, 3.688376809170438*^9}, {
    3.688377062946416*^9, 3.688377063582418*^9}, 3.6883771745770893`*^9, {
    3.688377876439951*^9, 3.688377877362*^9}, {3.68837936496352*^9, 
@@ -150,20 +131,8 @@ Cell[BoxData[
    3.688904356023445*^9}, 3.688904427235903*^9, {3.688904540578706*^9, 
    3.688904540777684*^9}, {3.688905061955441*^9, 3.688905063319026*^9}, 
    3.6889057386138573`*^9, 3.68890600152892*^9, {3.688908913195183*^9, 
-   3.688908922306211*^9}, {3.6889093723348103`*^9, 3.688909376874568*^9}}],
-
-Cell[BoxData[
- TemplateBox[{
-  "res$","shdw",
-   "\"Symbol \\!\\(\\*RowBox[{\\\"\\\\\\\"res$\\\\\\\"\\\"}]\\) appears in \
-multiple contexts \\!\\(\\*RowBox[{\\\"{\\\", \
-RowBox[{\\\"\\\\\\\"BoxForm`\\\\\\\"\\\", \\\",\\\", \
-\\\"\\\\\\\"Global`\\\\\\\"\\\"}], \\\"}\\\"}]\\); definitions in context \\!\
-\\(\\*RowBox[{\\\"\\\\\\\"BoxForm`\\\\\\\"\\\"}]\\) may shadow or be shadowed \
-by other definitions.\"",2,15,1,22747818600941805506,"Local"},
-  "MessageTemplate"]], "Message", "MSG",
- CellChangeTimes->{3.689083788186151*^9, 3.6890838988265753`*^9}]
-}, Open  ]]
+   3.688908922306211*^9}, {3.6889093723348103`*^9, 3.688909376874568*^9}, {
+   3.689338999778722*^9, 3.689339002679694*^9}}]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -235,12 +204,11 @@ Cell["test simulateKcatData - without Keq value", "Subsubsection",
 
 Cell[BoxData[
  RowBox[{"\[IndentingNewLine]", 
-  RowBox[{
+  RowBox[{"(*", 
    RowBox[{
     RowBox[{"expectedResult", "=", 
-     RowBox[{"getExpectedResultKcat", "[", "]"}]}], ";"}], 
-   "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   RowBox[{
+     RowBox[{"getExpectedResultKcat", "[", "]"}]}], ";", 
+    "\[IndentingNewLine]", "\[IndentingNewLine]", 
     RowBox[{"result", "=", " ", 
      RowBox[{"simulateKcatData", "[", 
       RowBox[{
@@ -250,16 +218,15 @@ Cell[BoxData[
        "eTotal", ",", "\n", "\t\t\t  ", "logStepSize", ",", " ", 
        "nonKmParamWeight", ",", " ", "activeIsoSub", ",", " ", "bufferInfo", 
        ",", " ", "ionCharge", ",", " ", "paramOutputPath", ",", " ", "\n", 
-       "\t\t\t  ", "outputPath", ",", " ", "fileList"}], "]"}]}], ";"}], 
-   "\[IndentingNewLine]", 
-   RowBox[{
+       "\t\t\t  ", "outputPath", ",", " ", "fileList"}], "]"}]}], ";", 
+    "\[IndentingNewLine]", 
     RowBox[{"AppendTo", "[", 
      RowBox[{"testResults", ",", "\[IndentingNewLine]", 
       RowBox[{"VerificationTest", "[", 
        RowBox[{"result", ",", "expectedResult", " ", ",", " ", 
         RowBox[{"TestID", "\[Rule]", "\"\<simulateKcatDataNoKeqVal\>\""}]}], 
-       "]"}]}], "\[IndentingNewLine]", "]"}], ";"}], 
-   "\[IndentingNewLine]"}]}]], "Input",
+       "]"}]}], "\[IndentingNewLine]", "]"}], ";"}], "*)"}], 
+  "\[IndentingNewLine]"}]], "Input",
  CellChangeTimes->{{3.68837680299233*^9, 3.688376809170438*^9}, {
    3.688377062946416*^9, 3.688377063582418*^9}, 3.6883771745770893`*^9, {
    3.688377876439951*^9, 3.688377877362*^9}, {3.68837936496352*^9, 
@@ -279,7 +246,8 @@ Cell[BoxData[
    3.688904531141459*^9}, {3.688905042006423*^9, 3.688905154771555*^9}, {
    3.688905252551395*^9, 3.688905256168755*^9}, {3.688905971626822*^9, 
    3.6889059742057447`*^9}, {3.688909004884317*^9, 3.688909007283242*^9}, {
-   3.68890909760279*^9, 3.688909097921118*^9}}]
+   3.68890909760279*^9, 3.688909097921118*^9}, {3.689339010661791*^9, 
+   3.689339013764804*^9}}]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -649,456 +617,6 @@ Cell[BoxData[
               RowBox[{
                TagBox["\<\"Test ID: \"\>",
                 "SummaryItemAnnotation"], "\[InvisibleSpace]", 
-               TagBox["\<\"simulateKmDataNoKeqVal\"\>",
-                "SummaryItem"]}]}
-            },
-            AutoDelete->False,
-            
-            BaseStyle->{
-             ShowStringCharacters -> False, NumberMarks -> False, 
-              PrintPrecision -> 3, ShowSyntaxStyles -> False},
-            GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Automatic}}},
-            
-            GridBoxItemSize->{
-             "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
-            GridBoxSpacings->{"Columns" -> {{2}}, "Rows" -> {{Automatic}}}]}
-         },
-         AutoDelete->False,
-         BaselinePosition->{1, 1},
-         GridBoxAlignment->{"Rows" -> {{Top}}},
-         GridBoxItemSize->{
-          "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], True->
-        GridBox[{
-          {
-           PaneBox[
-            ButtonBox[
-             
-             DynamicBox[FEPrivate`FrontEndResource[
-              "FEBitmaps", "SquareMinusIconMedium"]],
-             Appearance->None,
-             ButtonFunction:>(Typeset`open$$ = False),
-             Evaluator->Automatic,
-             Method->"Preemptive"],
-            Alignment->{Center, Center},
-            
-            ImageSize->
-             Dynamic[{
-              Automatic, 3.5 CurrentValue["FontCapHeight"]/
-               AbsoluteCurrentValue[Magnification]}]], 
-           GraphicsBox[InsetBox[
-             PaneBox[
-              
-              DynamicBox[FEPrivate`FrontEndResource[
-               "MUnitExpressions", "SuccessIcon"]],
-              Alignment->Center,
-              
-              ImageSize->
-               Dynamic[{
-                Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}]]],
-            AspectRatio->1,
-            Axes->False,
-            Background->GrayLevel[0.93],
-            Frame->True,
-            FrameStyle->Directive[
-              Thickness[Tiny], 
-              GrayLevel[0.55]],
-            FrameTicks->None,
-            ImageSize->{Automatic, 
-              Dynamic[
-              3.5 CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
-               Magnification]]},
-            PlotRange->{{0, 1}, {0, 1}}], GridBox[{
-             {
-              RowBox[{
-               TagBox["\<\"Outcome: \"\>",
-                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
-               TagBox["\<\"Success\"\>",
-                "SummaryItem"]}]},
-             {
-              RowBox[{
-               TagBox["\<\"Test ID: \"\>",
-                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
-               TagBox["\<\"simulateKmDataNoKeqVal\"\>",
-                "SummaryItem"]}]},
-             {
-              RowBox[{
-               TagBox["\<\"Input: \"\>",
-                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
-               TagBox[
-                PaneBox[
-                 TagBox["result",
-                  Short[#, 
-                   Rational[2, 3]]& ],
-                 BaselinePosition->Baseline,
-                 ContentPadding->False,
-                 FrameMargins->0,
-                 ImageSize->{{1, 500}, Automatic},
-                 StripOnInput->True],
-                "SummaryItem"]}]},
-             {
-              RowBox[{
-               TagBox["\<\"Expected output: \"\>",
-                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
-               TagBox[
-                PaneBox[
-                 TagBox[
-                  RowBox[{"{", 
-                   RowBox[{
-                    RowBox[{"{", 
-                    RowBox[{"1.523272399500685`", ",", "0", ",", 
-                    RowBox[{"\[LeftSkeleton]", "8", "\[RightSkeleton]"}], ",",
-                     "0.09090909090909098`"}], "}"}], ",", 
-                    RowBox[{"\[LeftSkeleton]", "31", "\[RightSkeleton]"}], 
-                    ",", 
-                    RowBox[{"{", 
-                    RowBox[{"1.523272399500685`", ",", 
-                    RowBox[{"\[LeftSkeleton]", "10", "\[RightSkeleton]"}]}], 
-                    "}"}]}], "}"}],
-                  Short[#, 
-                   Rational[2, 3]]& ],
-                 BaselinePosition->Baseline,
-                 ContentPadding->False,
-                 FrameMargins->0,
-                 ImageSize->{{1, 500}, Automatic},
-                 StripOnInput->True],
-                "SummaryItem"]}]},
-             {
-              RowBox[{
-               TagBox["\<\"Actual output: \"\>",
-                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
-               TagBox[
-                PaneBox[
-                 TagBox[
-                  RowBox[{"{", 
-                   RowBox[{
-                    RowBox[{"{", 
-                    RowBox[{"1.523272399500685`", ",", "0", ",", 
-                    RowBox[{"\[LeftSkeleton]", "8", "\[RightSkeleton]"}], ",",
-                     "0.09090909090909098`"}], "}"}], ",", 
-                    RowBox[{"\[LeftSkeleton]", "31", "\[RightSkeleton]"}], 
-                    ",", 
-                    RowBox[{"{", 
-                    RowBox[{"1.523272399500685`", ",", 
-                    RowBox[{"\[LeftSkeleton]", "10", "\[RightSkeleton]"}]}], 
-                    "}"}]}], "}"}],
-                  Short[#, 
-                   Rational[2, 3]]& ],
-                 BaselinePosition->Baseline,
-                 ContentPadding->False,
-                 FrameMargins->0,
-                 ImageSize->{{1, 500}, Automatic},
-                 StripOnInput->True],
-                "SummaryItem"]}]},
-             {
-              RowBox[{
-               TagBox["\<\"Time Taken: \"\>",
-                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
-               TagBox[
-                PaneBox[
-                 TagBox[
-                  
-                  TemplateBox[{
-                   "0.054582`4.88756444292641","\"s\"","seconds",
-                    "\"Seconds\""},
-                   "Quantity"],
-                  Short[#, 
-                   Rational[2, 3]]& ],
-                 BaselinePosition->Baseline,
-                 ContentPadding->False,
-                 FrameMargins->0,
-                 ImageSize->{{1, 500}, Automatic},
-                 StripOnInput->True],
-                "SummaryItem"]}]}
-            },
-            AutoDelete->False,
-            
-            BaseStyle->{
-             ShowStringCharacters -> False, NumberMarks -> False, 
-              PrintPrecision -> 3, ShowSyntaxStyles -> False},
-            GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Automatic}}},
-            
-            GridBoxItemSize->{
-             "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
-            GridBoxSpacings->{"Columns" -> {{2}}, "Rows" -> {{Automatic}}}]}
-         },
-         AutoDelete->False,
-         BaselinePosition->{1, 1},
-         GridBoxAlignment->{"Rows" -> {{Top}}},
-         GridBoxItemSize->{
-          "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}]}, Dynamic[
-        Typeset`open$$],
-        ImageSize->Automatic],
-       BaselinePosition->Baseline],
-      DynamicModuleValues:>{}], "]"}],
-    TestResultObject[
-     Association[
-     "TestIndex" -> 1, "TestID" -> "simulateKmDataNoKeqVal", "Outcome" -> 
-      "Success", "Input" -> HoldForm[$CellContext`result], "ExpectedOutput" -> 
-      HoldForm[{{
-         1.523272399500685, 0, 0.089, 4.500000000000003*^-6, 0, 0.053, 1, 8.9,
-           22., "test_files/simulate_data/relRateFor_nad.txt", 
-          0.09090909090909098}, {
-         1.523272399500685, 0, 0.089, 7.132019366075018*^-6, 0, 0.053, 1, 8.9,
-           22., "test_files/simulate_data/relRateFor_nad.txt", 
-          0.13680688860321014`}, {
-         1.523272399500685, 0, 0.089, 0.000011303488941793127`, 0, 0.053, 1, 
-          8.9, 22., "test_files/simulate_data/relRateFor_nad.txt", 
-          0.20076000891310197`}, {
-         1.523272399500685, 0, 0.089, 0.000017914822674907372`, 0, 0.053, 1, 
-          8.9, 22., "test_files/simulate_data/relRateFor_nad.txt", 
-          0.2847472489508014}, {
-         1.523272399500685, 0, 0.089, 0.000028393080501608703`, 0, 0.053, 1, 
-          8.9, 22., "test_files/simulate_data/relRateFor_nad.txt", 
-          0.3868631798468571}, {
-         1.523272399500685, 0, 0.089, 0.00004500000000000003, 0, 0.053, 1, 
-          8.9, 22., "test_files/simulate_data/relRateFor_nad.txt", 
-          0.5000000000000002}, {
-         1.523272399500685, 0, 0.089, 0.00007132019366075018, 0, 0.053, 1, 
-          8.9, 22., "test_files/simulate_data/relRateFor_nad.txt", 
-          0.6131368201531433}, {
-         1.523272399500685, 0, 0.089, 0.00011303488941793127`, 0, 0.053, 1, 
-          8.9, 22., "test_files/simulate_data/relRateFor_nad.txt", 
-          0.7152527510491989}, {
-         1.523272399500685, 0, 0.089, 0.0001791482267490739, 0, 0.053, 1, 8.9,
-           22., "test_files/simulate_data/relRateFor_nad.txt", 
-          0.7992399910868984}, {
-         1.523272399500685, 0, 0.089, 0.00028393080501608705`, 0, 0.053, 1, 
-          8.9, 22., "test_files/simulate_data/relRateFor_nad.txt", 
-          0.86319311139679}, {
-         1.523272399500685, 0, 0.089, 0.00045000000000000026`, 0, 0.053, 1, 
-          8.9, 22., "test_files/simulate_data/relRateFor_nad.txt", 
-          0.9090909090909093}, {
-         1.523272399500685, 0, 0.00008900000000000009, 0.0045, 0, 0.053, 1, 
-          8.9, 22., "test_files/simulate_data/relRateFor_g3p.txt", 
-          0.090909090909091}, {
-         1.523272399500685, 0, 0.00014105549412903932`, 0.0045, 0, 0.053, 1, 
-          8.9, 22., "test_files/simulate_data/relRateFor_g3p.txt", 
-          0.13680688860321016`}, {
-         1.523272399500685, 0, 0.00022355789240435282`, 0.0045, 0, 0.053, 1, 
-          8.9, 22., "test_files/simulate_data/relRateFor_g3p.txt", 
-          0.20076000891310186`}, {
-         1.523272399500685, 0, 0.000354315381792613, 0.0045, 0, 0.053, 1, 8.9,
-           22., "test_files/simulate_data/relRateFor_g3p.txt", 
-          0.2847472489508016}, {
-         1.523272399500685, 0, 0.0005615520365873723, 0.0045, 0, 0.053, 1, 
-          8.9, 22., "test_files/simulate_data/relRateFor_g3p.txt", 
-          0.38686317984685703`}, {
-         1.523272399500685, 0, 0.0008900000000000009, 0.0045, 0, 0.053, 1, 
-          8.9, 22., "test_files/simulate_data/relRateFor_g3p.txt", 
-          0.5000000000000002}, {
-         1.523272399500685, 0, 0.0014105549412903931`, 0.0045, 0, 0.053, 1, 
-          8.9, 22., "test_files/simulate_data/relRateFor_g3p.txt", 
-          0.6131368201531434}, {
-         1.523272399500685, 0, 0.0022355789240435303`, 0.0045, 0, 0.053, 1, 
-          8.9, 22., "test_files/simulate_data/relRateFor_g3p.txt", 
-          0.7152527510491988}, {
-         1.523272399500685, 0, 0.00354315381792613, 0.0045, 0, 0.053, 1, 8.9, 
-          22., "test_files/simulate_data/relRateFor_g3p.txt", 
-          0.7992399910868984}, {
-         1.523272399500685, 0, 0.005615520365873723, 0.0045, 0, 0.053, 1, 8.9,
-           22., "test_files/simulate_data/relRateFor_g3p.txt", 
-          0.86319311139679}, {
-         1.523272399500685, 0, 0.008900000000000009, 0.0045, 0, 0.053, 1, 8.9,
-           22., "test_files/simulate_data/relRateFor_g3p.txt", 
-          0.9090909090909092}, {
-         1.523272399500685, 0, 0.089, 0.0045, 0, 0.000053000000000000014`, 1, 
-          8.9, 22., "test_files/simulate_data/relRateFor_pi.txt", 
-          0.09090909090909093}, {
-         1.523272399500685, 0, 0.089, 0.0045, 0, 0.00008399933920043907, 1, 
-          8.9, 22., "test_files/simulate_data/relRateFor_pi.txt", 
-          0.13680688860321005`}, {
-         1.523272399500685, 0, 0.089, 0.0045, 0, 0.00013312998087000775`, 1, 
-          8.9, 22., "test_files/simulate_data/relRateFor_pi.txt", 
-          0.20076000891310172`}, {
-         1.523272399500685, 0, 0.089, 0.0045, 0, 0.00021099680039335364`, 1, 
-          8.9, 22., "test_files/simulate_data/relRateFor_pi.txt", 
-          0.28474724895080145`}, {
-         1.523272399500685, 0, 0.089, 0.0045, 0, 0.00033440739257450236`, 1, 
-          8.9, 22., "test_files/simulate_data/relRateFor_pi.txt", 
-          0.3868631798468569}, {
-         1.523272399500685, 0, 0.089, 0.0045, 0, 0.0005300000000000001, 1, 
-          8.9, 22., "test_files/simulate_data/relRateFor_pi.txt", 0.5}, {
-         1.523272399500685, 0, 0.089, 0.0045, 0, 0.0008399933920043907, 1, 
-          8.9, 22., "test_files/simulate_data/relRateFor_pi.txt", 
-          0.6131368201531432}, {
-         1.523272399500685, 0, 0.089, 0.0045, 0, 0.0013312998087000789`, 1, 
-          8.9, 22., "test_files/simulate_data/relRateFor_pi.txt", 
-          0.7152527510491988}, {
-         1.523272399500685, 0, 0.089, 0.0045, 0, 0.0021099680039335365`, 1, 
-          8.9, 22., "test_files/simulate_data/relRateFor_pi.txt", 
-          0.7992399910868982}, {
-         1.523272399500685, 0, 0.089, 0.0045, 0, 0.0033440739257450235`, 1, 
-          8.9, 22., "test_files/simulate_data/relRateFor_pi.txt", 
-          0.8631931113967899}, {
-         1.523272399500685, 0, 0.089, 0.0045, 0, 0.005300000000000002, 1, 8.9,
-           22., "test_files/simulate_data/relRateFor_pi.txt", 
-          0.9090909090909092}}], "ActualOutput" -> 
-      HoldForm[{{
-         1.523272399500685, 0, 0.089, 4.500000000000003*^-6, 0, 0.053, 1, 8.9,
-           22., "test_files/simulate_data/relRateFor_nad.txt", 
-          0.09090909090909098}, {
-         1.523272399500685, 0, 0.089, 7.132019366075018*^-6, 0, 0.053, 1, 8.9,
-           22., "test_files/simulate_data/relRateFor_nad.txt", 
-          0.13680688860321014`}, {
-         1.523272399500685, 0, 0.089, 0.000011303488941793127`, 0, 0.053, 1, 
-          8.9, 22., "test_files/simulate_data/relRateFor_nad.txt", 
-          0.20076000891310197`}, {
-         1.523272399500685, 0, 0.089, 0.000017914822674907372`, 0, 0.053, 1, 
-          8.9, 22., "test_files/simulate_data/relRateFor_nad.txt", 
-          0.2847472489508014}, {
-         1.523272399500685, 0, 0.089, 0.000028393080501608703`, 0, 0.053, 1, 
-          8.9, 22., "test_files/simulate_data/relRateFor_nad.txt", 
-          0.3868631798468571}, {
-         1.523272399500685, 0, 0.089, 0.00004500000000000003, 0, 0.053, 1, 
-          8.9, 22., "test_files/simulate_data/relRateFor_nad.txt", 
-          0.5000000000000002}, {
-         1.523272399500685, 0, 0.089, 0.00007132019366075018, 0, 0.053, 1, 
-          8.9, 22., "test_files/simulate_data/relRateFor_nad.txt", 
-          0.6131368201531433}, {
-         1.523272399500685, 0, 0.089, 0.00011303488941793127`, 0, 0.053, 1, 
-          8.9, 22., "test_files/simulate_data/relRateFor_nad.txt", 
-          0.7152527510491989}, {
-         1.523272399500685, 0, 0.089, 0.0001791482267490739, 0, 0.053, 1, 8.9,
-           22., "test_files/simulate_data/relRateFor_nad.txt", 
-          0.7992399910868984}, {
-         1.523272399500685, 0, 0.089, 0.00028393080501608705`, 0, 0.053, 1, 
-          8.9, 22., "test_files/simulate_data/relRateFor_nad.txt", 
-          0.86319311139679}, {
-         1.523272399500685, 0, 0.089, 0.00045000000000000026`, 0, 0.053, 1, 
-          8.9, 22., "test_files/simulate_data/relRateFor_nad.txt", 
-          0.9090909090909093}, {
-         1.523272399500685, 0, 0.00008900000000000009, 0.0045, 0, 0.053, 1, 
-          8.9, 22., "test_files/simulate_data/relRateFor_g3p.txt", 
-          0.090909090909091}, {
-         1.523272399500685, 0, 0.00014105549412903932`, 0.0045, 0, 0.053, 1, 
-          8.9, 22., "test_files/simulate_data/relRateFor_g3p.txt", 
-          0.13680688860321016`}, {
-         1.523272399500685, 0, 0.00022355789240435282`, 0.0045, 0, 0.053, 1, 
-          8.9, 22., "test_files/simulate_data/relRateFor_g3p.txt", 
-          0.20076000891310186`}, {
-         1.523272399500685, 0, 0.000354315381792613, 0.0045, 0, 0.053, 1, 8.9,
-           22., "test_files/simulate_data/relRateFor_g3p.txt", 
-          0.2847472489508016}, {
-         1.523272399500685, 0, 0.0005615520365873723, 0.0045, 0, 0.053, 1, 
-          8.9, 22., "test_files/simulate_data/relRateFor_g3p.txt", 
-          0.38686317984685703`}, {
-         1.523272399500685, 0, 0.0008900000000000009, 0.0045, 0, 0.053, 1, 
-          8.9, 22., "test_files/simulate_data/relRateFor_g3p.txt", 
-          0.5000000000000002}, {
-         1.523272399500685, 0, 0.0014105549412903931`, 0.0045, 0, 0.053, 1, 
-          8.9, 22., "test_files/simulate_data/relRateFor_g3p.txt", 
-          0.6131368201531434}, {
-         1.523272399500685, 0, 0.0022355789240435303`, 0.0045, 0, 0.053, 1, 
-          8.9, 22., "test_files/simulate_data/relRateFor_g3p.txt", 
-          0.7152527510491988}, {
-         1.523272399500685, 0, 0.00354315381792613, 0.0045, 0, 0.053, 1, 8.9, 
-          22., "test_files/simulate_data/relRateFor_g3p.txt", 
-          0.7992399910868984}, {
-         1.523272399500685, 0, 0.005615520365873723, 0.0045, 0, 0.053, 1, 8.9,
-           22., "test_files/simulate_data/relRateFor_g3p.txt", 
-          0.86319311139679}, {
-         1.523272399500685, 0, 0.008900000000000009, 0.0045, 0, 0.053, 1, 8.9,
-           22., "test_files/simulate_data/relRateFor_g3p.txt", 
-          0.9090909090909092}, {
-         1.523272399500685, 0, 0.089, 0.0045, 0, 0.000053000000000000014`, 1, 
-          8.9, 22., "test_files/simulate_data/relRateFor_pi.txt", 
-          0.09090909090909093}, {
-         1.523272399500685, 0, 0.089, 0.0045, 0, 0.00008399933920043907, 1, 
-          8.9, 22., "test_files/simulate_data/relRateFor_pi.txt", 
-          0.13680688860321005`}, {
-         1.523272399500685, 0, 0.089, 0.0045, 0, 0.00013312998087000775`, 1, 
-          8.9, 22., "test_files/simulate_data/relRateFor_pi.txt", 
-          0.20076000891310172`}, {
-         1.523272399500685, 0, 0.089, 0.0045, 0, 0.00021099680039335364`, 1, 
-          8.9, 22., "test_files/simulate_data/relRateFor_pi.txt", 
-          0.28474724895080145`}, {
-         1.523272399500685, 0, 0.089, 0.0045, 0, 0.00033440739257450236`, 1, 
-          8.9, 22., "test_files/simulate_data/relRateFor_pi.txt", 
-          0.3868631798468569}, {
-         1.523272399500685, 0, 0.089, 0.0045, 0, 0.0005300000000000001, 1, 
-          8.9, 22., "test_files/simulate_data/relRateFor_pi.txt", 0.5}, {
-         1.523272399500685, 0, 0.089, 0.0045, 0, 0.0008399933920043907, 1, 
-          8.9, 22., "test_files/simulate_data/relRateFor_pi.txt", 
-          0.6131368201531432}, {
-         1.523272399500685, 0, 0.089, 0.0045, 0, 0.0013312998087000789`, 1, 
-          8.9, 22., "test_files/simulate_data/relRateFor_pi.txt", 
-          0.7152527510491988}, {
-         1.523272399500685, 0, 0.089, 0.0045, 0, 0.0021099680039335365`, 1, 
-          8.9, 22., "test_files/simulate_data/relRateFor_pi.txt", 
-          0.7992399910868982}, {
-         1.523272399500685, 0, 0.089, 0.0045, 0, 0.0033440739257450235`, 1, 
-          8.9, 22., "test_files/simulate_data/relRateFor_pi.txt", 
-          0.8631931113967899}, {
-         1.523272399500685, 0, 0.089, 0.0045, 0, 0.005300000000000002, 1, 8.9,
-           22., "test_files/simulate_data/relRateFor_pi.txt", 
-          0.9090909090909092}}], "ExpectedMessages" -> {}, 
-      "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
-      Quantity[0.054582`4.88756444292641, "Seconds"], "CPUTimeUsed" -> 
-      Quantity[0.05600000000000094, "Seconds"], "MemoryUsed" -> 
-      Quantity[3026616, "Bytes"]]],
-    Editable->False,
-    SelectWithContents->True,
-    Selectable->False], ",", 
-   InterpretationBox[
-    RowBox[{
-     TagBox["TestResultObject",
-      "SummaryHead"], "[", 
-     DynamicModuleBox[{Typeset`open$$ = False}, 
-      PanelBox[
-       PaneSelectorBox[{False->GridBox[{
-          {
-           PaneBox[
-            ButtonBox[
-             
-             DynamicBox[FEPrivate`FrontEndResource[
-              "FEBitmaps", "SquarePlusIconMedium"],
-              ImageSizeCache->{12., {0., 12.}}],
-             Appearance->None,
-             ButtonFunction:>(Typeset`open$$ = True),
-             Evaluator->Automatic,
-             Method->"Preemptive"],
-            Alignment->{Center, Center},
-            
-            ImageSize->
-             Dynamic[{
-              Automatic, 3.5 CurrentValue["FontCapHeight"]/
-               AbsoluteCurrentValue[Magnification]}]], 
-           GraphicsBox[InsetBox[
-             PaneBox[
-              
-              DynamicBox[FEPrivate`FrontEndResource[
-               "MUnitExpressions", "SuccessIcon"],
-               ImageSizeCache->{16., {3., 9.}}],
-              Alignment->Center,
-              
-              ImageSize->
-               Dynamic[{
-                Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}]]],
-            AspectRatio->1,
-            Axes->False,
-            Background->GrayLevel[0.93],
-            Frame->True,
-            FrameStyle->Directive[
-              Thickness[Tiny], 
-              GrayLevel[0.55]],
-            FrameTicks->None,
-            ImageSize->{Automatic, 
-              Dynamic[
-              3.5 CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
-               Magnification]]},
-            PlotRange->{{0, 1}, {0, 1}}], GridBox[{
-             {
-              RowBox[{
-               TagBox["\<\"Outcome: \"\>",
-                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
-               TagBox["\<\"Success\"\>",
-                "SummaryItem"]}]},
-             {
-              RowBox[{
-               TagBox["\<\"Test ID: \"\>",
-                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
                TagBox["\<\"simulateKmDataKeqVal\"\>",
                 "SummaryItem"]}]}
             },
@@ -1249,7 +767,7 @@ Cell[BoxData[
                  TagBox[
                   
                   TemplateBox[{
-                   "0.000102`2.1591151695939113","\"s\"","seconds",
+                   "0.050875`4.857019420065271","\"s\"","seconds",
                     "\"Seconds\""},
                    "Quantity"],
                   Short[#, 
@@ -1283,7 +801,7 @@ Cell[BoxData[
       DynamicModuleValues:>{}], "]"}],
     TestResultObject[
      Association[
-     "TestIndex" -> 2, "TestID" -> "simulateKmDataKeqVal", "Outcome" -> 
+     "TestIndex" -> 1, "TestID" -> "simulateKmDataKeqVal", "Outcome" -> 
       "Success", "Input" -> HoldForm[$CellContext`result], "ExpectedOutput" -> 
       HoldForm[{{
          0.408, 0, 0.089, 4.500000000000003*^-6, 0, 0.053, 1, 8.9, 22., 
@@ -1467,7 +985,284 @@ Cell[BoxData[
          0.408, 0, 0.089, 0.0045, 0, 0.005300000000000002, 1, 8.9, 22., 
           "test_files/simulate_data/relRateFor_pi.txt", 0.9090909090909092}}],
        "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
-      Quantity[0.000102`2.1591151695939113, "Seconds"], "CPUTimeUsed" -> 
+      Quantity[0.050875`4.857019420065271, "Seconds"], "CPUTimeUsed" -> 
+      Quantity[0.04800000000000004, "Seconds"], "MemoryUsed" -> 
+      Quantity[3026480, "Bytes"]]],
+    Editable->False,
+    SelectWithContents->True,
+    Selectable->False], ",", 
+   InterpretationBox[
+    RowBox[{
+     TagBox["TestResultObject",
+      "SummaryHead"], "[", 
+     DynamicModuleBox[{Typeset`open$$ = False}, 
+      PanelBox[
+       PaneSelectorBox[{False->GridBox[{
+          {
+           PaneBox[
+            ButtonBox[
+             
+             DynamicBox[FEPrivate`FrontEndResource[
+              "FEBitmaps", "SquarePlusIconMedium"],
+              ImageSizeCache->{12., {0., 12.}}],
+             Appearance->None,
+             ButtonFunction:>(Typeset`open$$ = True),
+             Evaluator->Automatic,
+             Method->"Preemptive"],
+            Alignment->{Center, Center},
+            
+            ImageSize->
+             Dynamic[{
+              Automatic, 3.5 CurrentValue["FontCapHeight"]/
+               AbsoluteCurrentValue[Magnification]}]], 
+           GraphicsBox[InsetBox[
+             PaneBox[
+              
+              DynamicBox[FEPrivate`FrontEndResource[
+               "MUnitExpressions", "SuccessIcon"],
+               ImageSizeCache->{16., {3., 9.}}],
+              Alignment->Center,
+              
+              ImageSize->
+               Dynamic[{
+                Automatic, 3.5 CurrentValue["FontCapHeight"]/
+                 AbsoluteCurrentValue[Magnification]}]]],
+            AspectRatio->1,
+            Axes->False,
+            Background->GrayLevel[0.93],
+            Frame->True,
+            FrameStyle->Directive[
+              Thickness[Tiny], 
+              GrayLevel[0.55]],
+            FrameTicks->None,
+            ImageSize->{Automatic, 
+              Dynamic[
+              3.5 CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+               Magnification]]},
+            PlotRange->{{0, 1}, {0, 1}}], GridBox[{
+             {
+              RowBox[{
+               TagBox["\<\"Outcome: \"\>",
+                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+               TagBox["\<\"Success\"\>",
+                "SummaryItem"]}]},
+             {
+              RowBox[{
+               TagBox["\<\"Test ID: \"\>",
+                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+               TagBox["\<\"simulateKcatDataKeqVal\"\>",
+                "SummaryItem"]}]}
+            },
+            AutoDelete->False,
+            
+            BaseStyle->{
+             ShowStringCharacters -> False, NumberMarks -> False, 
+              PrintPrecision -> 3, ShowSyntaxStyles -> False},
+            GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Automatic}}},
+            
+            GridBoxItemSize->{
+             "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+            GridBoxSpacings->{"Columns" -> {{2}}, "Rows" -> {{Automatic}}}]}
+         },
+         AutoDelete->False,
+         BaselinePosition->{1, 1},
+         GridBoxAlignment->{"Rows" -> {{Top}}},
+         GridBoxItemSize->{
+          "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], True->
+        GridBox[{
+          {
+           PaneBox[
+            ButtonBox[
+             
+             DynamicBox[FEPrivate`FrontEndResource[
+              "FEBitmaps", "SquareMinusIconMedium"]],
+             Appearance->None,
+             ButtonFunction:>(Typeset`open$$ = False),
+             Evaluator->Automatic,
+             Method->"Preemptive"],
+            Alignment->{Center, Center},
+            ImageSize->
+             Dynamic[{
+              Automatic, 3.5 CurrentValue["FontCapHeight"]/
+               AbsoluteCurrentValue[Magnification]}]], 
+           GraphicsBox[InsetBox[
+             PaneBox[
+              
+              DynamicBox[FEPrivate`FrontEndResource[
+               "MUnitExpressions", "SuccessIcon"]],
+              Alignment->Center,
+              
+              ImageSize->
+               Dynamic[{
+                Automatic, 3.5 CurrentValue["FontCapHeight"]/
+                 AbsoluteCurrentValue[Magnification]}]]],
+            AspectRatio->1,
+            Axes->False,
+            Background->GrayLevel[0.93],
+            Frame->True,
+            FrameStyle->Directive[
+              Thickness[Tiny], 
+              GrayLevel[0.55]],
+            FrameTicks->None,
+            ImageSize->{Automatic, 
+              Dynamic[
+              3.5 CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+               Magnification]]},
+            PlotRange->{{0, 1}, {0, 1}}], GridBox[{
+             {
+              RowBox[{
+               TagBox["\<\"Outcome: \"\>",
+                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+               TagBox["\<\"Success\"\>",
+                "SummaryItem"]}]},
+             {
+              RowBox[{
+               TagBox["\<\"Test ID: \"\>",
+                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+               TagBox["\<\"simulateKcatDataKeqVal\"\>",
+                "SummaryItem"]}]},
+             {
+              RowBox[{
+               TagBox["\<\"Input: \"\>",
+                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+               TagBox[
+                PaneBox[
+                 TagBox["result",
+                  Short[#, 
+                   Rational[2, 3]]& ],
+                 BaselinePosition->Baseline,
+                 ContentPadding->False,
+                 FrameMargins->0,
+                 ImageSize->{{1, 500}, Automatic},
+                 StripOnInput->True],
+                "SummaryItem"]}]},
+             {
+              RowBox[{
+               TagBox["\<\"Expected output: \"\>",
+                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+               TagBox[
+                PaneBox[
+                 TagBox[
+                  RowBox[{"{", 
+                   RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], "}"}],
+                  Short[#, 
+                   Rational[2, 3]]& ],
+                 BaselinePosition->Baseline,
+                 ContentPadding->False,
+                 FrameMargins->0,
+                 ImageSize->{{1, 500}, Automatic},
+                 StripOnInput->True],
+                "SummaryItem"]}]},
+             {
+              RowBox[{
+               TagBox["\<\"Actual output: \"\>",
+                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+               TagBox[
+                PaneBox[
+                 TagBox[
+                  RowBox[{"{", 
+                   RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], "}"}],
+                  Short[#, 
+                   Rational[2, 3]]& ],
+                 BaselinePosition->Baseline,
+                 ContentPadding->False,
+                 FrameMargins->0,
+                 ImageSize->{{1, 500}, Automatic},
+                 StripOnInput->True],
+                "SummaryItem"]}]},
+             {
+              RowBox[{
+               TagBox["\<\"Time Taken: \"\>",
+                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+               TagBox[
+                PaneBox[
+                 TagBox[
+                  
+                  TemplateBox[{
+                   "0.000112`2.1997330205021712","\"s\"","seconds",
+                    "\"Seconds\""},
+                   "Quantity"],
+                  Short[#, 
+                   Rational[2, 3]]& ],
+                 BaselinePosition->Baseline,
+                 ContentPadding->False,
+                 FrameMargins->0,
+                 ImageSize->{{1, 500}, Automatic},
+                 StripOnInput->True],
+                "SummaryItem"]}]}
+            },
+            AutoDelete->False,
+            
+            BaseStyle->{
+             ShowStringCharacters -> False, NumberMarks -> False, 
+              PrintPrecision -> 3, ShowSyntaxStyles -> False},
+            GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Automatic}}},
+            
+            GridBoxItemSize->{
+             "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+            GridBoxSpacings->{"Columns" -> {{2}}, "Rows" -> {{Automatic}}}]}
+         },
+         AutoDelete->False,
+         BaselinePosition->{1, 1},
+         GridBoxAlignment->{"Rows" -> {{Top}}},
+         GridBoxItemSize->{
+          "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}]}, Dynamic[
+        Typeset`open$$],
+        ImageSize->Automatic],
+       BaselinePosition->Baseline],
+      DynamicModuleValues:>{}], "]"}],
+    TestResultObject[
+     Association[
+     "TestIndex" -> 2, "TestID" -> "simulateKcatDataKeqVal", "Outcome" -> 
+      "Success", "Input" -> HoldForm[$CellContext`result], "ExpectedOutput" -> 
+      HoldForm[{{
+         0.408, 0, 0.01, 0.01, 0, 0.01, 1, 8.9, 22., 
+          "test_files/simulate_data/absRateFor.txt", 268.}, {
+         0.408, 0, 0.01, 0.01, 0, 0.01, 1, 8.9, 22., 
+          "test_files/simulate_data/absRateFor.txt", 268.}, {
+         0.408, 0, 0.01, 0.01, 0, 0.01, 1, 8.9, 22., 
+          "test_files/simulate_data/absRateFor.txt", 268.}, {
+         0.408, 0, 0.01, 0.01, 0, 0.01, 1, 8.9, 22., 
+          "test_files/simulate_data/absRateFor.txt", 268.}, {
+         0.408, 0, 0.01, 0.01, 0, 0.01, 1, 8.9, 22., 
+          "test_files/simulate_data/absRateFor.txt", 268.}, {
+         0.408, 0, 0.01, 0.01, 0, 0.01, 1, 8.9, 22., 
+          "test_files/simulate_data/absRateFor.txt", 268.}, {
+         0.408, 0, 0.01, 0.01, 0, 0.01, 1, 8.9, 22., 
+          "test_files/simulate_data/absRateFor.txt", 268.}, {
+         0.408, 0, 0.01, 0.01, 0, 0.01, 1, 8.9, 22., 
+          "test_files/simulate_data/absRateFor.txt", 268.}, {
+         0.408, 0, 0.01, 0.01, 0, 0.01, 1, 8.9, 22., 
+          "test_files/simulate_data/absRateFor.txt", 268.}, {
+         0.408, 0, 0.01, 0.01, 0, 0.01, 1, 8.9, 22., 
+          "test_files/simulate_data/absRateFor.txt", 268.}, {
+         0.408, 0, 0.01, 0.01, 0, 0.01, 1, 8.9, 22., 
+          "test_files/simulate_data/absRateFor.txt", 268.}}], "ActualOutput" -> 
+      HoldForm[{{
+         0.408, 0, 0.01, 0.01, 0, 0.01, 1, 8.9, 22., 
+          "test_files/simulate_data/absRateFor.txt", 268.}, {
+         0.408, 0, 0.01, 0.01, 0, 0.01, 1, 8.9, 22., 
+          "test_files/simulate_data/absRateFor.txt", 268.}, {
+         0.408, 0, 0.01, 0.01, 0, 0.01, 1, 8.9, 22., 
+          "test_files/simulate_data/absRateFor.txt", 268.}, {
+         0.408, 0, 0.01, 0.01, 0, 0.01, 1, 8.9, 22., 
+          "test_files/simulate_data/absRateFor.txt", 268.}, {
+         0.408, 0, 0.01, 0.01, 0, 0.01, 1, 8.9, 22., 
+          "test_files/simulate_data/absRateFor.txt", 268.}, {
+         0.408, 0, 0.01, 0.01, 0, 0.01, 1, 8.9, 22., 
+          "test_files/simulate_data/absRateFor.txt", 268.}, {
+         0.408, 0, 0.01, 0.01, 0, 0.01, 1, 8.9, 22., 
+          "test_files/simulate_data/absRateFor.txt", 268.}, {
+         0.408, 0, 0.01, 0.01, 0, 0.01, 1, 8.9, 22., 
+          "test_files/simulate_data/absRateFor.txt", 268.}, {
+         0.408, 0, 0.01, 0.01, 0, 0.01, 1, 8.9, 22., 
+          "test_files/simulate_data/absRateFor.txt", 268.}, {
+         0.408, 0, 0.01, 0.01, 0, 0.01, 1, 8.9, 22., 
+          "test_files/simulate_data/absRateFor.txt", 268.}, {
+         0.408, 0, 0.01, 0.01, 0, 0.01, 1, 8.9, 22., 
+          "test_files/simulate_data/absRateFor.txt", 268.}}], 
+      "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
+      Quantity[0.000112`2.1997330205021712, "Seconds"], "CPUTimeUsed" -> 
       Quantity[0., "Seconds"], "MemoryUsed" -> Quantity[96, "Bytes"]]],
     Editable->False,
     SelectWithContents->True,
@@ -1531,559 +1326,6 @@ Cell[BoxData[
               RowBox[{
                TagBox["\<\"Test ID: \"\>",
                 "SummaryItemAnnotation"], "\[InvisibleSpace]", 
-               TagBox["\<\"simulateKcatDataNoKeqVal\"\>",
-                "SummaryItem"]}]}
-            },
-            AutoDelete->False,
-            
-            BaseStyle->{
-             ShowStringCharacters -> False, NumberMarks -> False, 
-              PrintPrecision -> 3, ShowSyntaxStyles -> False},
-            GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Automatic}}},
-            
-            GridBoxItemSize->{
-             "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
-            GridBoxSpacings->{"Columns" -> {{2}}, "Rows" -> {{Automatic}}}]}
-         },
-         AutoDelete->False,
-         BaselinePosition->{1, 1},
-         GridBoxAlignment->{"Rows" -> {{Top}}},
-         GridBoxItemSize->{
-          "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], True->
-        GridBox[{
-          {
-           PaneBox[
-            ButtonBox[
-             
-             DynamicBox[FEPrivate`FrontEndResource[
-              "FEBitmaps", "SquareMinusIconMedium"]],
-             Appearance->None,
-             ButtonFunction:>(Typeset`open$$ = False),
-             Evaluator->Automatic,
-             Method->"Preemptive"],
-            Alignment->{Center, Center},
-            
-            ImageSize->
-             Dynamic[{
-              Automatic, 3.5 CurrentValue["FontCapHeight"]/
-               AbsoluteCurrentValue[Magnification]}]], 
-           GraphicsBox[InsetBox[
-             PaneBox[
-              
-              DynamicBox[FEPrivate`FrontEndResource[
-               "MUnitExpressions", "SuccessIcon"]],
-              Alignment->Center,
-              
-              ImageSize->
-               Dynamic[{
-                Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}]]],
-            AspectRatio->1,
-            Axes->False,
-            Background->GrayLevel[0.93],
-            Frame->True,
-            FrameStyle->Directive[
-              Thickness[Tiny], 
-              GrayLevel[0.55]],
-            FrameTicks->None,
-            ImageSize->{Automatic, 
-              Dynamic[
-              3.5 CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
-               Magnification]]},
-            PlotRange->{{0, 1}, {0, 1}}], GridBox[{
-             {
-              RowBox[{
-               TagBox["\<\"Outcome: \"\>",
-                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
-               TagBox["\<\"Success\"\>",
-                "SummaryItem"]}]},
-             {
-              RowBox[{
-               TagBox["\<\"Test ID: \"\>",
-                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
-               TagBox["\<\"simulateKcatDataNoKeqVal\"\>",
-                "SummaryItem"]}]},
-             {
-              RowBox[{
-               TagBox["\<\"Input: \"\>",
-                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
-               TagBox[
-                PaneBox[
-                 TagBox["result",
-                  Short[#, 
-                   Rational[2, 3]]& ],
-                 BaselinePosition->Baseline,
-                 ContentPadding->False,
-                 FrameMargins->0,
-                 ImageSize->{{1, 500}, Automatic},
-                 StripOnInput->True],
-                "SummaryItem"]}]},
-             {
-              RowBox[{
-               TagBox["\<\"Expected output: \"\>",
-                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
-               TagBox[
-                PaneBox[
-                 TagBox[
-                  RowBox[{"{", 
-                   RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], "}"}],
-                  Short[#, 
-                   Rational[2, 3]]& ],
-                 BaselinePosition->Baseline,
-                 ContentPadding->False,
-                 FrameMargins->0,
-                 ImageSize->{{1, 500}, Automatic},
-                 StripOnInput->True],
-                "SummaryItem"]}]},
-             {
-              RowBox[{
-               TagBox["\<\"Actual output: \"\>",
-                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
-               TagBox[
-                PaneBox[
-                 TagBox[
-                  RowBox[{"{", 
-                   RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], "}"}],
-                  Short[#, 
-                   Rational[2, 3]]& ],
-                 BaselinePosition->Baseline,
-                 ContentPadding->False,
-                 FrameMargins->0,
-                 ImageSize->{{1, 500}, Automatic},
-                 StripOnInput->True],
-                "SummaryItem"]}]},
-             {
-              RowBox[{
-               TagBox["\<\"Time Taken: \"\>",
-                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
-               TagBox[
-                PaneBox[
-                 TagBox[
-                  
-                  TemplateBox[{
-                   "0.000098`2.1417410735244884","\"s\"","seconds",
-                    "\"Seconds\""},
-                   "Quantity"],
-                  Short[#, 
-                   Rational[2, 3]]& ],
-                 BaselinePosition->Baseline,
-                 ContentPadding->False,
-                 FrameMargins->0,
-                 ImageSize->{{1, 500}, Automatic},
-                 StripOnInput->True],
-                "SummaryItem"]}]}
-            },
-            AutoDelete->False,
-            
-            BaseStyle->{
-             ShowStringCharacters -> False, NumberMarks -> False, 
-              PrintPrecision -> 3, ShowSyntaxStyles -> False},
-            GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Automatic}}},
-            GridBoxItemSize->{
-             "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
-            GridBoxSpacings->{"Columns" -> {{2}}, "Rows" -> {{Automatic}}}]}
-         },
-         AutoDelete->False,
-         BaselinePosition->{1, 1},
-         GridBoxAlignment->{"Rows" -> {{Top}}},
-         GridBoxItemSize->{
-          "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}]}, Dynamic[
-        Typeset`open$$],
-        ImageSize->Automatic],
-       BaselinePosition->Baseline],
-      DynamicModuleValues:>{}], "]"}],
-    TestResultObject[
-     Association[
-     "TestIndex" -> 3, "TestID" -> "simulateKcatDataNoKeqVal", "Outcome" -> 
-      "Success", "Input" -> HoldForm[$CellContext`result], "ExpectedOutput" -> 
-      HoldForm[{{
-         1.523272399500685, 0, 0.01, 0.01, 0, 0.01, 1, 8.9, 22., 
-          "test_files/simulate_data/absRateFor.txt", 268.}, {
-         1.523272399500685, 0, 0.01, 0.01, 0, 0.01, 1, 8.9, 22., 
-          "test_files/simulate_data/absRateFor.txt", 268.}, {
-         1.523272399500685, 0, 0.01, 0.01, 0, 0.01, 1, 8.9, 22., 
-          "test_files/simulate_data/absRateFor.txt", 268.}, {
-         1.523272399500685, 0, 0.01, 0.01, 0, 0.01, 1, 8.9, 22., 
-          "test_files/simulate_data/absRateFor.txt", 268.}, {
-         1.523272399500685, 0, 0.01, 0.01, 0, 0.01, 1, 8.9, 22., 
-          "test_files/simulate_data/absRateFor.txt", 268.}, {
-         1.523272399500685, 0, 0.01, 0.01, 0, 0.01, 1, 8.9, 22., 
-          "test_files/simulate_data/absRateFor.txt", 268.}, {
-         1.523272399500685, 0, 0.01, 0.01, 0, 0.01, 1, 8.9, 22., 
-          "test_files/simulate_data/absRateFor.txt", 268.}, {
-         1.523272399500685, 0, 0.01, 0.01, 0, 0.01, 1, 8.9, 22., 
-          "test_files/simulate_data/absRateFor.txt", 268.}, {
-         1.523272399500685, 0, 0.01, 0.01, 0, 0.01, 1, 8.9, 22., 
-          "test_files/simulate_data/absRateFor.txt", 268.}, {
-         1.523272399500685, 0, 0.01, 0.01, 0, 0.01, 1, 8.9, 22., 
-          "test_files/simulate_data/absRateFor.txt", 268.}, {
-         1.523272399500685, 0, 0.01, 0.01, 0, 0.01, 1, 8.9, 22., 
-          "test_files/simulate_data/absRateFor.txt", 268.}}], "ActualOutput" -> 
-      HoldForm[{{
-         1.523272399500685, 0, 0.01, 0.01, 0, 0.01, 1, 8.9, 22., 
-          "test_files/simulate_data/absRateFor.txt", 268.}, {
-         1.523272399500685, 0, 0.01, 0.01, 0, 0.01, 1, 8.9, 22., 
-          "test_files/simulate_data/absRateFor.txt", 268.}, {
-         1.523272399500685, 0, 0.01, 0.01, 0, 0.01, 1, 8.9, 22., 
-          "test_files/simulate_data/absRateFor.txt", 268.}, {
-         1.523272399500685, 0, 0.01, 0.01, 0, 0.01, 1, 8.9, 22., 
-          "test_files/simulate_data/absRateFor.txt", 268.}, {
-         1.523272399500685, 0, 0.01, 0.01, 0, 0.01, 1, 8.9, 22., 
-          "test_files/simulate_data/absRateFor.txt", 268.}, {
-         1.523272399500685, 0, 0.01, 0.01, 0, 0.01, 1, 8.9, 22., 
-          "test_files/simulate_data/absRateFor.txt", 268.}, {
-         1.523272399500685, 0, 0.01, 0.01, 0, 0.01, 1, 8.9, 22., 
-          "test_files/simulate_data/absRateFor.txt", 268.}, {
-         1.523272399500685, 0, 0.01, 0.01, 0, 0.01, 1, 8.9, 22., 
-          "test_files/simulate_data/absRateFor.txt", 268.}, {
-         1.523272399500685, 0, 0.01, 0.01, 0, 0.01, 1, 8.9, 22., 
-          "test_files/simulate_data/absRateFor.txt", 268.}, {
-         1.523272399500685, 0, 0.01, 0.01, 0, 0.01, 1, 8.9, 22., 
-          "test_files/simulate_data/absRateFor.txt", 268.}, {
-         1.523272399500685, 0, 0.01, 0.01, 0, 0.01, 1, 8.9, 22., 
-          "test_files/simulate_data/absRateFor.txt", 268.}}], 
-      "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
-      Quantity[0.000098`2.1417410735244884, "Seconds"], "CPUTimeUsed" -> 
-      Quantity[0., "Seconds"], "MemoryUsed" -> Quantity[104, "Bytes"]]],
-    Editable->False,
-    SelectWithContents->True,
-    Selectable->False], ",", 
-   InterpretationBox[
-    RowBox[{
-     TagBox["TestResultObject",
-      "SummaryHead"], "[", 
-     DynamicModuleBox[{Typeset`open$$ = False}, 
-      PanelBox[
-       PaneSelectorBox[{False->GridBox[{
-          {
-           PaneBox[
-            ButtonBox[
-             
-             DynamicBox[FEPrivate`FrontEndResource[
-              "FEBitmaps", "SquarePlusIconMedium"],
-              ImageSizeCache->{12., {0., 12.}}],
-             Appearance->None,
-             ButtonFunction:>(Typeset`open$$ = True),
-             Evaluator->Automatic,
-             Method->"Preemptive"],
-            Alignment->{Center, Center},
-            
-            ImageSize->
-             Dynamic[{
-              Automatic, 3.5 CurrentValue["FontCapHeight"]/
-               AbsoluteCurrentValue[Magnification]}]], 
-           GraphicsBox[InsetBox[
-             PaneBox[
-              
-              DynamicBox[FEPrivate`FrontEndResource[
-               "MUnitExpressions", "SuccessIcon"],
-               ImageSizeCache->{16., {3., 9.}}],
-              Alignment->Center,
-              
-              ImageSize->
-               Dynamic[{
-                Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}]]],
-            AspectRatio->1,
-            Axes->False,
-            Background->GrayLevel[0.93],
-            Frame->True,
-            FrameStyle->Directive[
-              Thickness[Tiny], 
-              GrayLevel[0.55]],
-            FrameTicks->None,
-            ImageSize->{Automatic, 
-              Dynamic[
-              3.5 CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
-               Magnification]]},
-            PlotRange->{{0, 1}, {0, 1}}], GridBox[{
-             {
-              RowBox[{
-               TagBox["\<\"Outcome: \"\>",
-                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
-               TagBox["\<\"Success\"\>",
-                "SummaryItem"]}]},
-             {
-              RowBox[{
-               TagBox["\<\"Test ID: \"\>",
-                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
-               TagBox["\<\"simulateKcatDataKeqVal\"\>",
-                "SummaryItem"]}]}
-            },
-            AutoDelete->False,
-            
-            BaseStyle->{
-             ShowStringCharacters -> False, NumberMarks -> False, 
-              PrintPrecision -> 3, ShowSyntaxStyles -> False},
-            GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Automatic}}},
-            
-            GridBoxItemSize->{
-             "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
-            GridBoxSpacings->{"Columns" -> {{2}}, "Rows" -> {{Automatic}}}]}
-         },
-         AutoDelete->False,
-         BaselinePosition->{1, 1},
-         GridBoxAlignment->{"Rows" -> {{Top}}},
-         GridBoxItemSize->{
-          "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], True->
-        GridBox[{
-          {
-           PaneBox[
-            ButtonBox[
-             
-             DynamicBox[FEPrivate`FrontEndResource[
-              "FEBitmaps", "SquareMinusIconMedium"]],
-             Appearance->None,
-             ButtonFunction:>(Typeset`open$$ = False),
-             Evaluator->Automatic,
-             Method->"Preemptive"],
-            Alignment->{Center, Center},
-            
-            ImageSize->
-             Dynamic[{
-              Automatic, 3.5 CurrentValue["FontCapHeight"]/
-               AbsoluteCurrentValue[Magnification]}]], 
-           GraphicsBox[InsetBox[
-             PaneBox[
-              
-              DynamicBox[FEPrivate`FrontEndResource[
-               "MUnitExpressions", "SuccessIcon"]],
-              Alignment->Center,
-              
-              ImageSize->
-               Dynamic[{
-                Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}]]],
-            AspectRatio->1,
-            Axes->False,
-            Background->GrayLevel[0.93],
-            Frame->True,
-            FrameStyle->Directive[
-              Thickness[Tiny], 
-              GrayLevel[0.55]],
-            FrameTicks->None,
-            ImageSize->{Automatic, 
-              Dynamic[
-              3.5 CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
-               Magnification]]},
-            PlotRange->{{0, 1}, {0, 1}}], GridBox[{
-             {
-              RowBox[{
-               TagBox["\<\"Outcome: \"\>",
-                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
-               TagBox["\<\"Success\"\>",
-                "SummaryItem"]}]},
-             {
-              RowBox[{
-               TagBox["\<\"Test ID: \"\>",
-                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
-               TagBox["\<\"simulateKcatDataKeqVal\"\>",
-                "SummaryItem"]}]},
-             {
-              RowBox[{
-               TagBox["\<\"Input: \"\>",
-                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
-               TagBox[
-                PaneBox[
-                 TagBox["result",
-                  Short[#, 
-                   Rational[2, 3]]& ],
-                 BaselinePosition->Baseline,
-                 ContentPadding->False,
-                 FrameMargins->0,
-                 ImageSize->{{1, 500}, Automatic},
-                 StripOnInput->True],
-                "SummaryItem"]}]},
-             {
-              RowBox[{
-               TagBox["\<\"Expected output: \"\>",
-                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
-               TagBox[
-                PaneBox[
-                 TagBox[
-                  RowBox[{"{", 
-                   RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], "}"}],
-                  Short[#, 
-                   Rational[2, 3]]& ],
-                 BaselinePosition->Baseline,
-                 ContentPadding->False,
-                 FrameMargins->0,
-                 ImageSize->{{1, 500}, Automatic},
-                 StripOnInput->True],
-                "SummaryItem"]}]},
-             {
-              RowBox[{
-               TagBox["\<\"Actual output: \"\>",
-                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
-               TagBox[
-                PaneBox[
-                 TagBox[
-                  RowBox[{"{", 
-                   RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], "}"}],
-                  Short[#, 
-                   Rational[2, 3]]& ],
-                 BaselinePosition->Baseline,
-                 ContentPadding->False,
-                 FrameMargins->0,
-                 ImageSize->{{1, 500}, Automatic},
-                 StripOnInput->True],
-                "SummaryItem"]}]},
-             {
-              RowBox[{
-               TagBox["\<\"Time Taken: \"\>",
-                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
-               TagBox[
-                PaneBox[
-                 TagBox[
-                  
-                  TemplateBox[{
-                   "0.000176`2.3960276656461437","\"s\"","seconds",
-                    "\"Seconds\""},
-                   "Quantity"],
-                  Short[#, 
-                   Rational[2, 3]]& ],
-                 BaselinePosition->Baseline,
-                 ContentPadding->False,
-                 FrameMargins->0,
-                 ImageSize->{{1, 500}, Automatic},
-                 StripOnInput->True],
-                "SummaryItem"]}]}
-            },
-            AutoDelete->False,
-            
-            BaseStyle->{
-             ShowStringCharacters -> False, NumberMarks -> False, 
-              PrintPrecision -> 3, ShowSyntaxStyles -> False},
-            GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Automatic}}},
-            
-            GridBoxItemSize->{
-             "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
-            GridBoxSpacings->{"Columns" -> {{2}}, "Rows" -> {{Automatic}}}]}
-         },
-         AutoDelete->False,
-         BaselinePosition->{1, 1},
-         GridBoxAlignment->{"Rows" -> {{Top}}},
-         GridBoxItemSize->{
-          "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}]}, Dynamic[
-        Typeset`open$$],
-        ImageSize->Automatic],
-       BaselinePosition->Baseline],
-      DynamicModuleValues:>{}], "]"}],
-    TestResultObject[
-     Association[
-     "TestIndex" -> 4, "TestID" -> "simulateKcatDataKeqVal", "Outcome" -> 
-      "Success", "Input" -> HoldForm[$CellContext`result], "ExpectedOutput" -> 
-      HoldForm[{{
-         0.408, 0, 0.01, 0.01, 0, 0.01, 1, 8.9, 22., 
-          "test_files/simulate_data/absRateFor.txt", 268.}, {
-         0.408, 0, 0.01, 0.01, 0, 0.01, 1, 8.9, 22., 
-          "test_files/simulate_data/absRateFor.txt", 268.}, {
-         0.408, 0, 0.01, 0.01, 0, 0.01, 1, 8.9, 22., 
-          "test_files/simulate_data/absRateFor.txt", 268.}, {
-         0.408, 0, 0.01, 0.01, 0, 0.01, 1, 8.9, 22., 
-          "test_files/simulate_data/absRateFor.txt", 268.}, {
-         0.408, 0, 0.01, 0.01, 0, 0.01, 1, 8.9, 22., 
-          "test_files/simulate_data/absRateFor.txt", 268.}, {
-         0.408, 0, 0.01, 0.01, 0, 0.01, 1, 8.9, 22., 
-          "test_files/simulate_data/absRateFor.txt", 268.}, {
-         0.408, 0, 0.01, 0.01, 0, 0.01, 1, 8.9, 22., 
-          "test_files/simulate_data/absRateFor.txt", 268.}, {
-         0.408, 0, 0.01, 0.01, 0, 0.01, 1, 8.9, 22., 
-          "test_files/simulate_data/absRateFor.txt", 268.}, {
-         0.408, 0, 0.01, 0.01, 0, 0.01, 1, 8.9, 22., 
-          "test_files/simulate_data/absRateFor.txt", 268.}, {
-         0.408, 0, 0.01, 0.01, 0, 0.01, 1, 8.9, 22., 
-          "test_files/simulate_data/absRateFor.txt", 268.}, {
-         0.408, 0, 0.01, 0.01, 0, 0.01, 1, 8.9, 22., 
-          "test_files/simulate_data/absRateFor.txt", 268.}}], "ActualOutput" -> 
-      HoldForm[{{
-         0.408, 0, 0.01, 0.01, 0, 0.01, 1, 8.9, 22., 
-          "test_files/simulate_data/absRateFor.txt", 268.}, {
-         0.408, 0, 0.01, 0.01, 0, 0.01, 1, 8.9, 22., 
-          "test_files/simulate_data/absRateFor.txt", 268.}, {
-         0.408, 0, 0.01, 0.01, 0, 0.01, 1, 8.9, 22., 
-          "test_files/simulate_data/absRateFor.txt", 268.}, {
-         0.408, 0, 0.01, 0.01, 0, 0.01, 1, 8.9, 22., 
-          "test_files/simulate_data/absRateFor.txt", 268.}, {
-         0.408, 0, 0.01, 0.01, 0, 0.01, 1, 8.9, 22., 
-          "test_files/simulate_data/absRateFor.txt", 268.}, {
-         0.408, 0, 0.01, 0.01, 0, 0.01, 1, 8.9, 22., 
-          "test_files/simulate_data/absRateFor.txt", 268.}, {
-         0.408, 0, 0.01, 0.01, 0, 0.01, 1, 8.9, 22., 
-          "test_files/simulate_data/absRateFor.txt", 268.}, {
-         0.408, 0, 0.01, 0.01, 0, 0.01, 1, 8.9, 22., 
-          "test_files/simulate_data/absRateFor.txt", 268.}, {
-         0.408, 0, 0.01, 0.01, 0, 0.01, 1, 8.9, 22., 
-          "test_files/simulate_data/absRateFor.txt", 268.}, {
-         0.408, 0, 0.01, 0.01, 0, 0.01, 1, 8.9, 22., 
-          "test_files/simulate_data/absRateFor.txt", 268.}, {
-         0.408, 0, 0.01, 0.01, 0, 0.01, 1, 8.9, 22., 
-          "test_files/simulate_data/absRateFor.txt", 268.}}], 
-      "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
-      Quantity[0.000176`2.3960276656461437, "Seconds"], "CPUTimeUsed" -> 
-      Quantity[0., "Seconds"], "MemoryUsed" -> Quantity[32, "Bytes"]]],
-    Editable->False,
-    SelectWithContents->True,
-    Selectable->False], ",", 
-   InterpretationBox[
-    RowBox[{
-     TagBox["TestResultObject",
-      "SummaryHead"], "[", 
-     DynamicModuleBox[{Typeset`open$$ = False}, 
-      PanelBox[
-       PaneSelectorBox[{False->GridBox[{
-          {
-           PaneBox[
-            ButtonBox[
-             
-             DynamicBox[FEPrivate`FrontEndResource[
-              "FEBitmaps", "SquarePlusIconMedium"],
-              ImageSizeCache->{12., {0., 12.}}],
-             Appearance->None,
-             ButtonFunction:>(Typeset`open$$ = True),
-             Evaluator->Automatic,
-             Method->"Preemptive"],
-            Alignment->{Center, Center},
-            
-            ImageSize->
-             Dynamic[{
-              Automatic, 3.5 CurrentValue["FontCapHeight"]/
-               AbsoluteCurrentValue[Magnification]}]], 
-           GraphicsBox[InsetBox[
-             PaneBox[
-              
-              DynamicBox[FEPrivate`FrontEndResource[
-               "MUnitExpressions", "SuccessIcon"],
-               ImageSizeCache->{16., {3., 9.}}],
-              Alignment->Center,
-              
-              ImageSize->
-               Dynamic[{
-                Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                 AbsoluteCurrentValue[Magnification]}]]],
-            AspectRatio->1,
-            Axes->False,
-            Background->GrayLevel[0.93],
-            Frame->True,
-            FrameStyle->Directive[
-              Thickness[Tiny], 
-              GrayLevel[0.55]],
-            FrameTicks->None,
-            ImageSize->{Automatic, 
-              Dynamic[
-              3.5 CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
-               Magnification]]},
-            PlotRange->{{0, 1}, {0, 1}}], GridBox[{
-             {
-              RowBox[{
-               TagBox["\<\"Outcome: \"\>",
-                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
-               TagBox["\<\"Success\"\>",
-                "SummaryItem"]}]},
-             {
-              RowBox[{
-               TagBox["\<\"Test ID: \"\>",
-                "SummaryItemAnnotation"], "\[InvisibleSpace]", 
                TagBox["\<\"simulateRateConstRatiosDataKd\"\>",
                 "SummaryItem"]}]}
             },
@@ -2093,7 +1335,6 @@ Cell[BoxData[
              ShowStringCharacters -> False, NumberMarks -> False, 
               PrintPrecision -> 3, ShowSyntaxStyles -> False},
             GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Automatic}}},
-            
             GridBoxItemSize->{
              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
             GridBoxSpacings->{"Columns" -> {{2}}, "Rows" -> {{Automatic}}}]}
@@ -2240,7 +1481,7 @@ Cell[BoxData[
                  TagBox[
                   
                   TemplateBox[{
-                   "0.000182`2.410586385817069","\"s\"","seconds",
+                   "0.000103`2.1633522225371618","\"s\"","seconds",
                     "\"Seconds\""},
                    "Quantity"],
                   Short[#, 
@@ -2253,7 +1494,6 @@ Cell[BoxData[
                 "SummaryItem"]}]}
             },
             AutoDelete->False,
-            
             BaseStyle->{
              ShowStringCharacters -> False, NumberMarks -> False, 
               PrintPrecision -> 3, ShowSyntaxStyles -> False},
@@ -2274,7 +1514,7 @@ Cell[BoxData[
       DynamicModuleValues:>{}], "]"}],
     TestResultObject[
      Association[
-     "TestIndex" -> 5, "TestID" -> "simulateRateConstRatiosDataKd", "Outcome" -> 
+     "TestIndex" -> 3, "TestID" -> "simulateRateConstRatiosDataKd", "Outcome" -> 
       "Success", "Input" -> HoldForm[$CellContext`result], "ExpectedOutput" -> 
       HoldForm[{{{
           0.408, 0, 0, 0, 0, 0, 1, 8.9, 22, 
@@ -4058,9 +3298,9 @@ x[8])))))/(x[0]*x[4]*(d[4]*x[10]*x[6]*x[8] + x[3]*(x[10]*x[8] + x[7]*(x[11] + \
 x[8]))) + d[1]*x[2]*(x[0]*x[4]*(x[10]*x[8] + x[7]*(x[11] + x[8])) + \
 d[4]*x[6]*(x[10]*x[4]*x[8] + x[0]*(x[10]*x[8] + x[4]*(x[10] + x[11] + \
 x[8])))))", "x[0]/x[1]"}}], "ExpectedMessages" -> {}, "ActualMessages" -> {}, 
-      "AbsoluteTimeUsed" -> Quantity[0.000182`2.410586385817069, "Seconds"], 
-      "CPUTimeUsed" -> Quantity[0.0039999999999995595`, "Seconds"], 
-      "MemoryUsed" -> Quantity[48, "Bytes"]]],
+      "AbsoluteTimeUsed" -> Quantity[0.000103`2.1633522225371618, "Seconds"], 
+      "CPUTimeUsed" -> Quantity[0., "Seconds"], "MemoryUsed" -> 
+      Quantity[104, "Bytes"]]],
     Editable->False,
     SelectWithContents->True,
     Selectable->False], ",", 
@@ -4279,7 +3519,7 @@ x[8])))))", "x[0]/x[1]"}}], "ExpectedMessages" -> {}, "ActualMessages" -> {},
                  TagBox[
                   
                   TemplateBox[{
-                   "0.000101`2.1548363716146364","\"s\"","seconds",
+                   "0.000105`2.171704296901932","\"s\"","seconds",
                     "\"Seconds\""},
                    "Quantity"],
                   Short[#, 
@@ -4297,7 +3537,6 @@ x[8])))))", "x[0]/x[1]"}}], "ExpectedMessages" -> {}, "ActualMessages" -> {},
              ShowStringCharacters -> False, NumberMarks -> False, 
               PrintPrecision -> 3, ShowSyntaxStyles -> False},
             GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Automatic}}},
-            
             GridBoxItemSize->{
              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
             GridBoxSpacings->{"Columns" -> {{2}}, "Rows" -> {{Automatic}}}]}
@@ -4313,7 +3552,7 @@ x[8])))))", "x[0]/x[1]"}}], "ExpectedMessages" -> {}, "ActualMessages" -> {},
       DynamicModuleValues:>{}], "]"}],
     TestResultObject[
      Association[
-     "TestIndex" -> 6, "TestID" -> "simulateRateConstRatiosDatadKd", 
+     "TestIndex" -> 4, "TestID" -> "simulateRateConstRatiosDatadKd", 
       "Outcome" -> "Success", "Input" -> HoldForm[$CellContext`result], 
       "ExpectedOutput" -> 
       HoldForm[{{{
@@ -6132,7 +5371,7 @@ x[8]))) + d[1]*x[2]*(x[0]*x[4]*(x[10]*x[8] + x[7]*(x[11] + x[8])) + \
 d[4]*x[6]*(x[10]*x[4]*x[8] + x[0]*(x[10]*x[8] + x[4]*(x[10] + x[11] + \
 x[8])))))", "(x[1]*x[3]*x[5]*x[7]*x[9])/(x[0]*x[2]*x[4]*x[6]*x[8])"}}], 
       "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
-      Quantity[0.000101`2.1548363716146364, "Seconds"], "CPUTimeUsed" -> 
+      Quantity[0.000105`2.171704296901932, "Seconds"], "CPUTimeUsed" -> 
       Quantity[0., "Seconds"], "MemoryUsed" -> Quantity[32, "Bytes"]]],
     Editable->False,
     SelectWithContents->True,
@@ -6352,7 +5591,8 @@ x[8])))))", "(x[1]*x[3]*x[5]*x[7]*x[9])/(x[0]*x[2]*x[4]*x[6]*x[8])"}}],
                  TagBox[
                   
                   TemplateBox[{
-                   "0.0001`2.150514997831994","\"s\"","seconds","\"Seconds\""},
+                   "0.000158`2.3491720847864164","\"s\"","seconds",
+                    "\"Seconds\""},
                    "Quantity"],
                   Short[#, 
                    Rational[2, 3]]& ],
@@ -6369,6 +5609,7 @@ x[8])))))", "(x[1]*x[3]*x[5]*x[7]*x[9])/(x[0]*x[2]*x[4]*x[6]*x[8])"}}],
              ShowStringCharacters -> False, NumberMarks -> False, 
               PrintPrecision -> 3, ShowSyntaxStyles -> False},
             GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Automatic}}},
+            
             GridBoxItemSize->{
              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
             GridBoxSpacings->{"Columns" -> {{2}}, "Rows" -> {{Automatic}}}]}
@@ -6384,7 +5625,7 @@ x[8])))))", "(x[1]*x[3]*x[5]*x[7]*x[9])/(x[0]*x[2]*x[4]*x[6]*x[8])"}}],
       DynamicModuleValues:>{}], "]"}],
     TestResultObject[
      Association[
-     "TestIndex" -> 7, "TestID" -> "simulateRateConstRatiosDataKeq", 
+     "TestIndex" -> 5, "TestID" -> "simulateRateConstRatiosDataKeq", 
       "Outcome" -> "Success", "Input" -> HoldForm[$CellContext`result], 
       "ExpectedOutput" -> 
       HoldForm[{{{
@@ -7286,7 +6527,6 @@ x[0]*x[3]*(x[4]*(x[10]*x[8] + x[7]*(x[11] + x[8])) + d[5]*x[11]*x[7]*x[9]) + \
 d[3]*x[1]*(d[2]*d[5]*x[11]*x[5]*x[7]*x[9] + x[3]*(x[4]*(x[10]*x[8] + \
 x[7]*(x[11] + x[8])) + d[5]*x[11]*x[7]*x[9] + d[2]*x[5]*(x[10]*x[8] + \
 d[5]*(x[10] + x[11])*x[9] + x[7]*(x[11] + x[8] + d[5]*x[9])))))", 
-          
           "(d[1]*x[2]*(x[0]*x[4]*(x[10]*x[8] + x[7]*(x[11] + x[8])) + \
 d[4]*x[6]*(x[10]*x[4]*x[8] + x[0]*(x[10]*x[8] + x[4]*(x[10] + x[11] + \
 x[8])))))/(x[0]*x[4]*(d[4]*x[10]*x[6]*x[8] + x[3]*(x[10]*x[8] + x[7]*(x[11] + \
@@ -8200,7 +7440,6 @@ x[0]*x[3]*(x[4]*(x[10]*x[8] + x[7]*(x[11] + x[8])) + d[5]*x[11]*x[7]*x[9]) + \
 d[3]*x[1]*(d[2]*d[5]*x[11]*x[5]*x[7]*x[9] + x[3]*(x[4]*(x[10]*x[8] + \
 x[7]*(x[11] + x[8])) + d[5]*x[11]*x[7]*x[9] + d[2]*x[5]*(x[10]*x[8] + \
 d[5]*(x[10] + x[11])*x[9] + x[7]*(x[11] + x[8] + d[5]*x[9])))))", 
-          
           "(d[1]*x[2]*(x[0]*x[4]*(x[10]*x[8] + x[7]*(x[11] + x[8])) + \
 d[4]*x[6]*(x[10]*x[4]*x[8] + x[0]*(x[10]*x[8] + x[4]*(x[10] + x[11] + \
 x[8])))))/(x[0]*x[4]*(d[4]*x[10]*x[6]*x[8] + x[3]*(x[10]*x[8] + x[7]*(x[11] + \
@@ -8215,7 +7454,7 @@ d[4]*x[6]*(x[10]*x[4]*x[8] + x[0]*(x[10]*x[8] + x[4]*(x[10] + x[11] + \
 x[8])))))", 
           "(x[1]*x[11]*x[3]*x[5]*x[7]*x[9])/(x[0]*x[10]*x[2]*x[4]*x[6]*x[8])"}\
 }], "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
-      Quantity[0.0001`2.150514997831994, "Seconds"], "CPUTimeUsed" -> 
+      Quantity[0.000158`2.3491720847864164, "Seconds"], "CPUTimeUsed" -> 
       Quantity[0., "Seconds"], "MemoryUsed" -> Quantity[32, "Bytes"]]],
     Editable->False,
     SelectWithContents->True,
@@ -8224,12 +7463,13 @@ x[8])))))",
   3.6889084443849*^9, 3.688908503108357*^9, 3.688908607777151*^9, 
    3.688908775979824*^9, 3.6889088064112797`*^9, 3.688909134035748*^9, 
    3.688909344808937*^9, 3.688909455238867*^9, {3.6890837673681383`*^9, 
-   3.689083792820137*^9}, 3.6890839035004473`*^9}]
+   3.689083792820137*^9}, 3.6890839035004473`*^9, 3.689339058544718*^9, 
+   3.6893391735092983`*^9, 3.689339588152018*^9}]
 }, Open  ]]
 }, Open  ]]
 },
 WindowSize->{1440, 876},
-WindowMargins->{{Automatic, 3}, {Automatic, 48}},
+WindowMargins->{{Automatic, 3}, {51, Automatic}},
 FrontEndVersion->"11.0 for Linux x86 (64-bit) (September 21, 2016)",
 StyleDefinitions->"Default.nb"
 ]
@@ -8244,45 +7484,42 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[558, 20, 646, 9, 55, "Input"],
+Cell[558, 20, 536, 14, 125, "Input"],
 Cell[CellGroupData[{
-Cell[1229, 33, 2408, 53, 329, "Input"],
-Cell[3640, 88, 154, 3, 24, "Print"]
+Cell[1119, 38, 1289, 33, 237, "Input"],
+Cell[2411, 73, 158, 3, 24, "Print"]
 }, Open  ]],
-Cell[3809, 94, 139, 2, 55, "Input"],
+Cell[2584, 79, 139, 2, 55, "Input"],
 Cell[CellGroupData[{
-Cell[3973, 100, 327, 4, 35, "Subsubsection"],
-Cell[CellGroupData[{
-Cell[4325, 108, 2586, 44, 259, "Input"],
-Cell[6914, 154, 554, 10, 23, "Message"]
-}, Open  ]]
+Cell[2748, 85, 327, 4, 35, "Subsubsection"],
+Cell[3078, 91, 2620, 43, 259, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[7517, 170, 373, 5, 35, "Subsubsection"],
-Cell[7893, 177, 2658, 46, 237, "Input"]
+Cell[5735, 139, 373, 5, 35, "Subsubsection"],
+Cell[6111, 146, 2658, 46, 237, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[10588, 228, 426, 5, 35, "Subsubsection"],
-Cell[11017, 235, 2651, 46, 238, "Input"]
+Cell[8806, 197, 426, 5, 35, "Subsubsection"],
+Cell[9235, 204, 2686, 45, 238, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[13705, 286, 474, 6, 35, "Subsubsection"],
-Cell[14182, 294, 2651, 45, 260, "Input"]
+Cell[11958, 254, 474, 6, 35, "Subsubsection"],
+Cell[12435, 262, 2651, 45, 260, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[16870, 344, 921, 16, 35, "Subsubsection"],
-Cell[17794, 362, 3557, 67, 327, "Input"]
+Cell[15123, 312, 921, 16, 35, "Subsubsection"],
+Cell[16047, 330, 3557, 67, 327, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[21388, 434, 973, 17, 35, "Subsubsection"],
-Cell[22364, 453, 3002, 52, 237, "Input"]
+Cell[19641, 402, 973, 17, 35, "Subsubsection"],
+Cell[20617, 421, 3002, 52, 237, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[25403, 510, 1019, 17, 35, "Subsubsection"],
-Cell[26425, 529, 3120, 53, 237, "Input"],
+Cell[23656, 478, 1019, 17, 35, "Subsubsection"],
+Cell[24678, 497, 3120, 53, 237, "Input"],
 Cell[CellGroupData[{
-Cell[29570, 586, 103, 1, 32, "Input"],
-Cell[29676, 589, 385064, 7637, 242, "Output"]
+Cell[27823, 554, 103, 1, 32, "Input"],
+Cell[27929, 557, 352249, 6909, 242, "Output"]
 }, Open  ]]
 }, Open  ]]
 }
