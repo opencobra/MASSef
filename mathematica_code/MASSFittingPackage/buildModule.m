@@ -1,15 +1,14 @@
 (* ::Package:: *)
 
-Needs["Toolbox`"]
-On[Assert];
+(* ::Title:: *)
+(*buildModule*)
 
 
-(* ::Subsection:: *)
-(*Small functions*)
+(* ::Section:: *)
+(*Definitions*)
 
 
-keq2kHT=#/.keq_Keq:>rateconst[getID[keq],True]/rateconst[getID[keq],False]&;(*High-Throughput version of keq2k[]*)
-reverseConsts[model_]:=Select[Variables[keq2kHT[model["EquilibriumConstants"]]],#[[2]] == False&];
+Begin["`Private`"];
 
 
 (* ::Subsection:: *)
@@ -87,6 +86,11 @@ getUnifiedRateConstList[allCatalyticReactions_, nonCatalyticReactions_]:=Module[
 
 (* ::Subsection:: *)
 (*Add inhibition*)
+
+
+addInhibition[] := Module[{},
+	Return[Null];
+];
 
 
 (* ::Subsection:: *)
@@ -282,7 +286,7 @@ getHaldane[allCatalyticReactions_, unifiedRateConstList_, KeqName_] := Module[{h
 (*Get rate and met substitutions*)
 
 
-getMetRatesSubs[enzymeModel_, absoluteRateForward_, absoluteRateReverse_, relativeRateForward_, relativeRateReverse_,KeqVal_] := 
+getMetRatesSubs[enzymeModel_, absoluteRateForward_, absoluteRateReverse_, relativeRateForward_, relativeRateReverse_, KeqVal_] := 
 	Module[{finalRateConsts, rateConstsSub, mets, char2met, metsFull, finalMets, metsSub},
 	
 	finalRateConsts= Variables[Union[Cases[
@@ -338,3 +342,10 @@ exportRateEqs[outputPath_, absoluteRateForward_, absoluteRateReverse_, relativeR
 	
 	Return[{eqnNameList, eqnValList, eqnValListPy, fileList, fileListSub}];
 ]
+
+
+(* ::Subsection:: *)
+(*End*)
+
+
+End[];

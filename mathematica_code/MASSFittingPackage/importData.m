@@ -1,10 +1,17 @@
 (* ::Package:: *)
 
-Needs["Toolbox`"]
-On[Assert];
+(* ::Title:: *)
+(*importData*)
 
 
-(* ::Subsubsection:: *)
+(* ::Section:: *)
+(*Definitions*)
+
+
+Begin["`Private`"];
+
+
+(* ::Subsection:: *)
 (*Get ion data*)
 
 
@@ -15,7 +22,7 @@ getIonData[dataPath_] := Module[{data, ionChargeData},
 ];
 
 
-(* ::Subsubsection:: *)
+(* ::Subsection:: *)
 (*Get buffer data*)
 
 
@@ -46,7 +53,7 @@ getBufferInfoData[dataPath_] :=
 
 
 
-(* ::Subsubsection:: *)
+(* ::Subsection:: *)
 (*Get enzyme data*)
 
 
@@ -174,3 +181,10 @@ parseOtherEntry[line_] := Module[{entry, paramType, substrate, paramValue, units
 	entry = {paramType, substrate, paramValue, units, ph, temperature, buffer, salts};
 	Return[entry];
 ];
+
+
+(* ::Subsection:: *)
+(*End*)
+
+
+End[];

@@ -1,10 +1,17 @@
 (* ::Package:: *)
 
-Needs["Toolbox`"];
-On[Assert];
+(* ::Title:: *)
+(*simulateData*)
 
 
-(* ::Subsubsection:: *)
+(* ::Section:: *)
+(*Definitions*)
+
+
+Begin["`Private`"];
+
+
+(* ::Subsection:: *)
 (*Calculate buffer ionic strength*)
 
 
@@ -46,7 +53,7 @@ calculateBufferIonicStrength[bufferInfo_, dataListFull_] := Module[{bufferData, 
 ];
 
 
-(* ::Subsubsection:: *)
+(* ::Subsection:: *)
 (*Calculate salt ionic strength*)
 
 
@@ -77,7 +84,7 @@ calculateIonicStrength[dataListFull_, bufferInfo_, ionCharge_]:=Module[{bufferIo
 ];
 
 
-(* ::Subsubsection:: *)
+(* ::Subsection:: *)
 (*Calculate adjusted Keq using equilibrator*)
 
 
@@ -110,8 +117,7 @@ minPsDataVal[Km_]:=Log10[Km]-1;
 maxPsDataVal[Km_]:=Log10[Km]+1;
 
 
-
-(* ::Subsubsection:: *)
+(* ::Subsection:: *)
 (*Simulate Km data*)
 
 
@@ -291,7 +297,7 @@ simulateKmData[rxn_, metsFull_, metsSub_, metSatForSub_, metSatRevSub_, kmList_,
 ];
 
 
-(* ::Subsubsection:: *)
+(* ::Subsection:: *)
 (*Simulate kcat data*)
 
 
@@ -429,7 +435,7 @@ simulateKcatData[rxn_, metsFull_, metsSub_, metSatForSub_, metSatRevSub_, kcatLi
 ];
 
 
-(* ::Subsubsection:: *)
+(* ::Subsection:: *)
 (*Simulate rate constant ratios  data (e.g.  Keq, dKd, Kd)*)
 
 
@@ -473,3 +479,10 @@ simulateRateConstRatiosData[dKdRatio_, dKdVal_, KeqVal_, metsFull_, rateConstsSu
 	
 	Return[{dKdFittingData, fileListLocal, fileListSubLocal, eqnNameListLocal, eqnValListLocal, eqnValListPyLocal}];
 ];
+
+
+(* ::Subsection:: *)
+(*End*)
+
+
+End[];

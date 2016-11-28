@@ -1,11 +1,14 @@
 (* ::Package:: *)
 
-Needs["Toolbox`"]
-On[Assert];
+(* ::Title:: *)
+(*configureFit*)
 
 
-(* ::Subsubsection:: *)
-(**)
+(* ::Section:: *)
+(*Definitions*)
+
+
+Begin["`Private`"];
 
 
 calculateFitSSD[resultsFile_, enzName_, fittingData_, inputPath_, outputPath_, fileListSub_, rateConstsSub_, metsSub_, flagFitType_, exportData_, fitID_:""] :=
@@ -62,8 +65,10 @@ calculateFitSSD[resultsFile_, enzName_, fittingData_, inputPath_, outputPath_, f
 
 
 
-getRatesWithSSD[resultsFile_, enzName_, fittingData_, inputPath_, outputPath_,  fileListSub_, rateConstsSub_, metsSub_, flagFitType_, cutOffVal_:{}, exportData_:False, fitID_:""] :=
-	Module[{errorList={}, flagFit, flagFitLocal=1, msg, msgLocal="", resultsFileName, dataArrayWithSSD, bestFitDetails={}, filteredDataList, ratesWithFit},
+getRatesWithSSD[resultsFile_, enzName_, fittingData_, inputPath_, outputPath_,  fileListSub_, 
+				rateConstsSub_, metsSub_, flagFitType_, cutOffVal_:{}, exportData_:False, fitID_:""] :=
+	Module[{errorList={}, flagFit, flagFitLocal=1, msg, msgLocal="", resultsFileName, 
+			dataArrayWithSSD, bestFitDetails={}, filteredDataList, ratesWithFit},
 
 	{flagFit, msg, dataArrayWithSSD, bestFitDetails} = calculateFitSSD[resultsFile, enzName, fittingData, inputPath, outputPath, fileListSub, rateConstsSub, metsSub, flagFitType, exportData, fitID];
 	flagFitLocal = flagFit;
@@ -108,3 +113,10 @@ getElementaryKeqs[filteredDataList_, rateConstsSub_] := Module[{ratios={}, legen
 	
 	Return[{Transpose @ ratios, legend}];
 ];
+
+
+(* ::Subsection:: *)
+(*End*)
+
+
+End[];

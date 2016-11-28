@@ -1,5 +1,16 @@
 (* ::Package:: *)
 
+(* ::Title:: *)
+(*utils*)
+
+
+(* ::Section:: *)
+(*Definitions*)
+
+
+Begin["`Private`"];
+
+
 createDirectories[dataFolder_] := Module[{workingDir, dataPath, inputPath, outputPath, mkDirCmd},
 	
 	workingDir = NotebookDirectory[];
@@ -18,8 +29,9 @@ createDirectories[dataFolder_] := Module[{workingDir, dataPath, inputPath, outpu
 ];
 
 
-initializeNotebook[pathMASSFittingPath_, dataFolder_] := Module[{pathModel, pathBigg, pathData, pathMASSCode, runFitScriptPath, iJO, bigg2equilibrator,
-							  workingDir, inputPath, outputPath},
+initializeNotebook[pathMASSFittingPath_, dataFolder_] := 
+	Module[{pathModel, pathBigg, pathData, pathMASSCode, runFitScriptPath, 
+	iJO, bigg2equilibrator, workingDir, inputPath, outputPath},
 
 	pathModel = pathMASSFittingPath <> "data/iJO1366.m.gz";
 	pathBigg = pathMASSFittingPath <> "data/bigg2equilibratorViaKEGG.m.gz";
@@ -44,7 +56,7 @@ listToPython[x_] := x~ToString~InputForm~StringReplace~{"\""->"","*^"->"*10**","
 
 
 
-keq2kHT=#/.keq_Keq:>rateconst[getID[keq],True]/rateconst[getID[keq],False]&;(*High-Throughput version of keq2k[]*)
+keq2kHT = #/.keq_Keq:>rateconst[getID[keq],True]/rateconst[getID[keq],False]&;(*High-Throughput version of keq2k[]*)
 
 
 
@@ -83,3 +95,10 @@ getMisc[enzymeModel_, rxnName_] := Module[{KeqName, KeqVal, volumeSub},
 	Return[{KeqName, KeqVal, volumeSub}];
 ];
 
+
+
+(* ::Subsection:: *)
+(*End*)
+
+
+End[];

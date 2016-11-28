@@ -1,15 +1,26 @@
 (* ::Package:: *)
 
-Needs["Toolbox`"];
+(* ::Title:: *)
+(*configureFit*)
 
 
-(* ::Subsubsection:: *)
+(* ::Section:: *)
+(*Definitions*)
+
+
+Begin["`Private`"];
+
+
+(* ::Subsection:: *)
 (*Define PSO parameters*)
 
 
-definePSOparameters[inputPath_, outputPath_, dataPath_, finalRateConsts_, fileList_, numTrial_, lowerParamBound_, upperParamBound_, numCpus_:1, numGenerations_: 2000, popSize_: 20] := 
-	Module[{psoParameterPath, psoParameters, tempCorr, neighborSize, inertia, cognitiveRate, socialRate, useKeepBest, useRandomReplace, percentRandomParticles, 
-			numFuncVar, fileListPy, valueRow, functionRow, dataRowHigh, psoTrialSummaryFileName, psoResultsFileName},
+definePSOparameters[inputPath_, outputPath_, dataPath_, finalRateConsts_, fileList_, 
+					numTrial_, lowerParamBound_, upperParamBound_, numCpus_:1, 
+					numGenerations_: 2000, popSize_: 20] := 
+	Module[{psoParameterPath, psoParameters, tempCorr, neighborSize, inertia, cognitiveRate, socialRate, useKeepBest, 
+			useRandomReplace, percentRandomParticles, numFuncVar, fileListPy, valueRow, functionRow, dataRowHigh, 
+			psoTrialSummaryFileName, psoResultsFileName},
 	
 	psoParameters = {  
    
@@ -101,12 +112,14 @@ definePSOparameters[inputPath_, outputPath_, dataPath_, finalRateConsts_, fileLi
 ];
 
 
-(* ::Subsubsection:: *)
+(* ::Subsection:: *)
 (*Define LMA parameters*)
 
 
-defineLMAparameters[inputPath_, outputPath_, dataPath_, finalRateConsts_, fileList_, lowerParamBound_, upperParamBound_, numCpus_:1] := 
-	Module[{temperatureCorrect, xtolValue, ftolValue, gtolValue, epsfcnMinValue, maxfevValue, numFuncVar, psoResultsFileName, lmaResultsFileName,
+defineLMAparameters[inputPath_, outputPath_, dataPath_, finalRateConsts_, fileList_, 
+					lowerParamBound_, upperParamBound_, numCpus_:1] := 
+	Module[{temperatureCorrect, xtolValue, ftolValue, gtolValue, epsfcnMinValue, maxfevValue, 
+			numFuncVar, psoResultsFileName, lmaResultsFileName,
 			fileListPy, valueRow, functionRow, dataRowHigh, lmaParameterPath, lmaParameters},
 	
 	lmaParameters = {   
@@ -177,11 +190,13 @@ defineLMAparameters[inputPath_, outputPath_, dataPath_, finalRateConsts_, fileLi
 ];
 
 
-(* ::Subsubsection:: *)
+(* ::Subsection:: *)
 (*Create shell script to run pso and lma to fit the enzyme*)
 
 
-createPSOFitShellScript[psoScriptPath_, parameterPath_, dataFileName_, trialSummaryFileName_, resultsFileName_, numTrials_]:=Module[{shebangLine, shRunPso},
+createPSOFitShellScript[psoScriptPath_, parameterPath_, dataFileName_, trialSummaryFileName_, resultsFileName_, numTrials_] := 
+	Module[{shebangLine, shRunPso},
+	
 	shebangLine={"#!/bin/bash"};
 	shRunPso={shebangLine,{(*Spacer*)}};
 	shRunPso=Append[shRunPso,{"# Initialize Files"}];
@@ -198,7 +213,10 @@ createPSOFitShellScript[psoScriptPath_, parameterPath_, dataFileName_, trialSumm
 ];
 
 
-createCombinedFitShellScript[runFitScriptPath_, psoParameterPath_, lmaParameterPath_, psoSummaryFilePath_, psoResultsFilePath_, lmaResultsFilePath_, numTrials_, dataFileName_]:=Module[{shebangLine, shRunPso},
+createCombinedFitShellScript[runFitScriptPath_, psoParameterPath_, lmaParameterPath_, psoSummaryFilePath_, 
+							psoResultsFilePath_, lmaResultsFilePath_, numTrials_, dataFileName_] := 
+	Module[{shebangLine, shRunPso},
+	
 	shebangLine={"#!/bin/bash"};
 	shRunPso={shebangLine,{(*Spacer*)}};
 	shRunPso=Append[shRunPso,{"# Initialize Files"}];
@@ -213,3 +231,10 @@ createCombinedFitShellScript[runFitScriptPath_, psoParameterPath_, lmaParameterP
 
 	Return[shRunPso];
 ];
+
+
+(* ::Subsection:: *)
+(*End*)
+
+
+End[];
