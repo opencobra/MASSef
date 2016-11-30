@@ -220,7 +220,7 @@ createPSOFitShellScript[psoScriptPath_, parameterPath_, dataFileName_, trialSumm
 createCombinedFitShellScript[runFitScriptPath_, psoParameterPath_, lmaParameterPath_, psoSummaryFilePath_, 
 							psoResultsFilePath_, lmaResultsFilePath_, numTrials_, dataFileName_] := 
 	Module[{shebangLine, shRunPso},
-	
+
 	shebangLine={"#!/bin/bash"};
 	shRunPso={shebangLine,{(*Spacer*)}};
 	shRunPso=Append[shRunPso,{"# Initialize Files"}];

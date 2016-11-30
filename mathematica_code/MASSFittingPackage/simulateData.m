@@ -103,13 +103,13 @@ calculateAdjustedKeq[rxn_, ionicStrength_, dataListFull_] := Module[{adjustedKeq
 
 getDataListFull[rxn_, dataList_, dataListSub_] := Module[{char2met, dataListFull},
 		
-	char2met = {#[[1]]->#&/@getProducts[rxn]}~
+	(*char2met = {#[[1]]->#&/@getProducts[rxn]}~
 		Join~{#[[1]]->#&/@getSubstrates[rxn]}~
-		Join~dataListSub//Flatten//Union;
+		Join~dataListSub//Flatten//Union;*)
+	char2met = getConversionChar2Met[rxn];
 	dataListFull = dataList/.char2met; 
 
 	Return[dataListFull];
-
 ];
 
 
@@ -176,12 +176,12 @@ simulateKmData[rxn_, metsFull_, metsSub_, metSatForSub_, metSatRevSub_, kmList_,
 			AppendTo[
 			kmListFull[[km]],paramOutputPath<>StringCases[path,RegularExpression[outputPath<>"(.*)"]->"$1"]
 		]],
-	{km,Length[kmListFull]}, {path,fileList}];
+	{km, Length @ kmListFull}, {path,fileList}];
 
 	(*Handle CoSubstrates*)
 	dataCoSub=Table[km[[3]],{km,kmListFull}];
-	kmListFull=ReplacePart[#,3->Table[{met},{met,metsFull}]]&/@kmListFull;
-	
+	kmListFull=ReplacePart[#,3->Table[{met}, {met,metsFull}]]&/@kmListFull;
+
 	(*Extract CoSubstrates*)
 	Do[
 		If[
@@ -201,7 +201,7 @@ simulateKmData[rxn_, metsFull_, metsSub_, metSatForSub_, metSatRevSub_, kmList_,
 		AppendTo[
 			kmListFull[[km,3,Position[kmListFull[[km,3]],kmListFull[[km,1]]][[1,1]]]], 
 			dataRange[[km]]],
-	{km, kmListFull//Length}];
+	{km, Length @ kmListFull}];
 
 	(*Handle CoSubstrate Data*)
 	dataCoSubFull=
@@ -222,7 +222,7 @@ simulateKmData[rxn_, metsFull_, metsSub_, metSatForSub_, metSatRevSub_, kmList_,
 					{Select[dataCoSub[[km]],#[[1]]==coSubList[[km,met]]&][[1,1]],
 					Table[
 						assumedSaturatingConc,
-					{dataRange[[km]]//Length}]
+					{Length @ dataRange[[km]]}]
 				},
 				(*CoSubstrate is Not Present in Data*)
 				!MemberQ[dataCoSub[[km,All,1]],coSubList[[km,met]]],
@@ -230,13 +230,12 @@ simulateKmData[rxn_, metsFull_, metsSub_, metSatForSub_, metSatRevSub_, kmList_,
 					{coSubList[[km,met]],
 					Table[
 						assumedSaturatingConc,
-					{dataRange[[km]]//Length}]
+					{Length @ dataRange[[km]]}]
 				}
 				],
-		{km,Length[coSubList]},{met,Length[coSubList[[km]]]}];
-		
-		
-		(*Append All Remaining CoSubstrate Concentrations to 'kmListFull'*)
+		{km, Length @ coSubList},{met, Length @ coSubList[[km]]}];
+
+    (*Append All Remaining CoSubstrate Concentrations to 'kmListFull'*)
 	Do[
 		Which[
 			MemberQ[dataCoSubFull[[km]]//Flatten,kmListFull[[km,3,met,1]]],
@@ -247,11 +246,11 @@ simulateKmData[rxn_, metsFull_, metsSub_, metSatForSub_, metSatRevSub_, kmList_,
 			!MemberQ[dataCoSubFull[[km]]//Flatten,kmListFull[[km,3,met,1]]]&&!MatchQ[kmListFull[[km,3,met,1]],kmListFull[[km,1]]],
 			(*Non Pseudo-Data Values*)
 			kmListFull[[km,3,met]]={kmListFull[[km,3,met,1]],
-			Table[0,{dataRange[[km]]//Length}]}
+			Table[0, {Length @ dataRange[[km]]}]}
 
 		],
-	{km,Length[kmListFull]},{met,Length[kmListFull[[km,3]]]}];
-	
+	{km, Length @ kmListFull},{met, Length @ kmListFull[[km,3]]}];
+
 	ionicStrength = calculateIonicStrength[kmListFull, bufferInfo, ionCharge];
 	adjustedKeqVal= 
 		If[NumericQ[KeqVal],	
@@ -265,7 +264,7 @@ simulateKmData[rxn_, metsFull_, metsSub_, metSatForSub_, metSatRevSub_, kmList_,
 	
 	(*Repeat Assay Conditions for Each Data Point*)
 	Do[
-		kmListFull[[km,con]]=Table[kmListFull[[km,con]],{rep,dataRange[[km]]//Length}],
+		kmListFull[[km,con]]=Table[kmListFull[[km,con]], {rep, Length @  dataRange[[km]]}],
 	{km,kmListFull//Length},{con, 5, 6}];
 	
 

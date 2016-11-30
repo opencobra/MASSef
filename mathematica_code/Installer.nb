@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[      5734,        180]
-NotebookOptionsPosition[      5053,        150]
-NotebookOutlinePosition[      5514,        171]
-CellTagsIndexPosition[      5441,        166]
+NotebookDataLength[      5869,        183]
+NotebookOptionsPosition[      5190,        153]
+NotebookOutlinePosition[      5649,        174]
+CellTagsIndexPosition[      5576,        169]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -25,7 +25,9 @@ Cell["Run the following code to install the Toolbox", "Subsection"],
 Cell["\<\
 The following code will install the MASS Toolbox in \
 $UserBaseDirectory/Applications\
-\>", "Text"],
+\>", "Text",
+ CellChangeTimes->{3.68941397181522*^9, 3.689422775573428*^9, 
+  3.689504403408526*^9}],
 
 Cell[BoxData[{
  RowBox[{
@@ -68,7 +70,8 @@ Cell[BoxData[{
   3.624074650996521*^9, 3.6240746959425087`*^9}, {3.6256129091812162`*^9, 
   3.625612912606317*^9}, {3.628267099491096*^9, 3.6282671069533854`*^9}, {
   3.644254895636889*^9, 3.644254915674518*^9}, {3.644587882015006*^9, 
-  3.644587894119781*^9}, {3.689327793835457*^9, 3.689327801700253*^9}},
+  3.644587894119781*^9}, {3.689327793835457*^9, 3.689327801700253*^9}, {
+  3.689508985227004*^9, 3.689508987684746*^9}},
  CellTags->"InstallCode"],
 
 Cell[BoxData[
@@ -148,8 +151,8 @@ installation of the Toolbox. It will not be removed.\>\""}],
   3.6893277878109207`*^9, 3.689327807397163*^9}}]
 }, Open  ]]
 },
-WindowSize->{954, 1020},
-WindowMargins->{{909, Automatic}, {-80, Automatic}},
+WindowSize->{954, 573},
+WindowMargins->{{Automatic, 963}, {Automatic, 24}},
 FrontEndVersion->"11.0 for Linux x86 (64-bit) (September 21, 2016)",
 StyleDefinitions->"Default.nb"
 ]
@@ -159,28 +162,28 @@ StyleDefinitions->"Default.nb"
 (*CellTagsOutline
 CellTagsIndex->{
  "InstallCode"->{
-  Cell[762, 29, 1751, 42, 171, "Input",
+  Cell[850, 31, 1800, 43, 171, "Input",
    CellTags->"InstallCode"]}
  }
 *)
 (*CellTagsIndex
 CellTagsIndex->{
- {"InstallCode", 5348, 160}
+ {"InstallCode", 5483, 163}
  }
 *)
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
 Cell[580, 22, 67, 0, 45, "Subsection"],
-Cell[650, 24, 109, 3, 33, "Text"],
-Cell[762, 29, 1751, 42, 171, "Input",
+Cell[650, 24, 197, 5, 33, "Text"],
+Cell[850, 31, 1800, 43, 171, "Input",
  CellTags->"InstallCode"],
-Cell[2516, 73, 127, 2, 32, "Input"]
+Cell[2653, 76, 127, 2, 32, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[2680, 80, 122, 4, 70, "Subsection"],
-Cell[2805, 86, 129, 3, 33, "Text"],
-Cell[2937, 91, 2100, 56, 350, "Input"]
+Cell[2817, 83, 122, 4, 70, "Subsection"],
+Cell[2942, 89, 129, 3, 33, "Text"],
+Cell[3074, 94, 2100, 56, 350, "Input"]
 }, Open  ]]
 }
 ]

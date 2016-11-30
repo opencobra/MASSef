@@ -110,6 +110,15 @@ getRatesWithSSD::usage="getRatesWithSSD[resultsFile, enzName, fittingData, input
 getElementaryKeqs::usage="getElementaryKeqs[filteredDataList, rateConstsSub]";
 
 
+backCalculateKms::usage="backCalculateKms[rxn, absoluteRate, paramFitSub]";
+
+
+backCalculateKcats::usage="backCalculateKms[rxn, absoluteRate, paramFitSub]";
+
+
+backCalculateRatios::usage="backCalculateRatios[ratio, ratioValData, paramFitSub]";
+
+
 (* ::Subsection:: *)
 (*utils*)
 

@@ -97,6 +97,14 @@ getMisc[enzymeModel_, rxnName_] := Module[{KeqName, KeqVal, volumeSub},
 
 
 
+getConversionChar2Met[rxn_] := Module[{char2met},
+	char2met = {#[[1]]->#&/@getProducts[rxn]}~
+				Join~{#[[1]]->#&/@getSubstrates[rxn]}//Flatten//Union;
+	
+	Return[char2met];
+];
+
+
 (* ::Subsection:: *)
 (*End*)
 
