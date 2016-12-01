@@ -116,7 +116,7 @@ getElementaryKeqs[filteredDataList_, rateConstsSub_] := Module[{ratios={}, legen
 ];
 
 
-getCosubDataKm[kmList_, kmMet_, rxn_, assumedSaturatingConc_, char2met_] := Module[{sub, cosubs, dataCosubKm, met, cosubsWithoutConc, allCosubData},
+getCosubDataKm[rxn_, kmList_, kmMet_, assumedSaturatingConc_, char2met_] := Module[{sub, cosubs, dataCosubKm, met, cosubsWithoutConc, allCosubData},
 
 	cosubs = If[MemberQ[getSubstrates[rxn], kmMet], 
 				{"sub", DeleteCases[getSubstrates[rxn], kmMet]}, 
@@ -150,7 +150,7 @@ backCalculateKms[rxn_, kmList_, absoluteRateFor_, absoluteRateRev_, paramFitSub_
 		Table[
 			kmMet = kmMets[[i]];
 			kmDataVal = kmList[[i, 2]];
-			{subProdFlag, cosubData}= getCosubDataKm[kmList, kmMet, rxn, assumedSaturatingConc, char2met];
+			{subProdFlag, cosubData}= getCosubDataKm[rxn, kmList, kmMet, assumedSaturatingConc, char2met];
 		
 			absoluteRate = If[StringMatchQ[subProdFlag, "sub"], absoluteRateFor, absoluteRateRev];	
 			vVal = Simplify[absoluteRate /. paramFitSub /. cosubData];
@@ -169,20 +169,22 @@ backCalculateKms[rxn_, kmList_, absoluteRateFor_, absoluteRateRev_, paramFitSub_
 ];
 
 
-getCosubDataKcat[rxn_, kcatList_, assumedSaturatingConc_, char2met_] := Module[{dataCoSubKcat, metList, subProdFlag},
+getCosubDataKcat[rxn_, kcatList_, kcatMets_, assumedSaturatingConc_, char2met_] := Module[{dataCoSubKcat, metList, subProdFlag},
 
 	dataCoSubKcat=
 		Table[
-			If[NumericQ[kcat[[2]]], 
-				(kcat[[1]] /. char2met)-> kcat[[2]],
-				(kcat[[1]] /. char2met)-> assumedSaturatingConc],
-		{kcat, kcatList[[All, 1]][[1]]}];
-
+			If[MemberQ[kcatMets, kcat[[1]]],
+				If[NumericQ[kcat[[2]]], 
+					(kcat[[1]] /. char2met)-> kcat[[2]],
+					(kcat[[1]] /. char2met)-> assumedSaturatingConc]
+				],
+		{kcat, Flatten[kcatList[[All, 1]], 1]}];
+	dataCoSubKcat = DeleteCases[dataCoSubKcat, Null];
+	
 	metList= Keys @ dataCoSubKcat;
-
 	subProdFlag = If[MemberQ[ Map[ MemberQ[getSubstrates[rxn], #]&, metList], True], 
 					 "sub", 
-				 	"prod"];
+				     "prod"];
 				
 	Return[{subProdFlag, dataCoSubKcat}];
 ];
@@ -190,16 +192,17 @@ getCosubDataKcat[rxn_, kcatList_, assumedSaturatingConc_, char2met_] := Module[{
 
 
 backCalculateKcats[rxn_, kcatList_, absoluteRateFor_, absoluteRateRev_, paramFitSub_, enzymeSub_, assumedSaturatingConc_] := 
-	Module[{char2met, kcatDataVal, subProdFlag, dataCoSubKcat, kcatValPredicted, 
+	Module[{char2met, kcatMets, kcatDataVal, subProdFlag, dataCoSubKcat, kcatValPredicted, 
 			absoluteRate, predictedKcatList, relError, header},
 	
 	char2met = getConversionChar2Met[rxn];
 	
 	predictedKcatList = 
 		Table[
+			kcatMets = kcatList[[i, 1]][[All, 1]];
 			kcatDataVal = kcatList[[i]][[2]];		
-			{subProdFlag, dataCoSubKcat} = getCosubDataKcat[rxn, kcatList, assumedSaturatingConc, char2met];
-			
+			{subProdFlag, dataCoSubKcat} = getCosubDataKcat[rxn, kcatList, kcatMets, assumedSaturatingConc, char2met];
+
 			absoluteRate = If[StringMatchQ[subProdFlag, "sub"], absoluteRateFor, absoluteRateRev];
 			kcatValPredicted = absoluteRate /. paramFitSub /. dataCoSubKcat /. enzymeSub;
 
@@ -216,7 +219,7 @@ backCalculateKcats[rxn_, kcatList_, absoluteRateFor_, absoluteRateRev_, paramFit
 
 backCalculateRatios[ratio_, ratioValData_, paramFitSub_] := 
 	Module[{ratioValPredicted, relError, header, predictedList},
-
+	
 	ratioValPredicted = ratio /. paramFitSub;
 	relError = Abs[ratioValData - ratioValPredicted] / ratioValData * 100;
 	
@@ -225,6 +228,10 @@ backCalculateRatios[ratio_, ratioValData_, paramFitSub_] :=
 	
 	Return[predictedList];
 ];
+
+
+(*backCalculateRatio[] := Module[{},
+];*)
 
 
 (* ::Subsection:: *)

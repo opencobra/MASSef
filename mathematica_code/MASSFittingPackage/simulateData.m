@@ -76,6 +76,7 @@ calculateSaltIonicStrength[ionCharge_, dataListFull_] := Module[{localSaltCharge
 
 
 calculateIonicStrength[dataListFull_, bufferInfo_, ionCharge_]:=Module[{bufferIonStrength, saltIonStrength, ionicStrength},
+	
 	bufferIonStrength = calculateBufferIonicStrength[bufferInfo, dataListFull];
 	saltIonStrength = calculateSaltIonicStrength[ionCharge, dataListFull];
 	ionicStrength = Thread[bufferIonStrength+saltIonStrength];
@@ -144,7 +145,7 @@ simulateKmData[rxn_, metsFull_, metsSub_, metSatForSub_, metSatRevSub_, kmList_,
 	{km, kmList}, {coSub,km[[3]]}]//Flatten//Union;
 
 	kmListFull = getDataListFull[rxn, kmList, kmListSub];
-	
+
 	(*Parse Km Values Where the Substrate is Not in the Primary Reaction*)
 	Do[
 		If[
@@ -252,6 +253,7 @@ simulateKmData[rxn_, metsFull_, metsSub_, metSatForSub_, metSatRevSub_, kmList_,
 	{km, Length @ kmListFull},{met, Length @ kmListFull[[km,3]]}];
 
 	ionicStrength = calculateIonicStrength[kmListFull, bufferInfo, ionCharge];
+
 	adjustedKeqVal= 
 		If[NumericQ[KeqVal],	
 			ConstantArray[{Keq[getID[rxn]]-> KeqVal}, Dimensions[kmListFull][[1]]],

@@ -3,10 +3,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[         0,          0]
-NotebookDataLength[     25164,        636]
-NotebookOptionsPosition[     24242,        598]
-NotebookOutlinePosition[     24577,        613]
-CellTagsIndexPosition[     24534,        610]
+NotebookDataLength[     25192,        636]
+NotebookOptionsPosition[     24266,        598]
+NotebookOutlinePosition[     24604,        613]
+CellTagsIndexPosition[     24561,        610]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -156,23 +156,23 @@ Cell[BoxData[
   "SetDelayed","write",
    "\"Tag \\!\\(\\*RowBox[{\\\"rNonModelMets\\\"}]\\) in \
 \\!\\(\\*RowBox[{\\\"rNonModelMets\\\", \\\"[\\\", \\\"metList_\\\", \
-\\\"]\\\"}]\\) is Protected.\"",2,46,7,22749493925868916269,"Local"},
+\\\"]\\\"}]\\) is Protected.\"",2,46,1,22750609105157177764,"Local"},
   "MessageTemplate"]], "Message", "MSG",
- CellChangeTimes->{3.689339639881459*^9}],
+ CellChangeTimes->{3.689509692970035*^9}],
 
 Cell[BoxData[
  TemplateBox[{
   "SetDelayed","write",
    "\"Tag \\!\\(\\*RowBox[{\\\"rNonModelMets\\\"}]\\) in \
 \\!\\(\\*RowBox[{\\\"rNonModelMets\\\", \\\"[\\\", \\\"metList_\\\", \
-\\\"]\\\"}]\\) is Protected.\"",2,73,8,22749493925868916269,"Local"},
+\\\"]\\\"}]\\) is Protected.\"",2,73,2,22750609105157177764,"Local"},
   "MessageTemplate"]], "Message", "MSG",
- CellChangeTimes->{3.689339640786854*^9}],
+ CellChangeTimes->{3.6895096944055147`*^9}],
 
 Cell[BoxData["\<\"Working \
 dir:/home/mrama/Dropbox/MASS_fitting_package/mathematica_code/tests/\"\>"], \
 "Print",
- CellChangeTimes->{3.68933964972538*^9}]
+ CellChangeTimes->{3.689509703084084*^9}]
 }, Open  ]],
 
 Cell[BoxData[{
@@ -383,7 +383,7 @@ Cell[BoxData[
        GraphicsColor->RGBColor[0, 
          Rational[2, 3], 0],
        FontColor->RGBColor[0, 
-         Rational[2, 3], 0]], "8.034428`", 
+         Rational[2, 3], 0]], "1.484037`", 
       TemplateBox[{InterpretationBox[
          TagBox[
           
@@ -421,7 +421,7 @@ Cell[BoxData[
        GraphicsColor->RGBColor[0, 
          Rational[2, 3], 0],
        FontColor->RGBColor[0, 
-         Rational[2, 3], 0]], "3.980801`", 
+         Rational[2, 3], 0]], "4.74562`", 
       TemplateBox[{InterpretationBox[
          TagBox[
           
@@ -459,7 +459,7 @@ Cell[BoxData[
        GraphicsColor->RGBColor[0, 
          Rational[2, 3], 0],
        FontColor->RGBColor[0, 
-         Rational[2, 3], 0]], "0.677962`", 
+         Rational[2, 3], 0]], "0.754236`", 
       TemplateBox[{InterpretationBox[
          TagBox[
           
@@ -497,7 +497,7 @@ Cell[BoxData[
        GraphicsColor->RGBColor[0, 
          Rational[2, 3], 0],
        FontColor->RGBColor[0, 
-         Rational[2, 3], 0]], "0.669819`", 
+         Rational[2, 3], 0]], "1.122926`", 
       TemplateBox[{InterpretationBox[
          TagBox[
           
@@ -535,7 +535,7 @@ Cell[BoxData[
        GraphicsColor->RGBColor[0, 
          Rational[2, 3], 0],
        FontColor->RGBColor[0, 
-         Rational[2, 3], 0]], "9.667792`", 
+         Rational[2, 3], 0]], "9.095884`", 
       TemplateBox[{InterpretationBox[
          TagBox[
           
@@ -592,12 +592,12 @@ Cell[BoxData[
    3.644261143659711*^9, 3.644261756640709*^9, 3.6890843253679323`*^9, {
    3.689084424200192*^9, 3.6890844347847023`*^9}, 3.689084820454406*^9, 
    3.689338849207135*^9, 3.689339513608379*^9, 3.689339549745654*^9, 
-   3.689339663629788*^9}]
+   3.689339663629788*^9, 3.689509711921199*^9}]
 }, Open  ]]
 }, Open  ]]
 },
-WindowSize->{1920, 1176},
-WindowMargins->{{Automatic, 0}, {-153, 24}},
+WindowSize->{954, 573},
+WindowMargins->{{Automatic, 3}, {Automatic, 24}},
 FrontEndVersion->"11.0 for Linux x86 (64-bit) (September 21, 2016)",
 StyleDefinitions->"Default.nb"
 ]
@@ -615,20 +615,20 @@ Notebook[{
 Cell[CellGroupData[{
 Cell[422, 15, 92, 1, 65, "Section"],
 Cell[517, 18, 120, 2, 32, "Input"],
-Cell[640, 22, 4907, 96, 308, "Input"],
+Cell[640, 22, 4907, 96, 354, "Input"],
 Cell[CellGroupData[{
-Cell[5572, 122, 1247, 29, 260, "Input"],
+Cell[5572, 122, 1247, 29, 283, "Input"],
 Cell[6822, 153, 335, 7, 23, "Message"],
-Cell[7160, 162, 335, 7, 23, "Message"],
-Cell[7498, 171, 155, 3, 24, "Print"]
+Cell[7160, 162, 337, 7, 23, "Message"],
+Cell[7500, 171, 156, 3, 24, "Print"]
 }, Open  ]],
-Cell[7668, 177, 3419, 97, 304, "Input"]
+Cell[7671, 177, 3419, 97, 350, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[11124, 279, 146, 2, 65, "Section"],
+Cell[11127, 279, 146, 2, 65, "Section"],
 Cell[CellGroupData[{
-Cell[11295, 285, 4144, 67, 34, "Input"],
-Cell[15442, 354, 8772, 240, 237, "Output"]
+Cell[11298, 285, 4144, 67, 102, "Input"],
+Cell[15445, 354, 8793, 240, 237, "Output"]
 }, Open  ]]
 }, Open  ]]
 }
