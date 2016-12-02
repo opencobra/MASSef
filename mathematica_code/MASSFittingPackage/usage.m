@@ -36,7 +36,7 @@ getUnifiedRateConstList::usage="getUnifiedRateConstList[allCatalyticReactions, n
 getFluxEquation::usage="getFluxEquation[workingDir, rxnName, enzymeModel, unifiedRateConstList, transitionRateEqs]";
 
 
-addInhibition::usage="addInhibition[] not implemented yet";
+addCompetitiveInhibition::usage="addCompetitiveInhibition[enzName, inhibitorMets, affectedMetsList, allCatalyticReactions, competitiveRxns]";
 
 
 getFluxEquation::usage="getFluxEquation[workingDir, rxnName, enzymeModel, unifiedRateConstList, transitionRateEqs]";

@@ -97,9 +97,13 @@ getMisc[enzymeModel_, rxnName_] := Module[{KeqName, KeqVal, volumeSub},
 
 
 
-getConversionChar2Met[rxn_] := Module[{char2met},
-	char2met = {#[[1]]->#&/@getProducts[rxn]}~
-				Join~{#[[1]]->#&/@getSubstrates[rxn]}//Flatten//Union;
+getConversionChar2Met[mets_] := Module[{char2met},
+	char2met = 
+		If[ListQ[mets],
+			Map[# -> metabolite[#, "c"]&, mets],
+			(*if it's not a list, assume it's a reaction *)
+			{#[[1]]->#&/@getProducts[rxn]}~Join~{#[[1]]->#&/@getSubstrates[rxn]}//Flatten//Union
+		];
 	
 	Return[char2met];
 ];
