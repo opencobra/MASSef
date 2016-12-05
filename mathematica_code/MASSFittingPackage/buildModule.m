@@ -160,14 +160,16 @@ addCompetitiveInhibition[enzymeModel_, enzName_, inhibitionList_,  allCatalyticR
 	inhibitorMetsList = inhibitorMetsList /. getConversionChar2Met[inhibitorMetsList];
 	
 	paramTypeList = inhibitionList[[All, 1]];
-	
+
 	affectedMetsListLocal = 
 		If[affectedMetsList == {},
-			temp = Map[StringSplit[#[[1]], ","]&, Flatten[inhibitionList[[All,4]], 1]][[All,4]];
+			temp = Flatten[inhibitionList[[All,4]], 1][[All,4]];
 			affectedMetsListLocal = temp /. getConversionChar2Met[temp],
 			
 			affectedMetsList
 		];
+		
+	Print[affectedMetsListLocal];
 			
 	AppendTo[inhibitedRxns, 
 		Table[			

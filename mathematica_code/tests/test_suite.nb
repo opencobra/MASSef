@@ -3,10 +3,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[         0,          0]
-NotebookDataLength[     24459,        616]
-NotebookOptionsPosition[     23613,        580]
-NotebookOutlinePosition[     23951,        595]
-CellTagsIndexPosition[     23908,        592]
+NotebookDataLength[     25726,        649]
+NotebookOptionsPosition[     24760,        610]
+NotebookOutlinePosition[     25098,        625]
+CellTagsIndexPosition[     25055,        622]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -151,10 +151,40 @@ Cell[BoxData[{
   ";"}]}], "Input",
  CellChangeTimes->{{3.6890841726292543`*^9, 3.6890842574097767`*^9}}],
 
+Cell[BoxData[
+ TemplateBox[{
+  "Toolbox","badargs",
+   "\"There is no definition for '\\!\\(\\*RowBox[{\\\"getProducts\\\"}]\\)' \
+applicable to \\!\\(\\*RowBox[{\\\"getProducts\\\", \\\"[\\\", \
+\\\"MASSFittingPackage`Private`rxn\\\", \\\"]\\\"}]\\).\"",2,32,1,
+   22751771111768284311,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.6896869980224857`*^9}],
+
 Cell[BoxData["\<\"Working \
 dir:/home/mrama/Dropbox/MASS_fitting_package/mathematica_code/tests/\"\>"], \
 "Print",
- CellChangeTimes->{3.689591199583158*^9}]
+ CellChangeTimes->{3.689687011235918*^9}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Toolbox","badargs",
+   "\"There is no definition for '\\!\\(\\*RowBox[{\\\"getProducts\\\"}]\\)' \
+applicable to \\!\\(\\*RowBox[{\\\"getProducts\\\", \\\"[\\\", \
+\\\"MASSFittingPackage`Private`rxn\\\", \\\"]\\\"}]\\).\"",2,14,2,
+   22751771111768284311,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.68968701149527*^9}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Toolbox","badargs",
+   "\"There is no definition for '\\!\\(\\*RowBox[{\\\"getProducts\\\"}]\\)' \
+applicable to \\!\\(\\*RowBox[{\\\"getProducts\\\", \\\"[\\\", \
+\\\"MASSFittingPackage`Private`rxn\\\", \\\"]\\\"}]\\).\"",2,18,3,
+   22751771111768284311,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.689687011621726*^9}]
 }, Open  ]],
 
 Cell[BoxData[{
@@ -579,7 +609,7 @@ Cell[BoxData[
 }, Open  ]]
 },
 WindowSize->{954, 573},
-WindowMargins->{{Automatic, 3}, {Automatic, 48}},
+WindowMargins->{{Automatic, 3}, {Automatic, 72}},
 FrontEndVersion->"11.0 for Linux x86 (64-bit) (September 21, 2016)",
 StyleDefinitions->"Default.nb"
 ]
@@ -600,15 +630,18 @@ Cell[517, 18, 120, 2, 32, "Input"],
 Cell[640, 22, 4907, 96, 354, "Input"],
 Cell[CellGroupData[{
 Cell[5572, 122, 1247, 29, 283, "Input"],
-Cell[6822, 153, 156, 3, 24, "Print"]
+Cell[6822, 153, 381, 8, 23, "Message"],
+Cell[7206, 163, 156, 3, 24, "Print"],
+Cell[7365, 168, 378, 8, 23, "Message"],
+Cell[7746, 178, 379, 8, 23, "Message"]
 }, Open  ]],
-Cell[6993, 159, 3419, 97, 350, "Input"]
+Cell[8140, 189, 3419, 97, 350, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[10449, 261, 146, 2, 65, "Section"],
+Cell[11596, 291, 146, 2, 65, "Section"],
 Cell[CellGroupData[{
-Cell[10620, 267, 4144, 67, 102, "Input"],
-Cell[14767, 336, 8818, 240, 237, "Output"]
+Cell[11767, 297, 4144, 67, 102, "Input"],
+Cell[15914, 366, 8818, 240, 166, "Output"]
 }, Open  ]]
 }, Open  ]]
 }

@@ -105,7 +105,6 @@ getEnzymeData[enzName_, dataPath_] := Module[{data, enzymesInd, curEnzymeInd, ne
 
 
 parseSubMetLists[list_]:=Module[{parsedList, res},
-	
 	parsedList = Table[
 		res = StringSplit[entry, ","][[1]];
 		{res[[1]], ToExpression[res[[2]]]},
@@ -154,6 +153,9 @@ parseInhibActEntry[line_] := Module[{entry, paramType, substrate, paramValue, ac
 	substrate = line[[2]];
 	paramValue = line[[3]];
 	actionType = Map[{#}&, StringSplit[line[[4]], ";"]];
+	actionType = Flatten[ Map[StringSplit[#, ","]&, actionType], 1];
+	actionType[[All,2]] = ToExpression[actionType[[All,2]]];
+	actionType[[All,3]] = ToExpression[actionType[[All,3]]];
 	units = line[[5]];
 	ph = line[[6]];
 	temperature = line[[7]];
