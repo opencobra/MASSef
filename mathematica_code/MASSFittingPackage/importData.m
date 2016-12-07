@@ -1,10 +1,17 @@
 (* ::Package:: *)
 
-Needs["Toolbox`"]
-On[Assert];
+(* ::Title:: *)
+(*importData*)
 
 
-(* ::Subsubsection:: *)
+(* ::Section:: *)
+(*Definitions*)
+
+
+Begin["`Private`"];
+
+
+(* ::Subsection:: *)
 (*Get ion data*)
 
 
@@ -15,7 +22,7 @@ getIonData[dataPath_] := Module[{data, ionChargeData},
 ];
 
 
-(* ::Subsubsection:: *)
+(* ::Subsection:: *)
 (*Get buffer data*)
 
 
@@ -46,7 +53,7 @@ getBufferInfoData[dataPath_] :=
 
 
 
-(* ::Subsubsection:: *)
+(* ::Subsection:: *)
 (*Get enzyme data*)
 
 
@@ -97,28 +104,46 @@ getEnzymeData[enzName_, dataPath_] := Module[{data, enzymesInd, curEnzymeInd, ne
 
 
 
+parseSubMetLists[list_]:=Module[{parsedList, res},
+	
+	parsedList = Table[
+		res = StringSplit[entry, ","][[1]];
+		{res[[1]], ToExpression[res[[2]]]},
+	{entry, list}];
+
+	Return[parsedList];
+];
+
 parseKmS05Entry[line_] := Module[{entry, substrate, value, coSubstrates, units, ph, temperature, buffer, salts},
 	substrate = line[[1]];
 	value = line[[2]];
+		
 	coSubstrates = Map[{#}&, StringSplit[line[[3]], ";"]];
+	coSubstrates = parseSubMetLists[coSubstrates];
 	units = line[[4]];
 	ph = line[[5]];
 	temperature = line[[6]];
 	buffer = Map[{#}&, StringSplit[line[[7]], ";"]];
+	buffer = parseSubMetLists[buffer];
 	salts = Map[{#}&, StringSplit[line[[8]], ";"]];
-
+	salts = parseSubMetLists[salts];
+	
 	entry = {substrate, value, coSubstrates, units, ph, temperature, buffer, salts};
 	Return[entry];
 ];
 
 parseKcatEntry[line_] := Module[{kcatEntry, kcatValue, substrates, units, ph, temperature, buffer, salts},
-	substrates = Map[{#}&, StringSplit[line[[1]],";"]];
+	substrates = Map[{#}&, StringSplit[line[[1]], ";"]];
+	substrates = parseSubMetLists[substrates];
+
 	kcatValue = line[[2]];
 	units = line[[3]];
 	ph = line[[4]];
 	temperature = line[[5]];
 	buffer = Map[{#}&, StringSplit[line[[6]], ";"]];
+	buffer = parseSubMetLists[buffer];
 	salts = Map[{#}&, StringSplit[line[[7]], ";"]];
+	salts = parseSubMetLists[salts];
 
 	kcatEntry = {substrates, kcatValue, units, ph, temperature, buffer, salts};
 	Return[kcatEntry];
@@ -133,7 +158,9 @@ parseInhibActEntry[line_] := Module[{entry, paramType, substrate, paramValue, ac
 	ph = line[[6]];
 	temperature = line[[7]];
 	buffer = Map[{#}&, StringSplit[line[[8]], ";"]];
+	buffer = parseSubMetLists[buffer];
 	salts = Map[{#}&, StringSplit[line[[9]], ";"]];
+	salts = parseSubMetLists[salts];
 
 	entry = {paramType, substrate, paramValue, actionType, units, ph, temperature, buffer, salts};
 	Return[entry];
@@ -147,8 +174,17 @@ parseOtherEntry[line_] := Module[{entry, paramType, substrate, paramValue, units
 	ph = line[[5]];
 	temperature = line[[6]];
 	buffer = Map[{#}&, StringSplit[line[[7]], ";"]];
+	buffer = parseSubMetLists[buffer];
 	salts = Map[{#}&, StringSplit[line[[8]], ";"]];
-
+	salts = parseSubMetLists[salts];
+	
 	entry = {paramType, substrate, paramValue, units, ph, temperature, buffer, salts};
 	Return[entry];
 ];
+
+
+(* ::Subsection:: *)
+(*End*)
+
+
+End[];

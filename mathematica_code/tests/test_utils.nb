@@ -10,17 +10,14 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    110742,       2687]
-NotebookOptionsPosition[    109790,       2650]
-NotebookOutlinePosition[    110129,       2665]
-CellTagsIndexPosition[    110086,       2662]
+NotebookDataLength[    111331,       2706]
+NotebookOptionsPosition[    110375,       2669]
+NotebookOutlinePosition[    110714,       2684]
+CellTagsIndexPosition[    110671,       2681]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
-Cell[BoxData[""], "Input",
- CellChangeTimes->{{3.688909816978963*^9, 3.688909820546137*^9}}],
-
 Cell[BoxData[{
  RowBox[{
   RowBox[{"SetDirectory", "[", 
@@ -36,18 +33,18 @@ Cell[BoxData[{
  RowBox[{
   RowBox[{
   "kineticDataPath", " ", "=", " ", 
-   "\"\<test_files/import_data/test_db_kinetic_data.xls\>\""}], 
+   "\"\<test_files/test_db_kinetic_data.xls\>\""}], 
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
   "ionChargeDataPath", " ", "=", " ", 
-   "\"\<test_files/import_data/test_db_ion_charge.xls\>\""}], 
+   "\"\<test_files/test_db_ion_charge.xls\>\""}], 
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
    RowBox[{
    "bufferInfoDataPath", " ", "=", " ", 
-    "\"\<test_files/import_data/test_db_buffer_info.xls\>\""}], ";"}], 
+    "\"\<test_files/test_db_buffer_info.xls\>\""}], ";"}], 
   "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"testResults", "=", 
@@ -57,9 +54,8 @@ Cell[BoxData[{
    3.688379323937272*^9}, {3.688379500528048*^9, 3.688379505413515*^9}, {
    3.688379610834086*^9, 3.688379615162458*^9}, {3.6883796704649563`*^9, 
    3.6883796795516977`*^9}, {3.68838057838741*^9, 3.688380615452154*^9}, {
-   3.688463975330852*^9, 3.688464039417232*^9}, {3.688909809865691*^9, 
-   3.688909814709023*^9}, 3.6890837422860622`*^9, 3.68933877230728*^9, 
-   3.68933891092124*^9}],
+   3.688463975330852*^9, 3.688464039417232*^9}, 3.68933879159813*^9, 
+   3.689338918644104*^9}],
 
 Cell[CellGroupData[{
 
@@ -272,11 +268,10 @@ multiple contexts \\!\\(\\*RowBox[{\\\"{\\\", \
 RowBox[{\\\"\\\\\\\"BoxForm`\\\\\\\"\\\", \\\",\\\", \
 \\\"\\\\\\\"Global`\\\\\\\"\\\"}], \\\"}\\\"}]\\); definitions in context \\!\
 \\(\\*RowBox[{\\\"\\\\\\\"BoxForm`\\\\\\\"\\\"}]\\) may shadow or be shadowed \
-by other definitions.\"",2,10,1,22747821602713105833,"Local"},
+by other definitions.\"",2,9,1,22746064636932349452,"Local"},
   "MessageTemplate"]], "Message", "MSG",
  CellChangeTimes->{{3.6888156804214773`*^9, 3.688815706534903*^9}, 
-   3.688816260039002*^9, 3.688909787616774*^9, 3.688909826449774*^9, 
-   3.688910969360371*^9, 3.689083749098516*^9, 3.6890843664242773`*^9}]
+   3.688816260039002*^9}]
 }, Open  ]]
 }, Open  ]],
 
@@ -1092,8 +1087,14 @@ Cell[BoxData[
                     RowBox[{"\[LeftSkeleton]", "26", "\[RightSkeleton]"}], 
                     ",", 
                     RowBox[{"{", 
-                    RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], 
-                    "}"}]}], "}"}],
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"pi_buffer\"\>", 
+                    ",", "\<\"Phosphoric acid\"\>"}], "}"}], ",", "7.198`", 
+                    ",", 
+                    RowBox[{"-", "1.`"}], ",", 
+                    RowBox[{"-", "2.`"}]}], "}"}]}], "}"}],
                   Short[#, 
                    Rational[2, 3]]& ],
                  BaselinePosition->Baseline,
@@ -1119,8 +1120,14 @@ Cell[BoxData[
                     RowBox[{"\[LeftSkeleton]", "26", "\[RightSkeleton]"}], 
                     ",", 
                     RowBox[{"{", 
-                    RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], 
-                    "}"}]}], "}"}],
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"pi_buffer\"\>", 
+                    ",", "\<\"Phosphoric acid\"\>"}], "}"}], ",", "7.198`", 
+                    ",", 
+                    RowBox[{"-", "1.`"}], ",", 
+                    RowBox[{"-", "2.`"}]}], "}"}]}], "}"}],
                   Short[#, 
                    Rational[2, 3]]& ],
                  BaselinePosition->Baseline,
@@ -1138,7 +1145,7 @@ Cell[BoxData[
                  TagBox[
                   
                   TemplateBox[{
-                   "0.054385`4.88599413070074","\"s\"","seconds",
+                   "0.049816`4.8478838505453385","\"s\"","seconds",
                     "\"Seconds\""},
                    "Quantity"],
                   Short[#, 
@@ -1219,9 +1226,9 @@ Cell[BoxData[
           "teoahcl", "triethanolamine-HCl"}, 7.83, 1., 0.}, {{
           "pi_buffer", "Phosphoric acid"}, 7.198, -1., -2.}}], 
       "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
-      Quantity[0.054385`4.88599413070074, "Seconds"], "CPUTimeUsed" -> 
+      Quantity[0.049816`4.8478838505453385, "Seconds"], "CPUTimeUsed" -> 
       Quantity[0.052000000000000046`, "Seconds"], "MemoryUsed" -> 
-      Quantity[3026576, "Bytes"]]],
+      Quantity[3026648, "Bytes"]]],
     Editable->False,
     SelectWithContents->True,
     Selectable->False], ",", 
@@ -1387,7 +1394,9 @@ Cell[BoxData[
                     RowBox[{"\<\"mg2\"\>", ",", "2.`"}], "}"}], ",", 
                     RowBox[{"{", 
                     RowBox[{"\<\"k\"\>", ",", "1.`"}], "}"}], ",", 
-                    RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"\<\"so4\"\>", ",", 
+                    RowBox[{"-", "2.`"}]}], "}"}], ",", 
                     RowBox[{"{", 
                     RowBox[{"\<\"mn2\"\>", ",", "2.`"}], "}"}], ",", 
                     RowBox[{"{", 
@@ -1419,7 +1428,9 @@ Cell[BoxData[
                     RowBox[{"\<\"mg2\"\>", ",", "2.`"}], "}"}], ",", 
                     RowBox[{"{", 
                     RowBox[{"\<\"k\"\>", ",", "1.`"}], "}"}], ",", 
-                    RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"\<\"so4\"\>", ",", 
+                    RowBox[{"-", "2.`"}]}], "}"}], ",", 
                     RowBox[{"{", 
                     RowBox[{"\<\"mn2\"\>", ",", "2.`"}], "}"}], ",", 
                     RowBox[{"{", 
@@ -1444,7 +1455,7 @@ Cell[BoxData[
                  TagBox[
                   
                   TemplateBox[{
-                   "0.0001`2.1505149978319897","\"s\"","seconds",
+                   "0.000101`2.154836371614637","\"s\"","seconds",
                     "\"Seconds\""},
                    "Quantity"],
                   Short[#, 
@@ -1485,7 +1496,7 @@ Cell[BoxData[
       HoldForm[{{"cl", -1.}, {"mg2", 2.}, {"k", 1.}, {"so4", -2.}, {
          "mn2", 2.}, {"na1", 1.}, {"hco3", -1.}}], "ExpectedMessages" -> {}, 
       "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
-      Quantity[0.0001`2.1505149978319897, "Seconds"], "CPUTimeUsed" -> 
+      Quantity[0.000101`2.154836371614637, "Seconds"], "CPUTimeUsed" -> 
       Quantity[0., "Seconds"], "MemoryUsed" -> Quantity[96, "Bytes"]]],
     Editable->False,
     SelectWithContents->True,
@@ -1727,8 +1738,7 @@ Cell[BoxData[
                     Selectable->False], "+", 
                     InterpretationBox[
                     SuperscriptBox[
-                    StyleBox[
-                    RowBox[{"\[LeftSkeleton]", "3", "\[RightSkeleton]"}],
+                    StyleBox["fbp",
                     StripOnInput->False,
                     ShowSyntaxStyles->False,
                     AutoSpacing->False,
@@ -1798,12 +1808,16 @@ Cell[BoxData[
                     RowBox[{"{", 
                     RowBox[{
                     RowBox[{"{", 
-                    
-                    RowBox[{"\<\"n\"\>", ",", "\<\"\"\>", ",", "2.11`", 
-                    ",", "\<\"Null\"\>", ",", "8.5`", ",", "30.`", ",", 
+                    RowBox[{"\<\"n\"\>", ",", "\<\"\"\>", ",", 
+                    RowBox[{"\[LeftSkeleton]", "4", "\[RightSkeleton]"}], ",", 
                     RowBox[{"{", 
-                    RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], 
-                    "}"}], ",", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"\<\"detam\"\>", ",", "0.051`"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"\<\"netmphn\"\>", ",", "0.051`"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"\<\"mes\"\>", ",", "0.1`"}], "}"}]}], "}"}], ",", 
                     RowBox[{"{", "}"}]}], "}"}], ",", 
                     RowBox[{"{", 
                     RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], 
@@ -1907,8 +1921,7 @@ Cell[BoxData[
                     Selectable->False], "+", 
                     InterpretationBox[
                     SuperscriptBox[
-                    StyleBox[
-                    RowBox[{"\[LeftSkeleton]", "3", "\[RightSkeleton]"}],
+                    StyleBox["fbp",
                     StripOnInput->False,
                     ShowSyntaxStyles->False,
                     AutoSpacing->False,
@@ -1978,12 +1991,16 @@ Cell[BoxData[
                     RowBox[{"{", 
                     RowBox[{
                     RowBox[{"{", 
-                    
-                    RowBox[{"\<\"n\"\>", ",", "\<\"\"\>", ",", "2.11`", 
-                    ",", "\<\"Null\"\>", ",", "8.5`", ",", "30.`", ",", 
+                    RowBox[{"\<\"n\"\>", ",", "\<\"\"\>", ",", 
+                    RowBox[{"\[LeftSkeleton]", "4", "\[RightSkeleton]"}], ",", 
                     RowBox[{"{", 
-                    RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], 
-                    "}"}], ",", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"\<\"detam\"\>", ",", "0.051`"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"\<\"netmphn\"\>", ",", "0.051`"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"\<\"mes\"\>", ",", "0.1`"}], "}"}]}], "}"}], ",", 
                     RowBox[{"{", "}"}]}], "}"}], ",", 
                     RowBox[{"{", 
                     RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], 
@@ -2005,7 +2022,7 @@ Cell[BoxData[
                  TagBox[
                   
                   TemplateBox[{
-                   "0.000105`2.1717042969019302","\"s\"","seconds",
+                   "0.000096`2.132786230871562","\"s\"","seconds",
                     "\"Seconds\""},
                    "Quantity"],
                   Short[#, 
@@ -2102,7 +2119,7 @@ Cell[BoxData[
            30., {{"detam", 0.051}, {"netmphn", 0.051}, {"mes", 0.1}}, {}}, {
           "L0", "", 4.*^6, "Null", 8.5, 28., {{"tris", 0.05}}, {}}}}], 
       "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
-      Quantity[0.000105`2.1717042969019302, "Seconds"], "CPUTimeUsed" -> 
+      Quantity[0.000096`2.132786230871562, "Seconds"], "CPUTimeUsed" -> 
       Quantity[0., "Seconds"], "MemoryUsed" -> Quantity[104, "Bytes"]]],
     Editable->False,
     SelectWithContents->True,
@@ -2550,7 +2567,7 @@ Cell[BoxData[
                  TagBox[
                   
                   TemplateBox[{
-                   "0.000107`2.1798987755172035","\"s\"","seconds",
+                   "0.000133`2.2743666387990795","\"s\"","seconds",
                     "\"Seconds\""},
                    "Quantity"],
                   Short[#, 
@@ -2631,7 +2648,7 @@ Cell[BoxData[
           "Ki", "pi", 0.019, {{"Competitive,Null,Null,Null"}}, "M", 8.5, 
            30., {{"glygly", 0.05}}, {}}}, {}, {}}], "ExpectedMessages" -> {}, 
       "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
-      Quantity[0.000107`2.1798987755172035, "Seconds"], "CPUTimeUsed" -> 
+      Quantity[0.000133`2.2743666387990795, "Seconds"], "CPUTimeUsed" -> 
       Quantity[0., "Seconds"], "MemoryUsed" -> Quantity[32, "Bytes"]]],
     Editable->False,
     SelectWithContents->True,
@@ -2643,13 +2660,15 @@ Cell[BoxData[
    3.688464149025647*^9, 3.688464172810822*^9}, 3.688465883141364*^9, 
    3.68881318748592*^9, {3.688813312811335*^9, 3.688813330726493*^9}, {
    3.688815681472596*^9, 3.688815707232031*^9}, 3.6888158216463537`*^9, 
-   3.6888162607296867`*^9, 3.68890978927617*^9, 3.688909827170191*^9, 
-   3.688910970814025*^9, 3.689083750216116*^9, 3.689084367368194*^9}]
-}, Open  ]]
+   3.6888162607296867`*^9}]
+}, Open  ]],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.6888133205742702`*^9, 3.6888133232090273`*^9}}]
 }, Open  ]]
 },
-WindowSize->{1440, 876},
-WindowMargins->{{Automatic, 3}, {51, Automatic}},
+WindowSize->{1914, 1023},
+WindowMargins->{{Automatic, 3}, {0, Automatic}},
 FrontEndVersion->"11.0 for Linux x86 (64-bit) (September 21, 2016)",
 StyleDefinitions->"Default.nb"
 ]
@@ -2664,30 +2683,30 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[558, 20, 92, 1, 32, "Input"],
-Cell[653, 23, 1528, 38, 238, "Input"],
+Cell[558, 20, 1419, 37, 238, "Input"],
 Cell[CellGroupData[{
-Cell[2206, 65, 211, 3, 35, "Subsubsection"],
+Cell[2002, 61, 211, 3, 35, "Subsubsection"],
 Cell[CellGroupData[{
-Cell[2442, 72, 7537, 192, 421, "Input"],
-Cell[9982, 266, 698, 12, 23, "Message"]
+Cell[2238, 68, 7537, 192, 352, "Input"],
+Cell[9778, 262, 581, 11, 23, "Message"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[10729, 284, 155, 2, 35, "Subsubsection"],
-Cell[10887, 288, 1905, 44, 214, "Input"]
+Cell[10408, 279, 155, 2, 35, "Subsubsection"],
+Cell[10566, 283, 1905, 44, 214, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[12829, 337, 165, 2, 35, "Subsubsection"],
-Cell[12997, 341, 13338, 325, 449, "Input"]
+Cell[12508, 332, 165, 2, 35, "Subsubsection"],
+Cell[12676, 336, 13338, 325, 449, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[26372, 671, 117, 1, 35, "Subsubsection"],
-Cell[26492, 674, 10155, 248, 448, "Input"],
+Cell[26051, 666, 117, 1, 35, "Subsubsection"],
+Cell[26171, 669, 10155, 248, 402, "Input"],
 Cell[CellGroupData[{
-Cell[36672, 926, 37, 0, 32, "Input"],
-Cell[36712, 928, 73050, 1718, 125, "Output"]
-}, Open  ]]
+Cell[36351, 921, 37, 0, 32, "Input"],
+Cell[36391, 923, 73857, 1739, 65, "Output"]
+}, Open  ]],
+Cell[110263, 2665, 96, 1, 65, "Input"]
 }, Open  ]]
 }
 ]
