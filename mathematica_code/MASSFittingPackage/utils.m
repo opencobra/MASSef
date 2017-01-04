@@ -36,7 +36,7 @@ initializeNotebook[pathMASSFittingPath_, dataFolder_] :=
 	pathModel = pathMASSFittingPath <> "data/iJO1366.m.gz";
 	pathBigg = pathMASSFittingPath <> "data/bigg2equilibratorViaKEGG.m.gz";
 	pathData= pathMASSFittingPath <> "data/";
-    runFitScriptPath="/home/mrama/Dropbox/Kinetics/Scripts/run_fit_rel.py";
+    runFitScriptPath = pathMASSFittingPath <> "python_code/src/run_fit_rel.py";
     (*iJO=Import[pathModel];*)
 	bigg2equilibrator=Import[pathBigg];
 	
