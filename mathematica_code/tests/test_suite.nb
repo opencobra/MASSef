@@ -3,10 +3,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[         0,          0]
-NotebookDataLength[     25726,        649]
-NotebookOptionsPosition[     24760,        610]
-NotebookOutlinePosition[     25098,        625]
-CellTagsIndexPosition[     25055,        622]
+NotebookDataLength[     24855,        630]
+NotebookOptionsPosition[     23897,        590]
+NotebookOutlinePosition[     24238,        605]
+CellTagsIndexPosition[     24195,        602]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -151,40 +151,19 @@ Cell[BoxData[{
   ";"}]}], "Input",
  CellChangeTimes->{{3.6890841726292543`*^9, 3.6890842574097767`*^9}}],
 
-Cell[BoxData[
- TemplateBox[{
-  "Toolbox","badargs",
-   "\"There is no definition for '\\!\\(\\*RowBox[{\\\"getProducts\\\"}]\\)' \
-applicable to \\!\\(\\*RowBox[{\\\"getProducts\\\", \\\"[\\\", \
-\\\"MASSFittingPackage`Private`rxn\\\", \\\"]\\\"}]\\).\"",2,32,1,
-   22751771111768284311,"Local"},
-  "MessageTemplate"]], "Message", "MSG",
- CellChangeTimes->{3.6896869980224857`*^9}],
+Cell[CellGroupData[{
+
+Cell[BoxData["\<\"default absoluteFluxEqnRelRateFor\"\>"], "Print",
+ CellChangeTimes->{3.689938285909417*^9}],
+
+Cell[BoxData["\<\"default absoluteFluxEqnRelRateRev\"\>"], "Print",
+ CellChangeTimes->{3.689938285910234*^9}],
 
 Cell[BoxData["\<\"Working \
 dir:/home/mrama/Dropbox/MASS_fitting_package/mathematica_code/tests/\"\>"], \
 "Print",
- CellChangeTimes->{3.689687011235918*^9}],
-
-Cell[BoxData[
- TemplateBox[{
-  "Toolbox","badargs",
-   "\"There is no definition for '\\!\\(\\*RowBox[{\\\"getProducts\\\"}]\\)' \
-applicable to \\!\\(\\*RowBox[{\\\"getProducts\\\", \\\"[\\\", \
-\\\"MASSFittingPackage`Private`rxn\\\", \\\"]\\\"}]\\).\"",2,14,2,
-   22751771111768284311,"Local"},
-  "MessageTemplate"]], "Message", "MSG",
- CellChangeTimes->{3.68968701149527*^9}],
-
-Cell[BoxData[
- TemplateBox[{
-  "Toolbox","badargs",
-   "\"There is no definition for '\\!\\(\\*RowBox[{\\\"getProducts\\\"}]\\)' \
-applicable to \\!\\(\\*RowBox[{\\\"getProducts\\\", \\\"[\\\", \
-\\\"MASSFittingPackage`Private`rxn\\\", \\\"]\\\"}]\\).\"",2,18,3,
-   22751771111768284311,"Local"},
-  "MessageTemplate"]], "Message", "MSG",
- CellChangeTimes->{3.689687011621726*^9}]
+ CellChangeTimes->{3.689938296030018*^9}]
+}, Open  ]]
 }, Open  ]],
 
 Cell[BoxData[{
@@ -395,7 +374,7 @@ Cell[BoxData[
        GraphicsColor->RGBColor[0, 
          Rational[2, 3], 0],
        FontColor->RGBColor[0, 
-         Rational[2, 3], 0]], "1.466952`", 
+         Rational[2, 3], 0]], "1.570936`", 
       TemplateBox[{InterpretationBox[
          TagBox[
           
@@ -433,7 +412,7 @@ Cell[BoxData[
        GraphicsColor->RGBColor[0, 
          Rational[2, 3], 0],
        FontColor->RGBColor[0, 
-         Rational[2, 3], 0]], "4.927023`", 
+         Rational[2, 3], 0]], "4.828697`", 
       TemplateBox[{InterpretationBox[
          TagBox[
           
@@ -471,7 +450,7 @@ Cell[BoxData[
        GraphicsColor->RGBColor[0, 
          Rational[2, 3], 0],
        FontColor->RGBColor[0, 
-         Rational[2, 3], 0]], "0.718615`", 
+         Rational[2, 3], 0]], "0.686506`", 
       TemplateBox[{InterpretationBox[
          TagBox[
           
@@ -509,7 +488,7 @@ Cell[BoxData[
        GraphicsColor->RGBColor[0, 
          Rational[2, 3], 0],
        FontColor->RGBColor[0, 
-         Rational[2, 3], 0]], "1.22643`", 
+         Rational[2, 3], 0]], "1.303182`", 
       TemplateBox[{InterpretationBox[
          TagBox[
           
@@ -547,7 +526,7 @@ Cell[BoxData[
        GraphicsColor->RGBColor[0, 
          Rational[2, 3], 0],
        FontColor->RGBColor[0, 
-         Rational[2, 3], 0]], "10.451906`", 
+         Rational[2, 3], 0]], "9.396974`", 
       TemplateBox[{InterpretationBox[
          TagBox[
           
@@ -604,12 +583,13 @@ Cell[BoxData[
    3.644261143659711*^9, 3.644261756640709*^9, 3.6890843253679323`*^9, {
    3.689084424200192*^9, 3.6890844347847023`*^9}, 3.689084820454406*^9, 
    3.689338849207135*^9, 3.689339513608379*^9, 3.689339549745654*^9, 
-   3.689339663629788*^9, 3.689509711921199*^9, 3.6895912435862722`*^9}]
+   3.689339663629788*^9, 3.689509711921199*^9, 3.6895912435862722`*^9, 
+   3.689938309535245*^9}]
 }, Open  ]]
 }, Open  ]]
 },
 WindowSize->{954, 573},
-WindowMargins->{{Automatic, 3}, {Automatic, 72}},
+WindowMargins->{{Automatic, 573}, {Automatic, 152}},
 FrontEndVersion->"11.0 for Linux x86 (64-bit) (September 21, 2016)",
 StyleDefinitions->"Default.nb"
 ]
@@ -630,18 +610,19 @@ Cell[517, 18, 120, 2, 32, "Input"],
 Cell[640, 22, 4907, 96, 354, "Input"],
 Cell[CellGroupData[{
 Cell[5572, 122, 1247, 29, 283, "Input"],
-Cell[6822, 153, 381, 8, 23, "Message"],
-Cell[7206, 163, 156, 3, 24, "Print"],
-Cell[7365, 168, 378, 8, 23, "Message"],
-Cell[7746, 178, 379, 8, 23, "Message"]
+Cell[CellGroupData[{
+Cell[6844, 155, 109, 1, 24, "Print"],
+Cell[6956, 158, 109, 1, 24, "Print"],
+Cell[7068, 161, 156, 3, 24, "Print"]
+}, Open  ]]
 }, Open  ]],
-Cell[8140, 189, 3419, 97, 350, "Input"]
+Cell[7251, 168, 3419, 97, 350, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[11596, 291, 146, 2, 65, "Section"],
+Cell[10707, 270, 146, 2, 65, "Section"],
 Cell[CellGroupData[{
-Cell[11767, 297, 4144, 67, 102, "Input"],
-Cell[15914, 366, 8818, 240, 166, "Output"]
+Cell[10878, 276, 4144, 67, 102, "Input"],
+Cell[15025, 345, 8844, 241, 237, "Output"]
 }, Open  ]]
 }, Open  ]]
 }

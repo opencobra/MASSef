@@ -157,19 +157,19 @@ addCompetitiveInhibition[enzymeModel_, enzName_, inhibitionList_,  allCatalyticR
 			nonCatalyticReactionsLocal, temp},
 
 	inhibitorMetsList = inhibitionList[[All, 2]];
+	inhibitorMetsList = inhibitorMetsList[[All,1, 1]];
 	inhibitorMetsList = inhibitorMetsList /. getConversionChar2Met[inhibitorMetsList];
-	
+
 	paramTypeList = inhibitionList[[All, 1]];
 
 	affectedMetsListLocal = 
 		If[affectedMetsList == {},
-			temp = Flatten[inhibitionList[[All,4]], 1][[All,4]];
+			temp = Flatten[inhibitionList[[All,5]], 1][[All,4]];
 			affectedMetsListLocal = temp /. getConversionChar2Met[temp],
 			
 			affectedMetsList
 		];
 		
-	Print[affectedMetsListLocal];
 			
 	AppendTo[inhibitedRxns, 
 		Table[			
@@ -319,12 +319,26 @@ getRateConstSubRandomMech[enzymeModel_, eqRateConstSubTemp_, allCatalyticReactio
 (*Get  rate  equations*)
 
 
-getRateEqs[absoluteFlux_, unifiedRateConstList_, eqRateConstSub_, reverseZeroSub_, forwardZeroSub_, volumeSub_, metSatForSub_, metSatRevSub_]:= 
-	Module[{absoluteFluxEqn, absoluteRateForward, absoluteRateReverse, relativeRateForward, relativeRateReverse},
+getRateEqs[absoluteFlux_, unifiedRateConstList_, eqRateConstSub_, reverseZeroSub_, 
+		   forwardZeroSub_, volumeSub_, metSatForSub_, metSatRevSub_,
+		   absoluteFluxRelRateFor_:{}, absoluteFluxRelRateRev_:{}]:= 
+	Module[{absoluteFluxEqn, absoluteRateForward, absoluteRateReverse, relativeRateForward, relativeRateReverse,
+			absoluteFluxEqnRelRateFor, absoluteFluxEqnRelRateRev},
 	
-	absoluteFluxEqn=absoluteFlux[[2]];
-	absoluteFluxEqn=absoluteFluxEqn/.unifiedRateConstList/.eqRateConstSub;(*Equivalent Rate Constants*)
+	absoluteFluxEqn = absoluteFlux[[2]]/.unifiedRateConstList/.eqRateConstSub;(*Equivalent Rate Constants*)
 	
+	If[absoluteFluxRelRateFor == {},
+		Print["default absoluteFluxEqnRelRateFor"];
+		absoluteFluxEqnRelRateFor = absoluteFluxEqn,
+		absoluteFluxEqnRelRateFor = absoluteFluxRelRateFor[[2]]/.unifiedRateConstList/.eqRateConstSub;
+	];
+	
+	If[absoluteFluxRelRateRev == {}, 
+		Print["default absoluteFluxEqnRelRateRev"];
+		absoluteFluxEqnRelRateRev = absoluteFluxEqn,
+		absoluteFluxEqnRelRateRev = absoluteFluxRelRateRev[[2]]/.unifiedRateConstList/.eqRateConstSub;
+	];		
+			
 	(*kcat Forward*)
 	absoluteRateForward = Simplify[(absoluteFluxEqn/.reverseZeroSub/.volumeSub)];
 
@@ -332,9 +346,9 @@ getRateEqs[absoluteFlux_, unifiedRateConstList_, eqRateConstSub_, reverseZeroSub
 	absoluteRateReverse = Simplify[(-absoluteFluxEqn/.forwardZeroSub/.volumeSub)];
 
 	(*Forward Km(s)*)
-	relativeRateForward = Simplify[absoluteRateForward/(Limit[absoluteFluxEqn/.reverseZeroSub/.volumeSub,#])]&/@metSatForSub;
+	relativeRateForward = Simplify[absoluteRateForward/(Limit[absoluteFluxEqnRelRateFor/.reverseZeroSub/.volumeSub,#])]&/@metSatForSub;
 	(*Reverse Km(s)*)
-	relativeRateReverse = Simplify[-absoluteRateReverse/(Limit[absoluteFluxEqn/.forwardZeroSub/.volumeSub,#])]&/@metSatRevSub;
+	relativeRateReverse = Simplify[-absoluteRateReverse/(Limit[absoluteFluxEqnRelRateRev/.forwardZeroSub/.volumeSub,#])]&/@metSatRevSub;
 
 	Return[{absoluteRateForward, absoluteRateReverse, relativeRateForward, relativeRateReverse}];
 ];

@@ -19,7 +19,11 @@ calculateBufferIonicStrength[bufferInfo_, dataListFull_] := Module[{bufferData, 
 	(*Calculate Buffer Ionic Strength*)
 	
 	Which[Dimensions[dataListFull][[2]] == 10, ind1=5; ind2=7,
-	  	Dimensions[dataListFull][[2]] == 7, ind1=4; ind2=6];
+	  	Dimensions[dataListFull][[2]] == 7, ind1=4; ind2=6,
+	  	Dimensions[dataListFull][[2]] == 12, ind1=7; ind2=9];
+	Print["dimensions"];
+	Print[dataListFull[[1]]];
+	
 
 	bufferData=Table[
 		(*Assay Buffer Concentrations*)
@@ -60,7 +64,8 @@ calculateBufferIonicStrength[bufferInfo_, dataListFull_] := Module[{bufferData, 
 calculateSaltIonicStrength[ionCharge_, dataListFull_] := Module[{localSaltCharge, saltIonStrength, ind},
 	
 	Which[Dimensions[dataListFull][[2]] == 10, ind=8,
-		  Dimensions[dataListFull][[2]] == 7, ind=7];
+		  Dimensions[dataListFull][[2]] == 7, ind=7,
+		  Dimensions[dataListFull][[2]] == 12, ind=10];
 	
 	saltIonStrength=Table[
 		localSaltCharge = Select[ionCharge,#[[1]] == salt[[1]]&][[1,2]];
@@ -92,7 +97,7 @@ calculateIonicStrength[dataListFull_, bufferInfo_, ionCharge_]:=Module[{bufferIo
 calculateAdjustedKeq[rxn_, ionicStrength_, dataListFull_] := Module[{adjustedKeqVal, ind},
 	Which[Dimensions[dataListFull][[2]] == 10, ind=5,
 		  Dimensions[dataListFull][[2]] == 7, ind=4];
-	
+
 	(*Calculate the Keq Using Equilibrator*)
 	adjustedKeqVal=Table[
 		dG2keq@Chop[calcDeltaG[{rxn}, bigg2equilibrator, is->ionicStrength[[entry]] Mole Liter^-1, pH->ToExpression[dataListFull[[entry,ind]]]]],
@@ -130,7 +135,7 @@ maxPsDataValFunc[Km_]:=Log10[Km]+1;
 
 
 simulateKmData[rxn_, metsFull_, metsSub_, metSatForSub_, metSatRevSub_, kmList_, otherParmsList_, assumedSaturatingConc_, eTotal_,
-			   logStepSize_, activeIsoSub_, bufferInfo_, ionCharge_, paramOutputPath_, outputPath_, fileList_, KeqVal_:{}] := 
+			   logStepSize_, activeIsoSub_, bufferInfo_, ionCharge_, inputPath_, outputPath_, fileList_, KeqVal_:{}] := 
 	Module[{kmEqn, kmListSub, char2met, kmListFull, dataRange, vValues, dataCoSub, coSubList={}, indicies, dataCoSubFull, 
 			ionicStrength, adjustedKeqVal, assayMet, assayCond, fileFlagList, vList, kmFittingData},
 
@@ -160,7 +165,7 @@ simulateKmData[rxn_, metsFull_, metsSub_, metSatForSub_, metSatRevSub_, kmList_,
 		Table[
 			{i, km[[2]]},
 		{km, kmListFull}, {i,minPsDataValFunc[km[[2]]], maxPsDataValFunc[km[[2]]],logStepSize}];
-
+	Print[dataRange];
 	
 	(*Generate Resultant Rates*)
 	vValues=Table[
@@ -175,14 +180,14 @@ simulateKmData[rxn_, metsFull_, metsSub_, metSatForSub_, metSatRevSub_, kmList_,
 	Do[
 		If[StringMatchQ[path,RegularExpression[".*_"<>kmListFull[[km,1,1]]<>"\\.txt"]],
 			AppendTo[
-			kmListFull[[km]],paramOutputPath<>StringCases[path,RegularExpression[outputPath<>"(.*)"]->"$1"]
+			kmListFull[[km]],inputPath<>StringCases[path,RegularExpression[outputPath<>"(.*)"]->"$1"]
 		]],
 	{km, Length @ kmListFull}, {path,fileList}];
 
 	(*Handle CoSubstrates*)
 	dataCoSub=Table[km[[3]],{km,kmListFull}];
 	kmListFull=ReplacePart[#,3->Table[{met}, {met,metsFull}]]&/@kmListFull;
-
+	
 	(*Extract CoSubstrates*)
 	Do[
 		If[
@@ -197,12 +202,16 @@ simulateKmData[rxn_, metsFull_, metsSub_, metSatForSub_, metSatRevSub_, kmList_,
 			AppendTo[coSubList,Delete[metsFull//Flatten,indicies]];
 		],
 	{km,kmListFull}];
+	Print[kmListFull];
+	Print["---"];
 	(*Append the Pseudo-Data Concentrations for Substrate*)
 	Do[
 		AppendTo[
 			kmListFull[[km,3,Position[kmListFull[[km,3]],kmListFull[[km,1]]][[1,1]]]], 
 			dataRange[[km]]],
 	{km, Length @ kmListFull}];
+	
+	Print[kmListFull];
 
 	(*Handle CoSubstrate Data*)
 	dataCoSubFull=
@@ -263,16 +272,23 @@ simulateKmData[rxn_, metsFull_, metsSub_, metSatForSub_, metSatRevSub_, kmList_,
 	Table[
 		adjustedKeqVal[[km]], 
 	{km, Length @ adjustedKeqVal}, {Length @ dataRange[[km]]}]//Flatten;
-	
+
 	(*Repeat Assay Conditions for Each Data Point*)
 	Do[
-		kmListFull[[km,con]]=Table[kmListFull[[km,con]], {rep, Length @  dataRange[[km]]}],
-	{km,kmListFull//Length},{con, 5, 6}];
+		kmListFull[[km,con]] = Table[kmListFull[[km,con]], {rep, Length @  dataRange[[km]]}],
+	{km, Length @ kmListFull},{con, 5, 6}];
 	
-
 	(*Assemble Fitting Data*)
 
 	(*Correct Chemical Activites*)
+	Print[kmListFull];
+	Print["-"];
+	Print[kmListFull[[1]]];
+	Print["-"];
+	Print[kmListFull[[All,3]]];
+	Print["-"];
+	Print[kmListFull[[All,5;;6]]];
+	Print["-"];
 	assayMet=Transpose[#[[All,2]]]&/@kmListFull[[All,3]];
 	assayCond=Transpose[#]&/@kmListFull[[All,5;;6]];
 
@@ -309,12 +325,12 @@ simulateKmData[rxn_, metsFull_, metsSub_, metSatForSub_, metSatRevSub_, kmList_,
 ];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Simulate kcat data*)
 
 
 simulateKcatData[rxn_, metsFull_, metsSub_, metSatForSub_, metSatRevSub_, kcatList_, otherParmsList_, assumedSaturatingConc_, eTotal_,
-			  logStepSize_, nonKmParamWeight_, activeIsoSub_, bufferInfo_, ionCharge_, paramOutputPath_, 
+			  logStepSize_, nonKmParamWeight_, activeIsoSub_, bufferInfo_, ionCharge_, inputPath_, 
 			  outputPath_, fileList_, KeqVal_:{}] := 
 	Module[{vMaxEqn, kcatListSub, char2met, kcatListFull, vValues, localMets,  coSubData, coSub, localConc,
 			ionicStrength, adjustedKeqVal, assayMet, assayCond, fileFlagList, vList, kcatFittingData,
@@ -343,9 +359,9 @@ simulateKcatData[rxn_, metsFull_, metsSub_, metSatForSub_, metSatRevSub_, kcatLi
 				(*If any of the metabolites are substrates, this returns True*)
 				Or @@ substrateCheck,
 				(*True: kcat is for the Forward Reaction*)
-				paramOutputPath <> "absRateFor.txt",
+				inputPath <> "absRateFor.txt",
 				(*True: kcat is for the Reverse Reaction*)
-				paramOutputPath <> "absRateRev.txt"],
+				inputPath <> "absRateRev.txt"],
 		{kcat,kcatListFull//Length}, {nonKmParamWeight}];
 	
 	(*Handle Metabolite Values. NOTE: Available metabolite concentrations are auto-converted from mM to M*)
@@ -444,6 +460,231 @@ simulateKcatData[rxn_, metsFull_, metsSub_, metSatForSub_, metSatRevSub_, kcatLi
 	
 	
 	Return[kcatFittingData];
+];
+
+
+(* ::Subsection:: *)
+(*Simulate inhibition data*)
+
+
+simulateInhibData[rxn_, metsFull_, metsSub_, metSatForSub_, metSatRevSub_, inhibEqn_, inhibList_, kmList_, assumedSaturatingConc_, eTotal_,
+			   logStepSize_, activeIsoSub_, bufferInfo_, ionCharge_, inputPath_, outputPath_, fileList_, KeqVal_:{}] := 
+	Module[{inhibListSub, char2met, inhibListFull, dataRange, vValues, dataCoSub, coSubList={}, indicies, dataCoSubFull, 
+			ionicStrength, adjustedKeqVal, assayMet, assayCond, fileFlagList, vList, inhibFittingData, kmValues},
+
+	Print["OLA"];
+	(*Change Character Metabolite Names Into MASS toolbox Metabolite Notation. 
+	NOTE: You may have to add some metabolites in for unusual assay conditions*)
+	inhibListSub = Table[
+		{km[[1]]->m[km[[1]],"c"], coSub[[1]]->m[coSub[[1]],"c"]},
+	{km, inhibList}, {coSub, km[[4]]}] // Flatten // Union;
+
+	inhibListFull = getDataListFull[rxn, inhibList, inhibListSub];
+	Print[inhibListFull//TableForm];
+	(*Parse Km Values Where the Substrate is Not in the Primary Reaction
+	Do[
+		If[
+			!MemberQ[Union[Cases[rxn,_metabolite,\[Infinity]]],kmListFull[[km,1]]],
+			otherParmsList=Append[otherParmsList,Prepend[kmListFull[[km]],"Km"]]//Union;(*Move Km param to otherParams*)
+			kmListFull=Delete[kmListFull,km];
+		],
+	{km,Length[kmListFull]}];*)
+
+	kmValues = Map[metabolite[#[[1]], "c"] -> #[[2]]&, kmList];
+	Print[kmValues];
+	(*Generate Data Points (An Order of Magnitude Above and Below the Km's)*)
+	dataRange=
+		Table[
+			(*{S, I, Km, Ki}*)
+			{i, inhib[[2, 1, 2]], inhib[[5,1,4]]/. kmValues, inhib[[3]]},
+		{inhib, inhibListFull}, {i, Log10[inhib[[5,1,5]]]-1, Log10[inhib[[5,1,5]]], logStepSize}];
+
+	
+	(*Generate Resultant Rates*)
+	vValues = 
+		Table[
+			inhibEqn[10^dataPt[[1]], dataPt[[2]], dataPt[[3]], dataPt[[4]]],
+		{dataSet,dataRange}, {dataPt,dataSet}];
+
+	(*Switch Data to Euclidean Space and Append to the Km List*)
+	dataRange = 10^#[[All,1]]& /@ dataRange;
+
+	inhibListFull = 
+		Table[
+			Append[inhibListFull[[inhib]], vValues[[inhib]]],
+		{inhib,Length[inhibListFull]}];
+
+	(*Match to Comparision Equations*)
+	Do[
+		If[MemberQ[getSubstrates[rxn], inhibListFull[[inhib]][[5, 1, 4]]],
+			AppendTo[inhibListFull[[inhib]], inputPath <> "absRateFor.txt"],
+			AppendTo[inhibListFull[[inhib]], inputPath <> "absRateRev.txt"]
+		],
+	{inhib, Length @ inhibListFull}];
+	
+	(*Handle CoSubstrates*)
+	dataCoSub = Table[inhib[[4]], {inhib, inhibListFull}];
+	inhibListFull = ReplacePart[#, 4->Table[{met}, {met, metsFull}]]& /@ inhibListFull;
+
+	(*Extract CoSubstrates*)
+	Do[
+		If[
+			(*True: Is a Reactant*)
+			MemberQ[metSatForSub[[All,1]], inhib[[2]]],
+			indicies = Position[Flatten @ metsFull, inhib[[2]]];(*Subject Metabolite Index*)
+			AppendTo[indicies, Flatten[Position[Flatten @ metsFull,#],1]]& /@ metSatRevSub[[All,1]];(*Relative Product Indices*)
+			AppendTo[coSubList, Delete[Flatten @ metsFull,indicies]];,
+			(*False: Is a Product*)
+			indicies = Position[Flatten @ metsFull,inhib[[2]]];(*Subject Metabolite Index*)
+			AppendTo[indicies, Flatten[Position[Flatten @ metsFull, #],1]]& /@ metSatForSub[[All,1]];(*Relative Product Indices*)
+			AppendTo[coSubList, Delete[Flatten @ metsFull,indicies]];
+		],
+	{inhib,inhibListFull}];
+
+	Print["0"];
+	(*Append the Pseudo-Data Concentrations for Substrate*)
+	Do[
+		Print[inhibListFull[[inhib, 2, 1, 1]]];
+		Print[inhibListFull[[inhib,5, 1, 4]]];
+		AppendTo[		
+			inhibListFull[[inhib, 4, Position[inhibListFull[[inhib, 4]], inhibListFull[[inhib, 5, 1, 4]]][[1,1]]]], 
+			dataRange[[inhib]]],
+	{inhib, Length @ inhibListFull}];
+	Print["_______"];
+	Print[coSubList];
+	Print["-"];
+	Print[dataCoSub];
+	Print["-"];
+	Print[inhibListFull];
+	Print["_______"];
+	
+	(*Handle CoSubstrate Data*)
+	dataCoSubFull=
+		Table[
+
+			Which[
+				(*CoSubstrate is Present in Data and Has a Data Value*)
+				MemberQ[dataCoSub[[inhib,All,1]], coSubList[[inhib,met]]] && NumberQ[Select[dataCoSub[[inhib]],#[[1]]==coSubList[[inhib,met]] &][[1,2]]],
+					(*Extract CoSubstrate Concentration and Repeat It for Each Data Point*)
+					{Select[dataCoSub[[inhib]],#[[1]]==coSubList[[inhib,met]]&][[1,1]],
+					Table[
+						Select[dataCoSub[[inhib]],#[[1]]==coSubList[[inhib,met]]&][[1,2]],
+					{Length @ dataRange[[inhib]]}]
+				},
+				(*CoSubstrate is Present in Data but Does not Have a Data Value*)
+				MemberQ[dataCoSub[[inhib,All,1]],coSubList[[inhib,met]]] && !NumberQ[Select[dataCoSub[[inhib]],#[[1]]==coSubList[[inhib,met]]&][[1,2]]],
+					(*Use an Assumed Concentration and Repeat It for Each Data Point*)
+					{Select[dataCoSub[[inhib]],#[[1]]==coSubList[[inhib,met]]&][[1,1]],
+					Table[
+						assumedSaturatingConc,
+					{Length @ dataRange[[inhib]]}]
+				},
+				(*CoSubstrate is Not Present in Data*)
+				!MemberQ[dataCoSub[[inhib,All,1]],coSubList[[inhib,met]]],
+				(*Use an Assumed Concentration and Repeat It for Each Data Point*)
+					{coSubList[[inhib,met]],
+					Table[
+						assumedSaturatingConc,
+					{Length @ dataRange[[inhib]]}]
+				}
+				],
+		{inhib, Length @ coSubList},{met, Length @ coSubList[[inhib]]}];
+		
+	Print["++++1"];
+	Print[dataCoSubFull];
+	Print["++++2"];
+	Print[inhibListFull];
+	Print["++++3"];
+    (*Append All Remaining CoSubstrate Concentrations to 'kmListFull'*)
+	Do[
+	Print["****"];
+	Print[inhibListFull[[inhib,4,met,1]]];
+	Print["*"];
+	Print[ inhibListFull[[inhib,2, 1, 1]]];
+	Print[MatchQ[inhibListFull[[inhib,4,met,1]], inhibListFull[[inhib,2, 1, 1]]]];
+	
+		Which[
+			MemberQ[Flatten @ dataCoSubFull[[inhib]], inhibListFull[[inhib, 4, met, 1]]] && Length@inhibListFull[[inhib, 4, Position[inhibListFull[[inhib, 4]], inhibListFull[[inhib, 4, met, 1]]][[1,1]]]] == 1,
+			(*True: Concentration Values from Data*)
+			inhibListFull[[inhib,4,met]]={inhibListFull[[inhib,4,met,1]],
+			Select[dataCoSubFull[[inhib]], #[[1]] == inhibListFull[[inhib,4,met,1]]&][[1,2]]},
+			(*False: All Concentration Values Zero*)
+			!MemberQ[Flatten @ dataCoSubFull[[inhib]], inhibListFull[[inhib,4,met,1]]] && !MatchQ[inhibListFull[[inhib,4,met,1]], inhibListFull[[inhib,2, 1, 1]]],
+			(*Non Pseudo-Data Values*)
+			inhibListFull[[inhib,4,met]] = {inhibListFull[[inhib,4,met,1]],
+			Table[0, {Length @ dataRange[[inhib]]}]},
+			(* Inhibitor, value: inhibition constant *)
+			MatchQ[inhibListFull[[inhib,4,met,1]], inhibListFull[[inhib,2, 1, 1]]],
+			inhibListFull[[inhib,4,met]] = {inhibListFull[[inhib,4,met,1]],
+			Table[inhibListFull[[inhib, 2, 1, 2]], {Length @ dataRange[[inhib]]}]}
+
+		],
+	{inhib, Length @ inhibListFull},{met, Length @ inhibListFull[[inhib,4]]}];
+	
+	
+	Print[inhibListFull];
+	Print["++++4"];
+	ionicStrength = calculateIonicStrength[inhibListFull, bufferInfo, ionCharge];
+	Print[ionicStrength];
+	adjustedKeqVal= 
+		If[NumericQ[KeqVal],	
+			ConstantArray[{Keq[getID[rxn]]-> KeqVal}, Dimensions[inhibListFull][[1]]],
+			calculateAdjustedKeq[rxn, ionicStrength, inhibListFull]
+		];	
+	adjustedKeqVal=
+	Table[
+		adjustedKeqVal[[km]], 
+	{km, Length @ adjustedKeqVal}, {Length @ dataRange[[km]]}]//Flatten;
+	Print["BLA"];
+	(*Repeat Assay Conditions for Each Data Point*)
+	Do[
+		inhibListFull[[inhib, con]]= Table[inhibListFull[[inhib, con]], {rep, Length @  dataRange[[inhib]]}],
+	{inhib, Length @ inhibListFull},{con, 7,8}];
+	Print["BLA2"];
+
+	(*Assemble Fitting Data*)
+
+	(*Correct Chemical Activites*)
+	Print[inhibListFull];
+	Print["-"];
+	Print[inhibListFull[[1]]];
+	Print["-"];
+	Print[inhibListFull[[All,4]]];
+	Print[inhibListFull[[All,7;;8]]];
+	assayMet = Transpose[#[[All,2]]]& /@ inhibListFull[[All,4]];
+	assayCond = Transpose[#]& /@ inhibListFull[[All,7;;8]];
+	Print["BLA3"];
+	assayMet=
+		Table[(* chemical activity = \[Gamma]*[(S^z)] *)
+		((*Exp[activityCoefficient[[All,2]]]**)activeIsoSub[[All,2]])/.
+			Thread[metsFull->assayMet[[met,pt]]]/.
+			parameter["IonicStrength"]->ionicStrength[[met]]/.
+			parameter["pH"]->ToExpression[assayCond[[met,pt,1]]],
+		{met, Length @ assayMet},{pt, Length @ assayMet[[met]]}];
+	Print["BLA4"];
+	assayMet = Flatten[assayMet,1];
+	assayCond = Flatten[assayCond,1];
+	(*End Correct Chemical Activites*)
+	fileFlagList = Flatten[ Table[inhibListFull[[inhib, -1]], {inhib, Length @ inhibListFull}, {Length @ dataRange[[inhib]]}]];
+	vList = Flatten[inhibListFull[[All,-2]]];(*Target Data*)
+	
+	(*this section is identical to kcat simulation - create a common function later*)
+	inhibFittingData=
+		Table[
+			Join[Append[assayMet[[pt]],eTotal], assayCond[[pt]]],
+		{pt, Length @ assayMet}];
+	inhibFittingData=
+		Table[
+			Join[inhibFittingData[[pt]], {fileFlagList[[pt]],vList[[pt]]}],
+		{pt, Length @ inhibFittingData}];
+			
+	inhibFittingData = 
+		Table[
+			Join[{adjustedKeqVal[[pt,2]]}, inhibFittingData[[pt]]],
+		{pt, Length @ inhibFittingData}];
+	
+	
+	Return[inhibFittingData];
 ];
 
 

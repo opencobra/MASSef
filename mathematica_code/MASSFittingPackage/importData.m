@@ -107,7 +107,9 @@ getEnzymeData[enzName_, dataPath_] := Module[{data, enzymesInd, curEnzymeInd, ne
 parseSubMetLists[list_]:=Module[{parsedList, res},
 	parsedList = Table[
 		res = StringSplit[entry, ","][[1]];
-		{res[[1]], ToExpression[res[[2]]]},
+		If[Length[res] > 1,
+			{res[[1]], ToExpression[res[[2]]]},
+			{res[[1]], Null}],
 	{entry, list}];
 
 	Return[parsedList];
@@ -116,7 +118,6 @@ parseSubMetLists[list_]:=Module[{parsedList, res},
 parseKmS05Entry[line_] := Module[{entry, substrate, value, coSubstrates, units, ph, temperature, buffer, salts},
 	substrate = line[[1]];
 	value = line[[2]];
-		
 	coSubstrates = Map[{#}&, StringSplit[line[[3]], ";"]];
 	coSubstrates = parseSubMetLists[coSubstrates];
 	units = line[[4]];
@@ -134,7 +135,6 @@ parseKmS05Entry[line_] := Module[{entry, substrate, value, coSubstrates, units, 
 parseKcatEntry[line_] := Module[{kcatEntry, kcatValue, substrates, units, ph, temperature, buffer, salts},
 	substrates = Map[{#}&, StringSplit[line[[1]], ";"]];
 	substrates = parseSubMetLists[substrates];
-
 	kcatValue = line[[2]];
 	units = line[[3]];
 	ph = line[[4]];
@@ -148,23 +148,28 @@ parseKcatEntry[line_] := Module[{kcatEntry, kcatValue, substrates, units, ph, te
 	Return[kcatEntry];
 ];
 
-parseInhibActEntry[line_] := Module[{entry, paramType, substrate, paramValue, actionType, units, ph, temperature, buffer, salts},
+parseInhibActEntry[line_] := 
+	Module[{entry, paramType, substrate, paramValue, coSubstrates, actionType, units, ph, temperature, buffer, salts},
 	paramType = line[[1]];
-	substrate = line[[2]];
+	substrate =  Map[{#}&, StringSplit[line[[2]], ";"]];
+	substrate = parseSubMetLists[substrate];
 	paramValue = line[[3]];
-	actionType = Map[{#}&, StringSplit[line[[4]], ";"]];
+	coSubstrates =  Map[{#}&, StringSplit[line[[4]], ";"]];
+	coSubstrates = parseSubMetLists[coSubstrates];
+	actionType = Map[{#}&, StringSplit[line[[5]], ";"]];
 	actionType = Flatten[ Map[StringSplit[#, ","]&, actionType], 1];
 	actionType[[All,2]] = ToExpression[actionType[[All,2]]];
 	actionType[[All,3]] = ToExpression[actionType[[All,3]]];
-	units = line[[5]];
-	ph = line[[6]];
-	temperature = line[[7]];
-	buffer = Map[{#}&, StringSplit[line[[8]], ";"]];
+	actionType[[All,5]] = ToExpression[actionType[[All,5]]];
+	units = line[[6]];
+	ph = line[[7]];
+	temperature = line[[8]];
+	buffer = Map[{#}&, StringSplit[line[[9]], ";"]];
 	buffer = parseSubMetLists[buffer];
-	salts = Map[{#}&, StringSplit[line[[9]], ";"]];
+	salts = Map[{#}&, StringSplit[line[[10]], ";"]];
 	salts = parseSubMetLists[salts];
 
-	entry = {paramType, substrate, paramValue, actionType, units, ph, temperature, buffer, salts};
+	entry = {paramType, substrate, paramValue, coSubstrates, actionType, units, ph, temperature, buffer, salts};
 	Return[entry];
 ];
 

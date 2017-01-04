@@ -70,6 +70,10 @@ simulateKcatData::usage="simulateKcatData[rxn, metsFull, metsSub, metSatForSub, 
 			  outputPath, fileList, KeqVal:{}]";
 
 
+simulateInhibData::usage="simulateInhibData[rxn, metsFull, metsSub, metSatForSub, metSatRevSub, inhibEqn, inhibList, assumedSaturatingConc, eTotal,
+			   logStepSize, activeIsoSub, bufferInfo, ionCharge, inputPath, outputPath, fileList, KeqVal]"
+
+
 simulateRateConstRatiosData::usage="simulateRateConstRatiosData[dKdRatio, dKdVal, KeqVal, metsFull, rateConstsSub, metsSub, eTotal, nonKmParamWeight,
 							outputPath, fileList, fileListSub, eqnNameList, eqnValList, eqnValListPy, pHandT, eqnName]";
 
