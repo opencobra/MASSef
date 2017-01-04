@@ -36,7 +36,7 @@ getUnifiedRateConstList::usage="getUnifiedRateConstList[allCatalyticReactions, n
 getFluxEquation::usage="getFluxEquation[workingDir, rxnName, enzymeModel, unifiedRateConstList, transitionRateEqs]";
 
 
-addInhibition::usage="addInhibition[] not implemented yet";
+addCompetitiveInhibition::usage="addCompetitiveInhibition[enzName, inhibitorMets, affectedMetsList, allCatalyticReactions, competitiveRxns]";
 
 
 getFluxEquation::usage="getFluxEquation[workingDir, rxnName, enzymeModel, unifiedRateConstList, transitionRateEqs]";
@@ -68,6 +68,10 @@ simulateKmData::usage="simulateKmData[rxn, metsFull, metsSub, metSatForSub, metS
 simulateKcatData::usage="simulateKcatData[rxn, metsFull, metsSub, metSatForSub, metSatRevSub, kcatList, otherParmsList, assumedSaturatingConc, eTotal,
 			  logStepSize, nonKmParamWeight, activeIsoSub, bufferInfo, ionCharge, paramOutputPath, 
 			  outputPath, fileList, KeqVal:{}]";
+
+
+simulateInhibData::usage="simulateInhibData[rxn, metsFull, metsSub, metSatForSub, metSatRevSub, inhibEqn, inhibList, assumedSaturatingConc, eTotal,
+			   logStepSize, activeIsoSub, bufferInfo, ionCharge, inputPath, outputPath, fileList, KeqVal]"
 
 
 simulateRateConstRatiosData::usage="simulateRateConstRatiosData[dKdRatio, dKdVal, KeqVal, metsFull, rateConstsSub, metsSub, eTotal, nonKmParamWeight,

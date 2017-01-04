@@ -16,7 +16,7 @@ Begin["`Private`"];
 
 
 definePSOparameters[inputPath_, outputPath_, dataPath_, finalRateConsts_, fileList_, 
-					numTrial_, lowerParamBound_, upperParamBound_, numCpus_:1, 
+					numTrial_, lowerParamBound_, upperParamBound_, fitLabel_:"", numCpus_:1, 
 					numGenerations_: 2000, popSize_: 20] := 
 	Module[{psoParameterPath, psoParameters, tempCorr, neighborSize, inertia, cognitiveRate, socialRate, useKeepBest, 
 			useRandomReplace, percentRandomParticles, numFuncVar, fileListPy, valueRow, functionRow, dataRowHigh, 
@@ -103,8 +103,8 @@ definePSOparameters[inputPath_, outputPath_, dataPath_, finalRateConsts_, fileLi
    	{"value_row", valueRow = -1},
    	{"function_row", functionRow = -2},
    	{"data_row_high", dataRowHigh = -2},
-   	{"summary_file_name", psoTrialSummaryFileName = outputPath <> "raw/summary.txt"},
-   	{"ultimate_result_name", psoResultsFileName = outputPath <> "raw/psoResults.txt"}
+   	{"summary_file_name", psoTrialSummaryFileName = outputPath <> "raw/summary" <> fitLabel <> ".txt"},
+   	{"ultimate_result_name", psoResultsFileName = outputPath <> "raw/psoResults" <> fitLabel <> ".txt"}
 	};
 
 	psoParameterPath = inputPath <> "psoParameters.txt";
@@ -119,11 +119,11 @@ definePSOparameters[inputPath_, outputPath_, dataPath_, finalRateConsts_, fileLi
 
 
 defineLMAparameters[inputPath_, outputPath_, dataPath_, finalRateConsts_, fileList_, 
-					lowerParamBound_, upperParamBound_, numCpus_:1] := 
+					lowerParamBound_, upperParamBound_, fitLabel_:"", numCpus_:1] := 
 	Module[{temperatureCorrect, xtolValue, ftolValue, gtolValue, epsfcnMinValue, maxfevValue, 
 			numFuncVar, psoResultsFileName, lmaResultsFileName,
 			fileListPy, valueRow, functionRow, dataRowHigh, lmaParameterPath, lmaParameters},
-	
+
 	lmaParameters = {   
 
 	(*General Python Configuration;*)
@@ -177,8 +177,8 @@ defineLMAparameters[inputPath_, outputPath_, dataPath_, finalRateConsts_, fileLi
    				function_row \[Rule] Column with the fitting target functions ;
    				data_row_high \[Rule] Column above the last data value ;*)
    
-   				{"candidates_import_path", psoResultsFileName = outputPath <> "raw/psoResults.txt"},
-   				{"candidates_export_path", lmaResultsFileName = outputPath <> "raw/lmaResults.txt"},
+   				{"candidates_import_path", psoResultsFileName = outputPath <> "raw/psoResults" <> fitLabel <> ".txt"},
+   				{"candidates_export_path", lmaResultsFileName = outputPath <> "raw/lmaResults" <> fitLabel <> ".txt"},
    				{"filesWithFunctions", fileListPy = listToPython[inputPath <> StringSplit[#, "/"][[-1]] & /@ fileList]},
    				{"data_file_name", dataPath},
    				{"value_row", valueRow = -1},

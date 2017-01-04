@@ -25,7 +25,7 @@ calculateFitSSD[resultsFile_, enzName_, fittingData_, inputPath_, outputPath_, f
 			paramFitProcessed=Table[10^val, {val, paramFit}];
 		
 			vRelData = fittingData[[All, -1]];
-	
+
 			vRelFit = 
 				Table[
 					fittingData[[dataPoint,-2]]/.fileListSub/.Thread[rateConstsSub[[All,1]]-> paramFitProcessed[[paramSet]]]/.Thread[metsSub[[All,1]]-> fittingData[[dataPoint,1;;-3]]]//Abs,
@@ -81,14 +81,14 @@ getRatesWithSSD[resultsFile_, enzName_, fittingData_, inputPath_, outputPath_,  
 	];
 
 	If[flagFitLocal==1 && filteredDataList != {},
-		
+	
 		If[exportData && filteredDataList != {} && AllTrue[Flatten @ filteredDataList[[All,3]], NumericQ],
 
 			ratesWithFit = 
 				Table[
 					Flatten[Join[filteredDataList[[rowI,1;;2]]]],
 				{rowI, 1, Dimensions[filteredDataList][[1]]}];
-			
+
 			Export[outputPath <> "treated_data/rateconst_" <> enzName <> "_" <> fitID <> ".csv", ratesWithFit, "TSV"];
 
 		];,

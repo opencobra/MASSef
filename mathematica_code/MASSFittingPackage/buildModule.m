@@ -85,25 +85,16 @@ getUnifiedRateConstList[allCatalyticReactions_, nonCatalyticReactions_]:=Module[
 
 
 (* ::Subsection:: *)
-(*Add inhibition*)
-
-
-addInhibition[] := Module[{},
-	Return[Null];
-];
-
-
-(* ::Subsection:: *)
 (*Get flux equation*)
 
 
-getFluxEquation[workingDir_, rxnName_, enzymeModel_, unifiedRateConstList_, transitionRateEqs_]:=
+getFluxEquation[inputDir_, rxnName_, enzymeModel_, unifiedRateConstList_, transitionRateEqs_, outFileLabel_:""]:=
 	Module[{enzSol, absoluteFlux, fluxEq, enzForms, enzConservationEq, enzPos, ssEq},
 
-	If[FileExistsQ[workingDir<>"enzSol.m"]&&FileExistsQ[workingDir<>"absoluteFlux.m"],
+	If[ FileExistsQ[inputDir <> "enzSol" <> outFileLabel <> ".m"] && FileExistsQ[inputDir <> "absoluteFlux" <> outFileLabel <> ".m"],
 		(*True: 'enzSol.m' and 'absoluteFlux.m' Exists*) 
-		enzSol = Import[workingDir <> "enzSol.m"];
-		absoluteFlux = Import[workingDir <> "absoluteFlux.m"];,
+		enzSol = Import[inputDir <> "enzSol" <> outFileLabel <> ".m"];
+		absoluteFlux = Import[inputDir <> "absoluteFlux" <> outFileLabel <> ".m"];,
 
 		(*False: 'enzSol.m' and 'absoluteFlux.m'  Do Not Exist*)
 		(*Generate a System of Equations *)
@@ -123,11 +114,89 @@ getFluxEquation[workingDir_, rxnName_, enzymeModel_, unifiedRateConstList_, tran
 		absoluteFlux = parameter["v",rxnName] -> keq2kHT[ anonymize[Simplify[ absoluteFlux ]]];
 
 		(*Cache the Results*)
-		Export[workingDir<>"enzSol.m", enzSol];
-		Export[workingDir<>"absoluteFlux.m", absoluteFlux];
+		Export[inputDir <> "enzSol" <> outFileLabel <> ".m", Simplify @ enzSol];
+		Export[inputDir <> "absoluteFlux" <> outFileLabel <> ".m", Simplify @ absoluteFlux];
 	];
 	
 	Return[absoluteFlux];
+];
+
+
+getAffectedEnzForms[paramType_, affectedMets_, affectedRxns_] := Module[{affectedEnzForms},
+
+	affectedEnzForms = 
+		Table[
+			Which[StringMatchQ[paramType, {"Ki", "Kis"}],
+					If[MemberQ[getSubstrates[rxn], affectedMets[[met]]],
+						(*True: Is a Reactant*)
+						#&/@Cases[getSubstrates[rxn], _enzyme, \[Infinity]],
+						(*False: Is a Product*)
+						#&/@Cases[getProducts[rxn], _enzyme, \[Infinity]]
+					],
+				   StringMatchQ[paramType, "Kii"],
+					If[MemberQ[getSubstrates[rxn], affectedMets[[met]]],
+						(*True: Is a Reactant*)
+						#&/@Cases[getProducts[rxn], _enzyme, \[Infinity]],
+						(*False: Is a Product*)
+						#&/@Cases[getSubstrates[rxn], _enzyme, \[Infinity]]
+					]
+			],
+		{met, Length @ affectedMets}, {rxn, affectedRxns[[met]]}] //Flatten;
+
+	Return[affectedEnzForms];
+];
+
+
+(* ::Subsection:: *)
+(*Add inhibition*)
+
+
+addCompetitiveInhibition[enzymeModel_, enzName_, inhibitionList_,  allCatalyticReactions_, nonCatalyticReactions_, affectedMetsList_:{}] := 
+	Module[{char2met, inhibitorMetsList, inhibitorMet, affectedMets, affectedRxns, affectedEnzForms, 
+			inhibitedRxns={}, affectedMetsListLocal, paramType, paramTypeList, enzymeModelLocal = enzymeModel, 
+			nonCatalyticReactionsLocal, temp},
+
+	inhibitorMetsList = inhibitionList[[All, 2]];
+	inhibitorMetsList = inhibitorMetsList[[All,1, 1]];
+	inhibitorMetsList = inhibitorMetsList /. getConversionChar2Met[inhibitorMetsList];
+
+	paramTypeList = inhibitionList[[All, 1]];
+
+	affectedMetsListLocal = 
+		If[affectedMetsList == {},
+			temp = Flatten[inhibitionList[[All,5]], 1][[All,4]];
+			affectedMetsListLocal = temp /. getConversionChar2Met[temp],
+			
+			affectedMetsList
+		];
+		
+			
+	AppendTo[inhibitedRxns, 
+		Table[			
+			inhibitorMet = inhibitorMetsList[[i]];
+			paramType = paramTypeList[[i]];
+			affectedMets = If[ListQ[affectedMetsListLocal[[i]]], affectedMetsListLocal[[i]], {affectedMetsListLocal[[i]]}];
+
+			affectedRxns =
+				Table[
+					Select[allCatalyticReactions, MemberQ[Union[{getSubstrates[#], getProducts[#]}]~Flatten~1, met] &],
+				{met, affectedMets}];
+
+			affectedEnzForms = getAffectedEnzForms[paramType, affectedMets, affectedRxns];
+
+			Table[
+				r[enzName <> "_" <> paramType <> "_" <> getID @ inhibitorMet <> "_" <> ToString[enz], (*Reaction Name*)
+				{affectedEnzForms[[enz]], inhibitorMet}, (*Substrates*)
+				{bindCatalytic[affectedEnzForms[[enz]], inhibitorMet]}, (*Products*)
+				{1,1,1}] (*Stoichiometry*),
+			{enz, Length @ affectedEnzForms}],
+		{i, 1, Length @ inhibitorMetsList}]
+	];
+	
+	enzymeModelLocal = addReactions[enzymeModel, Flatten @ inhibitedRxns];
+	nonCatalyticReactionsLocal = Flatten @ Join[nonCatalyticReactions, inhibitedRxns];
+	
+	Return[{enzymeModelLocal, nonCatalyticReactionsLocal}];
 ];
 
 
@@ -250,12 +319,26 @@ getRateConstSubRandomMech[enzymeModel_, eqRateConstSubTemp_, allCatalyticReactio
 (*Get  rate  equations*)
 
 
-getRateEqs[absoluteFlux_, unifiedRateConstList_, eqRateConstSub_, reverseZeroSub_, forwardZeroSub_, volumeSub_, metSatForSub_, metSatRevSub_]:= 
-	Module[{absoluteFluxEqn, absoluteRateForward, absoluteRateReverse, relativeRateForward, relativeRateReverse},
+getRateEqs[absoluteFlux_, unifiedRateConstList_, eqRateConstSub_, reverseZeroSub_, 
+		   forwardZeroSub_, volumeSub_, metSatForSub_, metSatRevSub_,
+		   absoluteFluxRelRateFor_:{}, absoluteFluxRelRateRev_:{}]:= 
+	Module[{absoluteFluxEqn, absoluteRateForward, absoluteRateReverse, relativeRateForward, relativeRateReverse,
+			absoluteFluxEqnRelRateFor, absoluteFluxEqnRelRateRev},
 	
-	absoluteFluxEqn=absoluteFlux[[2]];
-	absoluteFluxEqn=absoluteFluxEqn/.unifiedRateConstList/.eqRateConstSub;(*Equivalent Rate Constants*)
+	absoluteFluxEqn = absoluteFlux[[2]]/.unifiedRateConstList/.eqRateConstSub;(*Equivalent Rate Constants*)
 	
+	If[absoluteFluxRelRateFor == {},
+		Print["default absoluteFluxEqnRelRateFor"];
+		absoluteFluxEqnRelRateFor = absoluteFluxEqn,
+		absoluteFluxEqnRelRateFor = absoluteFluxRelRateFor[[2]]/.unifiedRateConstList/.eqRateConstSub;
+	];
+	
+	If[absoluteFluxRelRateRev == {}, 
+		Print["default absoluteFluxEqnRelRateRev"];
+		absoluteFluxEqnRelRateRev = absoluteFluxEqn,
+		absoluteFluxEqnRelRateRev = absoluteFluxRelRateRev[[2]]/.unifiedRateConstList/.eqRateConstSub;
+	];		
+			
 	(*kcat Forward*)
 	absoluteRateForward = Simplify[(absoluteFluxEqn/.reverseZeroSub/.volumeSub)];
 
@@ -263,9 +346,9 @@ getRateEqs[absoluteFlux_, unifiedRateConstList_, eqRateConstSub_, reverseZeroSub
 	absoluteRateReverse = Simplify[(-absoluteFluxEqn/.forwardZeroSub/.volumeSub)];
 
 	(*Forward Km(s)*)
-	relativeRateForward = Simplify[absoluteRateForward/(Limit[absoluteFluxEqn/.reverseZeroSub/.volumeSub,#])]&/@metSatForSub;
+	relativeRateForward = Simplify[absoluteRateForward/(Limit[absoluteFluxEqnRelRateFor/.reverseZeroSub/.volumeSub,#])]&/@metSatForSub;
 	(*Reverse Km(s)*)
-	relativeRateReverse = Simplify[-absoluteRateReverse/(Limit[absoluteFluxEqn/.forwardZeroSub/.volumeSub,#])]&/@metSatRevSub;
+	relativeRateReverse = Simplify[-absoluteRateReverse/(Limit[absoluteFluxEqnRelRateRev/.forwardZeroSub/.volumeSub,#])]&/@metSatRevSub;
 
 	Return[{absoluteRateForward, absoluteRateReverse, relativeRateForward, relativeRateReverse}];
 ];
