@@ -49,7 +49,7 @@ calculateBufferIonicStrength[bufferInfo_, dataListFull_] := Module[{bufferData, 
 
 	(*Ionic Strength = 1/2\[Sum]Subscript[c, i]Subscript[z, i]^2*)
 	bufferIonStrength = Table[1/2*Total[Flatten[media]], {media,bufferIonStrength}];
-	
+
 	Return[bufferIonStrength];
 ];
 
@@ -63,16 +63,16 @@ calculateSaltIonicStrength[ionCharge_, dataListFull_] := Module[{localSaltCharge
 	Which[Dimensions[dataListFull][[2]] == 10, ind=8,
 		  Dimensions[dataListFull][[2]] == 7, ind=7,
 		  Dimensions[dataListFull][[2]] == 12, ind=10];
-	
+
 	saltIonStrength=Table[
 		localSaltCharge = Select[ionCharge,#[[1]] == salt[[1]]&][[1,2]];
 		(*Subscript[c, i]Subscript[z, i]^2*)
 		salt[[2]]*localSaltCharge^2,
 	{entry, dataListFull}, {salt,entry[[ind]]}];
-	
+
 	(*Ionic Strength = 1/2\[Sum]Subscript[c, i]Subscript[z, i]^2*)
 	saltIonStrength=Table[1/2*Total[Flatten[media]],{media,saltIonStrength}];
-	
+
 	Return[saltIonStrength];
 ];
 
@@ -135,7 +135,6 @@ simulateKmData[rxn_, metsFull_, metsSub_, metSatForSub_, metSatRevSub_, kmList_,
 			   logStepSize_, activeIsoSub_, bufferInfo_, ionCharge_, inputPath_, outputPath_, fileList_, KeqVal_:{}] := 
 	Module[{kmEqn, kmListSub, char2met, kmListFull, dataRange, vValues, dataCoSub, coSubList={}, indicies, dataCoSubFull, 
 			ionicStrength, adjustedKeqVal, assayMet, assayCond, fileFlagList, vList, kmFittingData},
-
 	
 	(*Michaelis-Menten Equation*)
 	kmEqn[S_,Km_]:=S/(Km+S);
@@ -156,18 +155,18 @@ simulateKmData[rxn_, metsFull_, metsSub_, metSatForSub_, metSatRevSub_, kmList_,
 			kmListFull=Delete[kmListFull,km];
 		],
 	{km,Length[kmListFull]}];
-	
+
 	(*Generate Data Points (An Order of Magnitude Above and Below the Km's)*)
 	dataRange=
 		Table[
 			{i, km[[2]]},
 		{km, kmListFull}, {i,minPsDataValFunc[km[[2]]], maxPsDataValFunc[km[[2]]],logStepSize}];
-	
+
 	(*Generate Resultant Rates*)
 	vValues=Table[
 		kmEqn[10^dataPt[[1]],dataPt[[2]]],
 	{dataSet,dataRange},{dataPt,dataSet}];
-	
+
 	(*Switch Data to Euclidean Space and Append to the Km List*)
 	dataRange=10^#[[All,1]]&/@dataRange;
 	kmListFull=Table[Append[kmListFull[[km]],vValues[[km]]],{km,Length[kmListFull]}];
@@ -261,6 +260,7 @@ simulateKmData[rxn_, metsFull_, metsSub_, metSatForSub_, metSatRevSub_, kmList_,
 			ConstantArray[{Keq[getID[rxn]]-> KeqVal}, Dimensions[kmListFull][[1]]],
 			calculateAdjustedKeq[rxn, ionicStrength, kmListFull]
 		];	
+
 	adjustedKeqVal=
 	Table[
 		adjustedKeqVal[[km]], 
@@ -284,13 +284,13 @@ simulateKmData[rxn_, metsFull_, metsSub_, metSatForSub_, metSatRevSub_, kmList_,
 			parameter["IonicStrength"]->ionicStrength[[met]]/.
 			parameter["pH"]->ToExpression[assayCond[[met,pt,1]]],
 		{met, Length @ assayMet},{pt, Length @ assayMet[[met]]}];
-	
+
 	assayMet=Flatten[assayMet,1];
 	assayCond=Flatten[assayCond,1];
 	(*End Correct Chemical Activites*)
 	fileFlagList=Flatten[Table[kmListFull[[km,-1]], {km, Length @ kmListFull}, {Length @ dataRange[[km]]}]];
 	vList=Flatten[kmListFull[[All,-2]]];(*Target Data*)
-	
+
 	(*this section is identical to kcat simulation - create a common function later*)
 	kmFittingData=
 		Table[
@@ -304,7 +304,7 @@ simulateKmData[rxn_, metsFull_, metsSub_, metSatForSub_, metSatRevSub_, kmList_,
 	kmFittingData=Table[
 		Join[{adjustedKeqVal[[pt,2]]} ,kmFittingData[[pt]]],
 	{pt, Length @ kmFittingData}];
-	
+
 	
 	Return[kmFittingData];
 ];
