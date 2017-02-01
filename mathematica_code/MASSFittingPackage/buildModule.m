@@ -112,15 +112,53 @@ getFluxEquation[inputDir_, rxnName_, enzymeModel_, unifiedRateConstList_, transi
 		(*Solve the System for Each Enzyme Form (This May Take Some Time)*)
 		enzSol = anonymize[Solve[Join[ssEq,{enzConservationEq}],enzForms]];
 		enzSol = keq2kHT[enzSol[[1]]];
-		(*enzSol = Simplify[enzSol];*)
 		
 		(*Apply the Solution to the Flux Equation*)
 		absoluteFlux=fluxEq/.enzSol;(*In terms of E_total*)
 		(*absoluteFlux=parameter["v", rxnName] \[Rule]keq2kHT[anonymize[Simplify[absoluteFlux, TimeConstraint\[Rule]1800]]];*)
 		absoluteFlux = parameter["v", rxnName] ->keq2kHT[anonymize[dummyF[absoluteFlux]]];
-		(*Print["before simplify"];
-		absoluteFlux = MemoryConstrained[Simplify[absoluteFlux, TimeConstraint->3600], 80000000];
+		Print["before simplify1"];
+		(*absoluteFlux = MemoryConstrained[Simplify[absoluteFlux, TimeConstraint->3600], 8000000000];
 		Print["post simplify"];*)
+		
+		(*Cache the Results*)
+		Export[inputDir <> "enzSol" <> outFileLabel <> ".m",  enzSol]; 
+		Export[inputDir <> "absoluteFlux" <> outFileLabel <> ".m", absoluteFlux];
+	];
+	
+	Return[absoluteFlux];
+];
+
+
+getFluxEquationSimplified[inputDir_, rxnName_, enzymeModel_, unifiedRateConstList_, transitionRateEqs_, outFileLabel_:""]:=
+	Block[{enzSol, absoluteFlux, fluxEq, enzForms, enzConservationEq, enzPos, ssEq},
+	
+	If[ FileExistsQ[inputDir <> "enzSol" <> outFileLabel <> ".m"] && FileExistsQ[inputDir <> "absoluteFlux" <> outFileLabel <> ".m"],
+		(*True: 'enzSol.m' and 'absoluteFlux.m' Exists*) 
+
+		enzSol = Import[inputDir <> "enzSol" <> outFileLabel <> ".m"];
+		absoluteFlux = Import[inputDir <> "absoluteFlux" <> outFileLabel <> ".m"];,
+		
+		(*False: 'enzSol.m' and 'absoluteFlux.m'  Do Not Exist*)
+		(*Generate a System of Equations *)
+		fluxEq = (*unifyRateConstants[*)Total[transitionRateEqs]/.unifiedRateConstList(*]*);(*Flux Will Always Go through the Transition Step*)
+		enzForms = Cases[enzymeModel["Species"],_enzyme]//Union;
+		enzConservationEq = parameter["E_total"]==Total[enzForms];(*Enzyme Conservation Equation*)
+
+		enzPos = Flatten[Position[enzymeModel["Species"],_enzyme]];
+		ssEq = stripTime[enzymeModel["ODE"][[enzPos]]/._'[t]->0];(*Steady State Equations*)
+		ssEq = (*unifyRateConstants*)keq2kHT[ssEq]/.unifiedRateConstList;
+		
+		(*Solve the System for Each Enzyme Form (This May Take Some Time)*)
+		enzSol = anonymize[Solve[Join[ssEq,{enzConservationEq}],enzForms]];
+		enzSol = keq2kHT[enzSol[[1]]];		
+		
+		(*Apply the Solution to the Flux Equation*)
+		absoluteFlux=fluxEq/.enzSol;(*In terms of E_total*)
+		absoluteFlux = parameter["v", rxnName] -> keq2kHT[anonymize[Simplify[absoluteFlux]]];
+		Print["before simplify1"];
+		(*absoluteFlux = MemoryConstrained[Simplify[absoluteFlux, TimeConstraint->3600], 8000000000];*)
+		(*Print["post simplify"];*)
 		
 		(*Cache the Results*)
 		Export[inputDir <> "enzSol" <> outFileLabel <> ".m",  enzSol]; 
@@ -167,21 +205,24 @@ addInhibitionReactions[enzymeModel_, enzName_, inhibitionList_,  allCatalyticRea
 	inhibitorMetsList = inhibitionList[[All, 2]];
 	inhibitorMetsList = inhibitorMetsList[[All,1, 1]];
 	inhibitorMetsList = inhibitorMetsList /. getConversionChar2Met[inhibitorMetsList];
-
+	Print["1"];
 	paramTypeList = inhibitionList[[All, 1]];
-
+	Print["2"];
 	affectedMetsListLocal = 
 		If[affectedMetsList == {},
 			temp = Flatten[inhibitionList[[All,5]], 1][[All,4]];
 			affectedMetsListLocal = temp /. getConversionChar2Met[temp],
 			affectedMetsList
 		];
-			
+	Print["3"];
 	AppendTo[inhibitedRxns, 
 		Table[			
 			inhibitorMet = inhibitorMetsList[[i]];
 			paramType = paramTypeList[[i]];
 			affectedMets = If[ListQ[affectedMetsListLocal[[i]]], affectedMetsListLocal[[i]], {affectedMetsListLocal[[i]]}];
+			Print[inhibitorMet];
+			Print[paramType];
+			Print[affectedMets];
 			
 			affectedRxns =
 				Table[
@@ -191,7 +232,7 @@ addInhibitionReactions[enzymeModel_, enzName_, inhibitionList_,  allCatalyticRea
 
 			DeleteCases[
 				{Table[
-					r[enzName <> "_" <> paramType <> "_" <> getID @ inhibitorMet <> "_" <> ToString[enz], (*Reaction Name*)
+					r[enzName <> "_" <> paramType <> "_" <> getID @ inhibitorMet <> "_" <> ToString[enz] <>"_" <> getID @ affectedMets[[1]], (*Reaction Name*)
 					{affectedEnzForms[[enz]], inhibitorMet}, (*Substrates*)
 					{bindCatalytic[affectedEnzForms[[enz]], inhibitorMet]}, (*Products*)
 					{1,1,1}] (*Stoichiometry*),
@@ -347,11 +388,13 @@ getRateEqs[absoluteFlux_, unifiedRateConstList_, eqRateConstSub_, reverseZeroSub
 	
 
 	absoluteFluxEqnRelRateFor = If[absoluteFluxRelRateFor=== Null,
+		Print["2"];
 		absoluteFluxEqn[[2]],
 		absoluteFluxRelRateFor[[2]]/.unifiedRateConstList/.eqRateConstSub
 	];
 	
 	absoluteFluxEqnRelRateRev = If[absoluteFluxRelRateRev=== Null, 
+		Print["2"];
 		absoluteFluxEqn[[2]],
 		absoluteFluxRelRateRev[[2]]/.unifiedRateConstList/.eqRateConstSub
 	];		

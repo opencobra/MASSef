@@ -42,6 +42,9 @@ addInhibitionReactions::usage="addInhibitionReactions[enzName, inhibitorMets, af
 getFluxEquation::usage="getFluxEquation[workingDir, rxnName, enzymeModel, unifiedRateConstList, transitionRateEqs]";
 
 
+getFluxEquationSimplified::usage="getFluxEquation[workingDir, rxnName, enzymeModel, unifiedRateConstList, transitionRateEqs]";
+
+
 getRateConstSubRandomMech::usage="getRateConstSubRandomMech[enzymeModel, eqRateConstSubTemp, allCatalyticReactions, nonCatalyticReactions, competitiveRxns:{{}}]";
 
 
