@@ -296,7 +296,7 @@ getRateConstSubRandomMech[enzymeModel_, eqRateConstSubTemp_, allCatalyticReactio
 	equivalentRxns=Table[{unifyRateConstants[getID[nonCatalyticReactions[[#]]]],#}&/@rxnSet,{rxnSet,equivalentRxns}]/.eqIDSub;
 	equivalentRxns=Table[
 		If[Length[DeleteDuplicates[rxnSet,#1[[1]]==#2[[1]]&]]>1,
-			DeleteDuplicates[rxnSet,#1[[1]]==#2[[1]]&][[All,2]],
+			DeleteDuplicates[rxnSet,#1[[1]]==#2[[1]]&][[All,1]], (* changed to fix issue on TALA2, hopefully it's general enough *)
 			{}
 		],
 	{rxnSet,equivalentRxns}];
