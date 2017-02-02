@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    159796,       3824]
-NotebookOptionsPosition[    158787,       3786]
-NotebookOutlinePosition[    159127,       3801]
-CellTagsIndexPosition[    159084,       3798]
+NotebookDataLength[    163452,       3905]
+NotebookOptionsPosition[    162441,       3867]
+NotebookOutlinePosition[    162782,       3882]
+CellTagsIndexPosition[    162739,       3879]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -24,7 +24,8 @@ Cell[BoxData[""], "Input",
    3.689943992936441*^9}, {3.689944249710779*^9, 3.689944251595142*^9}, {
    3.68994429261088*^9, 3.68994429357648*^9}, {3.68994438224647*^9, 
    3.689944384256961*^9}, {3.6900260667483664`*^9, 3.690026067548703*^9}, 
-   3.690026194155737*^9}],
+   3.690026194155737*^9, {3.69503099758751*^9, 3.695030999896443*^9}, {
+   3.6950311004723587`*^9, 3.695031103287199*^9}}],
 
 Cell[BoxData[{
  RowBox[{
@@ -529,10 +530,10 @@ Cell[BoxData[
        RowBox[{"{", 
         RowBox[{
          RowBox[{"{", 
-          RowBox[{"\"\<Ki\>\"", ",", 
+          RowBox[{"\"\<Kic\>\"", ",", 
            RowBox[{"{", 
             RowBox[{"{", 
-             RowBox[{"\"\<glyc3p\>\"", ",", "3.2`*^-6"}], "}"}], "}"}], ",", 
+             RowBox[{"\"\<glyc3p\>\"", ",", "Null"}], "}"}], "}"}], ",", 
            "4.2`*^-6", ",", 
            RowBox[{"{", 
             RowBox[{"{", 
@@ -548,10 +549,10 @@ Cell[BoxData[
              RowBox[{"\"\<trishcl\>\"", ",", "0.1`"}], "}"}], "}"}], ",", 
            RowBox[{"{", "}"}]}], "}"}], ",", 
          RowBox[{"{", 
-          RowBox[{"\"\<Kii\>\"", ",", 
+          RowBox[{"\"\<Kincu\>\"", ",", 
            RowBox[{"{", 
             RowBox[{"{", 
-             RowBox[{"\"\<glyc3p\>\"", ",", "3.2`*^-6"}], "}"}], "}"}], ",", 
+             RowBox[{"\"\<glyc3p\>\"", ",", "Null"}], "}"}], "}"}], ",", 
            "6.5`*^-6", ",", 
            RowBox[{"{", 
             RowBox[{"{", 
@@ -567,10 +568,10 @@ Cell[BoxData[
              RowBox[{"\"\<trishcl\>\"", ",", "0.1`"}], "}"}], "}"}], ",", 
            RowBox[{"{", "}"}]}], "}"}], ",", 
          RowBox[{"{", 
-          RowBox[{"\"\<Kis\>\"", ",", 
+          RowBox[{"\"\<Kincc\>\"", ",", 
            RowBox[{"{", 
             RowBox[{"{", 
-             RowBox[{"\"\<glyc3p\>\"", ",", "3.2`*^-6"}], "}"}], "}"}], ",", 
+             RowBox[{"\"\<glyc3p\>\"", ",", "Null"}], "}"}], "}"}], ",", 
            "2.4999999999999998`*^-6", ",", 
            RowBox[{"{", 
             RowBox[{"{", 
@@ -586,10 +587,10 @@ Cell[BoxData[
              RowBox[{"\"\<trishcl\>\"", ",", "0.1`"}], "}"}], "}"}], ",", 
            RowBox[{"{", "}"}]}], "}"}], ",", 
          RowBox[{"{", 
-          RowBox[{"\"\<Kii\>\"", ",", 
+          RowBox[{"\"\<Kincu\>\"", ",", 
            RowBox[{"{", 
             RowBox[{"{", 
-             RowBox[{"\"\<nadp\>\"", ",", "0.0002`"}], "}"}], "}"}], ",", 
+             RowBox[{"\"\<nadp\>\"", ",", "Null"}], "}"}], "}"}], ",", 
            "0.0013000000000000002`", ",", 
            RowBox[{"{", 
             RowBox[{"{", 
@@ -605,10 +606,10 @@ Cell[BoxData[
              RowBox[{"\"\<trishcl\>\"", ",", "0.1`"}], "}"}], "}"}], ",", 
            RowBox[{"{", "}"}]}], "}"}], ",", 
          RowBox[{"{", 
-          RowBox[{"\"\<Kis\>\"", ",", 
+          RowBox[{"\"\<Kincc\>\"", ",", 
            RowBox[{"{", 
             RowBox[{"{", 
-             RowBox[{"\"\<nadp\>\"", ",", "0.0002`"}], "}"}], "}"}], ",", 
+             RowBox[{"\"\<nadp\>\"", ",", "Null"}], "}"}], "}"}], ",", 
            "0.0013000000000000002`", ",", 
            RowBox[{"{", 
             RowBox[{"{", 
@@ -624,10 +625,10 @@ Cell[BoxData[
              RowBox[{"\"\<trishcl\>\"", ",", "0.1`"}], "}"}], "}"}], ",", 
            RowBox[{"{", "}"}]}], "}"}], ",", 
          RowBox[{"{", 
-          RowBox[{"\"\<Ki\>\"", ",", 
+          RowBox[{"\"\<Kic\>\"", ",", 
            RowBox[{"{", 
             RowBox[{"{", 
-             RowBox[{"\"\<nadp\>\"", ",", "0.0002`"}], "}"}], "}"}], ",", 
+             RowBox[{"\"\<nadp\>\"", ",", "Null"}], "}"}], "}"}], ",", 
            "0.000187`", ",", 
            RowBox[{"{", 
             RowBox[{"{", 
@@ -643,10 +644,10 @@ Cell[BoxData[
              RowBox[{"\"\<trishcl\>\"", ",", "0.1`"}], "}"}], "}"}], ",", 
            RowBox[{"{", "}"}]}], "}"}], ",", 
          RowBox[{"{", 
-          RowBox[{"\"\<Ki\>\"", ",", 
+          RowBox[{"\"\<Kic\>\"", ",", 
            RowBox[{"{", 
             RowBox[{"{", 
-             RowBox[{"\"\<dhap\>\"", ",", "0.0000225`"}], "}"}], "}"}], ",", 
+             RowBox[{"\"\<dhap\>\"", ",", "Null"}], "}"}], "}"}], ",", 
            "0.000037999999999999995`", ",", 
            RowBox[{"{", 
             RowBox[{"{", 
@@ -662,10 +663,10 @@ Cell[BoxData[
              RowBox[{"\"\<trishcl\>\"", ",", "0.1`"}], "}"}], "}"}], ",", 
            RowBox[{"{", "}"}]}], "}"}], ",", 
          RowBox[{"{", 
-          RowBox[{"\"\<Kii\>\"", ",", 
+          RowBox[{"\"\<Kincu\>\"", ",", 
            RowBox[{"{", 
             RowBox[{"{", 
-             RowBox[{"\"\<dhap\>\"", ",", "0.0000225`"}], "}"}], "}"}], ",", 
+             RowBox[{"\"\<dhap\>\"", ",", "Null"}], "}"}], "}"}], ",", 
            "0.00024000000000000003`", ",", 
            RowBox[{"{", 
             RowBox[{"{", 
@@ -681,10 +682,10 @@ Cell[BoxData[
              RowBox[{"\"\<trishcl\>\"", ",", "0.1`"}], "}"}], "}"}], ",", 
            RowBox[{"{", "}"}]}], "}"}], ",", 
          RowBox[{"{", 
-          RowBox[{"\"\<Kis\>\"", ",", 
+          RowBox[{"\"\<Kincc\>\"", ",", 
            RowBox[{"{", 
             RowBox[{"{", 
-             RowBox[{"\"\<dhap\>\"", ",", "0.0000225`"}], "}"}], "}"}], ",", 
+             RowBox[{"\"\<dhap\>\"", ",", "Null"}], "}"}], "}"}], ",", 
            "0.00012000000000000002`", ",", 
            RowBox[{"{", 
             RowBox[{"{", 
@@ -700,10 +701,10 @@ Cell[BoxData[
              RowBox[{"\"\<trishcl\>\"", ",", "0.1`"}], "}"}], "}"}], ",", 
            RowBox[{"{", "}"}]}], "}"}], ",", 
          RowBox[{"{", 
-          RowBox[{"\"\<Kii\>\"", ",", 
+          RowBox[{"\"\<Kincu\>\"", ",", 
            RowBox[{"{", 
             RowBox[{"{", 
-             RowBox[{"\"\<nadph\>\"", ",", "5.`*^-7"}], "}"}], "}"}], ",", 
+             RowBox[{"\"\<nadph\>\"", ",", "Null"}], "}"}], "}"}], ",", 
            "8.`*^-7", ",", 
            RowBox[{"{", 
             RowBox[{"{", 
@@ -719,10 +720,10 @@ Cell[BoxData[
              RowBox[{"\"\<trishcl\>\"", ",", "0.1`"}], "}"}], "}"}], ",", 
            RowBox[{"{", "}"}]}], "}"}], ",", 
          RowBox[{"{", 
-          RowBox[{"\"\<Kis\>\"", ",", 
+          RowBox[{"\"\<Kincc\>\"", ",", 
            RowBox[{"{", 
             RowBox[{"{", 
-             RowBox[{"\"\<nadph\>\"", ",", "5.`*^-7"}], "}"}], "}"}], ",", 
+             RowBox[{"\"\<nadph\>\"", ",", "Null"}], "}"}], "}"}], ",", 
            "6.`*^-7", ",", 
            RowBox[{"{", 
             RowBox[{"{", 
@@ -738,10 +739,10 @@ Cell[BoxData[
              RowBox[{"\"\<trishcl\>\"", ",", "0.1`"}], "}"}], "}"}], ",", 
            RowBox[{"{", "}"}]}], "}"}], ",", 
          RowBox[{"{", 
-          RowBox[{"\"\<Ki\>\"", ",", 
+          RowBox[{"\"\<Kic\>\"", ",", 
            RowBox[{"{", 
             RowBox[{"{", 
-             RowBox[{"\"\<nadph\>\"", ",", "5.`*^-7"}], "}"}], "}"}], ",", 
+             RowBox[{"\"\<nadph\>\"", ",", "Null"}], "}"}], "}"}], ",", 
            "4.`*^-7", ",", 
            RowBox[{"{", 
             RowBox[{"{", 
@@ -789,7 +790,7 @@ Cell[BoxData[
    3.689936969757365*^9, {3.689937443050737*^9, 3.689937453285174*^9}, 
    3.6899438543855963`*^9, 3.689944225732294*^9, {3.690026119897615*^9, 
    3.690026149304769*^9}, {3.694093949223398*^9, 3.694093952702881*^9}, 
-   3.6940939858406973`*^9}]
+   3.6940939858406973`*^9, 3.6950310948279*^9}]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -1038,7 +1039,7 @@ Cell[BoxData[
        RowBox[{"{", 
         RowBox[{
          RowBox[{"{", 
-          RowBox[{"\"\<Ki\>\"", ",", 
+          RowBox[{"\"\<Kinc\>\"", ",", 
            RowBox[{"{", 
             RowBox[{"{", 
              RowBox[{"\"\<pep\>\"", ",", "Null"}], "}"}], "}"}], ",", 
@@ -1060,7 +1061,7 @@ Cell[BoxData[
              RowBox[{"\"\<tris\>\"", ",", "0.05`"}], "}"}], "}"}], ",", 
            RowBox[{"{", "}"}]}], "}"}], ",", 
          RowBox[{"{", 
-          RowBox[{"\"\<Ki\>\"", ",", 
+          RowBox[{"\"\<Kic\>\"", ",", 
            RowBox[{"{", 
             RowBox[{"{", 
              RowBox[{"\"\<adp\>\"", ",", "Null"}], "}"}], "}"}], ",", 
@@ -1157,7 +1158,7 @@ Cell[BoxData[
    3.6899374521205473`*^9}, 3.68994397134389*^9, {3.6899442370728703`*^9, 
    3.689944239719883*^9}, {3.689944281400701*^9, 3.689944288847084*^9}, {
    3.690026156703013*^9, 3.690026169582453*^9}, {3.694093963998461*^9, 
-   3.694093980499106*^9}}]
+   3.694093980499106*^9}, 3.6950310839876633`*^9}]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -1380,23 +1381,83 @@ Cell[BoxData[
              RowBox[{"\"\<glygly\>\"", ",", "0.05`"}], "}"}], "}"}], ",", 
            RowBox[{"{", "}"}]}], "}"}]}], "}"}], ",", 
        RowBox[{"{", 
-        RowBox[{"{", 
-         RowBox[{"\"\<Ki\>\"", ",", 
-          RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"\"\<Kic\>\"", ",", 
            RowBox[{"{", 
-            RowBox[{"\"\<pi\>\"", ",", "Null"}], "}"}], "}"}], ",", "0.019`", 
-          ",", 
-          RowBox[{"{", "}"}], ",", 
-          RowBox[{"{", 
+            RowBox[{"{", 
+             RowBox[{"\"\<pi\>\"", ",", "Null"}], "}"}], "}"}], ",", "0.019`",
+            ",", 
            RowBox[{"{", 
-            RowBox[{
-            "\"\<Competitive\>\"", ",", "Null", ",", "Null", ",", 
-             "\"\<Null\>\"", ",", " ", "Null"}], "}"}], "}"}], ",", 
-          "\"\<M\>\"", ",", "8.5`", ",", "30.`", ",", 
-          RowBox[{"{", 
+            RowBox[{"{", 
+             RowBox[{"\"\<e4p\>\"", ",", "Null"}], "}"}], "}"}], ",", 
            RowBox[{"{", 
-            RowBox[{"\"\<glygly\>\"", ",", "0.05`"}], "}"}], "}"}], ",", 
-          RowBox[{"{", "}"}]}], "}"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{
+             "\"\<Competitive\>\"", ",", "Null", ",", "Null", ",", 
+              "\"\<f6p\>\"", ",", "Null"}], "}"}], "}"}], ",", "\"\<M\>\"", 
+           ",", "8.5`", ",", "30.`", ",", 
+           RowBox[{"{", 
+            RowBox[{"{", 
+             RowBox[{"\"\<glygly\>\"", ",", "0.05`"}], "}"}], "}"}], ",", 
+           RowBox[{"{", "}"}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"\"\<Kic\>\"", ",", 
+           RowBox[{"{", 
+            RowBox[{"{", 
+             RowBox[{"\"\<pi\>\"", ",", "Null"}], "}"}], "}"}], ",", "0.019`",
+            ",", 
+           RowBox[{"{", 
+            RowBox[{"{", 
+             RowBox[{"\"\<f6p\>\"", ",", "Null"}], "}"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"{", 
+             RowBox[{
+             "\"\<Competitive\>\"", ",", "Null", ",", "Null", ",", 
+              "\"\<e4p\>\"", ",", "Null"}], "}"}], "}"}], ",", "\"\<M\>\"", 
+           ",", "8.5`", ",", "30.`", ",", 
+           RowBox[{"{", 
+            RowBox[{"{", 
+             RowBox[{"\"\<glygly\>\"", ",", "0.05`"}], "}"}], "}"}], ",", 
+           RowBox[{"{", "}"}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"\"\<Kic\>\"", ",", 
+           RowBox[{"{", 
+            RowBox[{"{", 
+             RowBox[{"\"\<pi\>\"", ",", "Null"}], "}"}], "}"}], ",", "0.019`",
+            ",", 
+           RowBox[{"{", 
+            RowBox[{"{", 
+             RowBox[{"\"\<g3p\>\"", ",", "Null"}], "}"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"{", 
+             RowBox[{
+             "\"\<Competitive\>\"", ",", "Null", ",", "Null", ",", 
+              "\"\<s7p\>\"", ",", "Null"}], "}"}], "}"}], ",", "\"\<M\>\"", 
+           ",", "8.5`", ",", "30.`", ",", 
+           RowBox[{"{", 
+            RowBox[{"{", 
+             RowBox[{"\"\<glygly\>\"", ",", "0.05`"}], "}"}], "}"}], ",", 
+           RowBox[{"{", "}"}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"\"\<Kic\>\"", ",", 
+           RowBox[{"{", 
+            RowBox[{"{", 
+             RowBox[{"\"\<pi\>\"", ",", "Null"}], "}"}], "}"}], ",", "0.019`",
+            ",", 
+           RowBox[{"{", 
+            RowBox[{"{", 
+             RowBox[{"\"\<s7p\>\"", ",", "Null"}], "}"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"{", 
+             RowBox[{
+             "\"\<Competitive\>\"", ",", "Null", ",", "Null", ",", 
+              "\"\<g3p\>\"", ",", "Null"}], "}"}], "}"}], ",", "\"\<M\>\"", 
+           ",", "8.5`", ",", "30.`", ",", 
+           RowBox[{"{", 
+            RowBox[{"{", 
+             RowBox[{"\"\<glygly\>\"", ",", "0.05`"}], "}"}], "}"}], ",", 
+           RowBox[{"{", "}"}]}], "}"}]}], "}"}], ",", 
        RowBox[{"{", "}"}], ",", 
        RowBox[{"{", "}"}]}], "}"}]}], ";"}], "\[IndentingNewLine]", 
    "\[IndentingNewLine]", 
@@ -1423,7 +1484,8 @@ Cell[BoxData[
    3.688813171632275*^9}, 3.6888133091495943`*^9, {3.6888154427204638`*^9, 
    3.688815558737994*^9}, {3.689931657653564*^9, 3.689931660234579*^9}, 
    3.68993743376999*^9, 3.689943984941779*^9, {3.689944245792631*^9, 
-   3.689944246998794*^9}, {3.6900261877584553`*^9, 3.690026189059948*^9}}],
+   3.689944246998794*^9}, {3.6900261877584553`*^9, 3.690026189059948*^9}, {
+   3.695031035273798*^9, 3.695031068805292*^9}}],
 
 Cell[CellGroupData[{
 
@@ -1641,7 +1703,7 @@ Cell[BoxData[
                  TagBox[
                   
                   TemplateBox[{
-                   "0.052023`4.866710390787548","\"s\"","seconds",
+                   "0.05477`4.889057738760779","\"s\"","seconds",
                     "\"Seconds\""},
                    "Quantity"],
                   Short[#, 
@@ -1722,9 +1784,9 @@ Cell[BoxData[
           "teoahcl", "triethanolamine-HCl"}, 7.83, 1., 0.}, {{
           "pi_buffer", "Phosphoric acid"}, 7.198, -1., -2.}}], 
       "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
-      Quantity[0.052023`4.866710390787548, "Seconds"], "CPUTimeUsed" -> 
-      Quantity[0.0519999999999996, "Seconds"], "MemoryUsed" -> 
-      Quantity[3026544, "Bytes"]]],
+      Quantity[0.05477`4.889057738760779, "Seconds"], "CPUTimeUsed" -> 
+      Quantity[0.052000000000000046`, "Seconds"], "MemoryUsed" -> 
+      Quantity[3025040, "Bytes"]]],
     Editable->False,
     SelectWithContents->True,
     Selectable->False], ",", 
@@ -1947,7 +2009,7 @@ Cell[BoxData[
                  TagBox[
                   
                   TemplateBox[{
-                   "0.000169`2.378401702445665","\"s\"","seconds",
+                   "0.000101`2.154836371614634","\"s\"","seconds",
                     "\"Seconds\""},
                    "Quantity"],
                   Short[#, 
@@ -1988,7 +2050,7 @@ Cell[BoxData[
       HoldForm[{{"cl", -1.}, {"mg2", 2.}, {"k", 1.}, {"so4", -2.}, {
          "mn2", 2.}, {"na1", 1.}, {"hco3", -1.}}], "ExpectedMessages" -> {}, 
       "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
-      Quantity[0.000169`2.378401702445665, "Seconds"], "CPUTimeUsed" -> 
+      Quantity[0.000101`2.154836371614634, "Seconds"], "CPUTimeUsed" -> 
       Quantity[0., "Seconds"], "MemoryUsed" -> Quantity[96, "Bytes"]]],
     Editable->False,
     SelectWithContents->True,
@@ -2452,7 +2514,7 @@ Cell[BoxData[
                  TagBox[
                   
                   TemplateBox[{
-                   "0.000092`2.1143028251775466","\"s\"","seconds",
+                   "0.00018`2.4057875029352975","\"s\"","seconds",
                     "\"Seconds\""},
                    "Quantity"],
                   Short[#, 
@@ -2503,51 +2565,51 @@ Cell[BoxData[
           "nadp", 0.000165, {}, "M", 7.4, 23., {{"trishcl", 0.1}}, {}}, {
           "glyc3p", 0.000030000000000000004`, {}, "M", 7.4, 
            23., {{"trishcl", 0.1}}, {}}}, {}, {}, {{
-          "Ki", {{"glyc3p", 3.2*^-6}}, 
+          "Kic", {{"glyc3p", Null}}, 
            4.2*^-6, {{"nadph", 0.0001}}, {{
             "Competitive", Null, Null, "dhap", 0.01}}, "M", 7.4, 
            23., {{"trishcl", 0.1}}, {}}, {
-          "Kii", {{"glyc3p", 3.2*^-6}}, 
+          "Kincu", {{"glyc3p", Null}}, 
            6.5*^-6, {{"dhap", 0.0001}}, {{
             "NonCompetitive", Null, Null, "nadph", 0.12}}, "M", 7.4, 
            23., {{"trishcl", 0.1}}, {}}, {
-          "Kis", {{"glyc3p", 3.2*^-6}}, 
+          "Kincc", {{"glyc3p", Null}}, 
            2.4999999999999998`*^-6, {{"dhap", 0.0001}}, {{
             "NonCompetitive", Null, Null, "nadph", 0.12}}, "M", 7.4, 
            23., {{"trishcl", 0.1}}, {}}, {
-          "Kii", {{"nadp", 0.0002}}, 
+          "Kincu", {{"nadp", Null}}, 
            0.0013000000000000002`, {{"nadph", 0.00001}}, {{
             "NonCompetitive", Null, Null, "dhap", 0.01}}, "M", 7.4, 
            23., {{"trishcl", 0.1}}, {}}, {
-          "Kis", {{"nadp", 0.0002}}, 
+          "Kincc", {{"nadp", Null}}, 
            0.0013000000000000002`, {{"nadph", 0.00001}}, {{
             "NonCompetitive", Null, Null, "dhap", 0.01}}, "M", 7.4, 
            23., {{"trishcl", 0.1}}, {}}, {
-          "Ki", {{"nadp", 0.0002}}, 
+          "Kic", {{"nadp", Null}}, 
            0.000187, {{"dhap", 0.002}}, {{
             "Competitive", Null, Null, "nadph", 0.12}}, "M", 7.4, 
            23., {{"trishcl", 0.1}}, {}}, {
-          "Ki", {{"dhap", 0.0000225}}, 
+          "Kic", {{"dhap", Null}}, 
            0.000037999999999999995`, {{"nadp", 0.002}}, {{
             "Competitive", Null, Null, "glyc3p", 0.04}}, "M", 7.4, 
            23., {{"trishcl", 0.1}}, {}}, {
-          "Kii", {{"dhap", 0.0000225}}, 
+          "Kincu", {{"dhap", Null}}, 
            0.00024000000000000003`, {{"glyc3p", 0.0001}}, {{
             "NonCompetitive", Null, Null, "nadp", 0.005}}, "M", 7.4, 
            23., {{"trishcl", 0.1}}, {}}, {
-          "Kis", {{"dhap", 0.0000225}}, 
+          "Kincc", {{"dhap", Null}}, 
            0.00012000000000000002`, {{"glyc3p", 0.0001}}, {{
             "NonCompetitive", Null, Null, "nadp", 0.005}}, "M", 7.4, 
            23., {{"trishcl", 0.1}}, {}}, {
-          "Kii", {{"nadph", 5.*^-7}}, 
+          "Kincu", {{"nadph", Null}}, 
            8.*^-7, {{"nadp", 0.0001}}, {{
             "NonCompetitive", Null, Null, "glyc3p", 0.04}}, "M", 7.4, 
            23., {{"trishcl", 0.1}}, {}}, {
-          "Kis", {{"nadph", 5.*^-7}}, 
+          "Kincc", {{"nadph", Null}}, 
            6.*^-7, {{"nadp", 0.0001}}, {{
             "NonCompetitive", Null, Null, "glyc3p", 0.04}}, "M", 7.4, 
            23., {{"trishcl", 0.1}}, {}}, {
-          "Ki", {{"nadph", 5.*^-7}}, 
+          "Kic", {{"nadph", Null}}, 
            4.*^-7, {{"glyc3p", 0.0002}}, {{
             "Competitive", Null, Null, "nadp", 0.005}}, "M", 7.4, 
            23., {{"trishcl", 0.1}}, {}}}, {}, {}}], "ActualOutput" -> 
@@ -2565,56 +2627,56 @@ Cell[BoxData[
           "nadp", 0.000165, {}, "M", 7.4, 23., {{"trishcl", 0.1}}, {}}, {
           "glyc3p", 0.000030000000000000004`, {}, "M", 7.4, 
            23., {{"trishcl", 0.1}}, {}}}, {}, {}, {{
-          "Ki", {{"glyc3p", 3.2*^-6}}, 
+          "Kic", {{"glyc3p", Null}}, 
            4.2*^-6, {{"nadph", 0.0001}}, {{
             "Competitive", Null, Null, "dhap", 0.01}}, "M", 7.4, 
            23., {{"trishcl", 0.1}}, {}}, {
-          "Kii", {{"glyc3p", 3.2*^-6}}, 
+          "Kincu", {{"glyc3p", Null}}, 
            6.5*^-6, {{"dhap", 0.0001}}, {{
             "NonCompetitive", Null, Null, "nadph", 0.12}}, "M", 7.4, 
            23., {{"trishcl", 0.1}}, {}}, {
-          "Kis", {{"glyc3p", 3.2*^-6}}, 
+          "Kincc", {{"glyc3p", Null}}, 
            2.4999999999999998`*^-6, {{"dhap", 0.0001}}, {{
             "NonCompetitive", Null, Null, "nadph", 0.12}}, "M", 7.4, 
            23., {{"trishcl", 0.1}}, {}}, {
-          "Kii", {{"nadp", 0.0002}}, 
+          "Kincu", {{"nadp", Null}}, 
            0.0013000000000000002`, {{"nadph", 0.00001}}, {{
             "NonCompetitive", Null, Null, "dhap", 0.01}}, "M", 7.4, 
            23., {{"trishcl", 0.1}}, {}}, {
-          "Kis", {{"nadp", 0.0002}}, 
+          "Kincc", {{"nadp", Null}}, 
            0.0013000000000000002`, {{"nadph", 0.00001}}, {{
             "NonCompetitive", Null, Null, "dhap", 0.01}}, "M", 7.4, 
            23., {{"trishcl", 0.1}}, {}}, {
-          "Ki", {{"nadp", 0.0002}}, 
+          "Kic", {{"nadp", Null}}, 
            0.000187, {{"dhap", 0.002}}, {{
             "Competitive", Null, Null, "nadph", 0.12}}, "M", 7.4, 
            23., {{"trishcl", 0.1}}, {}}, {
-          "Ki", {{"dhap", 0.0000225}}, 
+          "Kic", {{"dhap", Null}}, 
            0.000037999999999999995`, {{"nadp", 0.002}}, {{
             "Competitive", Null, Null, "glyc3p", 0.04}}, "M", 7.4, 
            23., {{"trishcl", 0.1}}, {}}, {
-          "Kii", {{"dhap", 0.0000225}}, 
+          "Kincu", {{"dhap", Null}}, 
            0.00024000000000000003`, {{"glyc3p", 0.0001}}, {{
             "NonCompetitive", Null, Null, "nadp", 0.005}}, "M", 7.4, 
            23., {{"trishcl", 0.1}}, {}}, {
-          "Kis", {{"dhap", 0.0000225}}, 
+          "Kincc", {{"dhap", Null}}, 
            0.00012000000000000002`, {{"glyc3p", 0.0001}}, {{
             "NonCompetitive", Null, Null, "nadp", 0.005}}, "M", 7.4, 
            23., {{"trishcl", 0.1}}, {}}, {
-          "Kii", {{"nadph", 5.*^-7}}, 
+          "Kincu", {{"nadph", Null}}, 
            8.*^-7, {{"nadp", 0.0001}}, {{
             "NonCompetitive", Null, Null, "glyc3p", 0.04}}, "M", 7.4, 
            23., {{"trishcl", 0.1}}, {}}, {
-          "Kis", {{"nadph", 5.*^-7}}, 
+          "Kincc", {{"nadph", Null}}, 
            6.*^-7, {{"nadp", 0.0001}}, {{
             "NonCompetitive", Null, Null, "glyc3p", 0.04}}, "M", 7.4, 
            23., {{"trishcl", 0.1}}, {}}, {
-          "Ki", {{"nadph", 5.*^-7}}, 
+          "Kic", {{"nadph", Null}}, 
            4.*^-7, {{"glyc3p", 0.0002}}, {{
             "Competitive", Null, Null, "nadp", 0.005}}, "M", 7.4, 
            23., {{"trishcl", 0.1}}, {}}}, {}, {}}], "ExpectedMessages" -> {}, 
       "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
-      Quantity[0.000092`2.1143028251775466, "Seconds"], "CPUTimeUsed" -> 
+      Quantity[0.00018`2.4057875029352975, "Seconds"], "CPUTimeUsed" -> 
       Quantity[0., "Seconds"], "MemoryUsed" -> Quantity[104, "Bytes"]]],
     Editable->False,
     SelectWithContents->True,
@@ -3133,7 +3195,7 @@ Cell[BoxData[
                  TagBox[
                   
                   TemplateBox[{
-                   "0.000096`2.13278623087156","\"s\"","seconds",
+                   "0.000104`2.167548337130772","\"s\"","seconds",
                     "\"Seconds\""},
                    "Quantity"],
                   Short[#, 
@@ -3187,11 +3249,11 @@ Cell[BoxData[
             "mes", 0.1}}, {}}}, {{{{"gdp", 0.001}, {"atp", Null}, {
             "f6p", Null}}, 110.7, "1/s", 8.5, 
            30., {{"detam", 0.051}, {"netmphn", 0.051}, {"mes", 0.1}}, {}}}, {{
-          "Ki", {{"pep", Null}}, 
+          "Kinc", {{"pep", Null}}, 
            0.00075, {}, {{"NonCompetitive", Null, 142, "atp", Null}, {
             "NonCompetitive", Null, 142, "f6p", Null}}, "M", 8.5, 
            28., {{"tris", 0.05}}, {}}, {
-          "Ki", {{"adp", Null}}, 
+          "Kic", {{"adp", Null}}, 
            0.0002, {}, {{"Competitive", Null, 141, "atp", Null}}, "M", 8.5, 
            28., {{"tris", 0.05}}, {}}}, {{
           "Ka", {{"adp", Null}}, 0.000024999999999999998`, {}, {}, "M", 8.5, 
@@ -3219,11 +3281,11 @@ Cell[BoxData[
             "mes", 0.1}}, {}}}, {{{{"gdp", 0.001}, {"atp", Null}, {
             "f6p", Null}}, 110.7, "1/s", 8.5, 
            30., {{"detam", 0.051}, {"netmphn", 0.051}, {"mes", 0.1}}, {}}}, {{
-          "Ki", {{"pep", Null}}, 
+          "Kinc", {{"pep", Null}}, 
            0.00075, {}, {{"NonCompetitive", Null, 142, "atp", Null}, {
             "NonCompetitive", Null, 142, "f6p", Null}}, "M", 8.5, 
            28., {{"tris", 0.05}}, {}}, {
-          "Ki", {{"adp", Null}}, 
+          "Kic", {{"adp", Null}}, 
            0.0002, {}, {{"Competitive", Null, 141, "atp", Null}}, "M", 8.5, 
            28., {{"tris", 0.05}}, {}}}, {{
           "Ka", {{"adp", Null}}, 0.000024999999999999998`, {}, {}, "M", 8.5, 
@@ -3234,7 +3296,7 @@ Cell[BoxData[
            30., {{"detam", 0.051}, {"netmphn", 0.051}, {"mes", 0.1}}, {}}, {
           "L0", "", 4.*^6, "Null", 8.5, 28., {{"tris", 0.05}}, {}}}}], 
       "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
-      Quantity[0.000096`2.13278623087156, "Seconds"], "CPUTimeUsed" -> 
+      Quantity[0.000104`2.167548337130772, "Seconds"], "CPUTimeUsed" -> 
       Quantity[0., "Seconds"], "MemoryUsed" -> Quantity[32, "Bytes"]]],
     Editable->False,
     SelectWithContents->True,
@@ -3681,7 +3743,7 @@ Cell[BoxData[
                  TagBox[
                   
                   TemplateBox[{
-                   "0.000104`2.16754833713077","\"s\"","seconds",
+                   "0.000106`2.175820863096764","\"s\"","seconds",
                     "\"Seconds\""},
                    "Quantity"],
                   Short[#, 
@@ -3737,9 +3799,18 @@ Cell[BoxData[
             "e4p", 0.002}}, 71.4, "1/s", 8.5, 
            30., {{"glygly", 0.05}}, {}}, {{{"e4p", Null}, {"f6p", 0.05}}, 
            79.4, "1/s", 8.5, 30., {{"glygly", 0.05}}, {}}}, {{
-          "Ki", {{"pi", Null}}, 
-           0.019, {}, {{"Competitive", Null, Null, "Null", Null}}, "M", 8.5, 
-           30., {{"glygly", 0.05}}, {}}}, {}, {}}], "ActualOutput" -> 
+          "Kic", {{"pi", Null}}, 
+           0.019, {{"e4p", Null}}, {{"Competitive", Null, Null, "f6p", Null}},
+            "M", 8.5, 30., {{"glygly", 0.05}}, {}}, {
+          "Kic", {{"pi", Null}}, 
+           0.019, {{"f6p", Null}}, {{"Competitive", Null, Null, "e4p", Null}},
+            "M", 8.5, 30., {{"glygly", 0.05}}, {}}, {
+          "Kic", {{"pi", Null}}, 
+           0.019, {{"g3p", Null}}, {{"Competitive", Null, Null, "s7p", Null}},
+            "M", 8.5, 30., {{"glygly", 0.05}}, {}}, {
+          "Kic", {{"pi", Null}}, 
+           0.019, {{"s7p", Null}}, {{"Competitive", Null, Null, "g3p", Null}},
+            "M", 8.5, 30., {{"glygly", 0.05}}, {}}}, {}, {}}], "ActualOutput" -> 
       HoldForm[{
          Toolbox`reaction["TALA2", {
            Toolbox`metabolite["e4p", "c"], 
@@ -3760,11 +3831,20 @@ Cell[BoxData[
             "e4p", 0.002}}, 71.4, "1/s", 8.5, 
            30., {{"glygly", 0.05}}, {}}, {{{"e4p", Null}, {"f6p", 0.05}}, 
            79.4, "1/s", 8.5, 30., {{"glygly", 0.05}}, {}}}, {{
-          "Ki", {{"pi", Null}}, 
-           0.019, {}, {{"Competitive", Null, Null, "Null", Null}}, "M", 8.5, 
-           30., {{"glygly", 0.05}}, {}}}, {}, {}}], "ExpectedMessages" -> {}, 
-      "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
-      Quantity[0.000104`2.16754833713077, "Seconds"], "CPUTimeUsed" -> 
+          "Kic", {{"pi", Null}}, 
+           0.019, {{"e4p", Null}}, {{"Competitive", Null, Null, "f6p", Null}},
+            "M", 8.5, 30., {{"glygly", 0.05}}, {}}, {
+          "Kic", {{"pi", Null}}, 
+           0.019, {{"f6p", Null}}, {{"Competitive", Null, Null, "e4p", Null}},
+            "M", 8.5, 30., {{"glygly", 0.05}}, {}}, {
+          "Kic", {{"pi", Null}}, 
+           0.019, {{"g3p", Null}}, {{"Competitive", Null, Null, "s7p", Null}},
+            "M", 8.5, 30., {{"glygly", 0.05}}, {}}, {
+          "Kic", {{"pi", Null}}, 
+           0.019, {{"s7p", Null}}, {{"Competitive", Null, Null, "g3p", Null}},
+            "M", 8.5, 30., {{"glygly", 0.05}}, {}}}, {}, {}}], 
+      "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
+      Quantity[0.000106`2.175820863096764, "Seconds"], "CPUTimeUsed" -> 
       Quantity[0., "Seconds"], "MemoryUsed" -> Quantity[32, "Bytes"]]],
     Editable->False,
     SelectWithContents->True,
@@ -3780,12 +3860,13 @@ Cell[BoxData[
    3.688910970814025*^9, 3.689083750216116*^9, 3.689084367368194*^9, {
    3.6899316404247923`*^9, 3.6899316846209*^9}, 3.6899323898501673`*^9, 
    3.689937496137829*^9, 3.689943999139195*^9, 3.6899443980978117`*^9, 
-   3.690026200335565*^9, 3.694094016833844*^9}]
+   3.690026200335565*^9, 3.694094016833844*^9, 3.695031008145011*^9, 
+   3.695031070600711*^9, 3.6950311176898746`*^9}]
 }, Open  ]]
 }, Open  ]]
 },
 WindowSize->{1440, 876},
-WindowMargins->{{247, Automatic}, {3, Automatic}},
+WindowMargins->{{240, Automatic}, {69, Automatic}},
 FrontEndVersion->"11.0 for Linux x86 (64-bit) (September 21, 2016)",
 StyleDefinitions->"Default.nb"
 ]
@@ -3800,30 +3881,30 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[558, 20, 413, 6, 32, "Input"],
-Cell[974, 28, 1678, 41, 261, "Input"],
+Cell[558, 20, 510, 7, 32, "Input"],
+Cell[1071, 29, 1678, 41, 261, "Input"],
 Cell[CellGroupData[{
-Cell[2677, 73, 211, 3, 35, "Subsubsection"],
-Cell[2891, 78, 7537, 192, 421, "Input"]
+Cell[2774, 74, 211, 3, 35, "Subsubsection"],
+Cell[2988, 79, 7537, 192, 421, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[10465, 275, 155, 2, 35, "Subsubsection"],
-Cell[10623, 279, 1905, 44, 214, "Input"]
+Cell[10562, 276, 155, 2, 35, "Subsubsection"],
+Cell[10720, 280, 1905, 44, 214, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[12565, 328, 215, 3, 35, "Subsubsection"],
-Cell[12783, 333, 19124, 458, 633, "Input"]
+Cell[12662, 329, 215, 3, 35, "Subsubsection"],
+Cell[12880, 334, 19116, 458, 633, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[31944, 796, 165, 2, 35, "Subsubsection"],
-Cell[32112, 800, 14785, 359, 472, "Input"]
+Cell[32033, 797, 165, 2, 35, "Subsubsection"],
+Cell[32201, 801, 14812, 359, 472, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[46934, 1164, 117, 1, 35, "Subsubsection"],
-Cell[47054, 1167, 10607, 258, 448, "Input"],
+Cell[47050, 1165, 117, 1, 35, "Subsubsection"],
+Cell[47170, 1168, 13068, 319, 517, "Input"],
 Cell[CellGroupData[{
-Cell[57686, 1429, 37, 0, 32, "Input"],
-Cell[57726, 1431, 101033, 2351, 125, "Output"]
+Cell[60263, 1491, 37, 0, 32, "Input"],
+Cell[60303, 1493, 102110, 2370, 182, "Output"]
 }, Open  ]]
 }, Open  ]]
 }
