@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[      5968,        184]
-NotebookOptionsPosition[      5288,        154]
-NotebookOutlinePosition[      5748,        175]
-CellTagsIndexPosition[      5675,        170]
+NotebookDataLength[      6017,        185]
+NotebookOptionsPosition[      5337,        155]
+NotebookOutlinePosition[      5797,        176]
+CellTagsIndexPosition[      5724,        171]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -72,7 +72,8 @@ Cell[BoxData[{
   3.644254895636889*^9, 3.644254915674518*^9}, {3.644587882015006*^9, 
   3.644587894119781*^9}, {3.689327793835457*^9, 3.689327801700253*^9}, {
   3.689508985227004*^9, 3.689508987684746*^9}, {3.69494626116938*^9, 
-  3.6949462662328043`*^9}, {3.694952802628078*^9, 3.6949528032811613`*^9}},
+  3.6949462662328043`*^9}, {3.694952802628078*^9, 3.6949528032811613`*^9}, {
+  3.695366773344282*^9, 3.695366775004059*^9}},
  CellTags->"InstallCode"],
 
 Cell[BoxData[
@@ -105,7 +106,7 @@ installation of the Toolbox. It will not be removed.\>\""}],
   RowBox[{
    RowBox[{"SetDirectory", "[", 
     RowBox[{"NotebookDirectory", "[", "]"}], "]"}], ";"}], 
-  "\n"}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]"}], "\n", 
  RowBox[{
   RowBox[{"installationDirectory", "=", 
    RowBox[{"FileNameJoin", "[", 
@@ -153,7 +154,7 @@ installation of the Toolbox. It will not be removed.\>\""}],
 }, Open  ]]
 },
 WindowSize->{954, 573},
-WindowMargins->{{Automatic, 158}, {Automatic, 206}},
+WindowMargins->{{Automatic, 952}, {224, Automatic}},
 FrontEndVersion->"11.0 for Linux x86 (64-bit) (September 21, 2016)",
 StyleDefinitions->"Default.nb"
 ]
@@ -163,13 +164,13 @@ StyleDefinitions->"Default.nb"
 (*CellTagsOutline
 CellTagsIndex->{
  "InstallCode"->{
-  Cell[850, 31, 1898, 44, 204, "Input",
+  Cell[850, 31, 1947, 45, 204, "Input",
    CellTags->"InstallCode"]}
  }
 *)
 (*CellTagsIndex
 CellTagsIndex->{
- {"InstallCode", 5582, 164}
+ {"InstallCode", 5631, 165}
  }
 *)
 (*NotebookFileOutline
@@ -177,14 +178,14 @@ Notebook[{
 Cell[CellGroupData[{
 Cell[580, 22, 67, 0, 45, "Subsection"],
 Cell[650, 24, 197, 5, 33, "Text"],
-Cell[850, 31, 1898, 44, 204, "Input",
+Cell[850, 31, 1947, 45, 204, "Input",
  CellTags->"InstallCode"],
-Cell[2751, 77, 127, 2, 32, "Input"]
+Cell[2800, 78, 127, 2, 32, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[2915, 84, 122, 4, 70, "Subsection"],
-Cell[3040, 90, 129, 3, 33, "Text"],
-Cell[3172, 95, 2100, 56, 350, "Input"]
+Cell[2964, 85, 122, 4, 70, "Subsection"],
+Cell[3089, 91, 129, 3, 33, "Text"],
+Cell[3221, 96, 2100, 56, 350, "Input"]
 }, Open  ]]
 }
 ]

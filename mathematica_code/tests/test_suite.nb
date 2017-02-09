@@ -3,10 +3,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[         0,          0]
-NotebookDataLength[     24625,        619]
-NotebookOptionsPosition[     23780,        583]
-NotebookOutlinePosition[     24117,        598]
-CellTagsIndexPosition[     24074,        595]
+NotebookDataLength[     24652,        619]
+NotebookOptionsPosition[     23803,        583]
+NotebookOutlinePosition[     24144,        598]
+CellTagsIndexPosition[     24101,        595]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -154,7 +154,7 @@ Cell[BoxData[{
 Cell[BoxData["\<\"Working \
 dir:/home/mrama/Dropbox/MASS_fitting_package/mathematica_code/tests/\"\>"], \
 "Print",
- CellChangeTimes->{3.69503117706693*^9}]
+ CellChangeTimes->{3.695035052225919*^9}]
 }, Open  ]],
 
 Cell[BoxData[{
@@ -365,7 +365,7 @@ Cell[BoxData[
        GraphicsColor->RGBColor[0, 
          Rational[2, 3], 0],
        FontColor->RGBColor[0, 
-         Rational[2, 3], 0]], "1.56865`", 
+         Rational[2, 3], 0]], "1.651126`", 
       TemplateBox[{InterpretationBox[
          TagBox[
           
@@ -403,7 +403,7 @@ Cell[BoxData[
        GraphicsColor->RGBColor[0, 
          Rational[2, 3], 0],
        FontColor->RGBColor[0, 
-         Rational[2, 3], 0]], "10.11117`", 
+         Rational[2, 3], 0]], "7.85209`", 
       TemplateBox[{InterpretationBox[
          TagBox[
           
@@ -441,7 +441,7 @@ Cell[BoxData[
        GraphicsColor->RGBColor[0, 
          Rational[2, 3], 0],
        FontColor->RGBColor[0, 
-         Rational[2, 3], 0]], "0.543472`", 
+         Rational[2, 3], 0]], "0.65681`", 
       TemplateBox[{InterpretationBox[
          TagBox[
           
@@ -479,7 +479,7 @@ Cell[BoxData[
        GraphicsColor->RGBColor[0, 
          Rational[2, 3], 0],
        FontColor->RGBColor[0, 
-         Rational[2, 3], 0]], "1.36715`", 
+         Rational[2, 3], 0]], "1.308759`", 
       TemplateBox[{InterpretationBox[
          TagBox[
           
@@ -517,7 +517,7 @@ Cell[BoxData[
        GraphicsColor->RGBColor[0, 
          Rational[2, 3], 0],
        FontColor->RGBColor[0, 
-         Rational[2, 3], 0]], "9.976664`", 
+         Rational[2, 3], 0]], "9.377974`", 
       TemplateBox[{InterpretationBox[
          TagBox[
           
@@ -577,12 +577,12 @@ Cell[BoxData[
    3.689339663629788*^9, 3.689509711921199*^9, 3.6895912435862722`*^9, 
    3.689938309535245*^9, 3.692515194860183*^9, 3.692518553653892*^9, 
    3.695030877808488*^9, {3.695030990525373*^9, 3.6950309930120277`*^9}, 
-   3.695031181714143*^9}]
+   3.695031181714143*^9, 3.695035056503854*^9}]
 }, Open  ]]
 }, Open  ]]
 },
-WindowSize->{954, 1076},
-WindowMargins->{{Automatic, 840}, {-151, 122}},
+WindowSize->{954, 1173},
+WindowMargins->{{Automatic, 837}, {Automatic, 24}},
 FrontEndVersion->"11.0 for Linux x86 (64-bit) (September 21, 2016)",
 StyleDefinitions->"Default.nb"
 ]
@@ -603,15 +603,15 @@ Cell[517, 18, 120, 2, 32, "Input"],
 Cell[640, 22, 4907, 96, 354, "Input"],
 Cell[CellGroupData[{
 Cell[5572, 122, 1247, 29, 283, "Input"],
-Cell[6822, 153, 155, 3, 24, "Print"]
+Cell[6822, 153, 156, 3, 24, "Print"]
 }, Open  ]],
-Cell[6992, 159, 3419, 97, 350, "Input"]
+Cell[6993, 159, 3419, 97, 350, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[10448, 261, 146, 2, 65, "Section"],
+Cell[10449, 261, 146, 2, 65, "Section"],
 Cell[CellGroupData[{
-Cell[10619, 267, 4144, 67, 102, "Input"],
-Cell[14766, 336, 8986, 243, 180, "Output"]
+Cell[10620, 267, 4144, 67, 102, "Input"],
+Cell[14767, 336, 9008, 243, 237, "Output"]
 }, Open  ]]
 }, Open  ]]
 }
