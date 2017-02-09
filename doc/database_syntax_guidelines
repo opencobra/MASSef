@@ -5,9 +5,19 @@ Column 1:
 
 Column 2: 
  - field description, on all rows, e.g. if there are 2 Km values for one enzyme, both rows have "km" on column 2.
- - mandatory first 6 fields for all enzymes (in order): ec_number, reaction, mechanism, structure, active_sites, allosteric_sites
+ - mandatory first 6 fields for all enzymes (in order): ec_number, organism, reaction, mechanism, structure, active_sites, allosteric_sites
  - remaining fields should be data entries, thus possible descriptions are: Km, kcat, s05, inhib, act, other
           
+For the data entry the following fields (correspond to columns), are mandatory, in order:
+  - km substrate 
+  - km value
+  - cosubstrates/concentrations
+  - km units
+  - pH at which km was measured
+  - temperature at which km was measured (in celsius)
+  - buffer/concentration 
+
+
 
 Co-substrates entry formatting: metabolite1,concentration1;metabolite2,concentration2
 Buffer entry formatting: buffer1,concentration1;buffer2,concentration2
@@ -18,3 +28,5 @@ No white spaces in data fields (Km, kcat, s05, Ki,...)
 Last line columns must be filled with end "End".
 
 Please see the example in mathematica_code/tests/test_files/test_database.xls
+
+Missing data is marked as "Null".

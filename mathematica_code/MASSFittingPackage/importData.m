@@ -58,9 +58,9 @@ getBufferInfoData[dataPath_] :=
 
 
 getEnzymeData[enzName_, dataPath_] := Module[{data, enzymesInd, curEnzymeInd, nextEnzymeInd, curEnzymeData, 
-										       ecNumber, rxn, mechanism, structure, nActiveSites, nAllostericSites, 
-										       line, dataType, kmList={}, kcatList={}, s05List={}, inhibitionList={}, 
-										       activationList={}, otherParmsList={}},
+										       ecNumber, organism, rxn, mechanism, structure, nActiveSites,  
+										       nAllostericSites, line, dataType, kmList={}, kcatList={}, s05List={},  
+										       inhibitionList={}, activationList={}, otherParmsList={}},
 	data = Import[dataPath, "XLS"];
 	data = data[[1]];
 										  
@@ -70,18 +70,19 @@ getEnzymeData[enzName_, dataPath_] := Module[{data, enzymesInd, curEnzymeInd, ne
 	curEnzymeData = data[[curEnzymeInd;;(nextEnzymeInd-1)]];
 
 	Assert[StringMatchQ[curEnzymeData[[1,2]], "ec_number"]];
-	Assert[StringMatchQ[curEnzymeData[[2,2]], "reaction"]];
-	Assert[StringMatchQ[curEnzymeData[[3,2]], "mechanism"]];
-	Assert[StringMatchQ[curEnzymeData[[4,2]], "structure"]];
-	Assert[StringMatchQ[curEnzymeData[[5,2]], "active_sites"]];
-	Assert[StringMatchQ[curEnzymeData[[6,2]], "allosteric_sites"]];
+	Assert[StringMatchQ[curEnzymeData[[2,2]], "organism"]];
+	Assert[StringMatchQ[curEnzymeData[[3,2]], "reaction"]];
+	Assert[StringMatchQ[curEnzymeData[[4,2]], "mechanism"]];
+	Assert[StringMatchQ[curEnzymeData[[5,2]], "structure"]];
+	Assert[StringMatchQ[curEnzymeData[[6,2]], "active_sites"]];
+	Assert[StringMatchQ[curEnzymeData[[7,2]], "allosteric_sites"]];
 
 	ecNumber = curEnzymeData[[1,3]];
-	rxn = str2mass[enzName <> ": "<>curEnzymeData[[2,3]]];
-	mechanism = curEnzymeData[[3,3]];
-	structure = curEnzymeData[[4,3]];
-	nActiveSites = curEnzymeData[[5,3]];
-	nAllostericSites = curEnzymeData[[6,3]];
+	rxn = str2mass[enzName <> ": "<>curEnzymeData[[3,3]]];
+	mechanism = curEnzymeData[[4,3]];
+	structure = curEnzymeData[[5,3]];
+	nActiveSites = curEnzymeData[[6,3]];
+	nAllostericSites = curEnzymeData[[7,3]];
 
 
 	Table[
@@ -97,7 +98,7 @@ getEnzymeData[enzName_, dataPath_] := Module[{data, enzymesInd, curEnzymeInd, ne
 			StringMatchQ[dataType, "act"], AppendTo[activationList, parseInhibActEntry[line]],
 			StringMatchQ[dataType, "other"], AppendTo[otherParmsList, parseOtherEntry[line]]
 		];,
-	{i, 7, Length@curEnzymeData}];
+	{i, 8, Length@curEnzymeData}];
 	
 	Return[{rxn, mechanism, structure, nActiveSites, nAllostericSites, kmList, s05List, kcatList, inhibitionList, activationList, otherParmsList}];
 ];
@@ -151,8 +152,7 @@ parseKcatEntry[line_] := Module[{kcatEntry, kcatValue, substrates, units, ph, te
 parseInhibActEntry[line_] := 
 	Module[{entry, paramType, substrate, paramValue, coSubstrates, actionType, units, ph, temperature, buffer, salts},
 	paramType = line[[1]];
-	substrate =  Map[{#}&, StringSplit[line[[2]], ";"]];
-	substrate = parseSubMetLists[substrate];
+	substrate =  line[[2]];
 	paramValue = line[[3]];
 	coSubstrates =  Map[{#}&, StringSplit[line[[4]], ";"]];
 	coSubstrates = parseSubMetLists[coSubstrates];
