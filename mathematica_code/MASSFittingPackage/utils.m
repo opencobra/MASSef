@@ -30,13 +30,13 @@ createDirectories[dataFolder_] := Module[{workingDir, dataPath, inputPath, outpu
 
 
 initializeNotebook[pathMASSFittingPath_, dataFolder_] := 
-	Module[{pathModel, pathBigg, pathData, pathMASSCode, runFitScriptPath, 
+	Module[{pathModel, pathBigg, pathData, pathMASSCode, 
 	iJO, bigg2equilibrator, workingDir, inputPath, outputPath},
 
 	pathModel = pathMASSFittingPath <> "data/iJO1366.m.gz";
 	pathBigg = pathMASSFittingPath <> "data/bigg2equilibratorViaKEGG.m.gz";
 	pathData= pathMASSFittingPath <> "data/";
-    runFitScriptPath="/home/mrama/Dropbox/Kinetics/Scripts/run_fit_rel.py";
+    
     (*iJO=Import[pathModel];*)
 	bigg2equilibrator=Import[pathBigg];
 	
