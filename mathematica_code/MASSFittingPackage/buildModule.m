@@ -93,11 +93,11 @@ dummyF[absoluteFlux_]:=Block[{}, Return[absoluteFlux]];
 getFluxEquation[inputDir_, rxnName_, enzymeModel_, unifiedRateConstList_, transitionRateEqs_, outFileLabel_:""]:=
 	Block[{enzSol, absoluteFlux, fluxEq, enzForms, enzConservationEq, enzPos, ssEq},
 	
-	If[ FileExistsQ[inputDir <> "enzSol" <> outFileLabel <> ".m"] && FileExistsQ[inputDir <> "absoluteFlux" <> outFileLabel <> ".m"],
+	If[ FileExistsQ[FileNameJoin[{inputDir, "enzSol"<> outFileLabel<> ".m"}, OperatingSystem->$OperatingSystem]] && FileExistsQ[FileNameJoin[{inputDir, "absoluteFlux"<> outFileLabel<>".m"}, OperatingSystem->$OperatingSystem]],
 		(*True: 'enzSol.m' and 'absoluteFlux.m' Exists*) 
 
-		enzSol = Import[inputDir <> "enzSol" <> outFileLabel <> ".m"];
-		absoluteFlux = Import[inputDir <> "absoluteFlux" <> outFileLabel <> ".m"];,
+		enzSol = Import[FileNameJoin[{inputDir, "enzSol" <> outFileLabel<>".m"}, OperatingSystem->$OperatingSystem]];
+		absoluteFlux = Import[FileNameJoin[{inputDir, "absoluteFlux"<> outFileLabel<> ".m"}, OperatingSystem->$OperatingSystem]];,
 		
 		(*False: 'enzSol.m' and 'absoluteFlux.m'  Do Not Exist*)
 		(*Generate a System of Equations *)
@@ -121,12 +121,14 @@ getFluxEquation[inputDir_, rxnName_, enzymeModel_, unifiedRateConstList_, transi
 		Print["post simplify"];*)
 		
 		(*Cache the Results*)
-		Export[inputDir <> "enzSol" <> outFileLabel <> ".m",  enzSol]; 
-		Export[inputDir <> "absoluteFlux" <> outFileLabel <> ".m", absoluteFlux];
+		Export[FileNameJoin[{inputDir, "enzSol"<> outFileLabel<> ".m"}, OperatingSystem->$OperatingSystem],  enzSol]; 
+		Export[FileNameJoin[{inputDir, "absoluteFlux"<> outFileLabel<> ".m"}, OperatingSystem->$OperatingSystem], absoluteFlux];
 	];
 	
 	Return[absoluteFlux];
 ];
+
+
 
 
 (* ::Subsection:: *)
@@ -480,7 +482,7 @@ exportRateEqs[outputPath_, absoluteRateForward_, absoluteRateReverse_, relativeR
 	eqnValListPy = Table[ToPython[eqn/. rateConstsSub/. metsSub], {eqn, eqnValList}];
 
 	eqnList = {eqnNameList, eqnValListPy, eqnValList};
-	fileList= Table[outputPath <> eqnname <> ".txt", {eqnname, eqnList[[1]]} ];
+	fileList= Table[FileNameJoin[{outputPath, eqnname<> ".txt"}, OperatingSystem->$OperatingSystem], {eqnname, eqnList[[1]]} ];
 	fileListSub = Table[ fileList[[i]] -> eqnValList[[i]], {i, 1, Length[fileList]} ];
 	
 	Do[

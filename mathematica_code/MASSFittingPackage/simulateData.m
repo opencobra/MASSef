@@ -179,8 +179,8 @@ simulateKmData[rxn_, metsFull_, metSatForSub_, metSatRevSub_, kmList_, otherParm
 	(*Match to Comparision Equations*)
 	Do[
 		If[StringMatchQ[path, RegularExpression[".*relRate.*_" <> kmListFull[[km,1,1]]<>"\\.txt"]],
-			AppendTo[kmListFull[[km]], inputPath <> StringCases[path, RegularExpression[outputPath<>"(.*)"]->"$1"]
-		]],
+			AppendTo[kmListFull[[km]], FileNameJoin[Flatten@{inputPath, StringCases[path, RegularExpression[outputPath<>"(.*)"]->"$1"]}, OperatingSystem->$OperatingSystem]]
+		],
 	{km, Length @ kmListFull}, {path,fileList}];
 
 
@@ -349,9 +349,10 @@ simulateKcatData[rxn_, metsFull_, metSatForSub_, metSatRevSub_, kcatList_, other
 				(*If any of the metabolites are substrates, this returns True*)
 				Or @@ substrateCheck,
 				(*True: kcat is for the Forward Reaction*)
-				inputPath <> "absRateFor.txt",
+				FileNameJoin[{inputPath, "absRateFor.txt"}, OperatingSystem->$OperatingSystem],
 				(*True: kcat is for the Reverse Reaction*)
-				inputPath <> "absRateRev.txt"],
+				FileNameJoin[{inputPath, "absRateRev.txt"}, OperatingSystem->$OperatingSystem]
+			],
 		{kcat,kcatListFull//Length}, {nonKmParamWeight}];
 	
 	(*Handle Metabolite Values. NOTE: Available metabolite concentrations are auto-converted from mM to M*)
@@ -581,8 +582,8 @@ simulateInhibData[rxn_, metsFull_, metSatForSub_, metSatRevSub_, inhibList_, kmL
 			AppendTo[inhibListFull[[inhib]], Flatten[DeleteCases[StringCases[fileList, RegularExpression[".*inhib.*" <> getID@inhibListFull[[inhib]][[2]] <> ".txt"]], {}]][[1]]],			
 			
 			If[MemberQ[getSubstrates[rxn], inhibListFull[[inhib]][[5, 1, 4]]],
-				AppendTo[inhibListFull[[inhib]], inputPath <> "absRateFor.txt"],
-				AppendTo[inhibListFull[[inhib]], inputPath <> "absRateRev.txt"]
+				AppendTo[inhibListFull[[inhib]], FileNameJoin[{inputPath, "absRateFor.txt"}, OperatingSystem->$OperatingSystem]],
+				AppendTo[inhibListFull[[inhib]], FileNameJoin[{inputPath, "absRateRev.txt"}, OperatingSystem->$OperatingSystem]]
 			]
 		],
 	{inhib, Length @ inhibListFull}];
@@ -763,7 +764,7 @@ simulateRateConstRatiosData[dKdRatio_, dKdVal_, KeqVal_, metsFull_, rateConstsSu
 
 	(*Incorporate the Equation Into the Existing Notebook Framework*)
 	(*Equation Naming and Export*)
-	fileName = outputPath <> eqnName <> ".txt";
+	fileName = FileNameJoin[{outputPath, eqnName <> ".txt"}, OperatingSystem->$OperatingSystem];
 	Export[fileName, dKdRatioPy];
 
 	(*Incorporating the Equation for Down Stream Equation Handling*)
