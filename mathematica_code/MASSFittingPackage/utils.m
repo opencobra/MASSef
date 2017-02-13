@@ -36,7 +36,7 @@ initializeNotebook[pathMASSFittingPath_, dataFolder_] :=
 	pathModel = pathMASSFittingPath <> "data/iJO1366.m.gz";
 	pathBigg = pathMASSFittingPath <> "data/bigg2equilibratorViaKEGG.m.gz";
 	pathData= pathMASSFittingPath <> "data/";
-    runFitScriptPath="/home/mrama/Dropbox/Kinetics/Scripts/run_fit_rel.py";
+    runFitScriptPath = pathMASSFittingPath <> "python_code/src/run_fit_rel.py";
     (*iJO=Import[pathModel];*)
 	bigg2equilibrator=Import[pathBigg];
 	
@@ -97,9 +97,14 @@ getMisc[enzymeModel_, rxnName_] := Module[{KeqName, KeqVal, volumeSub},
 
 
 
-getConversionChar2Met[rxn_] := Module[{char2met},
-	char2met = {#[[1]]->#&/@getProducts[rxn]}~
-				Join~{#[[1]]->#&/@getSubstrates[rxn]}//Flatten//Union;
+getConversionChar2Met[mets_] := Module[{char2met},
+
+	char2met = 
+		If[ListQ[mets],
+			Map[# -> metabolite[#, "c"]&, mets],
+			(*if it's not a list, assume it's a reaction *)
+			{#[[1]]->#&/@getProducts[mets]}~Join~{#[[1]]->#&/@getSubstrates[mets]}//Flatten//Union
+		];
 	
 	Return[char2met];
 ];

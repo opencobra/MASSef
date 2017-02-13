@@ -12,4 +12,6 @@
  - GAPD example working
  - code to back calculate parameters used for the fit (no tests yet, cant promise it works for reverse kms/kcats)
 
-
+On inihibition constants:
+When a Kii is present, mixed/noncompetitive inhibition is assumed.
+If the type of inihibition is either competitive or uncompetitive, the inhibition constant should be named "Ki"

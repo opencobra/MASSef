@@ -89,3 +89,21 @@ eqnValListPy = {"(d[2]*d[3]*d[5]*d[6]*x[1]*x[11]*x[3]*x[5]*x[7]*x[9])/(d[2]*d[5]
 				"(d[1]*x[2]*(x[0]*x[4]*(x[10]*x[8] + x[7]*(x[11] + x[8])) + d[4]*x[6]*(x[10]*x[4]*x[8] + x[0]*(x[10]*x[8] + x[4]*(x[10] + x[11] + x[8])))))/(x[0]*x[4]*(d[4]*x[10]*x[6]*x[8] + x[3]*(x[10]*x[8] + x[7]*(x[11] + x[8]))) + d[1]*x[2]*(x[0]*x[4]*(x[10]*x[8] + x[7]*(x[11] + x[8])) + d[4]*x[6]*(x[10]*x[4]*x[8] + x[0]*(x[10]*x[8] + x[4]*(x[10] + x[11] + x[8])))))",
 				"(d[4]*x[6]*(x[0]*x[10]*x[4]*x[8] + d[1]*x[2]*(x[10]*x[4]*x[8] + x[0]*(x[10]*x[8] + x[4]*(x[10] + x[11] + x[8])))))/(x[0]*x[4]*(d[4]*x[10]*x[6]*x[8] + x[3]*(x[10]*x[8] + x[7]*(x[11] + x[8]))) + d[1]*x[2]*(x[0]*x[4]*(x[10]*x[8] + x[7]*(x[11] + x[8])) + d[4]*x[6]*(x[10]*x[4]*x[8] + x[0]*(x[10]*x[8] + x[4]*(x[10] + x[11] + x[8])))))"}
 
+
+
+rxnTALA2 = Toolbox`reaction["TALA2", {Toolbox`metabolite["e4p", "c"], Toolbox`metabolite["f6p", "c"]}, {Toolbox`metabolite["g3p", "c"], Toolbox`metabolite["s7p", "c"]}, {1, 1, 1, 1}, True];
+metsFullTALA2 = {Toolbox`metabolite["e4p", "c"],Toolbox`metabolite["f6p", "c"],Toolbox`metabolite["g3p", "c"],Toolbox`metabolite["s7p", "c"],Toolbox`metabolite["pi", "c"]};
+metsSubTALA2 =  {Toolbox`Keq["TALA2"]->"d<0>",Toolbox`metabolite["e4p", "c"]->"d<1>",Toolbox`metabolite["f6p", "c"]->"d<2>",Toolbox`metabolite["g3p", "c"]->"d<3>",Toolbox`metabolite["s7p", "c"]->"d<4>",Toolbox`metabolite["pi", "c"]->"d<5>",Toolbox`parameter["E_total"]->"d<6>",Toolbox`parameter["pH"]->"d<7>",Toolbox`parameter["Temp"]->"d<8>"};
+metSatForSubTALA2 = {Toolbox`metabolite["e4p", "c"]->\[Infinity],Toolbox`metabolite["f6p", "c"]->\[Infinity]};
+metSatRevSubTALA2 = {Toolbox`metabolite["g3p", "c"]->\[Infinity],Toolbox`metabolite["s7p", "c"]->\[Infinity]};
+kmListTALA2 = {{"g3p",0.000037999999999999995`,{{"f6p",0.0285`}},"M",8.5`,30.`,{{"glygly",0.05`}},{}},{"e4p",0.00009`,{{"f6p",0.0285`}},"M",8.5`,30.`,{{"glygly",0.05`}},{}},{"r5p",0.031`,{{"f6p",0.0285`}},"M",8.5`,30.`,{{"glygly",0.05`}},{}},{"f6p",0.0012000000000000001`,{{"g3p",0.0038`}},"M",8.5`,30.`,{{"glygly",0.05`}},{}},{"s7p",0.000285`,{{"g3p",0.0038`}},"M",8.5`,30.`,{{"glygly",0.05`}},{}}};
+otherParmsListTALA2 ={};
+fileListTALA2 = {"test_files/simulate_data/absRateFor.txt",
+				"test_files/simulate_data/absRateRev.txt",
+				"test_files/simulate_data/relRateFor_e4p.txt",
+				"test_files/simulate_data/relRateFor_f6p.txt",
+				"test_files/simulate_data/relRateRev_g3p.txt",
+				"test_files/simulate_data/relRateRev_s7p.txt"};
+KeqValTALA2 = 1/1.19;
+activeIsoSubTALA2 = {Toolbox`metabolite["e4p", "c"]->Toolbox`metabolite["e4p", "c"],Toolbox`metabolite["f6p", "c"]->Toolbox`metabolite["f6p", "c"],Toolbox`metabolite["g3p", "c"]->Toolbox`metabolite["g3p", "c"],Toolbox`metabolite["s7p", "c"]->Toolbox`metabolite["s7p", "c"],Toolbox`metabolite["pi", "c"]->Toolbox`metabolite["pi", "c"]};
+

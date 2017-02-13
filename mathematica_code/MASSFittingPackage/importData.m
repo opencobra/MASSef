@@ -58,9 +58,9 @@ getBufferInfoData[dataPath_] :=
 
 
 getEnzymeData[enzName_, dataPath_] := Module[{data, enzymesInd, curEnzymeInd, nextEnzymeInd, curEnzymeData, 
-										       ecNumber, rxn, mechanism, structure, nActiveSites, nAllostericSites, 
-										       line, dataType, kmList={}, kcatList={}, s05List={}, inhibitionList={}, 
-										       activationList={}, otherParmsList={}},
+										       ecNumber, organism, rxn, mechanism, structure, nActiveSites,  
+										       nAllostericSites, line, dataType, kmList={}, kcatList={}, s05List={},  
+										       inhibitionList={}, activationList={}, otherParmsList={}},
 	data = Import[dataPath, "XLS"];
 	data = data[[1]];
 										  
@@ -70,18 +70,19 @@ getEnzymeData[enzName_, dataPath_] := Module[{data, enzymesInd, curEnzymeInd, ne
 	curEnzymeData = data[[curEnzymeInd;;(nextEnzymeInd-1)]];
 
 	Assert[StringMatchQ[curEnzymeData[[1,2]], "ec_number"]];
-	Assert[StringMatchQ[curEnzymeData[[2,2]], "reaction"]];
-	Assert[StringMatchQ[curEnzymeData[[3,2]], "mechanism"]];
-	Assert[StringMatchQ[curEnzymeData[[4,2]], "structure"]];
-	Assert[StringMatchQ[curEnzymeData[[5,2]], "active_sites"]];
-	Assert[StringMatchQ[curEnzymeData[[6,2]], "allosteric_sites"]];
+	Assert[StringMatchQ[curEnzymeData[[2,2]], "organism"]];
+	Assert[StringMatchQ[curEnzymeData[[3,2]], "reaction"]];
+	Assert[StringMatchQ[curEnzymeData[[4,2]], "mechanism"]];
+	Assert[StringMatchQ[curEnzymeData[[5,2]], "structure"]];
+	Assert[StringMatchQ[curEnzymeData[[6,2]], "active_sites"]];
+	Assert[StringMatchQ[curEnzymeData[[7,2]], "allosteric_sites"]];
 
 	ecNumber = curEnzymeData[[1,3]];
-	rxn = str2mass[enzName <> ": "<>curEnzymeData[[2,3]]];
-	mechanism = curEnzymeData[[3,3]];
-	structure = curEnzymeData[[4,3]];
-	nActiveSites = curEnzymeData[[5,3]];
-	nAllostericSites = curEnzymeData[[6,3]];
+	rxn = str2mass[enzName <> ": "<>curEnzymeData[[3,3]]];
+	mechanism = curEnzymeData[[4,3]];
+	structure = curEnzymeData[[5,3]];
+	nActiveSites = curEnzymeData[[6,3]];
+	nAllostericSites = curEnzymeData[[7,3]];
 
 
 	Table[
@@ -97,7 +98,7 @@ getEnzymeData[enzName_, dataPath_] := Module[{data, enzymesInd, curEnzymeInd, ne
 			StringMatchQ[dataType, "act"], AppendTo[activationList, parseInhibActEntry[line]],
 			StringMatchQ[dataType, "other"], AppendTo[otherParmsList, parseOtherEntry[line]]
 		];,
-	{i, 7, Length@curEnzymeData}];
+	{i, 8, Length@curEnzymeData}];
 	
 	Return[{rxn, mechanism, structure, nActiveSites, nAllostericSites, kmList, s05List, kcatList, inhibitionList, activationList, otherParmsList}];
 ];
@@ -105,10 +106,11 @@ getEnzymeData[enzName_, dataPath_] := Module[{data, enzymesInd, curEnzymeInd, ne
 
 
 parseSubMetLists[list_]:=Module[{parsedList, res},
-	
 	parsedList = Table[
 		res = StringSplit[entry, ","][[1]];
-		{res[[1]], ToExpression[res[[2]]]},
+		If[Length[res] > 1,
+			{res[[1]], ToExpression[res[[2]]]},
+			{res[[1]], Null}],
 	{entry, list}];
 
 	Return[parsedList];
@@ -117,7 +119,6 @@ parseSubMetLists[list_]:=Module[{parsedList, res},
 parseKmS05Entry[line_] := Module[{entry, substrate, value, coSubstrates, units, ph, temperature, buffer, salts},
 	substrate = line[[1]];
 	value = line[[2]];
-		
 	coSubstrates = Map[{#}&, StringSplit[line[[3]], ";"]];
 	coSubstrates = parseSubMetLists[coSubstrates];
 	units = line[[4]];
@@ -135,7 +136,6 @@ parseKmS05Entry[line_] := Module[{entry, substrate, value, coSubstrates, units, 
 parseKcatEntry[line_] := Module[{kcatEntry, kcatValue, substrates, units, ph, temperature, buffer, salts},
 	substrates = Map[{#}&, StringSplit[line[[1]], ";"]];
 	substrates = parseSubMetLists[substrates];
-
 	kcatValue = line[[2]];
 	units = line[[3]];
 	ph = line[[4]];
@@ -149,20 +149,28 @@ parseKcatEntry[line_] := Module[{kcatEntry, kcatValue, substrates, units, ph, te
 	Return[kcatEntry];
 ];
 
-parseInhibActEntry[line_] := Module[{entry, paramType, substrate, paramValue, actionType, units, ph, temperature, buffer, salts},
+parseInhibActEntry[line_] := 
+	Module[{entry, paramType, substrate, paramValue, coSubstrates, actionType, units, ph, temperature, buffer, salts},
 	paramType = line[[1]];
-	substrate = line[[2]];
+	substrate =  Map[{#}&, StringSplit[line[[2]], ";"]];
+	substrate = parseSubMetLists[substrate];
 	paramValue = line[[3]];
-	actionType = Map[{#}&, StringSplit[line[[4]], ";"]];
-	units = line[[5]];
-	ph = line[[6]];
-	temperature = line[[7]];
-	buffer = Map[{#}&, StringSplit[line[[8]], ";"]];
+	coSubstrates =  Map[{#}&, StringSplit[line[[4]], ";"]];
+	coSubstrates = parseSubMetLists[coSubstrates];
+	actionType = Map[{#}&, StringSplit[line[[5]], ";"]];
+	actionType = Flatten[ Map[StringSplit[#, ","]&, actionType], 1];
+	actionType[[All,2]] = ToExpression[actionType[[All,2]]];
+	actionType[[All,3]] = ToExpression[actionType[[All,3]]];
+	actionType[[All,5]] = ToExpression[actionType[[All,5]]];
+	units = line[[6]];
+	ph = line[[7]];
+	temperature = line[[8]];
+	buffer = Map[{#}&, StringSplit[line[[9]], ";"]];
 	buffer = parseSubMetLists[buffer];
-	salts = Map[{#}&, StringSplit[line[[9]], ";"]];
+	salts = Map[{#}&, StringSplit[line[[10]], ";"]];
 	salts = parseSubMetLists[salts];
 
-	entry = {paramType, substrate, paramValue, actionType, units, ph, temperature, buffer, salts};
+	entry = {paramType, substrate, paramValue, coSubstrates, actionType, units, ph, temperature, buffer, salts};
 	Return[entry];
 ];
 
