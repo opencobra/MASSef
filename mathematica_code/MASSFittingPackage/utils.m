@@ -30,13 +30,13 @@ createDirectories[dataFolder_] := Module[{workingDir, dataPath, inputPath, outpu
 
 
 initializeNotebook[pathMASSFittingPath_, dataFolder_] := 
-	Module[{pathModel, pathBigg, pathData, pathMASSCode, runFitScriptPath, 
+	Module[{pathModel, pathBigg, pathData, pathMASSCode, 
 	iJO, bigg2equilibrator, workingDir, inputPath, outputPath},
 
 	pathModel = pathMASSFittingPath <> "data/iJO1366.m.gz";
 	pathBigg = pathMASSFittingPath <> "data/bigg2equilibratorViaKEGG.m.gz";
 	pathData= pathMASSFittingPath <> "data/";
-    runFitScriptPath = pathMASSFittingPath <> "python_code/src/run_fit_rel.py";
+    
     (*iJO=Import[pathModel];*)
 	bigg2equilibrator=Import[pathBigg];
 	
@@ -97,14 +97,9 @@ getMisc[enzymeModel_, rxnName_] := Module[{KeqName, KeqVal, volumeSub},
 
 
 
-getConversionChar2Met[mets_] := Module[{char2met},
-
-	char2met = 
-		If[ListQ[mets],
-			Map[# -> metabolite[#, "c"]&, mets],
-			(*if it's not a list, assume it's a reaction *)
-			{#[[1]]->#&/@getProducts[mets]}~Join~{#[[1]]->#&/@getSubstrates[mets]}//Flatten//Union
-		];
+getConversionChar2Met[rxn_] := Module[{char2met},
+	char2met = {#[[1]]->#&/@getProducts[rxn]}~
+				Join~{#[[1]]->#&/@getSubstrates[rxn]}//Flatten//Union;
 	
 	Return[char2met];
 ];
