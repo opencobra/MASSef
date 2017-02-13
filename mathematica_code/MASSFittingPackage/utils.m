@@ -16,27 +16,32 @@ createDirectories[dataFolder_] := Module[{workingDir, dataPath, inputPath, outpu
 	workingDir = NotebookDirectory[];
 	Print["Working dir:" <> workingDir];
 	dataPath = workingDir <> dataFolder;
-	inputPath= dataPath  <> "/input/";
-	outputPath = dataPath <> "/output/";
-	mkDirCmd = "!mkdir -p " <> inputPath <> " 2>&1";
-	Import[mkDirCmd, "Text"];
-	mkDirCmd = "!mkdir -p " <> outputPath <> "raw 2>&1";
-	Import[mkDirCmd, "Text"];
-	mkDirCmd = "!mkdir -p " <> outputPath <> "treated_data 2>&1";
-	Import[mkDirCmd, "Text"];
+	
+	inputPath= FileNameJoin[{dataPath, "input"}, OperatingSystem -> $OperatingSystem];
+	outputPath= FileNameJoin[{dataPath, "output"}, OperatingSystem -> $OperatingSystem];
+	
+	If[ !DirectoryQ[inputPath],	
+		CreateDirectory[inputPath];
+	];
+	If[ !DirectoryQ[outputPath],
+		CreateDirectory[outputPath];
+		CreateDirectory[FileNameJoin[{outputPath, "raw"}, OperatingSystem -> $OperatingSystem]];
+		CreateDirectory[FileNameJoin[{outputPath, "treated_data"}, OperatingSystem -> $OperatingSystem]];
+	];
 	
 	Return[{workingDir, inputPath, outputPath}];
 ];
 
 
 initializeNotebook[pathMASSFittingPath_, dataFolder_] := 
-	Module[{pathModel, pathBigg, pathData, pathMASSCode, 
+	Module[{pathModel, pathBigg, pathData, pathMASSCode, runFitScriptPath, 
 	iJO, bigg2equilibrator, workingDir, inputPath, outputPath},
-
-	pathModel = pathMASSFittingPath <> "data/iJO1366.m.gz";
-	pathBigg = pathMASSFittingPath <> "data/bigg2equilibratorViaKEGG.m.gz";
-	pathData= pathMASSFittingPath <> "data/";
-    
+	
+	pathData = FileNameJoin[{pathMASSFittingPath, "data"}, OperatingSystem -> $OperatingSystem];
+	Print[pathData];
+	pathModel = FileNameJoin[{pathData, "iJO1366.m.gz"}, OperatingSystem -> $OperatingSystem];
+	pathBigg = FileNameJoin[{pathData, "bigg2equilibratorViaKEGG.m.gz"}, OperatingSystem -> $OperatingSystem];	
+	runFitScriptPath = FileNameJoin[{pathData, "python_code", "src", "run_fit_rel.py"}, OperatingSystem -> $OperatingSystem];
     (*iJO=Import[pathModel];*)
 	bigg2equilibrator=Import[pathBigg];
 	
@@ -97,9 +102,14 @@ getMisc[enzymeModel_, rxnName_] := Module[{KeqName, KeqVal, volumeSub},
 
 
 
-getConversionChar2Met[rxn_] := Module[{char2met},
-	char2met = {#[[1]]->#&/@getProducts[rxn]}~
-				Join~{#[[1]]->#&/@getSubstrates[rxn]}//Flatten//Union;
+getConversionChar2Met[mets_] := Module[{char2met},
+
+	char2met = 
+		If[ListQ[mets],
+			Map[# -> metabolite[#, "c"]&, mets],
+			(*if it's not a list, assume it's a reaction *)
+			{#[[1]]->#&/@getProducts[mets]}~Join~{#[[1]]->#&/@getSubstrates[mets]}//Flatten//Union
+		];
 	
 	Return[char2met];
 ];

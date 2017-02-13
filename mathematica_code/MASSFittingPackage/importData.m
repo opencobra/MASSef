@@ -152,8 +152,7 @@ parseKcatEntry[line_] := Module[{kcatEntry, kcatValue, substrates, units, ph, te
 parseInhibActEntry[line_] := 
 	Module[{entry, paramType, substrate, paramValue, coSubstrates, actionType, units, ph, temperature, buffer, salts},
 	paramType = line[[1]];
-	substrate =  Map[{#}&, StringSplit[line[[2]], ";"]];
-	substrate = parseSubMetLists[substrate];
+	substrate =  line[[2]];
 	paramValue = line[[3]];
 	coSubstrates =  Map[{#}&, StringSplit[line[[4]], ";"]];
 	coSubstrates = parseSubMetLists[coSubstrates];
