@@ -12,8 +12,6 @@ getInputTestSimulateKmDataGAPD[] := Block[{rxn, metsFull, metSatForSub, metSatRe
 	eTotal=1;
 	assumedSaturatingConc=0.01 ;
 	activeIsoSub=Thread[metsFull->metsFull];
-
-	metsFull = {Toolbox`metabolite["13dpg", "c"],Toolbox`metabolite["g3p", "c"],Toolbox`metabolite["nad", "c"],Toolbox`metabolite["nadh", "c"],Toolbox`metabolite["pi", "c"]};
 	
 	bufferInfoDataPath = "test_files/simulate_data/buffer_info.xls";
 	ionChargeDataPath = "test_files/simulate_data/ion_charge.xls";
@@ -74,6 +72,42 @@ getInputTestSimulateKmDataTALA2[] := Block[{rxnTALA2, metsFullTALA2, metSatForSu
 	Return[{rxnTALA2, metsFullTALA2, metSatForSubTALA2, metSatRevSubTALA2, kmListTALA2, 
 	otherParmsListTALA2, assumedSaturatingConc, eTotal, logStepSize, activeIsoSubTALA2,
 	bufferInfo, ionCharge, fileListTALA2, KeqValTALA2}];
+];
+
+
+getInputTestSimulateS05DataPFK1[] := Block[{rxn, metsFull, metSatForSub, metSatRevSub, s05List, otherParmsList, 
+	assumedSaturatingConc, eTotal, logStepSize,activeIsoSub, bufferInfo, ionCharge, fileList,
+	bufferInfoDataPath, ionChargeDataPath, reverseZeroSub, forwardZeroSub},
+	
+	rxn = Toolbox`reaction["PFK1", {Toolbox`metabolite["atp", "c"], Toolbox`metabolite["f6p", "c"]}, {Toolbox`metabolite["adp", "c"], Toolbox`metabolite["fdp", "c"], Toolbox`metabolite["h", "c"]}, {1, 1, 1, 1, 1}, True];
+	{reverseZeroSub, forwardZeroSub, metSatForSub, metSatRevSub} = getMetsSub[rxn];
+	metsFull = {Toolbox`metabolite["adp", "c"],Toolbox`metabolite["atp", "c"],Toolbox`metabolite["f6p", "c"],Toolbox`metabolite["fdp", "c"],Toolbox`metabolite["gdp", "c"],Toolbox`metabolite["pep", "c"]};
+	logStepSize=0.2;
+
+	eTotal=1;
+	assumedSaturatingConc=0.01 ;
+	activeIsoSub=Thread[metsFull->metsFull];
+
+	bufferInfoDataPath = "test_files/simulate_data/buffer_info.xls";
+	ionChargeDataPath = "test_files/simulate_data/ion_charge.xls";
+
+	bufferInfo = getBufferInfoData[bufferInfoDataPath];
+	ionCharge = getIonData[ionChargeDataPath];
+	
+	s05List = {{"f6p",0.00009`,{{"gdp",0.001`},{"atp",0.001`}},"M",8.5`,30.`,{{"detam",0.051`},{"netmphn",0.051`},{"mes",0.1`}},{}}};
+	
+	otherParmsList = {{"n","",2.11`,"Null",8.5`,30.`,{{"detam",0.051`},{"netmphn",0.051`},{"mes",0.1`}},{}},{"L0","",4.`*^6,"Null",8.5`,28.`,{{"tris",0.05`}},{}}};
+		  
+	fileList={"test_files/simulate_data/absRateFor.txt",
+				"test_files/simulate_data/absRateRev.txt",
+				"test_files/simulate_data/relRateFor_atp.txt",
+				"test_files/simulate_data/relRateFor_f6p.txt",
+				"test_files/simulate_data/relRateRev_adp.txt",
+				"test_files/simulate_data/relRateRev_fdp.txt",
+				"test_files/simulate_data/prod_inhib_adp.txt"};
+
+	Return[{rxn, metsFull, metSatForSub, metSatRevSub, s05List, otherParmsList, assumedSaturatingConc, eTotal, 
+			logStepSize,activeIsoSub, bufferInfo, ionCharge, fileList}];
 ];
 
 

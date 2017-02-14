@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     48770,       1197]
-NotebookOptionsPosition[     48167,       1172]
-NotebookOutlinePosition[     48510,       1187]
-CellTagsIndexPosition[     48467,       1184]
+NotebookDataLength[     49547,       1217]
+NotebookOptionsPosition[     48946,       1192]
+NotebookOutlinePosition[     49287,       1207]
+CellTagsIndexPosition[     49244,       1204]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -68,18 +68,36 @@ Cell[BoxData[
   RowBox[{
    RowBox[{
     RowBox[{"expectedResult", " ", "=", " ", 
-     RowBox[{
-     "Import", "[", "\"\<test_files/configure_fit/true_psoParameters.txt\>\"",
-       "]"}]}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+     RowBox[{"Import", "[", 
+      RowBox[{"FileNameJoin", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+         "\"\<test_files\>\"", ",", "\"\<configure_fit\>\"", ",", 
+          "\"\<true_psoParameters.txt\>\""}], "}"}], ",", " ", 
+        RowBox[{"OperatingSystem", "\[Rule]", "$OperatingSystem"}]}], "]"}], 
+      "]"}]}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
    RowBox[{
-    RowBox[{"inputPath", " ", "=", " ", "\"\<test_files/configure_fit/\>\""}],
-     ";"}], "\[IndentingNewLine]", 
+    RowBox[{"inputPath", " ", "=", 
+     RowBox[{"FileNameJoin", "[", 
+      RowBox[{
+       RowBox[{"{", " ", 
+        RowBox[{"\"\<test_files\>\"", ",", "\"\<configure_fit\>\""}], "}"}], 
+       ",", " ", 
+       RowBox[{"OperatingSystem", "\[Rule]", "$OperatingSystem"}]}], "]"}]}], 
+    ";"}], "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"outputPath", " ", "=", " ", "inputPath"}], ";"}], 
    "\[IndentingNewLine]", 
    RowBox[{
-    RowBox[{
-    "dataPath", " ", "=", " ", "\"\<test_files/configure_fit/GAPD.dat\>\""}], 
+    RowBox[{"dataPath", " ", "=", " ", 
+     RowBox[{"FileNameJoin", "[", 
+      RowBox[{
+       RowBox[{"{", " ", 
+        RowBox[{
+        "\"\<test_files\>\"", ",", "\"\<configure_fit\>\"", ",", 
+         "\"\<GAPD.dat\>\""}], "}"}], ",", " ", 
+       RowBox[{"OperatingSystem", "\[Rule]", "$OperatingSystem"}]}], "]"}]}], 
     ";"}], "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"finalRateConsts", " ", "=", " ", 
@@ -265,6 +283,7 @@ Cell[BoxData[
         Toolbox`rateconst["GAPD6", True],
         Editable->False,
         Selectable->False]}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"fileList", " ", "=", " ", 
      RowBox[{"{", 
@@ -335,7 +354,8 @@ Cell[BoxData[
    3.689078635815906*^9, 3.6890786359979267`*^9}, {3.6890818385041122`*^9, 
    3.689082029143012*^9}, 3.68908208141073*^9, {3.6890821725892887`*^9, 
    3.689082179108293*^9}, 3.68908251175272*^9, {3.689082583010434*^9, 
-   3.689082592280797*^9}, 3.689336880318376*^9}]
+   3.689082592280797*^9}, 3.689336880318376*^9, {3.696076001998591*^9, 
+   3.696076053316963*^9}}]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -828,7 +848,7 @@ Cell[BoxData[
                  TagBox[
                   
                   TemplateBox[{
-                   "0.024668`4.542648937586261","\"s\"","seconds",
+                   "0.047446`4.826714602347611","\"s\"","seconds",
                     "\"Seconds\""},
                    "Quantity"],
                   Short[#, 
@@ -895,9 +915,9 @@ data_row_high\t-2\nsummary_file_name\t\
 test_files/configure_fit/raw/summary.txt\nultimate_result_name\t\
 test_files/configure_fit/raw/psoResults.txt"], "ExpectedMessages" -> {}, 
       "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
-      Quantity[0.024668`4.542648937586261, "Seconds"], "CPUTimeUsed" -> 
-      Quantity[0.02400000000000002, "Seconds"], "MemoryUsed" -> 
-      Quantity[3014744, "Bytes"]]],
+      Quantity[0.047446`4.826714602347611, "Seconds"], "CPUTimeUsed" -> 
+      Quantity[0.04800000000000004, "Seconds"], "MemoryUsed" -> 
+      Quantity[3026584, "Bytes"]]],
     Editable->False,
     SelectWithContents->True,
     Selectable->False], ",", 
@@ -1095,7 +1115,7 @@ test_files/configure_fit/raw/psoResults.txt"], "ExpectedMessages" -> {},
                  TagBox[
                   
                   TemplateBox[{
-                   "0.000096`2.132786230871562","\"s\"","seconds",
+                   "0.000101`2.1548363716146364","\"s\"","seconds",
                     "\"Seconds\""},
                    "Quantity"],
                   Short[#, 
@@ -1159,19 +1179,19 @@ txt,test_files/configure_fit/dKdRatio.txt,test_files/configure_fit/KdRatio.\
 txt,test_files/configure_fit/haldaneRatio.txt]\ndata_file_name\t\
 test_files/configure_fit/GAPD.dat\nvalue_row\t-1\nfunction_row\t-2\n\
 data_row_high\t-2"], "ExpectedMessages" -> {}, "ActualMessages" -> {}, 
-      "AbsoluteTimeUsed" -> Quantity[0.000096`2.132786230871562, "Seconds"], 
+      "AbsoluteTimeUsed" -> Quantity[0.000101`2.1548363716146364, "Seconds"], 
       "CPUTimeUsed" -> Quantity[0., "Seconds"], "MemoryUsed" -> 
       Quantity[96, "Bytes"]]],
     Editable->False,
     SelectWithContents->True,
     Selectable->False]}], "}"}]], "Output",
  CellChangeTimes->{3.689083471613372*^9, 3.689083662699472*^9, 
-  3.689336890623693*^9, 3.689338008609683*^9}]
+  3.689336890623693*^9, 3.689338008609683*^9, 3.696076074355077*^9}]
 }, Open  ]]
 }, Open  ]]
 },
 WindowSize->{1355, 876},
-WindowMargins->{{Automatic, 350}, {-150, Automatic}},
+WindowMargins->{{301, Automatic}, {Automatic, 50}},
 FrontEndVersion->"11.0 for Linux x86 (64-bit) (September 21, 2016)",
 StyleDefinitions->"Default.nb"
 ]
@@ -1189,14 +1209,14 @@ Notebook[{
 Cell[558, 20, 1421, 28, 148, "Input"],
 Cell[CellGroupData[{
 Cell[2004, 52, 676, 11, 35, "Subsubsection"],
-Cell[2683, 65, 11426, 272, 558, "Input"]
+Cell[2683, 65, 12181, 292, 580, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[14146, 342, 726, 12, 35, "Subsubsection"],
-Cell[14875, 356, 11427, 271, 535, "Input"],
+Cell[14901, 362, 726, 12, 35, "Subsubsection"],
+Cell[15630, 376, 11427, 271, 535, "Input"],
 Cell[CellGroupData[{
-Cell[26327, 631, 102, 1, 32, "Input"],
-Cell[26432, 634, 21707, 534, 65, "Output"]
+Cell[27082, 651, 102, 1, 32, "Input"],
+Cell[27187, 654, 21731, 534, 65, "Output"]
 }, Open  ]]
 }, Open  ]]
 }
