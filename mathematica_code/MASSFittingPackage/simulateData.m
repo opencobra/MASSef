@@ -178,8 +178,8 @@ simulateKmData[rxn_, metsFull_, metSatForSub_, metSatRevSub_, kmList_, otherParm
 
 	(*Match to Comparision Equations*)
 	Do[
-		If[StringMatchQ[path, RegularExpression[".*relRate.*_" <> kmListFull[[km,1,1]]<>"\\.txt"]],
-			AppendTo[kmListFull[[km]], FileNameJoin[Flatten@{inputPath, StringCases[path, RegularExpression[outputPath<>"(.*)"]->"$1"]}, OperatingSystem->$OperatingSystem]]
+		If[StringMatchQ[StringReplace[path, "\\" -> "/"], RegularExpression[StringReplace[".*relRate.*_" <> kmListFull[[km,1,1]]<>".txt", "\\" -> "/"]]],
+			AppendTo[kmListFull[[km]], FileNameJoin[Flatten@{StringReplace[inputPath, "\\" -> "/"], StringCases[StringReplace[path, "\\" -> "/"], RegularExpression[StringReplace[outputPath<>"(.*)", "\\" -> "/"]]->"$1"]}, OperatingSystem->$OperatingSystem]]
 		],
 	{km, Length @ kmListFull}, {path,fileList}];
 
@@ -579,7 +579,7 @@ simulateInhibData[rxn_, metsFull_, metSatForSub_, metSatRevSub_, inhibList_, kmL
 	(*Match to Comparision Equations*)	
 	Do[
 		If[MemberQ[Flatten[{getSubstrates[rxn], getProducts[rxn]}], inhibListFull[[inhib]][[2]]],
-			AppendTo[inhibListFull[[inhib]], Flatten[DeleteCases[StringCases[fileList, RegularExpression[".*inhib.*" <> getID@inhibListFull[[inhib]][[2]] <> ".txt"]], {}]][[1]]],			
+			AppendTo[inhibListFull[[inhib]], Flatten[DeleteCases[StringCases[StringReplace[fileList,"\\"->"/"], RegularExpression[StringReplace[".*inhib.*" <> getID@inhibListFull[[inhib]][[2]] <> ".txt","\\"->"/"]]], {}]][[1]]],			
 			
 			If[MemberQ[getSubstrates[rxn], inhibListFull[[inhib]][[5, 1, 4]]],
 				AppendTo[inhibListFull[[inhib]], FileNameJoin[{inputPath, "absRateFor.txt"}, OperatingSystem->$OperatingSystem]],
