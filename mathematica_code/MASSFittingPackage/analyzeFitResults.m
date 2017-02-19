@@ -11,7 +11,7 @@
 Begin["`Private`"];
 
 
-calculateFitSSD[resultsFile_, enzName_, fittingData_, inputPath_, outputPath_, fileListSub_, rateConstsSub_, metsSub_, flagFitType_, exportData_, fitID_:""] :=
+calculateFitSSD[resultsFile_, enzName_, fittingData_, inputPath_, outputPath_, fileListSub_, rateConstsSub_, metsSub_, flagFitType_, exportData_, fitID_:"", fitResultLine_:Null] :=
 	Module[{flagFit=1, msg="", resultsFilePath, paramFit, paramFitProcessed, vRelData, vRelFit, vRelSSD, dataArrayWithSSD={}, bestFit, bestFitDetails={}},
 
 	resultsFilePath = FileNameJoin[{outputPath, resultsFile}, OperatingSystem->$OperatingSystem];
@@ -20,10 +20,17 @@ calculateFitSSD[resultsFile_, enzName_, fittingData_, inputPath_, outputPath_, f
 		(*Fix the fileListSub. This should always run silently*)
 		(*fileListSubLocal=Thread[(paramOutputPath<>StringSplit[#,"/"][[-1]]&/@fileList)->fileListSubLocal[[All,2]]];*)
 		paramFit = Import[resultsFilePath, "Table"];
+		
+		If[! SameQ[fitResultLine, Null],
+			paramFit = paramFit[[fitResultLine, All]];
+			If[ Length[Dimensions[paramFit]] == 1,
+				paramFit = {paramFit};
+			];
+		];
 
 		If[paramFit!= {},
 			paramFitProcessed=Table[10^val, {val, paramFit}];
-		
+
 			vRelData = fittingData[[All, -1]];
 
 			vRelFit = 
@@ -67,11 +74,12 @@ calculateFitSSD[resultsFile_, enzName_, fittingData_, inputPath_, outputPath_, f
 
 
 getRatesWithSSD[resultsFile_, enzName_, fittingData_, inputPath_, outputPath_,  fileListSub_, 
-				rateConstsSub_, metsSub_, flagFitType_, cutOffVal_:{}, exportData_:False, fitID_:""] :=
+				rateConstsSub_, metsSub_, flagFitType_, cutOffVal_:{}, exportData_:False, fitID_:"", fitResultLine_:Null] :=
 	Module[{errorList={}, flagFit, flagFitLocal=1, msg, msgLocal="", resultsFileName, 
 			dataArrayWithSSD, bestFitDetails={}, filteredDataList, ratesWithFit},
 	
-	{flagFit, msg, dataArrayWithSSD, bestFitDetails} = calculateFitSSD[resultsFile, enzName, fittingData, inputPath, outputPath, fileListSub, rateConstsSub, metsSub, flagFitType, exportData, fitID];
+	
+	{flagFit, msg, dataArrayWithSSD, bestFitDetails} = calculateFitSSD[resultsFile, enzName, fittingData, inputPath, outputPath, fileListSub, rateConstsSub, metsSub, flagFitType, exportData, fitID, fitResultLine];
 	flagFitLocal = flagFit;
 	msgLocal=msg;
 

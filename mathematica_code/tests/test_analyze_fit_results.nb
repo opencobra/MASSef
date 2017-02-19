@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    209228,       4918]
-NotebookOptionsPosition[    208468,       4888]
-NotebookOutlinePosition[    208800,       4903]
-CellTagsIndexPosition[    208757,       4900]
+NotebookDataLength[    209270,       4919]
+NotebookOptionsPosition[    208510,       4889]
+NotebookOutlinePosition[    208842,       4904]
+CellTagsIndexPosition[    208799,       4901]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -3792,7 +3792,7 @@ Cell[BoxData[
                  TagBox[
                   
                   TemplateBox[{
-                   "0.049229`4.842736011770648","\"s\"","seconds",
+                   "0.051427`4.861706188273111","\"s\"","seconds",
                     "\"Seconds\""},
                    "Quantity"],
                   Short[#, 
@@ -4338,9 +4338,9 @@ $CellContext`error $CellContext`Relative,
            424.99999998403734`}, {$CellContext`dKdRatio, 
            3.755918870036325*^-9, 425., 424.99999998403734`}}}], 
       "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
-      Quantity[0.049229`4.842736011770648, "Seconds"], "CPUTimeUsed" -> 
-      Quantity[0.052000000000000046`, "Seconds"], "MemoryUsed" -> 
-      Quantity[3027032, "Bytes"]]],
+      Quantity[0.051427`4.861706188273111, "Seconds"], "CPUTimeUsed" -> 
+      Quantity[0.0519999999999996, "Seconds"], "MemoryUsed" -> 
+      Quantity[3026928, "Bytes"]]],
     Editable->False,
     SelectWithContents->True,
     Selectable->False], ",", 
@@ -4551,7 +4551,7 @@ $CellContext`error $CellContext`Relative,
                  TagBox[
                   
                   TemplateBox[{
-                   "0.000099`2.1461501924295434","\"s\"","seconds",
+                   "0.000096`2.13278623087156","\"s\"","seconds",
                     "\"Seconds\""},
                    "Quantity"],
                   Short[#, 
@@ -4613,7 +4613,7 @@ $CellContext`error $CellContext`Relative,
          52.3276410535907, 0.0009600020493628204}}, {
          "GAPD1", "GAPD2", "GAPD3", "GAPD4", "GAPD5", "GAPD6"}}], 
       "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
-      Quantity[0.000099`2.1461501924295434, "Seconds"], "CPUTimeUsed" -> 
+      Quantity[0.000096`2.13278623087156, "Seconds"], "CPUTimeUsed" -> 
       Quantity[0., "Seconds"], "MemoryUsed" -> Quantity[96, "Bytes"]]],
     Editable->False,
     SelectWithContents->True,
@@ -4821,7 +4821,8 @@ $CellContext`error $CellContext`Relative,
                  TagBox[
                   
                   TemplateBox[{
-                   "0.0001`2.150514997831994","\"s\"","seconds","\"Seconds\""},
+                   "0.000095`2.128238603120839","\"s\"","seconds",
+                    "\"Seconds\""},
                    "Quantity"],
                   Short[#, 
                    Rational[2, 3]]& ],
@@ -4873,7 +4874,7 @@ $CellContext`error $CellContext`Relative,
          0.000044, {{-1.7243926523431132`}, {0.00004400032139229513}}, {{
           3.919174209870712*^6}, {0.0007304370343832542}}}}], 
       "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
-      Quantity[0.0001`2.150514997831994, "Seconds"], "CPUTimeUsed" -> 
+      Quantity[0.000095`2.128238603120839, "Seconds"], "CPUTimeUsed" -> 
       Quantity[0., "Seconds"], "MemoryUsed" -> Quantity[104, "Bytes"]]],
     Editable->False,
     SelectWithContents->True,
@@ -4882,7 +4883,7 @@ $CellContext`error $CellContext`Relative,
    3.689076775873452*^9, 3.689078634173562*^9, 3.689078686033999*^9, 
    3.689083623894096*^9, 3.689586731693281*^9, 3.689586773558394*^9, 
    3.68958685955092*^9, 3.689586984462134*^9, 3.696075727655107*^9, 
-   3.6960758692040453`*^9, 3.69607593905503*^9}]
+   3.6960758692040453`*^9, 3.69607593905503*^9, 3.6964930338651123`*^9}]
 }, Open  ]]
 }, Open  ]]
 },
@@ -4917,7 +4918,7 @@ Cell[37840, 952, 624, 11, 35, "Subsubsection"],
 Cell[38467, 965, 110899, 2617, 482, "Input"],
 Cell[CellGroupData[{
 Cell[149391, 3586, 154, 2, 32, "Input"],
-Cell[149548, 3590, 58892, 1294, 65, "Output"]
+Cell[149548, 3590, 58934, 1295, 65, "Output"]
 }, Open  ]]
 }, Open  ]]
 }

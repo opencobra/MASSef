@@ -297,9 +297,10 @@ simulateKmData[rxn_, metsFull_, metSatForSub_, metSatRevSub_, kmList_, otherParm
 	(*Match to Comparision Equations*)
 	Do[
 		If[StringMatchQ[path, RegularExpression[".*relRate.*_" <> kmListFull[[km,1,1]]<>"\\.txt"]],
-			AppendTo[kmListFull[[km]], FileNameJoin[Flatten@{inputPath, StringCases[path, RegularExpression[outputPath<>"(.*)"]->"$1"]}, OperatingSystem->$OperatingSystem]]
+			
+			AppendTo[kmListFull[[km]], FileNameJoin[Flatten@{inputPath, StringCases[StringReplace[path, "\\" -> "/"], RegularExpression[StringReplace[outputPath, "\\" -> "/"] <> "(.*)"] -> "$1"]}, OperatingSystem-> $OperatingSystem]]
 		],
-	{km, Length @ kmListFull}, {path,fileList}];
+		{km, Length @ kmListFull}, {path,fileList}];
 
 	kmListFull = handleCosubstrateData[kmListFull, metsFull, metSatForSub, metSatRevSub, dataRange, assumedSaturatingConc];
 

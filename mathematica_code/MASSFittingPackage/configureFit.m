@@ -21,7 +21,7 @@ definePSOparameters[inputPath_, outputPath_, dataPath_, finalRateConsts_, fileLi
 	Module[{psoParameterPath, psoParameters, tempCorr, neighborSize, inertia, cognitiveRate, socialRate, useKeepBest, 
 			useRandomReplace, percentRandomParticles, numFuncVar, fileListPy, valueRow, functionRow, dataRowHigh, 
 			psoTrialSummaryFileName, psoResultsFileName},
-	
+
 	psoParameters = {  
    
    	(*General Python Configuration;*)
@@ -231,7 +231,11 @@ createCombinedFitShellScript[runFitScriptPath_, psoParameterPath_, lmaParameterP
 	shRunPso=Append[shRunPso,{"# Import Dependencies"}];
 	shRunPso=Append[shRunPso,{"num_trials="<>ToString[numTrials]}];
 	shRunPso=Append[shRunPso,{(*Spacer*)}];
-	shRunPso=Append[shRunPso,{"python "<>runFitScriptPath<>" "<>psoParameterPath<>" "<>lmaParameterPath<>" "<>psoSummaryFilePath<>" "<>psoResultsFilePath<>" "<>lmaResultsFilePath <> " $num_trials " <> dataFileName}];
+	
+	If[ListQ[dataFileName],
+		shRunPso=Append[shRunPso, {"python "<>runFitScriptPath<>" "<>psoParameterPath<>" "<>lmaParameterPath<>" "<>psoSummaryFilePath<>" "<>psoResultsFilePath<>" "<>lmaResultsFilePath <> " $num_trials " <> StringRiffle[dataFileName, " "]}];,
+		shRunPso=Append[shRunPso,{"python "<>runFitScriptPath<>" "<>psoParameterPath<>" "<>lmaParameterPath<>" "<>psoSummaryFilePath<>" "<>psoResultsFilePath<>" "<>lmaResultsFilePath <> " $num_trials " <> dataFileName}];
+	];
 
 	Return[shRunPso];
 ];
