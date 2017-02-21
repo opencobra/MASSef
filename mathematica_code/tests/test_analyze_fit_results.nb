@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    211297,       4960]
-NotebookOptionsPosition[    210451,       4927]
-NotebookOutlinePosition[    210793,       4942]
-CellTagsIndexPosition[    210750,       4939]
+NotebookDataLength[    209270,       4919]
+NotebookOptionsPosition[    208510,       4889]
+NotebookOutlinePosition[    208842,       4904]
+CellTagsIndexPosition[    208799,       4901]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -22,7 +22,8 @@ Cell[BoxData[""], "Input",
  CellChangeTimes->{{3.689076662234701*^9, 3.6890766629310617`*^9}, {
    3.6890784594197598`*^9, 3.689078459921935*^9}, 3.689078626195801*^9, {
    3.689078674005664*^9, 3.6890786789741898`*^9}, {3.6895867509832697`*^9, 
-   3.689586751801257*^9}, 3.6895869781508512`*^9}],
+   3.689586751801257*^9}, 3.6895869781508512`*^9, {3.696075860624769*^9, 
+   3.69607586272956*^9}, {3.69607592940408*^9, 3.696075932743165*^9}}],
 
 Cell[BoxData[{
  RowBox[{
@@ -38,9 +39,16 @@ Cell[BoxData[{
  RowBox[{
   RowBox[{"Get", "[", "\"\<MASSFittingPackage`\>\"", "]"}], 
   ";"}], "\[IndentingNewLine]", 
- RowBox[{"Import", "[", 
-  "\"\<test_files/analyze_fit_results/test_inputs.m\>\"", 
-  "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Import", "[", 
+   RowBox[{"FileNameJoin", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "\"\<test_files\>\"", ",", " ", "\"\<analyze_fit_results\>\"", ",", 
+       " ", "\"\<test_inputs.m\>\""}], "}"}], ",", " ", 
+     RowBox[{"OperatingSystem", "\[Rule]", "$OperatingSystem"}]}], "]"}], 
+   "]"}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"testResults", "=", 
    RowBox[{"{", "}"}]}], ";"}], "\[IndentingNewLine]"}], "Input",
@@ -54,7 +62,8 @@ Cell[BoxData[{
    3.689075334393753*^9, {3.689075971852508*^9, 3.6890759722061234`*^9}, {
    3.6890765023000917`*^9, 3.6890765138497562`*^9}, 3.689076713980986*^9, 
    3.6893387392674627`*^9, {3.689338868674371*^9, 3.689338875186989*^9}, {
-   3.6895869742150784`*^9, 3.689586974460865*^9}}],
+   3.6895869742150784`*^9, 3.689586974460865*^9}, {3.6960759407269297`*^9, 
+   3.696075957386133*^9}}],
 
 Cell[CellGroupData[{
 
@@ -78,18 +87,30 @@ Cell[BoxData[
     RowBox[{"filteredDataListRes", " ", "=", " ", 
      RowBox[{"Import", "[", 
       RowBox[{
-      "\"\<test_files/analyze_fit_results/filteredDataList.csv\>\"", ",", 
-       " ", "\"\<TSV\>\""}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+       RowBox[{"FileNameJoin", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+          "\"\<test_files\>\"", ",", " ", "\"\<analyze_fit_results\>\"", ",", 
+           " ", "\"\<filteredDataList.csv\>\""}], "}"}], ",", " ", 
+         RowBox[{"OperatingSystem", "\[Rule]", "$OperatingSystem"}]}], "]"}], 
+       ",", " ", "\"\<TSV\>\""}], "]"}]}], ";"}], "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"filteredDataListRes", "=", 
      RowBox[{"ToExpression", " ", "@", " ", "filteredDataListRes"}]}], ";"}], 
    "\[IndentingNewLine]", 
    RowBox[{
-    RowBox[{"bestFitDetails", " ", "=", " ", 
+    RowBox[{"bestFitDetails", " ", "=", "  ", 
      RowBox[{"Import", "[", 
       RowBox[{
-      "\"\<test_files/analyze_fit_results/bestFitDetails.csv\>\"", ",", " ", 
-       "\"\<TSV\>\""}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+       RowBox[{"FileNameJoin", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+          "\"\<test_files\>\"", ",", " ", "\"\<analyze_fit_results\>\"", ",", 
+           " ", "\"\<bestFitDetails.csv\>\""}], "}"}], ",", " ", 
+         RowBox[{"OperatingSystem", "\[Rule]", "$OperatingSystem"}]}], "]"}], 
+       ",", " ", "\"\<TSV\>\""}], "]"}]}], ";"}], "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"bestFitDetails", " ", "=", " ", 
      RowBox[{"ToExpression", " ", "@", " ", "bestFitDetails"}]}], ";"}], 
@@ -106,8 +127,14 @@ Cell[BoxData[
    "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"fittingData", " ", "=", " ", 
-     RowBox[{
-     "Import", "[", "\"\<test_files/analyze_fit_results/GAPD.dat\>\"", 
+     RowBox[{"Import", "[", 
+      RowBox[{"FileNameJoin", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+         "\"\<test_files\>\"", ",", " ", "\"\<analyze_fit_results\>\"", ",", 
+          " ", "\"\<GAPD.dat\>\""}], "}"}], ",", " ", 
+        RowBox[{"OperatingSystem", "\[Rule]", "$OperatingSystem"}]}], "]"}], 
       "]"}]}], ";"}], "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"fittingData", " ", "=", " ", 
@@ -117,8 +144,14 @@ Cell[BoxData[
         RowBox[{"2", ";;"}], ",", "All"}], "]"}], "]"}]}], ";"}], 
    "\[IndentingNewLine]", "\[IndentingNewLine]", 
    RowBox[{
-    RowBox[{
-    "inputPath", " ", "=", " ", "\"\<test_files/analyze_fit_results/\>\""}], 
+    RowBox[{"inputPath", " ", "=", " ", 
+     RowBox[{"FileNameJoin", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+        "\"\<test_files\>\"", ",", " ", "\"\<analyze_fit_results\>\""}], 
+        "}"}], ",", " ", 
+       RowBox[{"OperatingSystem", "\[Rule]", "$OperatingSystem"}]}], "]"}]}], 
     ";"}], "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"outputPath", " ", "=", " ", "inputPath"}], ";"}], 
@@ -610,7 +643,8 @@ Cell[BoxData[
    3.6890768620649*^9}, {3.689077011307601*^9, 3.6890770413329487`*^9}, {
    3.689077733678404*^9, 3.689077755557207*^9}, {3.689078390330802*^9, 
    3.689078419263741*^9}, {3.689078540210484*^9, 3.6890785461187057`*^9}, {
-   3.689078635815906*^9, 3.689078663904129*^9}}]
+   3.689078635815906*^9, 3.689078663904129*^9}, {3.696075735027685*^9, 
+   3.696075823700042*^9}}]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -672,8 +706,14 @@ Cell[BoxData[
     RowBox[{"filteredDataList", " ", "=", " ", 
      RowBox[{"Import", "[", 
       RowBox[{
-      "\"\<test_files/analyze_fit_results/filteredDataList.csv\>\"", ",", 
-       " ", "\"\<TSV\>\""}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+       RowBox[{"FileNameJoin", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+          "\"\<test_files\>\"", ",", " ", "\"\<analyze_fit_results\>\"", ",", 
+           " ", "\"\<filteredDataList.csv\>\""}], "}"}], ",", 
+         RowBox[{"OperatingSystem", "\[Rule]", "$OperatingSystem"}]}], "]"}], 
+       ",", " ", "\"\<TSV\>\""}], "]"}]}], ";"}], "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"filteredDataList", "=", 
      RowBox[{"ToExpression", "[", "filteredDataList", "]"}]}], ";"}], 
@@ -904,7 +944,8 @@ Cell[BoxData[
    3.68907540624549*^9, 3.689075411028842*^9}, {3.689075443148336*^9, 
    3.68907544521342*^9}, {3.689075614995034*^9, 3.689075616327045*^9}, {
    3.689075855615568*^9, 3.689075868775169*^9}, {3.6890759440796824`*^9, 
-   3.689075944431555*^9}, {3.689075996656715*^9, 3.689075998659617*^9}}]
+   3.689075944431555*^9}, {3.689075996656715*^9, 3.689075998659617*^9}, {
+   3.696075831657899*^9, 3.696075851319827*^9}}]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -921,8 +962,6 @@ Cell[TextData[{
    3.688464189533341*^9, 3.688464194468556*^9}, {3.688464387337203*^9, 
    3.688464392473873*^9}, 3.6890750785401487`*^9, {3.689586528144853*^9, 
    3.689586528144923*^9}}],
-
-Cell[CellGroupData[{
 
 Cell[BoxData[GridBox[{
    {
@@ -3543,16 +3582,6 @@ Cell[BoxData[GridBox[{
    3.689586529361919*^9, 3.6895866772695847`*^9}, {3.6895867189994802`*^9, 
    3.689586720708034*^9}, {3.689586932026802*^9, 3.68958695388603*^9}}],
 
-Cell[BoxData[
- RowBox[{"{", 
-  RowBox[{
-   RowBox[{"{", 
-    SuperscriptBox["Null", "10"], "}"}], ",", 
-   RowBox[{"{", "\[Placeholder]", "}"}]}], "}"}]], "Output",
- CellChangeTimes->{
-  3.689586866548767*^9, {3.68958692783768*^9, 3.689586983761551*^9}}]
-}, Open  ]],
-
 Cell[CellGroupData[{
 
 Cell[BoxData["testResults"], "Input",
@@ -3718,26 +3747,8 @@ Cell[BoxData[
                   RowBox[{"{", 
                    RowBox[{"1", ",", "\<\"\"\>", ",", 
                     RowBox[{"{", 
-                    RowBox[{
-                    RowBox[{"{", 
-                    RowBox[{"5.01290902953716`*^-12", ",", 
-                    RowBox[{"{", 
                     RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], 
                     "}"}], ",", 
-                    RowBox[{"{", 
-                    RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], 
-                    "}"}]}], "}"}], ",", 
-                    RowBox[{"\[LeftSkeleton]", "3", "\[RightSkeleton]"}], ",", 
-                    RowBox[{"{", 
-                    RowBox[{
-                    RowBox[{"\[LeftSkeleton]", "20", "\[RightSkeleton]"}], 
-                    ",", 
-                    RowBox[{"{", 
-                    RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], 
-                    "}"}], ",", 
-                    RowBox[{"{", 
-                    RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], 
-                    "}"}]}], "}"}]}], "}"}], ",", 
                     RowBox[{"{", 
                     RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], 
                     "}"}]}], "}"}],
@@ -3759,26 +3770,8 @@ Cell[BoxData[
                   RowBox[{"{", 
                    RowBox[{"1", ",", "\<\"\"\>", ",", 
                     RowBox[{"{", 
-                    RowBox[{
-                    RowBox[{"{", 
-                    RowBox[{"5.01290902953716`*^-12", ",", 
-                    RowBox[{"{", 
                     RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], 
                     "}"}], ",", 
-                    RowBox[{"{", 
-                    RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], 
-                    "}"}]}], "}"}], ",", 
-                    RowBox[{"\[LeftSkeleton]", "3", "\[RightSkeleton]"}], ",", 
-                    RowBox[{"{", 
-                    RowBox[{
-                    RowBox[{"\[LeftSkeleton]", "20", "\[RightSkeleton]"}], 
-                    ",", 
-                    RowBox[{"{", 
-                    RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], 
-                    "}"}], ",", 
-                    RowBox[{"{", 
-                    RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], 
-                    "}"}]}], "}"}]}], "}"}], ",", 
                     RowBox[{"{", 
                     RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], 
                     "}"}]}], "}"}],
@@ -3799,7 +3792,7 @@ Cell[BoxData[
                  TagBox[
                   
                   TemplateBox[{
-                   "0.049798`4.8477268986960125","\"s\"","seconds",
+                   "0.051427`4.861706188273111","\"s\"","seconds",
                     "\"Seconds\""},
                    "Quantity"],
                   Short[#, 
@@ -4345,8 +4338,8 @@ $CellContext`error $CellContext`Relative,
            424.99999998403734`}, {$CellContext`dKdRatio, 
            3.755918870036325*^-9, 425., 424.99999998403734`}}}], 
       "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
-      Quantity[0.049798`4.8477268986960125, "Seconds"], "CPUTimeUsed" -> 
-      Quantity[0.04800000000000004, "Seconds"], "MemoryUsed" -> 
+      Quantity[0.051427`4.861706188273111, "Seconds"], "CPUTimeUsed" -> 
+      Quantity[0.0519999999999996, "Seconds"], "MemoryUsed" -> 
       Quantity[3026928, "Bytes"]]],
     Editable->False,
     SelectWithContents->True,
@@ -4507,18 +4500,14 @@ $CellContext`error $CellContext`Relative,
                   RowBox[{"{", 
                    RowBox[{
                     RowBox[{"{", 
-                    RowBox[{
-                    RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], ",", 
-                    RowBox[{"\[LeftSkeleton]", "3", "\[RightSkeleton]"}], ",", 
+                    RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], 
+                    "}"}], ",", 
                     RowBox[{"{", 
-                    RowBox[{"4.0157842696247823`*^6", ",", 
-                    RowBox[{"\[LeftSkeleton]", "4", "\[RightSkeleton]"}], ",",
-                     "0.0009600020493628204`"}], "}"}]}], "}"}], ",", 
-                    RowBox[{"{", 
-                    RowBox[{
-                    RowBox[{"\<\"\"\>", "\[Ellipsis]", "\<\"1\"\>"}], ",", 
-                    RowBox[{"\[LeftSkeleton]", "5", "\[RightSkeleton]"}]}], 
-                    "}"}]}], "}"}],
+                    
+                    RowBox[{"\<\"GAPD1\"\>", ",", "\<\"GAPD2\"\>", 
+                    ",", "\<\"GAPD3\"\>", ",", "\<\"GAPD4\"\>", 
+                    ",", "\<\"GAPD5\"\>", ",", "\<\"GAPD6\"\>"}], "}"}]}], 
+                   "}"}],
                   Short[#, 
                    Rational[2, 3]]& ],
                  BaselinePosition->Baseline,
@@ -4537,18 +4526,14 @@ $CellContext`error $CellContext`Relative,
                   RowBox[{"{", 
                    RowBox[{
                     RowBox[{"{", 
-                    RowBox[{
-                    RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], ",", 
-                    RowBox[{"\[LeftSkeleton]", "3", "\[RightSkeleton]"}], ",", 
+                    RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], 
+                    "}"}], ",", 
                     RowBox[{"{", 
-                    RowBox[{"4.0157842696247823`*^6", ",", 
-                    RowBox[{"\[LeftSkeleton]", "4", "\[RightSkeleton]"}], ",",
-                     "0.0009600020493628204`"}], "}"}]}], "}"}], ",", 
-                    RowBox[{"{", 
-                    RowBox[{
-                    RowBox[{"\<\"\"\>", "\[Ellipsis]", "\<\"1\"\>"}], ",", 
-                    RowBox[{"\[LeftSkeleton]", "5", "\[RightSkeleton]"}]}], 
-                    "}"}]}], "}"}],
+                    
+                    RowBox[{"\<\"GAPD1\"\>", ",", "\<\"GAPD2\"\>", 
+                    ",", "\<\"GAPD3\"\>", ",", "\<\"GAPD4\"\>", 
+                    ",", "\<\"GAPD5\"\>", ",", "\<\"GAPD6\"\>"}], "}"}]}], 
+                   "}"}],
                   Short[#, 
                    Rational[2, 3]]& ],
                  BaselinePosition->Baseline,
@@ -4566,7 +4551,7 @@ $CellContext`error $CellContext`Relative,
                  TagBox[
                   
                   TemplateBox[{
-                   "0.000094`2.1236428514316925","\"s\"","seconds",
+                   "0.000096`2.13278623087156","\"s\"","seconds",
                     "\"Seconds\""},
                    "Quantity"],
                   Short[#, 
@@ -4628,7 +4613,7 @@ $CellContext`error $CellContext`Relative,
          52.3276410535907, 0.0009600020493628204}}, {
          "GAPD1", "GAPD2", "GAPD3", "GAPD4", "GAPD5", "GAPD6"}}], 
       "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
-      Quantity[0.000094`2.1236428514316925, "Seconds"], "CPUTimeUsed" -> 
+      Quantity[0.000096`2.13278623087156, "Seconds"], "CPUTimeUsed" -> 
       Quantity[0., "Seconds"], "MemoryUsed" -> Quantity[96, "Bytes"]]],
     Editable->False,
     SelectWithContents->True,
@@ -4793,20 +4778,8 @@ $CellContext`error $CellContext`Relative,
                     RowBox[{"\<\"data value\"\>", 
                     ",", "\<\"predicted value\"\>", 
                     ",", "\<\"error in %\"\>"}], "}"}], ",", 
-                    RowBox[{"{", 
-                    RowBox[{
-                    RowBox[{"\[LeftSkeleton]", "23", "\[RightSkeleton]"}], 
-                    ",", 
-                    RowBox[{"{", 
-                    RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], 
-                    "}"}], ",", 
-                    RowBox[{"{", 
-                    RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], 
-                    "}"}]}], "}"}], ",", 
-                    RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], ",", 
-                    RowBox[{"{", 
-                    RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], 
-                    "}"}]}], "}"}],
+                    RowBox[{"\[LeftSkeleton]", "3", "\[RightSkeleton]"}]}], 
+                   "}"}],
                   Short[#, 
                    Rational[2, 3]]& ],
                  BaselinePosition->Baseline,
@@ -4829,20 +4802,8 @@ $CellContext`error $CellContext`Relative,
                     RowBox[{"\<\"data value\"\>", 
                     ",", "\<\"predicted value\"\>", 
                     ",", "\<\"error in %\"\>"}], "}"}], ",", 
-                    RowBox[{"{", 
-                    RowBox[{
-                    RowBox[{"\[LeftSkeleton]", "23", "\[RightSkeleton]"}], 
-                    ",", 
-                    RowBox[{"{", 
-                    RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], 
-                    "}"}], ",", 
-                    RowBox[{"{", 
-                    RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], 
-                    "}"}]}], "}"}], ",", 
-                    RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], ",", 
-                    RowBox[{"{", 
-                    RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], 
-                    "}"}]}], "}"}],
+                    RowBox[{"\[LeftSkeleton]", "3", "\[RightSkeleton]"}]}], 
+                   "}"}],
                   Short[#, 
                    Rational[2, 3]]& ],
                  BaselinePosition->Baseline,
@@ -4860,7 +4821,7 @@ $CellContext`error $CellContext`Relative,
                  TagBox[
                   
                   TemplateBox[{
-                   "0.000087`2.0900342504506124","\"s\"","seconds",
+                   "0.000095`2.128238603120839","\"s\"","seconds",
                     "\"Seconds\""},
                    "Quantity"],
                   Short[#, 
@@ -4913,7 +4874,7 @@ $CellContext`error $CellContext`Relative,
          0.000044, {{-1.7243926523431132`}, {0.00004400032139229513}}, {{
           3.919174209870712*^6}, {0.0007304370343832542}}}}], 
       "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
-      Quantity[0.000087`2.0900342504506124, "Seconds"], "CPUTimeUsed" -> 
+      Quantity[0.000095`2.128238603120839, "Seconds"], "CPUTimeUsed" -> 
       Quantity[0., "Seconds"], "MemoryUsed" -> Quantity[104, "Bytes"]]],
     Editable->False,
     SelectWithContents->True,
@@ -4921,12 +4882,13 @@ $CellContext`error $CellContext`Relative,
  CellChangeTimes->{{3.68907595663929*^9, 3.689076000551443*^9}, 
    3.689076775873452*^9, 3.689078634173562*^9, 3.689078686033999*^9, 
    3.689083623894096*^9, 3.689586731693281*^9, 3.689586773558394*^9, 
-   3.68958685955092*^9, 3.689586984462134*^9}]
+   3.68958685955092*^9, 3.689586984462134*^9, 3.696075727655107*^9, 
+   3.6960758692040453`*^9, 3.69607593905503*^9, 3.6964930338651123`*^9}]
 }, Open  ]]
 }, Open  ]]
 },
-WindowSize->{1355, 876},
-WindowMargins->{{Automatic, 214}, {-28, Automatic}},
+WindowSize->{1920, 1023},
+WindowMargins->{{0, Automatic}, {0, 24}},
 FrontEndVersion->"11.0 for Linux x86 (64-bit) (September 21, 2016)",
 StyleDefinitions->"Default.nb"
 ]
@@ -4941,25 +4903,22 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[558, 20, 296, 4, 32, "Input"],
-Cell[857, 26, 1455, 30, 171, "Input"],
+Cell[558, 20, 390, 5, 32, "Input"],
+Cell[951, 27, 1754, 38, 171, "Input"],
 Cell[CellGroupData[{
-Cell[2337, 60, 624, 11, 35, "Subsubsection"],
-Cell[2964, 73, 21050, 539, 753, "Input"]
+Cell[2730, 69, 624, 11, 35, "Subsubsection"],
+Cell[3357, 82, 22068, 564, 714, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[24051, 617, 575, 10, 35, "Subsubsection"],
-Cell[24629, 629, 11466, 277, 469, "Input"]
+Cell[25462, 651, 575, 10, 35, "Subsubsection"],
+Cell[26040, 663, 11763, 284, 424, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[36132, 911, 624, 11, 35, "Subsubsection"],
+Cell[37840, 952, 624, 11, 35, "Subsubsection"],
+Cell[38467, 965, 110899, 2617, 482, "Input"],
 Cell[CellGroupData[{
-Cell[36781, 926, 110899, 2617, 482, "Input"],
-Cell[147683, 3545, 254, 7, 38, "Output"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[147974, 3557, 154, 2, 32, "Input"],
-Cell[148131, 3561, 62292, 1362, 122, "Output"]
+Cell[149391, 3586, 154, 2, 32, "Input"],
+Cell[149548, 3590, 58934, 1295, 65, "Output"]
 }, Open  ]]
 }, Open  ]]
 }

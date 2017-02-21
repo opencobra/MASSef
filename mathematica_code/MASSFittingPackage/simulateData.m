@@ -16,11 +16,12 @@ Begin["`Private`"];
 
 
 calculateBufferIonicStrength[bufferInfo_, dataListFull_] := Block[{bufferData, localBuffInfo, localAcid, localBase, bufferIonStrength, ind1, ind2},
+	
 	(*Calculate Buffer Ionic Strength*)
-	Which[Dimensions[dataListFull][[2]] == 10, ind1=5; ind2=7,
+	Which[MemberQ[{10, 11}, Dimensions[dataListFull][[2]]], ind1=5; ind2=7,
 	  	Dimensions[dataListFull][[2]] == 7, ind1=4; ind2=6,
 	  	Dimensions[dataListFull][[2]] == 12, ind1=7; ind2=9];
-
+	
 	bufferData=Table[
 		(*Assay Buffer Concentrations*)
 		{entry[[ind2]],
@@ -60,7 +61,7 @@ calculateBufferIonicStrength[bufferInfo_, dataListFull_] := Block[{bufferData, l
 calculateSaltIonicStrength[ionCharge_, dataListFull_] := 
 	Block[{localSaltCharge, saltIonStrength, ind},
 
-	Which[Dimensions[dataListFull][[2]] == 10, ind=8,
+	Which[MemberQ[{10, 11}, Dimensions[dataListFull][[2]]], ind=8,
 		  Dimensions[dataListFull][[2]] == 7, ind=7,
 		  Dimensions[dataListFull][[2]] == 12, ind=10];
 
@@ -94,7 +95,7 @@ calculateIonicStrength[dataListFull_, bufferInfo_, ionCharge_]:=Block[{bufferIon
 
 
 calculateAdjustedKeq[rxn_, ionicStrength_, dataListFull_, bigg2equilibrator_] := Block[{adjustedKeqVal, ind},
-	Which[Dimensions[dataListFull][[2]] == 10, ind=5,
+	Which[MemberQ[{10, 11}, Dimensions[dataListFull][[2]]], ind=5,
 		  Dimensions[dataListFull][[2]] == 7, ind=4];
 
 	(*Calculate the Keq Using Equilibrator*)
@@ -108,12 +109,9 @@ calculateAdjustedKeq[rxn_, ionicStrength_, dataListFull_, bigg2equilibrator_] :=
 
 getDataListFull[rxn_, dataList_, dataListSub_] := Block[{char2met, dataListFull},
 		
-	(*char2met = {#[[1]]->#&/@getProducts[rxn]}~
-		Join~{#[[1]]->#&/@getSubstrates[rxn]}~
-		Join~dataListSub//Flatten//Union;*)
 	char2met = getConversionChar2Met[rxn];
 	dataListFull = dataList/.char2met; 
-
+	
 	Return[dataListFull];
 ];
 
@@ -129,37 +127,157 @@ minPsDataValFunc[Km_]:=Log10[Km]-1;
 maxPsDataValFunc[Km_]:=Log10[Km]+1;
 
 
+getMetSub[dataList_] := Block[{dataListSub},
+	dataListSub=Table[
+		{pt[[1]] -> m[pt[[1]],"c"], coSub[[1]] -> m[coSub[[1]],"c"]},
+	{pt, dataList}, {coSub,pt[[3]]}]//Flatten//Union;
+	
+	Return[dataListSub];
+];
+
+
+removeMetsNotInReaction[rxn_, kmListFull_] := Block[{kmListFullLocal, entriesToDelete={}},
+	Do[
+		If[
+			!MemberQ[Union[Cases[rxn, _metabolite,\[Infinity]]], kmListFull[[km,1]]],
+			AppendTo[entriesToDelete, km];
+		],
+	{km, Length @ kmListFull}];
+	
+	kmListFullLocal = Delete[kmListFull, entriesToDelete];
+	
+	Return[kmListFullLocal];
+];
+
+
+handleCosubstrateData[dataListFull_, metsFull_, metSatForSub_, metSatRevSub_, dataRange_, assumedSaturatingConc_] := 
+	Block[{dataCoSub, dataListFullLocal, coSubList={}, indicies, dataCoSubFull},
+
+	(*Handle CoSubstrates*)
+	dataCoSub = Table[pt[[3]], {pt,dataListFull}];
+	dataListFullLocal = Map[ReplacePart[#, 3->Table[{met}, {met,metsFull}]]&, dataListFull];
+
+	(*Extract CoSubstrates*)
+	Do[
+		If[
+			(*True: Is a Reactant*)
+			MemberQ[metSatForSub[[All,1]], pt[[1]]],
+			indicies = Position[Flatten @ metsFull, pt[[1]]];(*Subject Metabolite Index*)
+			Map[AppendTo[indicies, Flatten[Position[Flatten @ metsFull,#],1]]&, metSatRevSub[[All,1]]];(*Relative Product Indices*)
+			indicies = DeleteCases[indicies, {}];
+			AppendTo[coSubList, Delete[Flatten @ metsFull,indicies]];,
+			
+			(*False: Is a Product*)
+			indicies = Position[Flatten @ metsFull, pt[[1]]];(*Subject Metabolite Index*)
+			Map[AppendTo[indicies, Flatten[Position[Flatten @ metsFull, #],1]]&, metSatForSub[[All,1]]];(*Relative Product Indices*)
+			indicies = DeleteCases[indicies, {}];
+			AppendTo[coSubList, Delete[Flatten @ metsFull, indicies]];
+		],
+	{pt, dataListFullLocal}];
+
+	(*Append the Pseudo-Data Concentrations for Substrate*)
+	Do[
+		AppendTo[
+			dataListFullLocal[[pt,3,Position[dataListFullLocal[[pt,3]],dataListFullLocal[[pt,1]]][[1,1]]]], 
+			dataRange[[pt]]],
+	{pt, Length @ dataListFullLocal}];
+
+	(*Handle CoSubstrate Data*)
+	dataCoSubFull=
+		Table[
+
+			Which[
+				(*CoSubstrate is Present in Data and Has a Data Value*)
+				MemberQ[dataCoSub[[pt,All,1]],coSubList[[pt,met]]] && NumberQ[Select[dataCoSub[[pt]],#[[1]]==coSubList[[pt,met]]&][[1,2]]],
+					(*Extract CoSubstrate Concentration and Repeat It for Each Data Point*)
+					{Select[dataCoSub[[pt]],#[[1]]==coSubList[[pt,met]]&][[1,1]],
+					Table[
+						Select[dataCoSub[[pt]],#[[1]]==coSubList[[pt,met]]&][[1,2]],
+					{dataRange[[pt]]//Length}]
+				},
+				(*CoSubstrate is Present in Data but Does not Have a Data Value*)
+				MemberQ[dataCoSub[[pt,All,1]],coSubList[[pt,met]]] && !NumberQ[Select[dataCoSub[[pt]],#[[1]]==coSubList[[pt,met]]&][[1,2]]],
+					(*Use an Assumed Concentration and Repeat It for Each Data Point*)
+					{Select[dataCoSub[[pt]],#[[1]]==coSubList[[pt,met]]&][[1,1]],
+					Table[
+						assumedSaturatingConc,
+					{Length @ dataRange[[pt]]}]
+				},
+				(*CoSubstrate is Not Present in Data*)
+				!MemberQ[dataCoSub[[pt,All,1]],coSubList[[pt,met]]],
+				(*Use an Assumed Concentration and Repeat It for Each Data Point*)
+					{coSubList[[pt,met]],
+					Table[
+						assumedSaturatingConc,
+					{Length @ dataRange[[pt]]}]
+				}
+				],
+		{pt, Length @ coSubList},{met, Length @ coSubList[[pt]]}];
+
+    (*Append All Remaining CoSubstrate Concentrations to 'dataListFullLocal'*)
+	Do[
+		Which[
+			MemberQ[Flatten @ dataCoSubFull[[pt]], dataListFullLocal[[pt,3,met,1]]],
+			
+			(*True: Concentration Values from Data*)
+			dataListFullLocal[[pt,3,met]]={dataListFullLocal[[pt,3,met,1]],
+			Select[dataCoSubFull[[pt]],#[[1]]==dataListFullLocal[[pt,3,met,1]]&][[1,2]]},
+			
+			(*False: All Concentration Values Zero*)
+			!MemberQ[Flatten @ dataCoSubFull[[pt]], dataListFullLocal[[pt,3,met,1]]] && !MatchQ[dataListFullLocal[[pt,3,met,1]], dataListFullLocal[[pt,1]]],
+			
+			(*Non Pseudo-Data Values*)
+			dataListFullLocal[[pt,3,met]]={dataListFullLocal[[pt,3,met,1]],
+			Table[0, {Length @ dataRange[[pt]]}]}
+
+		],
+	{pt, Length @ dataListFullLocal},{met, Length @ dataListFullLocal[[pt,3]]}];
+
+	Return[dataListFullLocal];
+];
+
+
+correctChemicalActivities[dataListFull_, metsFull_, activeIsoSub_, ionicStrength_] := 
+	Block[{assayMet, assayCond},
+	
+	assayMet = Map[Transpose[#[[All,2]]]&, dataListFull[[All,3]]];
+	assayCond = Map[Transpose[#]&, dataListFull[[All,5;;6]]];
+
+	assayMet=
+		Table[(* chemical activity = \[Gamma]*[(S^z)] *)
+		((*Exp[activityCoefficient[[All,2]]]**)activeIsoSub[[All,2]])/.
+			Thread[metsFull->assayMet[[met,pt]]]/.
+			parameter["IonicStrength"]->ionicStrength[[met]]/.
+			parameter["pH"]->ToExpression[assayCond[[met,pt,1]]],
+		{met, Length @ assayMet},{pt, Length @ assayMet[[met]]}];
+
+	assayMet = Flatten[assayMet, 1];
+	assayCond = Flatten[assayCond, 1];
+	
+	Return[{assayMet, assayCond}];
+];
+
+
 (* ::Subsection:: *)
 (*Simulate Km data*)
 
 
 simulateKmData[rxn_, metsFull_, metSatForSub_, metSatRevSub_, kmList_, otherParmsList_, assumedSaturatingConc_, eTotal_,
 			   logStepSize_, activeIsoSub_, bufferInfo_, ionCharge_, inputPath_, outputPath_, fileList_, KeqVal_:Null, bigg2equilibrator_:Null] := 
-	Block[{kmEqn, kmListSub, char2met, kmListFull, dataRange, vValues, dataCoSub, coSubList={}, 
-			ionicStrength, adjustedKeqVal, assayMet, assayCond, fileFlagList, vList, kmFittingData, otherParmsListLocal={},
-			indicies, dataCoSubFull, entriesToDelete={}},
+	Block[{kmEqn, kmListSub, char2met, kmListFull, dataRange, vValues,   
+			ionicStrength, adjustedKeqVal, assayMet, assayCond, fileFlagList, vList, kmFittingData},
 
 	(*Michaelis-Menten Equation*)
 	kmEqn[S_,Km_]:=S/(Km+S);
 
 	(*Change Character Metabolite Names Into MASS toolbox Metabolite Notation. 
 	NOTE: You may have to add some metabolites in for unusual assay conditions*)
-	kmListSub=Table[
-		{km[[1]]->m[km[[1]],"c"],coSub[[1]]->m[coSub[[1]],"c"]},
-	{km, kmList}, {coSub,km[[3]]}]//Flatten//Union;
+	kmListSub = getMetSub[kmList];
 
 	kmListFull = getDataListFull[rxn, kmList, kmListSub];
 
 	(*Parse Km Values Where the Substrate is Not in the Primary Reaction*)
-	Do[
-		If[
-			!MemberQ[Union[Cases[rxn,_metabolite,\[Infinity]]], kmListFull[[km,1]]],
-			otherParmsListLocal = Append[otherParmsList, Prepend[kmListFull[[km]], "Km"]] // Union;(*Move Km param to otherParams*)
-			AppendTo[entriesToDelete, km];
-		],
-	{km, Length @ kmListFull}];
-
-	kmListFull = Delete[kmListFull, entriesToDelete];
+	kmListFull = removeMetsNotInReaction[rxn, kmListFull];
 
 	(*Generate Data Points (An Order of Magnitude Above and Below the Km's)*)
 	dataRange=
@@ -179,87 +297,15 @@ simulateKmData[rxn_, metsFull_, metSatForSub_, metSatRevSub_, kmList_, otherParm
 	(*Match to Comparision Equations*)
 	Do[
 		If[StringMatchQ[path, RegularExpression[".*relRate.*_" <> kmListFull[[km,1,1]]<>"\\.txt"]],
-			AppendTo[kmListFull[[km]], FileNameJoin[Flatten@{inputPath, StringCases[path, RegularExpression[outputPath<>"(.*)"]->"$1"]}, OperatingSystem->$OperatingSystem]]
+			
+			AppendTo[kmListFull[[km]], FileNameJoin[Flatten@{inputPath, StringCases[StringReplace[path, "\\" -> "/"], RegularExpression[StringReplace[outputPath, "\\" -> "/"] <> "(.*)"] -> "$1"]}, OperatingSystem-> $OperatingSystem]]
 		],
-	{km, Length @ kmListFull}, {path,fileList}];
+		{km, Length @ kmListFull}, {path,fileList}];
 
-
-	(*Handle CoSubstrates*)
-	dataCoSub=Table[km[[3]],{km,kmListFull}];
-	kmListFull=ReplacePart[#,3->Table[{met}, {met,metsFull}]]&/@kmListFull;
-
-	(*Extract CoSubstrates*)
-	Do[
-		If[
-			(*True: Is a Reactant*)
-			MemberQ[metSatForSub[[All,1]],km[[1]]],
-			indicies=Position[metsFull//Flatten,km[[1]]];(*Subject Metabolite Index*)
-			AppendTo[indicies,Flatten[Position[metsFull//Flatten,#],1]]&/@metSatRevSub[[All,1]];(*Relative Product Indices*)
-			AppendTo[coSubList,Delete[metsFull//Flatten,indicies]];,
-			(*False: Is a Product*)
-			indicies=Position[metsFull//Flatten,km[[1]]];(*Subject Metabolite Index*)
-			AppendTo[indicies,Flatten[Position[metsFull//Flatten,#],1]]&/@metSatForSub[[All,1]];(*Relative Product Indices*)
-			AppendTo[coSubList,Delete[metsFull//Flatten,indicies]];
-		],
-	{km, kmListFull}];
-
-	(*Append the Pseudo-Data Concentrations for Substrate*)
-	Do[
-		AppendTo[
-			kmListFull[[km,3,Position[kmListFull[[km,3]],kmListFull[[km,1]]][[1,1]]]], 
-			dataRange[[km]]],
-	{km, Length @ kmListFull}];
-
-	(*Handle CoSubstrate Data*)
-	dataCoSubFull=
-		Table[
-
-			Which[
-				(*CoSubstrate is Present in Data and Has a Data Value*)
-				MemberQ[dataCoSub[[km,All,1]],coSubList[[km,met]]] && NumberQ[Select[dataCoSub[[km]],#[[1]]==coSubList[[km,met]]&][[1,2]]],
-					(*Extract CoSubstrate Concentration and Repeat It for Each Data Point*)
-					{Select[dataCoSub[[km]],#[[1]]==coSubList[[km,met]]&][[1,1]],
-					Table[
-						Select[dataCoSub[[km]],#[[1]]==coSubList[[km,met]]&][[1,2]],
-					{dataRange[[km]]//Length}]
-				},
-				(*CoSubstrate is Present in Data but Does not Have a Data Value*)
-				MemberQ[dataCoSub[[km,All,1]],coSubList[[km,met]]] && !NumberQ[Select[dataCoSub[[km]],#[[1]]==coSubList[[km,met]]&][[1,2]]],
-					(*Use an Assumed Concentration and Repeat It for Each Data Point*)
-					{Select[dataCoSub[[km]],#[[1]]==coSubList[[km,met]]&][[1,1]],
-					Table[
-						assumedSaturatingConc,
-					{Length @ dataRange[[km]]}]
-				},
-				(*CoSubstrate is Not Present in Data*)
-				!MemberQ[dataCoSub[[km,All,1]],coSubList[[km,met]]],
-				(*Use an Assumed Concentration and Repeat It for Each Data Point*)
-					{coSubList[[km,met]],
-					Table[
-						assumedSaturatingConc,
-					{Length @ dataRange[[km]]}]
-				}
-				],
-		{km, Length @ coSubList},{met, Length @ coSubList[[km]]}];
-
-    (*Append All Remaining CoSubstrate Concentrations to 'kmListFull'*)
-	Do[
-		Which[
-			MemberQ[dataCoSubFull[[km]]//Flatten,kmListFull[[km,3,met,1]]],
-			(*True: Concentration Values from Data*)
-			kmListFull[[km,3,met]]={kmListFull[[km,3,met,1]],
-			Select[dataCoSubFull[[km]],#[[1]]==kmListFull[[km,3,met,1]]&][[1,2]]},
-			(*False: All Concentration Values Zero*)
-			!MemberQ[dataCoSubFull[[km]]//Flatten,kmListFull[[km,3,met,1]]]&&!MatchQ[kmListFull[[km,3,met,1]],kmListFull[[km,1]]],
-			(*Non Pseudo-Data Values*)
-			kmListFull[[km,3,met]]={kmListFull[[km,3,met,1]],
-			Table[0, {Length @ dataRange[[km]]}]}
-
-		],
-	{km, Length @ kmListFull},{met, Length @ kmListFull[[km,3]]}];
+	kmListFull = handleCosubstrateData[kmListFull, metsFull, metSatForSub, metSatRevSub, dataRange, assumedSaturatingConc];
 
 	ionicStrength = calculateIonicStrength[kmListFull, bufferInfo, ionCharge];
-
+	
 	adjustedKeqVal= 
 		If[NumericQ[KeqVal],	
 			ConstantArray[{Keq[getID[rxn]]-> KeqVal}, Dimensions[kmListFull][[1]]],
@@ -279,19 +325,8 @@ simulateKmData[rxn_, metsFull_, metSatForSub_, metSatRevSub_, kmList_, otherParm
 	(*Assemble Fitting Data*)
 
 	(*Correct Chemical Activites*)
-	assayMet=Transpose[#[[All,2]]]&/@kmListFull[[All,3]];
-	assayCond=Transpose[#]&/@kmListFull[[All,5;;6]];
+	{assayMet, assayCond} = correctChemicalActivities[kmListFull, metsFull, activeIsoSub, ionicStrength];
 
-	assayMet=
-		Table[(* chemical activity = \[Gamma]*[(S^z)] *)
-		((*Exp[activityCoefficient[[All,2]]]**)activeIsoSub[[All,2]])/.
-			Thread[metsFull->assayMet[[met,pt]]]/.
-			parameter["IonicStrength"]->ionicStrength[[met]]/.
-			parameter["pH"]->ToExpression[assayCond[[met,pt,1]]],
-		{met, Length @ assayMet},{pt, Length @ assayMet[[met]]}];
-
-	assayMet=Flatten[assayMet,1];
-	assayCond=Flatten[assayCond,1];
 	(*End Correct Chemical Activites*)
 	fileFlagList=Flatten[Table[kmListFull[[km,-1]], {km, Length @ kmListFull}, {Length @ dataRange[[km]]}]];
 	vList=Flatten[kmListFull[[All,-2]]];(*Target Data*)
@@ -312,6 +347,114 @@ simulateKmData[rxn_, metsFull_, metSatForSub_, metSatRevSub_, kmList_, otherParm
 
 	
 	Return[kmFittingData];
+];
+
+
+(* ::Subsection:: *)
+(*Simulate S05 data*)
+
+
+simulateS05Data[rxn_, metsFull_, metSatForSub_, metSatRevSub_, s05List_, otherParmsList_, assumedSaturatingConc_, eTotal_,
+			   logStepSize_, activeIsoSub_, bufferInfo_, ionCharge_, inputPath_, outputPath_, fileList_, KeqVal_:Null, bigg2equilibrator_:Null] := 
+	Block[{hillEqn, s05MetSub, char2met, hillList, s05ListFull, dataRange, vValues, 
+			ionicStrength, adjustedKeqVal, assayMet, assayCond, fileFlagList, vList, s05FittingData},
+
+	(*Hill Equation*)
+	hillEqn[S_,s05_,n_]:=S^n/(s05^n+S^n);
+
+	(*Incorporate Hill Values*)
+	s05ListFull=s05List;
+	hillList = Select[otherParmsList,#[[1]]=="n"&];
+
+	Which[Length[hillList] == 0,
+		(*If there's no data for n, just consider it to be 1*)
+		s05ListFull = Insert[#, 1, 9] & /@ s05ListFull,
+		Length[hillList] == 1,
+		
+		(*True: There is only one hill value for the enzyme*)
+		s05ListFull = Insert[#, hillList[[1, 3]], 9] & /@ s05ListFull,
+		
+		Length[hillList] > 2,
+		(*False: The hill values are substrate specific*)
+		s05ListFull = 
+			Table[
+				Insert[s05, Select[hillList, #[[2]] == s05[[1]] &][[1, 3]], 9],
+			{s05, s05ListFull}];
+	];
+
+	(*Change Character Metabolite Names Into MASS toolbox Metabolite Notation. 
+	NOTE: You may have to add some metabolites in for unusual assay conditions*)
+	s05MetSub = getMetSub[s05List];
+	
+	s05ListFull = getDataListFull[rxn, s05ListFull, s05MetSub];
+
+	(*Parse s05 Values Where the Substrate is Not in the Primary Reaction*)
+	s05ListFull = removeMetsNotInReaction[rxn, s05ListFull];
+
+	(*Generate Data Points (An Order of Magnitude Above and Below the s05's)*)
+	dataRange=
+		Table[
+			{i, s05[[2]], s05[[9]]},
+		{s05,s05ListFull},{i, minPsDataValFunc[s05[[2]]], maxPsDataValFunc[s05[[2]]], logStepSize}];
+		
+	(*Generate Resultant Rates*)
+	vValues=
+		Table[
+			hillEqn[10^dataPt[[1]],dataPt[[2]],dataPt[[3]]],
+		{dataSet,dataRange},{dataPt,dataSet}];
+
+	(*Switch Data to Euclidean Space and Append to s05 the List*)
+	dataRange = Map[10^#[[All,1]]&, dataRange];
+	s05ListFull = Table[Append[s05ListFull[[s05]], vValues[[s05]]], {s05, Length @ s05ListFull}];
+
+	(*Match to Comparision Equations*)
+	Do[
+		If[StringMatchQ[path, RegularExpression[".*_" <> s05ListFull[[s05, 1, 1]]<>"\\.txt"]],
+			AppendTo[s05ListFull[[s05]], FileNameJoin[Flatten@{inputPath, StringCases[path, RegularExpression[outputPath<>"(.*)"]->"$1"]}, OperatingSystem->$OperatingSystem]]
+		],
+	{s05, Length @ s05ListFull}, {path,fileList}];
+
+	(*Handle CoSubstrates*)
+	s05ListFull = handleCosubstrateData[s05ListFull, metsFull, metSatForSub, metSatRevSub, dataRange, assumedSaturatingConc];
+
+	ionicStrength = calculateIonicStrength[s05ListFull, bufferInfo, ionCharge];
+Print[ionicStrength];
+	adjustedKeqVal= 
+		If[NumericQ[KeqVal],	
+			ConstantArray[{Keq[getID[rxn]]-> KeqVal}, Dimensions[s05ListFull][[1]]],
+			calculateAdjustedKeq[rxn, ionicStrength, s05ListFull, bigg2equilibrator]
+		];	
+
+	adjustedKeqVal=
+		Table[
+			adjustedKeqVal[[s05]], 
+		{s05, Length @ adjustedKeqVal}, {Length @ dataRange[[s05]]}]//Flatten;
+
+	(*Repeat Assay Conditions for Each Data Point*)
+	Do[
+		s05ListFull[[s05,con]] = Table[s05ListFull[[s05,con]], {rep, Length @ dataRange[[s05]]}],
+	{s05,s05ListFull//Length},{con,5,6}];
+
+	(*Assemble Fitting Data*)
+	(*Correct Chemical Activites*)
+	{assayMet, assayCond} = correctChemicalActivities[s05ListFull, metsFull, activeIsoSub, ionicStrength];
+
+	(*End Correct Chemical Activites*)
+	
+	fileFlagList=Flatten[Table[s05ListFull[[s05,-1]], {s05, Length @ s05ListFull}, {Length @ dataRange[[s05]]}]];
+	
+	vList=Flatten[s05ListFull[[All,-2]]];(*Target Data*)
+	
+	s05FittingData=Table[Join[Append[assayMet[[pt]],eTotal], assayCond[[pt]]], {pt, Length @ assayMet}];
+	
+	s05FittingData=
+		Table[
+			Join[s05FittingData[[pt]], {fileFlagList[[pt]],vList[[pt]]}], 
+		{pt, Length @ s05FittingData}];
+		
+	s05FittingData=Table[Join[{adjustedKeqVal[[pt,2]]},s05FittingData[[pt]]],{pt, Length @ s05FittingData}];
+	
+	Return[s05FittingData];
 ];
 
 
@@ -529,29 +672,9 @@ simulateInhibData[rxn_, metsFull_, metSatForSub_, metSatRevSub_, inhibList_, kmL
 	inhibListFull = DeleteDuplicates[inhibListFull];
 
 	inhibConcMultiplierList = {0.5, 1, 2.};
-	(*Generate Data Points (An Order of Magnitude Above and Below the Km's)
-	
-		dataRange=
-		Table[
-			(*{S, I, Km, Ki}*)
-				
-				{s, inhibMultiplier*inhib[[3]], inhib[[5,1,4]]/. kmValues, inhib[[3]]},
-		{inhib, inhibListFull}, {inhibMultiplier, inhibConcMultiplierList}, {s, Log10[inhib[[5,1,4]]/. kmValues]-1, Log10[inhib[[5,1,4]]/. kmValues]+1, logStepSize}];
-	
-	Print[dataRange];
-	Print[inhibListFull];*)
-	
+		
 	dataRange=
 		Table[
-			(*{S, I, Km, Ki}*)
-			(*If [ Length[inhib[[3]]] > 1,
-				
-				 Table[
-					{inhib[[1]], Flatten@{s, inhibMultiplier*tempInhib, inhib[[5,1,4]]/. kmValues, inhib[[3]]}},
-				{tempInhib, inhib[[3]]}][[1]],
-				
-				{inhib[[1]], {s, inhibMultiplier*inhib[[3]], inhib[[5,1,4]]/. kmValues, inhib[[3]]}}
-			],*)
 
 			If [ Length[inhib[[3]]] > 1,
 				{inhib[[1]], {10^s, inhibMultiplier*Mean[inhib[[3]]], inhib[[5,1,4]]/. kmValues, inhib[[3]]}},
@@ -565,7 +688,6 @@ simulateInhibData[rxn_, metsFull_, metSatForSub_, metSatRevSub_, inhibList_, kmL
 			Apply[getInhibFlux, dataPt],
 			(*inhibEqn[10^dataPt[[1]], dataPt[[2]], dataPt[[3]], dataPt[[4]]]*)
 		{dataPerInhib, dataRange}, {dataSet,dataPerInhib}, {dataPt,dataSet}];
-	
 
 	(*Switch Data to Euclidean Space and Append to the Km List*)
 	substrateDataRange = Map[Map[#[[All,2]][[All,1]]&, #]&, dataRange];	
@@ -593,9 +715,7 @@ simulateInhibData[rxn_, metsFull_, metSatForSub_, metSatRevSub_, inhibList_, kmL
 	dataCoSub = Table[inhib[[4]], {inhib, inhibListFull}];
 	inhibListFull = ReplacePart[#, 4->Table[{met}, {met, metsFull}]]& /@ inhibListFull;
 
-	
 	(*Extract CoSubstrates*)
-
 	Do[
 		Which[MemberQ[metSatForSub[[All,1]], inhib[[5,1,4]]],
 				(* Is a Reactant*)

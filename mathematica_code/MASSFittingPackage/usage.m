@@ -65,6 +65,10 @@ simulateKmData::usage="simulateKmData[rxn, metsFull, metsSub, metSatForSub, metS
 			   logStepSize, activeIsoSub, bufferInfo, ionCharge, paramOutputPath, outputPath, fileList, KeqVal:{}]";
 
 
+simulateS05Data::usage="simulateS05Data[rxn, metsFull, metSatForSub, metSatRevSub, s05List, otherParmsList, assumedSaturatingConc, eTotal,
+			   logStepSize, activeIsoSub, bufferInfo, ionCharge, inputPath, outputPath, fileList, KeqVal:Null, bigg2equilibrator:Null]";
+
+
 simulateKcatData::usage="simulateKcatData[rxn, metsFull, metsSub, metSatForSub, metSatRevSub, kcatList, otherParmsList, assumedSaturatingConc, eTotal,
 			  logStepSize, nonKmParamWeight, activeIsoSub, bufferInfo, ionCharge, paramOutputPath, 
 			  outputPath, fileList, KeqVal:{}]";
@@ -156,3 +160,12 @@ getEnzymeRates::usage="getEnzymeRates[enzymeModel] ";
 
 
 getMisc::usage="getMisc[enzymeModel, rxnName]";
+
+
+getAllostericTransitionRatio::usage="getAllostericTransitionRatio[enzymeModel, nonCatalyticReactions]";
+
+
+getRatio::usage="getInhibRatio[enzymeModel, metabolite]";
+
+
+getOtherParamsValue::usage="getOtherParamsValue[param, otherParamsList]";

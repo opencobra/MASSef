@@ -11,19 +11,26 @@
 Begin["`Private`"];
 
 
-calculateFitSSD[resultsFile_, enzName_, fittingData_, inputPath_, outputPath_, fileListSub_, rateConstsSub_, metsSub_, flagFitType_, exportData_, fitID_:""] :=
+calculateFitSSD[resultsFile_, enzName_, fittingData_, inputPath_, outputPath_, fileListSub_, rateConstsSub_, metsSub_, flagFitType_, exportData_, fitID_:"", fitResultLine_:Null] :=
 	Module[{flagFit=1, msg="", resultsFilePath, paramFit, paramFitProcessed, vRelData, vRelFit, vRelSSD, dataArrayWithSSD={}, bestFit, bestFitDetails={}},
 
-	resultsFilePath = outputPath <> resultsFile;
+	resultsFilePath = FileNameJoin[{outputPath, resultsFile}, OperatingSystem->$OperatingSystem];
 
 	If[FileExistsQ[resultsFilePath],
 		(*Fix the fileListSub. This should always run silently*)
 		(*fileListSubLocal=Thread[(paramOutputPath<>StringSplit[#,"/"][[-1]]&/@fileList)->fileListSubLocal[[All,2]]];*)
-		paramFit = Import[resultsFilePath,"Table"];
+		paramFit = Import[resultsFilePath, "Table"];
+		
+		If[! SameQ[fitResultLine, Null],
+			paramFit = paramFit[[fitResultLine, All]];
+			If[ Length[Dimensions[paramFit]] == 1,
+				paramFit = {paramFit};
+			];
+		];
 
 		If[paramFit!= {},
 			paramFitProcessed=Table[10^val, {val, paramFit}];
-		
+
 			vRelData = fittingData[[All, -1]];
 
 			vRelFit = 
@@ -43,13 +50,13 @@ calculateFitSSD[resultsFile_, enzName_, fittingData_, inputPath_, outputPath_, f
 			
 			bestFit = dataArrayWithSSD[[1]];
 
-			bestFitDetails = {{"Fitting Equation","Relative error", "True value", "Predicted Value"},{"",""}}~Join~Transpose[{Table[StringCases[func,RegularExpression[inputPath <> "(.*)\\.txt"]->"$1"][[1]],
+			bestFitDetails = {{"Fitting Equation","Relative error", "True value", "Predicted Value"},{"",""}}~Join~Transpose[{Table[StringCases[func, RegularExpression[FileNameJoin[{inputPath, "(.*)\\.txt"}, OperatingSystem->$OperatingSystem]]->"$1"][[1]],
 					{func,fittingData[[All,-2]]}],
 				Table[Abs[((vRelData[[i]]-bestFit[[3,i]]))/vRelData[[i]]*100],{i, Length @ vRelData}], 
 				vRelData, bestFit[[3]]}];
 
 			If[exportData,
-				Export[outputPath<>"treated_data/best_fit_" <> enzName <> "_" <> fitID <> ".csv", bestFitDetails, "TSV"];
+				Export[FileNameJoin[{outputPath, "treated_data", "best_fit_" <> enzName <> "_" <> fitID <> ".csv"}, OperatingSystem->$OperatingSystem], bestFitDetails, "TSV"];
 				];,
 
 			flagFit=0;
@@ -67,11 +74,12 @@ calculateFitSSD[resultsFile_, enzName_, fittingData_, inputPath_, outputPath_, f
 
 
 getRatesWithSSD[resultsFile_, enzName_, fittingData_, inputPath_, outputPath_,  fileListSub_, 
-				rateConstsSub_, metsSub_, flagFitType_, cutOffVal_:{}, exportData_:False, fitID_:""] :=
+				rateConstsSub_, metsSub_, flagFitType_, cutOffVal_:{}, exportData_:False, fitID_:"", fitResultLine_:Null] :=
 	Module[{errorList={}, flagFit, flagFitLocal=1, msg, msgLocal="", resultsFileName, 
 			dataArrayWithSSD, bestFitDetails={}, filteredDataList, ratesWithFit},
 	
-	{flagFit, msg, dataArrayWithSSD, bestFitDetails} = calculateFitSSD[resultsFile, enzName, fittingData, inputPath, outputPath, fileListSub, rateConstsSub, metsSub, flagFitType, exportData, fitID];
+	
+	{flagFit, msg, dataArrayWithSSD, bestFitDetails} = calculateFitSSD[resultsFile, enzName, fittingData, inputPath, outputPath, fileListSub, rateConstsSub, metsSub, flagFitType, exportData, fitID, fitResultLine];
 	flagFitLocal = flagFit;
 	msgLocal=msg;
 
@@ -89,7 +97,7 @@ getRatesWithSSD[resultsFile_, enzName_, fittingData_, inputPath_, outputPath_,  
 					Flatten[Join[filteredDataList[[rowI,1;;2]]]],
 				{rowI, 1, Dimensions[filteredDataList][[1]]}];
 
-			Export[outputPath <> "treated_data/rateconst_" <> enzName <> "_" <> fitID <> ".csv", ratesWithFit, "TSV"];
+			Export[FileNameJoin[{outputPath, "treated_data", "rateconst_" <> enzName <> "_" <> fitID <> ".csv"}, OperatingSystem->$OperatingSystem], ratesWithFit, "TSV"];
 
 		];,
 		

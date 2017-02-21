@@ -21,7 +21,7 @@ definePSOparameters[inputPath_, outputPath_, dataPath_, finalRateConsts_, fileLi
 	Module[{psoParameterPath, psoParameters, tempCorr, neighborSize, inertia, cognitiveRate, socialRate, useKeepBest, 
 			useRandomReplace, percentRandomParticles, numFuncVar, fileListPy, valueRow, functionRow, dataRowHigh, 
 			psoTrialSummaryFileName, psoResultsFileName},
-	
+
 	psoParameters = {  
    
    	(*General Python Configuration;*)
@@ -98,16 +98,16 @@ definePSOparameters[inputPath_, outputPath_, dataPath_, finalRateConsts_, fileLi
    			summary_file_name \[Rule] Summary of each trial;
    			ultimate_result_name \[Rule] Final candidate values;*)
 
-   	{"filesWithFunctions", fileListPy = listToPython[inputPath <> StringSplit[#, "/"][[-1]] & /@ fileList]},
+   	{"filesWithFunctions", fileListPy = listToPython[Map[FileNameJoin[{inputPath, StringSplit[#, "/"][[-1]]}, OperatingSystem->$OperatingSystem] &, fileList]]},
    	{"data_file_name", dataPath},
    	{"value_row", valueRow = -1},
    	{"function_row", functionRow = -2},
    	{"data_row_high", dataRowHigh = -2},
-   	{"summary_file_name", psoTrialSummaryFileName = outputPath <> "raw/summary" <> fitLabel <> ".txt"},
-   	{"ultimate_result_name", psoResultsFileName = outputPath <> "raw/psoResults" <> fitLabel <> ".txt"}
+   	{"summary_file_name", psoTrialSummaryFileName = FileNameJoin[{outputPath, "raw", "summary" <> fitLabel <> ".txt"}, OperatingSystem->$OperatingSystem]},
+   	{"ultimate_result_name", psoResultsFileName = FileNameJoin[{outputPath, "raw", "psoResults" <> fitLabel <> ".txt"}, OperatingSystem->$OperatingSystem]}
 	};
 
-	psoParameterPath = inputPath <> "psoParameters.txt";
+	psoParameterPath = FileNameJoin[{inputPath, "psoParameters.txt"}, OperatingSystem->$OperatingSystem];
 	Export[psoParameterPath, psoParameters, "Table"];
 	
 	Return[{psoParameterPath, psoResultsFileName, psoTrialSummaryFileName}];
@@ -177,9 +177,9 @@ defineLMAparameters[inputPath_, outputPath_, dataPath_, finalRateConsts_, fileLi
    				function_row \[Rule] Column with the fitting target functions ;
    				data_row_high \[Rule] Column above the last data value ;*)
    
-   				{"candidates_import_path", psoResultsFileName = outputPath <> "raw/psoResults" <> fitLabel <> ".txt"},
-   				{"candidates_export_path", lmaResultsFileName = outputPath <> "raw/lmaResults" <> fitLabel <> ".txt"},
-   				{"filesWithFunctions", fileListPy = listToPython[inputPath <> StringSplit[#, "/"][[-1]] & /@ fileList]},
+   				{"candidates_import_path", psoResultsFileName = FileNameJoin[{outputPath, "raw", "psoResults" <> fitLabel <> ".txt"}, OperatingSystem->$OperatingSystem]},
+   				{"candidates_export_path", lmaResultsFileName = FileNameJoin[{outputPath, "raw", "lmaResults" <> fitLabel <> ".txt"}, OperatingSystem->$OperatingSystem]},
+   				{"filesWithFunctions", fileListPy = listToPython[Map[FileNameJoin[{inputPath,  StringSplit[#, "/"][[-1]]}, OperatingSystem->$OperatingSystem] &,fileList]]},
    				{"data_file_name", dataPath},
    				{"value_row", valueRow = -1},
    				{"function_row", functionRow = -2},
@@ -187,7 +187,7 @@ defineLMAparameters[inputPath_, outputPath_, dataPath_, finalRateConsts_, fileLi
 
 	};
 
-	lmaParameterPath = inputPath <> "lmaParameters.txt";
+	lmaParameterPath = FileNameJoin[{inputPath, "lmaParameters.txt"}, OperatingSystem->$OperatingSystem];
 	Export[lmaParameterPath, lmaParameters, "Table"];	
 	
 	Return[{lmaParameterPath, lmaResultsFileName}];
@@ -231,7 +231,11 @@ createCombinedFitShellScript[runFitScriptPath_, psoParameterPath_, lmaParameterP
 	shRunPso=Append[shRunPso,{"# Import Dependencies"}];
 	shRunPso=Append[shRunPso,{"num_trials="<>ToString[numTrials]}];
 	shRunPso=Append[shRunPso,{(*Spacer*)}];
-	shRunPso=Append[shRunPso,{"python "<>runFitScriptPath<>" "<>psoParameterPath<>" "<>lmaParameterPath<>" "<>psoSummaryFilePath<>" "<>psoResultsFilePath<>" "<>lmaResultsFilePath <> " $num_trials " <> dataFileName}];
+	
+	If[ListQ[dataFileName],
+		shRunPso=Append[shRunPso, {"python "<>runFitScriptPath<>" "<>psoParameterPath<>" "<>lmaParameterPath<>" "<>psoSummaryFilePath<>" "<>psoResultsFilePath<>" "<>lmaResultsFilePath <> " $num_trials " <> StringRiffle[dataFileName, " "]}];,
+		shRunPso=Append[shRunPso,{"python "<>runFitScriptPath<>" "<>psoParameterPath<>" "<>lmaParameterPath<>" "<>psoSummaryFilePath<>" "<>psoResultsFilePath<>" "<>lmaResultsFilePath <> " $num_trials " <> dataFileName}];
+	];
 
 	Return[shRunPso];
 ];

@@ -115,6 +115,68 @@ getConversionChar2Met[mets_] := Module[{char2met},
 ];
 
 
+getAllostericTransitionRatio[enzymeModel_, nonCatalyticReactions_] := 
+	Block[{transStepRxn, transStepRxnID, forTransRateConsts, revTransRateConsts,
+			forTransConst, revTransConst},
+			
+	transStepRxn = Select[nonCatalyticReactions, Total[getSignedStoich[#]] == 0&];
+	transStepRxnID = getID[#]&/@transStepRxn;
+	forTransRateConsts = Select[getForwardRateConstants[enzymeModel], MemberQ[transStepRxnID, getID[#]]&];
+	revTransRateConsts = Select[reverseConsts[enzymeModel], MemberQ[transStepRxnID, getID[#]]&];
+	
+	(*Unify the Rate Constants (i.e. Extract the Rate Constants for Repetitive Reactions)*)
+	forTransConst = Union[unifyRateConstants[forTransRateConsts]];
+	revTransConst = Union[unifyRateConstants[revTransRateConsts]];
+	
+	If[Length[forTransConst] == 1 && Length[revTransConst] == 1,
+		Return[revTransConst[[1]]/forTransConst[[1]]];,
+		Print["Possibly there are more than one transition equation and the more than one ratio"];
+		Print[transStepRxn];
+		Print[forTransConst];
+		Print[revTransConst];
+	];
+];
+
+
+getRatio[enzymeModel_, metabolite_] := 
+	Block[{inhibitorRxn, inhibitorRxnID, forInhibitorRateConsts, revInhibitorRateConsts,
+			forInhibConst, revInhibConst},
+	
+	(*Get Reactions with the 'inhibitor' as a Reactant*)
+	inhibitorRxn=Select[enzymeModel["Reactions"],MemberQ[Union[getSubstrates[#],getProducts[#]], metabolite]&];
+	inhibitorRxnID=getID[#]&/@inhibitorRxn;
+	
+	(*Get the Rate Constants from the Reactions with the 'inhibitor' as a Reactant*)
+	forInhibitorRateConsts=Select[getForwardRateConstants[enzymeModel],MemberQ[inhibitorRxnID,getID[#]]&];
+	revInhibitorRateConsts=Select[reverseConsts[enzymeModel],MemberQ[inhibitorRxnID,getID[#]]&];
+	
+	(*Unify the Rate Constants (i.e. Extract the Rate Constants for Repetitive Reactions)*)
+	forInhibConst=Union[unifyRateConstants[forInhibitorRateConsts]];
+	revInhibConst=Union[unifyRateConstants[revInhibitorRateConsts]];
+	
+	If[Length[forInhibConst] == 1 && Length[revInhibConst] == 1,
+		Return[revInhibConst[[1]]/forInhibConst[[1]]];,
+		Print["Possibly there are more than one transition equation and the more than one ratio"];
+		Print[inhibitorRxn];
+		Print[forInhibitorRateConsts];
+		Print[revInhibitorRateConsts];
+	];
+];
+
+
+getOtherParamsValue[param_, otherParamsList_] := 
+	Block[{otherData, paramValue},
+
+	otherData = Select[otherParamsList,#[[1]]==param&][[1]];
+	paramValue = If[Dimensions[Dimensions[otherData]][[1]] == 1,
+					otherData[[3]],
+					otherData[[All, 3]]
+				];
+	
+	Return[paramValue];
+];
+
+
 (* ::Subsection:: *)
 (*End*)
 
