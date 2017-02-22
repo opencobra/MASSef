@@ -549,6 +549,18 @@ getExpectedResultInhibG3PD2[] := Block[{expectedResult},
 
 
 getExpectedResultL0PFK1[] := Block[{expectedResult}, 
-	expectedResult={{{1,0,0,0,0,0,0,1,8.5`,30,"test_files/simulate_data/L0Ratio.txt",4.`*^6},{1,0,0,0,0,0,0,1,8.5`,30,"test_files/simulate_data/L0Ratio.txt",4.`*^6},{1,0,0,0,0,0,0,1,8.5`,30,"test_files/simulate_data/L0Ratio.txt",4.`*^6},{1,0,0,0,0,0,0,1,8.5`,30,"test_files/simulate_data/L0Ratio.txt",4.`*^6},{1,0,0,0,0,0,0,1,8.5`,30,"test_files/simulate_data/L0Ratio.txt",4.`*^6},{1,0,0,0,0,0,0,1,8.5`,30,"test_files/simulate_data/L0Ratio.txt",4.`*^6},{1,0,0,0,0,0,0,1,8.5`,30,"test_files/simulate_data/L0Ratio.txt",4.`*^6},{1,0,0,0,0,0,0,1,8.5`,30,"test_files/simulate_data/L0Ratio.txt",4.`*^6},{1,0,0,0,0,0,0,1,8.5`,30,"test_files/simulate_data/L0Ratio.txt",4.`*^6},{1,0,0,0,0,0,0,1,8.5`,30,"test_files/simulate_data/L0Ratio.txt",4.`*^6},{1,0,0,0,0,0,0,1,8.5`,30,"test_files/simulate_data/L0Ratio.txt",4.`*^6}},{"test_files/simulate_data/L0Ratio.txt"},{"test_files/simulate_data/L0Ratio.txt"->Toolbox`rateconst["PFK1_TransitionStep", False]/Toolbox`rateconst["PFK1_TransitionStep", True]},{"L0Ratio"},{Toolbox`rateconst["PFK1_TransitionStep", False]/Toolbox`rateconst["PFK1_TransitionStep", True]},{"x[20]/x[21]"}};
+	expectedResult={{{1,0,0,0,0,0,0,1,8.5`,30,FileNameJoin[{"test_files","simulate_data","L0Ratio.txt"}, OperatingSystem->$OperatingSystem],4.`*^6},
+					{1,0,0,0,0,0,0,1,8.5`,30,FileNameJoin[{"test_files","simulate_data","L0Ratio.txt"}, OperatingSystem->$OperatingSystem],4.`*^6},
+					{1,0,0,0,0,0,0,1,8.5`,30,FileNameJoin[{"test_files","simulate_data","L0Ratio.txt"}, OperatingSystem->$OperatingSystem],4.`*^6},
+					{1,0,0,0,0,0,0,1,8.5`,30,FileNameJoin[{"test_files","simulate_data","L0Ratio.txt"}, OperatingSystem->$OperatingSystem],4.`*^6},
+					{1,0,0,0,0,0,0,1,8.5`,30,FileNameJoin[{"test_files","simulate_data","L0Ratio.txt"}, OperatingSystem->$OperatingSystem],4.`*^6},
+					{1,0,0,0,0,0,0,1,8.5`,30,FileNameJoin[{"test_files","simulate_data","L0Ratio.txt"}, OperatingSystem->$OperatingSystem],4.`*^6},
+					{1,0,0,0,0,0,0,1,8.5`,30,FileNameJoin[{"test_files","simulate_data","L0Ratio.txt"}, OperatingSystem->$OperatingSystem],4.`*^6},
+					{1,0,0,0,0,0,0,1,8.5`,30,FileNameJoin[{"test_files","simulate_data","L0Ratio.txt"}, OperatingSystem->$OperatingSystem],4.`*^6},
+					{1,0,0,0,0,0,0,1,8.5`,30,FileNameJoin[{"test_files","simulate_data","L0Ratio.txt"}, OperatingSystem->$OperatingSystem],4.`*^6},
+					{1,0,0,0,0,0,0,1,8.5`,30,FileNameJoin[{"test_files","simulate_data","L0Ratio.txt"}, OperatingSystem->$OperatingSystem],4.`*^6},
+					{1,0,0,0,0,0,0,1,8.5`,30,FileNameJoin[{"test_files","simulate_data","L0Ratio.txt"}, OperatingSystem->$OperatingSystem],4.`*^6}},
+					{FileNameJoin[{"test_files","simulate_data","L0Ratio.txt"}, OperatingSystem->$OperatingSystem]},
+					{FileNameJoin[{"test_files","simulate_data","L0Ratio.txt"}, OperatingSystem->$OperatingSystem]->Toolbox`rateconst["PFK1_TransitionStep", False]/Toolbox`rateconst["PFK1_TransitionStep", True]},{"L0Ratio"},{Toolbox`rateconst["PFK1_TransitionStep", False]/Toolbox`rateconst["PFK1_TransitionStep", True]},{"x[20]/x[21]"}};
 	Return[expectedResult]
 ];
