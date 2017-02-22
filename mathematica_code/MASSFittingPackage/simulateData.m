@@ -297,7 +297,6 @@ simulateKmData[rxn_, metsFull_, metSatForSub_, metSatRevSub_, kmList_, otherParm
 	(*Match to Comparision Equations*)
 	Do[
 		If[StringMatchQ[path, RegularExpression[".*relRate.*_" <> kmListFull[[km,1,1]]<>"\\.txt"]],
-			
 			AppendTo[kmListFull[[km]], FileNameJoin[Flatten@{inputPath, StringCases[StringReplace[path, "\\" -> "/"], RegularExpression[StringReplace[outputPath, "\\" -> "/"] <> "(.*)"] -> "$1"]}, OperatingSystem-> $OperatingSystem]]
 		],
 		{km, Length @ kmListFull}, {path,fileList}];
@@ -410,7 +409,7 @@ simulateS05Data[rxn_, metsFull_, metSatForSub_, metSatRevSub_, s05List_, otherPa
 	(*Match to Comparision Equations*)
 	Do[
 		If[StringMatchQ[path, RegularExpression[".*_" <> s05ListFull[[s05, 1, 1]]<>"\\.txt"]],
-			AppendTo[s05ListFull[[s05]], FileNameJoin[Flatten@{inputPath, StringCases[path, RegularExpression[outputPath<>"(.*)"]->"$1"]}, OperatingSystem->$OperatingSystem]]
+			AppendTo[s05ListFull[[s05]], FileNameJoin[Flatten@{inputPath, StringCases[StringReplace[path, "\\" -> "/"], RegularExpression[StringReplace[outputPath, "\\" -> "/"] <> "(.*)"] -> "$1"]}, OperatingSystem-> $OperatingSystem]]
 		],
 	{s05, Length @ s05ListFull}, {path,fileList}];
 

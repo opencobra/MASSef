@@ -20,6 +20,7 @@ calculateFitSSD[resultsFile_, enzName_, fittingData_, inputPath_, outputPath_, f
 		(*Fix the fileListSub. This should always run silently*)
 		(*fileListSubLocal=Thread[(paramOutputPath<>StringSplit[#,"/"][[-1]]&/@fileList)->fileListSubLocal[[All,2]]];*)
 		paramFit = Import[resultsFilePath, "Table"];
+
 		
 		If[! SameQ[fitResultLine, Null],
 			paramFit = paramFit[[fitResultLine, All]];
@@ -50,10 +51,15 @@ calculateFitSSD[resultsFile_, enzName_, fittingData_, inputPath_, outputPath_, f
 			
 			bestFit = dataArrayWithSSD[[1]];
 
-			bestFitDetails = {{"Fitting Equation","Relative error", "True value", "Predicted Value"},{"",""}}~Join~Transpose[{Table[StringCases[func, RegularExpression[FileNameJoin[{inputPath, "(.*)\\.txt"}, OperatingSystem->$OperatingSystem]]->"$1"][[1]],
+			bestFitDetails = {{"Fitting Equation","Relative error", "True value", "Predicted Value"},{"",""}}~Join~Transpose[
+					{Table[
+						StringDrop[StringCases[StringReplace[func, "\\"-> "/"], RegularExpression[StringReplace[inputPath, "\\"-> "/"] <>  "(.*)\\.txt"] -> "$1"][[1]],1],
 					{func,fittingData[[All,-2]]}],
-				Table[Abs[((vRelData[[i]]-bestFit[[3,i]]))/vRelData[[i]]*100],{i, Length @ vRelData}], 
-				vRelData, bestFit[[3]]}];
+					Table[
+						Abs[((vRelData[[i]]-bestFit[[3,i]]))/vRelData[[i]]*100],
+					{i, Length @ vRelData}], 
+					vRelData, bestFit[[3]]}];
+
 
 			If[exportData,
 				Export[FileNameJoin[{outputPath, "treated_data", "best_fit_" <> enzName <> "_" <> fitID <> ".csv"}, OperatingSystem->$OperatingSystem], bestFitDetails, "TSV"];

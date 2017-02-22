@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    209270,       4919]
-NotebookOptionsPosition[    208510,       4889]
-NotebookOutlinePosition[    208842,       4904]
-CellTagsIndexPosition[    208799,       4901]
+NotebookDataLength[    294749,       6385]
+NotebookOptionsPosition[    293896,       6352]
+NotebookOutlinePosition[    294244,       6367]
+CellTagsIndexPosition[    294201,       6364]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -23,7 +23,8 @@ Cell[BoxData[""], "Input",
    3.6890784594197598`*^9, 3.689078459921935*^9}, 3.689078626195801*^9, {
    3.689078674005664*^9, 3.6890786789741898`*^9}, {3.6895867509832697`*^9, 
    3.689586751801257*^9}, 3.6895869781508512`*^9, {3.696075860624769*^9, 
-   3.69607586272956*^9}, {3.69607592940408*^9, 3.696075932743165*^9}}],
+   3.69607586272956*^9}, {3.69607592940408*^9, 3.696075932743165*^9}, {
+   3.6967598039894934`*^9, 3.696759804608493*^9}, 3.696763640652961*^9}],
 
 Cell[BoxData[{
  RowBox[{
@@ -126,16 +127,30 @@ Cell[BoxData[
     RowBox[{"enzName", " ", "=", " ", "\"\<GAPD\>\""}], ";"}], 
    "\[IndentingNewLine]", 
    RowBox[{
-    RowBox[{"fittingData", " ", "=", " ", 
-     RowBox[{"Import", "[", 
-      RowBox[{"FileNameJoin", "[", 
-       RowBox[{
-        RowBox[{"{", 
+    RowBox[{"fittingData", " ", "=", " ", "\[IndentingNewLine]", 
+     RowBox[{"If", "[", 
+      RowBox[{
+       RowBox[{"$OperatingSystem", " ", "\[Equal]", " ", "\"\<Windows\>\""}], 
+       ",", "\[IndentingNewLine]", "\t", 
+       RowBox[{"Import", "[", 
+        RowBox[{"FileNameJoin", "[", 
          RowBox[{
-         "\"\<test_files\>\"", ",", " ", "\"\<analyze_fit_results\>\"", ",", 
-          " ", "\"\<GAPD.dat\>\""}], "}"}], ",", " ", 
-        RowBox[{"OperatingSystem", "\[Rule]", "$OperatingSystem"}]}], "]"}], 
-      "]"}]}], ";"}], "\[IndentingNewLine]", 
+          RowBox[{"{", 
+           RowBox[{
+           "\"\<test_files\>\"", ",", " ", "\"\<analyze_fit_results\>\"", ",",
+             " ", "\"\<GAPD_win.dat\>\""}], "}"}], ",", " ", 
+          RowBox[{"OperatingSystem", "\[Rule]", "$OperatingSystem"}]}], "]"}],
+         "]"}], ",", "\[IndentingNewLine]", "\t", 
+       RowBox[{"Import", "[", 
+        RowBox[{"FileNameJoin", "[", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+           "\"\<test_files\>\"", ",", " ", "\"\<analyze_fit_results\>\"", ",",
+             " ", "\"\<GAPD.dat\>\""}], "}"}], ",", " ", 
+          RowBox[{"OperatingSystem", "\[Rule]", "$OperatingSystem"}]}], "]"}],
+         "]"}], ","}], "\[IndentingNewLine]", "]"}]}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"fittingData", " ", "=", " ", 
      RowBox[{"fittingData", "[", 
@@ -617,8 +632,7 @@ Cell[BoxData[
       RowBox[{"VerificationTest", "[", 
        RowBox[{"result", ",", "expectedResult", " ", ",", " ", 
         RowBox[{"TestID", "\[Rule]", "\"\<getRatesWithSSD\>\""}]}], "]"}]}], 
-     "\[IndentingNewLine]", "]"}], ";"}], "\[IndentingNewLine]"}]}]], "Input",\
-
+     "\[IndentingNewLine]", "]"}], ";"}], "\[IndentingNewLine]"}]}]], "Input",
  CellChangeTimes->{{3.68837680299233*^9, 3.688376809170438*^9}, {
    3.688377062946416*^9, 3.688377063582418*^9}, 3.6883771745770893`*^9, {
    3.688377876439951*^9, 3.688377877362*^9}, {3.68837936496352*^9, 
@@ -644,7 +658,11 @@ Cell[BoxData[
    3.689077733678404*^9, 3.689077755557207*^9}, {3.689078390330802*^9, 
    3.689078419263741*^9}, {3.689078540210484*^9, 3.6890785461187057`*^9}, {
    3.689078635815906*^9, 3.689078663904129*^9}, {3.696075735027685*^9, 
-   3.696075823700042*^9}}]
+   3.696075823700042*^9}, {3.696760120608493*^9, 3.696760162417493*^9}, {
+   3.6967630018119*^9, 3.696763009127631*^9}, {3.696763047826501*^9, 
+   3.696763062398958*^9}, {3.6967631408538027`*^9, 3.6967631410208197`*^9}, {
+   3.6967633187205877`*^9, 3.6967633209598117`*^9}, {3.696763439726687*^9, 
+   3.6967634413808527`*^9}, {3.6967636071659603`*^9, 3.6967636099719605`*^9}}]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -962,6 +980,8 @@ Cell[TextData[{
    3.688464189533341*^9, 3.688464194468556*^9}, {3.688464387337203*^9, 
    3.688464392473873*^9}, 3.6890750785401487`*^9, {3.689586528144853*^9, 
    3.689586528144923*^9}}],
+
+Cell[CellGroupData[{
 
 Cell[BoxData[GridBox[{
    {
@@ -3582,6 +3602,15 @@ Cell[BoxData[GridBox[{
    3.689586529361919*^9, 3.6895866772695847`*^9}, {3.6895867189994802`*^9, 
    3.689586720708034*^9}, {3.689586932026802*^9, 3.68958695388603*^9}}],
 
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    SuperscriptBox["Null", "10"], "}"}], ",", 
+   RowBox[{"{", "\[Placeholder]", "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.6967595006354933`*^9}]
+}, Open  ]],
+
 Cell[CellGroupData[{
 
 Cell[BoxData["testResults"], "Input",
@@ -3619,8 +3648,8 @@ Cell[BoxData[
              PaneBox[
               
               DynamicBox[FEPrivate`FrontEndResource[
-               "MUnitExpressions", "SuccessIcon"],
-               ImageSizeCache->{16., {3., 9.}}],
+               "MUnitExpressions", "TestFailureIcon"],
+               ImageSizeCache->{12., {4., 8.}}],
               Alignment->Center,
               
               ImageSize->
@@ -3644,7 +3673,7 @@ Cell[BoxData[
               RowBox[{
                TagBox["\<\"Outcome: \"\>",
                 "SummaryItemAnnotation"], "\[InvisibleSpace]", 
-               TagBox["\<\"Success\"\>",
+               TagBox["\<\"Failure\"\>",
                 "SummaryItem"]}]},
              {
               RowBox[{
@@ -3690,7 +3719,7 @@ Cell[BoxData[
              PaneBox[
               
               DynamicBox[FEPrivate`FrontEndResource[
-               "MUnitExpressions", "SuccessIcon"]],
+               "MUnitExpressions", "TestFailureIcon"]],
               Alignment->Center,
               
               ImageSize->
@@ -3714,7 +3743,7 @@ Cell[BoxData[
               RowBox[{
                TagBox["\<\"Outcome: \"\>",
                 "SummaryItemAnnotation"], "\[InvisibleSpace]", 
-               TagBox["\<\"Success\"\>",
+               TagBox["\<\"Failure\"\>",
                 "SummaryItem"]}]},
              {
               RowBox[{
@@ -3769,12 +3798,30 @@ Cell[BoxData[
                  TagBox[
                   RowBox[{"{", 
                    RowBox[{"1", ",", "\<\"\"\>", ",", 
+                    RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], ",", 
                     RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"Equation", " ", "Fitting"}], ",", 
+                    RowBox[{"error", " ", "Relative"}], ",", 
+                    RowBox[{"True", " ", "value"}], ",", 
+                    RowBox[{"Predicted", " ", "Value"}]}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"Null", ",", "Null"}], "}"}], ",", 
+                    RowBox[{"\[LeftSkeleton]", "75", "\[RightSkeleton]"}], 
+                    ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    FractionBox[
                     RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], 
+                    RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}]], 
+                    ",", 
+                    RowBox[{"\[LeftSkeleton]", "3", "\[RightSkeleton]"}]}], 
                     "}"}], ",", 
                     RowBox[{"{", 
                     RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], 
-                    "}"}]}], "}"}],
+                    "}"}]}], "}"}]}], "}"}],
                   Short[#, 
                    Rational[2, 3]]& ],
                  BaselinePosition->Baseline,
@@ -3792,8 +3839,7 @@ Cell[BoxData[
                  TagBox[
                   
                   TemplateBox[{
-                   "0.051427`4.861706188273111","\"s\"","seconds",
-                    "\"Seconds\""},
+                   "0``7.1505149978319915","\"s\"","seconds","\"Seconds\""},
                    "Quantity"],
                   Short[#, 
                    Rational[2, 3]]& ],
@@ -3826,8 +3872,8 @@ Cell[BoxData[
       DynamicModuleValues:>{}], "]"}],
     TestResultObject[
      Association[
-     "TestIndex" -> 1, "TestID" -> "getRatesWithSSD", "Outcome" -> "Success", 
-      "Input" -> HoldForm[$CellContext`result], "ExpectedOutput" -> 
+     "TestIndex" -> 16, "TestID" -> "getRatesWithSSD", "Outcome" -> "Failure",
+       "Input" -> HoldForm[$CellContext`result], "ExpectedOutput" -> 
       HoldForm[{
         1, "", {{
           5.01290902953716*^-12, {7.243073614493139, 7.280840505893153*^6, 
@@ -4022,325 +4068,1713 @@ $CellContext`error $CellContext`Relative,
            267.9999999970065}, {$CellContext`absRateFor, 
            1.1169731806148775`*^-9, 268., 
            267.9999999970065}, {$CellContext`absRateFor, 
-           1.1169731806148775`*^-9, 268., 
-           267.9999999970065}, {$CellContext`KdRatio, 210.87901220979202`, 
-           3.2*^-7, 9.948128390713344*^-7}, {$CellContext`KdRatio, 
-           210.87901220979202`, 3.2*^-7, 
-           9.948128390713344*^-7}, {$CellContext`KdRatio, 210.87901220979202`,
-            3.2*^-7, 9.948128390713344*^-7}, {$CellContext`KdRatio, 
-           210.87901220979202`, 3.2*^-7, 
-           9.948128390713344*^-7}, {$CellContext`KdRatio, 210.87901220979202`,
-            3.2*^-7, 9.948128390713344*^-7}, {$CellContext`KdRatio, 
-           210.87901220979202`, 3.2*^-7, 
-           9.948128390713344*^-7}, {$CellContext`KdRatio, 210.87901220979202`,
-            3.2*^-7, 9.948128390713344*^-7}, {$CellContext`KdRatio, 
-           210.87901220979202`, 3.2*^-7, 
-           9.948128390713344*^-7}, {$CellContext`KdRatio, 210.87901220979202`,
-            3.2*^-7, 9.948128390713344*^-7}, {$CellContext`KdRatio, 
-           210.87901220979202`, 3.2*^-7, 
-           9.948128390713344*^-7}, {$CellContext`KdRatio, 210.87901220979202`,
-            3.2*^-7, 9.948128390713344*^-7}, {$CellContext`haldaneRatio, 
-           3.6566066079186103`*^-9, 0.408, 
-           0.407999999985081}, {$CellContext`haldaneRatio, 
-           3.6566066079186103`*^-9, 0.408, 
-           0.407999999985081}, {$CellContext`haldaneRatio, 
-           3.6566066079186103`*^-9, 0.408, 
-           0.407999999985081}, {$CellContext`haldaneRatio, 
-           3.6566066079186103`*^-9, 0.408, 
-           0.407999999985081}, {$CellContext`haldaneRatio, 
-           3.6566066079186103`*^-9, 0.408, 
-           0.407999999985081}, {$CellContext`haldaneRatio, 
-           3.6566066079186103`*^-9, 0.408, 
-           0.407999999985081}, {$CellContext`haldaneRatio, 
-           3.6566066079186103`*^-9, 0.408, 
-           0.407999999985081}, {$CellContext`haldaneRatio, 
-           3.6566066079186103`*^-9, 0.408, 
-           0.407999999985081}, {$CellContext`haldaneRatio, 
-           3.6566066079186103`*^-9, 0.408, 
-           0.407999999985081}, {$CellContext`haldaneRatio, 
-           3.6566066079186103`*^-9, 0.408, 
-           0.407999999985081}, {$CellContext`haldaneRatio, 
-           3.6566066079186103`*^-9, 0.408, 
-           0.407999999985081}, {$CellContext`dKdRatio, 3.755918870036325*^-9, 
-           425., 424.99999998403734`}, {$CellContext`dKdRatio, 
-           3.755918870036325*^-9, 425., 
-           424.99999998403734`}, {$CellContext`dKdRatio, 
-           3.755918870036325*^-9, 425., 
-           424.99999998403734`}, {$CellContext`dKdRatio, 
-           3.755918870036325*^-9, 425., 
-           424.99999998403734`}, {$CellContext`dKdRatio, 
-           3.755918870036325*^-9, 425., 
-           424.99999998403734`}, {$CellContext`dKdRatio, 
-           3.755918870036325*^-9, 425., 
-           424.99999998403734`}, {$CellContext`dKdRatio, 
-           3.755918870036325*^-9, 425., 
-           424.99999998403734`}, {$CellContext`dKdRatio, 
-           3.755918870036325*^-9, 425., 
-           424.99999998403734`}, {$CellContext`dKdRatio, 
-           3.755918870036325*^-9, 425., 
-           424.99999998403734`}, {$CellContext`dKdRatio, 
-           3.755918870036325*^-9, 425., 
-           424.99999998403734`}, {$CellContext`dKdRatio, 
-           3.755918870036325*^-9, 425., 424.99999998403734`}}}], 
-      "ActualOutput" -> 
+           1.1169731806148775`*^-9, 268., 267.9999999970065}, {
+          Toolbox`rateconst["GAPD1", False]/Toolbox`rateconst["GAPD1", True], 
+           210.87901220979202`, 3.2*^-7, 9.948128390713344*^-7}, {
+          Toolbox`rateconst["GAPD1", False]/Toolbox`rateconst["GAPD1", True], 
+           210.87901220979202`, 3.2*^-7, 9.948128390713344*^-7}, {
+          Toolbox`rateconst["GAPD1", False]/Toolbox`rateconst["GAPD1", True], 
+           210.87901220979202`, 3.2*^-7, 9.948128390713344*^-7}, {
+          Toolbox`rateconst["GAPD1", False]/Toolbox`rateconst["GAPD1", True], 
+           210.87901220979202`, 3.2*^-7, 9.948128390713344*^-7}, {
+          Toolbox`rateconst["GAPD1", False]/Toolbox`rateconst["GAPD1", True], 
+           210.87901220979202`, 3.2*^-7, 9.948128390713344*^-7}, {
+          Toolbox`rateconst["GAPD1", False]/Toolbox`rateconst["GAPD1", True], 
+           210.87901220979202`, 3.2*^-7, 9.948128390713344*^-7}, {
+          Toolbox`rateconst["GAPD1", False]/Toolbox`rateconst["GAPD1", True], 
+           210.87901220979202`, 3.2*^-7, 9.948128390713344*^-7}, {
+          Toolbox`rateconst["GAPD1", False]/Toolbox`rateconst["GAPD1", True], 
+           210.87901220979202`, 3.2*^-7, 9.948128390713344*^-7}, {
+          Toolbox`rateconst["GAPD1", False]/Toolbox`rateconst["GAPD1", True], 
+           210.87901220979202`, 3.2*^-7, 9.948128390713344*^-7}, {
+          Toolbox`rateconst["GAPD1", False]/Toolbox`rateconst["GAPD1", True], 
+           210.87901220979202`, 3.2*^-7, 9.948128390713344*^-7}, {
+          Toolbox`rateconst["GAPD1", False]/Toolbox`rateconst["GAPD1", True], 
+           210.87901220979202`, 3.2*^-7, 9.948128390713344*^-7}, {
+          Toolbox`rateconst["GAPD1", False]^(-1) 
+           Toolbox`rateconst["GAPD1", True] 
+           Toolbox`rateconst["GAPD2", False]^(-1) 
+           Toolbox`rateconst["GAPD2", True] 
+           Toolbox`rateconst["GAPD3", False]^(-1) 
+           Toolbox`rateconst["GAPD3", True] 
+           Toolbox`rateconst["GAPD4", False]^(-1) 
+           Toolbox`rateconst["GAPD4", True] 
+           Toolbox`rateconst["GAPD5", False]^(-1) 
+           Toolbox`rateconst["GAPD5", True] 
+           Toolbox`rateconst["GAPD6", False]^(-1) 
+           Toolbox`rateconst["GAPD6", True], 3.6566066079186103`*^-9, 0.408, 
+           0.407999999985081}, {
+          Toolbox`rateconst["GAPD1", False]^(-1) 
+           Toolbox`rateconst["GAPD1", True] 
+           Toolbox`rateconst["GAPD2", False]^(-1) 
+           Toolbox`rateconst["GAPD2", True] 
+           Toolbox`rateconst["GAPD3", False]^(-1) 
+           Toolbox`rateconst["GAPD3", True] 
+           Toolbox`rateconst["GAPD4", False]^(-1) 
+           Toolbox`rateconst["GAPD4", True] 
+           Toolbox`rateconst["GAPD5", False]^(-1) 
+           Toolbox`rateconst["GAPD5", True] 
+           Toolbox`rateconst["GAPD6", False]^(-1) 
+           Toolbox`rateconst["GAPD6", True], 3.6566066079186103`*^-9, 0.408, 
+           0.407999999985081}, {
+          Toolbox`rateconst["GAPD1", False]^(-1) 
+           Toolbox`rateconst["GAPD1", True] 
+           Toolbox`rateconst["GAPD2", False]^(-1) 
+           Toolbox`rateconst["GAPD2", True] 
+           Toolbox`rateconst["GAPD3", False]^(-1) 
+           Toolbox`rateconst["GAPD3", True] 
+           Toolbox`rateconst["GAPD4", False]^(-1) 
+           Toolbox`rateconst["GAPD4", True] 
+           Toolbox`rateconst["GAPD5", False]^(-1) 
+           Toolbox`rateconst["GAPD5", True] 
+           Toolbox`rateconst["GAPD6", False]^(-1) 
+           Toolbox`rateconst["GAPD6", True], 3.6566066079186103`*^-9, 0.408, 
+           0.407999999985081}, {
+          Toolbox`rateconst["GAPD1", False]^(-1) 
+           Toolbox`rateconst["GAPD1", True] 
+           Toolbox`rateconst["GAPD2", False]^(-1) 
+           Toolbox`rateconst["GAPD2", True] 
+           Toolbox`rateconst["GAPD3", False]^(-1) 
+           Toolbox`rateconst["GAPD3", True] 
+           Toolbox`rateconst["GAPD4", False]^(-1) 
+           Toolbox`rateconst["GAPD4", True] 
+           Toolbox`rateconst["GAPD5", False]^(-1) 
+           Toolbox`rateconst["GAPD5", True] 
+           Toolbox`rateconst["GAPD6", False]^(-1) 
+           Toolbox`rateconst["GAPD6", True], 3.6566066079186103`*^-9, 0.408, 
+           0.407999999985081}, {
+          Toolbox`rateconst["GAPD1", False]^(-1) 
+           Toolbox`rateconst["GAPD1", True] 
+           Toolbox`rateconst["GAPD2", False]^(-1) 
+           Toolbox`rateconst["GAPD2", True] 
+           Toolbox`rateconst["GAPD3", False]^(-1) 
+           Toolbox`rateconst["GAPD3", True] 
+           Toolbox`rateconst["GAPD4", False]^(-1) 
+           Toolbox`rateconst["GAPD4", True] 
+           Toolbox`rateconst["GAPD5", False]^(-1) 
+           Toolbox`rateconst["GAPD5", True] 
+           Toolbox`rateconst["GAPD6", False]^(-1) 
+           Toolbox`rateconst["GAPD6", True], 3.6566066079186103`*^-9, 0.408, 
+           0.407999999985081}, {
+          Toolbox`rateconst["GAPD1", False]^(-1) 
+           Toolbox`rateconst["GAPD1", True] 
+           Toolbox`rateconst["GAPD2", False]^(-1) 
+           Toolbox`rateconst["GAPD2", True] 
+           Toolbox`rateconst["GAPD3", False]^(-1) 
+           Toolbox`rateconst["GAPD3", True] 
+           Toolbox`rateconst["GAPD4", False]^(-1) 
+           Toolbox`rateconst["GAPD4", True] 
+           Toolbox`rateconst["GAPD5", False]^(-1) 
+           Toolbox`rateconst["GAPD5", True] 
+           Toolbox`rateconst["GAPD6", False]^(-1) 
+           Toolbox`rateconst["GAPD6", True], 3.6566066079186103`*^-9, 0.408, 
+           0.407999999985081}, {
+          Toolbox`rateconst["GAPD1", False]^(-1) 
+           Toolbox`rateconst["GAPD1", True] 
+           Toolbox`rateconst["GAPD2", False]^(-1) 
+           Toolbox`rateconst["GAPD2", True] 
+           Toolbox`rateconst["GAPD3", False]^(-1) 
+           Toolbox`rateconst["GAPD3", True] 
+           Toolbox`rateconst["GAPD4", False]^(-1) 
+           Toolbox`rateconst["GAPD4", True] 
+           Toolbox`rateconst["GAPD5", False]^(-1) 
+           Toolbox`rateconst["GAPD5", True] 
+           Toolbox`rateconst["GAPD6", False]^(-1) 
+           Toolbox`rateconst["GAPD6", True], 3.6566066079186103`*^-9, 0.408, 
+           0.407999999985081}, {
+          Toolbox`rateconst["GAPD1", False]^(-1) 
+           Toolbox`rateconst["GAPD1", True] 
+           Toolbox`rateconst["GAPD2", False]^(-1) 
+           Toolbox`rateconst["GAPD2", True] 
+           Toolbox`rateconst["GAPD3", False]^(-1) 
+           Toolbox`rateconst["GAPD3", True] 
+           Toolbox`rateconst["GAPD4", False]^(-1) 
+           Toolbox`rateconst["GAPD4", True] 
+           Toolbox`rateconst["GAPD5", False]^(-1) 
+           Toolbox`rateconst["GAPD5", True] 
+           Toolbox`rateconst["GAPD6", False]^(-1) 
+           Toolbox`rateconst["GAPD6", True], 3.6566066079186103`*^-9, 0.408, 
+           0.407999999985081}, {
+          Toolbox`rateconst["GAPD1", False]^(-1) 
+           Toolbox`rateconst["GAPD1", True] 
+           Toolbox`rateconst["GAPD2", False]^(-1) 
+           Toolbox`rateconst["GAPD2", True] 
+           Toolbox`rateconst["GAPD3", False]^(-1) 
+           Toolbox`rateconst["GAPD3", True] 
+           Toolbox`rateconst["GAPD4", False]^(-1) 
+           Toolbox`rateconst["GAPD4", True] 
+           Toolbox`rateconst["GAPD5", False]^(-1) 
+           Toolbox`rateconst["GAPD5", True] 
+           Toolbox`rateconst["GAPD6", False]^(-1) 
+           Toolbox`rateconst["GAPD6", True], 3.6566066079186103`*^-9, 0.408, 
+           0.407999999985081}, {
+          Toolbox`rateconst["GAPD1", False]^(-1) 
+           Toolbox`rateconst["GAPD1", True] 
+           Toolbox`rateconst["GAPD2", False]^(-1) 
+           Toolbox`rateconst["GAPD2", True] 
+           Toolbox`rateconst["GAPD3", False]^(-1) 
+           Toolbox`rateconst["GAPD3", True] 
+           Toolbox`rateconst["GAPD4", False]^(-1) 
+           Toolbox`rateconst["GAPD4", True] 
+           Toolbox`rateconst["GAPD5", False]^(-1) 
+           Toolbox`rateconst["GAPD5", True] 
+           Toolbox`rateconst["GAPD6", False]^(-1) 
+           Toolbox`rateconst["GAPD6", True], 3.6566066079186103`*^-9, 0.408, 
+           0.407999999985081}, {
+          Toolbox`rateconst["GAPD1", False]^(-1) 
+           Toolbox`rateconst["GAPD1", True] 
+           Toolbox`rateconst["GAPD2", False]^(-1) 
+           Toolbox`rateconst["GAPD2", True] 
+           Toolbox`rateconst["GAPD3", False]^(-1) 
+           Toolbox`rateconst["GAPD3", True] 
+           Toolbox`rateconst["GAPD4", False]^(-1) 
+           Toolbox`rateconst["GAPD4", True] 
+           Toolbox`rateconst["GAPD5", False]^(-1) 
+           Toolbox`rateconst["GAPD5", True] 
+           Toolbox`rateconst["GAPD6", False]^(-1) 
+           Toolbox`rateconst["GAPD6", True], 3.6566066079186103`*^-9, 0.408, 
+           0.407999999985081}, {
+          Toolbox`rateconst["GAPD1", False]^(-1) 
+           Toolbox`rateconst["GAPD1", True] 
+           Toolbox`rateconst["GAPD2", False]^(-1) 
+           Toolbox`rateconst["GAPD2", True] 
+           Toolbox`rateconst["GAPD3", False]^(-1) 
+           Toolbox`rateconst["GAPD3", True] 
+           Toolbox`rateconst["GAPD4", False]^(-1) 
+           Toolbox`rateconst["GAPD4", True] 
+           Toolbox`rateconst["GAPD5", False]^(-1) 
+           Toolbox`rateconst["GAPD5", True], 3.755918870036325*^-9, 425., 
+           424.99999998403734`}, {
+          Toolbox`rateconst["GAPD1", False]^(-1) 
+           Toolbox`rateconst["GAPD1", True] 
+           Toolbox`rateconst["GAPD2", False]^(-1) 
+           Toolbox`rateconst["GAPD2", True] 
+           Toolbox`rateconst["GAPD3", False]^(-1) 
+           Toolbox`rateconst["GAPD3", True] 
+           Toolbox`rateconst["GAPD4", False]^(-1) 
+           Toolbox`rateconst["GAPD4", True] 
+           Toolbox`rateconst["GAPD5", False]^(-1) 
+           Toolbox`rateconst["GAPD5", True], 3.755918870036325*^-9, 425., 
+           424.99999998403734`}, {
+          Toolbox`rateconst["GAPD1", False]^(-1) 
+           Toolbox`rateconst["GAPD1", True] 
+           Toolbox`rateconst["GAPD2", False]^(-1) 
+           Toolbox`rateconst["GAPD2", True] 
+           Toolbox`rateconst["GAPD3", False]^(-1) 
+           Toolbox`rateconst["GAPD3", True] 
+           Toolbox`rateconst["GAPD4", False]^(-1) 
+           Toolbox`rateconst["GAPD4", True] 
+           Toolbox`rateconst["GAPD5", False]^(-1) 
+           Toolbox`rateconst["GAPD5", True], 3.755918870036325*^-9, 425., 
+           424.99999998403734`}, {
+          Toolbox`rateconst["GAPD1", False]^(-1) 
+           Toolbox`rateconst["GAPD1", True] 
+           Toolbox`rateconst["GAPD2", False]^(-1) 
+           Toolbox`rateconst["GAPD2", True] 
+           Toolbox`rateconst["GAPD3", False]^(-1) 
+           Toolbox`rateconst["GAPD3", True] 
+           Toolbox`rateconst["GAPD4", False]^(-1) 
+           Toolbox`rateconst["GAPD4", True] 
+           Toolbox`rateconst["GAPD5", False]^(-1) 
+           Toolbox`rateconst["GAPD5", True], 3.755918870036325*^-9, 425., 
+           424.99999998403734`}, {
+          Toolbox`rateconst["GAPD1", False]^(-1) 
+           Toolbox`rateconst["GAPD1", True] 
+           Toolbox`rateconst["GAPD2", False]^(-1) 
+           Toolbox`rateconst["GAPD2", True] 
+           Toolbox`rateconst["GAPD3", False]^(-1) 
+           Toolbox`rateconst["GAPD3", True] 
+           Toolbox`rateconst["GAPD4", False]^(-1) 
+           Toolbox`rateconst["GAPD4", True] 
+           Toolbox`rateconst["GAPD5", False]^(-1) 
+           Toolbox`rateconst["GAPD5", True], 3.755918870036325*^-9, 425., 
+           424.99999998403734`}, {
+          Toolbox`rateconst["GAPD1", False]^(-1) 
+           Toolbox`rateconst["GAPD1", True] 
+           Toolbox`rateconst["GAPD2", False]^(-1) 
+           Toolbox`rateconst["GAPD2", True] 
+           Toolbox`rateconst["GAPD3", False]^(-1) 
+           Toolbox`rateconst["GAPD3", True] 
+           Toolbox`rateconst["GAPD4", False]^(-1) 
+           Toolbox`rateconst["GAPD4", True] 
+           Toolbox`rateconst["GAPD5", False]^(-1) 
+           Toolbox`rateconst["GAPD5", True], 3.755918870036325*^-9, 425., 
+           424.99999998403734`}, {
+          Toolbox`rateconst["GAPD1", False]^(-1) 
+           Toolbox`rateconst["GAPD1", True] 
+           Toolbox`rateconst["GAPD2", False]^(-1) 
+           Toolbox`rateconst["GAPD2", True] 
+           Toolbox`rateconst["GAPD3", False]^(-1) 
+           Toolbox`rateconst["GAPD3", True] 
+           Toolbox`rateconst["GAPD4", False]^(-1) 
+           Toolbox`rateconst["GAPD4", True] 
+           Toolbox`rateconst["GAPD5", False]^(-1) 
+           Toolbox`rateconst["GAPD5", True], 3.755918870036325*^-9, 425., 
+           424.99999998403734`}, {
+          Toolbox`rateconst["GAPD1", False]^(-1) 
+           Toolbox`rateconst["GAPD1", True] 
+           Toolbox`rateconst["GAPD2", False]^(-1) 
+           Toolbox`rateconst["GAPD2", True] 
+           Toolbox`rateconst["GAPD3", False]^(-1) 
+           Toolbox`rateconst["GAPD3", True] 
+           Toolbox`rateconst["GAPD4", False]^(-1) 
+           Toolbox`rateconst["GAPD4", True] 
+           Toolbox`rateconst["GAPD5", False]^(-1) 
+           Toolbox`rateconst["GAPD5", True], 3.755918870036325*^-9, 425., 
+           424.99999998403734`}, {
+          Toolbox`rateconst["GAPD1", False]^(-1) 
+           Toolbox`rateconst["GAPD1", True] 
+           Toolbox`rateconst["GAPD2", False]^(-1) 
+           Toolbox`rateconst["GAPD2", True] 
+           Toolbox`rateconst["GAPD3", False]^(-1) 
+           Toolbox`rateconst["GAPD3", True] 
+           Toolbox`rateconst["GAPD4", False]^(-1) 
+           Toolbox`rateconst["GAPD4", True] 
+           Toolbox`rateconst["GAPD5", False]^(-1) 
+           Toolbox`rateconst["GAPD5", True], 3.755918870036325*^-9, 425., 
+           424.99999998403734`}, {
+          Toolbox`rateconst["GAPD1", False]^(-1) 
+           Toolbox`rateconst["GAPD1", True] 
+           Toolbox`rateconst["GAPD2", False]^(-1) 
+           Toolbox`rateconst["GAPD2", True] 
+           Toolbox`rateconst["GAPD3", False]^(-1) 
+           Toolbox`rateconst["GAPD3", True] 
+           Toolbox`rateconst["GAPD4", False]^(-1) 
+           Toolbox`rateconst["GAPD4", True] 
+           Toolbox`rateconst["GAPD5", False]^(-1) 
+           Toolbox`rateconst["GAPD5", True], 3.755918870036325*^-9, 425., 
+           424.99999998403734`}, {
+          Toolbox`rateconst["GAPD1", False]^(-1) 
+           Toolbox`rateconst["GAPD1", True] 
+           Toolbox`rateconst["GAPD2", False]^(-1) 
+           Toolbox`rateconst["GAPD2", True] 
+           Toolbox`rateconst["GAPD3", False]^(-1) 
+           Toolbox`rateconst["GAPD3", True] 
+           Toolbox`rateconst["GAPD4", False]^(-1) 
+           Toolbox`rateconst["GAPD4", True] 
+           Toolbox`rateconst["GAPD5", False]^(-1) 
+           Toolbox`rateconst["GAPD5", True], 3.755918870036325*^-9, 425., 
+           424.99999998403734`}}}], "ActualOutput" -> 
       HoldForm[{
         1, "", {{
-          5.01290902953716*^-12, {7.243073614493139, 7.280840505893153*^6, 
-           9.913593473033872*^8, 769.0509796335288, 17913.790165176215`, 
-           512690.43454115005`, 1.0342299381626981`*^8, 613710.350010075, 
-           492.6305286132232, 1.580933256433553*^6, 9.269382510027511*^8, 
-           889860.7209635247}, CompressedData["
-1:eJxTTMoPSmVkYGDwBWKdaqb8i67b7c/5J0U8bjpoH7dC9n/DppP2SrbazT6W
-l+yf9bQdiT10w/5z5eff///ft491fSp5cd5je/ZvsrsjHz+zrw2avzd+8kv7
-2nN/1d3nv7afwnnygqv4W/sSlYpskLkJx2+Fgszlvbz2N8hcnVt/GkDmzrD8
-cxBk7hE+t58gc7dIL5AAmdt1hG0XyFzt2MN7QOYmvokGm7tnXzjYXB3t3lSQ
-udYZCwJB5l5Sf/8VZO652vBakLmN+nv3gsy9Fn3mC8jcVdMaxEDmRoqZ7ACZ
-G7UpeDfI3KkhvmogcyfHzzoPMtfL6P////sLHKhNB7Ru9diwYYMdtWlRXl2O
-NTK37KlN820HRnN/lQO1aQBXG0Gu
-           "]}, {
-          0.0008144406208422984, {2.087773303808792, 8.404649468963604*^6, 
-           9.99265050251681*^8, 1083.7110538426284`, 1.2004148107146493`*^6, 
+          11 (268. - Abs["test_files/analyze_fit_results/absRateFor.txt"])^2 + 
+           11 (425. - Abs["test_files/analyze_fit_results/dKdRatio.txt"])^2 + 
+           11 (0.408 - Abs[
+              "test_files/analyze_fit_results/haldaneRatio.txt"])^2 + 
+           11 (3.2*^-7 - Abs[
+              "test_files/analyze_fit_results/KdRatio.txt"])^2 + (
+             0.090909090909091 - Abs[
+             "test_files/analyze_fit_results/relRateFor_g3p.txt"])^2 + (
+             0.13680688860321016` - Abs[
+             "test_files/analyze_fit_results/relRateFor_g3p.txt"])^2 + (
+             0.20076000891310186` - Abs[
+             "test_files/analyze_fit_results/relRateFor_g3p.txt"])^2 + (
+             0.2847472489508016 - Abs[
+             "test_files/analyze_fit_results/relRateFor_g3p.txt"])^2 + (
+             0.38686317984685703` - Abs[
+             "test_files/analyze_fit_results/relRateFor_g3p.txt"])^2 + (
+             0.5000000000000002 - Abs[
+             "test_files/analyze_fit_results/relRateFor_g3p.txt"])^2 + (
+             0.6131368201531434 - Abs[
+             "test_files/analyze_fit_results/relRateFor_g3p.txt"])^2 + (
+             0.7152527510491988 - Abs[
+             "test_files/analyze_fit_results/relRateFor_g3p.txt"])^2 + (
+             0.7992399910868984 - Abs[
+             "test_files/analyze_fit_results/relRateFor_g3p.txt"])^2 + (
+             0.86319311139679 - Abs[
+             "test_files/analyze_fit_results/relRateFor_g3p.txt"])^2 + (
+             0.9090909090909092 - Abs[
+             "test_files/analyze_fit_results/relRateFor_g3p.txt"])^2 + (
+             0.09090909090909098 - Abs[
+             "test_files/analyze_fit_results/relRateFor_nad.txt"])^2 + (
+             0.13680688860321014` - Abs[
+             "test_files/analyze_fit_results/relRateFor_nad.txt"])^2 + (
+             0.20076000891310197` - Abs[
+             "test_files/analyze_fit_results/relRateFor_nad.txt"])^2 + (
+             0.2847472489508014 - Abs[
+             "test_files/analyze_fit_results/relRateFor_nad.txt"])^2 + (
+             0.3868631798468571 - Abs[
+             "test_files/analyze_fit_results/relRateFor_nad.txt"])^2 + (
+             0.5000000000000002 - Abs[
+             "test_files/analyze_fit_results/relRateFor_nad.txt"])^2 + (
+             0.6131368201531433 - Abs[
+             "test_files/analyze_fit_results/relRateFor_nad.txt"])^2 + (
+             0.7152527510491989 - Abs[
+             "test_files/analyze_fit_results/relRateFor_nad.txt"])^2 + (
+             0.7992399910868984 - Abs[
+             "test_files/analyze_fit_results/relRateFor_nad.txt"])^2 + (
+             0.86319311139679 - Abs[
+             "test_files/analyze_fit_results/relRateFor_nad.txt"])^2 + (
+             0.9090909090909093 - Abs[
+             "test_files/analyze_fit_results/relRateFor_nad.txt"])^2 + (
+             0.09090909090909093 - Abs[
+             "test_files/analyze_fit_results/relRateFor_pi.txt"])^2 + (
+             0.13680688860321005` - Abs[
+             "test_files/analyze_fit_results/relRateFor_pi.txt"])^2 + (
+             0.20076000891310172` - Abs[
+             "test_files/analyze_fit_results/relRateFor_pi.txt"])^2 + (
+             0.28474724895080145` - Abs[
+             "test_files/analyze_fit_results/relRateFor_pi.txt"])^2 + (
+             0.3868631798468569 - Abs[
+             "test_files/analyze_fit_results/relRateFor_pi.txt"])^2 + (0.5 - 
+             Abs["test_files/analyze_fit_results/relRateFor_pi.txt"])^2 + (
+             0.6131368201531432 - Abs[
+             "test_files/analyze_fit_results/relRateFor_pi.txt"])^2 + (
+             0.7152527510491988 - Abs[
+             "test_files/analyze_fit_results/relRateFor_pi.txt"])^2 + (
+             0.7992399910868982 - Abs[
+             "test_files/analyze_fit_results/relRateFor_pi.txt"])^2 + (
+             0.8631931113967899 - Abs[
+             "test_files/analyze_fit_results/relRateFor_pi.txt"])^2 + (
+             0.9090909090909092 - Abs[
+             "test_files/analyze_fit_results/relRateFor_pi.txt"])^2, {
+           1.0656310607050545`, 4.27934445080293*^6, 9.999994675273379*^8, 
+           354.9393707793561, 60995.157314892924`, 494175.5565155273, 
+           9.999994675273379*^8, 7.032771442343364*^8, 62267.87532883567, 
+           3.258331029377049*^6, 1.1526432521111974`*^8, 
+           110653.98842109756`}, {
+            Abs["test_files/analyze_fit_results/relRateFor_nad.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_nad.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_nad.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_nad.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_nad.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_nad.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_nad.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_nad.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_nad.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_nad.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_nad.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_g3p.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_g3p.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_g3p.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_g3p.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_g3p.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_g3p.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_g3p.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_g3p.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_g3p.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_g3p.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_g3p.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_pi.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_pi.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_pi.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_pi.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_pi.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_pi.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_pi.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_pi.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_pi.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_pi.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_pi.txt"], 
+            Abs["test_files/analyze_fit_results/absRateFor.txt"], 
+            Abs["test_files/analyze_fit_results/absRateFor.txt"], 
+            Abs["test_files/analyze_fit_results/absRateFor.txt"], 
+            Abs["test_files/analyze_fit_results/absRateFor.txt"], 
+            Abs["test_files/analyze_fit_results/absRateFor.txt"], 
+            Abs["test_files/analyze_fit_results/absRateFor.txt"], 
+            Abs["test_files/analyze_fit_results/absRateFor.txt"], 
+            Abs["test_files/analyze_fit_results/absRateFor.txt"], 
+            Abs["test_files/analyze_fit_results/absRateFor.txt"], 
+            Abs["test_files/analyze_fit_results/absRateFor.txt"], 
+            Abs["test_files/analyze_fit_results/absRateFor.txt"], 
+            Abs["test_files/analyze_fit_results/KdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/KdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/KdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/KdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/KdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/KdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/KdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/KdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/KdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/KdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/KdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/haldaneRatio.txt"], 
+            Abs["test_files/analyze_fit_results/haldaneRatio.txt"], 
+            Abs["test_files/analyze_fit_results/haldaneRatio.txt"], 
+            Abs["test_files/analyze_fit_results/haldaneRatio.txt"], 
+            Abs["test_files/analyze_fit_results/haldaneRatio.txt"], 
+            Abs["test_files/analyze_fit_results/haldaneRatio.txt"], 
+            Abs["test_files/analyze_fit_results/haldaneRatio.txt"], 
+            Abs["test_files/analyze_fit_results/haldaneRatio.txt"], 
+            Abs["test_files/analyze_fit_results/haldaneRatio.txt"], 
+            Abs["test_files/analyze_fit_results/haldaneRatio.txt"], 
+            Abs["test_files/analyze_fit_results/haldaneRatio.txt"], 
+            Abs["test_files/analyze_fit_results/dKdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/dKdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/dKdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/dKdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/dKdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/dKdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/dKdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/dKdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/dKdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/dKdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/dKdRatio.txt"]}}, {
+          11 (268. - Abs["test_files/analyze_fit_results/absRateFor.txt"])^2 + 
+           11 (425. - Abs["test_files/analyze_fit_results/dKdRatio.txt"])^2 + 
+           11 (0.408 - Abs[
+              "test_files/analyze_fit_results/haldaneRatio.txt"])^2 + 
+           11 (3.2*^-7 - Abs[
+              "test_files/analyze_fit_results/KdRatio.txt"])^2 + (
+             0.090909090909091 - Abs[
+             "test_files/analyze_fit_results/relRateFor_g3p.txt"])^2 + (
+             0.13680688860321016` - Abs[
+             "test_files/analyze_fit_results/relRateFor_g3p.txt"])^2 + (
+             0.20076000891310186` - Abs[
+             "test_files/analyze_fit_results/relRateFor_g3p.txt"])^2 + (
+             0.2847472489508016 - Abs[
+             "test_files/analyze_fit_results/relRateFor_g3p.txt"])^2 + (
+             0.38686317984685703` - Abs[
+             "test_files/analyze_fit_results/relRateFor_g3p.txt"])^2 + (
+             0.5000000000000002 - Abs[
+             "test_files/analyze_fit_results/relRateFor_g3p.txt"])^2 + (
+             0.6131368201531434 - Abs[
+             "test_files/analyze_fit_results/relRateFor_g3p.txt"])^2 + (
+             0.7152527510491988 - Abs[
+             "test_files/analyze_fit_results/relRateFor_g3p.txt"])^2 + (
+             0.7992399910868984 - Abs[
+             "test_files/analyze_fit_results/relRateFor_g3p.txt"])^2 + (
+             0.86319311139679 - Abs[
+             "test_files/analyze_fit_results/relRateFor_g3p.txt"])^2 + (
+             0.9090909090909092 - Abs[
+             "test_files/analyze_fit_results/relRateFor_g3p.txt"])^2 + (
+             0.09090909090909098 - Abs[
+             "test_files/analyze_fit_results/relRateFor_nad.txt"])^2 + (
+             0.13680688860321014` - Abs[
+             "test_files/analyze_fit_results/relRateFor_nad.txt"])^2 + (
+             0.20076000891310197` - Abs[
+             "test_files/analyze_fit_results/relRateFor_nad.txt"])^2 + (
+             0.2847472489508014 - Abs[
+             "test_files/analyze_fit_results/relRateFor_nad.txt"])^2 + (
+             0.3868631798468571 - Abs[
+             "test_files/analyze_fit_results/relRateFor_nad.txt"])^2 + (
+             0.5000000000000002 - Abs[
+             "test_files/analyze_fit_results/relRateFor_nad.txt"])^2 + (
+             0.6131368201531433 - Abs[
+             "test_files/analyze_fit_results/relRateFor_nad.txt"])^2 + (
+             0.7152527510491989 - Abs[
+             "test_files/analyze_fit_results/relRateFor_nad.txt"])^2 + (
+             0.7992399910868984 - Abs[
+             "test_files/analyze_fit_results/relRateFor_nad.txt"])^2 + (
+             0.86319311139679 - Abs[
+             "test_files/analyze_fit_results/relRateFor_nad.txt"])^2 + (
+             0.9090909090909093 - Abs[
+             "test_files/analyze_fit_results/relRateFor_nad.txt"])^2 + (
+             0.09090909090909093 - Abs[
+             "test_files/analyze_fit_results/relRateFor_pi.txt"])^2 + (
+             0.13680688860321005` - Abs[
+             "test_files/analyze_fit_results/relRateFor_pi.txt"])^2 + (
+             0.20076000891310172` - Abs[
+             "test_files/analyze_fit_results/relRateFor_pi.txt"])^2 + (
+             0.28474724895080145` - Abs[
+             "test_files/analyze_fit_results/relRateFor_pi.txt"])^2 + (
+             0.3868631798468569 - Abs[
+             "test_files/analyze_fit_results/relRateFor_pi.txt"])^2 + (0.5 - 
+             Abs["test_files/analyze_fit_results/relRateFor_pi.txt"])^2 + (
+             0.6131368201531432 - Abs[
+             "test_files/analyze_fit_results/relRateFor_pi.txt"])^2 + (
+             0.7152527510491988 - Abs[
+             "test_files/analyze_fit_results/relRateFor_pi.txt"])^2 + (
+             0.7992399910868982 - Abs[
+             "test_files/analyze_fit_results/relRateFor_pi.txt"])^2 + (
+             0.8631931113967899 - Abs[
+             "test_files/analyze_fit_results/relRateFor_pi.txt"])^2 + (
+             0.9090909090909092 - Abs[
+             "test_files/analyze_fit_results/relRateFor_pi.txt"])^2, {
+           1.595961025051722, 5.992567336682581*^6, 9.999994669516939*^8, 
+           5043.1143464848465`, 8.95876106981256*^8, 9.582055530087037*^8, 
+           9.999994679187793*^8, 1.0614693236029057`*^6, 37771.2998636874, 
+           7.466789762403065*^8, 743222.4324195506, 717.4227808185191}, {
+            Abs["test_files/analyze_fit_results/relRateFor_nad.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_nad.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_nad.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_nad.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_nad.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_nad.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_nad.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_nad.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_nad.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_nad.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_nad.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_g3p.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_g3p.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_g3p.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_g3p.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_g3p.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_g3p.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_g3p.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_g3p.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_g3p.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_g3p.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_g3p.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_pi.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_pi.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_pi.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_pi.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_pi.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_pi.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_pi.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_pi.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_pi.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_pi.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_pi.txt"], 
+            Abs["test_files/analyze_fit_results/absRateFor.txt"], 
+            Abs["test_files/analyze_fit_results/absRateFor.txt"], 
+            Abs["test_files/analyze_fit_results/absRateFor.txt"], 
+            Abs["test_files/analyze_fit_results/absRateFor.txt"], 
+            Abs["test_files/analyze_fit_results/absRateFor.txt"], 
+            Abs["test_files/analyze_fit_results/absRateFor.txt"], 
+            Abs["test_files/analyze_fit_results/absRateFor.txt"], 
+            Abs["test_files/analyze_fit_results/absRateFor.txt"], 
+            Abs["test_files/analyze_fit_results/absRateFor.txt"], 
+            Abs["test_files/analyze_fit_results/absRateFor.txt"], 
+            Abs["test_files/analyze_fit_results/absRateFor.txt"], 
+            Abs["test_files/analyze_fit_results/KdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/KdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/KdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/KdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/KdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/KdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/KdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/KdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/KdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/KdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/KdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/haldaneRatio.txt"], 
+            Abs["test_files/analyze_fit_results/haldaneRatio.txt"], 
+            Abs["test_files/analyze_fit_results/haldaneRatio.txt"], 
+            Abs["test_files/analyze_fit_results/haldaneRatio.txt"], 
+            Abs["test_files/analyze_fit_results/haldaneRatio.txt"], 
+            Abs["test_files/analyze_fit_results/haldaneRatio.txt"], 
+            Abs["test_files/analyze_fit_results/haldaneRatio.txt"], 
+            Abs["test_files/analyze_fit_results/haldaneRatio.txt"], 
+            Abs["test_files/analyze_fit_results/haldaneRatio.txt"], 
+            Abs["test_files/analyze_fit_results/haldaneRatio.txt"], 
+            Abs["test_files/analyze_fit_results/haldaneRatio.txt"], 
+            Abs["test_files/analyze_fit_results/dKdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/dKdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/dKdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/dKdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/dKdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/dKdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/dKdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/dKdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/dKdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/dKdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/dKdRatio.txt"]}}, {
+          11 (268. - Abs["test_files/analyze_fit_results/absRateFor.txt"])^2 + 
+           11 (425. - Abs["test_files/analyze_fit_results/dKdRatio.txt"])^2 + 
+           11 (0.408 - Abs[
+              "test_files/analyze_fit_results/haldaneRatio.txt"])^2 + 
+           11 (3.2*^-7 - Abs[
+              "test_files/analyze_fit_results/KdRatio.txt"])^2 + (
+             0.090909090909091 - Abs[
+             "test_files/analyze_fit_results/relRateFor_g3p.txt"])^2 + (
+             0.13680688860321016` - Abs[
+             "test_files/analyze_fit_results/relRateFor_g3p.txt"])^2 + (
+             0.20076000891310186` - Abs[
+             "test_files/analyze_fit_results/relRateFor_g3p.txt"])^2 + (
+             0.2847472489508016 - Abs[
+             "test_files/analyze_fit_results/relRateFor_g3p.txt"])^2 + (
+             0.38686317984685703` - Abs[
+             "test_files/analyze_fit_results/relRateFor_g3p.txt"])^2 + (
+             0.5000000000000002 - Abs[
+             "test_files/analyze_fit_results/relRateFor_g3p.txt"])^2 + (
+             0.6131368201531434 - Abs[
+             "test_files/analyze_fit_results/relRateFor_g3p.txt"])^2 + (
+             0.7152527510491988 - Abs[
+             "test_files/analyze_fit_results/relRateFor_g3p.txt"])^2 + (
+             0.7992399910868984 - Abs[
+             "test_files/analyze_fit_results/relRateFor_g3p.txt"])^2 + (
+             0.86319311139679 - Abs[
+             "test_files/analyze_fit_results/relRateFor_g3p.txt"])^2 + (
+             0.9090909090909092 - Abs[
+             "test_files/analyze_fit_results/relRateFor_g3p.txt"])^2 + (
+             0.09090909090909098 - Abs[
+             "test_files/analyze_fit_results/relRateFor_nad.txt"])^2 + (
+             0.13680688860321014` - Abs[
+             "test_files/analyze_fit_results/relRateFor_nad.txt"])^2 + (
+             0.20076000891310197` - Abs[
+             "test_files/analyze_fit_results/relRateFor_nad.txt"])^2 + (
+             0.2847472489508014 - Abs[
+             "test_files/analyze_fit_results/relRateFor_nad.txt"])^2 + (
+             0.3868631798468571 - Abs[
+             "test_files/analyze_fit_results/relRateFor_nad.txt"])^2 + (
+             0.5000000000000002 - Abs[
+             "test_files/analyze_fit_results/relRateFor_nad.txt"])^2 + (
+             0.6131368201531433 - Abs[
+             "test_files/analyze_fit_results/relRateFor_nad.txt"])^2 + (
+             0.7152527510491989 - Abs[
+             "test_files/analyze_fit_results/relRateFor_nad.txt"])^2 + (
+             0.7992399910868984 - Abs[
+             "test_files/analyze_fit_results/relRateFor_nad.txt"])^2 + (
+             0.86319311139679 - Abs[
+             "test_files/analyze_fit_results/relRateFor_nad.txt"])^2 + (
+             0.9090909090909093 - Abs[
+             "test_files/analyze_fit_results/relRateFor_nad.txt"])^2 + (
+             0.09090909090909093 - Abs[
+             "test_files/analyze_fit_results/relRateFor_pi.txt"])^2 + (
+             0.13680688860321005` - Abs[
+             "test_files/analyze_fit_results/relRateFor_pi.txt"])^2 + (
+             0.20076000891310172` - Abs[
+             "test_files/analyze_fit_results/relRateFor_pi.txt"])^2 + (
+             0.28474724895080145` - Abs[
+             "test_files/analyze_fit_results/relRateFor_pi.txt"])^2 + (
+             0.3868631798468569 - Abs[
+             "test_files/analyze_fit_results/relRateFor_pi.txt"])^2 + (0.5 - 
+             Abs["test_files/analyze_fit_results/relRateFor_pi.txt"])^2 + (
+             0.6131368201531432 - Abs[
+             "test_files/analyze_fit_results/relRateFor_pi.txt"])^2 + (
+             0.7152527510491988 - Abs[
+             "test_files/analyze_fit_results/relRateFor_pi.txt"])^2 + (
+             0.7992399910868982 - Abs[
+             "test_files/analyze_fit_results/relRateFor_pi.txt"])^2 + (
+             0.8631931113967899 - Abs[
+             "test_files/analyze_fit_results/relRateFor_pi.txt"])^2 + (
+             0.9090909090909092 - Abs[
+             "test_files/analyze_fit_results/relRateFor_pi.txt"])^2, {
+           2.087773303808792, 8.404649468963604*^6, 9.99265050251681*^8, 
+           1083.7110538426284`, 1.2004148107146493`*^6, 
            2.1344312481019204`*^6, 1.92957932855797*^8, 
            1.0432254850338395`*^6, 5362.897467427155, 5.430651073558932*^7, 
-           1.5092033013850846`*^6, 1448.7442972689669`}, CompressedData["
-1:eJxTTMoPSmVkYGDwBeJVASu0VF222zf0r43d2HjQfoFknu3DDSftQ56bL3Wx
-uGR/5N+HQq2DN+zXiPwW2PPvvj1D/a1c83mP7eVtlh2/+uiZ/Y+b7ie+T3pp
-L1/9esmvea/tp10/5iIg/tb+8qRurlt92+xtfDhYvv8/YL9uhje3FcNJ+9RX
-gYxXj1+0/9C6bP1B2xv2vqtz/TcW37e/pXzh97/ox/Zf6p6aHFv5zP6+6NvV
-D1Nf2s8RUvi6o/a1/S5n0/ID/9/Y8xfz/rj/Z7u9ScXGpArWQ/aGJ1mP9ySf
-so90Wa0esfKS/cpgZ64sl5v21k0fLN1cHtgXfi9Vibr/2J7dSM5gstRze/ud
-vjcP7Xtpv4FNvkxl/2t7Cb1Sxi7dt/ZJFXGCDAcKHKhNR+p/85m5eoIdtWkx
-B9FiG5lb9tSmDyTqr/3dX+VAbRoAdXYY+g==
-           "]}, {
-          0.047817944645905636`, {1.595961025051722, 5.992567336682581*^6, 
-           9.999994669516939*^8, 5043.1143464848465`, 8.95876106981256*^8, 
-           9.582055530087037*^8, 9.999994679187793*^8, 1.0614693236029057`*^6,
-            37771.2998636874, 7.466789762403065*^8, 743222.4324195506, 
-           717.4227808185191}, CompressedData["
-1:eJxTTMoPSmVkYGDwBeIf/E4FC/ZtsD83U7GiqX+nfaLVk7UuyoftHWaJl6c8
-OW3fF/7n0K5Zl+2lw5TOTY28ZX9f0lhe9MoD++P1xk+3pj6x3y/nyRTT89z+
-9MrQh2nir+y/Pmqdd/n/a/tuozWGL/l22mdNT51kdOKQPbv0Tnv1rNP2MlZW
-RQl+l+13aR6RiWK6Za/+UuOr4PIH9q3CiWqPrJ/Y1/5ftlQ687m9upa/D8+f
-l/Z//D8cePP6tf1n117OHT5v7Q0tftn1C263v7m9Sbgz9qB9ZZOU6476k/ZF
-R/Sfcklesm+yDmE7POeGffZHucVBN+7b1y75ovWz+7H9IS3R1eqXn9kft8lc
-Oavtpb344oyt96e+tv8ZHGSzQeCtfd1kaY0f+wscqE0rvHU9mXZ/oh21aRu3
-drFIx1v21KZ/6u3uv9Nf5UBtGgAfmyxt
-           "]}, {
-          0.0868663803711504, {2.9944985262696107`, 1.030635764354216*^7, 
-           6.5150097271983*^8, 3458.666705240798, 2.8086552222712677`*^7, 
-           2.647522980670251*^8, 5.810447892478154*^8, 449934.12158651685`, 
-           1642.4296670761823`, 5.233982156312392*^6, 8.946368459826688*^8, 
-           846004.2005151144}, CompressedData["
-1:eJxTTMoPSmVkYGDwBWLBM9f9fvjvsV/EEnJ/ldBR+0cbc4L+lp2z3zhNr1XQ
-8Kr9na/3/RSU79hf31vT1rrnob33/5mJFVZP7d+tLJgSZPvCvrbO5Yvb/Ff2
-woqfeF4mvrE37vN7aTPvrX3Ul3qHW4J77X94xy39M/OovfvZJcrcmuftH5kc
-PlUz96r9CmvV9NDZd+ynXVE1nv7job1KzYIr0wqe2q879Nd9R+YLe5trnTH/
-Dryy914/UZK36o09F+OD6HPr3trfWnt/Mf+sDfaWX76V7o7caS+/5U6E6d9D
-9jXb176J3HjavknVN+5R1WV71X5zewfTW/Y3V83uiTn4wN6hvfNOWMgTexuZ
-iPt7ap/bF/Z6hwryvLJPa2nUnfb9tb2accWGf/sLHKhNT7+8bdK0+sl21Kaf
-eb5ju7Pjpj21ac3NLNv1J1Q5UJsGAMc4Pt4=
-           "]}, {
-          0.16290310874202016`, {1.0656310607050545`, 4.27934445080293*^6, 
-           9.999994675273379*^8, 354.9393707793561, 60995.157314892924`, 
-           494175.5565155273, 9.999994675273379*^8, 7.032771442343364*^8, 
-           62267.87532883567, 3.258331029377049*^6, 1.1526432521111974`*^8, 
-           110653.98842109756`}, CompressedData["
-1:eJxTTMoPSmVkYGDwBeLVuqlb4m6ssj8u/TTq4+It9ucDSvZG2O63P71zR7qr
-9HH7n17fntzrv2D/9pjU56gz1+xf3D/iwfv8rn0519vvDnMe2T9fsKnJg+mZ
-/SQhkY1sD17Ya6tv/i4n9do+9O3B7D7GzfanNPzOl93bY1+0v+GSZtlR+7uf
-fyz+/fOc/Ubekm+PG67az86f9nJz9R1731Txj5dePLQ3bubnyU56av+ALcJd
-Lu6FfezqMy1GO17ZT2g6vv1Q8Rv7fXw9Xd2X99ibVEQa9OQdtXct2bvkx/tz
-9o9Fziqerbpqv0GF9c3Xkjv23N8c1pQ+fWjPwDBHJSX+qf118eLAxdEv7Kt6
-ig8FbHtl32upy5JV9Ma+iXfuzIkr39pzTNU3/Le/wIHadGyf5XvRbRPsqE2z
-XF5XEy9zy57adPFFuex1/VUO1KYBwkIr7Q==
-           
-           "]}}, {{$CellContext`Equation $CellContext`Fitting, \
-$CellContext`error $CellContext`Relative, 
-           True $CellContext`value, $CellContext`Predicted Value}, {
-          Null, Null}, {
-           Pattern[$CellContext`relRateFor, 
-            Blank[$CellContext`nad]], 1.3712186344716482`*^-6, 
-           0.09090909090909098, 0.09090908966252859}, {
-           Pattern[$CellContext`relRateFor, 
-            Blank[$CellContext`nad]], 1.30198912928778*^-6, 
-           0.13680688860321014`, 0.13680688682199932`}, {
-           Pattern[$CellContext`relRateFor, 
-            Blank[$CellContext`nad]], 1.2055260451633434`*^-6, 
-           0.20076000891310197`, 0.20076000649288778`}, {
-           Pattern[$CellContext`relRateFor, 
-            Blank[$CellContext`nad]], 1.078844684238807*^-6, 
-           0.2847472489508014, 0.28474724587882083`}, {
-           Pattern[$CellContext`relRateFor, 
-            Blank[$CellContext`nad]], 9.248190975490164*^-7, 
-           0.3868631798468571, 0.3868631762690725}, {
-           Pattern[$CellContext`relRateFor, 
-            Blank[$CellContext`nad]], 7.541702484736842*^-7, 
-           0.5000000000000002, 0.499999996229149}, {
-           Pattern[$CellContext`relRateFor, 
-            Blank[$CellContext`nad]], 5.835213747532003*^-7, 
-           0.6131368201531433, 0.6131368165753589}, {
-           Pattern[$CellContext`relRateFor, 
-            Blank[$CellContext`nad]], 4.294958202311001*^-7, 
-           0.7152527510491989, 0.7152527479772183}, {
-           Pattern[$CellContext`relRateFor, 
-            Blank[$CellContext`nad]], 3.028144446222289*^-7, 
-           0.7992399910868984, 0.7992399886666842}, {
-           Pattern[$CellContext`relRateFor, 
-            Blank[$CellContext`nad]], 2.063513611202963*^-7, 0.86319311139679,
-            0.8631931096155793}, {
-           Pattern[$CellContext`relRateFor, 
-            Blank[$CellContext`nad]], 1.3712187718617486`*^-7, 
-           0.9090909090909093, 0.9090909078443468}, {
-           Pattern[$CellContext`relRateFor, 
-            Blank[$CellContext`g3p]], 2.277959965102381*^-6, 
-           0.090909090909091, 0.0909090888382183}, {
-           Pattern[$CellContext`relRateFor, 
-            Blank[$CellContext`g3p]], 2.1629513038606595`*^-6, 
-           0.13680688860321016`, 0.13680688564414378`}, {
-           Pattern[$CellContext`relRateFor, 
-            Blank[$CellContext`g3p]], 2.00270038660105*^-6, 
-           0.20076000891310186`, 0.2007600048924804}, {
-           Pattern[$CellContext`relRateFor, 
-            Blank[$CellContext`g3p]], 1.7922488429768089`*^-6, 
-           0.2847472489508016, 0.28474724384742234`}, {
-           Pattern[$CellContext`relRateFor, 
-            Blank[$CellContext`g3p]], 1.5363712232504517`*^-6, 
-           0.38686317984685703`, 0.38686317390320246`}, {
-           Pattern[$CellContext`relRateFor, 
-            Blank[$CellContext`g3p]], 1.2528779791409757`*^-6, 
-           0.5000000000000002, 0.4999999937356103}, {
-           Pattern[$CellContext`relRateFor, 
-            Blank[$CellContext`g3p]], 9.693847433724186*^-7, 
-           0.6131368201531434, 0.6131368142094886}, {
-           Pattern[$CellContext`relRateFor, 
-            Blank[$CellContext`g3p]], 7.13507115805277*^-7, 
-           0.7152527510491988, 0.7152527459458196}, {
-           Pattern[$CellContext`relRateFor, 
-            Blank[$CellContext`g3p]], 5.030555684389944*^-7, 
-           0.7992399910868984, 0.7992399870662771}, {
-           Pattern[$CellContext`relRateFor, 
-            Blank[$CellContext`g3p]], 3.4280467328045773`*^-7, 
-           0.86319311139679, 0.8631931084377237}, {
-           Pattern[$CellContext`relRateFor, 
-            Blank[$CellContext`g3p]], 2.2779600872269154`*^-7, 
-           0.9090909090909092, 0.9090909070200364}, {
-           Pattern[$CellContext`relRateFor, 
-            Blank[$CellContext`pi]], 3.7936065525046017`*^-6, 
-           0.09090909090909093, 0.0909090874603577}, {
-           Pattern[$CellContext`relRateFor, 
-            Blank[$CellContext`pi]], 3.6020765454849252`*^-6, 
-           0.13680688860321005`, 0.1368068836753212}, {
-           Pattern[$CellContext`relRateFor, 
-            Blank[$CellContext`pi]], 3.335202295011288*^-6, 
-           0.20076000891310172`, 0.2007600022173493}, {
-           Pattern[$CellContext`relRateFor, 
-            Blank[$CellContext`pi]], 2.984726273286176*^-6, 
-           0.28474724895080145`, 0.2847472404518755}, {
-           Pattern[$CellContext`relRateFor, 
-            Blank[$CellContext`pi]], 2.558599867277907*^-6, 
-           0.3868631798468569, 0.3868631699485761}, {
-           Pattern[$CellContext`relRateFor, 
-            Blank[$CellContext`pi]], 2.086483630314717*^-6, 0.5, 
-           0.49999998956758185`}, {
-           Pattern[$CellContext`relRateFor, 
-            Blank[$CellContext`pi]], 1.6143673687914106`*^-6, 
-           0.6131368201531432, 0.6131368102548624}, {
-           Pattern[$CellContext`relRateFor, 
-            Blank[$CellContext`pi]], 1.1882409858620206`*^-6, 
-           0.7152527510491988, 0.7152527425502725}, {
-           Pattern[$CellContext`relRateFor, 
-            Blank[$CellContext`pi]], 8.377649495360848*^-7, 
-           0.7992399910868982, 0.7992399843911457}, {
-           Pattern[$CellContext`relRateFor, 
-            Blank[$CellContext`pi]], 5.708906885053746*^-7, 
-           0.8631931113967899, 0.8631931064689008}, {
-           Pattern[$CellContext`relRateFor, 
-            Blank[$CellContext`pi]], 3.793606750956968*^-7, 
-           0.9090909090909092, 0.9090909056421758}, {$CellContext`absRateFor, 
-           1.1169731806148775`*^-9, 268., 
-           267.9999999970065}, {$CellContext`absRateFor, 
-           1.1169731806148775`*^-9, 268., 
-           267.9999999970065}, {$CellContext`absRateFor, 
-           1.1169731806148775`*^-9, 268., 
-           267.9999999970065}, {$CellContext`absRateFor, 
-           1.1169731806148775`*^-9, 268., 
-           267.9999999970065}, {$CellContext`absRateFor, 
-           1.1169731806148775`*^-9, 268., 
-           267.9999999970065}, {$CellContext`absRateFor, 
-           1.1169731806148775`*^-9, 268., 
-           267.9999999970065}, {$CellContext`absRateFor, 
-           1.1169731806148775`*^-9, 268., 
-           267.9999999970065}, {$CellContext`absRateFor, 
-           1.1169731806148775`*^-9, 268., 
-           267.9999999970065}, {$CellContext`absRateFor, 
-           1.1169731806148775`*^-9, 268., 
-           267.9999999970065}, {$CellContext`absRateFor, 
-           1.1169731806148775`*^-9, 268., 
-           267.9999999970065}, {$CellContext`absRateFor, 
-           1.1169731806148775`*^-9, 268., 
-           267.9999999970065}, {$CellContext`KdRatio, 210.87901220979202`, 
-           3.2*^-7, 9.948128390713344*^-7}, {$CellContext`KdRatio, 
-           210.87901220979202`, 3.2*^-7, 
-           9.948128390713344*^-7}, {$CellContext`KdRatio, 210.87901220979202`,
-            3.2*^-7, 9.948128390713344*^-7}, {$CellContext`KdRatio, 
-           210.87901220979202`, 3.2*^-7, 
-           9.948128390713344*^-7}, {$CellContext`KdRatio, 210.87901220979202`,
-            3.2*^-7, 9.948128390713344*^-7}, {$CellContext`KdRatio, 
-           210.87901220979202`, 3.2*^-7, 
-           9.948128390713344*^-7}, {$CellContext`KdRatio, 210.87901220979202`,
-            3.2*^-7, 9.948128390713344*^-7}, {$CellContext`KdRatio, 
-           210.87901220979202`, 3.2*^-7, 
-           9.948128390713344*^-7}, {$CellContext`KdRatio, 210.87901220979202`,
-            3.2*^-7, 9.948128390713344*^-7}, {$CellContext`KdRatio, 
-           210.87901220979202`, 3.2*^-7, 
-           9.948128390713344*^-7}, {$CellContext`KdRatio, 210.87901220979202`,
-            3.2*^-7, 9.948128390713344*^-7}, {$CellContext`haldaneRatio, 
-           3.6566066079186103`*^-9, 0.408, 
-           0.407999999985081}, {$CellContext`haldaneRatio, 
-           3.6566066079186103`*^-9, 0.408, 
-           0.407999999985081}, {$CellContext`haldaneRatio, 
-           3.6566066079186103`*^-9, 0.408, 
-           0.407999999985081}, {$CellContext`haldaneRatio, 
-           3.6566066079186103`*^-9, 0.408, 
-           0.407999999985081}, {$CellContext`haldaneRatio, 
-           3.6566066079186103`*^-9, 0.408, 
-           0.407999999985081}, {$CellContext`haldaneRatio, 
-           3.6566066079186103`*^-9, 0.408, 
-           0.407999999985081}, {$CellContext`haldaneRatio, 
-           3.6566066079186103`*^-9, 0.408, 
-           0.407999999985081}, {$CellContext`haldaneRatio, 
-           3.6566066079186103`*^-9, 0.408, 
-           0.407999999985081}, {$CellContext`haldaneRatio, 
-           3.6566066079186103`*^-9, 0.408, 
-           0.407999999985081}, {$CellContext`haldaneRatio, 
-           3.6566066079186103`*^-9, 0.408, 
-           0.407999999985081}, {$CellContext`haldaneRatio, 
-           3.6566066079186103`*^-9, 0.408, 
-           0.407999999985081}, {$CellContext`dKdRatio, 3.755918870036325*^-9, 
-           425., 424.99999998403734`}, {$CellContext`dKdRatio, 
-           3.755918870036325*^-9, 425., 
-           424.99999998403734`}, {$CellContext`dKdRatio, 
-           3.755918870036325*^-9, 425., 
-           424.99999998403734`}, {$CellContext`dKdRatio, 
-           3.755918870036325*^-9, 425., 
-           424.99999998403734`}, {$CellContext`dKdRatio, 
-           3.755918870036325*^-9, 425., 
-           424.99999998403734`}, {$CellContext`dKdRatio, 
-           3.755918870036325*^-9, 425., 
-           424.99999998403734`}, {$CellContext`dKdRatio, 
-           3.755918870036325*^-9, 425., 
-           424.99999998403734`}, {$CellContext`dKdRatio, 
-           3.755918870036325*^-9, 425., 
-           424.99999998403734`}, {$CellContext`dKdRatio, 
-           3.755918870036325*^-9, 425., 
-           424.99999998403734`}, {$CellContext`dKdRatio, 
-           3.755918870036325*^-9, 425., 
-           424.99999998403734`}, {$CellContext`dKdRatio, 
-           3.755918870036325*^-9, 425., 424.99999998403734`}}}], 
+           1.5092033013850846`*^6, 1448.7442972689669`}, {
+            Abs["test_files/analyze_fit_results/relRateFor_nad.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_nad.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_nad.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_nad.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_nad.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_nad.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_nad.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_nad.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_nad.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_nad.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_nad.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_g3p.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_g3p.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_g3p.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_g3p.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_g3p.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_g3p.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_g3p.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_g3p.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_g3p.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_g3p.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_g3p.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_pi.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_pi.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_pi.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_pi.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_pi.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_pi.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_pi.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_pi.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_pi.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_pi.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_pi.txt"], 
+            Abs["test_files/analyze_fit_results/absRateFor.txt"], 
+            Abs["test_files/analyze_fit_results/absRateFor.txt"], 
+            Abs["test_files/analyze_fit_results/absRateFor.txt"], 
+            Abs["test_files/analyze_fit_results/absRateFor.txt"], 
+            Abs["test_files/analyze_fit_results/absRateFor.txt"], 
+            Abs["test_files/analyze_fit_results/absRateFor.txt"], 
+            Abs["test_files/analyze_fit_results/absRateFor.txt"], 
+            Abs["test_files/analyze_fit_results/absRateFor.txt"], 
+            Abs["test_files/analyze_fit_results/absRateFor.txt"], 
+            Abs["test_files/analyze_fit_results/absRateFor.txt"], 
+            Abs["test_files/analyze_fit_results/absRateFor.txt"], 
+            Abs["test_files/analyze_fit_results/KdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/KdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/KdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/KdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/KdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/KdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/KdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/KdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/KdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/KdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/KdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/haldaneRatio.txt"], 
+            Abs["test_files/analyze_fit_results/haldaneRatio.txt"], 
+            Abs["test_files/analyze_fit_results/haldaneRatio.txt"], 
+            Abs["test_files/analyze_fit_results/haldaneRatio.txt"], 
+            Abs["test_files/analyze_fit_results/haldaneRatio.txt"], 
+            Abs["test_files/analyze_fit_results/haldaneRatio.txt"], 
+            Abs["test_files/analyze_fit_results/haldaneRatio.txt"], 
+            Abs["test_files/analyze_fit_results/haldaneRatio.txt"], 
+            Abs["test_files/analyze_fit_results/haldaneRatio.txt"], 
+            Abs["test_files/analyze_fit_results/haldaneRatio.txt"], 
+            Abs["test_files/analyze_fit_results/haldaneRatio.txt"], 
+            Abs["test_files/analyze_fit_results/dKdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/dKdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/dKdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/dKdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/dKdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/dKdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/dKdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/dKdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/dKdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/dKdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/dKdRatio.txt"]}}, {
+          11 (268. - Abs["test_files/analyze_fit_results/absRateFor.txt"])^2 + 
+           11 (425. - Abs["test_files/analyze_fit_results/dKdRatio.txt"])^2 + 
+           11 (0.408 - Abs[
+              "test_files/analyze_fit_results/haldaneRatio.txt"])^2 + 
+           11 (3.2*^-7 - Abs[
+              "test_files/analyze_fit_results/KdRatio.txt"])^2 + (
+             0.090909090909091 - Abs[
+             "test_files/analyze_fit_results/relRateFor_g3p.txt"])^2 + (
+             0.13680688860321016` - Abs[
+             "test_files/analyze_fit_results/relRateFor_g3p.txt"])^2 + (
+             0.20076000891310186` - Abs[
+             "test_files/analyze_fit_results/relRateFor_g3p.txt"])^2 + (
+             0.2847472489508016 - Abs[
+             "test_files/analyze_fit_results/relRateFor_g3p.txt"])^2 + (
+             0.38686317984685703` - Abs[
+             "test_files/analyze_fit_results/relRateFor_g3p.txt"])^2 + (
+             0.5000000000000002 - Abs[
+             "test_files/analyze_fit_results/relRateFor_g3p.txt"])^2 + (
+             0.6131368201531434 - Abs[
+             "test_files/analyze_fit_results/relRateFor_g3p.txt"])^2 + (
+             0.7152527510491988 - Abs[
+             "test_files/analyze_fit_results/relRateFor_g3p.txt"])^2 + (
+             0.7992399910868984 - Abs[
+             "test_files/analyze_fit_results/relRateFor_g3p.txt"])^2 + (
+             0.86319311139679 - Abs[
+             "test_files/analyze_fit_results/relRateFor_g3p.txt"])^2 + (
+             0.9090909090909092 - Abs[
+             "test_files/analyze_fit_results/relRateFor_g3p.txt"])^2 + (
+             0.09090909090909098 - Abs[
+             "test_files/analyze_fit_results/relRateFor_nad.txt"])^2 + (
+             0.13680688860321014` - Abs[
+             "test_files/analyze_fit_results/relRateFor_nad.txt"])^2 + (
+             0.20076000891310197` - Abs[
+             "test_files/analyze_fit_results/relRateFor_nad.txt"])^2 + (
+             0.2847472489508014 - Abs[
+             "test_files/analyze_fit_results/relRateFor_nad.txt"])^2 + (
+             0.3868631798468571 - Abs[
+             "test_files/analyze_fit_results/relRateFor_nad.txt"])^2 + (
+             0.5000000000000002 - Abs[
+             "test_files/analyze_fit_results/relRateFor_nad.txt"])^2 + (
+             0.6131368201531433 - Abs[
+             "test_files/analyze_fit_results/relRateFor_nad.txt"])^2 + (
+             0.7152527510491989 - Abs[
+             "test_files/analyze_fit_results/relRateFor_nad.txt"])^2 + (
+             0.7992399910868984 - Abs[
+             "test_files/analyze_fit_results/relRateFor_nad.txt"])^2 + (
+             0.86319311139679 - Abs[
+             "test_files/analyze_fit_results/relRateFor_nad.txt"])^2 + (
+             0.9090909090909093 - Abs[
+             "test_files/analyze_fit_results/relRateFor_nad.txt"])^2 + (
+             0.09090909090909093 - Abs[
+             "test_files/analyze_fit_results/relRateFor_pi.txt"])^2 + (
+             0.13680688860321005` - Abs[
+             "test_files/analyze_fit_results/relRateFor_pi.txt"])^2 + (
+             0.20076000891310172` - Abs[
+             "test_files/analyze_fit_results/relRateFor_pi.txt"])^2 + (
+             0.28474724895080145` - Abs[
+             "test_files/analyze_fit_results/relRateFor_pi.txt"])^2 + (
+             0.3868631798468569 - Abs[
+             "test_files/analyze_fit_results/relRateFor_pi.txt"])^2 + (0.5 - 
+             Abs["test_files/analyze_fit_results/relRateFor_pi.txt"])^2 + (
+             0.6131368201531432 - Abs[
+             "test_files/analyze_fit_results/relRateFor_pi.txt"])^2 + (
+             0.7152527510491988 - Abs[
+             "test_files/analyze_fit_results/relRateFor_pi.txt"])^2 + (
+             0.7992399910868982 - Abs[
+             "test_files/analyze_fit_results/relRateFor_pi.txt"])^2 + (
+             0.8631931113967899 - Abs[
+             "test_files/analyze_fit_results/relRateFor_pi.txt"])^2 + (
+             0.9090909090909092 - Abs[
+             "test_files/analyze_fit_results/relRateFor_pi.txt"])^2, {
+           2.9944985262696107`, 1.030635764354216*^7, 6.5150097271983*^8, 
+           3458.666705240798, 2.8086552222712677`*^7, 2.647522980670251*^8, 
+           5.810447892478154*^8, 449934.12158651685`, 1642.4296670761823`, 
+           5.233982156312392*^6, 8.946368459826688*^8, 846004.2005151144}, {
+            Abs["test_files/analyze_fit_results/relRateFor_nad.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_nad.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_nad.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_nad.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_nad.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_nad.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_nad.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_nad.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_nad.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_nad.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_nad.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_g3p.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_g3p.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_g3p.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_g3p.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_g3p.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_g3p.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_g3p.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_g3p.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_g3p.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_g3p.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_g3p.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_pi.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_pi.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_pi.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_pi.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_pi.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_pi.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_pi.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_pi.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_pi.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_pi.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_pi.txt"], 
+            Abs["test_files/analyze_fit_results/absRateFor.txt"], 
+            Abs["test_files/analyze_fit_results/absRateFor.txt"], 
+            Abs["test_files/analyze_fit_results/absRateFor.txt"], 
+            Abs["test_files/analyze_fit_results/absRateFor.txt"], 
+            Abs["test_files/analyze_fit_results/absRateFor.txt"], 
+            Abs["test_files/analyze_fit_results/absRateFor.txt"], 
+            Abs["test_files/analyze_fit_results/absRateFor.txt"], 
+            Abs["test_files/analyze_fit_results/absRateFor.txt"], 
+            Abs["test_files/analyze_fit_results/absRateFor.txt"], 
+            Abs["test_files/analyze_fit_results/absRateFor.txt"], 
+            Abs["test_files/analyze_fit_results/absRateFor.txt"], 
+            Abs["test_files/analyze_fit_results/KdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/KdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/KdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/KdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/KdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/KdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/KdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/KdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/KdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/KdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/KdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/haldaneRatio.txt"], 
+            Abs["test_files/analyze_fit_results/haldaneRatio.txt"], 
+            Abs["test_files/analyze_fit_results/haldaneRatio.txt"], 
+            Abs["test_files/analyze_fit_results/haldaneRatio.txt"], 
+            Abs["test_files/analyze_fit_results/haldaneRatio.txt"], 
+            Abs["test_files/analyze_fit_results/haldaneRatio.txt"], 
+            Abs["test_files/analyze_fit_results/haldaneRatio.txt"], 
+            Abs["test_files/analyze_fit_results/haldaneRatio.txt"], 
+            Abs["test_files/analyze_fit_results/haldaneRatio.txt"], 
+            Abs["test_files/analyze_fit_results/haldaneRatio.txt"], 
+            Abs["test_files/analyze_fit_results/haldaneRatio.txt"], 
+            Abs["test_files/analyze_fit_results/dKdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/dKdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/dKdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/dKdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/dKdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/dKdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/dKdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/dKdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/dKdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/dKdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/dKdRatio.txt"]}}, {
+          11 (268. - Abs["test_files/analyze_fit_results/absRateFor.txt"])^2 + 
+           11 (425. - Abs["test_files/analyze_fit_results/dKdRatio.txt"])^2 + 
+           11 (0.408 - Abs[
+              "test_files/analyze_fit_results/haldaneRatio.txt"])^2 + 
+           11 (3.2*^-7 - Abs[
+              "test_files/analyze_fit_results/KdRatio.txt"])^2 + (
+             0.090909090909091 - Abs[
+             "test_files/analyze_fit_results/relRateFor_g3p.txt"])^2 + (
+             0.13680688860321016` - Abs[
+             "test_files/analyze_fit_results/relRateFor_g3p.txt"])^2 + (
+             0.20076000891310186` - Abs[
+             "test_files/analyze_fit_results/relRateFor_g3p.txt"])^2 + (
+             0.2847472489508016 - Abs[
+             "test_files/analyze_fit_results/relRateFor_g3p.txt"])^2 + (
+             0.38686317984685703` - Abs[
+             "test_files/analyze_fit_results/relRateFor_g3p.txt"])^2 + (
+             0.5000000000000002 - Abs[
+             "test_files/analyze_fit_results/relRateFor_g3p.txt"])^2 + (
+             0.6131368201531434 - Abs[
+             "test_files/analyze_fit_results/relRateFor_g3p.txt"])^2 + (
+             0.7152527510491988 - Abs[
+             "test_files/analyze_fit_results/relRateFor_g3p.txt"])^2 + (
+             0.7992399910868984 - Abs[
+             "test_files/analyze_fit_results/relRateFor_g3p.txt"])^2 + (
+             0.86319311139679 - Abs[
+             "test_files/analyze_fit_results/relRateFor_g3p.txt"])^2 + (
+             0.9090909090909092 - Abs[
+             "test_files/analyze_fit_results/relRateFor_g3p.txt"])^2 + (
+             0.09090909090909098 - Abs[
+             "test_files/analyze_fit_results/relRateFor_nad.txt"])^2 + (
+             0.13680688860321014` - Abs[
+             "test_files/analyze_fit_results/relRateFor_nad.txt"])^2 + (
+             0.20076000891310197` - Abs[
+             "test_files/analyze_fit_results/relRateFor_nad.txt"])^2 + (
+             0.2847472489508014 - Abs[
+             "test_files/analyze_fit_results/relRateFor_nad.txt"])^2 + (
+             0.3868631798468571 - Abs[
+             "test_files/analyze_fit_results/relRateFor_nad.txt"])^2 + (
+             0.5000000000000002 - Abs[
+             "test_files/analyze_fit_results/relRateFor_nad.txt"])^2 + (
+             0.6131368201531433 - Abs[
+             "test_files/analyze_fit_results/relRateFor_nad.txt"])^2 + (
+             0.7152527510491989 - Abs[
+             "test_files/analyze_fit_results/relRateFor_nad.txt"])^2 + (
+             0.7992399910868984 - Abs[
+             "test_files/analyze_fit_results/relRateFor_nad.txt"])^2 + (
+             0.86319311139679 - Abs[
+             "test_files/analyze_fit_results/relRateFor_nad.txt"])^2 + (
+             0.9090909090909093 - Abs[
+             "test_files/analyze_fit_results/relRateFor_nad.txt"])^2 + (
+             0.09090909090909093 - Abs[
+             "test_files/analyze_fit_results/relRateFor_pi.txt"])^2 + (
+             0.13680688860321005` - Abs[
+             "test_files/analyze_fit_results/relRateFor_pi.txt"])^2 + (
+             0.20076000891310172` - Abs[
+             "test_files/analyze_fit_results/relRateFor_pi.txt"])^2 + (
+             0.28474724895080145` - Abs[
+             "test_files/analyze_fit_results/relRateFor_pi.txt"])^2 + (
+             0.3868631798468569 - Abs[
+             "test_files/analyze_fit_results/relRateFor_pi.txt"])^2 + (0.5 - 
+             Abs["test_files/analyze_fit_results/relRateFor_pi.txt"])^2 + (
+             0.6131368201531432 - Abs[
+             "test_files/analyze_fit_results/relRateFor_pi.txt"])^2 + (
+             0.7152527510491988 - Abs[
+             "test_files/analyze_fit_results/relRateFor_pi.txt"])^2 + (
+             0.7992399910868982 - Abs[
+             "test_files/analyze_fit_results/relRateFor_pi.txt"])^2 + (
+             0.8631931113967899 - Abs[
+             "test_files/analyze_fit_results/relRateFor_pi.txt"])^2 + (
+             0.9090909090909092 - Abs[
+             "test_files/analyze_fit_results/relRateFor_pi.txt"])^2, {
+           7.243073614493139, 7.280840505893153*^6, 9.913593473033872*^8, 
+           769.0509796335288, 17913.790165176215`, 512690.43454115005`, 
+           1.0342299381626981`*^8, 613710.350010075, 492.6305286132232, 
+           1.580933256433553*^6, 9.269382510027511*^8, 889860.7209635247}, {
+            Abs["test_files/analyze_fit_results/relRateFor_nad.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_nad.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_nad.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_nad.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_nad.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_nad.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_nad.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_nad.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_nad.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_nad.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_nad.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_g3p.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_g3p.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_g3p.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_g3p.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_g3p.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_g3p.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_g3p.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_g3p.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_g3p.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_g3p.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_g3p.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_pi.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_pi.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_pi.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_pi.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_pi.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_pi.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_pi.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_pi.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_pi.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_pi.txt"], 
+            Abs["test_files/analyze_fit_results/relRateFor_pi.txt"], 
+            Abs["test_files/analyze_fit_results/absRateFor.txt"], 
+            Abs["test_files/analyze_fit_results/absRateFor.txt"], 
+            Abs["test_files/analyze_fit_results/absRateFor.txt"], 
+            Abs["test_files/analyze_fit_results/absRateFor.txt"], 
+            Abs["test_files/analyze_fit_results/absRateFor.txt"], 
+            Abs["test_files/analyze_fit_results/absRateFor.txt"], 
+            Abs["test_files/analyze_fit_results/absRateFor.txt"], 
+            Abs["test_files/analyze_fit_results/absRateFor.txt"], 
+            Abs["test_files/analyze_fit_results/absRateFor.txt"], 
+            Abs["test_files/analyze_fit_results/absRateFor.txt"], 
+            Abs["test_files/analyze_fit_results/absRateFor.txt"], 
+            Abs["test_files/analyze_fit_results/KdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/KdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/KdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/KdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/KdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/KdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/KdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/KdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/KdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/KdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/KdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/haldaneRatio.txt"], 
+            Abs["test_files/analyze_fit_results/haldaneRatio.txt"], 
+            Abs["test_files/analyze_fit_results/haldaneRatio.txt"], 
+            Abs["test_files/analyze_fit_results/haldaneRatio.txt"], 
+            Abs["test_files/analyze_fit_results/haldaneRatio.txt"], 
+            Abs["test_files/analyze_fit_results/haldaneRatio.txt"], 
+            Abs["test_files/analyze_fit_results/haldaneRatio.txt"], 
+            Abs["test_files/analyze_fit_results/haldaneRatio.txt"], 
+            Abs["test_files/analyze_fit_results/haldaneRatio.txt"], 
+            Abs["test_files/analyze_fit_results/haldaneRatio.txt"], 
+            Abs["test_files/analyze_fit_results/haldaneRatio.txt"], 
+            Abs["test_files/analyze_fit_results/dKdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/dKdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/dKdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/dKdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/dKdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/dKdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/dKdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/dKdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/dKdRatio.txt"], 
+            Abs["test_files/analyze_fit_results/dKdRatio.txt"], 
+            Abs[
+            "test_files/analyze_fit_results/dKdRatio.txt"]}}}, \
+{{$CellContext`Equation $CellContext`Fitting, $CellContext`error \
+$CellContext`Relative, True $CellContext`value, $CellContext`Predicted 
+           Value}, {Null, Null}, {Blank[$CellContext`results] Dot[
+              Pattern[$CellContext`relRateFor, 
+               Blank[$CellContext`nad]], $CellContext`txt]^(-1) 
+           Pattern[$CellContext`analyze, 
+              Blank[$CellContext`fit]]^(-1) Pattern[$CellContext`test, 
+             Blank[$CellContext`files]], $Failed, 
+           0.09090909090909098, $Failed}, {Blank[$CellContext`results] Dot[
+              Pattern[$CellContext`relRateFor, 
+               Blank[$CellContext`nad]], $CellContext`txt]^(-1) 
+           Pattern[$CellContext`analyze, 
+              Blank[$CellContext`fit]]^(-1) Pattern[$CellContext`test, 
+             Blank[$CellContext`files]], $Failed, 
+           0.13680688860321014`, $Failed}, {Blank[$CellContext`results] Dot[
+              Pattern[$CellContext`relRateFor, 
+               Blank[$CellContext`nad]], $CellContext`txt]^(-1) 
+           Pattern[$CellContext`analyze, 
+              Blank[$CellContext`fit]]^(-1) Pattern[$CellContext`test, 
+             Blank[$CellContext`files]], $Failed, 
+           0.20076000891310197`, $Failed}, {Blank[$CellContext`results] Dot[
+              Pattern[$CellContext`relRateFor, 
+               Blank[$CellContext`nad]], $CellContext`txt]^(-1) 
+           Pattern[$CellContext`analyze, 
+              Blank[$CellContext`fit]]^(-1) Pattern[$CellContext`test, 
+             Blank[$CellContext`files]], $Failed, 
+           0.2847472489508014, $Failed}, {Blank[$CellContext`results] Dot[
+              Pattern[$CellContext`relRateFor, 
+               Blank[$CellContext`nad]], $CellContext`txt]^(-1) 
+           Pattern[$CellContext`analyze, 
+              Blank[$CellContext`fit]]^(-1) Pattern[$CellContext`test, 
+             Blank[$CellContext`files]], $Failed, 
+           0.3868631798468571, $Failed}, {Blank[$CellContext`results] Dot[
+              Pattern[$CellContext`relRateFor, 
+               Blank[$CellContext`nad]], $CellContext`txt]^(-1) 
+           Pattern[$CellContext`analyze, 
+              Blank[$CellContext`fit]]^(-1) Pattern[$CellContext`test, 
+             Blank[$CellContext`files]], $Failed, 
+           0.5000000000000002, $Failed}, {Blank[$CellContext`results] Dot[
+              Pattern[$CellContext`relRateFor, 
+               Blank[$CellContext`nad]], $CellContext`txt]^(-1) 
+           Pattern[$CellContext`analyze, 
+              Blank[$CellContext`fit]]^(-1) Pattern[$CellContext`test, 
+             Blank[$CellContext`files]], $Failed, 
+           0.6131368201531433, $Failed}, {Blank[$CellContext`results] Dot[
+              Pattern[$CellContext`relRateFor, 
+               Blank[$CellContext`nad]], $CellContext`txt]^(-1) 
+           Pattern[$CellContext`analyze, 
+              Blank[$CellContext`fit]]^(-1) Pattern[$CellContext`test, 
+             Blank[$CellContext`files]], $Failed, 
+           0.7152527510491989, $Failed}, {Blank[$CellContext`results] Dot[
+              Pattern[$CellContext`relRateFor, 
+               Blank[$CellContext`nad]], $CellContext`txt]^(-1) 
+           Pattern[$CellContext`analyze, 
+              Blank[$CellContext`fit]]^(-1) Pattern[$CellContext`test, 
+             Blank[$CellContext`files]], $Failed, 
+           0.7992399910868984, $Failed}, {Blank[$CellContext`results] Dot[
+              Pattern[$CellContext`relRateFor, 
+               Blank[$CellContext`nad]], $CellContext`txt]^(-1) 
+           Pattern[$CellContext`analyze, 
+              Blank[$CellContext`fit]]^(-1) Pattern[$CellContext`test, 
+             Blank[$CellContext`files]], $Failed, 
+           0.86319311139679, $Failed}, {Blank[$CellContext`results] Dot[
+              Pattern[$CellContext`relRateFor, 
+               Blank[$CellContext`nad]], $CellContext`txt]^(-1) 
+           Pattern[$CellContext`analyze, 
+              Blank[$CellContext`fit]]^(-1) Pattern[$CellContext`test, 
+             Blank[$CellContext`files]], $Failed, 
+           0.9090909090909093, $Failed}, {Blank[$CellContext`results] Dot[
+              Pattern[$CellContext`relRateFor, 
+               Blank[$CellContext`g3p]], $CellContext`txt]^(-1) 
+           Pattern[$CellContext`analyze, 
+              Blank[$CellContext`fit]]^(-1) Pattern[$CellContext`test, 
+             Blank[$CellContext`files]], $Failed, 
+           0.090909090909091, $Failed}, {Blank[$CellContext`results] Dot[
+              Pattern[$CellContext`relRateFor, 
+               Blank[$CellContext`g3p]], $CellContext`txt]^(-1) 
+           Pattern[$CellContext`analyze, 
+              Blank[$CellContext`fit]]^(-1) Pattern[$CellContext`test, 
+             Blank[$CellContext`files]], $Failed, 
+           0.13680688860321016`, $Failed}, {Blank[$CellContext`results] Dot[
+              Pattern[$CellContext`relRateFor, 
+               Blank[$CellContext`g3p]], $CellContext`txt]^(-1) 
+           Pattern[$CellContext`analyze, 
+              Blank[$CellContext`fit]]^(-1) Pattern[$CellContext`test, 
+             Blank[$CellContext`files]], $Failed, 
+           0.20076000891310186`, $Failed}, {Blank[$CellContext`results] Dot[
+              Pattern[$CellContext`relRateFor, 
+               Blank[$CellContext`g3p]], $CellContext`txt]^(-1) 
+           Pattern[$CellContext`analyze, 
+              Blank[$CellContext`fit]]^(-1) Pattern[$CellContext`test, 
+             Blank[$CellContext`files]], $Failed, 
+           0.2847472489508016, $Failed}, {Blank[$CellContext`results] Dot[
+              Pattern[$CellContext`relRateFor, 
+               Blank[$CellContext`g3p]], $CellContext`txt]^(-1) 
+           Pattern[$CellContext`analyze, 
+              Blank[$CellContext`fit]]^(-1) Pattern[$CellContext`test, 
+             Blank[$CellContext`files]], $Failed, 
+           0.38686317984685703`, $Failed}, {Blank[$CellContext`results] Dot[
+              Pattern[$CellContext`relRateFor, 
+               Blank[$CellContext`g3p]], $CellContext`txt]^(-1) 
+           Pattern[$CellContext`analyze, 
+              Blank[$CellContext`fit]]^(-1) Pattern[$CellContext`test, 
+             Blank[$CellContext`files]], $Failed, 
+           0.5000000000000002, $Failed}, {Blank[$CellContext`results] Dot[
+              Pattern[$CellContext`relRateFor, 
+               Blank[$CellContext`g3p]], $CellContext`txt]^(-1) 
+           Pattern[$CellContext`analyze, 
+              Blank[$CellContext`fit]]^(-1) Pattern[$CellContext`test, 
+             Blank[$CellContext`files]], $Failed, 
+           0.6131368201531434, $Failed}, {Blank[$CellContext`results] Dot[
+              Pattern[$CellContext`relRateFor, 
+               Blank[$CellContext`g3p]], $CellContext`txt]^(-1) 
+           Pattern[$CellContext`analyze, 
+              Blank[$CellContext`fit]]^(-1) Pattern[$CellContext`test, 
+             Blank[$CellContext`files]], $Failed, 
+           0.7152527510491988, $Failed}, {Blank[$CellContext`results] Dot[
+              Pattern[$CellContext`relRateFor, 
+               Blank[$CellContext`g3p]], $CellContext`txt]^(-1) 
+           Pattern[$CellContext`analyze, 
+              Blank[$CellContext`fit]]^(-1) Pattern[$CellContext`test, 
+             Blank[$CellContext`files]], $Failed, 
+           0.7992399910868984, $Failed}, {Blank[$CellContext`results] Dot[
+              Pattern[$CellContext`relRateFor, 
+               Blank[$CellContext`g3p]], $CellContext`txt]^(-1) 
+           Pattern[$CellContext`analyze, 
+              Blank[$CellContext`fit]]^(-1) Pattern[$CellContext`test, 
+             Blank[$CellContext`files]], $Failed, 
+           0.86319311139679, $Failed}, {Blank[$CellContext`results] Dot[
+              Pattern[$CellContext`relRateFor, 
+               Blank[$CellContext`g3p]], $CellContext`txt]^(-1) 
+           Pattern[$CellContext`analyze, 
+              Blank[$CellContext`fit]]^(-1) Pattern[$CellContext`test, 
+             Blank[$CellContext`files]], $Failed, 
+           0.9090909090909092, $Failed}, {Blank[$CellContext`results] Dot[
+              Pattern[$CellContext`relRateFor, 
+               Blank[$CellContext`pi]], $CellContext`txt]^(-1) 
+           Pattern[$CellContext`analyze, 
+              Blank[$CellContext`fit]]^(-1) Pattern[$CellContext`test, 
+             Blank[$CellContext`files]], $Failed, 
+           0.09090909090909093, $Failed}, {Blank[$CellContext`results] Dot[
+              Pattern[$CellContext`relRateFor, 
+               Blank[$CellContext`pi]], $CellContext`txt]^(-1) 
+           Pattern[$CellContext`analyze, 
+              Blank[$CellContext`fit]]^(-1) Pattern[$CellContext`test, 
+             Blank[$CellContext`files]], $Failed, 
+           0.13680688860321005`, $Failed}, {Blank[$CellContext`results] Dot[
+              Pattern[$CellContext`relRateFor, 
+               Blank[$CellContext`pi]], $CellContext`txt]^(-1) 
+           Pattern[$CellContext`analyze, 
+              Blank[$CellContext`fit]]^(-1) Pattern[$CellContext`test, 
+             Blank[$CellContext`files]], $Failed, 
+           0.20076000891310172`, $Failed}, {Blank[$CellContext`results] Dot[
+              Pattern[$CellContext`relRateFor, 
+               Blank[$CellContext`pi]], $CellContext`txt]^(-1) 
+           Pattern[$CellContext`analyze, 
+              Blank[$CellContext`fit]]^(-1) Pattern[$CellContext`test, 
+             Blank[$CellContext`files]], $Failed, 
+           0.28474724895080145`, $Failed}, {Blank[$CellContext`results] Dot[
+              Pattern[$CellContext`relRateFor, 
+               Blank[$CellContext`pi]], $CellContext`txt]^(-1) 
+           Pattern[$CellContext`analyze, 
+              Blank[$CellContext`fit]]^(-1) Pattern[$CellContext`test, 
+             Blank[$CellContext`files]], $Failed, 
+           0.3868631798468569, $Failed}, {Blank[$CellContext`results] Dot[
+              Pattern[$CellContext`relRateFor, 
+               Blank[$CellContext`pi]], $CellContext`txt]^(-1) 
+           Pattern[$CellContext`analyze, 
+              Blank[$CellContext`fit]]^(-1) Pattern[$CellContext`test, 
+             Blank[$CellContext`files]], $Failed, 0.5, $Failed}, {
+          Blank[$CellContext`results] Dot[
+              Pattern[$CellContext`relRateFor, 
+               Blank[$CellContext`pi]], $CellContext`txt]^(-1) 
+           Pattern[$CellContext`analyze, 
+              Blank[$CellContext`fit]]^(-1) Pattern[$CellContext`test, 
+             Blank[$CellContext`files]], $Failed, 
+           0.6131368201531432, $Failed}, {Blank[$CellContext`results] Dot[
+              Pattern[$CellContext`relRateFor, 
+               Blank[$CellContext`pi]], $CellContext`txt]^(-1) 
+           Pattern[$CellContext`analyze, 
+              Blank[$CellContext`fit]]^(-1) Pattern[$CellContext`test, 
+             Blank[$CellContext`files]], $Failed, 
+           0.7152527510491988, $Failed}, {Blank[$CellContext`results] Dot[
+              Pattern[$CellContext`relRateFor, 
+               Blank[$CellContext`pi]], $CellContext`txt]^(-1) 
+           Pattern[$CellContext`analyze, 
+              Blank[$CellContext`fit]]^(-1) Pattern[$CellContext`test, 
+             Blank[$CellContext`files]], $Failed, 
+           0.7992399910868982, $Failed}, {Blank[$CellContext`results] Dot[
+              Pattern[$CellContext`relRateFor, 
+               Blank[$CellContext`pi]], $CellContext`txt]^(-1) 
+           Pattern[$CellContext`analyze, 
+              Blank[$CellContext`fit]]^(-1) Pattern[$CellContext`test, 
+             Blank[$CellContext`files]], $Failed, 
+           0.8631931113967899, $Failed}, {Blank[$CellContext`results] Dot[
+              Pattern[$CellContext`relRateFor, 
+               Blank[$CellContext`pi]], $CellContext`txt]^(-1) 
+           Pattern[$CellContext`analyze, 
+              Blank[$CellContext`fit]]^(-1) Pattern[$CellContext`test, 
+             Blank[$CellContext`files]], $Failed, 
+           0.9090909090909092, $Failed}, {
+          Blank[$CellContext`results] 
+           Dot[$CellContext`absRateFor, $CellContext`txt]^(-1) 
+           Pattern[$CellContext`analyze, 
+              Blank[$CellContext`fit]]^(-1) Pattern[$CellContext`test, 
+             Blank[$CellContext`files]], $Failed, 268., $Failed}, {
+          Blank[$CellContext`results] 
+           Dot[$CellContext`absRateFor, $CellContext`txt]^(-1) 
+           Pattern[$CellContext`analyze, 
+              Blank[$CellContext`fit]]^(-1) Pattern[$CellContext`test, 
+             Blank[$CellContext`files]], $Failed, 268., $Failed}, {
+          Blank[$CellContext`results] 
+           Dot[$CellContext`absRateFor, $CellContext`txt]^(-1) 
+           Pattern[$CellContext`analyze, 
+              Blank[$CellContext`fit]]^(-1) Pattern[$CellContext`test, 
+             Blank[$CellContext`files]], $Failed, 268., $Failed}, {
+          Blank[$CellContext`results] 
+           Dot[$CellContext`absRateFor, $CellContext`txt]^(-1) 
+           Pattern[$CellContext`analyze, 
+              Blank[$CellContext`fit]]^(-1) Pattern[$CellContext`test, 
+             Blank[$CellContext`files]], $Failed, 268., $Failed}, {
+          Blank[$CellContext`results] 
+           Dot[$CellContext`absRateFor, $CellContext`txt]^(-1) 
+           Pattern[$CellContext`analyze, 
+              Blank[$CellContext`fit]]^(-1) Pattern[$CellContext`test, 
+             Blank[$CellContext`files]], $Failed, 268., $Failed}, {
+          Blank[$CellContext`results] 
+           Dot[$CellContext`absRateFor, $CellContext`txt]^(-1) 
+           Pattern[$CellContext`analyze, 
+              Blank[$CellContext`fit]]^(-1) Pattern[$CellContext`test, 
+             Blank[$CellContext`files]], $Failed, 268., $Failed}, {
+          Blank[$CellContext`results] 
+           Dot[$CellContext`absRateFor, $CellContext`txt]^(-1) 
+           Pattern[$CellContext`analyze, 
+              Blank[$CellContext`fit]]^(-1) Pattern[$CellContext`test, 
+             Blank[$CellContext`files]], $Failed, 268., $Failed}, {
+          Blank[$CellContext`results] 
+           Dot[$CellContext`absRateFor, $CellContext`txt]^(-1) 
+           Pattern[$CellContext`analyze, 
+              Blank[$CellContext`fit]]^(-1) Pattern[$CellContext`test, 
+             Blank[$CellContext`files]], $Failed, 268., $Failed}, {
+          Blank[$CellContext`results] 
+           Dot[$CellContext`absRateFor, $CellContext`txt]^(-1) 
+           Pattern[$CellContext`analyze, 
+              Blank[$CellContext`fit]]^(-1) Pattern[$CellContext`test, 
+             Blank[$CellContext`files]], $Failed, 268., $Failed}, {
+          Blank[$CellContext`results] 
+           Dot[$CellContext`absRateFor, $CellContext`txt]^(-1) 
+           Pattern[$CellContext`analyze, 
+              Blank[$CellContext`fit]]^(-1) Pattern[$CellContext`test, 
+             Blank[$CellContext`files]], $Failed, 268., $Failed}, {
+          Blank[$CellContext`results] 
+           Dot[$CellContext`absRateFor, $CellContext`txt]^(-1) 
+           Pattern[$CellContext`analyze, 
+              Blank[$CellContext`fit]]^(-1) Pattern[$CellContext`test, 
+             Blank[$CellContext`files]], $Failed, 268., $Failed}, {
+          Blank[$CellContext`results] 
+           Dot[Toolbox`rateconst["GAPD1", False]/Toolbox`rateconst[
+              "GAPD1", True], $CellContext`txt]^(-1) 
+           Pattern[$CellContext`analyze, 
+              Blank[$CellContext`fit]]^(-1) Pattern[$CellContext`test, 
+             Blank[$CellContext`files]], $Failed, 3.2*^-7, $Failed}, {
+          Blank[$CellContext`results] 
+           Dot[Toolbox`rateconst["GAPD1", False]/Toolbox`rateconst[
+              "GAPD1", True], $CellContext`txt]^(-1) 
+           Pattern[$CellContext`analyze, 
+              Blank[$CellContext`fit]]^(-1) Pattern[$CellContext`test, 
+             Blank[$CellContext`files]], $Failed, 3.2*^-7, $Failed}, {
+          Blank[$CellContext`results] 
+           Dot[Toolbox`rateconst["GAPD1", False]/Toolbox`rateconst[
+              "GAPD1", True], $CellContext`txt]^(-1) 
+           Pattern[$CellContext`analyze, 
+              Blank[$CellContext`fit]]^(-1) Pattern[$CellContext`test, 
+             Blank[$CellContext`files]], $Failed, 3.2*^-7, $Failed}, {
+          Blank[$CellContext`results] 
+           Dot[Toolbox`rateconst["GAPD1", False]/Toolbox`rateconst[
+              "GAPD1", True], $CellContext`txt]^(-1) 
+           Pattern[$CellContext`analyze, 
+              Blank[$CellContext`fit]]^(-1) Pattern[$CellContext`test, 
+             Blank[$CellContext`files]], $Failed, 3.2*^-7, $Failed}, {
+          Blank[$CellContext`results] 
+           Dot[Toolbox`rateconst["GAPD1", False]/Toolbox`rateconst[
+              "GAPD1", True], $CellContext`txt]^(-1) 
+           Pattern[$CellContext`analyze, 
+              Blank[$CellContext`fit]]^(-1) Pattern[$CellContext`test, 
+             Blank[$CellContext`files]], $Failed, 3.2*^-7, $Failed}, {
+          Blank[$CellContext`results] 
+           Dot[Toolbox`rateconst["GAPD1", False]/Toolbox`rateconst[
+              "GAPD1", True], $CellContext`txt]^(-1) 
+           Pattern[$CellContext`analyze, 
+              Blank[$CellContext`fit]]^(-1) Pattern[$CellContext`test, 
+             Blank[$CellContext`files]], $Failed, 3.2*^-7, $Failed}, {
+          Blank[$CellContext`results] 
+           Dot[Toolbox`rateconst["GAPD1", False]/Toolbox`rateconst[
+              "GAPD1", True], $CellContext`txt]^(-1) 
+           Pattern[$CellContext`analyze, 
+              Blank[$CellContext`fit]]^(-1) Pattern[$CellContext`test, 
+             Blank[$CellContext`files]], $Failed, 3.2*^-7, $Failed}, {
+          Blank[$CellContext`results] 
+           Dot[Toolbox`rateconst["GAPD1", False]/Toolbox`rateconst[
+              "GAPD1", True], $CellContext`txt]^(-1) 
+           Pattern[$CellContext`analyze, 
+              Blank[$CellContext`fit]]^(-1) Pattern[$CellContext`test, 
+             Blank[$CellContext`files]], $Failed, 3.2*^-7, $Failed}, {
+          Blank[$CellContext`results] 
+           Dot[Toolbox`rateconst["GAPD1", False]/Toolbox`rateconst[
+              "GAPD1", True], $CellContext`txt]^(-1) 
+           Pattern[$CellContext`analyze, 
+              Blank[$CellContext`fit]]^(-1) Pattern[$CellContext`test, 
+             Blank[$CellContext`files]], $Failed, 3.2*^-7, $Failed}, {
+          Blank[$CellContext`results] 
+           Dot[Toolbox`rateconst["GAPD1", False]/Toolbox`rateconst[
+              "GAPD1", True], $CellContext`txt]^(-1) 
+           Pattern[$CellContext`analyze, 
+              Blank[$CellContext`fit]]^(-1) Pattern[$CellContext`test, 
+             Blank[$CellContext`files]], $Failed, 3.2*^-7, $Failed}, {
+          Blank[$CellContext`results] 
+           Dot[Toolbox`rateconst["GAPD1", False]/Toolbox`rateconst[
+              "GAPD1", True], $CellContext`txt]^(-1) 
+           Pattern[$CellContext`analyze, 
+              Blank[$CellContext`fit]]^(-1) Pattern[$CellContext`test, 
+             Blank[$CellContext`files]], $Failed, 3.2*^-7, $Failed}, {
+          Blank[$CellContext`results] 
+           Dot[Toolbox`rateconst["GAPD1", False]^(-1) 
+              Toolbox`rateconst["GAPD1", True] 
+              Toolbox`rateconst["GAPD2", False]^(-1) 
+              Toolbox`rateconst["GAPD2", True] 
+              Toolbox`rateconst["GAPD3", False]^(-1) 
+              Toolbox`rateconst["GAPD3", True] 
+              Toolbox`rateconst["GAPD4", False]^(-1) 
+              Toolbox`rateconst["GAPD4", True] 
+              Toolbox`rateconst["GAPD5", False]^(-1) 
+              Toolbox`rateconst["GAPD5", True] 
+              Toolbox`rateconst["GAPD6", False]^(-1) 
+              Toolbox`rateconst["GAPD6", True], $CellContext`txt]^(-1) 
+           Pattern[$CellContext`analyze, 
+              Blank[$CellContext`fit]]^(-1) Pattern[$CellContext`test, 
+             Blank[$CellContext`files]], $Failed, 0.408, $Failed}, {
+          Blank[$CellContext`results] 
+           Dot[Toolbox`rateconst["GAPD1", False]^(-1) 
+              Toolbox`rateconst["GAPD1", True] 
+              Toolbox`rateconst["GAPD2", False]^(-1) 
+              Toolbox`rateconst["GAPD2", True] 
+              Toolbox`rateconst["GAPD3", False]^(-1) 
+              Toolbox`rateconst["GAPD3", True] 
+              Toolbox`rateconst["GAPD4", False]^(-1) 
+              Toolbox`rateconst["GAPD4", True] 
+              Toolbox`rateconst["GAPD5", False]^(-1) 
+              Toolbox`rateconst["GAPD5", True] 
+              Toolbox`rateconst["GAPD6", False]^(-1) 
+              Toolbox`rateconst["GAPD6", True], $CellContext`txt]^(-1) 
+           Pattern[$CellContext`analyze, 
+              Blank[$CellContext`fit]]^(-1) Pattern[$CellContext`test, 
+             Blank[$CellContext`files]], $Failed, 0.408, $Failed}, {
+          Blank[$CellContext`results] 
+           Dot[Toolbox`rateconst["GAPD1", False]^(-1) 
+              Toolbox`rateconst["GAPD1", True] 
+              Toolbox`rateconst["GAPD2", False]^(-1) 
+              Toolbox`rateconst["GAPD2", True] 
+              Toolbox`rateconst["GAPD3", False]^(-1) 
+              Toolbox`rateconst["GAPD3", True] 
+              Toolbox`rateconst["GAPD4", False]^(-1) 
+              Toolbox`rateconst["GAPD4", True] 
+              Toolbox`rateconst["GAPD5", False]^(-1) 
+              Toolbox`rateconst["GAPD5", True] 
+              Toolbox`rateconst["GAPD6", False]^(-1) 
+              Toolbox`rateconst["GAPD6", True], $CellContext`txt]^(-1) 
+           Pattern[$CellContext`analyze, 
+              Blank[$CellContext`fit]]^(-1) Pattern[$CellContext`test, 
+             Blank[$CellContext`files]], $Failed, 0.408, $Failed}, {
+          Blank[$CellContext`results] 
+           Dot[Toolbox`rateconst["GAPD1", False]^(-1) 
+              Toolbox`rateconst["GAPD1", True] 
+              Toolbox`rateconst["GAPD2", False]^(-1) 
+              Toolbox`rateconst["GAPD2", True] 
+              Toolbox`rateconst["GAPD3", False]^(-1) 
+              Toolbox`rateconst["GAPD3", True] 
+              Toolbox`rateconst["GAPD4", False]^(-1) 
+              Toolbox`rateconst["GAPD4", True] 
+              Toolbox`rateconst["GAPD5", False]^(-1) 
+              Toolbox`rateconst["GAPD5", True] 
+              Toolbox`rateconst["GAPD6", False]^(-1) 
+              Toolbox`rateconst["GAPD6", True], $CellContext`txt]^(-1) 
+           Pattern[$CellContext`analyze, 
+              Blank[$CellContext`fit]]^(-1) Pattern[$CellContext`test, 
+             Blank[$CellContext`files]], $Failed, 0.408, $Failed}, {
+          Blank[$CellContext`results] 
+           Dot[Toolbox`rateconst["GAPD1", False]^(-1) 
+              Toolbox`rateconst["GAPD1", True] 
+              Toolbox`rateconst["GAPD2", False]^(-1) 
+              Toolbox`rateconst["GAPD2", True] 
+              Toolbox`rateconst["GAPD3", False]^(-1) 
+              Toolbox`rateconst["GAPD3", True] 
+              Toolbox`rateconst["GAPD4", False]^(-1) 
+              Toolbox`rateconst["GAPD4", True] 
+              Toolbox`rateconst["GAPD5", False]^(-1) 
+              Toolbox`rateconst["GAPD5", True] 
+              Toolbox`rateconst["GAPD6", False]^(-1) 
+              Toolbox`rateconst["GAPD6", True], $CellContext`txt]^(-1) 
+           Pattern[$CellContext`analyze, 
+              Blank[$CellContext`fit]]^(-1) Pattern[$CellContext`test, 
+             Blank[$CellContext`files]], $Failed, 0.408, $Failed}, {
+          Blank[$CellContext`results] 
+           Dot[Toolbox`rateconst["GAPD1", False]^(-1) 
+              Toolbox`rateconst["GAPD1", True] 
+              Toolbox`rateconst["GAPD2", False]^(-1) 
+              Toolbox`rateconst["GAPD2", True] 
+              Toolbox`rateconst["GAPD3", False]^(-1) 
+              Toolbox`rateconst["GAPD3", True] 
+              Toolbox`rateconst["GAPD4", False]^(-1) 
+              Toolbox`rateconst["GAPD4", True] 
+              Toolbox`rateconst["GAPD5", False]^(-1) 
+              Toolbox`rateconst["GAPD5", True] 
+              Toolbox`rateconst["GAPD6", False]^(-1) 
+              Toolbox`rateconst["GAPD6", True], $CellContext`txt]^(-1) 
+           Pattern[$CellContext`analyze, 
+              Blank[$CellContext`fit]]^(-1) Pattern[$CellContext`test, 
+             Blank[$CellContext`files]], $Failed, 0.408, $Failed}, {
+          Blank[$CellContext`results] 
+           Dot[Toolbox`rateconst["GAPD1", False]^(-1) 
+              Toolbox`rateconst["GAPD1", True] 
+              Toolbox`rateconst["GAPD2", False]^(-1) 
+              Toolbox`rateconst["GAPD2", True] 
+              Toolbox`rateconst["GAPD3", False]^(-1) 
+              Toolbox`rateconst["GAPD3", True] 
+              Toolbox`rateconst["GAPD4", False]^(-1) 
+              Toolbox`rateconst["GAPD4", True] 
+              Toolbox`rateconst["GAPD5", False]^(-1) 
+              Toolbox`rateconst["GAPD5", True] 
+              Toolbox`rateconst["GAPD6", False]^(-1) 
+              Toolbox`rateconst["GAPD6", True], $CellContext`txt]^(-1) 
+           Pattern[$CellContext`analyze, 
+              Blank[$CellContext`fit]]^(-1) Pattern[$CellContext`test, 
+             Blank[$CellContext`files]], $Failed, 0.408, $Failed}, {
+          Blank[$CellContext`results] 
+           Dot[Toolbox`rateconst["GAPD1", False]^(-1) 
+              Toolbox`rateconst["GAPD1", True] 
+              Toolbox`rateconst["GAPD2", False]^(-1) 
+              Toolbox`rateconst["GAPD2", True] 
+              Toolbox`rateconst["GAPD3", False]^(-1) 
+              Toolbox`rateconst["GAPD3", True] 
+              Toolbox`rateconst["GAPD4", False]^(-1) 
+              Toolbox`rateconst["GAPD4", True] 
+              Toolbox`rateconst["GAPD5", False]^(-1) 
+              Toolbox`rateconst["GAPD5", True] 
+              Toolbox`rateconst["GAPD6", False]^(-1) 
+              Toolbox`rateconst["GAPD6", True], $CellContext`txt]^(-1) 
+           Pattern[$CellContext`analyze, 
+              Blank[$CellContext`fit]]^(-1) Pattern[$CellContext`test, 
+             Blank[$CellContext`files]], $Failed, 0.408, $Failed}, {
+          Blank[$CellContext`results] 
+           Dot[Toolbox`rateconst["GAPD1", False]^(-1) 
+              Toolbox`rateconst["GAPD1", True] 
+              Toolbox`rateconst["GAPD2", False]^(-1) 
+              Toolbox`rateconst["GAPD2", True] 
+              Toolbox`rateconst["GAPD3", False]^(-1) 
+              Toolbox`rateconst["GAPD3", True] 
+              Toolbox`rateconst["GAPD4", False]^(-1) 
+              Toolbox`rateconst["GAPD4", True] 
+              Toolbox`rateconst["GAPD5", False]^(-1) 
+              Toolbox`rateconst["GAPD5", True] 
+              Toolbox`rateconst["GAPD6", False]^(-1) 
+              Toolbox`rateconst["GAPD6", True], $CellContext`txt]^(-1) 
+           Pattern[$CellContext`analyze, 
+              Blank[$CellContext`fit]]^(-1) Pattern[$CellContext`test, 
+             Blank[$CellContext`files]], $Failed, 0.408, $Failed}, {
+          Blank[$CellContext`results] 
+           Dot[Toolbox`rateconst["GAPD1", False]^(-1) 
+              Toolbox`rateconst["GAPD1", True] 
+              Toolbox`rateconst["GAPD2", False]^(-1) 
+              Toolbox`rateconst["GAPD2", True] 
+              Toolbox`rateconst["GAPD3", False]^(-1) 
+              Toolbox`rateconst["GAPD3", True] 
+              Toolbox`rateconst["GAPD4", False]^(-1) 
+              Toolbox`rateconst["GAPD4", True] 
+              Toolbox`rateconst["GAPD5", False]^(-1) 
+              Toolbox`rateconst["GAPD5", True] 
+              Toolbox`rateconst["GAPD6", False]^(-1) 
+              Toolbox`rateconst["GAPD6", True], $CellContext`txt]^(-1) 
+           Pattern[$CellContext`analyze, 
+              Blank[$CellContext`fit]]^(-1) Pattern[$CellContext`test, 
+             Blank[$CellContext`files]], $Failed, 0.408, $Failed}, {
+          Blank[$CellContext`results] 
+           Dot[Toolbox`rateconst["GAPD1", False]^(-1) 
+              Toolbox`rateconst["GAPD1", True] 
+              Toolbox`rateconst["GAPD2", False]^(-1) 
+              Toolbox`rateconst["GAPD2", True] 
+              Toolbox`rateconst["GAPD3", False]^(-1) 
+              Toolbox`rateconst["GAPD3", True] 
+              Toolbox`rateconst["GAPD4", False]^(-1) 
+              Toolbox`rateconst["GAPD4", True] 
+              Toolbox`rateconst["GAPD5", False]^(-1) 
+              Toolbox`rateconst["GAPD5", True] 
+              Toolbox`rateconst["GAPD6", False]^(-1) 
+              Toolbox`rateconst["GAPD6", True], $CellContext`txt]^(-1) 
+           Pattern[$CellContext`analyze, 
+              Blank[$CellContext`fit]]^(-1) Pattern[$CellContext`test, 
+             Blank[$CellContext`files]], $Failed, 0.408, $Failed}, {
+          Blank[$CellContext`results] 
+           Dot[Toolbox`rateconst["GAPD1", False]^(-1) 
+              Toolbox`rateconst["GAPD1", True] 
+              Toolbox`rateconst["GAPD2", False]^(-1) 
+              Toolbox`rateconst["GAPD2", True] 
+              Toolbox`rateconst["GAPD3", False]^(-1) 
+              Toolbox`rateconst["GAPD3", True] 
+              Toolbox`rateconst["GAPD4", False]^(-1) 
+              Toolbox`rateconst["GAPD4", True] 
+              Toolbox`rateconst["GAPD5", False]^(-1) 
+              Toolbox`rateconst["GAPD5", True], $CellContext`txt]^(-1) 
+           Pattern[$CellContext`analyze, 
+              Blank[$CellContext`fit]]^(-1) Pattern[$CellContext`test, 
+             Blank[$CellContext`files]], $Failed, 425., $Failed}, {
+          Blank[$CellContext`results] 
+           Dot[Toolbox`rateconst["GAPD1", False]^(-1) 
+              Toolbox`rateconst["GAPD1", True] 
+              Toolbox`rateconst["GAPD2", False]^(-1) 
+              Toolbox`rateconst["GAPD2", True] 
+              Toolbox`rateconst["GAPD3", False]^(-1) 
+              Toolbox`rateconst["GAPD3", True] 
+              Toolbox`rateconst["GAPD4", False]^(-1) 
+              Toolbox`rateconst["GAPD4", True] 
+              Toolbox`rateconst["GAPD5", False]^(-1) 
+              Toolbox`rateconst["GAPD5", True], $CellContext`txt]^(-1) 
+           Pattern[$CellContext`analyze, 
+              Blank[$CellContext`fit]]^(-1) Pattern[$CellContext`test, 
+             Blank[$CellContext`files]], $Failed, 425., $Failed}, {
+          Blank[$CellContext`results] 
+           Dot[Toolbox`rateconst["GAPD1", False]^(-1) 
+              Toolbox`rateconst["GAPD1", True] 
+              Toolbox`rateconst["GAPD2", False]^(-1) 
+              Toolbox`rateconst["GAPD2", True] 
+              Toolbox`rateconst["GAPD3", False]^(-1) 
+              Toolbox`rateconst["GAPD3", True] 
+              Toolbox`rateconst["GAPD4", False]^(-1) 
+              Toolbox`rateconst["GAPD4", True] 
+              Toolbox`rateconst["GAPD5", False]^(-1) 
+              Toolbox`rateconst["GAPD5", True], $CellContext`txt]^(-1) 
+           Pattern[$CellContext`analyze, 
+              Blank[$CellContext`fit]]^(-1) Pattern[$CellContext`test, 
+             Blank[$CellContext`files]], $Failed, 425., $Failed}, {
+          Blank[$CellContext`results] 
+           Dot[Toolbox`rateconst["GAPD1", False]^(-1) 
+              Toolbox`rateconst["GAPD1", True] 
+              Toolbox`rateconst["GAPD2", False]^(-1) 
+              Toolbox`rateconst["GAPD2", True] 
+              Toolbox`rateconst["GAPD3", False]^(-1) 
+              Toolbox`rateconst["GAPD3", True] 
+              Toolbox`rateconst["GAPD4", False]^(-1) 
+              Toolbox`rateconst["GAPD4", True] 
+              Toolbox`rateconst["GAPD5", False]^(-1) 
+              Toolbox`rateconst["GAPD5", True], $CellContext`txt]^(-1) 
+           Pattern[$CellContext`analyze, 
+              Blank[$CellContext`fit]]^(-1) Pattern[$CellContext`test, 
+             Blank[$CellContext`files]], $Failed, 425., $Failed}, {
+          Blank[$CellContext`results] 
+           Dot[Toolbox`rateconst["GAPD1", False]^(-1) 
+              Toolbox`rateconst["GAPD1", True] 
+              Toolbox`rateconst["GAPD2", False]^(-1) 
+              Toolbox`rateconst["GAPD2", True] 
+              Toolbox`rateconst["GAPD3", False]^(-1) 
+              Toolbox`rateconst["GAPD3", True] 
+              Toolbox`rateconst["GAPD4", False]^(-1) 
+              Toolbox`rateconst["GAPD4", True] 
+              Toolbox`rateconst["GAPD5", False]^(-1) 
+              Toolbox`rateconst["GAPD5", True], $CellContext`txt]^(-1) 
+           Pattern[$CellContext`analyze, 
+              Blank[$CellContext`fit]]^(-1) Pattern[$CellContext`test, 
+             Blank[$CellContext`files]], $Failed, 425., $Failed}, {
+          Blank[$CellContext`results] 
+           Dot[Toolbox`rateconst["GAPD1", False]^(-1) 
+              Toolbox`rateconst["GAPD1", True] 
+              Toolbox`rateconst["GAPD2", False]^(-1) 
+              Toolbox`rateconst["GAPD2", True] 
+              Toolbox`rateconst["GAPD3", False]^(-1) 
+              Toolbox`rateconst["GAPD3", True] 
+              Toolbox`rateconst["GAPD4", False]^(-1) 
+              Toolbox`rateconst["GAPD4", True] 
+              Toolbox`rateconst["GAPD5", False]^(-1) 
+              Toolbox`rateconst["GAPD5", True], $CellContext`txt]^(-1) 
+           Pattern[$CellContext`analyze, 
+              Blank[$CellContext`fit]]^(-1) Pattern[$CellContext`test, 
+             Blank[$CellContext`files]], $Failed, 425., $Failed}, {
+          Blank[$CellContext`results] 
+           Dot[Toolbox`rateconst["GAPD1", False]^(-1) 
+              Toolbox`rateconst["GAPD1", True] 
+              Toolbox`rateconst["GAPD2", False]^(-1) 
+              Toolbox`rateconst["GAPD2", True] 
+              Toolbox`rateconst["GAPD3", False]^(-1) 
+              Toolbox`rateconst["GAPD3", True] 
+              Toolbox`rateconst["GAPD4", False]^(-1) 
+              Toolbox`rateconst["GAPD4", True] 
+              Toolbox`rateconst["GAPD5", False]^(-1) 
+              Toolbox`rateconst["GAPD5", True], $CellContext`txt]^(-1) 
+           Pattern[$CellContext`analyze, 
+              Blank[$CellContext`fit]]^(-1) Pattern[$CellContext`test, 
+             Blank[$CellContext`files]], $Failed, 425., $Failed}, {
+          Blank[$CellContext`results] 
+           Dot[Toolbox`rateconst["GAPD1", False]^(-1) 
+              Toolbox`rateconst["GAPD1", True] 
+              Toolbox`rateconst["GAPD2", False]^(-1) 
+              Toolbox`rateconst["GAPD2", True] 
+              Toolbox`rateconst["GAPD3", False]^(-1) 
+              Toolbox`rateconst["GAPD3", True] 
+              Toolbox`rateconst["GAPD4", False]^(-1) 
+              Toolbox`rateconst["GAPD4", True] 
+              Toolbox`rateconst["GAPD5", False]^(-1) 
+              Toolbox`rateconst["GAPD5", True], $CellContext`txt]^(-1) 
+           Pattern[$CellContext`analyze, 
+              Blank[$CellContext`fit]]^(-1) Pattern[$CellContext`test, 
+             Blank[$CellContext`files]], $Failed, 425., $Failed}, {
+          Blank[$CellContext`results] 
+           Dot[Toolbox`rateconst["GAPD1", False]^(-1) 
+              Toolbox`rateconst["GAPD1", True] 
+              Toolbox`rateconst["GAPD2", False]^(-1) 
+              Toolbox`rateconst["GAPD2", True] 
+              Toolbox`rateconst["GAPD3", False]^(-1) 
+              Toolbox`rateconst["GAPD3", True] 
+              Toolbox`rateconst["GAPD4", False]^(-1) 
+              Toolbox`rateconst["GAPD4", True] 
+              Toolbox`rateconst["GAPD5", False]^(-1) 
+              Toolbox`rateconst["GAPD5", True], $CellContext`txt]^(-1) 
+           Pattern[$CellContext`analyze, 
+              Blank[$CellContext`fit]]^(-1) Pattern[$CellContext`test, 
+             Blank[$CellContext`files]], $Failed, 425., $Failed}, {
+          Blank[$CellContext`results] 
+           Dot[Toolbox`rateconst["GAPD1", False]^(-1) 
+              Toolbox`rateconst["GAPD1", True] 
+              Toolbox`rateconst["GAPD2", False]^(-1) 
+              Toolbox`rateconst["GAPD2", True] 
+              Toolbox`rateconst["GAPD3", False]^(-1) 
+              Toolbox`rateconst["GAPD3", True] 
+              Toolbox`rateconst["GAPD4", False]^(-1) 
+              Toolbox`rateconst["GAPD4", True] 
+              Toolbox`rateconst["GAPD5", False]^(-1) 
+              Toolbox`rateconst["GAPD5", True], $CellContext`txt]^(-1) 
+           Pattern[$CellContext`analyze, 
+              Blank[$CellContext`fit]]^(-1) Pattern[$CellContext`test, 
+             Blank[$CellContext`files]], $Failed, 425., $Failed}, {
+          Blank[$CellContext`results] 
+           Dot[Toolbox`rateconst["GAPD1", False]^(-1) 
+              Toolbox`rateconst["GAPD1", True] 
+              Toolbox`rateconst["GAPD2", False]^(-1) 
+              Toolbox`rateconst["GAPD2", True] 
+              Toolbox`rateconst["GAPD3", False]^(-1) 
+              Toolbox`rateconst["GAPD3", True] 
+              Toolbox`rateconst["GAPD4", False]^(-1) 
+              Toolbox`rateconst["GAPD4", True] 
+              Toolbox`rateconst["GAPD5", False]^(-1) 
+              Toolbox`rateconst["GAPD5", True], $CellContext`txt]^(-1) 
+           Pattern[$CellContext`analyze, 
+              Blank[$CellContext`fit]]^(-1) Pattern[$CellContext`test, 
+             Blank[$CellContext`files]], $Failed, 425., $Failed}}}], 
       "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
-      Quantity[0.051427`4.861706188273111, "Seconds"], "CPUTimeUsed" -> 
-      Quantity[0.0519999999999996, "Seconds"], "MemoryUsed" -> 
-      Quantity[3026928, "Bytes"]]],
+      Quantity[0``7.1505149978319915, "Seconds"], "CPUTimeUsed" -> 
+      Quantity[0., "Seconds"], "MemoryUsed" -> Quantity[360, "Bytes"]]],
     Editable->False,
     SelectWithContents->True,
     Selectable->False], ",", 
@@ -4373,7 +5807,7 @@ $CellContext`error $CellContext`Relative,
               
               DynamicBox[FEPrivate`FrontEndResource[
                "MUnitExpressions", "SuccessIcon"],
-               ImageSizeCache->{16., {3., 9.}}],
+               ImageSizeCache->{16., {4., 8.}}],
               Alignment->Center,
               
               ImageSize->
@@ -4551,8 +5985,7 @@ $CellContext`error $CellContext`Relative,
                  TagBox[
                   
                   TemplateBox[{
-                   "0.000096`2.13278623087156","\"s\"","seconds",
-                    "\"Seconds\""},
+                   "0``7.150514997831988","\"s\"","seconds","\"Seconds\""},
                    "Quantity"],
                   Short[#, 
                    Rational[2, 3]]& ],
@@ -4585,7 +6018,7 @@ $CellContext`error $CellContext`Relative,
       DynamicModuleValues:>{}], "]"}],
     TestResultObject[
      Association[
-     "TestIndex" -> 2, "TestID" -> "getElementaryKeqs", "Outcome" -> 
+     "TestIndex" -> 17, "TestID" -> "getElementaryKeqs", "Outcome" -> 
       "Success", "Input" -> HoldForm[$CellContext`result], "ExpectedOutput" -> 
       HoldForm[{{{1.0052142078639715`*^6, 7.757540005301175*^-7, 
          28.619874957439347`, 0.005933983608135797, 3209.166230286114, 
@@ -4613,8 +6046,8 @@ $CellContext`error $CellContext`Relative,
          52.3276410535907, 0.0009600020493628204}}, {
          "GAPD1", "GAPD2", "GAPD3", "GAPD4", "GAPD5", "GAPD6"}}], 
       "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
-      Quantity[0.000096`2.13278623087156, "Seconds"], "CPUTimeUsed" -> 
-      Quantity[0., "Seconds"], "MemoryUsed" -> Quantity[96, "Bytes"]]],
+      Quantity[0``7.150514997831988, "Seconds"], "CPUTimeUsed" -> 
+      Quantity[0., "Seconds"], "MemoryUsed" -> Quantity[40, "Bytes"]]],
     Editable->False,
     SelectWithContents->True,
     Selectable->False], ",", 
@@ -4647,7 +6080,7 @@ $CellContext`error $CellContext`Relative,
               
               DynamicBox[FEPrivate`FrontEndResource[
                "MUnitExpressions", "SuccessIcon"],
-               ImageSizeCache->{16., {3., 9.}}],
+               ImageSizeCache->{16., {4., 8.}}],
               Alignment->Center,
               
               ImageSize->
@@ -4778,8 +6211,23 @@ $CellContext`error $CellContext`Relative,
                     RowBox[{"\<\"data value\"\>", 
                     ",", "\<\"predicted value\"\>", 
                     ",", "\<\"error in %\"\>"}], "}"}], ",", 
-                    RowBox[{"\[LeftSkeleton]", "3", "\[RightSkeleton]"}]}], 
-                   "}"}],
+                    RowBox[{"\[LeftSkeleton]", "2", "\[RightSkeleton]"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"0.000044`", ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"-", 
+                    RowBox[{"\[LeftSkeleton]", "19", "\[RightSkeleton]"}]}], 
+                    "}"}], ",", 
+                    RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}]}], 
+                    "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", "3.919174209870712`*^6", "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"\[LeftSkeleton]", "22", "\[RightSkeleton]"}], 
+                    "}"}]}], "}"}]}], "}"}]}], "}"}],
                   Short[#, 
                    Rational[2, 3]]& ],
                  BaselinePosition->Baseline,
@@ -4802,8 +6250,23 @@ $CellContext`error $CellContext`Relative,
                     RowBox[{"\<\"data value\"\>", 
                     ",", "\<\"predicted value\"\>", 
                     ",", "\<\"error in %\"\>"}], "}"}], ",", 
-                    RowBox[{"\[LeftSkeleton]", "3", "\[RightSkeleton]"}]}], 
-                   "}"}],
+                    RowBox[{"\[LeftSkeleton]", "2", "\[RightSkeleton]"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"0.000044`", ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"-", 
+                    RowBox[{"\[LeftSkeleton]", "19", "\[RightSkeleton]"}]}], 
+                    "}"}], ",", 
+                    RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}]}], 
+                    "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", "3.919174209870712`*^6", "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"\[LeftSkeleton]", "22", "\[RightSkeleton]"}], 
+                    "}"}]}], "}"}]}], "}"}]}], "}"}],
                   Short[#, 
                    Rational[2, 3]]& ],
                  BaselinePosition->Baseline,
@@ -4821,8 +6284,7 @@ $CellContext`error $CellContext`Relative,
                  TagBox[
                   
                   TemplateBox[{
-                   "0.000095`2.128238603120839","\"s\"","seconds",
-                    "\"Seconds\""},
+                   "0``7.1505149978319915","\"s\"","seconds","\"Seconds\""},
                    "Quantity"],
                   Short[#, 
                    Rational[2, 3]]& ],
@@ -4855,8 +6317,8 @@ $CellContext`error $CellContext`Relative,
       DynamicModuleValues:>{}], "]"}],
     TestResultObject[
      Association[
-     "TestIndex" -> 3, "TestID" -> "backCalculateKms", "Outcome" -> "Success",
-       "Input" -> HoldForm[$CellContext`result], "ExpectedOutput" -> 
+     "TestIndex" -> 18, "TestID" -> "backCalculateKms", "Outcome" -> 
+      "Success", "Input" -> HoldForm[$CellContext`result], "ExpectedOutput" -> 
       HoldForm[{{"data value", "predicted value", "error in %"}, {
          0.00010499999999999999`, {{-9.06319762833204*^-6}, {
           0.00002769434354589068}}, {{108.63161678888765`}, {
@@ -4874,8 +6336,8 @@ $CellContext`error $CellContext`Relative,
          0.000044, {{-1.7243926523431132`}, {0.00004400032139229513}}, {{
           3.919174209870712*^6}, {0.0007304370343832542}}}}], 
       "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
-      Quantity[0.000095`2.128238603120839, "Seconds"], "CPUTimeUsed" -> 
-      Quantity[0., "Seconds"], "MemoryUsed" -> Quantity[104, "Bytes"]]],
+      Quantity[0``7.1505149978319915, "Seconds"], "CPUTimeUsed" -> 
+      Quantity[0., "Seconds"], "MemoryUsed" -> Quantity[40, "Bytes"]]],
     Editable->False,
     SelectWithContents->True,
     Selectable->False]}], "}"}]], "Output",
@@ -4883,13 +6345,14 @@ $CellContext`error $CellContext`Relative,
    3.689076775873452*^9, 3.689078634173562*^9, 3.689078686033999*^9, 
    3.689083623894096*^9, 3.689586731693281*^9, 3.689586773558394*^9, 
    3.68958685955092*^9, 3.689586984462134*^9, 3.696075727655107*^9, 
-   3.6960758692040453`*^9, 3.69607593905503*^9, 3.6964930338651123`*^9}]
+   3.6960758692040453`*^9, 3.69607593905503*^9, 3.6964930338651123`*^9, 
+   3.696759508460493*^9}]
 }, Open  ]]
 }, Open  ]]
 },
-WindowSize->{1920, 1023},
-WindowMargins->{{0, Automatic}, {0, 24}},
-FrontEndVersion->"11.0 for Linux x86 (64-bit) (September 21, 2016)",
+WindowSize->{1902, 1010},
+WindowMargins->{{1944, Automatic}, {Automatic, 134}},
+FrontEndVersion->"10.4 for Microsoft Windows (64-bit) (April 11, 2016)",
 StyleDefinitions->"Default.nb"
 ]
 (* End of Notebook Content *)
@@ -4903,22 +6366,25 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[558, 20, 390, 5, 32, "Input"],
-Cell[951, 27, 1754, 38, 171, "Input"],
+Cell[558, 20, 464, 6, 31, "Input"],
+Cell[1025, 28, 1754, 38, 152, "Input"],
 Cell[CellGroupData[{
-Cell[2730, 69, 624, 11, 35, "Subsubsection"],
-Cell[3357, 82, 22068, 564, 714, "Input"]
+Cell[2804, 70, 624, 11, 39, "Subsubsection"],
+Cell[3431, 83, 23084, 581, 709, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[25462, 651, 575, 10, 35, "Subsubsection"],
-Cell[26040, 663, 11763, 284, 424, "Input"]
+Cell[26552, 669, 575, 10, 39, "Subsubsection"],
+Cell[27130, 681, 11763, 284, 355, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[37840, 952, 624, 11, 35, "Subsubsection"],
-Cell[38467, 965, 110899, 2617, 482, "Input"],
+Cell[38930, 970, 624, 11, 39, "Subsubsection"],
 Cell[CellGroupData[{
-Cell[149391, 3586, 154, 2, 32, "Input"],
-Cell[149548, 3590, 58934, 1295, 65, "Output"]
+Cell[39579, 985, 110899, 2617, 415, "Input"],
+Cell[150481, 3604, 208, 6, 33, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[150726, 3615, 154, 2, 31, "Input"],
+Cell[150883, 3619, 142985, 2729, 79, "Output"]
 }, Open  ]]
 }, Open  ]]
 }
