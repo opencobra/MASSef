@@ -20,7 +20,7 @@ definePSOparameters[inputPath_, outputPath_, dataPath_, finalRateConsts_, fileLi
 					numGenerations_: 2000, popSize_: 20] := 
 	Module[{psoParameterPath, psoParameters, tempCorr, neighborSize, inertia, cognitiveRate, socialRate, useKeepBest, 
 			useRandomReplace, percentRandomParticles, numFuncVar, fileListPy, valueRow, functionRow, dataRowHigh, 
-			psoTrialSummaryFileName, psoResultsFileName},
+			psoTrialSummaryFileName, psoResultsFileName, splitChar},
 
 	psoParameters = {  
    
@@ -97,8 +97,8 @@ definePSOparameters[inputPath_, outputPath_, dataPath_, finalRateConsts_, fileLi
    			data_row_high \[Rule]  Column above the last data value ;
    			summary_file_name \[Rule] Summary of each trial;
    			ultimate_result_name \[Rule] Final candidate values;*)
-
-   	{"filesWithFunctions", fileListPy = listToPython[Map[FileNameJoin[{inputPath, StringSplit[#, "/"][[-1]]}, OperatingSystem->$OperatingSystem] &, fileList]]},
+		splitChar = If[$OperatingSystem == "Windows", "\\", "/"];
+   	{"filesWithFunctions", fileListPy = listToPython[Map[FileNameJoin[{inputPath, StringSplit[#, splitChar][[-1]]}, OperatingSystem->$OperatingSystem] &, fileList]]},
    	{"data_file_name", dataPath},
    	{"value_row", valueRow = -1},
    	{"function_row", functionRow = -2},
@@ -121,7 +121,7 @@ definePSOparameters[inputPath_, outputPath_, dataPath_, finalRateConsts_, fileLi
 defineLMAparameters[inputPath_, outputPath_, dataPath_, finalRateConsts_, fileList_, 
 					lowerParamBound_, upperParamBound_, fitLabel_:"", numCpus_:1] := 
 	Module[{temperatureCorrect, xtolValue, ftolValue, gtolValue, epsfcnMinValue, maxfevValue, 
-			numFuncVar, psoResultsFileName, lmaResultsFileName,
+			numFuncVar, psoResultsFileName, lmaResultsFileName,splitChar,
 			fileListPy, valueRow, functionRow, dataRowHigh, lmaParameterPath, lmaParameters},
 
 	lmaParameters = {   
@@ -176,10 +176,11 @@ defineLMAparameters[inputPath_, outputPath_, dataPath_, finalRateConsts_, fileLi
    				value_row \[Rule] Column with the fitting target data ;
    				function_row \[Rule] Column with the fitting target functions ;
    				data_row_high \[Rule] Column above the last data value ;*)
-   
+					
+					splitChar = If[$OperatingSystem == "Windows", "\\", "/"];
    				{"candidates_import_path", psoResultsFileName = FileNameJoin[{outputPath, "raw", "psoResults" <> fitLabel <> ".txt"}, OperatingSystem->$OperatingSystem]},
    				{"candidates_export_path", lmaResultsFileName = FileNameJoin[{outputPath, "raw", "lmaResults" <> fitLabel <> ".txt"}, OperatingSystem->$OperatingSystem]},
-   				{"filesWithFunctions", fileListPy = listToPython[Map[FileNameJoin[{inputPath,  StringSplit[#, "/"][[-1]]}, OperatingSystem->$OperatingSystem] &,fileList]]},
+   				{"filesWithFunctions", fileListPy = listToPython[Map[FileNameJoin[{inputPath,  StringSplit[#, splitChar][[-1]]}, OperatingSystem->$OperatingSystem] &,fileList]]},
    				{"data_file_name", dataPath},
    				{"value_row", valueRow = -1},
    				{"function_row", functionRow = -2},
