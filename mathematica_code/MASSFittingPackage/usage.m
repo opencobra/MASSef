@@ -169,3 +169,6 @@ getRatio::usage="getInhibRatio[enzymeModel, metabolite]";
 
 
 getOtherParamsValue::usage="getOtherParamsValue[param, otherParamsList]";
+
+
+printEnzymeData::usage="printEnzymeData[rxn, mechanism, structure, nActiveSites, kmList, s05List, kcatList, inhibitionList, activationList, otherParmsList]";
