@@ -1,0 +1,527 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Enzyme fitting - general workflow &mdash; MASSef 0.1 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="MASSef 0.1 documentation" href="index.html"/>
+        <link rel="next" title="Results" href="function_description.html"/>
+        <link rel="prev" title="The concept" href="concept.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="index.html" class="fa fa-home"> MASSef</a>
+        
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concept.html">The concept</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Enzyme fitting - general workflow</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#example-work-flow-from-tala2">Example work flow (from TALA2)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="function_description.html">Results</a></li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">MASSef</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Enzyme fitting - general workflow</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="_sources/general_workflow.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="enzyme-fitting-general-workflow">
+<h1>Enzyme fitting - general workflow<a class="headerlink" href="#enzyme-fitting-general-workflow" title="Permalink to this headline">¶</a></h1>
+<p>Each enzyme model is built in a separate notebook, and is divided in 8 sections:</p>
+<ul class="simple">
+<li>Initialize noteboook - where the required packages are loaded, the enzyme name is defined, and necessary folders are created.</li>
+<li>Import data - the enzyme data is imported, as well as the buffer and ion charge information.</li>
+<li>Construct Module and set up comparison equations - here the enzyme mechanism is defined and the flux equations are created</li>
+<li>Simulate enzyme data - the data to be fitted is simulated here based on the macroscopic parameters, kcat, Km, etc.</li>
+<li>Configure particle swarm optimization - the PSO fitting method is configured, the most important parameter here is the numer of fits to be done.</li>
+<li>Configure Levenberg-Marquardt algorithm - the LMA fitting method is configured, nothing much to change here</li>
+<li>Run the fitting algorithms - where the enzyme module is fitted, unless you prefer to run it on a cluster.</li>
+<li>Pull in parameters and check fit and enzyme statistics - check how well the data was fit and re-calculate the macroscopic parameters</li>
+</ul>
+<div class="section" id="example-work-flow-from-tala2">
+<h2>Example work flow (from TALA2)<a class="headerlink" href="#example-work-flow-from-tala2" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="initialize-notebook">
+<h3>Initialize notebook<a class="headerlink" href="#initialize-notebook" title="Permalink to this headline">¶</a></h3>
+<p>Load MASS toolbox and MASSef (still named MASSFittingPackage).</p>
+<div class="highlight-python"><div class="highlight"><pre>&lt;&lt; Toolbox`&#39;;
+Get[&quot;MASSFittingPackage`&quot;];
+Get[&quot;MASSFittingPackage`&quot;];
+</pre></div>
+</div>
+<p>Set the directory as the notebook directory, set the enzyme name, and the Keq value (optional).</p>
+<div class="highlight-python"><div class="highlight"><pre>SetDirectory[NotebookDirectory[]];
+rxnName = &quot;TALA2&quot;;
+KeqEquilibrator = 1/1.19;
+</pre></div>
+</div>
+<p>Set the path for the MASSef package, so that it can find the enzyme data, and set the name for mainFolder, where all the data is stored: input contains the input data, and output the fitting results.
+These lines need to be changed by the user, especially the first.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">pathMASSFittingPackage</span> <span class="o">=</span> <span class="s">&quot;/home/mrama/Dropbox/MASS_fitting_package/&quot;</span><span class="p">;</span>
+<span class="n">mainFolder</span> <span class="o">=</span> <span class="s">&quot;fit_TALA2&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Initialize the notebook, by deffining important paths.</p>
+<div class="highlight-python"><div class="highlight"><pre>{workingDir, pathData, runFitScriptPath, inputPath, outputPath, bigg2equilibrator}
+        = initializeNotebook[pathMASSFittingPackage, mainFolder];
+</pre></div>
+</div>
+</div>
+<div class="section" id="import-data">
+<h3>Import data<a class="headerlink" href="#import-data" title="Permalink to this headline">¶</a></h3>
+<p>Define the paths for the files that contain the enzyme kinetic data, the buffer and ion charge information.</p>
+<div class="highlight-python"><div class="highlight"><pre>enzymeDataPath = FileNameJoin[{pathData, &quot;kinetic_data.xls&quot;}, OperatingSystem -&gt; $OperatingSystem];
+bufferInfoDataPath = FileNameJoin[{pathData, &quot;buffer_info.xls&quot;}, OperatingSystem -&gt; $OperatingSystem];
+ionChargeDataPath = FileNameJoin[{pathData, &quot;ion_charge.xls&quot;}, OperatingSystem -&gt; $OperatingSystem];
+</pre></div>
+</div>
+<p>Import the enzyme data, buffer, and ion charge data</p>
+<div class="highlight-python"><div class="highlight"><pre>{rxn, mechanism, structure, nActiveSites, nAllostericSites, kmList, s05List, kcatList, inhibitionList, activationList, otherParmsList}
+        = getEnzymeData[rxnName, enzymeDataPath];
+
+bufferInfo = getBufferInfoData[bufferInfoDataPath];
+ionCharge = getIonData[ionChargeDataPath];
+</pre></div>
+</div>
+<p>Define inhibitions manually, shouldn&#8217;t be needed</p>
+<div class="highlight-python"><div class="highlight"><pre>inhibitorMet = {};
+affectedMets = {};(*There can be multiple metabolites*)
+</pre></div>
+</div>
+</div>
+<div class="section" id="construct-module-and-set-up-comparison-equations">
+<h3>Construct Module and Set Up Comparison Equations<a class="headerlink" href="#construct-module-and-set-up-comparison-equations" title="Permalink to this headline">¶</a></h3>
+<p>Print the enzyme data.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">printEnzymeData</span><span class="p">[</span><span class="n">rxn</span><span class="p">,</span> <span class="n">mechanism</span><span class="p">,</span> <span class="n">structure</span><span class="p">,</span> <span class="n">nActiveSites</span><span class="p">,</span> <span class="n">kmList</span><span class="p">,</span> <span class="n">s05List</span><span class="p">,</span>
+                                <span class="n">kcatList</span><span class="p">,</span> <span class="n">inhibitionList</span><span class="p">,</span> <span class="n">activationList</span><span class="p">,</span> <span class="n">otherParmsList</span><span class="p">];</span>
+</pre></div>
+</div>
+<p>Define the enzyme mechanism and build the model.</p>
+<div class="highlight-python"><div class="highlight"><pre>catalyticBranch = {&quot;E_TALA2[c] + f6p[c] &lt;=&gt; E_TALA2[c]&amp;f6p&quot;,
+                   &quot;E_TALA2[c]&amp;f6p &lt;=&gt; E_TALA2[c]&amp;mod&amp;g3p&quot;,
+                   &quot;E_TALA2[c]&amp;mod&amp;g3p &lt;=&gt; E_TALA2[c]&amp;mod + g3p[c]&quot;,
+                   &quot;E_TALA2[c]&amp;mod + e4p[c] &lt;=&gt; E_TALA2[c]&amp;mod&amp;e4p&quot;,
+                   &quot;E_TALA2[c]&amp;mod&amp;e4p &lt;=&gt; E_TALA2[c]&amp;s7p&quot;,
+                   &quot;E_TALA2[c]&amp;s7p &lt;=&gt; E_TALA2[c] + s7p[c]&quot;};
+
+
+enzymeModel = constructEnzymeModule[Mechanism -&gt; catalyticBranch, Activators -&gt; {},
+                                                           ActivationSites -&gt; 0, Inhibitors -&gt; {},
+                                   InhibitionSites -&gt; 0];
+</pre></div>
+</div>
+<p>Determine whether there is an inhibition constant for a product.</p>
+<div class="highlight-python"><div class="highlight"><pre>rxnMets = Map[getID[#] &amp;, Flatten[{getSubstrates[rxn], getProducts[rxn]}]];
+inhibitors = inhibitionList[[All, 2]];
+prodInhibBool = MemberQ[Map[MemberQ[rxnMets, #] &amp;, inhibitors], True];
+</pre></div>
+</div>
+<p>Define metabolite substitutions to be used when creating the absolute and relative rates forward/reverse, reaction rates, and volume substitution, and KeqName/KeqVal.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span><span class="n">reverseZeroSub</span><span class="p">,</span> <span class="n">forwardZeroSub</span><span class="p">,</span> <span class="n">metSatForSub</span><span class="p">,</span> <span class="n">metSatRevSub</span><span class="p">}</span> <span class="o">=</span> <span class="n">getMetsSub</span><span class="p">[</span><span class="n">rxn</span><span class="p">];</span>
+<span class="n">rates</span> <span class="o">=</span> <span class="n">getEnzymeRates</span><span class="p">[</span><span class="n">enzymeModel</span><span class="p">];</span>
+<span class="p">{</span><span class="n">KeqName</span><span class="p">,</span> <span class="n">KeqVal</span><span class="p">,</span> <span class="n">volumeSub</span><span class="p">}</span> <span class="o">=</span> <span class="n">getMisc</span><span class="p">[</span><span class="n">enzymeModel</span><span class="p">,</span> <span class="n">rxnName</span><span class="p">];</span>
+</pre></div>
+</div>
+<p>Initialize some variables.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">eqRateConstSub</span> <span class="o">=</span> <span class="p">{};</span>
+<span class="n">absoluteFluxNoProdInhib</span> <span class="o">=</span> <span class="p">{};</span>
+<span class="n">otherAbsoluteRatesForward</span> <span class="o">=</span> <span class="p">{};</span>
+<span class="n">otherAbsoluteRatesReverse</span> <span class="o">=</span> <span class="p">{};</span>
+</pre></div>
+</div>
+<p>Define metabolite substitutions manually if needed, in this case, metabolite substitutions are defined for product inhibition.</p>
+<div class="highlight-python"><div class="highlight"><pre>otherMetsReverseZeroSub = {{&quot;prod_inhib_dhap&quot;, Toolbox`metabolite[&quot;nadph&quot;, &quot;c&quot;] -&gt; 0}, {&quot;prod_inhib_nadph&quot;, Toolbox`metabolite[&quot;dhap&quot;, &quot;c&quot;] -&gt; 0}};
+otherMetsForwardZeroSub = {{&quot;prod_inhib_glyc3p&quot;, Toolbox`metabolite[&quot;nadp&quot;, &quot;c&quot;] -&gt; 0}, {&quot;prod_inhib_nadp&quot;, Toolbox`metabolite[&quot;glyc3p&quot;, &quot;c&quot;] -&gt; 0}};
+</pre></div>
+</div>
+<p>Define the minimum and maximum order of magnitude allowed for the rate constant values.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">lowerParamBound</span> <span class="o">=</span> <span class="o">-</span><span class="mi">6</span><span class="p">;</span>
+<span class="n">upperParamBound</span> <span class="o">=</span> <span class="mi">9</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Separate reactions into catalytic and non-catalytic reactions.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span><span class="n">allCatalyticReactions</span><span class="p">,</span> <span class="n">nonCatalyticReactions</span><span class="p">}</span> <span class="o">=</span> <span class="n">classifyReactions</span><span class="p">[</span><span class="n">enzymeModel</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Get the transition step ID.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">transitionID</span> <span class="o">=</span> <span class="n">getTransitionIDs</span><span class="p">[</span><span class="n">allCatalyticReactions</span><span class="p">];</span>
+</pre></div>
+</div>
+<p>Get the transition rate equations.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">transitionRateEqs</span> <span class="o">=</span> <span class="n">getTransitionRateEqs</span><span class="p">[</span><span class="n">transitionID</span><span class="p">,</span> <span class="n">rates</span><span class="p">];</span>
+</pre></div>
+</div>
+<p>Get a list with all the rate constants.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">unifiedRateConstList</span> <span class="o">=</span> <span class="n">getUnifiedRateConstList</span><span class="p">[</span><span class="n">allCatalyticReactions</span><span class="p">,</span> <span class="n">nonCatalyticReactions</span><span class="p">];</span>
+</pre></div>
+</div>
+<p>If, there is product inhibition, get the absolute flux equation, which is build by setting the system in steady-state.
+This function generates to files: enzSolNoProdInhib.m and absoluteFluxNoProdInhib.m, these files should be deleted if new reactions are added to the the model, as the flux equations is imported from those files if they exist.
+The reason to get the flux equation without product inhibition is because we assume Kms are measured when no products are present in the system.</p>
+<div class="highlight-python"><div class="highlight"><pre>absoluteFluxNoProdInhib =
+                                        If[prodInhibBool,
+                                                getFluxEquation[inputPath, rxnName, enzymeModel, unifiedRateConstList, transitionRateEqs, &quot;NoProdInhib&quot;],
+                                                Null
+                                        ];
+</pre></div>
+</div>
+<p>Add inhibition reactions to the enzyme model, if there is inhibition data.
+Here, the user might need to add only some inhibitions and not the whole inhibition list. For example, in TALA2 phosphate is an inhibitor with regard to all the substrates and products, but only two enzyme forms are affected, the one to which e4p and g3p bind and the enzyme form to which s7p and f6p bind. Thus, only the inhibitions w.r.t. to e4p or g3p and s7p or f6p should be given as an argument to <tt class="docutils literal"><span class="pre">addInhibitionReactions</span></tt>. Also, on G3PD2, the inhibition by nadp w.r.t. to dhap shouldn&#8217;t be included because that leads to the inhibition reaction G3PD&amp;nadph + nadp &lt;=&gt; G3PD2&amp;nadph&amp;nadp being added to the enzyme model, and nadp and nadph cannot bind to the same enzyme active site at the same time.</p>
+<div class="highlight-python"><div class="highlight"><pre>If[ ! SameQ[inhibitionList , {}],
+        {enzymeModel, nonCatalyticReactions} = addInhibitionReactions[enzymeModel, rxnName, inhibitionList[[{2, 3, 8, 9}]],  allCatalyticReactions, nonCatalyticReactions];
+];
+</pre></div>
+</div>
+<p>Get the absolute flux equation, which is build by setting the system in steady-state, this one includes product inhibition if it exists.
+This function generates to files: enzSol.m and absoluteFlux.m, these files should be deleted if new reactions are added to the the model, as the flux equations is imported from those files if they exist.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">absoluteFlux</span> <span class="o">=</span> <span class="n">getFluxEquation</span><span class="p">[</span><span class="n">inputPath</span><span class="p">,</span> <span class="n">rxnName</span><span class="p">,</span> <span class="n">enzymeModel</span><span class="p">,</span> <span class="n">unifiedRateConstList</span><span class="p">,</span> <span class="n">transitionRateEqs</span><span class="p">];</span>
+</pre></div>
+</div>
+<p>Get equivalent rate constants, it is particularly useful for random ordered mechanisms, where the rate constant for the binding of a given substrate to the enzyme alone and the rate constant for the binding to the complex of the enzyme and the other substrate, should have the same value.
+Always double check the value of this variable, to make sure it&#8217;s behaving as intended.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">eqRateConstSub</span> <span class="o">=</span> <span class="n">getRateConstSubRandomMech</span><span class="p">[</span><span class="n">enzymeModel</span><span class="p">,</span> <span class="n">eqRateConstSub</span><span class="p">,</span> <span class="n">allCatalyticReactions</span><span class="p">,</span> <span class="n">nonCatalyticReactions</span><span class="p">];</span>
+</pre></div>
+</div>
+<p>Get absolute and relative rate flux equations:</p>
+<div class="highlight-python"><div class="highlight"><pre>Which[ SameQ[otherMetsForwardZeroSub, {}],
+
+                {absoluteRateForward, absoluteRateReverse, relativeRateForward, relativeRateReverse, otherAbsoluteRatesForward} =
+                        getRateEqs[absoluteFlux, unifiedRateConstList, eqRateConstSub, reverseZeroSub, forwardZeroSub, volumeSub, metSatForSub, metSatRevSub, absoluteFluxNoProdInhib, absoluteFluxNoProdInhib,
+                                                otherMetsForwardZeroSub],
+
+
+         SameQ[otherMetsReverseZeroSub, {}],
+
+                {absoluteRateForward, absoluteRateReverse, relativeRateForward, relativeRateReverse, otherAbsoluteRatesReverse} =
+                        getRateEqs[absoluteFlux, unifiedRateConstList, eqRateConstSub, reverseZeroSub, forwardZeroSub, volumeSub, metSatForSub, metSatRevSub, absoluteFluxNoProdInhib, absoluteFluxNoProdInhib,
+                                        {}, otherMetsReverseZeroSub],
+
+
+         SameQ[otherMetsForwardZeroSub, {}] &amp;&amp; SameQ[otherMetsReverseZeroSub, {}],
+
+                {absoluteRateForward, absoluteRateReverse, relativeRateForward, relativeRateReverse} =
+                        getRateEqs[absoluteFlux, unifiedRateConstList, eqRateConstSub, reverseZeroSub, forwardZeroSub, volumeSub, metSatForSub, metSatRevSub, absoluteFluxNoProdInhib, absoluteFluxNoProdInhib],
+
+
+         ! SameQ[otherMetsReverseZeroSub, {}] &amp;&amp; ! SameQ[otherMetsReverseZeroSub, {}],
+
+         {absoluteRateForward, absoluteRateReverse, relativeRateForward, relativeRateReverse, otherAbsoluteRatesForward, otherAbsoluteRatesReverse} =
+                getRateEqs[absoluteFlux, unifiedRateConstList, eqRateConstSub, reverseZeroSub, forwardZeroSub, volumeSub, metSatForSub, metSatRevSub, absoluteFluxNoProdInhib, absoluteFluxNoProdInhib,
+                                        otherMetsForwardZeroSub, otherMetsReverseZeroSub],
+</pre></div>
+</div>
+<p>Get substitutions for exporting the flux equations to text files later.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span><span class="n">finalRateConsts</span><span class="p">,</span> <span class="n">metsFull</span><span class="p">,</span> <span class="n">metsSub</span><span class="p">,</span> <span class="n">rateConstsSub</span><span class="p">}</span> <span class="o">=</span> <span class="n">getMetRatesSubs</span><span class="p">[</span><span class="n">enzymeModel</span><span class="p">,</span> <span class="n">absoluteRateForward</span><span class="p">,</span> <span class="n">absoluteRateReverse</span><span class="p">,</span> <span class="n">relativeRateForward</span><span class="p">,</span>
+                                                                                                                                  <span class="n">relativeRateReverse</span><span class="p">,</span>  <span class="n">KeqVal</span><span class="p">,</span> <span class="n">otherAbsoluteRatesForward</span><span class="p">,</span> <span class="n">otherAbsoluteRatesReverse</span><span class="p">];</span>
+</pre></div>
+</div>
+<p>Export flux equations to text files.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span><span class="n">eqnNameList</span><span class="p">,</span> <span class="n">eqnValList</span><span class="p">,</span> <span class="n">eqnValListPy</span><span class="p">,</span> <span class="n">fileList</span><span class="p">,</span> <span class="n">fileListSub</span><span class="p">}</span> <span class="o">=</span> <span class="n">exportRateEqs</span><span class="p">[</span><span class="n">inputPath</span><span class="p">,</span> <span class="n">absoluteRateForward</span><span class="p">,</span> <span class="n">absoluteRateReverse</span><span class="p">,</span> <span class="n">relativeRateForward</span><span class="p">,</span> <span class="n">relativeRateReverse</span><span class="p">,</span> <span class="n">metsSub</span><span class="p">,</span> <span class="n">metSatForSub</span><span class="p">,</span>
+                                                                                                                                                                <span class="n">metSatRevSub</span><span class="p">,</span> <span class="n">rateConstsSub</span><span class="p">,</span> <span class="n">otherAbsoluteRatesForward</span><span class="p">,</span> <span class="n">otherAbsoluteRatesReverse</span><span class="p">];</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="simulate-data">
+<h3>Simulate data<a class="headerlink" href="#simulate-data" title="Permalink to this headline">¶</a></h3>
+<p>Define some parameters for data simulation.
+The user shouldn&#8217;t need to change anything here.</p>
+<div class="highlight-python"><div class="highlight"><pre>logStepSize = 0.2;
+
+{minPsDataVal, maxPsDataVal} = getMinMaxPsDataVal[1];
+nonKmParamWeight = Length[Table[1, {i, minPsDataVal, maxPsDataVal, logStepSize}]];
+eTotal = 1;(*Enzyme Total, Should Be 1 for Fitting*)
+
+assumedSaturatingConc = 0.01 ;(*in Molarity*)
+
+(*Chemical Activity Correction Options*)
+
+inVivoPH = 7.5;(*Assumed in vivo pH*)
+inVivoIS = 0.25;(*Assumed in vivo Ionic Strength, in Molarity*)
+
+effectiveIonDiameter = 3;(*Used in Debye-Huckel equation, in Angstroms*)
+
+(*Initialization of Chemical Activity Correction. These values \
+represent no correction (i.e. Chemical Activity is just the \
+Metabolite Concentration)*)
+
+activeIsoSub = Thread[metsFull -&gt; metsFull];(*[(S^z)] = [S] *)
+activityCoefficient = Thread[metsFull -&gt; 1];(* \[Gamma] = 1 *)
+
+pHandT = kmList[[1]][[{5, 6}]];
+</pre></div>
+</div>
+<p>Simulate Km data.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">kmFittingData</span> <span class="o">=</span> <span class="n">simulateKmData</span><span class="p">[</span><span class="n">rxn</span><span class="p">,</span> <span class="n">metsFull</span><span class="p">,</span>  <span class="n">metSatForSub</span><span class="p">,</span> <span class="n">metSatRevSub</span><span class="p">,</span> <span class="n">kmList</span><span class="p">,</span> <span class="n">otherParmsList</span><span class="p">,</span> <span class="n">assumedSaturatingConc</span><span class="p">,</span> <span class="n">eTotal</span><span class="p">,</span>
+                                                           <span class="n">logStepSize</span><span class="p">,</span> <span class="n">activeIsoSub</span><span class="p">,</span> <span class="n">bufferInfo</span><span class="p">,</span> <span class="n">ionCharge</span><span class="p">,</span> <span class="n">inputPath</span><span class="p">,</span> <span class="n">inputPath</span><span class="p">,</span> <span class="n">fileList</span><span class="p">,</span> <span class="n">KeqEquilibrator</span><span class="p">];</span>
+</pre></div>
+</div>
+<p>Simulate kcat data.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">kcatFittingData</span> <span class="o">=</span> <span class="n">simulateKcatData</span><span class="p">[</span><span class="n">rxn</span><span class="p">,</span> <span class="n">metsFull</span><span class="p">,</span>  <span class="n">metSatForSub</span><span class="p">,</span> <span class="n">metSatRevSub</span><span class="p">,</span> <span class="n">kcatList</span><span class="p">,</span> <span class="n">otherParmsList</span><span class="p">,</span> <span class="n">assumedSaturatingConc</span><span class="p">,</span> <span class="n">eTotal</span><span class="p">,</span>
+                                                                   <span class="n">logStepSize</span><span class="p">,</span> <span class="n">nonKmParamWeight</span><span class="p">,</span> <span class="n">activeIsoSub</span><span class="p">,</span> <span class="n">bufferInfo</span><span class="p">,</span> <span class="n">ionCharge</span><span class="p">,</span> <span class="n">inputPath</span><span class="p">,</span> <span class="n">inputPath</span><span class="p">,</span> <span class="n">fileList</span><span class="p">,</span> <span class="n">KeqEquilibrator</span><span class="p">];</span>
+</pre></div>
+</div>
+<p>Simulate Keq data.</p>
+<div class="highlight-python"><div class="highlight"><pre>haldane = haldaneRelation[KeqName, allCatalyticReactions] /. unifiedRateConstList;
+haldaneRatio = haldane[[2]];
+
+{KeqFittingData, fileList, fileListSub, eqnNameList, eqnValList, eqnValListPy}
+        = simulateRateConstRatiosData[haldaneRatio, KeqEquilibrator, KeqEquilibrator, metsFull, rateConstsSub, metsSub, eTotal,
+                                                                        nonKmParamWeight, inputPath, fileList, fileListSub, eqnNameList,
+                                                                        eqnValList, eqnValListPy, pHandT, &quot;haldaneRatio&quot;];
+</pre></div>
+</div>
+<p>Simulate inhibition data.</p>
+<div class="highlight-python"><div class="highlight"><pre>inhibVal = inhibitionList[[1]][[3]];
+inhibRatio = Toolbox`rateconst[&quot;TALA2_Kic_pi_1_f6p_TALA2_Kic_pi_1_e4p&quot;, False]/ Toolbox`rateconst[&quot;TALA2_Kic_pi_1_f6p_TALA2_Kic_pi_1_e4p&quot;, True];
+
+{inhibRatioFittingData, fileList, fileListSub, eqnNameList, eqnValList, eqnValListPy}
+        = simulateRateConstRatiosData[inhibRatio, inhibVal, KeqEquilibrator, metsFull, rateConstsSub, metsSub, eTotal, nonKmParamWeight,
+                                                                        inputPath, fileList, fileListSub, eqnNameList, eqnValList,
+                                                                                eqnValListPy, pHandT, eqnName = &quot;inhibRatio&quot;];
+
+logStepSize = 0.2;
+inhibFittingData = simulateInhibData[rxn, metsFull, metSatForSub, metSatRevSub,
+                                                                        inhibitionList, kmList, assumedSaturatingConc, eTotal,
+                                                                        logStepSize, activeIsoSub, bufferInfo, ionCharge, inputPath,
+                                                                        outputPath, fileList, KeqEquilibrator];
+</pre></div>
+</div>
+<p>Assemble and export data.</p>
+<div class="highlight-python"><div class="highlight"><pre>header = Join[Map[ToString, metsSub[[All, 1]]], {&quot;FileFlag&quot;, &quot;Target_Data&quot;}];
+fittingData = Flatten[{kmFittingData, kcatFittingData, KeqFittingData, inhibRatioFittingData, inhibFittingData}, 1];
+
+dataPath = FileNameJoin[{inputPath, rxnName &lt;&gt; &quot;.dat&quot;}, OperatingSystem -&gt; $OperatingSystem];
+
+vList = Join[{header}, fittingData];
+Export[dataPath, vList, &quot;Table&quot;];
+FilePrint[dataPath]
+</pre></div>
+</div>
+</div>
+<div class="section" id="configure-particle-swarm-optimization">
+<h3>Configure Particle Swarm Optimization<a class="headerlink" href="#configure-particle-swarm-optimization" title="Permalink to this headline">¶</a></h3>
+<p>The only parameter the user should need to change here is the number of fits, i.e., the number of models to be generated.</p>
+<div class="highlight-python"><div class="highlight"><pre>numFits = 100;
+{psoParameterPath, psoResultsFileName, psoTrialSummaryFileName}
+        = definePSOparameters[inputPath, outputPath, dataPath, finalRateConsts, fileList, numFits, lowerParamBound, upperParamBound];
+</pre></div>
+</div>
+</div>
+<div class="section" id="configure-levenberg-marquardt-algorithm">
+<h3>Configure Levenberg-Marquardt algorithm<a class="headerlink" href="#configure-levenberg-marquardt-algorithm" title="Permalink to this headline">¶</a></h3>
+<p>The user shouldn&#8217;t need to change anything here.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span><span class="n">lmaParameterPath</span><span class="p">,</span> <span class="n">lmaResultsFileName</span><span class="p">}</span> <span class="o">=</span> <span class="n">defineLMAparameters</span><span class="p">[</span><span class="n">inputPath</span><span class="p">,</span> <span class="n">outputPath</span><span class="p">,</span> <span class="n">dataPath</span><span class="p">,</span> <span class="n">finalRateConsts</span><span class="p">,</span>
+                                                                                                                         <span class="n">fileList</span><span class="p">,</span> <span class="n">lowerParamBound</span><span class="p">,</span> <span class="n">upperParamBound</span><span class="p">];</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="run-fitting-algorithms">
+<h3>Run fitting algorithms<a class="headerlink" href="#run-fitting-algorithms" title="Permalink to this headline">¶</a></h3>
+<p>The only thing the user should need to change here is the value for pythonPath.
+If no virtual environment is used the variable should simply be set as &#8220;python&#8221;, otherwise the path to the python interpreter in the virtual environment should be defined.</p>
+<div class="highlight-python"><div class="highlight"><pre>pythonPath = &quot;~/.virtualenvs/kinetics_fit/bin/python&quot;;
+
+runFitScriptPath = FileNameJoin[{pathMASSFittingPackage &lt;&gt; &quot;python_code&quot;, &quot;src&quot;, &quot;run_fit_rel.py&quot;}, OperatingSystem -&gt; $OperatingSystem];
+
+runPythonCmd = StringRiffle[{pythonPath, runFitScriptPath , psoParameterPath, lmaParameterPath,
+                                                        psoTrialSummaryFileName, psoResultsFileName, lmaResultsFileName, ToString @numFits, dataPath}, &quot; &quot;];
+
+runBothCmd = &quot;cd &quot; &lt;&gt; inputPath &lt;&gt; &quot; &amp;&amp; &quot; &lt;&gt; runPythonCmd;
+runBothExe = &quot;!&quot; &lt;&gt; runBothCmd &lt;&gt; &quot; 2&gt;&amp;1&quot;;
+
+Import[runBothExe &lt;&gt; &quot; 2&gt;&amp;1&quot;, &quot;Text&quot;]
+</pre></div>
+</div>
+</div>
+<div class="section" id="pull-in-parameters-and-check-fit-and-enzyme-statistics">
+<h3>Pull in parameters and check fit and enzyme statistics<a class="headerlink" href="#pull-in-parameters-and-check-fit-and-enzyme-statistics" title="Permalink to this headline">¶</a></h3>
+<p>Define the path to the simulated data and to the fit results (LMA).</p>
+<div class="highlight-python"><div class="highlight"><pre>fittingData = Import[inputPath &lt;&gt; &quot;GAPD.dat&quot;];
+fittingData = fittingData[[2 ;;, All]];
+resultsFile = &quot;raw/lmaResults.txt&quot;;
+</pre></div>
+</div>
+<p>Process the fit results and calculate the squared sum deviation between the predicted data and experimental data.</p>
+<div class="highlight-python"><div class="highlight"><pre>{flagFitLocal, msgLocal, filteredDataList, bestFitDetails}
+        = getRatesWithSSD[resultsFile, rxnName, fittingData, inputPath, outputPath,
+                                         fileListSub, rateConstsSub, metsSub, flagFitType, {}, False, &quot;&quot;];
+</pre></div>
+</div>
+<p>Plot fit results.</p>
+<div class="highlight-python"><div class="highlight"><pre>ListPlot[Log10[{fittingData[[All, -1]], filteredDataList[[1, 3]]}], AxesOrigin -&gt; {0, -8}]
+ListPlot[{fittingData[[All, -1]], filteredDataList[[1, 3]]}, AxesOrigin -&gt; {0, -8}]
+</pre></div>
+</div>
+<p>Check rate constant distribution.</p>
+<div class="highlight-python"><div class="highlight"><pre>DistributionChart[Transpose[Log10[filteredDataList[[All, 2]]]], ChartElementFunction -&gt; &quot;HistogramDensity&quot;, &quot;PlotRange&quot; -&gt; {-7, 10},
+                                        ChartLegends -&gt; rateConstsSub[[All, 2]] /. Reverse /@ rateConstsSub, ChartStyle -&gt; 24]
+</pre></div>
+</div>
+<p>Check elementary equilibrium constants distribution.</p>
+<div class="highlight-python"><div class="highlight"><pre>{ratios, plotLegend} = getElementaryKeqs[filteredDataList, rateConstsSub];
+DistributionChart[Log10[Transpose@ratios], ChartElementFunction -&gt; &quot;HistogramDensity&quot;, ChartLegends -&gt; plotLegend, ChartStyle -&gt; 24]
+</pre></div>
+</div>
+<p>Select parameter set to be used to predict the data points used for fitting (Kms, Kcats, etc.).</p>
+<div class="highlight-python"><div class="highlight"><pre>paramSet = 1;
+enzymeSub = Toolbox`parameter[&quot;E_total&quot;] -&gt; eTotal;
+paramFitSub = Thread[rateConstsSub[[All, 1]] -&gt; filteredDataList[[paramSet, 2]]];
+</pre></div>
+</div>
+<p>Back calculate Kms.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">backCalculateKms</span><span class="p">[</span><span class="n">rxn</span><span class="p">,</span> <span class="n">kmList</span><span class="p">,</span> <span class="n">absoluteRateForward</span><span class="p">,</span> <span class="n">absoluteRateReverse</span><span class="p">,</span> <span class="n">paramFitSub</span><span class="p">,</span> <span class="n">assumedSaturatingConc</span><span class="p">,</span> <span class="n">KeqName</span><span class="p">]</span> <span class="o">//</span> <span class="n">TableForm</span>
+</pre></div>
+</div>
+<p>Back calculate kcats.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">backCalculateKcats</span><span class="p">[</span><span class="n">rxn</span><span class="p">,</span> <span class="n">kcatList</span><span class="p">,</span> <span class="n">absoluteRateForward</span><span class="p">,</span> <span class="n">absoluteRateReverse</span><span class="p">,</span> <span class="n">paramFitSub</span><span class="p">,</span> <span class="n">enzymeSub</span><span class="p">,</span> <span class="n">assumedSaturatingConc</span><span class="p">]</span> <span class="o">//</span> <span class="n">TableForm</span>
+</pre></div>
+</div>
+<p>Back calculate ratios, such as a Keq.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">backCalculateRatios</span><span class="p">[</span><span class="n">haldaneRatio</span><span class="p">,</span> <span class="n">KeqEquilibrator</span><span class="p">,</span> <span class="n">paramFitSub</span><span class="p">]</span> <span class="o">//</span> <span class="n">TableForm</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="function_description.html" class="btn btn-neutral float-right" title="Results">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="concept.html" class="btn btn-neutral" title="The concept"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright .
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
