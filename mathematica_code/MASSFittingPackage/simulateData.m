@@ -263,7 +263,7 @@ correctChemicalActivities[dataListFull_, metsFull_, activeIsoSub_, ionicStrength
 
 
 simulateKmData[rxn_, metsFull_, metSatForSub_, metSatRevSub_, kmList_, otherParmsList_, assumedSaturatingConc_, eTotal_,
-			   logStepSize_, activeIsoSub_, bufferInfo_, ionCharge_, inputPath_, outputPath_, fileList_, KeqVal_:Null, bigg2equilibrator_:Null] := 
+			   logStepSize_, activeIsoSub_, bufferInfo_, ionCharge_, inputPath_, fileList_, KeqVal_:Null, bigg2equilibrator_:Null] := 
 	Block[{kmEqn, kmListSub, char2met, kmListFull, dataRange, vValues,   
 			ionicStrength, adjustedKeqVal, assayMet, assayCond, fileFlagList, vList, kmFittingData},
 
@@ -297,7 +297,7 @@ simulateKmData[rxn_, metsFull_, metSatForSub_, metSatRevSub_, kmList_, otherParm
 	(*Match to Comparision Equations*)
 	Do[
 		If[StringMatchQ[path, RegularExpression[".*relRate.*_" <> kmListFull[[km,1,1]]<>"\\.txt"]],
-			AppendTo[kmListFull[[km]], FileNameJoin[Flatten@{inputPath, StringCases[StringReplace[path, "\\" -> "/"], RegularExpression[StringReplace[outputPath, "\\" -> "/"] <> "(.*)"] -> "$1"]}, OperatingSystem-> $OperatingSystem]]
+			AppendTo[kmListFull[[km]], FileNameJoin[Flatten@{inputPath, StringCases[StringReplace[path, "\\" -> "/"], RegularExpression[StringReplace[inputPath, "\\" -> "/"] <> "(.*)"] -> "$1"]}, OperatingSystem-> $OperatingSystem]]
 		],
 		{km, Length @ kmListFull}, {path,fileList}];
 
@@ -354,7 +354,7 @@ simulateKmData[rxn_, metsFull_, metSatForSub_, metSatRevSub_, kmList_, otherParm
 
 
 simulateS05Data[rxn_, metsFull_, metSatForSub_, metSatRevSub_, s05List_, otherParmsList_, assumedSaturatingConc_, eTotal_,
-			   logStepSize_, activeIsoSub_, bufferInfo_, ionCharge_, inputPath_, outputPath_, fileList_, KeqVal_:Null, bigg2equilibrator_:Null] := 
+			   logStepSize_, activeIsoSub_, bufferInfo_, ionCharge_, inputPath_, fileList_, KeqVal_:Null, bigg2equilibrator_:Null] := 
 	Block[{hillEqn, s05MetSub, char2met, hillList, s05ListFull, dataRange, vValues, 
 			ionicStrength, adjustedKeqVal, assayMet, assayCond, fileFlagList, vList, s05FittingData},
 
@@ -409,7 +409,7 @@ simulateS05Data[rxn_, metsFull_, metSatForSub_, metSatRevSub_, s05List_, otherPa
 	(*Match to Comparision Equations*)
 	Do[
 		If[StringMatchQ[path, RegularExpression[".*_" <> s05ListFull[[s05, 1, 1]]<>"\\.txt"]],
-			AppendTo[s05ListFull[[s05]], FileNameJoin[Flatten@{inputPath, StringCases[StringReplace[path, "\\" -> "/"], RegularExpression[StringReplace[outputPath, "\\" -> "/"] <> "(.*)"] -> "$1"]}, OperatingSystem-> $OperatingSystem]]
+			AppendTo[s05ListFull[[s05]], FileNameJoin[Flatten@{inputPath, StringCases[StringReplace[path, "\\" -> "/"], RegularExpression[StringReplace[inputPath, "\\" -> "/"] <> "(.*)"] -> "$1"]}, OperatingSystem-> $OperatingSystem]]
 		],
 	{s05, Length @ s05ListFull}, {path,fileList}];
 
@@ -462,8 +462,8 @@ Print[ionicStrength];
 
 
 simulateKcatData[rxn_, metsFull_, metSatForSub_, metSatRevSub_, kcatList_, otherParmsList_, assumedSaturatingConc_, eTotal_,
-			  logStepSize_, nonKmParamWeight_, activeIsoSub_, bufferInfo_, ionCharge_, inputPath_, 
-			  outputPath_, fileList_, KeqVal_:Null, bigg2equilibrator_:Null] := 
+			  logStepSize_, nonKmParamWeight_, activeIsoSub_, bufferInfo_, ionCharge_, inputPath_,
+			  fileList_, KeqVal_:Null, bigg2equilibrator_:Null] := 
 	Block[{vMaxEqn, kcatListSub, char2met, kcatListFull, vValues, localMets,  coSubData, coSub, localConc,
 			ionicStrength, adjustedKeqVal, assayMet, assayCond, fileFlagList, vList, kcatFittingData,
 			substrateCheck},
@@ -619,7 +619,7 @@ getInhibFlux[paramType_, paramList_] := Block[{flux},
 
 
 simulateInhibData[rxn_, metsFull_, metSatForSub_, metSatRevSub_, inhibList_, kmList_, assumedSaturatingConc_, eTotal_,
-			   logStepSize_, activeIsoSub_, bufferInfo_, ionCharge_, inputPath_, outputPath_, fileList_, KeqVal_:{}] := 
+			   logStepSize_, activeIsoSub_, bufferInfo_, ionCharge_, inputPath_, fileList_, KeqVal_:{}] := 
 	Block[{inhibListSub, char2met, inhibListFull, dataRange, vValues, dataCoSub, coSubList={}, indicies, dataCoSubFull, 
 			ionicStrength, adjustedKeqVal, assayMet, assayCond, fileFlagList, vList, inhibFittingData, kmValues,
 			inhibConcMultiplierList, substrateDataRange, inhibDataRange, inhibitor, paramType, otherInhib, KiOrder,res},
@@ -871,7 +871,7 @@ simulateInhibData[rxn_, metsFull_, metSatForSub_, metSatRevSub_, inhibList_, kmL
 
 
 simulateRateConstRatiosData[dKdRatio_, dKdVal_, KeqVal_, metsFull_, rateConstsSub_, metsSub_, eTotal_, nonKmParamWeight_,
-							outputPath_, fileList_, fileListSub_, eqnNameList_, eqnValList_, eqnValListPy_, pHandT_, eqnName_] := 
+							inputPath_, fileList_, fileListSub_, eqnNameList_, eqnValList_, eqnValListPy_, pHandT_, eqnName_] := 
 	Block[{dKdRatioPy, fileName, fileNameSub, eqnList, assayMet, 
 			fileListLocal=fileList, fileListSubLocal=fileListSub, 
 			eqnNameListLocal=eqnNameList, eqnValListLocal=eqnValList, eqnValListPyLocal=eqnValListPy, 
@@ -883,7 +883,7 @@ simulateRateConstRatiosData[dKdRatio_, dKdVal_, KeqVal_, metsFull_, rateConstsSu
 
 	(*Incorporate the Equation Into the Existing Notebook Framework*)
 	(*Equation Naming and Export*)
-	fileName = FileNameJoin[{outputPath, eqnName <> ".txt"}, OperatingSystem->$OperatingSystem];
+	fileName = FileNameJoin[{inputPath, eqnName <> ".txt"}, OperatingSystem->$OperatingSystem];
 	Export[fileName, dKdRatioPy];
 
 	(*Incorporating the Equation for Down Stream Equation Handling*)

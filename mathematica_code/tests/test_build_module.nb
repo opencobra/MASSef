@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[   2890789,      61522]
-NotebookOptionsPosition[   2888009,      61432]
-NotebookOutlinePosition[   2888341,      61447]
-CellTagsIndexPosition[   2888298,      61444]
+NotebookDataLength[   2890818,      61522]
+NotebookOptionsPosition[   2888038,      61432]
+NotebookOutlinePosition[   2888370,      61447]
+CellTagsIndexPosition[   2888327,      61444]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -34411,7 +34411,7 @@ Cell[BoxData[
                  TagBox[
                   
                   TemplateBox[{
-                   "0.061606`4.940138009346994","\"s\"","seconds",
+                   "0.051918`4.8658329519306704","\"s\"","seconds",
                     "\"Seconds\""},
                    "Quantity"],
                   Short[#, 
@@ -34651,9 +34651,9 @@ Cell[BoxData[
               "CatalyticSites" -> DirectedInfinity[1], "ActivationSites" -> 0,
                "InhibitionSites" -> 0}]}, {1, 1}, True]}, {}}], 
       "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
-      Quantity[0.061606`4.940138009346994, "Seconds"], "CPUTimeUsed" -> 
-      Quantity[0.1200000000000001, "Seconds"], "MemoryUsed" -> 
-      Quantity[3026480, "Bytes"]]],
+      Quantity[0.051918`4.8658329519306704, "Seconds"], "CPUTimeUsed" -> 
+      Quantity[0.10400000000000009`, "Seconds"], "MemoryUsed" -> 
+      Quantity[3026584, "Bytes"]]],
     Editable->False,
     SelectWithContents->True,
     Selectable->False], ",", 
@@ -34844,7 +34844,7 @@ Cell[BoxData[
                  TagBox[
                   
                   TemplateBox[{
-                   "0.000141`2.2997341104873716","\"s\"","seconds",
+                   "0.000102`2.1591151695939113","\"s\"","seconds",
                     "\"Seconds\""},
                    "Quantity"],
                   Short[#, 
@@ -34882,7 +34882,7 @@ Cell[BoxData[
        "Input" -> HoldForm[$CellContext`result], "ExpectedOutput" -> 
       HoldForm[{"GAPD6"}], "ActualOutput" -> HoldForm[{"GAPD6"}], 
       "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
-      Quantity[0.000141`2.2997341104873716, "Seconds"], "CPUTimeUsed" -> 
+      Quantity[0.000102`2.1591151695939113, "Seconds"], "CPUTimeUsed" -> 
       Quantity[0., "Seconds"], "MemoryUsed" -> Quantity[96, "Bytes"]]],
     Editable->False,
     SelectWithContents->True,
@@ -35448,7 +35448,7 @@ Cell[BoxData[
                  TagBox[
                   
                   TemplateBox[{
-                   "0.0001`2.1505149978319897","\"s\"","seconds",
+                   "0.000102`2.1591151695939113","\"s\"","seconds",
                     "\"Seconds\""},
                    "Quantity"],
                   Short[#, 
@@ -35520,7 +35520,7 @@ Cell[BoxData[
              "InhibitionSites" -> 0}]/Toolbox`Keq["GAPD6"]) 
          Toolbox`parameter["Volume", "c"] Toolbox`rateconst["GAPD6", True]}], 
       "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
-      Quantity[0.0001`2.1505149978319897, "Seconds"], "CPUTimeUsed" -> 
+      Quantity[0.000102`2.1591151695939113, "Seconds"], "CPUTimeUsed" -> 
       Quantity[0., "Seconds"], "MemoryUsed" -> Quantity[104, "Bytes"]]],
     Editable->False,
     SelectWithContents->True,
@@ -36026,7 +36026,7 @@ Cell[BoxData[
                  TagBox[
                   
                   TemplateBox[{
-                   "0.000127`2.2543187187879483","\"s\"","seconds",
+                   "0.000097`2.137286732098239","\"s\"","seconds",
                     "\"Seconds\""},
                    "Quantity"],
                   Short[#, 
@@ -36091,7 +36091,7 @@ Cell[BoxData[
          Toolbox`rateconst["GAPD6", True], Toolbox`rateconst["GAPD6", False] -> 
          Toolbox`rateconst["GAPD6", False]}], "ExpectedMessages" -> {}, 
       "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
-      Quantity[0.000127`2.2543187187879483, "Seconds"], "CPUTimeUsed" -> 
+      Quantity[0.000097`2.137286732098239, "Seconds"], "CPUTimeUsed" -> 
       Quantity[0., "Seconds"], "MemoryUsed" -> Quantity[32, "Bytes"]]],
     Editable->False,
     SelectWithContents->True,
@@ -36769,7 +36769,7 @@ Cell[BoxData[
                  TagBox[
                   
                   TemplateBox[{
-                   "0.000118`2.222397005138117","\"s\"","seconds",
+                   "0.00009`2.104757507271319","\"s\"","seconds",
                     "\"Seconds\""},
                    "Quantity"],
                   Short[#, 
@@ -37351,7 +37351,7 @@ Cell[BoxData[
               "CatalyticSites" -> DirectedInfinity[1], "ActivationSites" -> 0,
                "InhibitionSites" -> 0}]}, {1, 1, 1}, True]}}], 
       "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
-      Quantity[0.000118`2.222397005138117, "Seconds"], "CPUTimeUsed" -> 
+      Quantity[0.00009`2.104757507271319, "Seconds"], "CPUTimeUsed" -> 
       Quantity[0., "Seconds"], "MemoryUsed" -> Quantity[32, "Bytes"]]],
     Editable->False,
     SelectWithContents->True,
@@ -38030,7 +38030,7 @@ Cell[BoxData[
                  TagBox[
                   
                   TemplateBox[{
-                   "0.000097`2.1372867320982367","\"s\"","seconds",
+                   "0.000094`2.1236428514316925","\"s\"","seconds",
                     "\"Seconds\""},
                    "Quantity"],
                   Short[#, 
@@ -38610,7 +38610,7 @@ Cell[BoxData[
               "CatalyticSites" -> DirectedInfinity[1], "ActivationSites" -> 0,
                "InhibitionSites" -> 0}]}, {1, 1, 1}, True]}}], 
       "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
-      Quantity[0.000097`2.1372867320982367, "Seconds"], "CPUTimeUsed" -> 
+      Quantity[0.000094`2.1236428514316925, "Seconds"], "CPUTimeUsed" -> 
       Quantity[0., "Seconds"], "MemoryUsed" -> Quantity[32, "Bytes"]]],
     Editable->False,
     SelectWithContents->True,
@@ -39043,7 +39043,7 @@ Cell[BoxData[
                  TagBox[
                   
                   TemplateBox[{
-                   "0.31674`5.651217910216592","\"s\"","seconds",
+                   "0.323491`5.660377200287381","\"s\"","seconds",
                     "\"Seconds\""},
                    "Quantity"],
                   Short[#, 
@@ -39351,9 +39351,9 @@ Cell[BoxData[
                  Toolbox`rateconst["GAPD6", False] + 
                  Toolbox`rateconst["GAPD6", True])))))], 
       "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
-      Quantity[0.31674`5.651217910216592, "Seconds"], "CPUTimeUsed" -> 
-      Quantity[0.32399999999999896`, "Seconds"], "MemoryUsed" -> 
-      Quantity[1060888, "Bytes"]]],
+      Quantity[0.323491`5.660377200287381, "Seconds"], "CPUTimeUsed" -> 
+      Quantity[0.3359999999999994, "Seconds"], "MemoryUsed" -> 
+      Quantity[1060568, "Bytes"]]],
     Editable->False,
     SelectWithContents->True,
     Selectable->False], ",", 
@@ -39804,7 +39804,7 @@ Cell[BoxData[
                  TagBox[
                   
                   TemplateBox[{
-                   "0.000102`2.1591151695939113","\"s\"","seconds",
+                   "0.000137`2.2872355649884004","\"s\"","seconds",
                     "\"Seconds\""},
                    "Quantity"],
                   Short[#, 
@@ -39891,7 +39891,7 @@ Cell[BoxData[
          Toolbox`rateconst["ADK16", True] -> 
          Toolbox`rateconst["ADK1_3_6", True]}], "ExpectedMessages" -> {}, 
       "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
-      Quantity[0.000102`2.1591151695939113, "Seconds"], "CPUTimeUsed" -> 
+      Quantity[0.000137`2.2872355649884004, "Seconds"], "CPUTimeUsed" -> 
       Quantity[0., "Seconds"], "MemoryUsed" -> Quantity[32, "Bytes"]]],
     Editable->False,
     SelectWithContents->True,
@@ -40361,7 +40361,7 @@ Cell[BoxData[
                  TagBox[
                   
                   TemplateBox[{
-                   "0.000098`2.1417410735244866","\"s\"","seconds",
+                   "0.000144`2.3088774899272435","\"s\"","seconds",
                     "\"Seconds\""},
                    "Quantity"],
                   Short[#, 
@@ -40418,7 +40418,7 @@ Cell[BoxData[
          Toolbox`rateconst["TALA2_Kic_pi_1_f6p", True] -> 
          Toolbox`rateconst["TALA2_Kic_pi_1_f6p_TALA2_Kic_pi_1_e4p", True]}], 
       "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
-      Quantity[0.000098`2.1417410735244866, "Seconds"], "CPUTimeUsed" -> 
+      Quantity[0.000144`2.3088774899272435, "Seconds"], "CPUTimeUsed" -> 
       Quantity[0., "Seconds"], "MemoryUsed" -> Quantity[32, "Bytes"]]],
     Editable->False,
     SelectWithContents->True,
@@ -40883,7 +40883,7 @@ Cell[BoxData[
                 PaneBox[
                  TagBox[
                   TemplateBox[{
-                   "0.000154`2.3380357186684573","\"s\"","seconds",
+                   "0.000181`2.4081935727011787","\"s\"","seconds",
                     "\"Seconds\""},
                    "Quantity"],
                   Short[#, 
@@ -40940,7 +40940,7 @@ Cell[BoxData[
          Toolbox`rateconst["TALA2_Kic_pi_1_f6p", True] -> 
          Toolbox`rateconst["TALA2_Kic_pi_1_f6p_TALA2_Kic_pi_1_e4p", True]}], 
       "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
-      Quantity[0.000154`2.3380357186684573, "Seconds"], "CPUTimeUsed" -> 
+      Quantity[0.000181`2.4081935727011787, "Seconds"], "CPUTimeUsed" -> 
       Quantity[0., "Seconds"], "MemoryUsed" -> Quantity[32, "Bytes"]]],
     Editable->False,
     SelectWithContents->True,
@@ -41611,7 +41611,7 @@ Cell[BoxData[
                  TagBox[
                   
                   TemplateBox[{
-                   "0.009062`4.1077390556751565","\"s\"","seconds",
+                   "0.009353`4.121465932177418","\"s\"","seconds",
                     "\"Seconds\""},
                    "Quantity"],
                   Short[#, 
@@ -42434,8 +42434,8 @@ Cell[BoxData[
                   Toolbox`rateconst["GAPD6", False] + 
                   Toolbox`rateconst["GAPD6", True])))))}}], 
       "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
-      Quantity[0.009062`4.1077390556751565, "Seconds"], "CPUTimeUsed" -> 
-      Quantity[0.012000000000000455`, "Seconds"], "MemoryUsed" -> 
+      Quantity[0.009353`4.121465932177418, "Seconds"], "CPUTimeUsed" -> 
+      Quantity[0.007999999999999119, "Seconds"], "MemoryUsed" -> 
       Quantity[1824, "Bytes"]]],
     Editable->False,
     SelectWithContents->True,
@@ -43052,7 +43052,7 @@ Cell[BoxData[
                  TagBox[
                   
                   TemplateBox[{
-                   "0.001483`3.321656148860376","\"s\"","seconds",
+                   "0.001439`3.3085757917685994","\"s\"","seconds",
                     "\"Seconds\""},
                    "Quantity"],
                   Short[#, 
@@ -43174,8 +43174,8 @@ Cell[BoxData[
             Toolbox`rateconst["ENO3", False] + 
             Toolbox`rateconst["ENO3", True]))}}], "ExpectedMessages" -> {}, 
       "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
-      Quantity[0.001483`3.321656148860376, "Seconds"], "CPUTimeUsed" -> 
-      Quantity[0., "Seconds"], "MemoryUsed" -> Quantity[2440, "Bytes"]]],
+      Quantity[0.001439`3.3085757917685994, "Seconds"], "CPUTimeUsed" -> 
+      Quantity[0., "Seconds"], "MemoryUsed" -> Quantity[2560, "Bytes"]]],
     Editable->False,
     SelectWithContents->True,
     Selectable->False], ",", 
@@ -43369,7 +43369,7 @@ Cell[BoxData[
                  TagBox[
                   
                   TemplateBox[{
-                   "4.318952`6.785893375241153","\"s\"","seconds",
+                   "4.124999`6.765938845434415","\"s\"","seconds",
                     "\"Seconds\""},
                    "Quantity"],
                   Short[#, 
@@ -47788,9 +47788,9 @@ Cell[BoxData[
                     Toolbox`rateconst["G3PD2_Kincu_dhap_1_nadp", False] 
                     Toolbox`rateconst["G3PD2_NC_dhap", True])))))}}}], 
       "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
-      Quantity[4.318952`6.785893375241153, "Seconds"], "CPUTimeUsed" -> 
-      Quantity[4.343999999999994, "Seconds"], "MemoryUsed" -> 
-      Quantity[7358736, "Bytes"]]],
+      Quantity[4.124999`6.765938845434415, "Seconds"], "CPUTimeUsed" -> 
+      Quantity[4.123999999999995, "Seconds"], "MemoryUsed" -> 
+      Quantity[7358496, "Bytes"]]],
     Editable->False,
     SelectWithContents->True,
     Selectable->False], ",", 
@@ -47982,7 +47982,7 @@ Cell[BoxData[
                  TagBox[
                   
                   TemplateBox[{
-                   "0.068253`4.984636742992577","\"s\"","seconds",
+                   "0.062878`4.9490137172059425","\"s\"","seconds",
                     "\"Seconds\""},
                    "Quantity"],
                   Short[#, 
@@ -48981,9 +48981,9 @@ Cell[BoxData[
                     Toolbox`rateconst[
                     "TALA2_Kic_pi_1_f6p_TALA2_Kic_pi_1_e4p", True]))))))}}], 
       "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
-      Quantity[0.068253`4.984636742992577, "Seconds"], "CPUTimeUsed" -> 
-      Quantity[0.07200000000001694, "Seconds"], "MemoryUsed" -> 
-      Quantity[25760, "Bytes"]]],
+      Quantity[0.062878`4.9490137172059425, "Seconds"], "CPUTimeUsed" -> 
+      Quantity[0.06400000000000716, "Seconds"], "MemoryUsed" -> 
+      Quantity[25640, "Bytes"]]],
     Editable->False,
     SelectWithContents->True,
     Selectable->False], ",", 
@@ -49540,7 +49540,7 @@ Cell[BoxData[
                  TagBox[
                   
                   TemplateBox[{
-                   "0.000144`2.3088774899272435","\"s\"","seconds",
+                   "0.000103`2.163352222537166","\"s\"","seconds",
                     "\"Seconds\""},
                    "Quantity"],
                   Short[#, 
@@ -49651,7 +49651,7 @@ Cell[BoxData[
           Toolbox`rateconst["GAPD6", False] -> "x<10>", 
           Toolbox`rateconst["GAPD6", True] -> "x<11>"}}], 
       "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
-      Quantity[0.000144`2.3088774899272435, "Seconds"], "CPUTimeUsed" -> 
+      Quantity[0.000103`2.163352222537166, "Seconds"], "CPUTimeUsed" -> 
       Quantity[0., "Seconds"], "MemoryUsed" -> Quantity[32, "Bytes"]]],
     Editable->False,
     SelectWithContents->True,
@@ -49842,7 +49842,7 @@ Cell[BoxData[
                  TagBox[
                   
                   TemplateBox[{
-                   "0.000106`2.175820863096764","\"s\"","seconds",
+                   "0.000109`2.1879414957726175","\"s\"","seconds",
                     "\"Seconds\""},
                    "Quantity"],
                   Short[#, 
@@ -49989,7 +49989,7 @@ Cell[BoxData[
           Toolbox`rateconst["G3PD2_NC_glyc3p", False] -> "x<20>", 
           Toolbox`rateconst["G3PD2_NC_glyc3p", True] -> "x<21>"}}], 
       "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
-      Quantity[0.000106`2.175820863096764, "Seconds"], "CPUTimeUsed" -> 
+      Quantity[0.000109`2.1879414957726175, "Seconds"], "CPUTimeUsed" -> 
       Quantity[0., "Seconds"], "MemoryUsed" -> Quantity[32, "Bytes"]]],
     Editable->False,
     SelectWithContents->True,
@@ -50183,7 +50183,7 @@ Cell[BoxData[
                  TagBox[
                   
                   TemplateBox[{
-                   "0.000152`2.3323585857767664","\"s\"","seconds",
+                   "0.000168`2.3758242795578566","\"s\"","seconds",
                     "\"Seconds\""},
                    "Quantity"],
                   Short[#, 
@@ -51944,7 +51944,7 @@ x[8])))))"}, {
                    Toolbox`rateconst["GAPD6", False] + 
                    Toolbox`rateconst["GAPD6", True])))))}}], 
       "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
-      Quantity[0.000152`2.3323585857767664, "Seconds"], "CPUTimeUsed" -> 
+      Quantity[0.000168`2.3758242795578566, "Seconds"], "CPUTimeUsed" -> 
       Quantity[0., "Seconds"], "MemoryUsed" -> Quantity[32, "Bytes"]]],
     Editable->False,
     SelectWithContents->True,
@@ -52160,7 +52160,7 @@ x[8])))))"}, {
                  TagBox[
                   
                   TemplateBox[{
-                   "0.000143`2.3058510352970556","\"s\"","seconds",
+                   "0.000146`2.3148678536164313","\"s\"","seconds",
                     "\"Seconds\""},
                    "Quantity"],
                   Short[#, 
@@ -61420,13 +61420,13 @@ d[4]*x[2]*x[6]*(x[4]*(x[10]*x[18] + (x[10] + x[18])*x[8]) + x[10]*x[18]*(x[8] \
                     Toolbox`rateconst["G3PD2_Kincu_dhap_1_nadp", False] 
                     Toolbox`rateconst["G3PD2_NC_dhap", True])))))}}], 
       "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
-      Quantity[0.000143`2.3058510352970556, "Seconds"], "CPUTimeUsed" -> 
+      Quantity[0.000146`2.3148678536164313, "Seconds"], "CPUTimeUsed" -> 
       Quantity[0., "Seconds"], "MemoryUsed" -> Quantity[32, "Bytes"]]],
     Editable->False,
     SelectWithContents->True,
     Selectable->False]}], "}"}]], "Output",
  CellChangeTimes->{3.695476141417239*^9, 3.69649322482411*^9, 
-  3.696493571165227*^9}]
+  3.696493571165227*^9, 3.6971258809351254`*^9}]
 }, Open  ]]
 }, Open  ]]
 },
@@ -61521,7 +61521,7 @@ Cell[1373276, 32609, 1529, 25, 35, "Subsubsection"],
 Cell[1374808, 32636, 31680, 817, 621, "Input"],
 Cell[CellGroupData[{
 Cell[1406513, 33457, 105, 1, 32, "Input"],
-Cell[1406621, 33460, 1481360, 27968, 362, "Output"]
+Cell[1406621, 33460, 1481389, 27968, 362, "Output"]
 }, Open  ]]
 }, Open  ]]
 }
