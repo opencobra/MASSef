@@ -40,9 +40,9 @@ calculateFitSSD[resultsFile_, enzName_, fittingData_, inputPath_, outputPath_, f
 			{paramSet, 1, Length @ paramFitProcessed}, {dataPoint, 1, Length @ fittingData}];
 
 			If[flagFitType == "abs_ssd",
-				vRelSSD = Total[Table[(vRelData[[dataSet]]-vRelFit[[paramSet,dataSet]])^2, {paramSet, 1, Length @ vRelFit}, {dataSet, 1, Length @ vRelData}],{2}]];
+				vRelSSD = Total[Table[(Log10[vRelData[[dataSet]]]-Log10[vRelFit[[paramSet,dataSet]]])^2, {paramSet, 1, Length @ vRelFit}, {dataSet, 1, Length @ vRelData}],{2}]];
 			If[flagFitType == "rel_ssd",
-				vRelSSD = Total[Table[(vRelData[[dataSet]]-vRelFit[[paramSet,dataSet]])^2/Abs[vRelData[[dataSet]]], {paramSet, 1, Length[vRelFit]}, {dataSet, 1, Length[vRelData]}],{2}]];
+				vRelSSD = Total[Table[(Log10[vRelData[[dataSet]]]-Log10[vRelFit[[paramSet,dataSet]]])^2/Abs[Log10[vRelData[[dataSet]]]], {paramSet, 1, Length[vRelFit]}, {dataSet, 1, Length[vRelData]}],{2}]];
 
 			dataArrayWithSSD = SortBy[
 				Table[
@@ -51,13 +51,23 @@ calculateFitSSD[resultsFile_, enzName_, fittingData_, inputPath_, outputPath_, f
 			
 			bestFit = dataArrayWithSSD[[1]];
 
-			bestFitDetails = {{"Fitting Equation","Relative error", "True value", "Predicted Value"},{"",""}}~Join~Transpose[
+			bestFitDetails = {{"Fitting Equation", "Residual", "Residual^2", "Relative error", "True value", "Predicted Value"},{"",""}}~Join~Transpose[
 					{Table[
 						StringDrop[StringCases[StringReplace[func, "\\"-> "/"], RegularExpression[StringReplace[inputPath, "\\"-> "/"] <>  "(.*)\\.txt"] -> "$1"][[1]],1],
 					{func,fittingData[[All,-2]]}],
+					
+					Table[
+						Abs[Log10[vRelData[[i]]]-Log10[bestFit[[3,i]]]],
+					{i, Length @ vRelData}], 
+					
+					Table[
+						(Log10[vRelData[[i]]]-Log10[bestFit[[3,i]]])^2,
+					{i, Length @ vRelData}], 
+					
 					Table[
 						Abs[((vRelData[[i]]-bestFit[[3,i]]))/vRelData[[i]]*100],
 					{i, Length @ vRelData}], 
+					
 					vRelData, bestFit[[3]]}];
 
 
