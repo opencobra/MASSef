@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[   2890789,      61522]
-NotebookOptionsPosition[   2888009,      61432]
-NotebookOutlinePosition[   2888341,      61447]
-CellTagsIndexPosition[   2888298,      61444]
+NotebookDataLength[   2935447,      62474]
+NotebookOptionsPosition[   2932660,      62384]
+NotebookOutlinePosition[   2932999,      62399]
+CellTagsIndexPosition[   2932956,      62396]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -33793,22 +33793,7 @@ Cell[BoxData[
                     Selectable->False], ",", 
                     InterpretationBox[
                     OverscriptBox[
-                    RowBox[{
-                    RowBox[{
-                    InterpretationBox[
-                    RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}],
-                    
-                    Toolbox`enzyme[{
-                    "ID" -> "GAPD", "Compartment" -> "c", "BoundCatalytic" -> {
-                    Toolbox`Private`wrap[Toolbox`metabolite]["nad", "c"]}, 
-                    "BoundActivators" -> {}, "BoundInhibitors" -> {}, 
-                    "CatalyticSites" -> DirectedInfinity[1], 
-                    "ActivationSites" -> 0, "InhibitionSites" -> 0}],
-                    Editable->False,
-                    Selectable->False], "+", 
-                    RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}]}], 
                     RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], 
-                    RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}]}], 
                     StyleBox["GAPD3",
                     StripOnInput->False,
                     ShowSyntaxStyles->False,
@@ -33842,7 +33827,17 @@ Cell[BoxData[
                     InterpretationBox[
                     OverscriptBox[
                     RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], 
-                    RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}]],
+                    StyleBox[
+                    RowBox[{"\[LeftSkeleton]", "5", "\[RightSkeleton]"}],
+                    StripOnInput->False,
+                    ShowSyntaxStyles->False,
+                    AutoSpacing->False,
+                    ZeroWidthTimes->True,
+                    LineColor->RGBColor[0, 0, 0],
+                    FrontFaceColor->RGBColor[0, 0, 0],
+                    BackFaceColor->RGBColor[0, 0, 0],
+                    GraphicsColor->RGBColor[0, 0, 0],
+                    FontColor->RGBColor[0, 0, 0]]],
                     Toolbox`reaction["GAPD4", {
                     
                     Toolbox`enzyme[{
@@ -34093,7 +34088,6 @@ Cell[BoxData[
                     DirectedInfinity[1], "ActivationSites" -> 0, 
                     "InhibitionSites" -> 0}], 
                     Toolbox`metabolite["nad", "c"]}, {
-                    
                     Toolbox`enzyme[{
                     "ID" -> "GAPD", "Compartment" -> "c", "BoundCatalytic" -> {
                     Toolbox`Private`wrap[Toolbox`metabolite]["nad", "c"]}, 
@@ -34172,6 +34166,7 @@ Cell[BoxData[
                     GraphicsColor->RGBColor[0, 0, 0],
                     FontColor->RGBColor[0, 0, 0]]],
                     Toolbox`reaction["GAPD2", {
+                    
                     Toolbox`enzyme[{
                     "ID" -> "GAPD", "Compartment" -> "c", "BoundCatalytic" -> {
                     Toolbox`Private`wrap[Toolbox`metabolite]["13dpg", "c"]}, 
@@ -34190,22 +34185,7 @@ Cell[BoxData[
                     Selectable->False], ",", 
                     InterpretationBox[
                     OverscriptBox[
-                    RowBox[{
-                    RowBox[{
-                    InterpretationBox[
-                    RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}],
-                    
-                    Toolbox`enzyme[{
-                    "ID" -> "GAPD", "Compartment" -> "c", "BoundCatalytic" -> {
-                    Toolbox`Private`wrap[Toolbox`metabolite]["nad", "c"]}, 
-                    "BoundActivators" -> {}, "BoundInhibitors" -> {}, 
-                    "CatalyticSites" -> DirectedInfinity[1], 
-                    "ActivationSites" -> 0, "InhibitionSites" -> 0}],
-                    Editable->False,
-                    Selectable->False], "+", 
-                    RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}]}], 
                     RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], 
-                    RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}]}], 
                     StyleBox["GAPD3",
                     StripOnInput->False,
                     ShowSyntaxStyles->False,
@@ -34239,7 +34219,17 @@ Cell[BoxData[
                     InterpretationBox[
                     OverscriptBox[
                     RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], 
-                    RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}]],
+                    StyleBox[
+                    RowBox[{"\[LeftSkeleton]", "5", "\[RightSkeleton]"}],
+                    StripOnInput->False,
+                    ShowSyntaxStyles->False,
+                    AutoSpacing->False,
+                    ZeroWidthTimes->True,
+                    LineColor->RGBColor[0, 0, 0],
+                    FrontFaceColor->RGBColor[0, 0, 0],
+                    BackFaceColor->RGBColor[0, 0, 0],
+                    GraphicsColor->RGBColor[0, 0, 0],
+                    FontColor->RGBColor[0, 0, 0]]],
                     Toolbox`reaction["GAPD4", {
                     
                     Toolbox`enzyme[{
@@ -34411,7 +34401,7 @@ Cell[BoxData[
                  TagBox[
                   
                   TemplateBox[{
-                   "0.061606`4.940138009346994","\"s\"","seconds",
+                   "0.051352`4.861072360508215","\"s\"","seconds",
                     "\"Seconds\""},
                    "Quantity"],
                   Short[#, 
@@ -34589,6 +34579,7 @@ Cell[BoxData[
               "CatalyticSites" -> DirectedInfinity[1], "ActivationSites" -> 0,
                "InhibitionSites" -> 0}], 
             Toolbox`metabolite["g3p", "c"]}, {
+            
             Toolbox`enzyme[{
              "ID" -> "GAPD", "Compartment" -> "c", "BoundCatalytic" -> {
                 Toolbox`Private`wrap[Toolbox`metabolite]["nad", "c"], 
@@ -34651,8 +34642,8 @@ Cell[BoxData[
               "CatalyticSites" -> DirectedInfinity[1], "ActivationSites" -> 0,
                "InhibitionSites" -> 0}]}, {1, 1}, True]}, {}}], 
       "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
-      Quantity[0.061606`4.940138009346994, "Seconds"], "CPUTimeUsed" -> 
-      Quantity[0.1200000000000001, "Seconds"], "MemoryUsed" -> 
+      Quantity[0.051352`4.861072360508215, "Seconds"], "CPUTimeUsed" -> 
+      Quantity[0.10400000000000009`, "Seconds"], "MemoryUsed" -> 
       Quantity[3026480, "Bytes"]]],
     Editable->False,
     SelectWithContents->True,
@@ -34844,7 +34835,7 @@ Cell[BoxData[
                  TagBox[
                   
                   TemplateBox[{
-                   "0.000141`2.2997341104873716","\"s\"","seconds",
+                   "0.000147`2.3178323325801697","\"s\"","seconds",
                     "\"Seconds\""},
                    "Quantity"],
                   Short[#, 
@@ -34882,7 +34873,7 @@ Cell[BoxData[
        "Input" -> HoldForm[$CellContext`result], "ExpectedOutput" -> 
       HoldForm[{"GAPD6"}], "ActualOutput" -> HoldForm[{"GAPD6"}], 
       "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
-      Quantity[0.000141`2.2997341104873716, "Seconds"], "CPUTimeUsed" -> 
+      Quantity[0.000147`2.3178323325801697, "Seconds"], "CPUTimeUsed" -> 
       Quantity[0., "Seconds"], "MemoryUsed" -> Quantity[96, "Bytes"]]],
     Editable->False,
     SelectWithContents->True,
@@ -35448,7 +35439,7 @@ Cell[BoxData[
                  TagBox[
                   
                   TemplateBox[{
-                   "0.0001`2.1505149978319897","\"s\"","seconds",
+                   "0.000101`2.154836371614637","\"s\"","seconds",
                     "\"Seconds\""},
                    "Quantity"],
                   Short[#, 
@@ -35520,7 +35511,7 @@ Cell[BoxData[
              "InhibitionSites" -> 0}]/Toolbox`Keq["GAPD6"]) 
          Toolbox`parameter["Volume", "c"] Toolbox`rateconst["GAPD6", True]}], 
       "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
-      Quantity[0.0001`2.1505149978319897, "Seconds"], "CPUTimeUsed" -> 
+      Quantity[0.000101`2.154836371614637, "Seconds"], "CPUTimeUsed" -> 
       Quantity[0., "Seconds"], "MemoryUsed" -> Quantity[104, "Bytes"]]],
     Editable->False,
     SelectWithContents->True,
@@ -36026,7 +36017,7 @@ Cell[BoxData[
                  TagBox[
                   
                   TemplateBox[{
-                   "0.000127`2.2543187187879483","\"s\"","seconds",
+                   "0.000098`2.1417410735244884","\"s\"","seconds",
                     "\"Seconds\""},
                    "Quantity"],
                   Short[#, 
@@ -36091,7 +36082,7 @@ Cell[BoxData[
          Toolbox`rateconst["GAPD6", True], Toolbox`rateconst["GAPD6", False] -> 
          Toolbox`rateconst["GAPD6", False]}], "ExpectedMessages" -> {}, 
       "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
-      Quantity[0.000127`2.2543187187879483, "Seconds"], "CPUTimeUsed" -> 
+      Quantity[0.000098`2.1417410735244884, "Seconds"], "CPUTimeUsed" -> 
       Quantity[0., "Seconds"], "MemoryUsed" -> Quantity[32, "Bytes"]]],
     Editable->False,
     SelectWithContents->True,
@@ -36264,7 +36255,6 @@ Cell[BoxData[
                     RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], "&", 
                     RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}]}],
                     Background->RGBColor[0.9, 0.9, 0.9]], "", ""],
-                    
                     Toolbox`enzyme[{
                     "ID" -> "G3PD2", "Compartment" -> "c", "BoundCatalytic" -> {
                     Toolbox`Private`wrap[Toolbox`metabolite]["nadph", "c"]}, 
@@ -36333,6 +36323,7 @@ Cell[BoxData[
                     "CatalyticSites" -> DirectedInfinity[1], 
                     "ActivationSites" -> 0, "InhibitionSites" -> 0}], 
                     Toolbox`metabolite["glyc3p", "c"]}, {
+                    
                     Toolbox`enzyme[{
                     "ID" -> "G3PD2", "Compartment" -> "c", "BoundCatalytic" -> {
                     Toolbox`Private`wrap[Toolbox`metabolite]["nadph", "c"], 
@@ -36380,9 +36371,7 @@ Cell[BoxData[
                     RowBox[{"\[LeftSkeleton]", "12", "\[RightSkeleton]"}], 
                     ",", 
                     InterpretationBox[
-                    OverscriptBox[
-                    RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], 
-                    RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}]],
+                    RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}],
                     Toolbox`reaction["G3PD2_NC_nadph", {
                     
                     Toolbox`enzyme[{
@@ -36592,7 +36581,6 @@ Cell[BoxData[
                     "CatalyticSites" -> DirectedInfinity[1], 
                     "ActivationSites" -> 0, "InhibitionSites" -> 0}], 
                     Toolbox`metabolite["glyc3p", "c"]}, {
-                    
                     Toolbox`enzyme[{
                     "ID" -> "G3PD2", "Compartment" -> "c", "BoundCatalytic" -> {
                     Toolbox`Private`wrap[Toolbox`metabolite]["nadph", "c"], 
@@ -36618,6 +36606,7 @@ Cell[BoxData[
                     GraphicsColor->RGBColor[0, 0, 0],
                     FontColor->RGBColor[0, 0, 0]]],
                     Toolbox`reaction["G3PD2_Kincu_glyc3p_1_nadph", {
+                    
                     Toolbox`enzyme[{
                     "ID" -> "G3PD2", "Compartment" -> "c", "BoundCatalytic" -> {
                     Toolbox`Private`wrap[Toolbox`metabolite]["nadph", "c"]}, 
@@ -36639,9 +36628,7 @@ Cell[BoxData[
                     RowBox[{"\[LeftSkeleton]", "12", "\[RightSkeleton]"}], 
                     ",", 
                     InterpretationBox[
-                    OverscriptBox[
-                    RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], 
-                    RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}]],
+                    RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}],
                     Toolbox`reaction["G3PD2_NC_nadph", {
                     
                     Toolbox`enzyme[{
@@ -36673,7 +36660,6 @@ Cell[BoxData[
                     StyleBox[
                     RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}],
                     Background->RGBColor[0.9, 0.9, 0.9]], "", ""],
-                    
                     Toolbox`enzyme[{
                     "ID" -> "G3PD2", "Compartment" -> "c", 
                     "BoundCatalytic" -> {}, "BoundActivators" -> {}, 
@@ -36713,7 +36699,6 @@ Cell[BoxData[
                     RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], 
                     RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], 
                     RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}]],
-                    
                     Toolbox`enzyme[{
                     "ID" -> "G3PD2", "Compartment" -> "c", "BoundCatalytic" -> {
                     Toolbox`Private`wrap[Toolbox`metabolite]["nadph", "c"]}, 
@@ -36769,7 +36754,7 @@ Cell[BoxData[
                  TagBox[
                   
                   TemplateBox[{
-                   "0.000118`2.222397005138117","\"s\"","seconds",
+                   "0.000165`2.3679989420459004","\"s\"","seconds",
                     "\"Seconds\""},
                    "Quantity"],
                   Short[#, 
@@ -36968,7 +36953,6 @@ Cell[BoxData[
               "CatalyticSites" -> DirectedInfinity[1], "ActivationSites" -> 0,
                "InhibitionSites" -> 0}], 
             Toolbox`metabolite["dhap", "c"]}, {
-            
             Toolbox`enzyme[{
              "ID" -> "G3PD2", "Compartment" -> "c", "BoundCatalytic" -> {
                 Toolbox`Private`wrap[Toolbox`metabolite]["nadp", "c"], 
@@ -37009,7 +36993,6 @@ Cell[BoxData[
               "CatalyticSites" -> DirectedInfinity[1], "ActivationSites" -> 0,
                "InhibitionSites" -> 0}]}, {1, 1, 1}, True], 
           Toolbox`reaction["G3PD2_Kincu_nadph_1_glyc3p", {
-            
             Toolbox`enzyme[{
              "ID" -> "G3PD2", "Compartment" -> "c", "BoundCatalytic" -> {
                 Toolbox`Private`wrap[Toolbox`metabolite]["nadp", "c"], 
@@ -37233,6 +37216,7 @@ Cell[BoxData[
               "CatalyticSites" -> DirectedInfinity[1], "ActivationSites" -> 0,
                "InhibitionSites" -> 0}]}, {1, 1, 1}, True], 
           Toolbox`reaction["G3PD2_Kincu_dhap_1_nadp", {
+            
             Toolbox`enzyme[{
              "ID" -> "G3PD2", "Compartment" -> "c", "BoundCatalytic" -> {
                 Toolbox`Private`wrap[Toolbox`metabolite]["nadp", "c"]}, 
@@ -37351,7 +37335,7 @@ Cell[BoxData[
               "CatalyticSites" -> DirectedInfinity[1], "ActivationSites" -> 0,
                "InhibitionSites" -> 0}]}, {1, 1, 1}, True]}}], 
       "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
-      Quantity[0.000118`2.222397005138117, "Seconds"], "CPUTimeUsed" -> 
+      Quantity[0.000165`2.3679989420459004, "Seconds"], "CPUTimeUsed" -> 
       Quantity[0., "Seconds"], "MemoryUsed" -> Quantity[32, "Bytes"]]],
     Editable->False,
     SelectWithContents->True,
@@ -37641,9 +37625,7 @@ Cell[BoxData[
                     RowBox[{"\[LeftSkeleton]", "12", "\[RightSkeleton]"}], 
                     ",", 
                     InterpretationBox[
-                    OverscriptBox[
-                    RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], 
-                    RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}]],
+                    RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}],
                     Toolbox`reaction["G3PD2_NC_nadph", {
                     
                     Toolbox`enzyme[{
@@ -37784,7 +37766,6 @@ Cell[BoxData[
                     RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], "&", 
                     RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}]}],
                     Background->RGBColor[0.9, 0.9, 0.9]], "", ""],
-                    
                     Toolbox`enzyme[{
                     "ID" -> "G3PD2", "Compartment" -> "c", "BoundCatalytic" -> {
                     Toolbox`Private`wrap[Toolbox`metabolite]["nadph", "c"]}, 
@@ -37887,6 +37868,7 @@ Cell[BoxData[
                     "CatalyticSites" -> DirectedInfinity[1], 
                     "ActivationSites" -> 0, "InhibitionSites" -> 0}], 
                     Toolbox`metabolite["glyc3p", "c"]}, {
+                    
                     Toolbox`enzyme[{
                     "ID" -> "G3PD2", "Compartment" -> "c", "BoundCatalytic" -> {
                     Toolbox`Private`wrap[Toolbox`metabolite]["nadph", "c"], 
@@ -37900,9 +37882,7 @@ Cell[BoxData[
                     RowBox[{"\[LeftSkeleton]", "12", "\[RightSkeleton]"}], 
                     ",", 
                     InterpretationBox[
-                    OverscriptBox[
-                    RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], 
-                    RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}]],
+                    RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}],
                     Toolbox`reaction["G3PD2_NC_nadph", {
                     
                     Toolbox`enzyme[{
@@ -38030,7 +38010,7 @@ Cell[BoxData[
                  TagBox[
                   
                   TemplateBox[{
-                   "0.000097`2.1372867320982367","\"s\"","seconds",
+                   "0.000126`2.2508855429495567","\"s\"","seconds",
                     "\"Seconds\""},
                    "Quantity"],
                   Short[#, 
@@ -38221,6 +38201,7 @@ Cell[BoxData[
               "CatalyticSites" -> DirectedInfinity[1], "ActivationSites" -> 0,
                "InhibitionSites" -> 0}]}, {1, 1, 1}, True], 
           Toolbox`reaction["G3PD2_Kincu_dhap_1_nadp", {
+            
             Toolbox`enzyme[{
              "ID" -> "G3PD2", "Compartment" -> "c", "BoundCatalytic" -> {
                 Toolbox`Private`wrap[Toolbox`metabolite]["nadp", "c"]}, 
@@ -38278,7 +38259,6 @@ Cell[BoxData[
               "CatalyticSites" -> DirectedInfinity[1], "ActivationSites" -> 0,
                "InhibitionSites" -> 0}], 
             Toolbox`metabolite["nadph", "c"]}, {
-            
             Toolbox`enzyme[{
              "ID" -> "G3PD2", "Compartment" -> "c", "BoundCatalytic" -> {
                 Toolbox`Private`wrap[Toolbox`metabolite]["nadp", "c"], 
@@ -38340,6 +38320,7 @@ Cell[BoxData[
                "InhibitionSites" -> 0}]}, {1, 1, 1}, True]}}], "ActualOutput" -> 
       HoldForm[{21, {
           Toolbox`reaction["G3PD2_Kic_glyc3p_1_dhap", {
+            
             Toolbox`enzyme[{
              "ID" -> "G3PD2", "Compartment" -> "c", "BoundCatalytic" -> {
                 Toolbox`Private`wrap[Toolbox`metabolite]["nadph", "c"]}, 
@@ -38356,7 +38337,6 @@ Cell[BoxData[
               "CatalyticSites" -> DirectedInfinity[1], "ActivationSites" -> 0,
                "InhibitionSites" -> 0}]}, {1, 1, 1}, True], 
           Toolbox`reaction["G3PD2_Kincu_glyc3p_1_nadph", {
-            
             Toolbox`enzyme[{
              "ID" -> "G3PD2", "Compartment" -> "c", "BoundCatalytic" -> {
                 Toolbox`Private`wrap[Toolbox`metabolite]["nadph", "c"]}, 
@@ -38577,6 +38557,7 @@ Cell[BoxData[
               "CatalyticSites" -> DirectedInfinity[1], "ActivationSites" -> 0,
                "InhibitionSites" -> 0}]}, {1, 1, 1}, True], 
           Toolbox`reaction["G3PD2_NC_nadph", {
+            
             Toolbox`enzyme[{
              "ID" -> "G3PD2", "Compartment" -> "c", "BoundCatalytic" -> {
                 Toolbox`Private`wrap[Toolbox`metabolite]["nadp", "c"], 
@@ -38610,7 +38591,7 @@ Cell[BoxData[
               "CatalyticSites" -> DirectedInfinity[1], "ActivationSites" -> 0,
                "InhibitionSites" -> 0}]}, {1, 1, 1}, True]}}], 
       "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
-      Quantity[0.000097`2.1372867320982367, "Seconds"], "CPUTimeUsed" -> 
+      Quantity[0.000126`2.2508855429495567, "Seconds"], "CPUTimeUsed" -> 
       Quantity[0., "Seconds"], "MemoryUsed" -> Quantity[32, "Bytes"]]],
     Editable->False,
     SelectWithContents->True,
@@ -39043,7 +39024,7 @@ Cell[BoxData[
                  TagBox[
                   
                   TemplateBox[{
-                   "0.31674`5.651217910216592","\"s\"","seconds",
+                   "0.28916`5.611653213906926","\"s\"","seconds",
                     "\"Seconds\""},
                    "Quantity"],
                   Short[#, 
@@ -39351,9 +39332,9 @@ Cell[BoxData[
                  Toolbox`rateconst["GAPD6", False] + 
                  Toolbox`rateconst["GAPD6", True])))))], 
       "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
-      Quantity[0.31674`5.651217910216592, "Seconds"], "CPUTimeUsed" -> 
-      Quantity[0.32399999999999896`, "Seconds"], "MemoryUsed" -> 
-      Quantity[1060888, "Bytes"]]],
+      Quantity[0.28916`5.611653213906926, "Seconds"], "CPUTimeUsed" -> 
+      Quantity[0.2999999999999998, "Seconds"], "MemoryUsed" -> 
+      Quantity[1060512, "Bytes"]]],
     Editable->False,
     SelectWithContents->True,
     Selectable->False], ",", 
@@ -39425,7 +39406,6 @@ Cell[BoxData[
              ShowStringCharacters -> False, NumberMarks -> False, 
               PrintPrecision -> 3, ShowSyntaxStyles -> False},
             GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Automatic}}},
-            
             GridBoxItemSize->{
              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
             GridBoxSpacings->{"Columns" -> {{2}}, "Rows" -> {{Automatic}}}]}
@@ -39804,7 +39784,7 @@ Cell[BoxData[
                  TagBox[
                   
                   TemplateBox[{
-                   "0.000102`2.1591151695939113","\"s\"","seconds",
+                   "0.000128`2.257724967479862","\"s\"","seconds",
                     "\"Seconds\""},
                    "Quantity"],
                   Short[#, 
@@ -39891,7 +39871,7 @@ Cell[BoxData[
          Toolbox`rateconst["ADK16", True] -> 
          Toolbox`rateconst["ADK1_3_6", True]}], "ExpectedMessages" -> {}, 
       "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
-      Quantity[0.000102`2.1591151695939113, "Seconds"], "CPUTimeUsed" -> 
+      Quantity[0.000128`2.257724967479862, "Seconds"], "CPUTimeUsed" -> 
       Quantity[0., "Seconds"], "MemoryUsed" -> Quantity[32, "Bytes"]]],
     Editable->False,
     SelectWithContents->True,
@@ -40361,7 +40341,7 @@ Cell[BoxData[
                  TagBox[
                   
                   TemplateBox[{
-                   "0.000098`2.1417410735244866","\"s\"","seconds",
+                   "0.000136`2.284053906202211","\"s\"","seconds",
                     "\"Seconds\""},
                    "Quantity"],
                   Short[#, 
@@ -40418,7 +40398,7 @@ Cell[BoxData[
          Toolbox`rateconst["TALA2_Kic_pi_1_f6p", True] -> 
          Toolbox`rateconst["TALA2_Kic_pi_1_f6p_TALA2_Kic_pi_1_e4p", True]}], 
       "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
-      Quantity[0.000098`2.1417410735244866, "Seconds"], "CPUTimeUsed" -> 
+      Quantity[0.000136`2.284053906202211, "Seconds"], "CPUTimeUsed" -> 
       Quantity[0., "Seconds"], "MemoryUsed" -> Quantity[32, "Bytes"]]],
     Editable->False,
     SelectWithContents->True,
@@ -40882,8 +40862,9 @@ Cell[BoxData[
                TagBox[
                 PaneBox[
                  TagBox[
+                  
                   TemplateBox[{
-                   "0.000154`2.3380357186684573","\"s\"","seconds",
+                   "0.000126`2.2508855429495567","\"s\"","seconds",
                     "\"Seconds\""},
                    "Quantity"],
                   Short[#, 
@@ -40940,7 +40921,7 @@ Cell[BoxData[
          Toolbox`rateconst["TALA2_Kic_pi_1_f6p", True] -> 
          Toolbox`rateconst["TALA2_Kic_pi_1_f6p_TALA2_Kic_pi_1_e4p", True]}], 
       "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
-      Quantity[0.000154`2.3380357186684573, "Seconds"], "CPUTimeUsed" -> 
+      Quantity[0.000126`2.2508855429495567, "Seconds"], "CPUTimeUsed" -> 
       Quantity[0., "Seconds"], "MemoryUsed" -> Quantity[32, "Bytes"]]],
     Editable->False,
     SelectWithContents->True,
@@ -41611,7 +41592,7 @@ Cell[BoxData[
                  TagBox[
                   
                   TemplateBox[{
-                   "0.009062`4.1077390556751565","\"s\"","seconds",
+                   "0.009496`4.128055703778529","\"s\"","seconds",
                     "\"Seconds\""},
                    "Quantity"],
                   Short[#, 
@@ -41629,6 +41610,7 @@ Cell[BoxData[
              ShowStringCharacters -> False, NumberMarks -> False, 
               PrintPrecision -> 3, ShowSyntaxStyles -> False},
             GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Automatic}}},
+            
             GridBoxItemSize->{
              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
             GridBoxSpacings->{"Columns" -> {{2}}, "Rows" -> {{Automatic}}}]}
@@ -42434,9 +42416,9 @@ Cell[BoxData[
                   Toolbox`rateconst["GAPD6", False] + 
                   Toolbox`rateconst["GAPD6", True])))))}}], 
       "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
-      Quantity[0.009062`4.1077390556751565, "Seconds"], "CPUTimeUsed" -> 
+      Quantity[0.009496`4.128055703778529, "Seconds"], "CPUTimeUsed" -> 
       Quantity[0.012000000000000455`, "Seconds"], "MemoryUsed" -> 
-      Quantity[1824, "Bytes"]]],
+      Quantity[1704, "Bytes"]]],
     Editable->False,
     SelectWithContents->True,
     Selectable->False], ",", 
@@ -43052,7 +43034,7 @@ Cell[BoxData[
                  TagBox[
                   
                   TemplateBox[{
-                   "0.001483`3.321656148860376","\"s\"","seconds",
+                   "0.002327`3.517311381118724","\"s\"","seconds",
                     "\"Seconds\""},
                    "Quantity"],
                   Short[#, 
@@ -43174,8 +43156,9 @@ Cell[BoxData[
             Toolbox`rateconst["ENO3", False] + 
             Toolbox`rateconst["ENO3", True]))}}], "ExpectedMessages" -> {}, 
       "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
-      Quantity[0.001483`3.321656148860376, "Seconds"], "CPUTimeUsed" -> 
-      Quantity[0., "Seconds"], "MemoryUsed" -> Quantity[2440, "Bytes"]]],
+      Quantity[0.002327`3.517311381118724, "Seconds"], "CPUTimeUsed" -> 
+      Quantity[0.0039999999999995595`, "Seconds"], "MemoryUsed" -> 
+      Quantity[2576, "Bytes"]]],
     Editable->False,
     SelectWithContents->True,
     Selectable->False], ",", 
@@ -43334,7 +43317,117 @@ Cell[BoxData[
                 PaneBox[
                  TagBox[
                   RowBox[{"{", 
-                   RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], "}"}],
+                   RowBox[{
+                    FractionBox[
+                    RowBox[{
+                    InterpretationBox[
+                    SuperscriptBox[
+                    StyleBox["glyc3p",
+                    StripOnInput->False,
+                    ShowSyntaxStyles->False,
+                    AutoSpacing->False,
+                    ZeroWidthTimes->True,
+                    LineColor->RGBColor[0, 0, 0],
+                    FrontFaceColor->RGBColor[0, 0, 0],
+                    BackFaceColor->RGBColor[0, 0, 0],
+                    GraphicsColor->RGBColor[0, 0, 0],
+                    FontColor->RGBColor[0, 0, 0]], 
+                    StyleBox["c",
+                    StripOnInput->False,
+                    ShowSyntaxStyles->False,
+                    AutoSpacing->False,
+                    ZeroWidthTimes->True,
+                    LineColor->RGBColor[0, 0, 0],
+                    FrontFaceColor->RGBColor[0, 0, 0],
+                    BackFaceColor->RGBColor[0, 0, 0],
+                    GraphicsColor->RGBColor[0, 0, 0],
+                    FontColor->RGBColor[0, 0, 0]]],
+                    Toolbox`metabolite["glyc3p", "c"],
+                    Editable->False,
+                    Selectable->False], " ", 
+                    RowBox[{"\[LeftSkeleton]", "7", "\[RightSkeleton]"}], " ", 
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{
+                    InterpretationBox[
+                    SuperscriptBox[
+                    StyleBox["glyc3p",
+                    StripOnInput->False,
+                    ShowSyntaxStyles->False,
+                    AutoSpacing->False,
+                    ZeroWidthTimes->True,
+                    LineColor->RGBColor[0, 0, 0],
+                    FrontFaceColor->RGBColor[0, 0, 0],
+                    BackFaceColor->RGBColor[0, 0, 0],
+                    GraphicsColor->RGBColor[0, 0, 0],
+                    FontColor->RGBColor[0, 0, 0]], 
+                    StyleBox["c",
+                    StripOnInput->False,
+                    ShowSyntaxStyles->False,
+                    AutoSpacing->False,
+                    ZeroWidthTimes->True,
+                    LineColor->RGBColor[0, 0, 0],
+                    FrontFaceColor->RGBColor[0, 0, 0],
+                    BackFaceColor->RGBColor[0, 0, 0],
+                    GraphicsColor->RGBColor[0, 0, 0],
+                    FontColor->RGBColor[0, 0, 0]]],
+                    Toolbox`metabolite["glyc3p", "c"],
+                    Editable->False,
+                    Selectable->False], " ", 
+                    InterpretationBox[
+                    SubsuperscriptBox["k", 
+                    RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], 
+                    "\[LongRightArrow]"],
+                    Toolbox`rateconst["G3PD2_Kincu_glyc3p_1_nadph", True],
+                    Editable->False,
+                    Selectable->False], " ", 
+                    InterpretationBox[
+                    SubsuperscriptBox["k", 
+                    StyleBox[
+                    RowBox[{"\[LeftSkeleton]", "15", "\[RightSkeleton]"}],
+                    StripOnInput->False,
+                    ShowSyntaxStyles->False,
+                    AutoSpacing->False,
+                    ZeroWidthTimes->True,
+                    LineColor->RGBColor[0, 0, 0],
+                    FrontFaceColor->RGBColor[0, 0, 0],
+                    BackFaceColor->RGBColor[0, 0, 0],
+                    GraphicsColor->RGBColor[0, 0, 0],
+                    FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
+                    Toolbox`rateconst["G3PD2_NC_glyc3p", False],
+                    Editable->False,
+                    Selectable->False]}], "+", 
+                    RowBox[{
+                    InterpretationBox[
+                    SubsuperscriptBox["k", 
+                    RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], 
+                    "\[LongRightArrow]"],
+                    Toolbox`rateconst["G3PD22", True],
+                    Editable->False,
+                    Selectable->False], " ", 
+                    RowBox[{"(", 
+                    RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], 
+                    ")"}]}]}], ")"}]}], 
+                    RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}]], 
+                    ",", 
+                    RowBox[{"\[LeftSkeleton]", "4", "\[RightSkeleton]"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"\<\"prod_inhib_glyc3p\"\>", ",", 
+                    FractionBox[
+                    RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], 
+                    RowBox[{
+                    RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], "+", 
+                    RowBox[{"\[LeftSkeleton]", "2", "\[RightSkeleton]"}], "+", 
+                    RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}]}]]}],
+                     "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"\<\"pro\"\>", "\[Ellipsis]", "\<\"adp\"\>"}], 
+                    ",", 
+                    RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}]}], 
+                    "}"}]}], "}"}]}], "}"}],
                   Short[#, 
                    Rational[2, 3]]& ],
                  BaselinePosition->Baseline,
@@ -43351,7 +43444,117 @@ Cell[BoxData[
                 PaneBox[
                  TagBox[
                   RowBox[{"{", 
-                   RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], "}"}],
+                   RowBox[{
+                    FractionBox[
+                    RowBox[{
+                    InterpretationBox[
+                    SuperscriptBox[
+                    StyleBox["glyc3p",
+                    StripOnInput->False,
+                    ShowSyntaxStyles->False,
+                    AutoSpacing->False,
+                    ZeroWidthTimes->True,
+                    LineColor->RGBColor[0, 0, 0],
+                    FrontFaceColor->RGBColor[0, 0, 0],
+                    BackFaceColor->RGBColor[0, 0, 0],
+                    GraphicsColor->RGBColor[0, 0, 0],
+                    FontColor->RGBColor[0, 0, 0]], 
+                    StyleBox["c",
+                    StripOnInput->False,
+                    ShowSyntaxStyles->False,
+                    AutoSpacing->False,
+                    ZeroWidthTimes->True,
+                    LineColor->RGBColor[0, 0, 0],
+                    FrontFaceColor->RGBColor[0, 0, 0],
+                    BackFaceColor->RGBColor[0, 0, 0],
+                    GraphicsColor->RGBColor[0, 0, 0],
+                    FontColor->RGBColor[0, 0, 0]]],
+                    Toolbox`metabolite["glyc3p", "c"],
+                    Editable->False,
+                    Selectable->False], " ", 
+                    RowBox[{"\[LeftSkeleton]", "7", "\[RightSkeleton]"}], " ", 
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{
+                    InterpretationBox[
+                    SuperscriptBox[
+                    StyleBox["glyc3p",
+                    StripOnInput->False,
+                    ShowSyntaxStyles->False,
+                    AutoSpacing->False,
+                    ZeroWidthTimes->True,
+                    LineColor->RGBColor[0, 0, 0],
+                    FrontFaceColor->RGBColor[0, 0, 0],
+                    BackFaceColor->RGBColor[0, 0, 0],
+                    GraphicsColor->RGBColor[0, 0, 0],
+                    FontColor->RGBColor[0, 0, 0]], 
+                    StyleBox["c",
+                    StripOnInput->False,
+                    ShowSyntaxStyles->False,
+                    AutoSpacing->False,
+                    ZeroWidthTimes->True,
+                    LineColor->RGBColor[0, 0, 0],
+                    FrontFaceColor->RGBColor[0, 0, 0],
+                    BackFaceColor->RGBColor[0, 0, 0],
+                    GraphicsColor->RGBColor[0, 0, 0],
+                    FontColor->RGBColor[0, 0, 0]]],
+                    Toolbox`metabolite["glyc3p", "c"],
+                    Editable->False,
+                    Selectable->False], " ", 
+                    InterpretationBox[
+                    SubsuperscriptBox["k", 
+                    RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], 
+                    "\[LongRightArrow]"],
+                    Toolbox`rateconst["G3PD2_Kincu_glyc3p_1_nadph", True],
+                    Editable->False,
+                    Selectable->False], " ", 
+                    InterpretationBox[
+                    SubsuperscriptBox["k", 
+                    StyleBox[
+                    RowBox[{"\[LeftSkeleton]", "15", "\[RightSkeleton]"}],
+                    StripOnInput->False,
+                    ShowSyntaxStyles->False,
+                    AutoSpacing->False,
+                    ZeroWidthTimes->True,
+                    LineColor->RGBColor[0, 0, 0],
+                    FrontFaceColor->RGBColor[0, 0, 0],
+                    BackFaceColor->RGBColor[0, 0, 0],
+                    GraphicsColor->RGBColor[0, 0, 0],
+                    FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
+                    Toolbox`rateconst["G3PD2_NC_glyc3p", False],
+                    Editable->False,
+                    Selectable->False]}], "+", 
+                    RowBox[{
+                    InterpretationBox[
+                    SubsuperscriptBox["k", 
+                    RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], 
+                    "\[LongRightArrow]"],
+                    Toolbox`rateconst["G3PD22", True],
+                    Editable->False,
+                    Selectable->False], " ", 
+                    RowBox[{"(", 
+                    RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], 
+                    ")"}]}]}], ")"}]}], 
+                    RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}]], 
+                    ",", 
+                    RowBox[{"\[LeftSkeleton]", "4", "\[RightSkeleton]"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"\<\"prod_inhib_glyc3p\"\>", ",", 
+                    FractionBox[
+                    RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], 
+                    RowBox[{
+                    RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], "+", 
+                    RowBox[{"\[LeftSkeleton]", "2", "\[RightSkeleton]"}], "+", 
+                    RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}]}]]}],
+                     "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"\<\"pro\"\>", "\[Ellipsis]", "\<\"adp\"\>"}], 
+                    ",", 
+                    RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}]}], 
+                    "}"}]}], "}"}]}], "}"}],
                   Short[#, 
                    Rational[2, 3]]& ],
                  BaselinePosition->Baseline,
@@ -43369,7 +43572,7 @@ Cell[BoxData[
                  TagBox[
                   
                   TemplateBox[{
-                   "4.318952`6.785893375241153","\"s\"","seconds",
+                   "4.009019`6.753553112345325","\"s\"","seconds",
                     "\"Seconds\""},
                    "Quantity"],
                   Short[#, 
@@ -47788,9 +47991,9 @@ Cell[BoxData[
                     Toolbox`rateconst["G3PD2_Kincu_dhap_1_nadp", False] 
                     Toolbox`rateconst["G3PD2_NC_dhap", True])))))}}}], 
       "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
-      Quantity[4.318952`6.785893375241153, "Seconds"], "CPUTimeUsed" -> 
-      Quantity[4.343999999999994, "Seconds"], "MemoryUsed" -> 
-      Quantity[7358736, "Bytes"]]],
+      Quantity[4.009019`6.753553112345325, "Seconds"], "CPUTimeUsed" -> 
+      Quantity[4.032000000000011, "Seconds"], "MemoryUsed" -> 
+      Quantity[7358672, "Bytes"]]],
     Editable->False,
     SelectWithContents->True,
     Selectable->False], ",", 
@@ -47820,6 +48023,7 @@ Cell[BoxData[
                AbsoluteCurrentValue[Magnification]}]], 
            GraphicsBox[InsetBox[
              PaneBox[
+              
               DynamicBox[FEPrivate`FrontEndResource[
                "MUnitExpressions", "SuccessIcon"],
                ImageSizeCache->{16., {3., 9.}}],
@@ -47875,6 +48079,7 @@ Cell[BoxData[
           {
            PaneBox[
             ButtonBox[
+             
              DynamicBox[FEPrivate`FrontEndResource[
               "FEBitmaps", "SquareMinusIconMedium"]],
              Appearance->None,
@@ -47947,7 +48152,266 @@ Cell[BoxData[
                 PaneBox[
                  TagBox[
                   RowBox[{"{", 
-                   RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], "}"}],
+                   RowBox[{
+                    FractionBox[
+                    RowBox[{"2", " ", 
+                    InterpretationBox[
+                    SuperscriptBox[
+                    StyleBox["e4p",
+                    StripOnInput->False,
+                    ShowSyntaxStyles->False,
+                    AutoSpacing->False,
+                    ZeroWidthTimes->True,
+                    LineColor->RGBColor[0, 0, 0],
+                    FrontFaceColor->RGBColor[0, 0, 0],
+                    BackFaceColor->RGBColor[0, 0, 0],
+                    GraphicsColor->RGBColor[0, 0, 0],
+                    FontColor->RGBColor[0, 0, 0]], 
+                    StyleBox["c",
+                    StripOnInput->False,
+                    ShowSyntaxStyles->False,
+                    AutoSpacing->False,
+                    ZeroWidthTimes->True,
+                    LineColor->RGBColor[0, 0, 0],
+                    FrontFaceColor->RGBColor[0, 0, 0],
+                    BackFaceColor->RGBColor[0, 0, 0],
+                    GraphicsColor->RGBColor[0, 0, 0],
+                    FontColor->RGBColor[0, 0, 0]]],
+                    Toolbox`metabolite["e4p", "c"],
+                    Editable->False,
+                    Selectable->False], " ", 
+                    InterpretationBox[
+                    SuperscriptBox[
+                    StyleBox["f6p",
+                    StripOnInput->False,
+                    ShowSyntaxStyles->False,
+                    AutoSpacing->False,
+                    ZeroWidthTimes->True,
+                    LineColor->RGBColor[0, 0, 0],
+                    FrontFaceColor->RGBColor[0, 0, 0],
+                    BackFaceColor->RGBColor[0, 0, 0],
+                    GraphicsColor->RGBColor[0, 0, 0],
+                    FontColor->RGBColor[0, 0, 0]], 
+                    StyleBox["c",
+                    StripOnInput->False,
+                    ShowSyntaxStyles->False,
+                    AutoSpacing->False,
+                    ZeroWidthTimes->True,
+                    LineColor->RGBColor[0, 0, 0],
+                    FrontFaceColor->RGBColor[0, 0, 0],
+                    BackFaceColor->RGBColor[0, 0, 0],
+                    GraphicsColor->RGBColor[0, 0, 0],
+                    FontColor->RGBColor[0, 0, 0]]],
+                    Toolbox`metabolite["f6p", "c"],
+                    Editable->False,
+                    Selectable->False], " ", 
+                    InterpretationBox[
+                    UnderscriptBox[
+                    StyleBox[
+                    RowBox[{"\[LeftSkeleton]", "7", "\[RightSkeleton]"}],
+                    StripOnInput->False,
+                    ShowSyntaxStyles->False,
+                    AutoSpacing->False,
+                    ZeroWidthTimes->True,
+                    LineColor->RGBColor[0, 0, 0],
+                    FrontFaceColor->RGBColor[0, 0, 0],
+                    BackFaceColor->RGBColor[0, 0, 0],
+                    GraphicsColor->RGBColor[0, 0, 0],
+                    FontColor->RGBColor[0, 0, 0]], 
+                    StyleBox[
+                    RowBox[{"\[LeftSkeleton]", "6", "\[RightSkeleton]"}],
+                    StripOnInput->False,
+                    ShowSyntaxStyles->False,
+                    AutoSpacing->False,
+                    ZeroWidthTimes->True,
+                    LineColor->RGBColor[0, 0, 0],
+                    FrontFaceColor->RGBColor[0, 0, 0],
+                    BackFaceColor->RGBColor[0, 0, 0],
+                    GraphicsColor->RGBColor[0, 0, 0],
+                    FontColor->RGBColor[0, 0, 0]]],
+                    Toolbox`parameter["E_total"],
+                    Editable->False,
+                    Selectable->False], " ", 
+                    RowBox[{"\[LeftSkeleton]", "3", "\[RightSkeleton]"}], " ", 
+                    InterpretationBox[
+                    RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}],
+                    Toolbox`rateconst["TALA24", True],
+                    Editable->False,
+                    Selectable->False], " ", 
+                    InterpretationBox[
+                    SubsuperscriptBox["k", 
+                    StyleBox[
+                    RowBox[{"\[LeftSkeleton]", "6", "\[RightSkeleton]"}],
+                    StripOnInput->False,
+                    ShowSyntaxStyles->False,
+                    AutoSpacing->False,
+                    ZeroWidthTimes->True,
+                    LineColor->RGBColor[0, 0, 0],
+                    FrontFaceColor->RGBColor[0, 0, 0],
+                    BackFaceColor->RGBColor[0, 0, 0],
+                    GraphicsColor->RGBColor[0, 0, 0],
+                    FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+                    Toolbox`rateconst["TALA25", True],
+                    Editable->False,
+                    Selectable->False], " ", 
+                    InterpretationBox[
+                    SubsuperscriptBox["k", 
+                    StyleBox["TALA26",
+                    StripOnInput->False,
+                    ShowSyntaxStyles->False,
+                    AutoSpacing->False,
+                    ZeroWidthTimes->True,
+                    LineColor->RGBColor[0, 0, 0],
+                    FrontFaceColor->RGBColor[0, 0, 0],
+                    BackFaceColor->RGBColor[0, 0, 0],
+                    GraphicsColor->RGBColor[0, 0, 0],
+                    FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+                    Toolbox`rateconst["TALA26", True],
+                    Editable->False,
+                    Selectable->False], " ", 
+                    InterpretationBox[
+                    SubsuperscriptBox["k", 
+                    StyleBox[
+                    RowBox[{"\[LeftSkeleton]", "37", "\[RightSkeleton]"}],
+                    StripOnInput->False,
+                    ShowSyntaxStyles->False,
+                    AutoSpacing->False,
+                    ZeroWidthTimes->True,
+                    LineColor->RGBColor[0, 0, 0],
+                    FrontFaceColor->RGBColor[0, 0, 0],
+                    BackFaceColor->RGBColor[0, 0, 0],
+                    GraphicsColor->RGBColor[0, 0, 0],
+                    FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
+                    Toolbox`rateconst[
+                    "TALA2_Kic_pi_1_f6p_TALA2_Kic_pi_1_e4p", False],
+                    Editable->False,
+                    Selectable->False]}], 
+                    RowBox[{
+                    RowBox[{
+                    InterpretationBox[
+                    SuperscriptBox[
+                    StyleBox["f6p",
+                    StripOnInput->False,
+                    ShowSyntaxStyles->False,
+                    AutoSpacing->False,
+                    ZeroWidthTimes->True,
+                    LineColor->RGBColor[0, 0, 0],
+                    FrontFaceColor->RGBColor[0, 0, 0],
+                    BackFaceColor->RGBColor[0, 0, 0],
+                    GraphicsColor->RGBColor[0, 0, 0],
+                    FontColor->RGBColor[0, 0, 0]], 
+                    StyleBox["c",
+                    StripOnInput->False,
+                    ShowSyntaxStyles->False,
+                    AutoSpacing->False,
+                    ZeroWidthTimes->True,
+                    LineColor->RGBColor[0, 0, 0],
+                    FrontFaceColor->RGBColor[0, 0, 0],
+                    BackFaceColor->RGBColor[0, 0, 0],
+                    GraphicsColor->RGBColor[0, 0, 0],
+                    FontColor->RGBColor[0, 0, 0]]],
+                    Toolbox`metabolite["f6p", "c"],
+                    Editable->False,
+                    Selectable->False], " ", 
+                    InterpretationBox[
+                    SubsuperscriptBox["k", 
+                    StyleBox[
+                    RowBox[{"\[LeftSkeleton]", "6", "\[RightSkeleton]"}],
+                    StripOnInput->False,
+                    ShowSyntaxStyles->False,
+                    AutoSpacing->False,
+                    ZeroWidthTimes->True,
+                    LineColor->RGBColor[0, 0, 0],
+                    FrontFaceColor->RGBColor[0, 0, 0],
+                    BackFaceColor->RGBColor[0, 0, 0],
+                    GraphicsColor->RGBColor[0, 0, 0],
+                    FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+                    Toolbox`rateconst["TALA21", True],
+                    Editable->False,
+                    Selectable->False], " ", 
+                    InterpretationBox[
+                    RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}],
+                    Toolbox`rateconst["TALA24", True],
+                    Editable->False,
+                    Selectable->False], " ", 
+                    RowBox[{"(", 
+                    RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], 
+                    RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}]}], 
+                    " ", 
+                    InterpretationBox[
+                    SubsuperscriptBox["k", 
+                    RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], 
+                    "\[LongRightArrow]"],
+                    Toolbox`rateconst["TALA26", True],
+                    Editable->False,
+                    Selectable->False], " ", 
+                    RowBox[{"(", 
+                    RowBox[{
+                    InterpretationBox[
+                    SubsuperscriptBox["k", 
+                    StyleBox[
+                    RowBox[{"\[LeftSkeleton]", "37", "\[RightSkeleton]"}],
+                    StripOnInput->False,
+                    ShowSyntaxStyles->False,
+                    AutoSpacing->False,
+                    ZeroWidthTimes->True,
+                    LineColor->RGBColor[0, 0, 0],
+                    FrontFaceColor->RGBColor[0, 0, 0],
+                    BackFaceColor->RGBColor[0, 0, 0],
+                    GraphicsColor->RGBColor[0, 0, 0],
+                    FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
+                    Toolbox`rateconst[
+                    "TALA2_Kic_pi_1_f6p_TALA2_Kic_pi_1_e4p", False],
+                    Editable->False,
+                    Selectable->False], "+", 
+                    RowBox[{
+                    InterpretationBox[
+                    SuperscriptBox[
+                    StyleBox["pi",
+                    StripOnInput->False,
+                    ShowSyntaxStyles->False,
+                    AutoSpacing->False,
+                    ZeroWidthTimes->True,
+                    LineColor->RGBColor[0, 0, 0],
+                    FrontFaceColor->RGBColor[0, 0, 0],
+                    BackFaceColor->RGBColor[0, 0, 0],
+                    GraphicsColor->RGBColor[0, 0, 0],
+                    FontColor->RGBColor[0, 0, 0]], 
+                    StyleBox["c",
+                    StripOnInput->False,
+                    ShowSyntaxStyles->False,
+                    AutoSpacing->False,
+                    ZeroWidthTimes->True,
+                    LineColor->RGBColor[0, 0, 0],
+                    FrontFaceColor->RGBColor[0, 0, 0],
+                    BackFaceColor->RGBColor[0, 0, 0],
+                    GraphicsColor->RGBColor[0, 0, 0],
+                    FontColor->RGBColor[0, 0, 0]]],
+                    Toolbox`metabolite["pi", "c"],
+                    Editable->False,
+                    Selectable->False], " ", 
+                    InterpretationBox[
+                    SubsuperscriptBox["k", 
+                    StyleBox[
+                    RowBox[{"\[LeftSkeleton]", "37", "\[RightSkeleton]"}],
+                    StripOnInput->False,
+                    ShowSyntaxStyles->False,
+                    AutoSpacing->False,
+                    ZeroWidthTimes->True,
+                    LineColor->RGBColor[0, 0, 0],
+                    FrontFaceColor->RGBColor[0, 0, 0],
+                    BackFaceColor->RGBColor[0, 0, 0],
+                    GraphicsColor->RGBColor[0, 0, 0],
+                    FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+                    Toolbox`rateconst[
+                    "TALA2_Kic_pi_1_f6p_TALA2_Kic_pi_1_e4p", True],
+                    Editable->False,
+                    Selectable->False]}]}], ")"}]}], 
+                    RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], 
+                    RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}]}]], 
+                    ",", 
+                    RowBox[{"\[LeftSkeleton]", "3", "\[RightSkeleton]"}]}], 
+                   "}"}],
                   Short[#, 
                    Rational[2, 3]]& ],
                  BaselinePosition->Baseline,
@@ -47964,7 +48428,266 @@ Cell[BoxData[
                 PaneBox[
                  TagBox[
                   RowBox[{"{", 
-                   RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], "}"}],
+                   RowBox[{
+                    FractionBox[
+                    RowBox[{"2", " ", 
+                    InterpretationBox[
+                    SuperscriptBox[
+                    StyleBox["e4p",
+                    StripOnInput->False,
+                    ShowSyntaxStyles->False,
+                    AutoSpacing->False,
+                    ZeroWidthTimes->True,
+                    LineColor->RGBColor[0, 0, 0],
+                    FrontFaceColor->RGBColor[0, 0, 0],
+                    BackFaceColor->RGBColor[0, 0, 0],
+                    GraphicsColor->RGBColor[0, 0, 0],
+                    FontColor->RGBColor[0, 0, 0]], 
+                    StyleBox["c",
+                    StripOnInput->False,
+                    ShowSyntaxStyles->False,
+                    AutoSpacing->False,
+                    ZeroWidthTimes->True,
+                    LineColor->RGBColor[0, 0, 0],
+                    FrontFaceColor->RGBColor[0, 0, 0],
+                    BackFaceColor->RGBColor[0, 0, 0],
+                    GraphicsColor->RGBColor[0, 0, 0],
+                    FontColor->RGBColor[0, 0, 0]]],
+                    Toolbox`metabolite["e4p", "c"],
+                    Editable->False,
+                    Selectable->False], " ", 
+                    InterpretationBox[
+                    SuperscriptBox[
+                    StyleBox["f6p",
+                    StripOnInput->False,
+                    ShowSyntaxStyles->False,
+                    AutoSpacing->False,
+                    ZeroWidthTimes->True,
+                    LineColor->RGBColor[0, 0, 0],
+                    FrontFaceColor->RGBColor[0, 0, 0],
+                    BackFaceColor->RGBColor[0, 0, 0],
+                    GraphicsColor->RGBColor[0, 0, 0],
+                    FontColor->RGBColor[0, 0, 0]], 
+                    StyleBox["c",
+                    StripOnInput->False,
+                    ShowSyntaxStyles->False,
+                    AutoSpacing->False,
+                    ZeroWidthTimes->True,
+                    LineColor->RGBColor[0, 0, 0],
+                    FrontFaceColor->RGBColor[0, 0, 0],
+                    BackFaceColor->RGBColor[0, 0, 0],
+                    GraphicsColor->RGBColor[0, 0, 0],
+                    FontColor->RGBColor[0, 0, 0]]],
+                    Toolbox`metabolite["f6p", "c"],
+                    Editable->False,
+                    Selectable->False], " ", 
+                    InterpretationBox[
+                    UnderscriptBox[
+                    StyleBox[
+                    RowBox[{"\[LeftSkeleton]", "7", "\[RightSkeleton]"}],
+                    StripOnInput->False,
+                    ShowSyntaxStyles->False,
+                    AutoSpacing->False,
+                    ZeroWidthTimes->True,
+                    LineColor->RGBColor[0, 0, 0],
+                    FrontFaceColor->RGBColor[0, 0, 0],
+                    BackFaceColor->RGBColor[0, 0, 0],
+                    GraphicsColor->RGBColor[0, 0, 0],
+                    FontColor->RGBColor[0, 0, 0]], 
+                    StyleBox[
+                    RowBox[{"\[LeftSkeleton]", "6", "\[RightSkeleton]"}],
+                    StripOnInput->False,
+                    ShowSyntaxStyles->False,
+                    AutoSpacing->False,
+                    ZeroWidthTimes->True,
+                    LineColor->RGBColor[0, 0, 0],
+                    FrontFaceColor->RGBColor[0, 0, 0],
+                    BackFaceColor->RGBColor[0, 0, 0],
+                    GraphicsColor->RGBColor[0, 0, 0],
+                    FontColor->RGBColor[0, 0, 0]]],
+                    Toolbox`parameter["E_total"],
+                    Editable->False,
+                    Selectable->False], " ", 
+                    RowBox[{"\[LeftSkeleton]", "3", "\[RightSkeleton]"}], " ", 
+                    InterpretationBox[
+                    RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}],
+                    Toolbox`rateconst["TALA24", True],
+                    Editable->False,
+                    Selectable->False], " ", 
+                    InterpretationBox[
+                    SubsuperscriptBox["k", 
+                    StyleBox[
+                    RowBox[{"\[LeftSkeleton]", "6", "\[RightSkeleton]"}],
+                    StripOnInput->False,
+                    ShowSyntaxStyles->False,
+                    AutoSpacing->False,
+                    ZeroWidthTimes->True,
+                    LineColor->RGBColor[0, 0, 0],
+                    FrontFaceColor->RGBColor[0, 0, 0],
+                    BackFaceColor->RGBColor[0, 0, 0],
+                    GraphicsColor->RGBColor[0, 0, 0],
+                    FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+                    Toolbox`rateconst["TALA25", True],
+                    Editable->False,
+                    Selectable->False], " ", 
+                    InterpretationBox[
+                    SubsuperscriptBox["k", 
+                    StyleBox["TALA26",
+                    StripOnInput->False,
+                    ShowSyntaxStyles->False,
+                    AutoSpacing->False,
+                    ZeroWidthTimes->True,
+                    LineColor->RGBColor[0, 0, 0],
+                    FrontFaceColor->RGBColor[0, 0, 0],
+                    BackFaceColor->RGBColor[0, 0, 0],
+                    GraphicsColor->RGBColor[0, 0, 0],
+                    FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+                    Toolbox`rateconst["TALA26", True],
+                    Editable->False,
+                    Selectable->False], " ", 
+                    InterpretationBox[
+                    SubsuperscriptBox["k", 
+                    StyleBox[
+                    RowBox[{"\[LeftSkeleton]", "37", "\[RightSkeleton]"}],
+                    StripOnInput->False,
+                    ShowSyntaxStyles->False,
+                    AutoSpacing->False,
+                    ZeroWidthTimes->True,
+                    LineColor->RGBColor[0, 0, 0],
+                    FrontFaceColor->RGBColor[0, 0, 0],
+                    BackFaceColor->RGBColor[0, 0, 0],
+                    GraphicsColor->RGBColor[0, 0, 0],
+                    FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
+                    Toolbox`rateconst[
+                    "TALA2_Kic_pi_1_f6p_TALA2_Kic_pi_1_e4p", False],
+                    Editable->False,
+                    Selectable->False]}], 
+                    RowBox[{
+                    RowBox[{
+                    InterpretationBox[
+                    SuperscriptBox[
+                    StyleBox["f6p",
+                    StripOnInput->False,
+                    ShowSyntaxStyles->False,
+                    AutoSpacing->False,
+                    ZeroWidthTimes->True,
+                    LineColor->RGBColor[0, 0, 0],
+                    FrontFaceColor->RGBColor[0, 0, 0],
+                    BackFaceColor->RGBColor[0, 0, 0],
+                    GraphicsColor->RGBColor[0, 0, 0],
+                    FontColor->RGBColor[0, 0, 0]], 
+                    StyleBox["c",
+                    StripOnInput->False,
+                    ShowSyntaxStyles->False,
+                    AutoSpacing->False,
+                    ZeroWidthTimes->True,
+                    LineColor->RGBColor[0, 0, 0],
+                    FrontFaceColor->RGBColor[0, 0, 0],
+                    BackFaceColor->RGBColor[0, 0, 0],
+                    GraphicsColor->RGBColor[0, 0, 0],
+                    FontColor->RGBColor[0, 0, 0]]],
+                    Toolbox`metabolite["f6p", "c"],
+                    Editable->False,
+                    Selectable->False], " ", 
+                    InterpretationBox[
+                    SubsuperscriptBox["k", 
+                    StyleBox[
+                    RowBox[{"\[LeftSkeleton]", "6", "\[RightSkeleton]"}],
+                    StripOnInput->False,
+                    ShowSyntaxStyles->False,
+                    AutoSpacing->False,
+                    ZeroWidthTimes->True,
+                    LineColor->RGBColor[0, 0, 0],
+                    FrontFaceColor->RGBColor[0, 0, 0],
+                    BackFaceColor->RGBColor[0, 0, 0],
+                    GraphicsColor->RGBColor[0, 0, 0],
+                    FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+                    Toolbox`rateconst["TALA21", True],
+                    Editable->False,
+                    Selectable->False], " ", 
+                    InterpretationBox[
+                    RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}],
+                    Toolbox`rateconst["TALA24", True],
+                    Editable->False,
+                    Selectable->False], " ", 
+                    RowBox[{"(", 
+                    RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], 
+                    RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}]}], 
+                    " ", 
+                    InterpretationBox[
+                    SubsuperscriptBox["k", 
+                    RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], 
+                    "\[LongRightArrow]"],
+                    Toolbox`rateconst["TALA26", True],
+                    Editable->False,
+                    Selectable->False], " ", 
+                    RowBox[{"(", 
+                    RowBox[{
+                    InterpretationBox[
+                    SubsuperscriptBox["k", 
+                    StyleBox[
+                    RowBox[{"\[LeftSkeleton]", "37", "\[RightSkeleton]"}],
+                    StripOnInput->False,
+                    ShowSyntaxStyles->False,
+                    AutoSpacing->False,
+                    ZeroWidthTimes->True,
+                    LineColor->RGBColor[0, 0, 0],
+                    FrontFaceColor->RGBColor[0, 0, 0],
+                    BackFaceColor->RGBColor[0, 0, 0],
+                    GraphicsColor->RGBColor[0, 0, 0],
+                    FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
+                    Toolbox`rateconst[
+                    "TALA2_Kic_pi_1_f6p_TALA2_Kic_pi_1_e4p", False],
+                    Editable->False,
+                    Selectable->False], "+", 
+                    RowBox[{
+                    InterpretationBox[
+                    SuperscriptBox[
+                    StyleBox["pi",
+                    StripOnInput->False,
+                    ShowSyntaxStyles->False,
+                    AutoSpacing->False,
+                    ZeroWidthTimes->True,
+                    LineColor->RGBColor[0, 0, 0],
+                    FrontFaceColor->RGBColor[0, 0, 0],
+                    BackFaceColor->RGBColor[0, 0, 0],
+                    GraphicsColor->RGBColor[0, 0, 0],
+                    FontColor->RGBColor[0, 0, 0]], 
+                    StyleBox["c",
+                    StripOnInput->False,
+                    ShowSyntaxStyles->False,
+                    AutoSpacing->False,
+                    ZeroWidthTimes->True,
+                    LineColor->RGBColor[0, 0, 0],
+                    FrontFaceColor->RGBColor[0, 0, 0],
+                    BackFaceColor->RGBColor[0, 0, 0],
+                    GraphicsColor->RGBColor[0, 0, 0],
+                    FontColor->RGBColor[0, 0, 0]]],
+                    Toolbox`metabolite["pi", "c"],
+                    Editable->False,
+                    Selectable->False], " ", 
+                    InterpretationBox[
+                    SubsuperscriptBox["k", 
+                    StyleBox[
+                    RowBox[{"\[LeftSkeleton]", "37", "\[RightSkeleton]"}],
+                    StripOnInput->False,
+                    ShowSyntaxStyles->False,
+                    AutoSpacing->False,
+                    ZeroWidthTimes->True,
+                    LineColor->RGBColor[0, 0, 0],
+                    FrontFaceColor->RGBColor[0, 0, 0],
+                    BackFaceColor->RGBColor[0, 0, 0],
+                    GraphicsColor->RGBColor[0, 0, 0],
+                    FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+                    Toolbox`rateconst[
+                    "TALA2_Kic_pi_1_f6p_TALA2_Kic_pi_1_e4p", True],
+                    Editable->False,
+                    Selectable->False]}]}], ")"}]}], 
+                    RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], 
+                    RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}]}]], 
+                    ",", 
+                    RowBox[{"\[LeftSkeleton]", "3", "\[RightSkeleton]"}]}], 
+                   "}"}],
                   Short[#, 
                    Rational[2, 3]]& ],
                  BaselinePosition->Baseline,
@@ -47982,7 +48705,7 @@ Cell[BoxData[
                  TagBox[
                   
                   TemplateBox[{
-                   "0.068253`4.984636742992577","\"s\"","seconds",
+                   "0.063662`4.954395276089958","\"s\"","seconds",
                     "\"Seconds\""},
                    "Quantity"],
                   Short[#, 
@@ -48981,8 +49704,8 @@ Cell[BoxData[
                     Toolbox`rateconst[
                     "TALA2_Kic_pi_1_f6p_TALA2_Kic_pi_1_e4p", True]))))))}}], 
       "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
-      Quantity[0.068253`4.984636742992577, "Seconds"], "CPUTimeUsed" -> 
-      Quantity[0.07200000000001694, "Seconds"], "MemoryUsed" -> 
+      Quantity[0.063662`4.954395276089958, "Seconds"], "CPUTimeUsed" -> 
+      Quantity[0.06400000000000716, "Seconds"], "MemoryUsed" -> 
       Quantity[25760, "Bytes"]]],
     Editable->False,
     SelectWithContents->True,
@@ -49540,7 +50263,7 @@ Cell[BoxData[
                  TagBox[
                   
                   TemplateBox[{
-                   "0.000144`2.3088774899272435","\"s\"","seconds",
+                   "0.000107`2.1798987755172035","\"s\"","seconds",
                     "\"Seconds\""},
                    "Quantity"],
                   Short[#, 
@@ -49651,7 +50374,7 @@ Cell[BoxData[
           Toolbox`rateconst["GAPD6", False] -> "x<10>", 
           Toolbox`rateconst["GAPD6", True] -> "x<11>"}}], 
       "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
-      Quantity[0.000144`2.3088774899272435, "Seconds"], "CPUTimeUsed" -> 
+      Quantity[0.000107`2.1798987755172035, "Seconds"], "CPUTimeUsed" -> 
       Quantity[0., "Seconds"], "MemoryUsed" -> Quantity[32, "Bytes"]]],
     Editable->False,
     SelectWithContents->True,
@@ -49675,6 +50398,7 @@ Cell[BoxData[
              Evaluator->Automatic,
              Method->"Preemptive"],
             Alignment->{Center, Center},
+            
             ImageSize->
              Dynamic[{
               Automatic, 3.5 CurrentValue["FontCapHeight"]/
@@ -49808,7 +50532,120 @@ Cell[BoxData[
                TagBox[
                 PaneBox[
                  TagBox[
-                  RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}],
+                  RowBox[{"{", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    InterpretationBox[
+                    SubsuperscriptBox["k", 
+                    StyleBox["G3PD21",
+                    StripOnInput->False,
+                    ShowSyntaxStyles->False,
+                    AutoSpacing->False,
+                    ZeroWidthTimes->True,
+                    LineColor->RGBColor[0, 0, 0],
+                    FrontFaceColor->RGBColor[0, 0, 0],
+                    BackFaceColor->RGBColor[0, 0, 0],
+                    GraphicsColor->RGBColor[0, 0, 0],
+                    FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
+                    Toolbox`rateconst["G3PD21", False],
+                    Editable->False,
+                    Selectable->False], ",", 
+                    InterpretationBox[
+                    SubsuperscriptBox["k", 
+                    StyleBox["G3PD21",
+                    StripOnInput->False,
+                    ShowSyntaxStyles->False,
+                    AutoSpacing->False,
+                    ZeroWidthTimes->True,
+                    LineColor->RGBColor[0, 0, 0],
+                    FrontFaceColor->RGBColor[0, 0, 0],
+                    BackFaceColor->RGBColor[0, 0, 0],
+                    GraphicsColor->RGBColor[0, 0, 0],
+                    FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+                    Toolbox`rateconst["G3PD21", True],
+                    Editable->False,
+                    Selectable->False], ",", 
+                    InterpretationBox[
+                    SubsuperscriptBox["k", 
+                    StyleBox["G3PD22",
+                    StripOnInput->False,
+                    ShowSyntaxStyles->False,
+                    AutoSpacing->False,
+                    ZeroWidthTimes->True,
+                    LineColor->RGBColor[0, 0, 0],
+                    FrontFaceColor->RGBColor[0, 0, 0],
+                    BackFaceColor->RGBColor[0, 0, 0],
+                    GraphicsColor->RGBColor[0, 0, 0],
+                    FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
+                    Toolbox`rateconst["G3PD22", False],
+                    Editable->False,
+                    Selectable->False], ",", 
+                    RowBox[{"\[LeftSkeleton]", "17", "\[RightSkeleton]"}], 
+                    ",", 
+                    InterpretationBox[
+                    SubsuperscriptBox["k", 
+                    StyleBox[
+                    RowBox[{"G3PD2_NC", "_glyc3p"}],
+                    StripOnInput->False,
+                    ShowSyntaxStyles->False,
+                    AutoSpacing->False,
+                    ZeroWidthTimes->True,
+                    LineColor->RGBColor[0, 0, 0],
+                    FrontFaceColor->RGBColor[0, 0, 0],
+                    BackFaceColor->RGBColor[0, 0, 0],
+                    GraphicsColor->RGBColor[0, 0, 0],
+                    FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
+                    Toolbox`rateconst["G3PD2_NC_glyc3p", False],
+                    Editable->False,
+                    Selectable->False], ",", 
+                    InterpretationBox[
+                    SubsuperscriptBox["k", 
+                    StyleBox[
+                    RowBox[{"G3PD2_NC", "_glyc3p"}],
+                    StripOnInput->False,
+                    ShowSyntaxStyles->False,
+                    AutoSpacing->False,
+                    ZeroWidthTimes->True,
+                    LineColor->RGBColor[0, 0, 0],
+                    FrontFaceColor->RGBColor[0, 0, 0],
+                    BackFaceColor->RGBColor[0, 0, 0],
+                    GraphicsColor->RGBColor[0, 0, 0],
+                    FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+                    Toolbox`rateconst["G3PD2_NC_glyc3p", True],
+                    Editable->False,
+                    Selectable->False]}], "}"}], ",", 
+                    RowBox[{"\[LeftSkeleton]", "2", "\[RightSkeleton]"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{
+                    InterpretationBox[
+                    SubsuperscriptBox["k", 
+                    StyleBox[
+                    RowBox[{"\[LeftSkeleton]", "6", "\[RightSkeleton]"}],
+                    StripOnInput->False,
+                    ShowSyntaxStyles->False,
+                    AutoSpacing->False,
+                    ZeroWidthTimes->True,
+                    LineColor->RGBColor[0, 0, 0],
+                    FrontFaceColor->RGBColor[0, 0, 0],
+                    BackFaceColor->RGBColor[0, 0, 0],
+                    GraphicsColor->RGBColor[0, 0, 0],
+                    FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
+                    Toolbox`rateconst["G3PD21", False],
+                    Editable->False,
+                    Selectable->False], "\[Rule]", "\<\"x<0>\"\>"}], ",", 
+                    RowBox[{"\[LeftSkeleton]", "20", "\[RightSkeleton]"}], 
+                    ",", 
+                    RowBox[{
+                    InterpretationBox[
+                    SubsuperscriptBox["k", 
+                    RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], 
+                    "\[LongRightArrow]"],
+                    Toolbox`rateconst["G3PD2_NC_glyc3p", True],
+                    Editable->False,
+                    Selectable->False], "\[Rule]", "\<\"x<21>\"\>"}]}], 
+                    "}"}]}], "}"}],
                   Short[#, 
                    Rational[2, 3]]& ],
                  BaselinePosition->Baseline,
@@ -49824,7 +50661,120 @@ Cell[BoxData[
                TagBox[
                 PaneBox[
                  TagBox[
-                  RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}],
+                  RowBox[{"{", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    InterpretationBox[
+                    SubsuperscriptBox["k", 
+                    StyleBox["G3PD21",
+                    StripOnInput->False,
+                    ShowSyntaxStyles->False,
+                    AutoSpacing->False,
+                    ZeroWidthTimes->True,
+                    LineColor->RGBColor[0, 0, 0],
+                    FrontFaceColor->RGBColor[0, 0, 0],
+                    BackFaceColor->RGBColor[0, 0, 0],
+                    GraphicsColor->RGBColor[0, 0, 0],
+                    FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
+                    Toolbox`rateconst["G3PD21", False],
+                    Editable->False,
+                    Selectable->False], ",", 
+                    InterpretationBox[
+                    SubsuperscriptBox["k", 
+                    StyleBox["G3PD21",
+                    StripOnInput->False,
+                    ShowSyntaxStyles->False,
+                    AutoSpacing->False,
+                    ZeroWidthTimes->True,
+                    LineColor->RGBColor[0, 0, 0],
+                    FrontFaceColor->RGBColor[0, 0, 0],
+                    BackFaceColor->RGBColor[0, 0, 0],
+                    GraphicsColor->RGBColor[0, 0, 0],
+                    FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+                    Toolbox`rateconst["G3PD21", True],
+                    Editable->False,
+                    Selectable->False], ",", 
+                    InterpretationBox[
+                    SubsuperscriptBox["k", 
+                    StyleBox["G3PD22",
+                    StripOnInput->False,
+                    ShowSyntaxStyles->False,
+                    AutoSpacing->False,
+                    ZeroWidthTimes->True,
+                    LineColor->RGBColor[0, 0, 0],
+                    FrontFaceColor->RGBColor[0, 0, 0],
+                    BackFaceColor->RGBColor[0, 0, 0],
+                    GraphicsColor->RGBColor[0, 0, 0],
+                    FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
+                    Toolbox`rateconst["G3PD22", False],
+                    Editable->False,
+                    Selectable->False], ",", 
+                    RowBox[{"\[LeftSkeleton]", "17", "\[RightSkeleton]"}], 
+                    ",", 
+                    InterpretationBox[
+                    SubsuperscriptBox["k", 
+                    StyleBox[
+                    RowBox[{"G3PD2_NC", "_glyc3p"}],
+                    StripOnInput->False,
+                    ShowSyntaxStyles->False,
+                    AutoSpacing->False,
+                    ZeroWidthTimes->True,
+                    LineColor->RGBColor[0, 0, 0],
+                    FrontFaceColor->RGBColor[0, 0, 0],
+                    BackFaceColor->RGBColor[0, 0, 0],
+                    GraphicsColor->RGBColor[0, 0, 0],
+                    FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
+                    Toolbox`rateconst["G3PD2_NC_glyc3p", False],
+                    Editable->False,
+                    Selectable->False], ",", 
+                    InterpretationBox[
+                    SubsuperscriptBox["k", 
+                    StyleBox[
+                    RowBox[{"G3PD2_NC", "_glyc3p"}],
+                    StripOnInput->False,
+                    ShowSyntaxStyles->False,
+                    AutoSpacing->False,
+                    ZeroWidthTimes->True,
+                    LineColor->RGBColor[0, 0, 0],
+                    FrontFaceColor->RGBColor[0, 0, 0],
+                    BackFaceColor->RGBColor[0, 0, 0],
+                    GraphicsColor->RGBColor[0, 0, 0],
+                    FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+                    Toolbox`rateconst["G3PD2_NC_glyc3p", True],
+                    Editable->False,
+                    Selectable->False]}], "}"}], ",", 
+                    RowBox[{"\[LeftSkeleton]", "2", "\[RightSkeleton]"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{
+                    InterpretationBox[
+                    SubsuperscriptBox["k", 
+                    StyleBox[
+                    RowBox[{"\[LeftSkeleton]", "6", "\[RightSkeleton]"}],
+                    StripOnInput->False,
+                    ShowSyntaxStyles->False,
+                    AutoSpacing->False,
+                    ZeroWidthTimes->True,
+                    LineColor->RGBColor[0, 0, 0],
+                    FrontFaceColor->RGBColor[0, 0, 0],
+                    BackFaceColor->RGBColor[0, 0, 0],
+                    GraphicsColor->RGBColor[0, 0, 0],
+                    FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
+                    Toolbox`rateconst["G3PD21", False],
+                    Editable->False,
+                    Selectable->False], "\[Rule]", "\<\"x<0>\"\>"}], ",", 
+                    RowBox[{"\[LeftSkeleton]", "20", "\[RightSkeleton]"}], 
+                    ",", 
+                    RowBox[{
+                    InterpretationBox[
+                    SubsuperscriptBox["k", 
+                    RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], 
+                    "\[LongRightArrow]"],
+                    Toolbox`rateconst["G3PD2_NC_glyc3p", True],
+                    Editable->False,
+                    Selectable->False], "\[Rule]", "\<\"x<21>\"\>"}]}], 
+                    "}"}]}], "}"}],
                   Short[#, 
                    Rational[2, 3]]& ],
                  BaselinePosition->Baseline,
@@ -49842,7 +50792,7 @@ Cell[BoxData[
                  TagBox[
                   
                   TemplateBox[{
-                   "0.000106`2.175820863096764","\"s\"","seconds",
+                   "0.000124`2.243936682994229","\"s\"","seconds",
                     "\"Seconds\""},
                    "Quantity"],
                   Short[#, 
@@ -49989,7 +50939,7 @@ Cell[BoxData[
           Toolbox`rateconst["G3PD2_NC_glyc3p", False] -> "x<20>", 
           Toolbox`rateconst["G3PD2_NC_glyc3p", True] -> "x<21>"}}], 
       "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
-      Quantity[0.000106`2.175820863096764, "Seconds"], "CPUTimeUsed" -> 
+      Quantity[0.000124`2.243936682994229, "Seconds"], "CPUTimeUsed" -> 
       Quantity[0., "Seconds"], "MemoryUsed" -> Quantity[32, "Bytes"]]],
     Editable->False,
     SelectWithContents->True,
@@ -50183,7 +51133,7 @@ Cell[BoxData[
                  TagBox[
                   
                   TemplateBox[{
-                   "0.000152`2.3323585857767664","\"s\"","seconds",
+                   "0.000107`2.1798987755172035","\"s\"","seconds",
                     "\"Seconds\""},
                    "Quantity"],
                   Short[#, 
@@ -51944,7 +52894,7 @@ x[8])))))"}, {
                    Toolbox`rateconst["GAPD6", False] + 
                    Toolbox`rateconst["GAPD6", True])))))}}], 
       "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
-      Quantity[0.000152`2.3323585857767664, "Seconds"], "CPUTimeUsed" -> 
+      Quantity[0.000107`2.1798987755172035, "Seconds"], "CPUTimeUsed" -> 
       Quantity[0., "Seconds"], "MemoryUsed" -> Quantity[32, "Bytes"]]],
     Editable->False,
     SelectWithContents->True,
@@ -52107,8 +53057,9 @@ x[8])))))"}, {
                     RowBox[{"{", 
                     
                     RowBox[{"\<\"absRateFor\"\>", ",", "\<\"absRateRev\"\>", 
-                    ",", 
-                    RowBox[{"\[LeftSkeleton]", "6", "\[RightSkeleton]"}], 
+                    ",", "\<\"relRateFor_glyc3p\"\>", ",", 
+                    RowBox[{"\[LeftSkeleton]", "4", "\[RightSkeleton]"}], 
+                    ",", "\<\"prod_inhib_nadph\"\>", 
                     ",", "\<\"prod_inhib_glyc3p\"\>", 
                     ",", "\<\"prod_inhib_nadp\"\>"}], "}"}], ",", 
                     RowBox[{"\[LeftSkeleton]", "3", "\[RightSkeleton]"}], ",", 
@@ -52135,8 +53086,9 @@ x[8])))))"}, {
                     RowBox[{"{", 
                     
                     RowBox[{"\<\"absRateFor\"\>", ",", "\<\"absRateRev\"\>", 
-                    ",", 
-                    RowBox[{"\[LeftSkeleton]", "6", "\[RightSkeleton]"}], 
+                    ",", "\<\"relRateFor_glyc3p\"\>", ",", 
+                    RowBox[{"\[LeftSkeleton]", "4", "\[RightSkeleton]"}], 
+                    ",", "\<\"prod_inhib_nadph\"\>", 
                     ",", "\<\"prod_inhib_glyc3p\"\>", 
                     ",", "\<\"prod_inhib_nadp\"\>"}], "}"}], ",", 
                     RowBox[{"\[LeftSkeleton]", "3", "\[RightSkeleton]"}], ",", 
@@ -52160,7 +53112,7 @@ x[8])))))"}, {
                  TagBox[
                   
                   TemplateBox[{
-                   "0.000143`2.3058510352970556","\"s\"","seconds",
+                   "0.000165`2.3679989420459004","\"s\"","seconds",
                     "\"Seconds\""},
                    "Quantity"],
                   Short[#, 
@@ -61420,18 +62372,18 @@ d[4]*x[2]*x[6]*(x[4]*(x[10]*x[18] + (x[10] + x[18])*x[8]) + x[10]*x[18]*(x[8] \
                     Toolbox`rateconst["G3PD2_Kincu_dhap_1_nadp", False] 
                     Toolbox`rateconst["G3PD2_NC_dhap", True])))))}}], 
       "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
-      Quantity[0.000143`2.3058510352970556, "Seconds"], "CPUTimeUsed" -> 
+      Quantity[0.000165`2.3679989420459004, "Seconds"], "CPUTimeUsed" -> 
       Quantity[0., "Seconds"], "MemoryUsed" -> Quantity[32, "Bytes"]]],
     Editable->False,
     SelectWithContents->True,
     Selectable->False]}], "}"}]], "Output",
  CellChangeTimes->{3.695476141417239*^9, 3.69649322482411*^9, 
-  3.696493571165227*^9}]
+  3.696493571165227*^9, 3.6971258809351254`*^9, 3.698389027964555*^9}]
 }, Open  ]]
 }, Open  ]]
 },
-WindowSize->{1920, 1023},
-WindowMargins->{{0, Automatic}, {0, 24}},
+WindowSize->{1914, 1023},
+WindowMargins->{{Automatic, 3}, {1, Automatic}},
 FrontEndVersion->"11.0 for Linux x86 (64-bit) (September 21, 2016)",
 StyleDefinitions->"Default.nb"
 ]
@@ -61506,7 +62458,7 @@ Cell[1173435, 27649, 91655, 2229, 1319, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
 Cell[1265127, 29883, 1419, 23, 35, "Subsubsection"],
-Cell[1266549, 29908, 32580, 828, 598, "Input"]
+Cell[1266549, 29908, 32580, 828, 624, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
 Cell[1299166, 30741, 1478, 24, 35, "Subsubsection"],
@@ -61514,14 +62466,14 @@ Cell[1300647, 30767, 44474, 1108, 635, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
 Cell[1345158, 31880, 1465, 23, 35, "Subsubsection"],
-Cell[1346626, 31905, 26613, 699, 565, "Input"]
+Cell[1346626, 31905, 26613, 699, 590, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
 Cell[1373276, 32609, 1529, 25, 35, "Subsubsection"],
 Cell[1374808, 32636, 31680, 817, 621, "Input"],
 Cell[CellGroupData[{
 Cell[1406513, 33457, 105, 1, 32, "Input"],
-Cell[1406621, 33460, 1481360, 27968, 362, "Output"]
+Cell[1406621, 33460, 1526011, 28920, 305, "Output"]
 }, Open  ]]
 }, Open  ]]
 }

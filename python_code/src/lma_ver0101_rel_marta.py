@@ -7,6 +7,7 @@ Created by James de Bree.
 Copyright (c) 2013 . All rights reserved.
 """
 
+import platform
 import multiprocessing
 import sys
 import copy
@@ -305,18 +306,25 @@ def run_lma(parameter, data_file_name, candidates_import_path, candidates_export
         func_template = open(path).read()
         mkFuncCommand = 'def %s(x, d): return %s' % (funcName,func_template)
         exec(mkFuncCommand)
-        functionDict[path] = eval(funcName)
+        functionDict[path.replace('\\\\', '\\')] = eval(funcName)
     """"""
 
     """Run the 'leastsq' Algorithm in a Parallel Manner using multiprocessing"""
+    print  platform.system() == "Windows"
 
-    pool = multiprocessing.Pool(processes=num_Cpus)
-    leastsq_results = pool.map_async(_minimizer, candidates)
-    pool.close()
-    #print leastsq_results
-    minimization_results = leastsq_results.get()
-    """"""
-
+    if platform.system() == "Windows":
+        minimization_results = []
+        for c in candidates:
+            minimization_results.append(_minimizer(c))
+      
+    else:
+        pool = multiprocessing.Pool(processes=num_Cpus)
+        leastsq_results = pool.map_async(_minimizer, candidates)
+        pool.close()
+        #print leastsq_results
+        minimization_results = leastsq_results.get()
+        
+        
     """Rearrange the lmfit results output for Mathematica import"""
     if (temperature_correction == True):    # Thermodynamic Parameters
         #

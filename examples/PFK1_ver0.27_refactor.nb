@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[   1514605,      33803]
-NotebookOptionsPosition[   1509274,      33617]
-NotebookOutlinePosition[   1509672,      33635]
-CellTagsIndexPosition[   1509629,      33632]
+NotebookDataLength[   1539666,      34486]
+NotebookOptionsPosition[   1533225,      34269]
+NotebookOutlinePosition[   1533630,      34287]
+CellTagsIndexPosition[   1533587,      34284]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -39,11 +39,11 @@ Cell[BoxData[{
   RowBox[{
    RowBox[{"<<", "Toolbox`"}], "'"}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
-  RowBox[{"Get", "[", "\"\<MASSFittingPackage`\>\"", "]"}], 
-  ";"}], "\[IndentingNewLine]", 
+  RowBox[{"Get", "[", "\"\<MASSef`\>\"", "]"}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
-  RowBox[{"Get", "[", "\"\<MASSFittingPackage`\>\"", "]"}], ";"}]}], "Input",
- CellChangeTimes->{{3.689587098358124*^9, 3.6895870987800817`*^9}}],
+  RowBox[{"Get", "[", "\"\<MASSef`\>\"", "]"}], ";"}]}], "Input",
+ CellChangeTimes->{{3.689587098358124*^9, 3.6895870987800817`*^9}, {
+  3.6984135184897203`*^9, 3.6984135190388327`*^9}}],
 
 Cell[CellGroupData[{
 
@@ -66,7 +66,7 @@ Cell[BoxData[{
   RowBox[{
    RowBox[{
    "pathMASSFittingPackage", " ", "=", " ", 
-    "\"\</home/mrama/Dropbox/MASS_fitting_package/\>\""}], ";"}], 
+    "\"\</home/mrama/Dropbox/MASSef/\>\""}], ";"}], 
   "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"mainFolder", " ", "=", " ", "\"\<test_refactor_PFK1\>\""}], 
@@ -88,7 +88,8 @@ Cell[BoxData[{
    3.6895873425381603`*^9}, {3.689591117403871*^9, 3.6895911188468246`*^9}, {
    3.6925181310557423`*^9, 3.692518167968482*^9}, {3.695644870273423*^9, 
    3.6956448719943113`*^9}, {3.6957140007796288`*^9, 3.695714005876396*^9}, {
-   3.6957143229772053`*^9, 3.6957143233903723`*^9}, 3.695726143859437*^9}],
+   3.6957143229772053`*^9, 3.6957143233903723`*^9}, 3.695726143859437*^9, 
+   3.6984135227440567`*^9}],
 
 Cell[CellGroupData[{
 
@@ -99,17 +100,19 @@ Cell[BoxData["\<\"/home/mrama/Dropbox/MASS_fitting_package/data\"\>"], "Print",
   3.695714006535047*^9, 3.695714334162483*^9, 3.6957261443321323`*^9, 
   3.695729019706276*^9, 3.695730656869871*^9, 3.6958997684056883`*^9, 
   3.696070459602839*^9, 3.696072981627783*^9, 3.696073154353894*^9, 
-  3.696074976117198*^9}],
+  3.696074976117198*^9, 3.698398982002541*^9, 3.698399670525817*^9, 
+  3.698399817542163*^9}],
 
 Cell[BoxData["\<\"Working \
-dir:/home/mrama/Dropbox/Kinetics/Enzymes_new/PFK1/\"\>"], "Print",
+dir:/home/mrama/Dropbox/MASS_fitting_package/examples/\"\>"], "Print",
  CellChangeTimes->{3.69564488849755*^9, 3.695644979895791*^9, 
   3.695646972938521*^9, 3.69564774707281*^9, 3.695647866913249*^9, 
   3.695647919733725*^9, 3.6956479865910873`*^9, 3.6957139250671587`*^9, 
   3.695714006535047*^9, 3.695714334162483*^9, 3.6957261443321323`*^9, 
   3.695729019706276*^9, 3.695730656869871*^9, 3.6958997684056883`*^9, 
   3.696070459602839*^9, 3.696072981627783*^9, 3.696073154353894*^9, 
-  3.696074981667408*^9}]
+  3.696074976117198*^9, 3.698398982002541*^9, 3.698399670525817*^9, 
+  3.698399823116457*^9}]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
@@ -126,7 +129,7 @@ Cell[BoxData[{
    RowBox[{"FileNameJoin", "[", 
     RowBox[{
      RowBox[{"{", 
-      RowBox[{"pathData", ",", " ", "\"\<kinetic_data.xls\>\""}], "}"}], ",", 
+      RowBox[{"pathData", ",", " ", "\"\<kinetic_data.csv\>\""}], "}"}], ",", 
      " ", 
      RowBox[{"OperatingSystem", "\[Rule]", "$OperatingSystem"}]}], "]"}]}], 
   ";"}], "\[IndentingNewLine]", 
@@ -135,7 +138,7 @@ Cell[BoxData[{
    RowBox[{"FileNameJoin", "[", 
     RowBox[{
      RowBox[{"{", 
-      RowBox[{"pathData", ",", " ", "\"\<buffer_info.xls\>\""}], "}"}], ",", 
+      RowBox[{"pathData", ",", " ", "\"\<buffer_info.csv\>\""}], "}"}], ",", 
      " ", 
      RowBox[{"OperatingSystem", "\[Rule]", "$OperatingSystem"}]}], "]"}]}], 
   ";"}], "\[IndentingNewLine]", 
@@ -145,7 +148,7 @@ Cell[BoxData[{
     RowBox[{"FileNameJoin", "[", 
      RowBox[{
       RowBox[{"{", 
-       RowBox[{"pathData", ",", " ", "\"\<ion_charge.xls\>\""}], "}"}], ",", 
+       RowBox[{"pathData", ",", " ", "\"\<ion_charge.csv\>\""}], "}"}], ",", 
       " ", 
       RowBox[{"OperatingSystem", "\[Rule]", "$OperatingSystem"}]}], "]"}]}], 
    ";"}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
@@ -184,7 +187,8 @@ Cell[BoxData[{
     "*)"}], "Text"]}], "\[IndentingNewLine]"}], "Input",
  CellChangeTimes->{{3.688465973748316*^9, 3.6884660629740667`*^9}, {
    3.6888945782161617`*^9, 3.688894578837591*^9}, {3.689334019674252*^9, 
-   3.6893340351550703`*^9}, 3.6956469607051*^9}]
+   3.6893340351550703`*^9}, 3.6956469607051*^9, {3.6983989692973833`*^9, 
+   3.698398974408328*^9}}]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -201,6 +205,8 @@ Cell[TextData[StyleBox["Print Module Dependent Information", "Subsection"]], \
 "Subsection",
  CellChangeTimes->{{3.577216806456821*^9, 3.577216830486294*^9}}],
 
+Cell[CellGroupData[{
+
 Cell[BoxData[
  RowBox[{
   RowBox[{"printEnzymeData", "[", 
@@ -209,7 +215,643 @@ Cell[BoxData[
     "nActiveSites", ",", " ", "kmList", ",", " ", "s05List", ",", " ", 
     "kcatList", ",", " ", "inhibitionList", ",", " ", "activationList", ",", 
     " ", "otherParmsList"}], "]"}], ";"}]], "Input",
- CellChangeTimes->{{3.6970265956574087`*^9, 3.697026626142229*^9}}]
+ CellChangeTimes->{{3.6970265956574087`*^9, 3.697026626142229*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  OverscriptBox[
+   RowBox[{
+    RowBox[{
+     InterpretationBox[
+      SuperscriptBox[
+       StyleBox["atp",
+        StripOnInput->False,
+        ShowSyntaxStyles->False,
+        AutoSpacing->False,
+        ZeroWidthTimes->True,
+        LineColor->RGBColor[0, 0, 0],
+        FrontFaceColor->RGBColor[0, 0, 0],
+        BackFaceColor->RGBColor[0, 0, 0],
+        GraphicsColor->RGBColor[0, 0, 0],
+        FontColor->RGBColor[0, 0, 0]], 
+       StyleBox["c",
+        StripOnInput->False,
+        ShowSyntaxStyles->False,
+        AutoSpacing->False,
+        ZeroWidthTimes->True,
+        LineColor->RGBColor[0, 0, 0],
+        FrontFaceColor->RGBColor[0, 0, 0],
+        BackFaceColor->RGBColor[0, 0, 0],
+        GraphicsColor->RGBColor[0, 0, 0],
+        FontColor->RGBColor[0, 0, 0]]],
+      Toolbox`metabolite["atp", "c"],
+      Editable->False,
+      Selectable->False], "+", 
+     InterpretationBox[
+      SuperscriptBox[
+       StyleBox["f6p",
+        StripOnInput->False,
+        ShowSyntaxStyles->False,
+        AutoSpacing->False,
+        ZeroWidthTimes->True,
+        LineColor->RGBColor[0, 0, 0],
+        FrontFaceColor->RGBColor[0, 0, 0],
+        BackFaceColor->RGBColor[0, 0, 0],
+        GraphicsColor->RGBColor[0, 0, 0],
+        FontColor->RGBColor[0, 0, 0]], 
+       StyleBox["c",
+        StripOnInput->False,
+        ShowSyntaxStyles->False,
+        AutoSpacing->False,
+        ZeroWidthTimes->True,
+        LineColor->RGBColor[0, 0, 0],
+        FrontFaceColor->RGBColor[0, 0, 0],
+        BackFaceColor->RGBColor[0, 0, 0],
+        GraphicsColor->RGBColor[0, 0, 0],
+        FontColor->RGBColor[0, 0, 0]]],
+      Toolbox`metabolite["f6p", "c"],
+      Editable->False,
+      Selectable->False]}], "\[Equilibrium]", 
+    RowBox[{
+     InterpretationBox[
+      SuperscriptBox[
+       StyleBox["adp",
+        StripOnInput->False,
+        ShowSyntaxStyles->False,
+        AutoSpacing->False,
+        ZeroWidthTimes->True,
+        LineColor->RGBColor[0, 0, 0],
+        FrontFaceColor->RGBColor[0, 0, 0],
+        BackFaceColor->RGBColor[0, 0, 0],
+        GraphicsColor->RGBColor[0, 0, 0],
+        FontColor->RGBColor[0, 0, 0]], 
+       StyleBox["c",
+        StripOnInput->False,
+        ShowSyntaxStyles->False,
+        AutoSpacing->False,
+        ZeroWidthTimes->True,
+        LineColor->RGBColor[0, 0, 0],
+        FrontFaceColor->RGBColor[0, 0, 0],
+        BackFaceColor->RGBColor[0, 0, 0],
+        GraphicsColor->RGBColor[0, 0, 0],
+        FontColor->RGBColor[0, 0, 0]]],
+      Toolbox`metabolite["adp", "c"],
+      Editable->False,
+      Selectable->False], "+", 
+     InterpretationBox[
+      SuperscriptBox[
+       StyleBox["fbp",
+        StripOnInput->False,
+        ShowSyntaxStyles->False,
+        AutoSpacing->False,
+        ZeroWidthTimes->True,
+        LineColor->RGBColor[0, 0, 0],
+        FrontFaceColor->RGBColor[0, 0, 0],
+        BackFaceColor->RGBColor[0, 0, 0],
+        GraphicsColor->RGBColor[0, 0, 0],
+        FontColor->RGBColor[0, 0, 0]], 
+       StyleBox["c",
+        StripOnInput->False,
+        ShowSyntaxStyles->False,
+        AutoSpacing->False,
+        ZeroWidthTimes->True,
+        LineColor->RGBColor[0, 0, 0],
+        FrontFaceColor->RGBColor[0, 0, 0],
+        BackFaceColor->RGBColor[0, 0, 0],
+        GraphicsColor->RGBColor[0, 0, 0],
+        FontColor->RGBColor[0, 0, 0]]],
+      Toolbox`metabolite["fbp", "c"],
+      Editable->False,
+      Selectable->False], "+", 
+     InterpretationBox[
+      SuperscriptBox[
+       StyleBox["h",
+        StripOnInput->False,
+        ShowSyntaxStyles->False,
+        AutoSpacing->False,
+        ZeroWidthTimes->True,
+        LineColor->RGBColor[0, 0, 0],
+        FrontFaceColor->RGBColor[0, 0, 0],
+        BackFaceColor->RGBColor[0, 0, 0],
+        GraphicsColor->RGBColor[0, 0, 0],
+        FontColor->RGBColor[0, 0, 0]], 
+       StyleBox["c",
+        StripOnInput->False,
+        ShowSyntaxStyles->False,
+        AutoSpacing->False,
+        ZeroWidthTimes->True,
+        LineColor->RGBColor[0, 0, 0],
+        FrontFaceColor->RGBColor[0, 0, 0],
+        BackFaceColor->RGBColor[0, 0, 0],
+        GraphicsColor->RGBColor[0, 0, 0],
+        FontColor->RGBColor[0, 0, 0]]],
+      Toolbox`metabolite["h", "c"],
+      Editable->False,
+      Selectable->False]}]}], 
+   StyleBox["PFK1",
+    StripOnInput->False,
+    ShowSyntaxStyles->False,
+    AutoSpacing->False,
+    ZeroWidthTimes->True,
+    LineColor->RGBColor[0, 0, 0],
+    FrontFaceColor->RGBColor[0, 0, 0],
+    BackFaceColor->RGBColor[0, 0, 0],
+    GraphicsColor->RGBColor[0, 0, 0],
+    FontColor->RGBColor[0, 0, 0]]],
+  Toolbox`reaction["PFK1", {
+    Toolbox`metabolite["atp", "c"], 
+    Toolbox`metabolite["f6p", "c"]}, {
+    Toolbox`metabolite["adp", "c"], 
+    Toolbox`metabolite["fbp", "c"], 
+    Toolbox`metabolite["h", "c"]}, {1, 1, 1, 1, 1}, True],
+  Editable->False,
+  Selectable->False]], "Print",
+ CellChangeTimes->{3.698398992369782*^9, 3.698399676338064*^9, 
+  3.6983998233362827`*^9}],
+
+Cell[BoxData["\<\"Bi Bi (iso-ordered); [f6p,atp,fbp,adp]\"\>"], "Print",
+ CellChangeTimes->{3.698398992369782*^9, 3.698399676338064*^9, 
+  3.6983998233376102`*^9}],
+
+Cell[BoxData["\<\"Structure: 4\"\>"], "Print",
+ CellChangeTimes->{3.698398992369782*^9, 3.698399676338064*^9, 
+  3.698399823338822*^9}],
+
+Cell[BoxData["\<\"Active sites: 4\"\>"], "Print",
+ CellChangeTimes->{3.698398992369782*^9, 3.698399676338064*^9, 
+  3.698399823339593*^9}],
+
+Cell[BoxData["\<\"\"\>"], "Print",
+ CellChangeTimes->{3.698398992369782*^9, 3.698399676338064*^9, 
+  3.6983998233402987`*^9}],
+
+Cell[BoxData["\<\"Km Values:\"\>"], "Print",
+ CellChangeTimes->{3.698398992369782*^9, 3.698399676338064*^9, 
+  3.6983998233409863`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[GridBox[{
+    {"\<\"Substrate\"\>", "\<\"Km_Value\"\>", "\<\"CoSubstrate\"\>", \
+"\<\"Units\"\>", "\<\"pH\"\>", "\<\"Temperature_C\"\>", \
+"\<\"Buffer_Concentrations\"\>", "\<\"Salt_Concentrations\"\>"},
+    {"\<\"atp\"\>", "0.00009`", GridBox[{
+       {"\<\"gdp\"\>", "0.001`"},
+       {"\<\"f6p\"\>", "0.001`"}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+        "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.1]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}], "\<\"M\"\>", "8.5`", "30", 
+     GridBox[{
+       {"\<\"detam\"\>", "0.051`"},
+       {"\<\"netmphn\"\>", "0.051`"},
+       {"\<\"mes\"\>", "0.1`"}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+        "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.1]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}], 
+     InterpretationBox["\<\"\"\>",
+      {}]},
+    {"\<\"gdp\"\>", "0.0042`", GridBox[{
+       {"\<\"f6p\"\>", "0.00004`"},
+       {"\<\"atp\"\>", "0.005`"}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+        "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.1]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}], "\<\"M\"\>", "8.5`", "30", 
+     GridBox[{
+       {"\<\"detam\"\>", "0.051`"},
+       {"\<\"netmphn\"\>", "0.051`"},
+       {"\<\"mes\"\>", "0.1`"}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+        "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.1]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}], 
+     InterpretationBox["\<\"\"\>",
+      {}]}
+   },
+   GridBoxAlignment->{
+    "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+     "RowsIndexed" -> {}},
+   GridBoxSpacings->{"Columns" -> {
+       Offset[0.27999999999999997`], {
+        Offset[2.0999999999999996`]}, 
+       Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+       Offset[0.2], {
+        Offset[0.4]}, 
+       Offset[0.2]}, "RowsIndexed" -> {}}],
+  TableForm[{{
+    "Substrate", "Km_Value", "CoSubstrate", "Units", "pH", "Temperature_C", 
+     "Buffer_Concentrations", "Salt_Concentrations"}, {
+    "atp", 0.00009, {{"gdp", 0.001}, {"f6p", 0.001}}, "M", 8.5, 
+     30, {{"detam", 0.051}, {"netmphn", 0.051}, {"mes", 0.1}}, {}}, {
+    "gdp", 0.0042, {{"f6p", 0.00004}, {"atp", 0.005}}, "M", 8.5, 
+     30, {{"detam", 0.051}, {"netmphn", 0.051}, {
+      "mes", 0.1}}, {}}}]]], "Print",
+ CellChangeTimes->{3.698398992369782*^9, 3.698399676338064*^9, 
+  3.6983998233425093`*^9}],
+
+Cell[BoxData["\<\"\"\>"], "Print",
+ CellChangeTimes->{3.698398992369782*^9, 3.698399676338064*^9, 
+  3.6983998233440857`*^9}],
+
+Cell[BoxData["\<\"S0.5 Values:\"\>"], "Print",
+ CellChangeTimes->{3.698398992369782*^9, 3.698399676338064*^9, 
+  3.6983998233448353`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[GridBox[{
+    {"\<\"Substrate\"\>", "\<\"S0.5_Value\"\>", "\<\"CoSubstrate\"\>", \
+"\<\"Units\"\>", "\<\"pH\"\>", "\<\"Temperature_C\"\>", \
+"\<\"Buffer_Concentrations\"\>", "\<\"Salt_Concentrations\"\>"},
+    {"\<\"f6p\"\>", "0.00009`", GridBox[{
+       {"\<\"gdp\"\>", "0.001`"},
+       {"\<\"atp\"\>", "0.001`"}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+        "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.1]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}], "\<\"M\"\>", "8.5`", "30", 
+     GridBox[{
+       {"\<\"detam\"\>", "0.051`"},
+       {"\<\"netmphn\"\>", "0.051`"},
+       {"\<\"mes\"\>", "0.1`"}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+        "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.1]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}], 
+     InterpretationBox["\<\"\"\>",
+      {}]}
+   },
+   GridBoxAlignment->{
+    "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+     "RowsIndexed" -> {}},
+   GridBoxSpacings->{"Columns" -> {
+       Offset[0.27999999999999997`], {
+        Offset[2.0999999999999996`]}, 
+       Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+       Offset[0.2], {
+        Offset[0.4]}, 
+       Offset[0.2]}, "RowsIndexed" -> {}}],
+  TableForm[{{
+    "Substrate", "S0.5_Value", "CoSubstrate", "Units", "pH", "Temperature_C", 
+     "Buffer_Concentrations", "Salt_Concentrations"}, {
+    "f6p", 0.00009, {{"gdp", 0.001}, {"atp", 0.001}}, "M", 8.5, 
+     30, {{"detam", 0.051}, {"netmphn", 0.051}, {
+      "mes", 0.1}}, {}}}]]], "Print",
+ CellChangeTimes->{3.698398992369782*^9, 3.698399676338064*^9, 
+  3.6983998233458138`*^9}],
+
+Cell[BoxData["\<\"\"\>"], "Print",
+ CellChangeTimes->{3.698398992369782*^9, 3.698399676338064*^9, 
+  3.6983998233470078`*^9}],
+
+Cell[BoxData["\<\"kcat Values:\"\>"], "Print",
+ CellChangeTimes->{3.698398992369782*^9, 3.698399676338064*^9, 
+  3.69839982334769*^9}],
+
+Cell[BoxData[
+ InterpretationBox[GridBox[{
+    {"\<\"Metabolite(s)\"\>", "\<\"Value\"\>", "\<\"Units\"\>", "\<\"pH\"\>", \
+"\<\"Temperature_C\"\>", "\<\"Buffer_Concentrations\"\>", \
+"\<\"Salt_Concentrations\"\>"},
+    {GridBox[{
+       {"\<\"gdp\"\>", "0.001`"},
+       {"\<\"atp\"\>", "Null"},
+       {"\<\"f6p\"\>", "Null"}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+        "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.1]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}], "110.7`", "\<\"1/s\"\>", 
+     "8.5`", "30", GridBox[{
+       {"\<\"detam\"\>", "0.051`"},
+       {"\<\"netmphn\"\>", "0.051`"},
+       {"\<\"mes\"\>", "0.1`"}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+        "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.1]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}], 
+     InterpretationBox["\<\"\"\>",
+      {}]}
+   },
+   GridBoxAlignment->{
+    "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+     "RowsIndexed" -> {}},
+   GridBoxSpacings->{"Columns" -> {
+       Offset[0.27999999999999997`], {
+        Offset[2.0999999999999996`]}, 
+       Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+       Offset[0.2], {
+        Offset[0.4]}, 
+       Offset[0.2]}, "RowsIndexed" -> {}}],
+  TableForm[{{
+    "Metabolite(s)", "Value", "Units", "pH", "Temperature_C", 
+     "Buffer_Concentrations", 
+     "Salt_Concentrations"}, {{{"gdp", 0.001}, {"atp", Null}, {"f6p", Null}}, 
+     110.7, "1/s", 8.5, 
+     30, {{"detam", 0.051}, {"netmphn", 0.051}, {
+      "mes", 0.1}}, {}}}]]], "Print",
+ CellChangeTimes->{3.698398992369782*^9, 3.698399676338064*^9, 
+  3.69839982334864*^9}],
+
+Cell[BoxData["\<\"\"\>"], "Print",
+ CellChangeTimes->{3.698398992369782*^9, 3.698399676338064*^9, 
+  3.698399823349802*^9}],
+
+Cell[BoxData["\<\"Inhibition Values:\"\>"], "Print",
+ CellChangeTimes->{3.698398992369782*^9, 3.698399676338064*^9, 
+  3.698399823350472*^9}],
+
+Cell[BoxData[
+ InterpretationBox[GridBox[{
+    {"\<\"Parameter_Type\"\>", "\<\"Inhibitor\"\>", "\<\"Value\"\>", \
+"\<\"Cosubstrates\"\>", "\<\"Inhibition Type\"\>", "\<\"Units\"\>", "\<\"pH\"\
+\>", "\<\"Temperature_C\"\>", "\<\"Buffer_Concentrations\"\>", \
+"\<\"Salt_Concentrations\"\>"},
+    {"\<\"Kinc\"\>", "\<\"pep\"\>", "0.00075`", 
+     InterpretationBox["\<\"\"\>",
+      {}], GridBox[{
+       {"\<\"NonCompetitive\"\>", "Null", "142", "\<\"atp\"\>", "Null"},
+       {"\<\"NonCompetitive\"\>", "Null", "142", "\<\"f6p\"\>", "Null"}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+        "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.1]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}], "\<\"M\"\>", "8.5`", "28", 
+     GridBox[{
+       {"\<\"tris\"\>", "0.05`"}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+        "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.1]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}], 
+     InterpretationBox["\<\"\"\>",
+      {}]},
+    {"\<\"Kic\"\>", "\<\"adp\"\>", "0.0002`", 
+     InterpretationBox["\<\"\"\>",
+      {}], GridBox[{
+       {"\<\"Competitive\"\>", "Null", "141", "\<\"atp\"\>", "Null"}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+        "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.1]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}], "\<\"M\"\>", "8.5`", "28", 
+     GridBox[{
+       {"\<\"tris\"\>", "0.05`"}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+        "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.1]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}], 
+     InterpretationBox["\<\"\"\>",
+      {}]}
+   },
+   GridBoxAlignment->{
+    "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+     "RowsIndexed" -> {}},
+   GridBoxSpacings->{"Columns" -> {
+       Offset[0.27999999999999997`], {
+        Offset[2.0999999999999996`]}, 
+       Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+       Offset[0.2], {
+        Offset[0.4]}, 
+       Offset[0.2]}, "RowsIndexed" -> {}}],
+  TableForm[{{
+    "Parameter_Type", "Inhibitor", "Value", "Cosubstrates", "Inhibition Type",
+      "Units", "pH", "Temperature_C", "Buffer_Concentrations", 
+     "Salt_Concentrations"}, {
+    "Kinc", "pep", 
+     0.00075, {}, {{"NonCompetitive", Null, 142, "atp", Null}, {
+      "NonCompetitive", Null, 142, "f6p", Null}}, "M", 8.5, 
+     28, {{"tris", 0.05}}, {}}, {
+    "Kic", "adp", 0.0002, {}, {{"Competitive", Null, 141, "atp", Null}}, "M", 
+     8.5, 28, {{"tris", 0.05}}, {}}}]]], "Print",
+ CellChangeTimes->{3.698398992369782*^9, 3.698399676338064*^9, 
+  3.698399823351866*^9}],
+
+Cell[BoxData["\<\"\"\>"], "Print",
+ CellChangeTimes->{3.698398992369782*^9, 3.698399676338064*^9, 
+  3.6983998233539*^9}],
+
+Cell[BoxData["\<\"Activation Values:\"\>"], "Print",
+ CellChangeTimes->{3.698398992369782*^9, 3.698399676338064*^9, 
+  3.6983998233548813`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[GridBox[{
+    {"\<\"Parameter_Type\"\>", "\<\"Activator\"\>", "\<\"Value\"\>", \
+"\<\"Cosubstrates\"\>", "\<\"Activation Type\"\>", "\<\"Units\"\>", "\<\"pH\"\
+\>", "\<\"Temperature_C\"\>", "\<\"Buffer_Concentrations\"\>", \
+"\<\"Salt_Concentrations\"\>"},
+    {"\<\"Ka\"\>", "\<\"adp\"\>", "0.000025`", 
+     InterpretationBox["\<\"\"\>",
+      {}], 
+     InterpretationBox["\<\"\"\>",
+      {}], "\<\"M\"\>", "8.5`", "28", GridBox[{
+       {"\<\"tris\"\>", "0.05`"}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+        "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.1]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}], 
+     InterpretationBox["\<\"\"\>",
+      {}]},
+    {"\<\"Ka\"\>", "\<\"gdp\"\>", "0.00004`", 
+     InterpretationBox["\<\"\"\>",
+      {}], 
+     InterpretationBox["\<\"\"\>",
+      {}], "\<\"M\"\>", "8.5`", "28", GridBox[{
+       {"\<\"tris\"\>", "0.05`"}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+        "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.1]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}], 
+     InterpretationBox["\<\"\"\>",
+      {}]}
+   },
+   GridBoxAlignment->{
+    "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+     "RowsIndexed" -> {}},
+   GridBoxSpacings->{"Columns" -> {
+       Offset[0.27999999999999997`], {
+        Offset[2.0999999999999996`]}, 
+       Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+       Offset[0.2], {
+        Offset[0.4]}, 
+       Offset[0.2]}, "RowsIndexed" -> {}}],
+  TableForm[{{
+    "Parameter_Type", "Activator", "Value", "Cosubstrates", "Activation Type",
+      "Units", "pH", "Temperature_C", "Buffer_Concentrations", 
+     "Salt_Concentrations"}, {
+    "Ka", "adp", 0.000025, {}, {}, "M", 8.5, 28, {{"tris", 0.05}}, {}}, {
+    "Ka", "gdp", 0.00004, {}, {}, "M", 8.5, 
+     28, {{"tris", 0.05}}, {}}}]]], "Print",
+ CellChangeTimes->{3.698398992369782*^9, 3.698399676338064*^9, 
+  3.698399823355895*^9}],
+
+Cell[BoxData["\<\"\"\>"], "Print",
+ CellChangeTimes->{3.698398992369782*^9, 3.698399676338064*^9, 
+  3.6983998233574677`*^9}],
+
+Cell[BoxData["\<\"Other Parameters:\"\>"], "Print",
+ CellChangeTimes->{3.698398992369782*^9, 3.698399676338064*^9, 
+  3.698399823358284*^9}],
+
+Cell[BoxData[
+ InterpretationBox[GridBox[{
+    {"\<\"Parameter_Type\"\>", "\<\"Metabolite\"\>", "\<\"Value\"\>", \
+"\<\"Units\"\>", "\<\"pH\"\>", "\<\"Temperature_C\"\>", \
+"\<\"Buffer_Concentrations\"\>", "\<\"Salt_Concentrations\"\>", "\<\"\"\>"},
+    {"\<\"n\"\>", "\<\"\"\>", "2.11`", 
+     InterpretationBox["\<\"\"\>",
+      {}], "\<\"\"\>", "8.5`", "30", GridBox[{
+       {"\<\"detam\"\>", "0.051`"},
+       {"\<\"netmphn\"\>", "0.051`"},
+       {"\<\"mes\"\>", "0.1`"}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+        "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.1]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}], 
+     InterpretationBox["\<\"\"\>",
+      {}]},
+    {"\<\"L0\"\>", "\<\"\"\>", "4000000", 
+     InterpretationBox["\<\"\"\>",
+      {}], "\<\"\"\>", "8.5`", "28", GridBox[{
+       {"\<\"tris\"\>", "0.05`"}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+        "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.1]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}], 
+     InterpretationBox["\<\"\"\>",
+      {}]}
+   },
+   GridBoxAlignment->{
+    "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+     "RowsIndexed" -> {}},
+   GridBoxSpacings->{"Columns" -> {
+       Offset[0.27999999999999997`], {
+        Offset[2.0999999999999996`]}, 
+       Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+       Offset[0.2], {
+        Offset[0.4]}, 
+       Offset[0.2]}, "RowsIndexed" -> {}}],
+  TableForm[{{
+    "Parameter_Type", "Metabolite", "Value", "Units", "pH", "Temperature_C", 
+     "Buffer_Concentrations", "Salt_Concentrations"}, {
+    "n", "", 2.11, {}, "", 8.5, 
+     30, {{"detam", 0.051}, {"netmphn", 0.051}, {"mes", 0.1}}, {}}, {
+    "L0", "", 4000000, {}, "", 8.5, 28, {{"tris", 0.05}}, {}}}]]], "Print",
+ CellChangeTimes->{3.698398992369782*^9, 3.698399676338064*^9, 
+  3.6983998233595047`*^9}]
+}, Open  ]]
+}, Open  ]]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -2029,7 +2671,7 @@ Cell[BoxData[
          "ActivationSites" -> 1, "InhibitionSites" -> 1}],
        Editable->False,
        Selectable->False]}], 
-     StyleBox["PFK11$32",
+     StyleBox["PFK11$3",
       StripOnInput->False,
       ShowSyntaxStyles->False,
       AutoSpacing->False,
@@ -2039,7 +2681,7 @@ Cell[BoxData[
       BackFaceColor->RGBColor[0, 0, 0],
       GraphicsColor->RGBColor[0, 0, 0],
       FontColor->RGBColor[0, 0, 0]]],
-    Toolbox`reaction["PFK11$32", {
+    Toolbox`reaction["PFK11$3", {
       Toolbox`enzyme[{
        "ID" -> "PFK1", "Compartment" -> "c", "BoundCatalytic" -> {}, 
         "BoundActivators" -> {
@@ -2226,7 +2868,7 @@ Cell[BoxData[
          "ActivationSites" -> 1, "InhibitionSites" -> 1}],
        Editable->False,
        Selectable->False]}], 
-     StyleBox["PFK12$32",
+     StyleBox["PFK12$3",
       StripOnInput->False,
       ShowSyntaxStyles->False,
       AutoSpacing->False,
@@ -2236,7 +2878,7 @@ Cell[BoxData[
       BackFaceColor->RGBColor[0, 0, 0],
       GraphicsColor->RGBColor[0, 0, 0],
       FontColor->RGBColor[0, 0, 0]]],
-    Toolbox`reaction["PFK12$32", {
+    Toolbox`reaction["PFK12$3", {
       Toolbox`enzyme[{
        "ID" -> "PFK1", "Compartment" -> "c", "BoundCatalytic" -> {}, 
         "BoundActivators" -> {
@@ -2423,7 +3065,7 @@ Cell[BoxData[
         Toolbox`metabolite["fdp", "c"],
         Editable->False,
         Selectable->False]}]}], 
-     StyleBox["PFK13$32",
+     StyleBox["PFK13$3",
       StripOnInput->False,
       ShowSyntaxStyles->False,
       AutoSpacing->False,
@@ -2433,7 +3075,7 @@ Cell[BoxData[
       BackFaceColor->RGBColor[0, 0, 0],
       GraphicsColor->RGBColor[0, 0, 0],
       FontColor->RGBColor[0, 0, 0]]],
-    Toolbox`reaction["PFK13$32", {
+    Toolbox`reaction["PFK13$3", {
       Toolbox`enzyme[{"ID" -> "PFK1", "Compartment" -> "c", "BoundCatalytic" -> {
           Toolbox`Private`wrap[Toolbox`metabolite]["fdp", "c"]}, 
         "BoundActivators" -> {
@@ -2620,7 +3262,7 @@ Cell[BoxData[
         Toolbox`metabolite["adp", "c"],
         Editable->False,
         Selectable->False]}]}], 
-     StyleBox["PFK14$32",
+     StyleBox["PFK14$3",
       StripOnInput->False,
       ShowSyntaxStyles->False,
       AutoSpacing->False,
@@ -2630,7 +3272,7 @@ Cell[BoxData[
       BackFaceColor->RGBColor[0, 0, 0],
       GraphicsColor->RGBColor[0, 0, 0],
       FontColor->RGBColor[0, 0, 0]]],
-    Toolbox`reaction["PFK14$32", {
+    Toolbox`reaction["PFK14$3", {
       Toolbox`enzyme[{"ID" -> "PFK1", "Compartment" -> "c", "BoundCatalytic" -> {
           Toolbox`Private`wrap[Toolbox`metabolite]["adp", "c"]}, 
         "BoundActivators" -> {
@@ -2870,7 +3512,7 @@ Cell[BoxData[
          "ActivationSites" -> 1, "InhibitionSites" -> 1}],
        Editable->False,
        Selectable->False]}], 
-     StyleBox["PFK15$32",
+     StyleBox["PFK15$3",
       StripOnInput->False,
       ShowSyntaxStyles->False,
       AutoSpacing->False,
@@ -2880,7 +3522,7 @@ Cell[BoxData[
       BackFaceColor->RGBColor[0, 0, 0],
       GraphicsColor->RGBColor[0, 0, 0],
       FontColor->RGBColor[0, 0, 0]]],
-    Toolbox`reaction["PFK15$32", {
+    Toolbox`reaction["PFK15$3", {
       Toolbox`enzyme[{"ID" -> "PFK1", "Compartment" -> "c", "BoundCatalytic" -> {
           Toolbox`Private`wrap[Toolbox`metabolite]["atp", "c"]}, 
         "BoundActivators" -> {
@@ -3121,7 +3763,7 @@ Cell[BoxData[
          "ActivationSites" -> 1, "InhibitionSites" -> 1}],
        Editable->False,
        Selectable->False]}], 
-     StyleBox["PFK16$32",
+     StyleBox["PFK16$3",
       StripOnInput->False,
       ShowSyntaxStyles->False,
       AutoSpacing->False,
@@ -3131,7 +3773,7 @@ Cell[BoxData[
       BackFaceColor->RGBColor[0, 0, 0],
       GraphicsColor->RGBColor[0, 0, 0],
       FontColor->RGBColor[0, 0, 0]]],
-    Toolbox`reaction["PFK16$32", {
+    Toolbox`reaction["PFK16$3", {
       Toolbox`enzyme[{"ID" -> "PFK1", "Compartment" -> "c", "BoundCatalytic" -> {
           Toolbox`Private`wrap[Toolbox`metabolite]["f6p", "c"]}, 
         "BoundActivators" -> {
@@ -3372,7 +4014,7 @@ Cell[BoxData[
         Toolbox`metabolite["adp", "c"],
         Editable->False,
         Selectable->False]}]}], 
-     StyleBox["PFK17$32",
+     StyleBox["PFK17$3",
       StripOnInput->False,
       ShowSyntaxStyles->False,
       AutoSpacing->False,
@@ -3382,7 +4024,7 @@ Cell[BoxData[
       BackFaceColor->RGBColor[0, 0, 0],
       GraphicsColor->RGBColor[0, 0, 0],
       FontColor->RGBColor[0, 0, 0]]],
-    Toolbox`reaction["PFK17$32", {
+    Toolbox`reaction["PFK17$3", {
       Toolbox`enzyme[{"ID" -> "PFK1", "Compartment" -> "c", "BoundCatalytic" -> {
           Toolbox`Private`wrap[Toolbox`metabolite]["fdp", "c"], 
           Toolbox`Private`wrap[Toolbox`metabolite]["adp", "c"]}, 
@@ -3623,7 +4265,7 @@ Cell[BoxData[
         Toolbox`metabolite["fdp", "c"],
         Editable->False,
         Selectable->False]}]}], 
-     StyleBox["PFK18$32",
+     StyleBox["PFK18$3",
       StripOnInput->False,
       ShowSyntaxStyles->False,
       AutoSpacing->False,
@@ -3633,7 +4275,7 @@ Cell[BoxData[
       BackFaceColor->RGBColor[0, 0, 0],
       GraphicsColor->RGBColor[0, 0, 0],
       FontColor->RGBColor[0, 0, 0]]],
-    Toolbox`reaction["PFK18$32", {
+    Toolbox`reaction["PFK18$3", {
       Toolbox`enzyme[{"ID" -> "PFK1", "Compartment" -> "c", "BoundCatalytic" -> {
           Toolbox`Private`wrap[Toolbox`metabolite]["fdp", "c"], 
           Toolbox`Private`wrap[Toolbox`metabolite]["adp", "c"]}, 
@@ -3873,7 +4515,7 @@ Cell[BoxData[
          "ActivationSites" -> 1, "InhibitionSites" -> 1}],
        Editable->False,
        Selectable->False]}], 
-     StyleBox["PFK19$32",
+     StyleBox["PFK19$3",
       StripOnInput->False,
       ShowSyntaxStyles->False,
       AutoSpacing->False,
@@ -3883,7 +4525,7 @@ Cell[BoxData[
       BackFaceColor->RGBColor[0, 0, 0],
       GraphicsColor->RGBColor[0, 0, 0],
       FontColor->RGBColor[0, 0, 0]]],
-    Toolbox`reaction["PFK19$32", {
+    Toolbox`reaction["PFK19$3", {
       Toolbox`enzyme[{"ID" -> "PFK1", "Compartment" -> "c", "BoundCatalytic" -> {
           Toolbox`Private`wrap[Toolbox`metabolite]["f6p", "c"], 
           Toolbox`Private`wrap[Toolbox`metabolite]["atp", "c"]}, 
@@ -4071,7 +4713,7 @@ Cell[BoxData[
          "ActivationSites" -> 1, "InhibitionSites" -> 1}],
        Editable->False,
        Selectable->False]}], 
-     StyleBox["PFK11$33",
+     StyleBox["PFK11$7",
       StripOnInput->False,
       ShowSyntaxStyles->False,
       AutoSpacing->False,
@@ -4081,7 +4723,7 @@ Cell[BoxData[
       BackFaceColor->RGBColor[0, 0, 0],
       GraphicsColor->RGBColor[0, 0, 0],
       FontColor->RGBColor[0, 0, 0]]],
-    Toolbox`reaction["PFK11$33", {
+    Toolbox`reaction["PFK11$7", {
       Toolbox`enzyme[{
        "ID" -> "PFK1", "Compartment" -> "c", "BoundCatalytic" -> {}, 
         "BoundActivators" -> {
@@ -4268,7 +4910,7 @@ Cell[BoxData[
          "ActivationSites" -> 1, "InhibitionSites" -> 1}],
        Editable->False,
        Selectable->False]}], 
-     StyleBox["PFK12$33",
+     StyleBox["PFK12$7",
       StripOnInput->False,
       ShowSyntaxStyles->False,
       AutoSpacing->False,
@@ -4278,7 +4920,7 @@ Cell[BoxData[
       BackFaceColor->RGBColor[0, 0, 0],
       GraphicsColor->RGBColor[0, 0, 0],
       FontColor->RGBColor[0, 0, 0]]],
-    Toolbox`reaction["PFK12$33", {
+    Toolbox`reaction["PFK12$7", {
       Toolbox`enzyme[{
        "ID" -> "PFK1", "Compartment" -> "c", "BoundCatalytic" -> {}, 
         "BoundActivators" -> {
@@ -4465,7 +5107,7 @@ Cell[BoxData[
         Toolbox`metabolite["fdp", "c"],
         Editable->False,
         Selectable->False]}]}], 
-     StyleBox["PFK13$33",
+     StyleBox["PFK13$7",
       StripOnInput->False,
       ShowSyntaxStyles->False,
       AutoSpacing->False,
@@ -4475,7 +5117,7 @@ Cell[BoxData[
       BackFaceColor->RGBColor[0, 0, 0],
       GraphicsColor->RGBColor[0, 0, 0],
       FontColor->RGBColor[0, 0, 0]]],
-    Toolbox`reaction["PFK13$33", {
+    Toolbox`reaction["PFK13$7", {
       Toolbox`enzyme[{"ID" -> "PFK1", "Compartment" -> "c", "BoundCatalytic" -> {
           Toolbox`Private`wrap[Toolbox`metabolite]["fdp", "c"]}, 
         "BoundActivators" -> {
@@ -4662,7 +5304,7 @@ Cell[BoxData[
         Toolbox`metabolite["adp", "c"],
         Editable->False,
         Selectable->False]}]}], 
-     StyleBox["PFK14$33",
+     StyleBox["PFK14$7",
       StripOnInput->False,
       ShowSyntaxStyles->False,
       AutoSpacing->False,
@@ -4672,7 +5314,7 @@ Cell[BoxData[
       BackFaceColor->RGBColor[0, 0, 0],
       GraphicsColor->RGBColor[0, 0, 0],
       FontColor->RGBColor[0, 0, 0]]],
-    Toolbox`reaction["PFK14$33", {
+    Toolbox`reaction["PFK14$7", {
       Toolbox`enzyme[{"ID" -> "PFK1", "Compartment" -> "c", "BoundCatalytic" -> {
           Toolbox`Private`wrap[Toolbox`metabolite]["adp", "c"]}, 
         "BoundActivators" -> {
@@ -4912,7 +5554,7 @@ Cell[BoxData[
          "ActivationSites" -> 1, "InhibitionSites" -> 1}],
        Editable->False,
        Selectable->False]}], 
-     StyleBox["PFK15$33",
+     StyleBox["PFK15$7",
       StripOnInput->False,
       ShowSyntaxStyles->False,
       AutoSpacing->False,
@@ -4922,7 +5564,7 @@ Cell[BoxData[
       BackFaceColor->RGBColor[0, 0, 0],
       GraphicsColor->RGBColor[0, 0, 0],
       FontColor->RGBColor[0, 0, 0]]],
-    Toolbox`reaction["PFK15$33", {
+    Toolbox`reaction["PFK15$7", {
       Toolbox`enzyme[{"ID" -> "PFK1", "Compartment" -> "c", "BoundCatalytic" -> {
           Toolbox`Private`wrap[Toolbox`metabolite]["atp", "c"]}, 
         "BoundActivators" -> {
@@ -5163,7 +5805,7 @@ Cell[BoxData[
          "ActivationSites" -> 1, "InhibitionSites" -> 1}],
        Editable->False,
        Selectable->False]}], 
-     StyleBox["PFK16$33",
+     StyleBox["PFK16$7",
       StripOnInput->False,
       ShowSyntaxStyles->False,
       AutoSpacing->False,
@@ -5173,7 +5815,7 @@ Cell[BoxData[
       BackFaceColor->RGBColor[0, 0, 0],
       GraphicsColor->RGBColor[0, 0, 0],
       FontColor->RGBColor[0, 0, 0]]],
-    Toolbox`reaction["PFK16$33", {
+    Toolbox`reaction["PFK16$7", {
       Toolbox`enzyme[{"ID" -> "PFK1", "Compartment" -> "c", "BoundCatalytic" -> {
           Toolbox`Private`wrap[Toolbox`metabolite]["f6p", "c"]}, 
         "BoundActivators" -> {
@@ -5414,7 +6056,7 @@ Cell[BoxData[
         Toolbox`metabolite["adp", "c"],
         Editable->False,
         Selectable->False]}]}], 
-     StyleBox["PFK17$33",
+     StyleBox["PFK17$7",
       StripOnInput->False,
       ShowSyntaxStyles->False,
       AutoSpacing->False,
@@ -5424,7 +6066,7 @@ Cell[BoxData[
       BackFaceColor->RGBColor[0, 0, 0],
       GraphicsColor->RGBColor[0, 0, 0],
       FontColor->RGBColor[0, 0, 0]]],
-    Toolbox`reaction["PFK17$33", {
+    Toolbox`reaction["PFK17$7", {
       Toolbox`enzyme[{"ID" -> "PFK1", "Compartment" -> "c", "BoundCatalytic" -> {
           Toolbox`Private`wrap[Toolbox`metabolite]["fdp", "c"], 
           Toolbox`Private`wrap[Toolbox`metabolite]["adp", "c"]}, 
@@ -5665,7 +6307,7 @@ Cell[BoxData[
         Toolbox`metabolite["fdp", "c"],
         Editable->False,
         Selectable->False]}]}], 
-     StyleBox["PFK18$33",
+     StyleBox["PFK18$7",
       StripOnInput->False,
       ShowSyntaxStyles->False,
       AutoSpacing->False,
@@ -5675,7 +6317,7 @@ Cell[BoxData[
       BackFaceColor->RGBColor[0, 0, 0],
       GraphicsColor->RGBColor[0, 0, 0],
       FontColor->RGBColor[0, 0, 0]]],
-    Toolbox`reaction["PFK18$33", {
+    Toolbox`reaction["PFK18$7", {
       Toolbox`enzyme[{"ID" -> "PFK1", "Compartment" -> "c", "BoundCatalytic" -> {
           Toolbox`Private`wrap[Toolbox`metabolite]["fdp", "c"], 
           Toolbox`Private`wrap[Toolbox`metabolite]["adp", "c"]}, 
@@ -5915,7 +6557,7 @@ Cell[BoxData[
          "ActivationSites" -> 1, "InhibitionSites" -> 1}],
        Editable->False,
        Selectable->False]}], 
-     StyleBox["PFK19$33",
+     StyleBox["PFK19$7",
       StripOnInput->False,
       ShowSyntaxStyles->False,
       AutoSpacing->False,
@@ -5925,7 +6567,7 @@ Cell[BoxData[
       BackFaceColor->RGBColor[0, 0, 0],
       GraphicsColor->RGBColor[0, 0, 0],
       FontColor->RGBColor[0, 0, 0]]],
-    Toolbox`reaction["PFK19$33", {
+    Toolbox`reaction["PFK19$7", {
       Toolbox`enzyme[{"ID" -> "PFK1", "Compartment" -> "c", "BoundCatalytic" -> {
           Toolbox`Private`wrap[Toolbox`metabolite]["f6p", "c"], 
           Toolbox`Private`wrap[Toolbox`metabolite]["atp", "c"]}, 
@@ -6062,7 +6704,7 @@ Cell[BoxData[
        Editable->False,
        Selectable->False]}], 
      StyleBox[
-      RowBox[{"PFK1_Activation", "_gdp$34"}],
+      RowBox[{"PFK1_Activation", "_gdp$8"}],
       StripOnInput->False,
       ShowSyntaxStyles->False,
       AutoSpacing->False,
@@ -6072,7 +6714,7 @@ Cell[BoxData[
       BackFaceColor->RGBColor[0, 0, 0],
       GraphicsColor->RGBColor[0, 0, 0],
       FontColor->RGBColor[0, 0, 0]]],
-    Toolbox`reaction["PFK1_Activation_gdp$34", {
+    Toolbox`reaction["PFK1_Activation_gdp$8", {
       Toolbox`enzyme[{
        "ID" -> "PFK1", "Compartment" -> "c", "BoundCatalytic" -> {}, 
         "BoundActivators" -> {}, "BoundInhibitors" -> {}, "CatalyticSites" -> 
@@ -6206,7 +6848,7 @@ Cell[BoxData[
        Editable->False,
        Selectable->False]}], 
      StyleBox[
-      RowBox[{"PFK1_Activation", "_adp$35"}],
+      RowBox[{"PFK1_Activation", "_adp$10"}],
       StripOnInput->False,
       ShowSyntaxStyles->False,
       AutoSpacing->False,
@@ -6216,7 +6858,7 @@ Cell[BoxData[
       BackFaceColor->RGBColor[0, 0, 0],
       GraphicsColor->RGBColor[0, 0, 0],
       FontColor->RGBColor[0, 0, 0]]],
-    Toolbox`reaction["PFK1_Activation_adp$35", {
+    Toolbox`reaction["PFK1_Activation_adp$10", {
       Toolbox`enzyme[{
        "ID" -> "PFK1", "Compartment" -> "c", "BoundCatalytic" -> {}, 
         "BoundActivators" -> {}, "BoundInhibitors" -> {}, "CatalyticSites" -> 
@@ -6350,7 +6992,7 @@ Cell[BoxData[
        Editable->False,
        Selectable->False]}], 
      StyleBox[
-      RowBox[{"PFK1_Inhibition", "_pep$36"}],
+      RowBox[{"PFK1_Inhibition", "_pep$11"}],
       StripOnInput->False,
       ShowSyntaxStyles->False,
       AutoSpacing->False,
@@ -6360,7 +7002,7 @@ Cell[BoxData[
       BackFaceColor->RGBColor[0, 0, 0],
       GraphicsColor->RGBColor[0, 0, 0],
       FontColor->RGBColor[0, 0, 0]]],
-    Toolbox`reaction["PFK1_Inhibition_pep$36", {
+    Toolbox`reaction["PFK1_Inhibition_pep$11", {
       Toolbox`enzyme[{
        "ID" -> "PFK1_T", "Compartment" -> "c", "BoundCatalytic" -> {}, 
         "BoundActivators" -> {}, "BoundInhibitors" -> {}, "CatalyticSites" -> 
@@ -6465,7 +7107,7 @@ Cell[BoxData[
  CellChangeTimes->{
   3.6957145527153397`*^9, 3.695726220713093*^9, 3.695899777152369*^9, 
    3.696072996700801*^9, 3.6960749922202463`*^9, {3.696075284590551*^9, 
-   3.6960752925017242`*^9}, 3.696075512648766*^9}]
+   3.6960752925017242`*^9}, 3.696075512648766*^9, 3.6983998237689342`*^9}]
 }, Open  ]]
 }, Open  ]],
 
@@ -6555,7 +7197,7 @@ Cell[BoxData[{
        FontWeight->"Bold"], " ", "modify", " ", "this"}], "*)"}], "Text",
     FontWeight->"Plain"], 
    StyleBox["*)", "Text",
-    FontWeight->"Plain"]}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+    FontWeight->"Plain"]}], "\n", "\n", 
   StyleBox[
    RowBox[{"(*", 
     RowBox[{
@@ -6564,7 +7206,8 @@ Cell[BoxData[{
        FontSlant->"Italic"], " ", "modify", " ", "these"}], ",", " ", 
      RowBox[{"but", " ", "you", " ", 
       RowBox[{"shouldn", "'"}], "t", " ", "unless", " ", "you", " ", "run", 
-      " ", "into", " ", "problems"}]}], "*)"}], "Text"], "\n"}], "\n", 
+      " ", "into", " ", "problems"}]}], "*)"}], "Text"], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"lowerParamBound", "=", 
    RowBox[{"-", "6"}]}], ";"}], "\[IndentingNewLine]", 
@@ -6603,8 +7246,8 @@ Cell[BoxData[{
     RowBox[{"{", 
      RowBox[{"allCatalyticReactions", ",", " ", "nonCatalyticReactions"}], 
      "}"}], "=", 
-    RowBox[{"classifyReactions", "[", "enzymeModel", "]"}]}], ";"}], "\n", 
-  "\[IndentingNewLine]", "\[IndentingNewLine]", 
+    RowBox[{"classifyReactions", "[", "enzymeModel", "]"}]}], ";"}], 
+  "\[IndentingNewLine]", "\[IndentingNewLine]", "\n", 
   StyleBox[
    RowBox[{"(*", 
     RowBox[{"Identify", " ", "Transition", " ", "Rate", " ", "Equations"}], 
@@ -6639,10 +7282,13 @@ Cell[BoxData[{
     RowBox[{"none", " ", "in", " ", "this", " ", "enzyme"}]}], 
    "*)"}]}], "\[IndentingNewLine]", 
  RowBox[{
-  RowBox[{
-   RowBox[{"eqRateConstSub", "=", 
-    RowBox[{"{", "}"}]}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]",
-   "\[IndentingNewLine]", 
+  RowBox[{"eqRateConstSub", "=", 
+   RowBox[{"{", "}"}]}], ";"}]}], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", "\[IndentingNewLine]", "\[IndentingNewLine]", 
   RowBox[{"(*", 
    RowBox[{"King", "-", 
     RowBox[{"Altman", " ", "Workaround", " ", 
@@ -6747,21 +7393,29 @@ Cell[BoxData[{
      StyleBox["current", "Text"], 
      StyleBox[" ", "Text"], 
      StyleBox[
-      RowBox[{"directory", "."}], "Text"]}]}], 
-   "*)"}]}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"absoluteFluxNoProdInhib", "=", 
-   RowBox[{"getFluxEquation", "[", 
-    RowBox[{
-    "inputPath", ",", " ", "rxnName", ",", " ", "enzymeModel", ",", " ", 
-     "unifiedRateConstList", ",", " ", "transitionRateEqs", ",", " ", 
-     "\"\<NoProdInhibRefactor\>\""}], "]"}]}], 
-  ";"}], "\[IndentingNewLine]"}], "Input",
+      RowBox[{"directory", "."}], "Text"]}]}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"absoluteFluxNoProdInhib", "=", 
+     RowBox[{"getFluxEquation", "[", 
+      RowBox[{
+      "inputPath", ",", " ", "rxnName", ",", " ", "enzymeModel", ",", " ", 
+       "unifiedRateConstList", ",", " ", "transitionRateEqs", ",", " ", 
+       "\"\<NoProdInhibRefactor\>\""}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]"}]}]], "Input",
  CellChangeTimes->{{3.689592564630452*^9, 3.689592579290135*^9}, 
    3.689592627239296*^9, {3.689592753375087*^9, 3.689592754495549*^9}, {
    3.695644476634062*^9, 3.695644523554031*^9}, {3.695714273404965*^9, 
    3.695714273629366*^9}, {3.6957144962955523`*^9, 3.695714531699998*^9}, 
-   3.695714608509694*^9}],
+   3.695714608509694*^9, 3.69839983327349*^9}],
+
+Cell[BoxData["$Aborted"], "Output",
+ CellChangeTimes->{3.698399810430245*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"inhibitionList", "[", 
+  RowBox[{"[", "2", "]"}], "]"}]], "Input"],
 
 Cell[CellGroupData[{
 
@@ -7868,11 +8522,11 @@ Cell[BoxData[
      RowBox[{"in", " ", 
       StyleBox["Molarity",
        FontSlant->"Italic"]}], "*)"}], "Text",
-    FontWeight->"Plain"], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+    FontWeight->"Plain"], "\[IndentingNewLine]", "\n", 
    StyleBox[
     RowBox[{"(*", 
      RowBox[{"Chemical", " ", "Activity", " ", "Correction", " ", "Options"}],
-      "*)"}], "Text"], "\n", 
+      "*)"}], "Text"], "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"inVivoPH", "=", "7.5"}], ";"}], 
    StyleBox[
@@ -8097,9 +8751,9 @@ Cell[BoxData[{
       "metSatRevSub", ",", " ", "kmList", ",", " ", "otherParmsList", ",", 
       " ", "assumedSaturatingConc", ",", " ", "eTotal", ",", "\n", 
       "\t\t\t      ", "logStepSize", ",", "activeIsoSub", ",", " ", 
-      "bufferInfo", ",", " ", "ionCharge", ",", " ", "inputPath", ",", " ", 
-      "inputPath", ",", " ", "fileList", ",", " ", "KeqEquilibrator"}], 
-     "]"}]}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      "bufferInfo", ",", " ", "ionCharge", ",", " ", "inputPath", ",", "  ", 
+      "fileList", ",", " ", "KeqEquilibrator"}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]", "\[IndentingNewLine]", 
   RowBox[{"(*", 
    RowBox[{"kcat", " ", "data"}], "*)"}]}], "\[IndentingNewLine]", 
  RowBox[{
@@ -8112,9 +8766,8 @@ Cell[BoxData[{
       " ", "assumedSaturatingConc", ",", " ", "eTotal", ",", "\n", "\t\t\t  ",
        "logStepSize", ",", " ", "nonKmParamWeight", ",", " ", "activeIsoSub", 
       ",", " ", "bufferInfo", ",", " ", "ionCharge", ",", " ", "inputPath", 
-      ",", " ", "\n", "\t\t\t  ", "inputPath", ",", " ", "fileList", ",", " ",
-       "KeqEquilibrator"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
-  "\[IndentingNewLine]", 
+      ",", " ", "\n", "\t\t\t   ", "fileList", ",", " ", "KeqEquilibrator"}], 
+     "]"}]}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
   RowBox[{"(*", 
    RowBox[{"S05", " ", "data"}], "*)"}]}], "\[IndentingNewLine]", 
  RowBox[{
@@ -8126,10 +8779,9 @@ Cell[BoxData[{
       "metSatRevSub", ",", " ", "s05List", ",", " ", "otherParmsList", ",", 
       " ", "assumedSaturatingConc", ",", " ", "eTotal", ",", "\n", 
       "\t\t\t          ", "logStepSize", ",", " ", "activeIsoSub", ",", " ", 
-      "bufferInfo", ",", " ", "ionCharge", ",", " ", "inputPath", ",", " ", 
-      "inputPath", ",", " ", "fileList", ",", " ", "Null", ",", 
-      "bigg2equilibrator"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
-  "\[IndentingNewLine]", 
+      "bufferInfo", ",", " ", "ionCharge", ",", " ", "inputPath", ",", "  ", 
+      "fileList", ",", " ", "Null", ",", "bigg2equilibrator"}], "]"}]}], 
+   ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
   RowBox[{"(*", 
    RowBox[{"Keq", " ", "data"}], "*)"}]}], "\[IndentingNewLine]", 
  RowBox[{
@@ -8211,12 +8863,12 @@ Cell[BoxData[{
         RowBox[{"[", "2", "]"}], "]"}], "}"}], ",", " ", "kmList", ",", " ", 
       "assumedSaturatingConc", ",", " ", "eTotal", ",", " ", "logStepSize", 
       ",", " ", "activeIsoSub", ",", " ", "bufferInfo", ",", " ", "ionCharge",
-       ",", " ", "inputPath", ",", " ", "outputPath", ",", " ", "fileList", 
-      ",", " ", "KeqEquilibrator"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+       ",", " ", "inputPath", ",", " ", "fileList", ",", " ", 
+      "KeqEquilibrator"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
   "\[IndentingNewLine]", 
   RowBox[{"(*", 
    RowBox[{"PEP", " ", "NC", " ", "inhibition", " ", "data"}], " ", "*)"}], 
-  "\n"}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]"}], "\n", 
  RowBox[{
   RowBox[{"inhibitor", "=", 
    RowBox[{"m", "[", 
@@ -8276,8 +8928,8 @@ Cell[BoxData[{
         RowBox[{"[", "2", "]"}], "]"}], "}"}], ",", " ", "kmList", ",", " ", 
       "assumedSaturatingConc", ",", " ", "eTotal", ",", " ", "logStepSize", 
       ",", " ", "activeIsoSub", ",", " ", "bufferInfo", ",", " ", "ionCharge",
-       ",", " ", "inputPath", ",", " ", "outputPath", ",", " ", "fileList", 
-      ",", " ", "KeqEquilibrator"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+       ",", " ", "inputPath", ",", " ", "fileList", ",", " ", 
+      "KeqEquilibrator"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
   "\[IndentingNewLine]", 
   RowBox[{"(*", 
    RowBox[{
@@ -8381,7 +9033,7 @@ Cell[BoxData[{
    3.696072722063758*^9, 3.6960727324685917`*^9}, {3.696073038790847*^9, 
    3.696073086710231*^9}, {3.696073221056491*^9, 3.696073253988303*^9}, {
    3.696074570985427*^9, 3.696074580144052*^9}, {3.69607462429578*^9, 
-   3.696074659931581*^9}}],
+   3.696074659931581*^9}, {3.698387779937833*^9, 3.698387806579616*^9}}],
 
 Cell[BoxData[
  RowBox[{"{", "0.07309600202638361`", "}"}]], "Print",
@@ -33617,7 +34269,7 @@ Cell[BoxData[
 },
 Evaluator->"Local2",
 WindowSize->{1440, 876},
-WindowMargins->{{Automatic, 0}, {147, 24}},
+WindowMargins->{{392, Automatic}, {3, Automatic}},
 ShowSelection->True,
 CellContext->Notebook,
 FrontEndVersion->"11.0 for Linux x86 (64-bit) (September 21, 2016)",
@@ -33639,168 +34291,199 @@ Cell[579, 22, 305, 4, 75, "Subtitle"],
 Cell[887, 28, 52, 1, 32, "Input"],
 Cell[CellGroupData[{
 Cell[964, 33, 112, 1, 65, "Section"],
-Cell[1079, 36, 364, 9, 80, "Input"],
+Cell[1079, 36, 390, 9, 80, "Input"],
 Cell[CellGroupData[{
-Cell[1468, 49, 1770, 41, 215, "Input"],
+Cell[1494, 49, 1784, 42, 215, "Input"],
 Cell[CellGroupData[{
-Cell[3263, 94, 519, 7, 24, "Print"],
-Cell[3785, 103, 534, 8, 24, "Print"]
+Cell[3303, 95, 588, 8, 24, "Print"],
+Cell[3894, 105, 607, 9, 24, "Print"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[4380, 118, 121, 2, 65, "Section"],
-Cell[4504, 122, 2425, 64, 306, "Input"]
+Cell[4562, 121, 121, 2, 65, "Section"],
+Cell[4686, 125, 2477, 65, 306, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[6966, 191, 307, 4, 65, "Section"],
+Cell[7200, 195, 307, 4, 65, "Section"],
 Cell[CellGroupData[{
-Cell[7298, 199, 158, 2, 45, "Subsection"],
-Cell[7459, 203, 408, 8, 34, "Input"]
-}, Open  ]],
+Cell[7532, 203, 158, 2, 45, "Subsection"],
 Cell[CellGroupData[{
-Cell[7904, 216, 113, 1, 45, "Subsection"],
-Cell[8020, 219, 5293, 90, 352, "Input"],
+Cell[7715, 209, 408, 8, 34, "Input"],
 Cell[CellGroupData[{
-Cell[13338, 313, 212, 4, 55, "Input"],
-Cell[13553, 319, 242151, 6148, 481, "Output"]
-}, Open  ]]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[255753, 6473, 169, 3, 45, "Subsection"],
-Cell[255925, 6478, 10377, 285, 959, "Input"],
-Cell[CellGroupData[{
-Cell[266327, 6767, 817, 17, 56, "Input"],
-Cell[267147, 6786, 35856, 870, 299, "Output"]
-}, Open  ]],
-Cell[303018, 7659, 4491, 101, 462, "Input"]
-}, Open  ]]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[307558, 7766, 191, 2, 65, "Section"],
-Cell[CellGroupData[{
-Cell[307774, 7772, 82, 1, 45, "Subsection"],
-Cell[307859, 7775, 9946, 295, 420, "Input"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[317842, 8075, 178, 3, 44, "Subsection"],
-Cell[CellGroupData[{
-Cell[318045, 8082, 13176, 301, 1638, "Input"],
-Cell[331224, 8385, 264, 4, 24, "Print"]
-}, Open  ]]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[331537, 8395, 176, 6, 70, "Subsection"],
-Cell[CellGroupData[{
-Cell[331738, 8405, 4575, 88, 237, "Input"],
-Cell[336316, 8495, 12195, 246, 1384, "Print"]
+Cell[8148, 221, 4952, 150, 35, "Print"],
+Cell[13103, 373, 163, 2, 26, "Print"],
+Cell[13269, 377, 135, 2, 24, "Print"],
+Cell[13407, 381, 138, 2, 24, "Print"],
+Cell[13548, 385, 125, 2, 24, "Print"],
+Cell[13676, 389, 135, 2, 24, "Print"],
+Cell[13814, 393, 3487, 87, 115, "Print"],
+Cell[17304, 482, 125, 2, 24, "Print"],
+Cell[17432, 486, 137, 2, 24, "Print"],
+Cell[17572, 490, 2197, 54, 69, "Print"],
+Cell[19772, 546, 125, 2, 24, "Print"],
+Cell[19900, 550, 134, 2, 24, "Print"],
+Cell[20037, 554, 2183, 56, 69, "Print"],
+Cell[22223, 612, 123, 2, 24, "Print"],
+Cell[22349, 616, 141, 2, 24, "Print"],
+Cell[22493, 620, 3658, 89, 74, "Print"],
+Cell[26154, 711, 121, 2, 24, "Print"],
+Cell[26278, 715, 143, 2, 24, "Print"],
+Cell[26424, 719, 2508, 63, 61, "Print"],
+Cell[28935, 784, 125, 2, 24, "Print"],
+Cell[29063, 788, 140, 2, 24, "Print"],
+Cell[29206, 792, 2409, 59, 88, "Print"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[348572, 8748, 297, 4, 65, "Section"],
-Cell[348872, 8754, 809, 18, 57, "Input"],
+Cell[31676, 858, 113, 1, 45, "Subsection"],
+Cell[31792, 861, 5293, 90, 352, "Input"],
 Cell[CellGroupData[{
-Cell[349706, 8776, 544, 11, 56, "Input"],
-Cell[350253, 8789, 1879, 45, 399, "Print"]
+Cell[37110, 955, 212, 4, 55, "Input"],
+Cell[37325, 961, 242137, 6148, 481, "Output"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[352181, 8840, 297, 4, 65, "Section"],
-Cell[352481, 8846, 2571, 40, 34, "Input"],
+Cell[279511, 7115, 169, 3, 45, "Subsection"],
+Cell[279683, 7120, 6178, 165, 801, "Input"],
 Cell[CellGroupData[{
-Cell[355077, 8890, 437, 8, 56, "Input"],
-Cell[355517, 8900, 1920, 41, 297, "Print"]
+Cell[285886, 7289, 4263, 120, 236, "Input"],
+Cell[290152, 7411, 77, 1, 32, "Output"]
+}, Open  ]],
+Cell[290244, 7415, 90, 2, 32, "Input"],
+Cell[CellGroupData[{
+Cell[290359, 7421, 817, 17, 56, "Input"],
+Cell[291179, 7440, 35856, 870, 285, "Output"]
+}, Open  ]],
+Cell[327050, 8313, 4491, 101, 553, "Input"]
+}, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[357474, 8946, 247, 3, 45, "Subsection"],
+Cell[331590, 8420, 191, 2, 65, "Section"],
 Cell[CellGroupData[{
-Cell[357746, 8953, 2342, 53, 239, "Input"],
-Cell[360091, 9008, 914, 14, 32, "Output"]
+Cell[331806, 8426, 82, 1, 45, "Subsection"],
+Cell[331891, 8429, 9946, 295, 420, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[341874, 8729, 178, 3, 44, "Subsection"],
+Cell[CellGroupData[{
+Cell[342077, 8736, 13095, 299, 1638, "Input"],
+Cell[355175, 9037, 264, 4, 24, "Print"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[355488, 9047, 176, 6, 70, "Subsection"],
+Cell[CellGroupData[{
+Cell[355689, 9057, 4575, 88, 260, "Input"],
+Cell[360267, 9147, 12195, 246, 1384, "Print"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[361066, 9029, 160, 2, 65, "Section"],
+Cell[372523, 9400, 297, 4, 65, "Section"],
+Cell[372823, 9406, 809, 18, 80, "Input"],
 Cell[CellGroupData[{
-Cell[361251, 9035, 122, 1, 45, "Subsection"],
-Cell[CellGroupData[{
-Cell[361398, 9040, 980, 24, 103, "Input"],
-Cell[362381, 9066, 208, 3, 121, "Output"]
+Cell[373657, 9428, 544, 11, 56, "Input"],
+Cell[374204, 9441, 1879, 45, 399, "Print"]
+}, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[362626, 9074, 239, 3, 35, "Subsubsection"],
+Cell[376132, 9492, 297, 4, 65, "Section"],
+Cell[376432, 9498, 2571, 40, 34, "Input"],
 Cell[CellGroupData[{
-Cell[362890, 9081, 522, 14, 78, "Input"],
-Cell[363415, 9097, 203, 3, 32, "Output"]
-}, Open  ]],
-Cell[363633, 9103, 659, 17, 80, "Input"]
+Cell[379028, 9542, 437, 8, 56, "Input"],
+Cell[379468, 9552, 1920, 41, 297, "Print"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[364329, 9125, 262, 5, 35, "Subsubsection"],
-Cell[364594, 9132, 179, 4, 70, "Text"],
+Cell[381425, 9598, 247, 3, 45, "Subsection"],
 Cell[CellGroupData[{
-Cell[364798, 9140, 616, 16, 70, "Input"],
-Cell[365417, 9158, 435, 8, 70, "Output"]
+Cell[381697, 9605, 2342, 53, 262, "Input"],
+Cell[384042, 9660, 914, 14, 32, "Output"]
+}, Open  ]]
+}, Open  ]]
 }, Open  ]],
-Cell[365867, 9169, 693, 18, 70, "Input"]
+Cell[CellGroupData[{
+Cell[385017, 9681, 160, 2, 65, "Section"],
+Cell[CellGroupData[{
+Cell[385202, 9687, 122, 1, 45, "Subsection"],
+Cell[CellGroupData[{
+Cell[385349, 9692, 980, 24, 103, "Input"],
+Cell[386332, 9718, 208, 3, 121, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[386577, 9726, 239, 3, 35, "Subsubsection"],
+Cell[CellGroupData[{
+Cell[386841, 9733, 522, 14, 78, "Input"],
+Cell[387366, 9749, 203, 3, 32, "Output"]
+}, Open  ]],
+Cell[387584, 9755, 659, 17, 80, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[388280, 9777, 262, 5, 35, "Subsubsection"],
+Cell[388545, 9784, 179, 4, 70, "Text"],
+Cell[CellGroupData[{
+Cell[388749, 9792, 616, 16, 70, "Input"],
+Cell[389368, 9810, 435, 8, 70, "Output"]
+}, Open  ]],
+Cell[389818, 9821, 693, 18, 70, "Input"]
 }, Closed]]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[366621, 9194, 233, 3, 65, "Section"],
-Cell[366857, 9199, 2380, 54, 192, "Input"],
+Cell[390572, 9846, 233, 3, 65, "Section"],
+Cell[390808, 9851, 2380, 54, 215, "Input"],
 Cell[CellGroupData[{
-Cell[369262, 9257, 211, 3, 32, "Input"],
-Cell[369476, 9262, 25345, 501, 2208, "Output"]
+Cell[393213, 9909, 211, 3, 32, "Input"],
+Cell[393427, 9914, 25345, 501, 2208, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[394858, 9768, 101, 1, 44, "Subsection"],
+Cell[418809, 10420, 101, 1, 44, "Subsection"],
 Cell[CellGroupData[{
-Cell[394984, 9773, 1203, 34, 57, "Input"],
-Cell[396190, 9809, 5001, 96, 474, "Output"],
-Cell[401194, 9907, 4921, 94, 241, "Output"]
+Cell[418935, 10425, 1203, 34, 57, "Input"],
+Cell[420141, 10461, 5001, 96, 474, "Output"],
+Cell[425145, 10559, 4921, 94, 241, "Output"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[406164, 10007, 86, 1, 44, "Subsection"],
+Cell[430115, 10659, 86, 1, 44, "Subsection"],
 Cell[CellGroupData[{
-Cell[406275, 10012, 1013, 27, 78, "Input"],
-Cell[407291, 10041, 141719, 3130, 235, "Output"]
+Cell[430226, 10664, 1013, 27, 78, "Input"],
+Cell[431242, 10693, 141719, 3130, 235, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[549047, 13176, 1115, 25, 101, "Input"],
-Cell[550165, 13203, 73608, 1619, 235, "Output"]
+Cell[572998, 13828, 1115, 25, 101, "Input"],
+Cell[574116, 13855, 73608, 1619, 235, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[623810, 14827, 1766, 44, 100, "Input"],
-Cell[625579, 14873, 220425, 4198, 248, "Output"]
+Cell[647761, 15479, 1766, 44, 100, "Input"],
+Cell[649530, 15525, 220425, 4198, 248, "Output"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[846053, 19077, 89, 1, 44, "Subsection"],
-Cell[846145, 19080, 810, 23, 101, "Input"],
-Cell[846958, 19105, 747, 20, 78, "Input"],
+Cell[870004, 19729, 89, 1, 44, "Subsection"],
+Cell[870096, 19732, 810, 23, 101, "Input"],
+Cell[870909, 19757, 747, 20, 78, "Input"],
 Cell[CellGroupData[{
-Cell[847730, 19129, 760, 15, 34, "Input"],
-Cell[848493, 19146, 651017, 14212, 232, "Output"]
+Cell[871681, 19781, 760, 15, 34, "Input"],
+Cell[872444, 19798, 651017, 14212, 232, "Output"]
 }, Open  ]],
-Cell[1499525, 33361, 236, 3, 32, "Input"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[1499798, 33369, 311, 5, 45, "Subsection"],
-Cell[1500112, 33376, 1484, 44, 95, "Input"],
-Cell[CellGroupData[{
-Cell[1501621, 33424, 769, 14, 34, "Input"],
-Cell[1502393, 33440, 4259, 102, 96, "Output"]
+Cell[1523476, 34013, 236, 3, 32, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[1506689, 33547, 496, 11, 34, "Input"],
-Cell[1507188, 33560, 852, 19, 52, "Output"]
+Cell[1523749, 34021, 311, 5, 45, "Subsection"],
+Cell[1524063, 34028, 1484, 44, 95, "Input"],
+Cell[CellGroupData[{
+Cell[1525572, 34076, 769, 14, 34, "Input"],
+Cell[1526344, 34092, 4259, 102, 96, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[1508077, 33584, 311, 6, 34, "Input"],
-Cell[1508391, 33592, 831, 19, 52, "Output"]
+Cell[1530640, 34199, 496, 11, 34, "Input"],
+Cell[1531139, 34212, 852, 19, 52, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1532028, 34236, 311, 6, 34, "Input"],
+Cell[1532342, 34244, 831, 19, 52, "Output"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]

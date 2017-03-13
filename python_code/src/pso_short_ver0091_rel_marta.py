@@ -2,11 +2,11 @@
 # encoding: utf-8
 """
 pso_short.py
-
 Created by Nikolaus Sonnenschein, James de Bree and Daniel Zielinski.
 Copyright (c) 2012 . All rights reserved.
 """
 
+import platform
 import sys
 import os
 import numpy
@@ -96,10 +96,11 @@ def _evaluator(candidate):
     sqrd_errors = numpy.power(residuals, 2)
     sse = sum(sqrd_errors)
 
-    # A list is expected
-    sseList = [sse]
-
-    return sseList
+    if platform.system() == "Windows":
+        return sse
+    else:
+        return [sse]
+		
 
 def parallel_evaluation_mp(candidates, args):
     """Function to implement multiprocess evaluations ...FIX DOCUMENTATION..."""
@@ -147,10 +148,8 @@ def parallel_evaluation_mp(candidates, args):
 
 class Enzyme(object):
     """Represents the internal functions for evolutionary computing
-
     This class is a wrapper that provides a method for passing dependencies without rewriting much of the
     internal ecspy code.
-
     """
 
     def __init__(self):
@@ -173,12 +172,18 @@ class Enzyme(object):
             def __init__(self):
                 self.logger = logging.getLogger('/dev/stdout')
         """"""
+		
+        if platform.system() == "Windows":
+            results = []
+            for c in candidates:
+                results.append(_evaluator(c))
+            return results
+        else:
+		    return parallel_evaluation_mp(candidates, {'_ec':fake_ec(), 'mp_evaluator':_evaluator,'mp_num_cpus':num_Cpus})
 
-        return parallel_evaluation_mp(candidates, {'_ec':fake_ec(), 'mp_evaluator':_evaluator,'mp_num_cpus':num_Cpus})
-
+			
 class Bounder(object):
     """Defines a basic bounding function for numeric lists.
-
     This callable class acts as a function that bounds a
     numeric list between the lower and upper bounds specified.
     These bounds can be single values or lists of values. For
@@ -188,23 +193,19 @@ class Bounder(object):
     ``Bounder(0, 1)``. If either the ``lower_bound`` or
     ``upper_bound`` argument is ``None``, the Bounder leaves
     the candidate unchanged (which is the default behavior).
-
     In general, a user-specified bounding function must accept
     two arguments: the candidate to be bounded and the keyword
     argument dictionary. Typically, the signature of such a
     function would be ``bounding_function(candidate, args)``.
     This function should return the resulting candidate after
     bounding has been performed.
-
     Public Attributes:
-
     - *lower_bound* -- the lower bound for a candidate
     - *upper_bound* -- the upper bound for a candidate
     - *indices_for_kf* -- the indices of the candidate that represent
                         the forward rate constants of the dissociation constants
     - *indices_for_kr* -- the indices of the candidate that represent
                         the reverse rate constants of the dissociation constants
-
     """
     def __init__(self, lower_bound=None, upper_bound=None, temperature_correction=False):#indices_for_kf=None, indices_for_kr=None, Kd_lower_bound=-12, Kd_upper_bound=2):
         self.lower_bound = lower_bound
@@ -317,25 +318,17 @@ class Bounder(object):
 
 def best_fitness_termination(population, num_generations, num_evaluations, args):
     """Return True if the population's best fitness is below a cutoff value.
-
-
     This function calculates the best fitness of the population and imports
     the number of generations. If the best value is below a specified value
     or reaches the maximum allowable generations, the function returns True.
-
-
     .. Arguments:
        population -- the population of Individuals
        num_generations -- the number of elapsed generations
        num_evaluations -- the number of candidate solution evaluations
-
        args -- a dictionary of keyword arguments
-
     Optional keyword arguments in args:
-
     *best_fitness_cutoff* -- cutoff value for best fitness (Will terminate if not specified)
     *max_generations* -- the maximum generations (default 999999999999999)
-
     """
 
     # Exit if best_fitness criteria is met
@@ -363,6 +356,7 @@ def run_pso(parameter, data_file_name, summary_file_name, ultimate_result_name):
     global functionDict
     global function_row
     global data_row_high
+
 
     """"""
 
@@ -492,7 +486,7 @@ def run_pso(parameter, data_file_name, summary_file_name, ultimate_result_name):
         func_template = open(path).read()
         mkFuncCommand = 'def %s(x,d): return %s' % (funcName,func_template)
         exec(mkFuncCommand)
-        functionDict[path] = eval(funcName)
+        functionDict[path.replace('\\\\', '\\')] = eval(funcName)
     """"""
 
     """Set the parameter ranges"""
@@ -533,9 +527,7 @@ def run_pso(parameter, data_file_name, summary_file_name, ultimate_result_name):
     """"""
 
     """Initialize the Swarm Module"""
-    #print "-----GOING"
     ea = swarm.PSO(random)
-    #print "-----BACK"
     ea.observer = observers.default_observer
     ea.topology = topologies.ring_topology
     ea.terminator = best_fitness_termination
@@ -608,10 +600,3 @@ def run_pso(parameter, data_file_name, summary_file_name, ultimate_result_name):
     #-----------------------------------------------------------------------
     #       End Storing the Results
     #-----------------------------------------------------------------------
-
-
-
-
-
-
-
