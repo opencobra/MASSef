@@ -196,10 +196,10 @@ printEnzymeData[rxn_, mechanism_, structure_, nActiveSites_, kmList_, s05List_, 
 	Print[{{"Metabolite(s)","Value","Units","pH","Temperature_C","Buffer_Concentrations","Salt_Concentrations"}}~Join~kcatList//TableForm];
 	Print[""];
 	Print["Inhibition Values:"];
-	Print[{{"Parameter_Type","Inhibitor","Value","Inhibition Type","Units","pH","Temperature_C","Buffer_Concentrations","Salt_Concentrations"}}~Join~inhibitionList//TableForm];
+	Print[{{"Parameter_Type","Inhibitor","Value","Cosubstrates", "Inhibition Type","Units","pH","Temperature_C","Buffer_Concentrations","Salt_Concentrations"}}~Join~inhibitionList//TableForm];
 	Print[""];
 	Print["Activation Values:"];
-	Print[{{"Parameter_Type","Activator","Value","Activation Type","Units","pH","Temperature_C","Buffer_Concentrations","Salt_Concentrations"}}~Join~activationList//TableForm];
+	Print[{{"Parameter_Type","Activator","Value","Cosubstrates", "Activation Type","Units","pH","Temperature_C","Buffer_Concentrations","Salt_Concentrations"}}~Join~activationList//TableForm];
 	Print[""];
 	Print["Other Parameters:"];
 	Print[{{"Parameter_Type","Metabolite","Value","Units","pH","Temperature_C","Buffer_Concentrations","Salt_Concentrations"}}~Join~otherParmsList//TableForm];

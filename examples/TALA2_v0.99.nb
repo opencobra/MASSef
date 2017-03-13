@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[   1033052,      22952]
-NotebookOptionsPosition[   1025679,      22708]
-NotebookOutlinePosition[   1026085,      22726]
-CellTagsIndexPosition[   1026042,      22723]
+NotebookDataLength[   1032878,      22933]
+NotebookOptionsPosition[   1025619,      22693]
+NotebookOutlinePosition[   1026025,      22711]
+CellTagsIndexPosition[   1025982,      22708]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -107,7 +107,8 @@ Cell[BoxData["\<\"/home/mrama/Dropbox/MASS_fitting_package/data\"\>"], "Print",
   3.6954692195889177`*^9, 3.6954773235159483`*^9, 3.695642030928149*^9, 
   3.695642067628854*^9, 3.6956450323598022`*^9, 3.695645152946677*^9, 
   3.697026593497849*^9, 3.697026825438547*^9, 3.69702689941226*^9, 
-  3.6970269642546463`*^9, 3.697026998595684*^9, 3.6970270975391293`*^9}],
+  3.6970269642546463`*^9, 3.697026998595684*^9, 3.6970270975391293`*^9, 
+  3.698399540636692*^9}],
 
 Cell[BoxData["\<\"Working \
 dir:/home/mrama/Dropbox/MASS_fitting_package/examples/\"\>"], "Print",
@@ -121,7 +122,8 @@ dir:/home/mrama/Dropbox/MASS_fitting_package/examples/\"\>"], "Print",
   3.6954692195889177`*^9, 3.6954773235159483`*^9, 3.695642030928149*^9, 
   3.695642067628854*^9, 3.6956450323598022`*^9, 3.695645152946677*^9, 
   3.697026593497849*^9, 3.697026825438547*^9, 3.69702689941226*^9, 
-  3.6970269642546463`*^9, 3.697026998595684*^9, 3.697027103045054*^9}]
+  3.6970269642546463`*^9, 3.697026998595684*^9, 3.6970270975391293`*^9, 
+  3.698399546312215*^9}]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
@@ -138,7 +140,7 @@ Cell[BoxData[{
    RowBox[{"FileNameJoin", "[", 
     RowBox[{
      RowBox[{"{", 
-      RowBox[{"pathData", ",", " ", "\"\<kinetic_data.xls\>\""}], "}"}], ",", 
+      RowBox[{"pathData", ",", " ", "\"\<kinetic_data.csv\>\""}], "}"}], ",", 
      " ", 
      RowBox[{"OperatingSystem", "\[Rule]", "$OperatingSystem"}]}], "]"}]}], 
   ";"}], "\[IndentingNewLine]", 
@@ -147,7 +149,7 @@ Cell[BoxData[{
    RowBox[{"FileNameJoin", "[", 
     RowBox[{
      RowBox[{"{", 
-      RowBox[{"pathData", ",", " ", "\"\<buffer_info.xls\>\""}], "}"}], ",", 
+      RowBox[{"pathData", ",", " ", "\"\<buffer_info.csv\>\""}], "}"}], ",", 
      " ", 
      RowBox[{"OperatingSystem", "\[Rule]", "$OperatingSystem"}]}], "]"}]}], 
   ";"}], "\[IndentingNewLine]", 
@@ -157,7 +159,7 @@ Cell[BoxData[{
     RowBox[{"FileNameJoin", "[", 
      RowBox[{
       RowBox[{"{", 
-       RowBox[{"pathData", ",", " ", "\"\<ion_charge.xls\>\""}], "}"}], ",", 
+       RowBox[{"pathData", ",", " ", "\"\<ion_charge.csv\>\""}], "}"}], ",", 
       " ", 
       RowBox[{"OperatingSystem", "\[Rule]", "$OperatingSystem"}]}], "]"}]}], 
    ";"}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
@@ -186,17 +188,17 @@ Cell[BoxData[{
   RowBox[{"inhibitorMet", "=", 
    RowBox[{"{", "}"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
-  RowBox[{
-   RowBox[{"affectedMets", "=", 
-    RowBox[{"{", "}"}]}], ";"}], 
+  RowBox[{"affectedMets", "=", 
+   RowBox[{"{", "}"}]}], ";", 
   StyleBox[
    RowBox[{"(*", 
     RowBox[{
     "There", " ", "can", " ", "be", " ", "multiple", " ", "metabolites"}], 
-    "*)"}], "Text"]}], "\[IndentingNewLine]"}], "Input",
+    "*)"}], "Text"], "\[IndentingNewLine]"}]}], "Input",
  CellChangeTimes->{{3.688465973748316*^9, 3.6884660629740667`*^9}, {
    3.6888945782161617`*^9, 3.688894578837591*^9}, {3.689334019674252*^9, 
-   3.6893340351550703`*^9}, 3.6949356754106483`*^9, 3.695647767250803*^9}]
+   3.6893340351550703`*^9}, 3.6949356754106483`*^9, 3.695647767250803*^9, {
+   3.698399539291048*^9, 3.698399543536716*^9}}]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -223,7 +225,8 @@ Cell[BoxData[
     "nActiveSites", ",", " ", "kmList", ",", " ", "s05List", ",", " ", 
     "kcatList", ",", " ", "inhibitionList", ",", " ", "activationList", ",", 
     " ", "otherParmsList"}], "]"}], ";"}]], "Input",
- CellChangeTimes->{{3.6970265956574087`*^9, 3.697026626142229*^9}}],
+ CellChangeTimes->{{3.6970265956574087`*^9, 3.697026626142229*^9}, 
+   3.6983995613810253`*^9}],
 
 Cell[CellGroupData[{
 
@@ -352,39 +355,39 @@ Cell[BoxData[
   Selectable->False]], "Print",
  CellChangeTimes->{{3.697026605432015*^9, 3.697026626844284*^9}, 
    3.697026844041551*^9, 3.697026905761338*^9, 3.697027010125843*^9, 
-   3.697027103845811*^9, 3.697027140778995*^9}],
+   3.697027103845811*^9, 3.697027140778995*^9, 3.6983995627512913`*^9}],
 
-Cell[BoxData["\<\"Ping Pong Bi Bi,[f6p,g3p,e4p,s7p]\"\>"], "Print",
+Cell[BoxData["\<\"Ping Pong Bi Bi; [f6p,g3p,e4p,s7p]\"\>"], "Print",
  CellChangeTimes->{{3.697026605432015*^9, 3.697026626844284*^9}, 
    3.697026844041551*^9, 3.697026905761338*^9, 3.697027010125843*^9, 
-   3.697027103845811*^9, 3.697027140780098*^9}],
+   3.697027103845811*^9, 3.697027140778995*^9, 3.698399562752172*^9}],
 
-Cell[BoxData["\<\"Structure 2.\"\>"], "Print",
+Cell[BoxData["\<\"Structure: 2\"\>"], "Print",
  CellChangeTimes->{{3.697026605432015*^9, 3.697026626844284*^9}, 
    3.697026844041551*^9, 3.697026905761338*^9, 3.697027010125843*^9, 
-   3.697027103845811*^9, 3.6970271407808104`*^9}],
+   3.697027103845811*^9, 3.697027140778995*^9, 3.698399562752967*^9}],
 
-Cell[BoxData["\<\"Active sites 2.\"\>"], "Print",
+Cell[BoxData["\<\"Active sites: 2\"\>"], "Print",
  CellChangeTimes->{{3.697026605432015*^9, 3.697026626844284*^9}, 
    3.697026844041551*^9, 3.697026905761338*^9, 3.697027010125843*^9, 
-   3.697027103845811*^9, 3.6970271407814693`*^9}],
+   3.697027103845811*^9, 3.697027140778995*^9, 3.698399562753614*^9}],
 
 Cell[BoxData["\<\"\"\>"], "Print",
  CellChangeTimes->{{3.697026605432015*^9, 3.697026626844284*^9}, 
    3.697026844041551*^9, 3.697026905761338*^9, 3.697027010125843*^9, 
-   3.697027103845811*^9, 3.697027140782077*^9}],
+   3.697027103845811*^9, 3.697027140778995*^9, 3.698399562754273*^9}],
 
 Cell[BoxData["\<\"Km Values:\"\>"], "Print",
  CellChangeTimes->{{3.697026605432015*^9, 3.697026626844284*^9}, 
    3.697026844041551*^9, 3.697026905761338*^9, 3.697027010125843*^9, 
-   3.697027103845811*^9, 3.6970271407827177`*^9}],
+   3.697027103845811*^9, 3.697027140778995*^9, 3.698399562754887*^9}],
 
 Cell[BoxData[
  InterpretationBox[GridBox[{
     {"\<\"Substrate\"\>", "\<\"Km_Value\"\>", "\<\"CoSubstrate\"\>", \
 "\<\"Units\"\>", "\<\"pH\"\>", "\<\"Temperature_C\"\>", \
 "\<\"Buffer_Concentrations\"\>", "\<\"Salt_Concentrations\"\>"},
-    {"\<\"g3p\"\>", "0.000037999999999999995`", GridBox[{
+    {"\<\"g3p\"\>", "0.000038`", GridBox[{
        {"\<\"f6p\"\>", "0.0285`"}
       },
       GridBoxAlignment->{
@@ -396,7 +399,7 @@ Cell[BoxData[
           Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
           Offset[0.2], {
            Offset[0.1]}, 
-          Offset[0.2]}, "RowsIndexed" -> {}}], "\<\"M\"\>", "8.5`", "30.`", 
+          Offset[0.2]}, "RowsIndexed" -> {}}], "\<\"M\"\>", "8.5`", "30", 
      GridBox[{
        {"\<\"glygly\"\>", "0.05`"}
       },
@@ -424,7 +427,7 @@ Cell[BoxData[
           Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
           Offset[0.2], {
            Offset[0.1]}, 
-          Offset[0.2]}, "RowsIndexed" -> {}}], "\<\"M\"\>", "8.5`", "30.`", 
+          Offset[0.2]}, "RowsIndexed" -> {}}], "\<\"M\"\>", "8.5`", "30", 
      GridBox[{
        {"\<\"glygly\"\>", "0.05`"}
       },
@@ -452,7 +455,7 @@ Cell[BoxData[
           Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
           Offset[0.2], {
            Offset[0.1]}, 
-          Offset[0.2]}, "RowsIndexed" -> {}}], "\<\"M\"\>", "8.5`", "30.`", 
+          Offset[0.2]}, "RowsIndexed" -> {}}], "\<\"M\"\>", "8.5`", "30", 
      GridBox[{
        {"\<\"glygly\"\>", "0.05`"}
       },
@@ -468,7 +471,7 @@ Cell[BoxData[
           Offset[0.2]}, "RowsIndexed" -> {}}], 
      InterpretationBox["\<\"\"\>",
       {}]},
-    {"\<\"f6p\"\>", "0.0012000000000000001`", GridBox[{
+    {"\<\"f6p\"\>", "0.0012`", GridBox[{
        {"\<\"g3p\"\>", "0.0038`"}
       },
       GridBoxAlignment->{
@@ -480,7 +483,7 @@ Cell[BoxData[
           Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
           Offset[0.2], {
            Offset[0.1]}, 
-          Offset[0.2]}, "RowsIndexed" -> {}}], "\<\"M\"\>", "8.5`", "30.`", 
+          Offset[0.2]}, "RowsIndexed" -> {}}], "\<\"M\"\>", "8.5`", "30", 
      GridBox[{
        {"\<\"glygly\"\>", "0.05`"}
       },
@@ -508,7 +511,7 @@ Cell[BoxData[
           Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
           Offset[0.2], {
            Offset[0.1]}, 
-          Offset[0.2]}, "RowsIndexed" -> {}}], "\<\"M\"\>", "8.5`", "30.`", 
+          Offset[0.2]}, "RowsIndexed" -> {}}], "\<\"M\"\>", "8.5`", "30", 
      GridBox[{
        {"\<\"glygly\"\>", "0.05`"}
       },
@@ -538,28 +541,27 @@ Cell[BoxData[
   TableForm[{{
     "Substrate", "Km_Value", "CoSubstrate", "Units", "pH", "Temperature_C", 
      "Buffer_Concentrations", "Salt_Concentrations"}, {
-    "g3p", 0.000037999999999999995`, {{"f6p", 0.0285}}, "M", 8.5, 
-     30., {{"glygly", 0.05}}, {}}, {
+    "g3p", 0.000038, {{"f6p", 0.0285}}, "M", 8.5, 
+     30, {{"glygly", 0.05}}, {}}, {
     "e4p", 0.00009, {{"f6p", 0.0285}}, "M", 8.5, 
-     30., {{"glygly", 0.05}}, {}}, {
-    "r5p", 0.031, {{"f6p", 0.0285}}, "M", 8.5, 30., {{"glygly", 0.05}}, {}}, {
-    "f6p", 0.0012000000000000001`, {{"g3p", 0.0038}}, "M", 8.5, 
-     30., {{"glygly", 0.05}}, {}}, {
+     30, {{"glygly", 0.05}}, {}}, {
+    "r5p", 0.031, {{"f6p", 0.0285}}, "M", 8.5, 30, {{"glygly", 0.05}}, {}}, {
+    "f6p", 0.0012, {{"g3p", 0.0038}}, "M", 8.5, 30, {{"glygly", 0.05}}, {}}, {
     "s7p", 0.000285, {{"g3p", 0.0038}}, "M", 8.5, 
-     30., {{"glygly", 0.05}}, {}}}]]], "Print",
+     30, {{"glygly", 0.05}}, {}}}]]], "Print",
  CellChangeTimes->{{3.697026605432015*^9, 3.697026626844284*^9}, 
    3.697026844041551*^9, 3.697026905761338*^9, 3.697027010125843*^9, 
-   3.697027103845811*^9, 3.6970271407840347`*^9}],
+   3.697027103845811*^9, 3.697027140778995*^9, 3.6983995627563047`*^9}],
 
 Cell[BoxData["\<\"\"\>"], "Print",
  CellChangeTimes->{{3.697026605432015*^9, 3.697026626844284*^9}, 
    3.697026844041551*^9, 3.697026905761338*^9, 3.697027010125843*^9, 
-   3.697027103845811*^9, 3.697027140785736*^9}],
+   3.697027103845811*^9, 3.697027140778995*^9, 3.6983995627583027`*^9}],
 
 Cell[BoxData["\<\"S0.5 Values:\"\>"], "Print",
  CellChangeTimes->{{3.697026605432015*^9, 3.697026626844284*^9}, 
    3.697026844041551*^9, 3.697026905761338*^9, 3.697027010125843*^9, 
-   3.697027103845811*^9, 3.697027140786353*^9}],
+   3.697027103845811*^9, 3.697027140778995*^9, 3.698399562758926*^9}],
 
 Cell[BoxData[
  TagBox[GridBox[{
@@ -581,17 +583,17 @@ Cell[BoxData[
    TableForm[BoxForm`e$]]]], "Print",
  CellChangeTimes->{{3.697026605432015*^9, 3.697026626844284*^9}, 
    3.697026844041551*^9, 3.697026905761338*^9, 3.697027010125843*^9, 
-   3.697027103845811*^9, 3.697027140787033*^9}],
+   3.697027103845811*^9, 3.697027140778995*^9, 3.698399562759638*^9}],
 
 Cell[BoxData["\<\"\"\>"], "Print",
  CellChangeTimes->{{3.697026605432015*^9, 3.697026626844284*^9}, 
    3.697026844041551*^9, 3.697026905761338*^9, 3.697027010125843*^9, 
-   3.697027103845811*^9, 3.6970271407878304`*^9}],
+   3.697027103845811*^9, 3.697027140778995*^9, 3.698399562760729*^9}],
 
 Cell[BoxData["\<\"kcat Values:\"\>"], "Print",
  CellChangeTimes->{{3.697026605432015*^9, 3.697026626844284*^9}, 
    3.697026844041551*^9, 3.697026905761338*^9, 3.697027010125843*^9, 
-   3.697027103845811*^9, 3.697027140788948*^9}],
+   3.697027103845811*^9, 3.697027140778995*^9, 3.69839956276134*^9}],
 
 Cell[BoxData[
  InterpretationBox[GridBox[{
@@ -612,7 +614,7 @@ Cell[BoxData[
           Offset[0.2], {
            Offset[0.1]}, 
           Offset[0.2]}, "RowsIndexed" -> {}}], "71.4`", "\<\"1/s\"\>", "8.5`",
-      "30.`", GridBox[{
+      "30", GridBox[{
        {"\<\"glygly\"\>", "0.05`"}
       },
       GridBoxAlignment->{
@@ -641,7 +643,7 @@ Cell[BoxData[
           Offset[0.2], {
            Offset[0.1]}, 
           Offset[0.2]}, "RowsIndexed" -> {}}], "79.4`", "\<\"1/s\"\>", "8.5`",
-      "30.`", GridBox[{
+      "30", GridBox[{
        {"\<\"glygly\"\>", "0.05`"}
       },
       GridBoxAlignment->{
@@ -671,28 +673,28 @@ Cell[BoxData[
     "Metabolite(s)", "Value", "Units", "pH", "Temperature_C", 
      "Buffer_Concentrations", 
      "Salt_Concentrations"}, {{{"f6p", Null}, {"e4p", 0.002}}, 71.4, "1/s", 
-     8.5, 30., {{"glygly", 0.05}}, {}}, {{{"e4p", Null}, {"f6p", 0.05}}, 79.4,
-      "1/s", 8.5, 30., {{"glygly", 0.05}}, {}}}]]], "Print",
+     8.5, 30, {{"glygly", 0.05}}, {}}, {{{"e4p", Null}, {"f6p", 0.05}}, 79.4, 
+     "1/s", 8.5, 30, {{"glygly", 0.05}}, {}}}]]], "Print",
  CellChangeTimes->{{3.697026605432015*^9, 3.697026626844284*^9}, 
    3.697026844041551*^9, 3.697026905761338*^9, 3.697027010125843*^9, 
-   3.697027103845811*^9, 3.697027140790268*^9}],
+   3.697027103845811*^9, 3.697027140778995*^9, 3.698399562762321*^9}],
 
 Cell[BoxData["\<\"\"\>"], "Print",
  CellChangeTimes->{{3.697026605432015*^9, 3.697026626844284*^9}, 
    3.697026844041551*^9, 3.697026905761338*^9, 3.697027010125843*^9, 
-   3.697027103845811*^9, 3.697027140791519*^9}],
+   3.697027103845811*^9, 3.697027140778995*^9, 3.698399562763508*^9}],
 
 Cell[BoxData["\<\"Inhibition Values:\"\>"], "Print",
  CellChangeTimes->{{3.697026605432015*^9, 3.697026626844284*^9}, 
    3.697026844041551*^9, 3.697026905761338*^9, 3.697027010125843*^9, 
-   3.697027103845811*^9, 3.697027140792142*^9}],
+   3.697027103845811*^9, 3.697027140778995*^9, 3.698399562764091*^9}],
 
 Cell[BoxData[
  InterpretationBox[GridBox[{
     {"\<\"Parameter_Type\"\>", "\<\"Inhibitor\"\>", "\<\"Value\"\>", \
-"\<\"Inhibition Type\"\>", "\<\"Units\"\>", "\<\"pH\"\>", \
-"\<\"Temperature_C\"\>", "\<\"Buffer_Concentrations\"\>", \
-"\<\"Salt_Concentrations\"\>", "\<\"\"\>"},
+"\<\"Cosubstrates\"\>", "\<\"Inhibition Type\"\>", "\<\"Units\"\>", "\<\"pH\"\
+\>", "\<\"Temperature_C\"\>", "\<\"Buffer_Concentrations\"\>", \
+"\<\"Salt_Concentrations\"\>"},
     {"\<\"Kic\"\>", "\<\"pi\"\>", "0.019`", GridBox[{
        {"\<\"e4p\"\>", "Null"}
       },
@@ -717,7 +719,7 @@ Cell[BoxData[
           Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
           Offset[0.2], {
            Offset[0.1]}, 
-          Offset[0.2]}, "RowsIndexed" -> {}}], "\<\"M\"\>", "8.5`", "30.`", 
+          Offset[0.2]}, "RowsIndexed" -> {}}], "\<\"M\"\>", "8.5`", "30", 
      GridBox[{
        {"\<\"glygly\"\>", "0.05`"}
       },
@@ -757,7 +759,7 @@ Cell[BoxData[
           Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
           Offset[0.2], {
            Offset[0.1]}, 
-          Offset[0.2]}, "RowsIndexed" -> {}}], "\<\"M\"\>", "8.5`", "30.`", 
+          Offset[0.2]}, "RowsIndexed" -> {}}], "\<\"M\"\>", "8.5`", "30", 
      GridBox[{
        {"\<\"glygly\"\>", "0.05`"}
       },
@@ -797,7 +799,7 @@ Cell[BoxData[
           Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
           Offset[0.2], {
            Offset[0.1]}, 
-          Offset[0.2]}, "RowsIndexed" -> {}}], "\<\"M\"\>", "8.5`", "30.`", 
+          Offset[0.2]}, "RowsIndexed" -> {}}], "\<\"M\"\>", "8.5`", "30", 
      GridBox[{
        {"\<\"glygly\"\>", "0.05`"}
       },
@@ -837,7 +839,7 @@ Cell[BoxData[
           Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
           Offset[0.2], {
            Offset[0.1]}, 
-          Offset[0.2]}, "RowsIndexed" -> {}}], "\<\"M\"\>", "8.5`", "30.`", 
+          Offset[0.2]}, "RowsIndexed" -> {}}], "\<\"M\"\>", "8.5`", "30", 
      GridBox[{
        {"\<\"glygly\"\>", "0.05`"}
       },
@@ -865,39 +867,40 @@ Cell[BoxData[
         Offset[0.4]}, 
        Offset[0.2]}, "RowsIndexed" -> {}}],
   TableForm[{{
-    "Parameter_Type", "Inhibitor", "Value", "Inhibition Type", "Units", "pH", 
-     "Temperature_C", "Buffer_Concentrations", "Salt_Concentrations"}, {
+    "Parameter_Type", "Inhibitor", "Value", "Cosubstrates", "Inhibition Type",
+      "Units", "pH", "Temperature_C", "Buffer_Concentrations", 
+     "Salt_Concentrations"}, {
     "Kic", "pi", 
      0.019, {{"e4p", Null}}, {{"Competitive", Null, Null, "f6p", Null}}, "M", 
-     8.5, 30., {{"glygly", 0.05}}, {}}, {
+     8.5, 30, {{"glygly", 0.05}}, {}}, {
     "Kic", "pi", 
      0.019, {{"f6p", Null}}, {{"Competitive", Null, Null, "e4p", Null}}, "M", 
-     8.5, 30., {{"glygly", 0.05}}, {}}, {
+     8.5, 30, {{"glygly", 0.05}}, {}}, {
     "Kic", "pi", 
      0.019, {{"g3p", Null}}, {{"Competitive", Null, Null, "s7p", Null}}, "M", 
-     8.5, 30., {{"glygly", 0.05}}, {}}, {
+     8.5, 30, {{"glygly", 0.05}}, {}}, {
     "Kic", "pi", 
      0.019, {{"s7p", Null}}, {{"Competitive", Null, Null, "g3p", Null}}, "M", 
-     8.5, 30., {{"glygly", 0.05}}, {}}}]]], "Print",
+     8.5, 30, {{"glygly", 0.05}}, {}}}]]], "Print",
  CellChangeTimes->{{3.697026605432015*^9, 3.697026626844284*^9}, 
    3.697026844041551*^9, 3.697026905761338*^9, 3.697027010125843*^9, 
-   3.697027103845811*^9, 3.697027140793651*^9}],
+   3.697027103845811*^9, 3.697027140778995*^9, 3.698399562765559*^9}],
 
 Cell[BoxData["\<\"\"\>"], "Print",
  CellChangeTimes->{{3.697026605432015*^9, 3.697026626844284*^9}, 
    3.697026844041551*^9, 3.697026905761338*^9, 3.697027010125843*^9, 
-   3.697027103845811*^9, 3.697027140796144*^9}],
+   3.697027103845811*^9, 3.697027140778995*^9, 3.698399562767415*^9}],
 
 Cell[BoxData["\<\"Activation Values:\"\>"], "Print",
  CellChangeTimes->{{3.697026605432015*^9, 3.697026626844284*^9}, 
    3.697026844041551*^9, 3.697026905761338*^9, 3.697027010125843*^9, 
-   3.697027103845811*^9, 3.697027140796781*^9}],
+   3.697027103845811*^9, 3.697027140778995*^9, 3.698399562768008*^9}],
 
 Cell[BoxData[
  TagBox[GridBox[{
     {"\<\"Parameter_Type\"\>", "\<\"Activator\"\>", "\<\"Value\"\>", \
-"\<\"Activation Type\"\>", "\<\"Units\"\>", "\<\"pH\"\>", \
-"\<\"Temperature_C\"\>", "\<\"Buffer_Concentrations\"\>", \
+"\<\"Cosubstrates\"\>", "\<\"Activation Type\"\>", "\<\"Units\"\>", "\<\"pH\"\
+\>", "\<\"Temperature_C\"\>", "\<\"Buffer_Concentrations\"\>", \
 "\<\"Salt_Concentrations\"\>"}
    },
    GridBoxAlignment->{
@@ -914,17 +917,17 @@ Cell[BoxData[
    TableForm[BoxForm`e$]]]], "Print",
  CellChangeTimes->{{3.697026605432015*^9, 3.697026626844284*^9}, 
    3.697026844041551*^9, 3.697026905761338*^9, 3.697027010125843*^9, 
-   3.697027103845811*^9, 3.6970271407975616`*^9}],
+   3.697027103845811*^9, 3.697027140778995*^9, 3.698399562768717*^9}],
 
 Cell[BoxData["\<\"\"\>"], "Print",
  CellChangeTimes->{{3.697026605432015*^9, 3.697026626844284*^9}, 
    3.697026844041551*^9, 3.697026905761338*^9, 3.697027010125843*^9, 
-   3.697027103845811*^9, 3.69702714079841*^9}],
+   3.697027103845811*^9, 3.697027140778995*^9, 3.6983995627695723`*^9}],
 
 Cell[BoxData["\<\"Other Parameters:\"\>"], "Print",
  CellChangeTimes->{{3.697026605432015*^9, 3.697026626844284*^9}, 
    3.697026844041551*^9, 3.697026905761338*^9, 3.697027010125843*^9, 
-   3.697027103845811*^9, 3.697027140799027*^9}],
+   3.697027103845811*^9, 3.697027140778995*^9, 3.698399562770158*^9}],
 
 Cell[BoxData[
  TagBox[GridBox[{
@@ -946,7 +949,7 @@ Cell[BoxData[
    TableForm[BoxForm`e$]]]], "Print",
  CellChangeTimes->{{3.697026605432015*^9, 3.697026626844284*^9}, 
    3.697026844041551*^9, 3.697026905761338*^9, 3.697027010125843*^9, 
-   3.697027103845811*^9, 3.697027140799738*^9}]
+   3.697027103845811*^9, 3.697027140778995*^9, 3.698399562770897*^9}]
 }, Open  ]]
 }, Open  ]],
 
@@ -1122,7 +1125,7 @@ Cell[BoxData[{
        FontWeight->"Bold"], " ", "modify", " ", "this"}], "*)"}], "Text",
     FontWeight->"Plain"], 
    StyleBox["*)", "Text",
-    FontWeight->"Plain"]}], "\[IndentingNewLine]", "\n", 
+    FontWeight->"Plain"]}], "\n", "\[IndentingNewLine]", 
   StyleBox[
    RowBox[{"(*", 
     RowBox[{
@@ -1169,12 +1172,12 @@ Cell[BoxData[{
     RowBox[{"{", 
      RowBox[{"allCatalyticReactions", ",", " ", "nonCatalyticReactions"}], 
      "}"}], "=", 
-    RowBox[{"classifyReactions", "[", "enzymeModel", "]"}]}], ";"}], "\n", 
-  "\[IndentingNewLine]", "\[IndentingNewLine]", 
+    RowBox[{"classifyReactions", "[", "enzymeModel", "]"}]}], ";"}], 
+  "\[IndentingNewLine]", "\[IndentingNewLine]", "\[IndentingNewLine]", 
   StyleBox[
    RowBox[{"(*", 
     RowBox[{"Identify", " ", "Transition", " ", "Rate", " ", "Equations"}], 
-    "*)"}], "Text"]}], "\[IndentingNewLine]", 
+    "*)"}], "Text"]}], "\n", 
  RowBox[{
   RowBox[{
    RowBox[{"transitionID", " ", "=", 
@@ -1815,31 +1818,8 @@ Cell[BoxData[
    Column],
   Function[BoxForm`e$, 
    TableForm[BoxForm`e$]]]], "Output",
- CellChangeTimes->{3.695645156152213*^9, 3.697044207714251*^9}]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell[BoxData["KeqVal"], "Input",
- CellChangeTimes->{{3.697044214055464*^9, 3.697044216254298*^9}}],
-
-Cell[BoxData[
- InterpretationBox[
-  UnderscriptBox["K", 
-   StyleBox["TALA2",
-    StripOnInput->False,
-    ShowSyntaxStyles->False,
-    AutoSpacing->False,
-    ZeroWidthTimes->True,
-    LineColor->RGBColor[0, 0, 0],
-    FrontFaceColor->RGBColor[0, 0, 0],
-    BackFaceColor->RGBColor[0, 0, 0],
-    GraphicsColor->RGBColor[0, 0, 0],
-    FontColor->RGBColor[0, 0, 0]]],
-  Toolbox`Keq["TALA2"],
-  Editable->False,
-  Selectable->False]], "Output",
- CellChangeTimes->{3.6970442167174664`*^9}]
+ CellChangeTimes->{3.695645156152213*^9, 3.697044207714251*^9, 
+  3.6983995699482183`*^9}]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
@@ -1950,7 +1930,7 @@ Cell[BoxData[
      RowBox[{"in", " ", 
       StyleBox["Molarity",
        FontSlant->"Italic"]}], "*)"}], "Text",
-    FontWeight->"Plain"], "\[IndentingNewLine]", "\n", 
+    FontWeight->"Plain"], "\n", "\[IndentingNewLine]", 
    StyleBox[
     RowBox[{"(*", 
      RowBox[{"Chemical", " ", "Activity", " ", "Correction", " ", "Options"}],
@@ -2137,9 +2117,9 @@ Cell[BoxData[
    StyleBox[
     RowBox[{"(*", " ", 
      RowBox[{"\[Gamma]", " ", "=", " ", "1"}], " ", "*)"}], "Text",
-    FontWeight->"Plain"], "\[IndentingNewLine]", 
-   StyleBox["\[IndentingNewLine]", "Text",
     FontWeight->"Plain"], 
+   StyleBox["\[IndentingNewLine]", "Text",
+    FontWeight->"Plain"], "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{
      StyleBox["pHandT", "Text",
@@ -2471,27 +2451,27 @@ Cell[BoxData[
     {RGBColor[0, 0, 1], PointSize[0.012833333333333334`], AbsoluteThickness[
      1.6], PointBox[{{0.00011999999999999995`, 0.06249999999999998}, {
       0.00019018718309533363`, 0.09556246000918162}, {0.0003014263717811494, 
-      0.14343894024974246`}, {0.0004777286046641966, 0.20973903725225757`}, {
+      0.1434389402497425}, {0.0004777286046641966, 0.2097390372522576}, {
       0.0007571488133762321, 0.2960910250571456}, {0.0011999999999999995`, 
-      0.39999999999999986`}, {0.0019018718309533362`, 0.5137595027063783}, {
+      0.3999999999999999}, {0.0019018718309533362`, 0.5137595027063783}, {
       0.0030142637178114944`, 0.6261110513450937}, {0.004777286046641966, 
       0.7263308928279026}, {0.007571488133762321, 0.8079280500270597}, {
       0.011999999999999995`, 0.8695652173913043}}]}, 
     {RGBColor[1, 0, 0], PointSize[0.012833333333333334`], AbsoluteThickness[
-     1.6], PointBox[{{0.00011999999999999995`, 0.047619047619047596`}, {
-      0.00019018718309533363`, 0.07342603821707415}, {0.0003014263717811494, 
-      0.11158045058337383`}, {0.0004777286046641966, 0.16600891546544674`}, {
+     1.6], PointBox[{{0.00011999999999999995`, 0.0476190476190476}, {
+      0.00019018718309533363`, 0.07342603821707416}, {0.0003014263717811494, 
+      0.11158045058337385`}, {0.0004777286046641966, 0.16600891546544677`}, {
       0.0007571488133762321, 0.2398204386718606}, {0.0011999999999999995`, 
-      0.3333333333333332}, {0.0019018718309533362`, 0.44210332285326664`}, {
-      0.0030142637178114944`, 0.5567264313142642}, {0.004777286046641966, 
+      0.33333333333333326`}, {0.0019018718309533362`, 0.44210332285326664`}, {
+      0.0030142637178114944`, 0.5567264313142644}, {0.004777286046641966, 
       0.6656117668428602}, {0.007571488133762321, 0.7593137586080182}, {
-      0.011999999999999995`, 0.8333333333333331}}]}, 
+      0.011999999999999995`, 0.8333333333333333}}]}, 
     {RGBColor[1, 0.5, 0], PointSize[0.012833333333333334`], AbsoluteThickness[
      1.6], PointBox[{{0.00011999999999999995`, 0.03225806451612902}, {
-      0.00019018718309533363`, 0.05017883653440392}, {0.0003014263717811494, 
-      0.07726055628304394}, {0.0004777286046641966, 0.1171555664881081}, {
-      0.0007571488133762321, 0.17377162126109222`}, {0.0011999999999999995`, 
-      0.2499999999999999}, {0.0019018718309533362`, 0.3456772330197648}, {
+      0.00019018718309533363`, 0.05017883653440393}, {0.0003014263717811494, 
+      0.07726055628304394}, {0.0004777286046641966, 0.11715556648810813`}, {
+      0.0007571488133762321, 0.17377162126109225`}, {0.0011999999999999995`, 
+      0.2499999999999999}, {0.0019018718309533362`, 0.34567723301976483`}, {
       0.0030142637178114944`, 0.455721732064358}, {0.004777286046641966, 
       0.5702665541135414}, {0.007571488133762321, 0.6777510787376546}, {
       0.011999999999999995`, 0.769230769230769}}]}, {}}, {}, {}, {{}, {}}},
@@ -2524,7 +2504,8 @@ Cell[BoxData[
      Scaled[0.02], 
      Scaled[0.05]}},
   Ticks->{Automatic, Automatic}]], "Output",
- CellChangeTimes->{3.695477387728623*^9, 3.695477474137739*^9}]
+ CellChangeTimes->{3.695477387728623*^9, 3.695477474137739*^9, 
+  3.698399598447823*^9}]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -2657,21 +2638,22 @@ Cell[BoxData[{
 
 Cell[BoxData[
  RowBox[{"{", 
-  RowBox[{"1.0000000000000007`", ",", "0.0018000000000000002`"}], 
-  "}"}]], "Output",
+  RowBox[{"1.0000000000000004`", ",", "0.0018`"}], "}"}]], "Output",
  CellChangeTimes->{
   3.695036344103854*^9, 3.695036404791752*^9, 3.69503647104702*^9, 
    3.695036719737598*^9, 3.695036779734223*^9, 3.695115663104821*^9, {
-   3.695467542904117*^9, 3.69546754901618*^9}, 3.695477475742762*^9}],
+   3.695467542904117*^9, 3.69546754901618*^9}, 3.695477475742762*^9, 
+   3.698399600691024*^9}],
 
 Cell[BoxData[
  RowBox[{"{", 
-  RowBox[{"1.0000000000000029`", ",", "0.0023999999999999994`"}], 
+  RowBox[{"1.0000000000000027`", ",", "0.002399999999999999`"}], 
   "}"}]], "Output",
  CellChangeTimes->{
   3.695036344103854*^9, 3.695036404791752*^9, 3.69503647104702*^9, 
    3.695036719737598*^9, 3.695036779734223*^9, 3.695115663104821*^9, {
-   3.695467542904117*^9, 3.69546754901618*^9}, 3.6954774757443867`*^9}],
+   3.695467542904117*^9, 3.69546754901618*^9}, 3.695477475742762*^9, 
+   3.6983996006924477`*^9}],
 
 Cell[BoxData[
  RowBox[{"{", 
@@ -2680,104 +2662,105 @@ Cell[BoxData[
  CellChangeTimes->{
   3.695036344103854*^9, 3.695036404791752*^9, 3.69503647104702*^9, 
    3.695036719737598*^9, 3.695036779734223*^9, 3.695115663104821*^9, {
-   3.695467542904117*^9, 3.69546754901618*^9}, 3.695477475745882*^9}],
+   3.695467542904117*^9, 3.69546754901618*^9}, 3.695477475742762*^9, 
+   3.698399600693652*^9}],
 
 Cell[BoxData[
  GraphicsBox[{{{}, {{}, 
      {RGBColor[0, 0, 1], PointSize[0.012833333333333334`], AbsoluteThickness[
       1.6], PointBox[{{8333.333333333338, 16.000000000000007`}, {
        5257.977870668276, 10.464360167202898`}, {3317.559754612479, 
-       6.9716075583024635`}, {2093.2386929246504`, 4.767829647264371}, {
+       6.971607558302462}, {2093.2386929246504`, 4.767829647264371}, {
        1320.7443270509277`, 3.37733978869167}, {833.3333333333337, 
-       2.500000000000001}, {525.7977870668277, 1.94643601672029}, {
+       2.5000000000000004`}, {525.7977870668277, 1.94643601672029}, {
        331.7559754612479, 1.5971607558302463`}, {209.32386929246505`, 
        1.3767829647264374`}, {132.07443270509276`, 1.237733978869167}, {
        83.33333333333337, 1.1500000000000001`}}]}, 
      {RGBColor[1, 0, 0], PointSize[0.012833333333333334`], AbsoluteThickness[
-      1.6], PointBox[{{8333.333333333338, 21.00000000000001}, {
-       5257.977870668276, 13.619146889603867`}, {3317.559754612479, 
-       8.96214341106995}, {2093.2386929246504`, 6.023772863019161}, {
+      1.6], PointBox[{{8333.333333333338, 21.000000000000007`}, {
+       5257.977870668276, 13.619146889603863`}, {3317.559754612479, 
+       8.962143411069949}, {2093.2386929246504`, 6.02377286301916}, {
        1320.7443270509277`, 4.169786384922226}, {833.3333333333337, 
-       3.0000000000000013`}, {525.7977870668277, 2.2619146889603865`}, {
-       331.7559754612479, 1.7962143411069953`}, {209.32386929246505`, 
+       3.000000000000001}, {525.7977870668277, 2.2619146889603865`}, {
+       331.7559754612479, 1.7962143411069948`}, {209.32386929246505`, 
        1.5023772863019162`}, {132.07443270509276`, 1.3169786384922226`}, {
        83.33333333333337, 1.2000000000000002`}}]}, 
      {RGBColor[1, 0.5, 0], PointSize[0.012833333333333334`], 
       AbsoluteThickness[1.6], 
       PointBox[{{8333.333333333338, 31.000000000000014`}, {5257.977870668276, 
-       19.9287203344058}, {3317.559754612479, 12.943215116604925`}, {
-       2093.2386929246504`, 8.535659294528744}, {1320.7443270509277`, 
-       5.75467957738334}, {833.3333333333337, 4.000000000000002}, {
-       525.7977870668277, 2.8928720334405797`}, {331.7559754612479, 
+       19.928720334405796`}, {3317.559754612479, 12.943215116604925`}, {
+       2093.2386929246504`, 8.535659294528742}, {1320.7443270509277`, 
+       5.754679577383339}, {833.3333333333337, 4.000000000000002}, {
+       525.7977870668277, 2.8928720334405793`}, {331.7559754612479, 
        2.1943215116604926`}, {209.32386929246505`, 1.753565929452874}, {
        132.07443270509276`, 1.4754679577383338`}, {83.33333333333337, 
        1.3000000000000003`}}]}, {}}, {}, {}, {{}, {}}}, {{{}, {}, 
      TagBox[
       {RGBColor[0, 0, 1], AbsoluteThickness[1.6], Opacity[1.], 
        LineBox[CompressedData["
-1:eJwVxX040wkAB/BRimJomrdF1LxMxK+QdO2rnlWqU1fzVhRCuYp6VJdKmtfb
-HBoSzluSbU8iL1mpML8TkuOh04voTbsm80yOohd398fn+ViERO0KU6dQKD/+
-5//LV6579aSJxa57+3sIhaJid1P9cImvifQl+0wL6Sq2r5e4eT/fCBG+Sx+7
-2avYppE9FA7fBuadZZzoPSr2t9jhElf+GghqbtjI61TssaQxlSN/C4J5TWOd
-EeNsOX8i157vB6r52zOX+z6y3yycGrXjH8KhPawsB9EkW3gy1MtHGINNLQ9D
-DNu/sEd9Xaju3+PRmDF3UWIzBdSR/msFBnyIdOatKkqfA76ewzNaVQaYiRev
-XsqbhxVeDw8EjmZi56RCW3hMC+yhp2L3jTmg7n/UGpGojV6x84N4QR4YRvrs
-Yb4udK1MZMF5BfgQlulXba+P08pn/G0jxaDdC3J7WbcIrbV6ueG8K7iYkUPX
-tTQANX3vkwGNq7gl+Nan++tiHNXJjvW5Xobl6rZucdqGsAi/uKhwdTkUU3fz
-VaeM8OHAGapiSITPB2llPbPGmDyfeiqCJ0EVpSCNxzMFNzqo69b867hH/y16
-tYKBDu1lqfOrKkCTQM0nygxZcRJX5tpKyG4HpMYMmCP68pJtW+RVCCgtGtKo
-XYqt4QHvdrTexIpzooPSExZIVKYWBPOrUW4wPBZhawnPzcT8qcAabPqg/nC3
-0hJ30tZGHFteC+EF76vry5ahI8RHTePvWlRJmkeFvssRukCxndFQhwk9qoBh
-woSkaDDDOO4W3rhkMMXdTMRoeCbncesxlf/R4HC2FRQzbTWrrKQYzIw8keNt
-jTmD4v5ahRRRnma9LVo2kAgplfX3b8N6/c0Eqy4bTBMN54oT7kAwfnJVaoIt
-FCEpvFJOA5rXcHf7ubAQGtbpZmN0F4xGg7aAzyzwuccVWS/uwlJdyy3khh3c
-6Onb46vvwSvx5fei4yuQ/Ye2yOf0fTBbFS0vbOyRoVbsynFvRHee9qf4F/ZY
-rC8+W09tQnGFflxQsQM4OjSpzuMmmJzfqsH2XglK5EzvBLcZgw9qolg6jqhk
-nHynvN+My7mPshVHHVEtK5l4bi6DyJPiZtvuiJnulL1aAhk6jJkpc1lOyH1s
-3sRSyuDRcYAblOSE5BLZD/5eLShtqfRXDTmh4S8zeoe0BYYDI5oMENioZj9i
-Z0LidS9c2/MJhKdFrH1rSqLQZhs9sICAwLhckL+EhP9578nxQgI9TuZ2WhYk
-emx/rjW9QiAgRP+I3JpE44WslVEiAifISWWJM4l8B7k1vY5AeVLj+OKfSHAF
-qUahXQQ69L94dO0iofvq0qfPfxIYLXTNTOSS6HQu6U/rIUDU3yQmfElseF2X
-Le0j0Cgvje7ZR8JxzZDewucEnmxOmRQcIaEjd9SqkROY6SM5GyJJtLu7v9/0
-noBZECVnOopEkpDTNqAgEHo6xuVQNImv6/YkaSgJqMSHf+GcITGSlaDmP0GA
-5ixu+3qWxDVF2ivlPwRcZMOGdbEkgtm5TfFTBM49C7xtySPxdKQitmKaQHFY
-vubzeBJZkAZ4fCHQMt7vJ0wksSNH5t7/lcC7WJpkSzKJBaOdJoe/E9BcsHN6
-NoVEq0f/9OwsgX8Ben47mQ==
+1:eJwVxX041AcAB/CjFHXedV4jQpy8/QpJ677WbqUXbXXeirqEsop6VEslHYf9
+zuQ1Yd6ScZ5EuCgVd36Tt4yHxopUS7dOznMyCpVtf3yej3lw5J5QZRqNtus/
+/1/muOnlYDOTVff6l2AaTcHq0fDHVVIVKSsPGBcwFCw/b6H4IGmAo36rnrjb
+K1jGEb00NmkD065SdtQ+BetzzGixG7kBZO0tG6lIwZpImFA4kdvA5TVPdIVP
+sqTkVI496Q+62evz1/rfs/5aPjNuRx5F2D5mpkP5NCv9TIi3b3o0vmnpDNZv
+n2eN+7lqeHyJw4PUxTp8MQ0aYwO/5uuRKFNfsq7wyiKQWg5PdatTYclPu3E1
+dwnWenceDhrPwO5pGT39pBpYI38KPbZkQ/3g49ZwPh19QpdHcYJcGBtos0ZJ
+TWhaG0kO5eZjLDTDv8ZeG+fkT8kdY0XQecB1fyHSQWudVk4Y7zrSUrMZmhZ6
+0Liyf3BI5QZEgs/9mj+twAn1rBjfm6WwULZ1j6XrwzwsTadgfRneztzPU5w1
+wLvD5zVkI+WYOaJb2rtgiOlLyWfDeRWoouWn8HjG4ERxu+8svYlGxs9R62Um
+6KCvTl5aXQmdCij5RpoiM7bCzWpjFcR3A5Ojh8wQdW3ljm3SagSWFI6o1K3C
+9rDAN7tbb2PtxfIjDafNwZcn5x8ia1CmNzoRbmsBr63E0pmgWrDfKXfulVvg
+XsrG8JOWdUi77HNjc+lqdAT7Kqn8XYfqCvF4up8lQpbJdpo0ijClpSEwMbJC
+ReHzVMPYO3jlmmol7LFCtIpXYi6nHtN57/WOZVlDNtdWu866AcMZEaezfdZg
+0XPhQJ2sARFepn0tajaoSKdV1T+8C+vNt+Otu20wSzReLIq/B3LyzLrkeFvI
+gpN4JexGiDdw9vq7MhES2uVuY3Afxk16bYEfmSA5p2SZw/dhrqzmHnzLDu6M
+Kzvjah5gF//Fl8JTa5H1G73c99xDWLbKWoZt7JGqVOTG9mhCTy79Q9ywPVZo
+Cy/UazSjsFI7llvkALa6boP6k2YYXtquwvJxBC1irm+KI8bwo9pIproTqkzO
+vJE/FONazuMs2Qkn1EiKp56ZSVDmRXO3bXfCXE/SfjWBBO2GVkmLmc7IeWLW
+zJRLgI7DHG6CMxKLJV8FeLegpKUqQDHijMY/TBkdDS3QHxpTNQGBLUr2Y3ZG
+FF71wa09j0BYSvjG18YU8m12MILyCQgMywR5KykEXPKZniwg0OtsZqdmTqHX
+9oc64+sEAoO1j0vXUGi6nOkYWU7gNDUtL3ahkOsgXcMQEShLaJpc8T2FvYJk
+g5BuAh3a857deyhovrz64ePvBMYL3DL4HAqdLsUDKb0EiPrbxJQfBc9XoqyG
+fgJN0pKo3gMUHDeMaC1/RmBwa9K04DgFutRJrVZKYK6fYn8dQaHdw+Ptt28J
+mHJp2bORFPjp7LYhGYGQc9GuR6MozG/al6AiJ6AQHvuRfZ6CLDNeKWCKgK6L
+sO3TBQqlspSX8n8IuEpG9UUxFLisnOa4GQIXnwbdteBRGByrjKmcJVAUmqf6
+LI5CBhoCPecJtEwO+KfzKXhnSzwGPhF4E6NbsS2Rgtp4l9GxLwRUl303u5BE
+odVzYHZhgcC/x/87Vw==
         "]]},
-      Annotation[#, "Charting`Private`Tag$9693#1"]& ], 
+      Annotation[#, "Charting`Private`Tag$5521#1"]& ], 
      TagBox[
       {RGBColor[1, 0, 0], AbsoluteThickness[1.6], Opacity[1.], 
        LineBox[CompressedData["
-1:eJwVk3k4lAkAh8d6ekZiZB05Qs4mKozrQ5pfWt3peISSck50SEk5UrmfbzRq
-TLVEoTZGo4SiFGN80sx2eYqsNlYqNRM1Vmln2rLtH+/z/v3+8VpH7d0Y+xON
-Rlv7g/9d5bxoqE/syP4nJy2bRlOyHzNCcZrUwv65zMcOlkp2SKCwfTtpgvey
-XrO1i5Rs84RuWgDJxADDtaEkRcn+lvG6woskICl+O8QaV7I/5H5QupArwK0N
-Whw7PM4eISeKF5ChMO9ZqJJ1TrCHZ0yOOpFx8LN9lSAgv7D5yTGBwfxUMDRv
-ZR+4McUeDfFk+H7PwmXxtY4tIk0wFM8ulRmSGL7T8OFJHB3kzIX9BnUnMLhl
-l/P+QzMwP/D36PDRIpgs53Ek0AN78A+h79IzmKFg9Zde0ccToUdXFrcEhjOb
-evzrDaDnYCaJLCmDz8Ce+0uKjJAy1k+uVpSjU31sTU/pLNxtnFnMyazETrFU
-2pZlCkZhWN+f0y6iNLrazCjCHHt0T2UEi36Dc+jLye+xFrDmnPz5nHsVhibW
-PcJKK7yPTmPIB6uh/qhjUnB5Dj4fKTgYn1kD2abWRpHIGkFJEQ9v0EVg6mmt
-TSm1gUzHtoBeV4vmxGOiwnJbCI7WeNn7XEWvvYC+ocgOSb9arF4xUgf77KfM
-8BJ7rOJsfbPu7jX4rv/LvbzUATljBWWRZD0GE3MX847PxcrlLPpkeAMavDfr
-3uUzcYvnE59o1wjj4Hv9wtx5kEUFa0x72wj2MI3fccARMdryNbNbrqPEOE7X
-IcUJNecHTpgevYGs8/H5HjvnI3XayrySoCaUPSruKkxcALn6XoObQzPSEwRK
-i/0LoTkgfNYob8a7SKbJ5ihn1PBpV5tab6LzSPJPe91coGK1HC7PvoWwyYuH
-6FdcII/Kz7wQ0PKjjxj2sXNFTOx9b6bJbeyYF+0suOQKMmifXPDiNiTBYelL
-LFnwNi5ck1V/B26hihrDShZOdepUB6e0Yk/2sj4/czec0Cj3CvBtA8nRUmsI
-3GCkL0xvYoghtoicUhi6I0DXoFm3R4zb3/M0HQvdQUtQP5kIakd341IFT98D
-V2cnvxlrbYd0DqfreJEH6iUVE8+tJMhv3lT5UtsT6sf5YdO5EkTYvNgWxvNE
-cY+V2HFMAlqzs7kT3Qt5FRK/zYEdyNKUPzh9xAstvZbGsuYOWNp5R9rTCCzV
-WKBwMqNwLCH4k3YqAQ4v3ueVOQV7zxipQzoBrmkV96wFhfvf9pX5ZxDodrVy
-mm5NwZDH+yUtk8DWKP3dI3MpVIs6T8l/fHaA+jxW4UHhwTuWh/QsgarctnGj
-DRRMo/UO5t4hINP/uuThRgptjharKtsIjJ7zKsoJohD1t6NlazsBVtM11kQI
-hdrMZV2fOgm0jVxI6t5GYXFFhnHMQwJ9y/M/c3dTiB143+Q/SED9lArwT6Aw
-/ZKKu22IgGUE7YxqL4W63fTtacMEYlJSPeOSKKi+2tAbRggohbsOBaRRKDDb
-EmL9kYCBh/Dev+kUXIZ3OPmNE/CUvJ51PYNCb03yVOgEgcP94TdtMilYevOr
-T34hUB57Vut5FgWKVp5eqyLQMf4slJ9DYYe0dp30K4E3GQY1K/Io6JxssX39
-jYCW9nrVVD6F+hDpl6kpAv8BYmk7DA==
+1:eJwVk2s0lAkAhkdOZySX5JJoyDWRZBg+SvPS6p4uR4hUGBObpKRcUo3rfqNR
+qNatUBsjcq1RchufGLWlU8pqsVJpZ6LGKg5tzbY/nvP8fn48JsFHdoXOodFo
+237wv0vt1gz3tVqzp1Pik2k0ObtHww+XSBUcXWbVY2kkZ/t6Cdv2k/qQdb8w
+2LZGzjaMfErzJK0woGFflxcrZ39LfFvsTBJoy30/zJyQsz+mfpSvIjeCrPRe
+GzoywR4lJ3NtST8Y9K6c6e6YZI/MnxqzIcOwxuxNZA45zc6K4Xj5ZMVBTfle
+8vE7CvaYr5PG6u9JuNla0+5foQwN2csbhTokhpvqPj4Lo4NcsLJfu/o8Bv0P
+2R07OR8rvB6GBI5lQ3eDgCuGJthDfwhXr7sMVRmzv+CWFp4JWZ1J/DwsXCDq
+9ajVhqalgTgorxAug4cfuWfrIna8n9wiKwI1e3Zrb8EiPKhfkMvllSC8VSJp
+SVoMjcyAvj/nXkd+SJmB7gFDHFa/mOhT8Rts/V5PfQ9lwIR7YeEVx1IMTW5/
+gk3G+BASryEdKsPsJzX9jJtL8eV0xolwXjkku5vrKypM4B194PEdegUsNVW2
+xRaYolvNLINeXQlR1NmKzCIz5Jwpd7ZwrUKvRQ59Z7Y5on9lbNk4Wg3z5OdW
+gXkW2Mzd+277gxq47vjLsajAEinjGYVBZC0GolLXCs4tw6YNTPpUYB1qXPao
+P8iywj2Ba3iUeT10fLr6hanL0R3sozT3fT3WjtCy2o9bg6Mq3bqk8TZy9cLU
+LWNtUH518PziM3dw9mp4OuvnFYibuyktz1uE/Ce5nZlRtpDOdtU5WDYgPjJH
+zji2EsqDwpf10gaMBlnp7wm2Q3kWrUrUfBfU6Zg5RxxWYYbZeKoo+R78p66f
+pN9aBWlwOu+aZ+OPPmLE1dwenNBHLlb693FweYhdzg17kN5HpTkD99HmE5Dg
+bsSEi17m1qTaJjD9ZOU6JUxc7FAr84ltRkTy+j43QwecVypy9lzdgl+4KrNK
+OQ7Q1RImiDRa0cIIUsh0HOGprt2g3tuKxu9pytaZjqBFzj6b9G5DT/06mUCL
+haolMe/Gm9vQtZTbeS6bhVpx8eQrYzHSGnaXvFZ1wmxPesA8vhj7TQf2BQic
+kNtr3Go9LoZCZGdoQ3dGWrHYbY9XO3jK0t8vnXZG4wsjve6GdiwxdwmyoBFY
+p2QrszGgcCbS57NqHAGuINz1jSEFcyeOxDKBAH9xKT+fQeHht6OFHokEntob
+28wzoaAtEPwUzyOwN1grYnQZhdKKjovSH58dp76MF7MoPPqbyZLkEyhNbZnQ
+3UlBP0TzRGoTgW6tr+6Pd1FosmZsLmkhMHbFOTvFm0LQP9ZGzW0EmKIa5qQv
+hZu89Z2fOwi0jF6LfrqPgltxoh7nMYG+Delf+BEUOIMfRB5DBGafU54ekRRU
+bszw9w0TMDpAuzxzhEJVBH1//AgBTmycU1g0hemvpvS6UQJy4aGTnvEU+Ab+
+viafCGizhF3/JlCwGzlo4zZBwEn8dtHtRArPy2MUfpMETvUH3jXlUWC4ZJVd
+mCZQFJqv8iqJgphWlFA5Q6B94qVfVgoFrqRyu+QrgXeJ2uUb0yjMv9Bo9vYb
+ARXVHTOKdArVvpJphYLAfxV5O6w=
         "]]},
-      Annotation[#, "Charting`Private`Tag$9693#2"]& ], 
+      Annotation[#, "Charting`Private`Tag$5521#2"]& ], 
      TagBox[
       {RGBColor[1, 0.5, 0], AbsoluteThickness[1.6], Opacity[1.], 
        LineBox[CompressedData["
@@ -2810,7 +2793,7 @@ XuKef45RqFLkj06mkPCWji1pTqewnSjpzDpMIu1pzE1rPoUn4/Xp9akkKhLK
 1J9lURBBEh1wjIRsajBSlEMhuFjKGkwj8Spdvy7wBAX1ifsmezNIqC/aNPcl
 lwIVMDj3JZPEv9dNLqo=
         "]]},
-      Annotation[#, "Charting`Private`Tag$9693#3"]& ]}, {}, {}}},
+      Annotation[#, "Charting`Private`Tag$5521#3"]& ]}, {}, {}}},
   AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
   Axes->{True, True},
   AxesLabel->{None, None},
@@ -2843,7 +2826,8 @@ lwIVMDj3JZPEv9dNLqo=
  CellChangeTimes->{
   3.695036344103854*^9, 3.695036404791752*^9, 3.69503647104702*^9, 
    3.695036719737598*^9, 3.695036779734223*^9, 3.695115663104821*^9, {
-   3.695467542904117*^9, 3.69546754901618*^9}, 3.695477475875909*^9}]
+   3.695467542904117*^9, 3.69546754901618*^9}, 3.695477475742762*^9, 
+   3.6983996007715797`*^9}]
 }, Open  ]]
 }, Closed]]
 }, Open  ]],
@@ -2938,202 +2922,202 @@ Cell[BoxData[{
 Cell["\<\
 Keq_TALA2\te4p[c]\tf6p[c]\tg3p[c]\ts7p[c]\tpi[c]\tparam_E_total\tparam_pH\t\
 param_Temp\tFileFlag\tTarget_Data
-0.8403361344537815\t0\t0\t3.7999999999999996e-6\t0.01\t0.01\t1\t8.5\t30.\t\
+0.8403361344537815\t0\t0\t3.7999999999999996e-6\t0.01\t0.01\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/relRateRev_\
-g3p.txt\t0.09090909090909093
-0.8403361344537815\t0\t0\t6.022594131352233e-6\t0.01\t0.01\t1\t8.5\t30.\t\
+g3p.txt\t0.09090909090909091
+0.8403361344537815\t0\t0\t6.022594131352233e-6\t0.01\t0.01\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/relRateRev_\
 g3p.txt\t0.13680688860321005
-0.8403361344537815\t0\t0\t9.545168439736411e-6\t0.01\t0.01\t1\t8.5\t30.\t\
+0.8403361344537815\t0\t0\t9.545168439736411e-6\t0.01\t0.01\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/relRateRev_\
-g3p.txt\t0.2007600089131019
-0.8403361344537815\t0\t0\t0.000015128072481032882\t0.01\t0.01\t1\t8.5\t30.\t\
+g3p.txt\t0.20076000891310186
+0.8403361344537815\t0\t0\t0.000015128072481032882\t0.01\t0.01\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/relRateRev_\
 g3p.txt\t0.2847472489508012
-0.8403361344537815\t0\t0\t0.00002397637909024733\t0.01\t0.01\t1\t8.5\t30.\t\
+0.8403361344537815\t0\t0\t0.00002397637909024733\t0.01\t0.01\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/relRateRev_\
 g3p.txt\t0.3868631798468568
-0.8403361344537815\t0\t0\t0.000037999999999999995\t0.01\t0.01\t1\t8.5\t30.\t\
+0.8403361344537815\t0\t0\t0.000037999999999999995\t0.01\t0.01\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/relRateRev_\
-g3p.txt\t0.5
-0.8403361344537815\t0\t0\t0.000060225941313522335\t0.01\t0.01\t1\t8.5\t30.\t\
+g3p.txt\t0.49999999999999994
+0.8403361344537815\t0\t0\t0.000060225941313522335\t0.01\t0.01\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/relRateRev_\
-g3p.txt\t0.6131368201531432
-0.8403361344537815\t0\t0\t0.00009545168439736412\t0.01\t0.01\t1\t8.5\t30.\t\
+g3p.txt\t0.6131368201531431
+0.8403361344537815\t0\t0\t0.00009545168439736412\t0.01\t0.01\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/relRateRev_\
 g3p.txt\t0.7152527510491987
-0.8403361344537815\t0\t0\t0.00015128072481032897\t0.01\t0.01\t1\t8.5\t30.\t\
+0.8403361344537815\t0\t0\t0.00015128072481032897\t0.01\t0.01\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/relRateRev_\
 g3p.txt\t0.7992399910868984
-0.8403361344537815\t0\t0\t0.0002397637909024733\t0.01\t0.01\t1\t8.5\t30.\t\
+0.8403361344537815\t0\t0\t0.0002397637909024733\t0.01\t0.01\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/relRateRev_\
 g3p.txt\t0.86319311139679
-0.8403361344537815\t0\t0\t0.00037999999999999997\t0.01\t0.01\t1\t8.5\t30.\t\
+0.8403361344537815\t0\t0\t0.00037999999999999997\t0.01\t0.01\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/relRateRev_\
 g3p.txt\t0.9090909090909091
-0.8403361344537815\t9.000000000000007e-6\t0.0285\t0\t0\t0.01\t1\t8.5\t30.\t\
+0.8403361344537815\t9.000000000000007e-6\t0.0285\t0\t0\t0.01\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/relRateFor_\
 e4p.txt\t0.09090909090909098
-0.8403361344537815\t0.000014264038732150038\t0.0285\t0\t0\t0.01\t1\t8.5\t30.\t\
+0.8403361344537815\t0.000014264038732150038\t0.0285\t0\t0\t0.01\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/relRateFor_\
 e4p.txt\t0.13680688860321014
-0.8403361344537815\t0.000022606977883586257\t0.0285\t0\t0\t0.01\t1\t8.5\t30.\t\
+0.8403361344537815\t0.000022606977883586257\t0.0285\t0\t0\t0.01\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/relRateFor_\
 e4p.txt\t0.20076000891310197
-0.8403361344537815\t0.00003582964534981475\t0.0285\t0\t0\t0.01\t1\t8.5\t30.\t\
+0.8403361344537815\t0.00003582964534981475\t0.0285\t0\t0\t0.01\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/relRateFor_\
 e4p.txt\t0.2847472489508014
-0.8403361344537815\t0.00005678616100321741\t0.0285\t0\t0\t0.01\t1\t8.5\t30.\t\
+0.8403361344537815\t0.00005678616100321741\t0.0285\t0\t0\t0.01\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/relRateFor_\
 e4p.txt\t0.38686317984685703
-0.8403361344537815\t0.00009000000000000007\t0.0285\t0\t0\t0.01\t1\t8.5\t30.\t\
+0.8403361344537815\t0.00009000000000000007\t0.0285\t0\t0\t0.01\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/relRateFor_\
 e4p.txt\t0.5000000000000002
-0.8403361344537815\t0.00014264038732150037\t0.0285\t0\t0\t0.01\t1\t8.5\t30.\t\
+0.8403361344537815\t0.00014264038732150037\t0.0285\t0\t0\t0.01\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/relRateFor_\
 e4p.txt\t0.6131368201531432
-0.8403361344537815\t0.00022606977883586258\t0.0285\t0\t0\t0.01\t1\t8.5\t30.\t\
+0.8403361344537815\t0.00022606977883586258\t0.0285\t0\t0\t0.01\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/relRateFor_\
 e4p.txt\t0.7152527510491988
-0.8403361344537815\t0.00035829645349814786\t0.0285\t0\t0\t0.01\t1\t8.5\t30.\t\
+0.8403361344537815\t0.00035829645349814786\t0.0285\t0\t0\t0.01\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/relRateFor_\
 e4p.txt\t0.7992399910868985
-0.8403361344537815\t0.0005678616100321741\t0.0285\t0\t0\t0.01\t1\t8.5\t30.\t\
+0.8403361344537815\t0.0005678616100321741\t0.0285\t0\t0\t0.01\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/relRateFor_\
 e4p.txt\t0.86319311139679
-0.8403361344537815\t0.0009000000000000007\t0.0285\t0\t0\t0.01\t1\t8.5\t30.\t\
+0.8403361344537815\t0.0009000000000000007\t0.0285\t0\t0\t0.01\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/relRateFor_\
 e4p.txt\t0.9090909090909093
-0.8403361344537815\t0.01\t0.00011999999999999995\t0\t0\t0.01\t1\t8.5\t30.\t\
+0.8403361344537815\t0.01\t0.00011999999999999995\t0\t0\t0.01\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/relRateFor_\
-f6p.txt\t0.09090909090909087
-0.8403361344537815\t0.01\t0.00019018718309533363\t0\t0\t0.01\t1\t8.5\t30.\t\
+f6p.txt\t0.09090909090909088
+0.8403361344537815\t0.01\t0.00019018718309533363\t0\t0\t0.01\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/relRateFor_\
 f6p.txt\t0.13680688860321
-0.8403361344537815\t0.01\t0.0003014263717811494\t0\t0\t0.01\t1\t8.5\t30.\t\
+0.8403361344537815\t0.01\t0.0003014263717811494\t0\t0\t0.01\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/relRateFor_\
 f6p.txt\t0.20076000891310164
-0.8403361344537815\t0.01\t0.0004777286046641966\t0\t0\t0.01\t1\t8.5\t30.\t\
+0.8403361344537815\t0.01\t0.0004777286046641966\t0\t0\t0.01\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/relRateFor_\
 f6p.txt\t0.28474724895080133
-0.8403361344537815\t0.01\t0.0007571488133762321\t0\t0\t0.01\t1\t8.5\t30.\t\
+0.8403361344537815\t0.01\t0.0007571488133762321\t0\t0\t0.01\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/relRateFor_\
-f6p.txt\t0.386863179846857
-0.8403361344537815\t0.01\t0.0011999999999999995\t0\t0\t0.01\t1\t8.5\t30.\t\
+f6p.txt\t0.38686317984685703
+0.8403361344537815\t0.01\t0.0011999999999999995\t0\t0\t0.01\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/relRateFor_\
 f6p.txt\t0.49999999999999994
-0.8403361344537815\t0.01\t0.0019018718309533362\t0\t0\t0.01\t1\t8.5\t30.\t\
+0.8403361344537815\t0.01\t0.0019018718309533362\t0\t0\t0.01\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/relRateFor_\
 f6p.txt\t0.613136820153143
-0.8403361344537815\t0.01\t0.0030142637178114944\t0\t0\t0.01\t1\t8.5\t30.\t\
+0.8403361344537815\t0.01\t0.0030142637178114944\t0\t0\t0.01\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/relRateFor_\
 f6p.txt\t0.7152527510491984
-0.8403361344537815\t0.01\t0.004777286046641966\t0\t0\t0.01\t1\t8.5\t30.\t\
+0.8403361344537815\t0.01\t0.004777286046641966\t0\t0\t0.01\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/relRateFor_\
-f6p.txt\t0.7992399910868981
-0.8403361344537815\t0.01\t0.007571488133762321\t0\t0\t0.01\t1\t8.5\t30.\t\
+f6p.txt\t0.7992399910868982
+0.8403361344537815\t0.01\t0.007571488133762321\t0\t0\t0.01\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/relRateFor_\
 f6p.txt\t0.8631931113967899
-0.8403361344537815\t0.01\t0.011999999999999995\t0\t0\t0.01\t1\t8.5\t30.\t\
+0.8403361344537815\t0.01\t0.011999999999999995\t0\t0\t0.01\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/relRateFor_\
 f6p.txt\t0.9090909090909092
-0.8403361344537815\t0\t0\t0.0038\t0.0000285\t0.01\t1\t8.5\t30.\t\
+0.8403361344537815\t0\t0\t0.0038\t0.0000285\t0.01\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/relRateRev_\
 s7p.txt\t0.09090909090909093
-0.8403361344537815\t0\t0\t0.0038\t0.000045169455985141756\t0.01\t1\t8.5\t30.\t\
+0.8403361344537815\t0\t0\t0.0038\t0.000045169455985141756\t0.01\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/relRateRev_\
 s7p.txt\t0.13680688860321005
-0.8403361344537815\t0\t0\t0.0038\t0.00007158876329802309\t0.01\t1\t8.5\t30.\t\
+0.8403361344537815\t0\t0\t0.0038\t0.00007158876329802309\t0.01\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/relRateRev_\
 s7p.txt\t0.2007600089131019
-0.8403361344537815\t0\t0\t0.0038\t0.00011346054360774674\t0.01\t1\t8.5\t30.\t\
+0.8403361344537815\t0\t0\t0.0038\t0.00011346054360774674\t0.01\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/relRateRev_\
 s7p.txt\t0.28474724895080145
-0.8403361344537815\t0\t0\t0.0038\t0.000179822843176855\t0.01\t1\t8.5\t30.\t\
+0.8403361344537815\t0\t0\t0.0038\t0.000179822843176855\t0.01\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/relRateRev_\
 s7p.txt\t0.38686317984685686
-0.8403361344537815\t0\t0\t0.0038\t0.000285\t0.01\t1\t8.5\t30.\t\
+0.8403361344537815\t0\t0\t0.0038\t0.000285\t0.01\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/relRateRev_\
 s7p.txt\t0.5
-0.8403361344537815\t0\t0\t0.0038\t0.00045169455985141755\t0.01\t1\t8.5\t30.\t\
+0.8403361344537815\t0\t0\t0.0038\t0.00045169455985141755\t0.01\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/relRateRev_\
 s7p.txt\t0.6131368201531432
-0.8403361344537815\t0\t0\t0.0038\t0.000715887632980231\t0.01\t1\t8.5\t30.\t\
+0.8403361344537815\t0\t0\t0.0038\t0.000715887632980231\t0.01\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/relRateRev_\
 s7p.txt\t0.7152527510491988
-0.8403361344537815\t0\t0\t0.0038\t0.0011346054360774674\t0.01\t1\t8.5\t30.\t\
+0.8403361344537815\t0\t0\t0.0038\t0.0011346054360774674\t0.01\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/relRateRev_\
 s7p.txt\t0.7992399910868982
-0.8403361344537815\t0\t0\t0.0038\t0.00179822843176855\t0.01\t1\t8.5\t30.\t\
+0.8403361344537815\t0\t0\t0.0038\t0.00179822843176855\t0.01\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/relRateRev_\
 s7p.txt\t0.86319311139679
-0.8403361344537815\t0\t0\t0.0038\t0.00285\t0.01\t1\t8.5\t30.\t\
+0.8403361344537815\t0\t0\t0.0038\t0.00285\t0.01\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/relRateRev_\
 s7p.txt\t0.9090909090909091
-0.8403361344537815\t0.002\t0.01\t0\t0\t0\t1\t8.5\t30.\t\
+0.8403361344537815\t0.002\t0.01\t0\t0\t0\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
 txt\t71.4
-0.8403361344537815\t0.002\t0.01\t0\t0\t0\t1\t8.5\t30.\t\
+0.8403361344537815\t0.002\t0.01\t0\t0\t0\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
 txt\t71.4
-0.8403361344537815\t0.002\t0.01\t0\t0\t0\t1\t8.5\t30.\t\
+0.8403361344537815\t0.002\t0.01\t0\t0\t0\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
 txt\t71.4
-0.8403361344537815\t0.002\t0.01\t0\t0\t0\t1\t8.5\t30.\t\
+0.8403361344537815\t0.002\t0.01\t0\t0\t0\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
 txt\t71.4
-0.8403361344537815\t0.002\t0.01\t0\t0\t0\t1\t8.5\t30.\t\
+0.8403361344537815\t0.002\t0.01\t0\t0\t0\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
 txt\t71.4
-0.8403361344537815\t0.002\t0.01\t0\t0\t0\t1\t8.5\t30.\t\
+0.8403361344537815\t0.002\t0.01\t0\t0\t0\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
 txt\t71.4
-0.8403361344537815\t0.002\t0.01\t0\t0\t0\t1\t8.5\t30.\t\
+0.8403361344537815\t0.002\t0.01\t0\t0\t0\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
 txt\t71.4
-0.8403361344537815\t0.002\t0.01\t0\t0\t0\t1\t8.5\t30.\t\
+0.8403361344537815\t0.002\t0.01\t0\t0\t0\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
 txt\t71.4
-0.8403361344537815\t0.002\t0.01\t0\t0\t0\t1\t8.5\t30.\t\
+0.8403361344537815\t0.002\t0.01\t0\t0\t0\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
 txt\t71.4
-0.8403361344537815\t0.002\t0.01\t0\t0\t0\t1\t8.5\t30.\t\
+0.8403361344537815\t0.002\t0.01\t0\t0\t0\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
 txt\t71.4
-0.8403361344537815\t0.002\t0.01\t0\t0\t0\t1\t8.5\t30.\t\
+0.8403361344537815\t0.002\t0.01\t0\t0\t0\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
 txt\t71.4
-0.8403361344537815\t0.01\t0.05\t0\t0\t0\t1\t8.5\t30.\t\
+0.8403361344537815\t0.01\t0.05\t0\t0\t0\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
 txt\t79.4
-0.8403361344537815\t0.01\t0.05\t0\t0\t0\t1\t8.5\t30.\t\
+0.8403361344537815\t0.01\t0.05\t0\t0\t0\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
 txt\t79.4
-0.8403361344537815\t0.01\t0.05\t0\t0\t0\t1\t8.5\t30.\t\
+0.8403361344537815\t0.01\t0.05\t0\t0\t0\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
 txt\t79.4
-0.8403361344537815\t0.01\t0.05\t0\t0\t0\t1\t8.5\t30.\t\
+0.8403361344537815\t0.01\t0.05\t0\t0\t0\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
 txt\t79.4
-0.8403361344537815\t0.01\t0.05\t0\t0\t0\t1\t8.5\t30.\t\
+0.8403361344537815\t0.01\t0.05\t0\t0\t0\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
 txt\t79.4
-0.8403361344537815\t0.01\t0.05\t0\t0\t0\t1\t8.5\t30.\t\
+0.8403361344537815\t0.01\t0.05\t0\t0\t0\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
 txt\t79.4
-0.8403361344537815\t0.01\t0.05\t0\t0\t0\t1\t8.5\t30.\t\
+0.8403361344537815\t0.01\t0.05\t0\t0\t0\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
 txt\t79.4
-0.8403361344537815\t0.01\t0.05\t0\t0\t0\t1\t8.5\t30.\t\
+0.8403361344537815\t0.01\t0.05\t0\t0\t0\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
 txt\t79.4
-0.8403361344537815\t0.01\t0.05\t0\t0\t0\t1\t8.5\t30.\t\
+0.8403361344537815\t0.01\t0.05\t0\t0\t0\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
 txt\t79.4
-0.8403361344537815\t0.01\t0.05\t0\t0\t0\t1\t8.5\t30.\t\
+0.8403361344537815\t0.01\t0.05\t0\t0\t0\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
 txt\t79.4
-0.8403361344537815\t0.01\t0.05\t0\t0\t0\t1\t8.5\t30.\t\
+0.8403361344537815\t0.01\t0.05\t0\t0\t0\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
 txt\t79.4
 0.8403361344537815\t0\t0\t0\t0\t0\t1\t8.5\t30\t\
@@ -3235,400 +3219,400 @@ txt\t0.019
 0.8403361344537815\t0\t0\t0\t0\t0\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/inhibRatio.\
 txt\t0.019
-0.8403361344537815\t0.01\t0.00011999999999999995\t0\t0\t0.0095\t1\t8.5\t30.\t\
+0.8403361344537815\t0.01\t0.00011999999999999995\t0\t0\t0.0095\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
 txt\t0.06249999999999998
-0.8403361344537815\t0.01\t0.00019018718309533363\t0\t0\t0.0095\t1\t8.5\t30.\t\
+0.8403361344537815\t0.01\t0.00019018718309533363\t0\t0\t0.0095\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
 txt\t0.09556246000918162
-0.8403361344537815\t0.01\t0.0003014263717811494\t0\t0\t0.0095\t1\t8.5\t30.\t\
+0.8403361344537815\t0.01\t0.0003014263717811494\t0\t0\t0.0095\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
-txt\t0.14343894024974246
-0.8403361344537815\t0.01\t0.0004777286046641966\t0\t0\t0.0095\t1\t8.5\t30.\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
-txt\t0.20973903725225757
-0.8403361344537815\t0.01\t0.0007571488133762321\t0\t0\t0.0095\t1\t8.5\t30.\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
-txt\t0.2960910250571456
-0.8403361344537815\t0.01\t0.0011999999999999995\t0\t0\t0.0095\t1\t8.5\t30.\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
-txt\t0.39999999999999986
-0.8403361344537815\t0.01\t0.0019018718309533362\t0\t0\t0.0095\t1\t8.5\t30.\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
-txt\t0.5137595027063783
-0.8403361344537815\t0.01\t0.0030142637178114944\t0\t0\t0.0095\t1\t8.5\t30.\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
-txt\t0.6261110513450937
-0.8403361344537815\t0.01\t0.004777286046641966\t0\t0\t0.0095\t1\t8.5\t30.\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
-txt\t0.7263308928279026
-0.8403361344537815\t0.01\t0.007571488133762321\t0\t0\t0.0095\t1\t8.5\t30.\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
-txt\t0.8079280500270597
-0.8403361344537815\t0.01\t0.011999999999999995\t0\t0\t0.0095\t1\t8.5\t30.\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
-txt\t0.8695652173913043
-0.8403361344537815\t0.01\t0.00011999999999999995\t0\t0\t0.019\t1\t8.5\t30.\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
-txt\t0.047619047619047596
-0.8403361344537815\t0.01\t0.00019018718309533363\t0\t0\t0.019\t1\t8.5\t30.\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
-txt\t0.07342603821707415
-0.8403361344537815\t0.01\t0.0003014263717811494\t0\t0\t0.019\t1\t8.5\t30.\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
-txt\t0.11158045058337383
-0.8403361344537815\t0.01\t0.0004777286046641966\t0\t0\t0.019\t1\t8.5\t30.\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
-txt\t0.16600891546544674
-0.8403361344537815\t0.01\t0.0007571488133762321\t0\t0\t0.019\t1\t8.5\t30.\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
-txt\t0.2398204386718606
-0.8403361344537815\t0.01\t0.0011999999999999995\t0\t0\t0.019\t1\t8.5\t30.\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
-txt\t0.3333333333333332
-0.8403361344537815\t0.01\t0.0019018718309533362\t0\t0\t0.019\t1\t8.5\t30.\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
-txt\t0.44210332285326664
-0.8403361344537815\t0.01\t0.0030142637178114944\t0\t0\t0.019\t1\t8.5\t30.\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
-txt\t0.5567264313142642
-0.8403361344537815\t0.01\t0.004777286046641966\t0\t0\t0.019\t1\t8.5\t30.\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
-txt\t0.6656117668428602
-0.8403361344537815\t0.01\t0.007571488133762321\t0\t0\t0.019\t1\t8.5\t30.\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
-txt\t0.7593137586080182
-0.8403361344537815\t0.01\t0.011999999999999995\t0\t0\t0.019\t1\t8.5\t30.\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
-txt\t0.8333333333333331
-0.8403361344537815\t0.01\t0.00011999999999999995\t0\t0\t0.038\t1\t8.5\t30.\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
-txt\t0.03225806451612902
-0.8403361344537815\t0.01\t0.00019018718309533363\t0\t0\t0.038\t1\t8.5\t30.\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
-txt\t0.05017883653440392
-0.8403361344537815\t0.01\t0.0003014263717811494\t0\t0\t0.038\t1\t8.5\t30.\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
-txt\t0.07726055628304394
-0.8403361344537815\t0.01\t0.0004777286046641966\t0\t0\t0.038\t1\t8.5\t30.\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
-txt\t0.1171555664881081
-0.8403361344537815\t0.01\t0.0007571488133762321\t0\t0\t0.038\t1\t8.5\t30.\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
-txt\t0.17377162126109222
-0.8403361344537815\t0.01\t0.0011999999999999995\t0\t0\t0.038\t1\t8.5\t30.\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
-txt\t0.2499999999999999
-0.8403361344537815\t0.01\t0.0019018718309533362\t0\t0\t0.038\t1\t8.5\t30.\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
-txt\t0.3456772330197648
-0.8403361344537815\t0.01\t0.0030142637178114944\t0\t0\t0.038\t1\t8.5\t30.\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
-txt\t0.455721732064358
-0.8403361344537815\t0.01\t0.004777286046641966\t0\t0\t0.038\t1\t8.5\t30.\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
-txt\t0.5702665541135414
-0.8403361344537815\t0.01\t0.007571488133762321\t0\t0\t0.038\t1\t8.5\t30.\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
-txt\t0.6777510787376546
-0.8403361344537815\t0.01\t0.011999999999999995\t0\t0\t0.038\t1\t8.5\t30.\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
-txt\t0.769230769230769
-0.8403361344537815\t9.000000000000007e-6\t0.01\t0\t0\t0.0095\t1\t8.5\t30.\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
-txt\t0.06250000000000004
-0.8403361344537815\t0.000014264038732150038\t0.01\t0\t0\t0.0095\t1\t8.5\t30.\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
-txt\t0.09556246000918171
-0.8403361344537815\t0.000022606977883586257\t0.01\t0\t0\t0.0095\t1\t8.5\t30.\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
-txt\t0.14343894024974277
-0.8403361344537815\t0.00003582964534981475\t0.01\t0\t0\t0.0095\t1\t8.5\t30.\t\
+txt\t0.1434389402497425
+0.8403361344537815\t0.01\t0.0004777286046641966\t0\t0\t0.0095\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
 txt\t0.2097390372522576
-0.8403361344537815\t0.00005678616100321741\t0.01\t0\t0\t0.0095\t1\t8.5\t30.\t\
+0.8403361344537815\t0.01\t0.0007571488133762321\t0\t0\t0.0095\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
 txt\t0.2960910250571456
-0.8403361344537815\t0.00009000000000000007\t0.01\t0\t0\t0.0095\t1\t8.5\t30.\t\
+0.8403361344537815\t0.01\t0.0011999999999999995\t0\t0\t0.0095\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
-txt\t0.40000000000000013
-0.8403361344537815\t0.00014264038732150037\t0.01\t0\t0\t0.0095\t1\t8.5\t30.\t\
+txt\t0.3999999999999999
+0.8403361344537815\t0.01\t0.0019018718309533362\t0\t0\t0.0095\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
-txt\t0.5137595027063786
-0.8403361344537815\t0.00022606977883586258\t0.01\t0\t0\t0.0095\t1\t8.5\t30.\t\
+txt\t0.5137595027063783
+0.8403361344537815\t0.01\t0.0030142637178114944\t0\t0\t0.0095\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
-txt\t0.6261110513450943
-0.8403361344537815\t0.00035829645349814786\t0.01\t0\t0\t0.0095\t1\t8.5\t30.\t\
+txt\t0.6261110513450937
+0.8403361344537815\t0.01\t0.004777286046641966\t0\t0\t0.0095\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
-txt\t0.726330892827903
-0.8403361344537815\t0.0005678616100321741\t0.01\t0\t0\t0.0095\t1\t8.5\t30.\t\
+txt\t0.7263308928279026
+0.8403361344537815\t0.01\t0.007571488133762321\t0\t0\t0.0095\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
 txt\t0.8079280500270597
-0.8403361344537815\t0.0009000000000000007\t0.01\t0\t0\t0.0095\t1\t8.5\t30.\t\
+0.8403361344537815\t0.01\t0.011999999999999995\t0\t0\t0.0095\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
 txt\t0.8695652173913043
-0.8403361344537815\t9.000000000000007e-6\t0.01\t0\t0\t0.019\t1\t8.5\t30.\t\
+0.8403361344537815\t0.01\t0.00011999999999999995\t0\t0\t0.019\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
-txt\t0.04761904761904766
-0.8403361344537815\t0.000014264038732150038\t0.01\t0\t0\t0.019\t1\t8.5\t30.\t\
+txt\t0.0476190476190476
+0.8403361344537815\t0.01\t0.00019018718309533363\t0\t0\t0.019\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
-txt\t0.07342603821707423
-0.8403361344537815\t0.000022606977883586257\t0.01\t0\t0\t0.019\t1\t8.5\t30.\t\
+txt\t0.07342603821707416
+0.8403361344537815\t0.01\t0.0003014263717811494\t0\t0\t0.019\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
-txt\t0.11158045058337406
-0.8403361344537815\t0.00003582964534981475\t0.01\t0\t0\t0.019\t1\t8.5\t30.\t\
+txt\t0.11158045058337385
+0.8403361344537815\t0.01\t0.0004777286046641966\t0\t0\t0.019\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
-txt\t0.16600891546544674
-0.8403361344537815\t0.00005678616100321741\t0.01\t0\t0\t0.019\t1\t8.5\t30.\t\
+txt\t0.16600891546544677
+0.8403361344537815\t0.01\t0.0007571488133762321\t0\t0\t0.019\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
 txt\t0.2398204386718606
-0.8403361344537815\t0.00009000000000000007\t0.01\t0\t0\t0.019\t1\t8.5\t30.\t\
+0.8403361344537815\t0.01\t0.0011999999999999995\t0\t0\t0.019\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
-txt\t0.33333333333333354
-0.8403361344537815\t0.00014264038732150037\t0.01\t0\t0\t0.019\t1\t8.5\t30.\t\
+txt\t0.33333333333333326
+0.8403361344537815\t0.01\t0.0019018718309533362\t0\t0\t0.019\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
-txt\t0.4421033228532669
-0.8403361344537815\t0.00022606977883586258\t0.01\t0\t0\t0.019\t1\t8.5\t30.\t\
+txt\t0.44210332285326664
+0.8403361344537815\t0.01\t0.0030142637178114944\t0\t0\t0.019\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
-txt\t0.5567264313142649
-0.8403361344537815\t0.00035829645349814786\t0.01\t0\t0\t0.019\t1\t8.5\t30.\t\
+txt\t0.5567264313142644
+0.8403361344537815\t0.01\t0.004777286046641966\t0\t0\t0.019\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
-txt\t0.6656117668428604
-0.8403361344537815\t0.0005678616100321741\t0.01\t0\t0\t0.019\t1\t8.5\t30.\t\
+txt\t0.6656117668428602
+0.8403361344537815\t0.01\t0.007571488133762321\t0\t0\t0.019\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
-txt\t0.7593137586080181
-0.8403361344537815\t0.0009000000000000007\t0.01\t0\t0\t0.019\t1\t8.5\t30.\t\
+txt\t0.7593137586080182
+0.8403361344537815\t0.01\t0.011999999999999995\t0\t0\t0.019\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
-txt\t0.8333333333333336
-0.8403361344537815\t9.000000000000007e-6\t0.01\t0\t0\t0.038\t1\t8.5\t30.\t\
+txt\t0.8333333333333333
+0.8403361344537815\t0.01\t0.00011999999999999995\t0\t0\t0.038\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
-txt\t0.03225806451612906
-0.8403361344537815\t0.000014264038732150038\t0.01\t0\t0\t0.038\t1\t8.5\t30.\t\
+txt\t0.03225806451612902
+0.8403361344537815\t0.01\t0.00019018718309533363\t0\t0\t0.038\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
-txt\t0.050178836534403984
-0.8403361344537815\t0.000022606977883586257\t0.01\t0\t0\t0.038\t1\t8.5\t30.\t\
+txt\t0.05017883653440393
+0.8403361344537815\t0.01\t0.0003014263717811494\t0\t0\t0.038\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
-txt\t0.0772605562830441
-0.8403361344537815\t0.00003582964534981475\t0.01\t0\t0\t0.038\t1\t8.5\t30.\t\
+txt\t0.07726055628304394
+0.8403361344537815\t0.01\t0.0004777286046641966\t0\t0\t0.038\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
 txt\t0.11715556648810813
-0.8403361344537815\t0.00005678616100321741\t0.01\t0\t0\t0.038\t1\t8.5\t30.\t\
+0.8403361344537815\t0.01\t0.0007571488133762321\t0\t0\t0.038\t1\t8.5\t30\t\
+/home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
+txt\t0.17377162126109225
+0.8403361344537815\t0.01\t0.0011999999999999995\t0\t0\t0.038\t1\t8.5\t30\t\
+/home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
+txt\t0.2499999999999999
+0.8403361344537815\t0.01\t0.0019018718309533362\t0\t0\t0.038\t1\t8.5\t30\t\
+/home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
+txt\t0.34567723301976483
+0.8403361344537815\t0.01\t0.0030142637178114944\t0\t0\t0.038\t1\t8.5\t30\t\
+/home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
+txt\t0.455721732064358
+0.8403361344537815\t0.01\t0.004777286046641966\t0\t0\t0.038\t1\t8.5\t30\t\
+/home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
+txt\t0.5702665541135414
+0.8403361344537815\t0.01\t0.007571488133762321\t0\t0\t0.038\t1\t8.5\t30\t\
+/home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
+txt\t0.6777510787376546
+0.8403361344537815\t0.01\t0.011999999999999995\t0\t0\t0.038\t1\t8.5\t30\t\
+/home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
+txt\t0.769230769230769
+0.8403361344537815\t9.000000000000007e-6\t0.01\t0\t0\t0.0095\t1\t8.5\t30\t\
+/home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
+txt\t0.06250000000000004
+0.8403361344537815\t0.000014264038732150038\t0.01\t0\t0\t0.0095\t1\t8.5\t30\t\
+/home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
+txt\t0.09556246000918171
+0.8403361344537815\t0.000022606977883586257\t0.01\t0\t0\t0.0095\t1\t8.5\t30\t\
+/home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
+txt\t0.14343894024974277
+0.8403361344537815\t0.00003582964534981475\t0.01\t0\t0\t0.0095\t1\t8.5\t30\t\
+/home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
+txt\t0.2097390372522576
+0.8403361344537815\t0.00005678616100321741\t0.01\t0\t0\t0.0095\t1\t8.5\t30\t\
+/home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
+txt\t0.2960910250571456
+0.8403361344537815\t0.00009000000000000007\t0.01\t0\t0\t0.0095\t1\t8.5\t30\t\
+/home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
+txt\t0.40000000000000013
+0.8403361344537815\t0.00014264038732150037\t0.01\t0\t0\t0.0095\t1\t8.5\t30\t\
+/home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
+txt\t0.5137595027063786
+0.8403361344537815\t0.00022606977883586258\t0.01\t0\t0\t0.0095\t1\t8.5\t30\t\
+/home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
+txt\t0.6261110513450943
+0.8403361344537815\t0.00035829645349814786\t0.01\t0\t0\t0.0095\t1\t8.5\t30\t\
+/home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
+txt\t0.726330892827903
+0.8403361344537815\t0.0005678616100321741\t0.01\t0\t0\t0.0095\t1\t8.5\t30\t\
+/home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
+txt\t0.8079280500270597
+0.8403361344537815\t0.0009000000000000007\t0.01\t0\t0\t0.0095\t1\t8.5\t30\t\
+/home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
+txt\t0.8695652173913043
+0.8403361344537815\t9.000000000000007e-6\t0.01\t0\t0\t0.019\t1\t8.5\t30\t\
+/home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
+txt\t0.04761904761904766
+0.8403361344537815\t0.000014264038732150038\t0.01\t0\t0\t0.019\t1\t8.5\t30\t\
+/home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
+txt\t0.07342603821707423
+0.8403361344537815\t0.000022606977883586257\t0.01\t0\t0\t0.019\t1\t8.5\t30\t\
+/home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
+txt\t0.11158045058337406
+0.8403361344537815\t0.00003582964534981475\t0.01\t0\t0\t0.019\t1\t8.5\t30\t\
+/home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
+txt\t0.16600891546544674
+0.8403361344537815\t0.00005678616100321741\t0.01\t0\t0\t0.019\t1\t8.5\t30\t\
+/home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
+txt\t0.2398204386718606
+0.8403361344537815\t0.00009000000000000007\t0.01\t0\t0\t0.019\t1\t8.5\t30\t\
+/home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
+txt\t0.33333333333333354
+0.8403361344537815\t0.00014264038732150037\t0.01\t0\t0\t0.019\t1\t8.5\t30\t\
+/home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
+txt\t0.4421033228532669
+0.8403361344537815\t0.00022606977883586258\t0.01\t0\t0\t0.019\t1\t8.5\t30\t\
+/home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
+txt\t0.5567264313142649
+0.8403361344537815\t0.00035829645349814786\t0.01\t0\t0\t0.019\t1\t8.5\t30\t\
+/home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
+txt\t0.6656117668428604
+0.8403361344537815\t0.0005678616100321741\t0.01\t0\t0\t0.019\t1\t8.5\t30\t\
+/home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
+txt\t0.7593137586080181
+0.8403361344537815\t0.0009000000000000007\t0.01\t0\t0\t0.019\t1\t8.5\t30\t\
+/home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
+txt\t0.8333333333333336
+0.8403361344537815\t9.000000000000007e-6\t0.01\t0\t0\t0.038\t1\t8.5\t30\t\
+/home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
+txt\t0.03225806451612906
+0.8403361344537815\t0.000014264038732150038\t0.01\t0\t0\t0.038\t1\t8.5\t30\t\
+/home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
+txt\t0.050178836534403984
+0.8403361344537815\t0.000022606977883586257\t0.01\t0\t0\t0.038\t1\t8.5\t30\t\
+/home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
+txt\t0.0772605562830441
+0.8403361344537815\t0.00003582964534981475\t0.01\t0\t0\t0.038\t1\t8.5\t30\t\
+/home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
+txt\t0.11715556648810813
+0.8403361344537815\t0.00005678616100321741\t0.01\t0\t0\t0.038\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
 txt\t0.17377162126109227
-0.8403361344537815\t0.00009000000000000007\t0.01\t0\t0\t0.038\t1\t8.5\t30.\t\
+0.8403361344537815\t0.00009000000000000007\t0.01\t0\t0\t0.038\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
 txt\t0.25000000000000017
-0.8403361344537815\t0.00014264038732150037\t0.01\t0\t0\t0.038\t1\t8.5\t30.\t\
+0.8403361344537815\t0.00014264038732150037\t0.01\t0\t0\t0.038\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
 txt\t0.345677233019765
-0.8403361344537815\t0.00022606977883586258\t0.01\t0\t0\t0.038\t1\t8.5\t30.\t\
+0.8403361344537815\t0.00022606977883586258\t0.01\t0\t0\t0.038\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
 txt\t0.45572173206435856
-0.8403361344537815\t0.00035829645349814786\t0.01\t0\t0\t0.038\t1\t8.5\t30.\t\
+0.8403361344537815\t0.00035829645349814786\t0.01\t0\t0\t0.038\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
 txt\t0.5702665541135417
-0.8403361344537815\t0.0005678616100321741\t0.01\t0\t0\t0.038\t1\t8.5\t30.\t\
+0.8403361344537815\t0.0005678616100321741\t0.01\t0\t0\t0.038\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
 txt\t0.6777510787376545
-0.8403361344537815\t0.0009000000000000007\t0.01\t0\t0\t0.038\t1\t8.5\t30.\t\
+0.8403361344537815\t0.0009000000000000007\t0.01\t0\t0\t0.038\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateFor.\
 txt\t0.7692307692307694
-0.8403361344537815\t0\t0\t0.01\t0.0000285\t0.0095\t1\t8.5\t30.\t\
+0.8403361344537815\t0\t0\t0.01\t0.0000285\t0.0095\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateRev.\
 txt\t0.06250000000000001
-0.8403361344537815\t0\t0\t0.01\t0.000045169455985141756\t0.0095\t1\t8.5\t30.\t\
+0.8403361344537815\t0\t0\t0.01\t0.000045169455985141756\t0.0095\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateRev.\
 txt\t0.09556246000918166
-0.8403361344537815\t0\t0\t0.01\t0.00007158876329802309\t0.0095\t1\t8.5\t30.\t\
+0.8403361344537815\t0\t0\t0.01\t0.00007158876329802309\t0.0095\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateRev.\
 txt\t0.14343894024974266
-0.8403361344537815\t0\t0\t0.01\t0.00011346054360774674\t0.0095\t1\t8.5\t30.\t\
+0.8403361344537815\t0\t0\t0.01\t0.00011346054360774674\t0.0095\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateRev.\
 txt\t0.20973903725225762
-0.8403361344537815\t0\t0\t0.01\t0.000179822843176855\t0.0095\t1\t8.5\t30.\t\
+0.8403361344537815\t0\t0\t0.01\t0.000179822843176855\t0.0095\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateRev.\
 txt\t0.29609102505714546
-0.8403361344537815\t0\t0\t0.01\t0.000285\t0.0095\t1\t8.5\t30.\t\
+0.8403361344537815\t0\t0\t0.01\t0.000285\t0.0095\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateRev.\
 txt\t0.39999999999999997
-0.8403361344537815\t0\t0\t0.01\t0.00045169455985141755\t0.0095\t1\t8.5\t30.\t\
+0.8403361344537815\t0\t0\t0.01\t0.00045169455985141755\t0.0095\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateRev.\
 txt\t0.5137595027063785
-0.8403361344537815\t0\t0\t0.01\t0.000715887632980231\t0.0095\t1\t8.5\t30.\t\
+0.8403361344537815\t0\t0\t0.01\t0.000715887632980231\t0.0095\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateRev.\
 txt\t0.626111051345094
-0.8403361344537815\t0\t0\t0.01\t0.0011346054360774674\t0.0095\t1\t8.5\t30.\t\
+0.8403361344537815\t0\t0\t0.01\t0.0011346054360774674\t0.0095\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateRev.\
 txt\t0.7263308928279029
-0.8403361344537815\t0\t0\t0.01\t0.00179822843176855\t0.0095\t1\t8.5\t30.\t\
+0.8403361344537815\t0\t0\t0.01\t0.00179822843176855\t0.0095\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateRev.\
 txt\t0.8079280500270596
-0.8403361344537815\t0\t0\t0.01\t0.00285\t0.0095\t1\t8.5\t30.\t\
+0.8403361344537815\t0\t0\t0.01\t0.00285\t0.0095\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateRev.\
 txt\t0.8695652173913043
-0.8403361344537815\t0\t0\t0.01\t0.0000285\t0.019\t1\t8.5\t30.\t\
+0.8403361344537815\t0\t0\t0.01\t0.0000285\t0.019\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateRev.\
 txt\t0.04761904761904762
-0.8403361344537815\t0\t0\t0.01\t0.000045169455985141756\t0.019\t1\t8.5\t30.\t\
+0.8403361344537815\t0\t0\t0.01\t0.000045169455985141756\t0.019\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateRev.\
 txt\t0.07342603821707419
-0.8403361344537815\t0\t0\t0.01\t0.00007158876329802309\t0.019\t1\t8.5\t30.\t\
+0.8403361344537815\t0\t0\t0.01\t0.00007158876329802309\t0.019\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateRev.\
 txt\t0.11158045058337397
-0.8403361344537815\t0\t0\t0.01\t0.00011346054360774674\t0.019\t1\t8.5\t30.\t\
+0.8403361344537815\t0\t0\t0.01\t0.00011346054360774674\t0.019\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateRev.\
 txt\t0.1660089154654468
-0.8403361344537815\t0\t0\t0.01\t0.000179822843176855\t0.019\t1\t8.5\t30.\t\
+0.8403361344537815\t0\t0\t0.01\t0.000179822843176855\t0.019\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateRev.\
 txt\t0.23982043867186045
-0.8403361344537815\t0\t0\t0.01\t0.000285\t0.019\t1\t8.5\t30.\t\
+0.8403361344537815\t0\t0\t0.01\t0.000285\t0.019\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateRev.\
 txt\t0.3333333333333333
-0.8403361344537815\t0\t0\t0.01\t0.00045169455985141755\t0.019\t1\t8.5\t30.\t\
+0.8403361344537815\t0\t0\t0.01\t0.00045169455985141755\t0.019\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateRev.\
 txt\t0.4421033228532668
-0.8403361344537815\t0\t0\t0.01\t0.000715887632980231\t0.019\t1\t8.5\t30.\t\
+0.8403361344537815\t0\t0\t0.01\t0.000715887632980231\t0.019\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateRev.\
 txt\t0.5567264313142647
-0.8403361344537815\t0\t0\t0.01\t0.0011346054360774674\t0.019\t1\t8.5\t30.\t\
+0.8403361344537815\t0\t0\t0.01\t0.0011346054360774674\t0.019\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateRev.\
 txt\t0.6656117668428603
-0.8403361344537815\t0\t0\t0.01\t0.00179822843176855\t0.019\t1\t8.5\t30.\t\
+0.8403361344537815\t0\t0\t0.01\t0.00179822843176855\t0.019\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateRev.\
 txt\t0.7593137586080182
-0.8403361344537815\t0\t0\t0.01\t0.00285\t0.019\t1\t8.5\t30.\t\
+0.8403361344537815\t0\t0\t0.01\t0.00285\t0.019\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateRev.\
 txt\t0.8333333333333333
-0.8403361344537815\t0\t0\t0.01\t0.0000285\t0.038\t1\t8.5\t30.\t\
+0.8403361344537815\t0\t0\t0.01\t0.0000285\t0.038\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateRev.\
 txt\t0.03225806451612904
-0.8403361344537815\t0\t0\t0.01\t0.000045169455985141756\t0.038\t1\t8.5\t30.\t\
+0.8403361344537815\t0\t0\t0.01\t0.000045169455985141756\t0.038\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateRev.\
 txt\t0.05017883653440395
-0.8403361344537815\t0\t0\t0.01\t0.00007158876329802309\t0.038\t1\t8.5\t30.\t\
+0.8403361344537815\t0\t0\t0.01\t0.00007158876329802309\t0.038\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateRev.\
 txt\t0.07726055628304405
-0.8403361344537815\t0\t0\t0.01\t0.00011346054360774674\t0.038\t1\t8.5\t30.\t\
+0.8403361344537815\t0\t0\t0.01\t0.00011346054360774674\t0.038\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateRev.\
 txt\t0.11715556648810815
-0.8403361344537815\t0\t0\t0.01\t0.000179822843176855\t0.038\t1\t8.5\t30.\t\
+0.8403361344537815\t0\t0\t0.01\t0.000179822843176855\t0.038\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateRev.\
 txt\t0.17377162126109214
-0.8403361344537815\t0\t0\t0.01\t0.000285\t0.038\t1\t8.5\t30.\t\
+0.8403361344537815\t0\t0\t0.01\t0.000285\t0.038\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateRev.\
 txt\t0.25
-0.8403361344537815\t0\t0\t0.01\t0.00045169455985141755\t0.038\t1\t8.5\t30.\t\
+0.8403361344537815\t0\t0\t0.01\t0.00045169455985141755\t0.038\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateRev.\
 txt\t0.34567723301976483
-0.8403361344537815\t0\t0\t0.01\t0.000715887632980231\t0.038\t1\t8.5\t30.\t\
+0.8403361344537815\t0\t0\t0.01\t0.000715887632980231\t0.038\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateRev.\
 txt\t0.45572173206435834
-0.8403361344537815\t0\t0\t0.01\t0.0011346054360774674\t0.038\t1\t8.5\t30.\t\
+0.8403361344537815\t0\t0\t0.01\t0.0011346054360774674\t0.038\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateRev.\
 txt\t0.5702665541135415
-0.8403361344537815\t0\t0\t0.01\t0.00179822843176855\t0.038\t1\t8.5\t30.\t\
+0.8403361344537815\t0\t0\t0.01\t0.00179822843176855\t0.038\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateRev.\
 txt\t0.6777510787376545
-0.8403361344537815\t0\t0\t0.01\t0.00285\t0.038\t1\t8.5\t30.\t\
+0.8403361344537815\t0\t0\t0.01\t0.00285\t0.038\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateRev.\
 txt\t0.7692307692307693
-0.8403361344537815\t0\t0\t3.7999999999999996e-6\t0.01\t0.0095\t1\t8.5\t30.\t\
+0.8403361344537815\t0\t0\t3.7999999999999996e-6\t0.01\t0.0095\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateRev.\
-txt\t0.0625
-0.8403361344537815\t0\t0\t6.022594131352233e-6\t0.01\t0.0095\t1\t8.5\t30.\t\
+txt\t0.062499999999999986
+0.8403361344537815\t0\t0\t6.022594131352233e-6\t0.01\t0.0095\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateRev.\
-txt\t0.09556246000918166
-0.8403361344537815\t0\t0\t9.545168439736411e-6\t0.01\t0.0095\t1\t8.5\t30.\t\
+txt\t0.09556246000918163
+0.8403361344537815\t0\t0\t9.545168439736411e-6\t0.01\t0.0095\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateRev.\
-txt\t0.14343894024974269
-0.8403361344537815\t0\t0\t0.000015128072481032882\t0.01\t0.0095\t1\t8.5\t30.\t\
+txt\t0.14343894024974266
+0.8403361344537815\t0\t0\t0.000015128072481032882\t0.01\t0.0095\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateRev.\
-txt\t0.2097390372522575
-0.8403361344537815\t0\t0\t0.00002397637909024733\t0.01\t0.0095\t1\t8.5\t30.\t\
+txt\t0.20973903725225743
+0.8403361344537815\t0\t0\t0.00002397637909024733\t0.01\t0.0095\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateRev.\
-txt\t0.2960910250571455
-0.8403361344537815\t0\t0\t0.000037999999999999995\t0.01\t0.0095\t1\t8.5\t30.\t\
+txt\t0.29609102505714546
+0.8403361344537815\t0\t0\t0.000037999999999999995\t0.01\t0.0095\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateRev.\
-txt\t0.4000000000000001
-0.8403361344537815\t0\t0\t0.000060225941313522335\t0.01\t0.0095\t1\t8.5\t30.\t\
+txt\t0.3999999999999999
+0.8403361344537815\t0\t0\t0.000060225941313522335\t0.01\t0.0095\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateRev.\
-txt\t0.5137595027063785
-0.8403361344537815\t0\t0\t0.00009545168439736412\t0.01\t0.0095\t1\t8.5\t30.\t\
+txt\t0.5137595027063784
+0.8403361344537815\t0\t0\t0.00009545168439736412\t0.01\t0.0095\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateRev.\
-txt\t0.6261110513450941
-0.8403361344537815\t0\t0\t0.00015128072481032897\t0.01\t0.0095\t1\t8.5\t30.\t\
+txt\t0.626111051345094
+0.8403361344537815\t0\t0\t0.00015128072481032897\t0.01\t0.0095\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateRev.\
 txt\t0.7263308928279028
-0.8403361344537815\t0\t0\t0.0002397637909024733\t0.01\t0.0095\t1\t8.5\t30.\t\
+0.8403361344537815\t0\t0\t0.0002397637909024733\t0.01\t0.0095\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateRev.\
 txt\t0.8079280500270596
-0.8403361344537815\t0\t0\t0.00037999999999999997\t0.01\t0.0095\t1\t8.5\t30.\t\
+0.8403361344537815\t0\t0\t0.00037999999999999997\t0.01\t0.0095\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateRev.\
-txt\t0.8695652173913044
-0.8403361344537815\t0\t0\t3.7999999999999996e-6\t0.01\t0.019\t1\t8.5\t30.\t\
+txt\t0.8695652173913043
+0.8403361344537815\t0\t0\t3.7999999999999996e-6\t0.01\t0.019\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateRev.\
-txt\t0.04761904761904762
-0.8403361344537815\t0\t0\t6.022594131352233e-6\t0.01\t0.019\t1\t8.5\t30.\t\
+txt\t0.04761904761904761
+0.8403361344537815\t0\t0\t6.022594131352233e-6\t0.01\t0.019\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateRev.\
-txt\t0.07342603821707419
-0.8403361344537815\t0\t0\t9.545168439736411e-6\t0.01\t0.019\t1\t8.5\t30.\t\
+txt\t0.07342603821707418
+0.8403361344537815\t0\t0\t9.545168439736411e-6\t0.01\t0.019\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateRev.\
-txt\t0.11158045058337399
-0.8403361344537815\t0\t0\t0.000015128072481032882\t0.01\t0.019\t1\t8.5\t30.\t\
+txt\t0.11158045058337397
+0.8403361344537815\t0\t0\t0.000015128072481032882\t0.01\t0.019\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateRev.\
-txt\t0.16600891546544666
-0.8403361344537815\t0\t0\t0.00002397637909024733\t0.01\t0.019\t1\t8.5\t30.\t\
+txt\t0.1660089154654466
+0.8403361344537815\t0\t0\t0.00002397637909024733\t0.01\t0.019\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateRev.\
 txt\t0.23982043867186045
-0.8403361344537815\t0\t0\t0.000037999999999999995\t0.01\t0.019\t1\t8.5\t30.\t\
+0.8403361344537815\t0\t0\t0.000037999999999999995\t0.01\t0.019\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateRev.\
-txt\t0.3333333333333333
-0.8403361344537815\t0\t0\t0.000060225941313522335\t0.01\t0.019\t1\t8.5\t30.\t\
+txt\t0.33333333333333326
+0.8403361344537815\t0\t0\t0.000060225941313522335\t0.01\t0.019\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateRev.\
-txt\t0.4421033228532668
-0.8403361344537815\t0\t0\t0.00009545168439736412\t0.01\t0.019\t1\t8.5\t30.\t\
+txt\t0.4421033228532667
+0.8403361344537815\t0\t0\t0.00009545168439736412\t0.01\t0.019\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateRev.\
 txt\t0.5567264313142646
-0.8403361344537815\t0\t0\t0.00015128072481032897\t0.01\t0.019\t1\t8.5\t30.\t\
+0.8403361344537815\t0\t0\t0.00015128072481032897\t0.01\t0.019\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateRev.\
-txt\t0.6656117668428604
-0.8403361344537815\t0\t0\t0.0002397637909024733\t0.01\t0.019\t1\t8.5\t30.\t\
+txt\t0.6656117668428602
+0.8403361344537815\t0\t0\t0.0002397637909024733\t0.01\t0.019\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateRev.\
-txt\t0.7593137586080181
-0.8403361344537815\t0\t0\t0.00037999999999999997\t0.01\t0.019\t1\t8.5\t30.\t\
+txt\t0.759313758608018
+0.8403361344537815\t0\t0\t0.00037999999999999997\t0.01\t0.019\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateRev.\
 txt\t0.8333333333333334
-0.8403361344537815\t0\t0\t3.7999999999999996e-6\t0.01\t0.038\t1\t8.5\t30.\t\
+0.8403361344537815\t0\t0\t3.7999999999999996e-6\t0.01\t0.038\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateRev.\
-txt\t0.03225806451612903
-0.8403361344537815\t0\t0\t6.022594131352233e-6\t0.01\t0.038\t1\t8.5\t30.\t\
+txt\t0.032258064516129024
+0.8403361344537815\t0\t0\t6.022594131352233e-6\t0.01\t0.038\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateRev.\
-txt\t0.05017883653440395
-0.8403361344537815\t0\t0\t9.545168439736411e-6\t0.01\t0.038\t1\t8.5\t30.\t\
+txt\t0.050178836534403935
+0.8403361344537815\t0\t0\t9.545168439736411e-6\t0.01\t0.038\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateRev.\
-txt\t0.07726055628304405
-0.8403361344537815\t0\t0\t0.000015128072481032882\t0.01\t0.038\t1\t8.5\t30.\t\
+txt\t0.07726055628304404
+0.8403361344537815\t0\t0\t0.000015128072481032882\t0.01\t0.038\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateRev.\
-txt\t0.11715556648810806
-0.8403361344537815\t0\t0\t0.00002397637909024733\t0.01\t0.038\t1\t8.5\t30.\t\
+txt\t0.11715556648810803
+0.8403361344537815\t0\t0\t0.00002397637909024733\t0.01\t0.038\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateRev.\
-txt\t0.17377162126109216
-0.8403361344537815\t0\t0\t0.000037999999999999995\t0.01\t0.038\t1\t8.5\t30.\t\
+txt\t0.17377162126109214
+0.8403361344537815\t0\t0\t0.000037999999999999995\t0.01\t0.038\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateRev.\
-txt\t0.25
-0.8403361344537815\t0\t0\t0.000060225941313522335\t0.01\t0.038\t1\t8.5\t30.\t\
+txt\t0.24999999999999997
+0.8403361344537815\t0\t0\t0.000060225941313522335\t0.01\t0.038\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateRev.\
-txt\t0.3456772330197649
-0.8403361344537815\t0\t0\t0.00009545168439736412\t0.01\t0.038\t1\t8.5\t30.\t\
+txt\t0.34567723301976483
+0.8403361344537815\t0\t0\t0.00009545168439736412\t0.01\t0.038\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateRev.\
-txt\t0.45572173206435845
-0.8403361344537815\t0\t0\t0.00015128072481032897\t0.01\t0.038\t1\t8.5\t30.\t\
+txt\t0.45572173206435834
+0.8403361344537815\t0\t0\t0.00015128072481032897\t0.01\t0.038\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateRev.\
 txt\t0.5702665541135415
-0.8403361344537815\t0\t0\t0.0002397637909024733\t0.01\t0.038\t1\t8.5\t30.\t\
+0.8403361344537815\t0\t0\t0.0002397637909024733\t0.01\t0.038\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateRev.\
 txt\t0.6777510787376545
-0.8403361344537815\t0\t0\t0.00037999999999999997\t0.01\t0.038\t1\t8.5\t30.\t\
+0.8403361344537815\t0\t0\t0.00037999999999999997\t0.01\t0.038\t1\t8.5\t30\t\
 /home/mrama/Dropbox/MASS_fitting_package/examples/fit_TALA2/input/absRateRev.\
 txt\t0.7692307692307692\
 \>", "Print",
@@ -3638,7 +3622,8 @@ txt\t0.7692307692307692\
    3.689339792055841*^9, 3.689420532965787*^9, 3.689587136166428*^9, 
    3.692518181413623*^9, 3.693735157645378*^9, 3.69492891020261*^9, {
    3.6950372379823217`*^9, 3.6950372632871313`*^9}, 3.695115784965497*^9, 
-   3.695467553274301*^9, 3.695477480998683*^9, 3.695645214904498*^9}]
+   3.695467553274301*^9, 3.695477480998683*^9, 3.695645214904498*^9, 
+   3.6983995808531218`*^9}]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
@@ -22708,7 +22693,7 @@ Cell[BoxData[""], "Input",
 },
 Evaluator->"Local2",
 WindowSize->{1440, 876},
-WindowMargins->{{250, Automatic}, {68, Automatic}},
+WindowMargins->{{86, Automatic}, {-29, Automatic}},
 ShowSelection->True,
 CellContext->Notebook,
 FrontEndVersion->"11.0 for Linux x86 (64-bit) (September 21, 2016)",
@@ -22734,224 +22719,220 @@ Cell[1245, 39, 364, 9, 80, "Input"],
 Cell[CellGroupData[{
 Cell[1634, 52, 1783, 42, 215, "Input"],
 Cell[CellGroupData[{
-Cell[3442, 98, 843, 11, 24, "Print"],
-Cell[4288, 111, 860, 12, 24, "Print"]
+Cell[3442, 98, 868, 12, 24, "Print"],
+Cell[4313, 112, 887, 13, 24, "Print"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[5209, 130, 169, 2, 65, "Section"],
-Cell[5381, 134, 2451, 64, 306, "Input"]
+Cell[5261, 132, 169, 2, 65, "Section"],
+Cell[5433, 136, 2486, 64, 306, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[7869, 203, 307, 4, 65, "Section"],
+Cell[7956, 205, 307, 4, 65, "Section"],
 Cell[CellGroupData[{
-Cell[8201, 211, 158, 2, 45, "Subsection"],
+Cell[8288, 213, 158, 2, 45, "Subsection"],
 Cell[CellGroupData[{
-Cell[8384, 217, 408, 8, 34, "Input"],
+Cell[8471, 219, 436, 9, 34, "Input"],
 Cell[CellGroupData[{
-Cell[8817, 229, 4180, 125, 35, "Print"],
-Cell[13000, 356, 251, 3, 26, "Print"],
-Cell[13254, 361, 232, 3, 24, "Print"],
-Cell[13489, 366, 235, 3, 24, "Print"],
-Cell[13727, 371, 218, 3, 24, "Print"],
-Cell[13948, 376, 230, 3, 24, "Print"],
-Cell[14181, 381, 6758, 170, 118, "Print"],
-Cell[20942, 553, 218, 3, 24, "Print"],
-Cell[21163, 558, 230, 3, 24, "Print"],
-Cell[21396, 563, 881, 20, 26, "Print"],
-Cell[22280, 585, 220, 3, 24, "Print"],
-Cell[22503, 590, 230, 3, 24, "Print"],
-Cell[22736, 595, 3273, 82, 87, "Print"],
-Cell[26012, 679, 218, 3, 24, "Print"],
-Cell[26233, 684, 236, 3, 24, "Print"],
-Cell[26472, 689, 7887, 194, 99, "Print"],
-Cell[34362, 885, 218, 3, 24, "Print"],
-Cell[34583, 890, 236, 3, 24, "Print"],
-Cell[34822, 895, 910, 21, 26, "Print"],
-Cell[35735, 918, 217, 3, 24, "Print"],
-Cell[35955, 923, 235, 3, 24, "Print"],
-Cell[36193, 928, 880, 20, 26, "Print"]
+Cell[8932, 232, 4204, 125, 35, "Print"],
+Cell[13139, 359, 274, 3, 26, "Print"],
+Cell[13416, 364, 252, 3, 24, "Print"],
+Cell[13671, 369, 255, 3, 24, "Print"],
+Cell[13929, 374, 240, 3, 24, "Print"],
+Cell[14172, 379, 250, 3, 24, "Print"],
+Cell[14425, 384, 6697, 169, 118, "Print"],
+Cell[21125, 555, 242, 3, 24, "Print"],
+Cell[21370, 560, 252, 3, 24, "Print"],
+Cell[21625, 565, 903, 20, 26, "Print"],
+Cell[22531, 587, 240, 3, 24, "Print"],
+Cell[22774, 592, 251, 3, 24, "Print"],
+Cell[23028, 597, 3289, 82, 87, "Print"],
+Cell[26320, 681, 240, 3, 24, "Print"],
+Cell[26563, 686, 258, 3, 24, "Print"],
+Cell[26824, 691, 7931, 195, 99, "Print"],
+Cell[34758, 888, 240, 3, 24, "Print"],
+Cell[35001, 893, 258, 3, 24, "Print"],
+Cell[35262, 898, 954, 21, 26, "Print"],
+Cell[36219, 921, 242, 3, 24, "Print"],
+Cell[36464, 926, 257, 3, 24, "Print"],
+Cell[36724, 931, 902, 20, 26, "Print"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[37122, 954, 92, 1, 32, "Input"],
-Cell[37217, 957, 145, 3, 34, "Output"]
+Cell[37675, 957, 92, 1, 32, "Input"],
+Cell[37770, 960, 145, 3, 34, "Output"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[37411, 966, 113, 1, 45, "Subsection"],
-Cell[37527, 969, 611, 18, 49, "Input"],
-Cell[38141, 989, 5033, 81, 326, "Input"]
+Cell[37964, 969, 113, 1, 45, "Subsection"],
+Cell[38080, 972, 611, 18, 49, "Input"],
+Cell[38694, 992, 5033, 81, 326, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[43211, 1075, 169, 3, 45, "Subsection"],
+Cell[43764, 1078, 169, 3, 45, "Subsection"],
 Cell[CellGroupData[{
-Cell[43405, 1082, 13536, 363, 1429, "Input"],
-Cell[56944, 1447, 15193, 370, 112, "Output"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[72174, 1822, 98, 1, 32, "Input"],
-Cell[72275, 1825, 486, 16, 43, "Output"]
+Cell[43958, 1085, 13536, 363, 1429, "Input"],
+Cell[57497, 1450, 15220, 371, 126, "Output"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[72822, 1848, 191, 2, 65, "Section"],
+Cell[72778, 1828, 191, 2, 65, "Section"],
 Cell[CellGroupData[{
-Cell[73038, 1854, 82, 1, 45, "Subsection"],
-Cell[73123, 1857, 10989, 321, 465, "Input"]
+Cell[72994, 1834, 82, 1, 45, "Subsection"],
+Cell[73079, 1837, 10989, 321, 465, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[84149, 2183, 178, 3, 44, "Subsection"],
-Cell[84330, 2188, 9217, 227, 767, "Input"],
+Cell[84105, 2163, 178, 3, 44, "Subsection"],
+Cell[84286, 2168, 9217, 227, 767, "Input"],
 Cell[CellGroupData[{
-Cell[93572, 2419, 111, 1, 35, "Subsubsection"],
+Cell[93528, 2399, 111, 1, 35, "Subsubsection"],
 Cell[CellGroupData[{
-Cell[93708, 2424, 1300, 42, 103, "Input"],
-Cell[95011, 2468, 3245, 58, 238, "Output"]
+Cell[93664, 2404, 1300, 42, 103, "Input"],
+Cell[94967, 2448, 3267, 59, 238, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[98293, 2531, 4251, 124, 218, "Input"],
-Cell[102547, 2657, 344, 7, 34, "Output"],
-Cell[102894, 2666, 346, 7, 34, "Output"],
-Cell[103243, 2675, 343, 7, 34, "Output"],
-Cell[103589, 2684, 8884, 161, 245, "Output"]
+Cell[98271, 2512, 4251, 124, 218, "Input"],
+Cell[102525, 2638, 352, 7, 34, "Output"],
+Cell[102880, 2647, 371, 8, 34, "Output"],
+Cell[103254, 2657, 369, 8, 34, "Output"],
+Cell[103626, 2667, 8908, 162, 245, "Output"]
 }, Open  ]]
 }, Closed]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[112534, 2852, 141, 2, 45, "Subsection"],
+Cell[112595, 2836, 141, 2, 45, "Subsection"],
 Cell[CellGroupData[{
-Cell[112700, 2858, 3867, 77, 236, "Input"],
-Cell[116570, 2937, 40327, 703, 3951, "Print"]
+Cell[112761, 2842, 3867, 77, 236, "Input"],
+Cell[116631, 2921, 40206, 704, 3951, "Print"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[156958, 3647, 297, 4, 65, "Section"],
-Cell[157258, 3653, 808, 18, 80, "Input"],
+Cell[156898, 3632, 297, 4, 65, "Section"],
+Cell[157198, 3638, 808, 18, 80, "Input"],
 Cell[CellGroupData[{
-Cell[158091, 3675, 544, 11, 56, "Input"],
-Cell[158638, 3688, 1482, 41, 399, "Print"]
+Cell[158031, 3660, 544, 11, 56, "Input"],
+Cell[158578, 3673, 1482, 41, 399, "Print"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[160169, 3735, 297, 4, 65, "Section"],
-Cell[160469, 3741, 2571, 40, 34, "Input"],
+Cell[160109, 3720, 297, 4, 65, "Section"],
+Cell[160409, 3726, 2571, 40, 34, "Input"],
 Cell[CellGroupData[{
-Cell[163065, 3785, 437, 8, 56, "Input"],
-Cell[163505, 3795, 1886, 41, 297, "Print"]
+Cell[163005, 3770, 437, 8, 56, "Input"],
+Cell[163445, 3780, 1886, 41, 297, "Print"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[165428, 3841, 247, 3, 45, "Subsection"],
+Cell[165368, 3826, 247, 3, 45, "Subsection"],
 Cell[CellGroupData[{
-Cell[165700, 3848, 2002, 47, 239, "Input"],
-Cell[167705, 3897, 717, 11, 32, "Output"]
+Cell[165640, 3833, 2002, 47, 239, "Input"],
+Cell[167645, 3882, 717, 11, 32, "Output"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[168483, 3915, 160, 2, 65, "Section"],
+Cell[168423, 3900, 160, 2, 65, "Section"],
 Cell[CellGroupData[{
-Cell[168668, 3921, 122, 1, 45, "Subsection"],
+Cell[168608, 3906, 122, 1, 45, "Subsection"],
 Cell[CellGroupData[{
-Cell[168815, 3926, 980, 24, 103, "Input"],
-Cell[169798, 3952, 351, 5, 121, "Output"]
+Cell[168755, 3911, 980, 24, 103, "Input"],
+Cell[169738, 3937, 351, 5, 121, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[170186, 3962, 239, 3, 35, "Subsubsection"],
+Cell[170126, 3947, 239, 3, 35, "Subsubsection"],
 Cell[CellGroupData[{
-Cell[170450, 3969, 522, 14, 70, "Input"],
-Cell[170975, 3985, 203, 3, 70, "Output"]
+Cell[170390, 3954, 522, 14, 70, "Input"],
+Cell[170915, 3970, 203, 3, 70, "Output"]
 }, Open  ]],
-Cell[171193, 3991, 659, 17, 70, "Input"]
+Cell[171133, 3976, 659, 17, 70, "Input"]
 }, Closed]],
 Cell[CellGroupData[{
-Cell[171889, 4013, 262, 5, 29, "Subsubsection"],
-Cell[172154, 4020, 179, 4, 70, "Text"],
+Cell[171829, 3998, 262, 5, 29, "Subsubsection"],
+Cell[172094, 4005, 179, 4, 70, "Text"],
 Cell[CellGroupData[{
-Cell[172358, 4028, 616, 16, 70, "Input"],
-Cell[172977, 4046, 435, 8, 70, "Output"]
+Cell[172298, 4013, 616, 16, 70, "Input"],
+Cell[172917, 4031, 435, 8, 70, "Output"]
 }, Open  ]],
-Cell[173427, 4057, 693, 18, 70, "Input"]
+Cell[173367, 4042, 693, 18, 70, "Input"]
 }, Closed]]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[174181, 4082, 233, 3, 65, "Section"],
-Cell[174417, 4087, 1940, 43, 192, "Input"],
+Cell[174121, 4067, 233, 3, 65, "Section"],
+Cell[174357, 4072, 1940, 43, 192, "Input"],
 Cell[CellGroupData[{
-Cell[176382, 4134, 211, 3, 32, "Input"],
-Cell[176596, 4139, 6810, 131, 774, "Output"]
+Cell[176322, 4119, 211, 3, 32, "Input"],
+Cell[176536, 4124, 6810, 131, 774, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[183443, 4275, 101, 1, 44, "Subsection"],
+Cell[183383, 4260, 101, 1, 44, "Subsection"],
 Cell[CellGroupData[{
-Cell[183569, 4280, 1203, 34, 57, "Input"],
-Cell[184775, 4316, 2458, 53, 243, "Output"],
-Cell[187236, 4371, 2445, 53, 243, "Output"]
+Cell[183509, 4265, 1203, 34, 57, "Input"],
+Cell[184715, 4301, 2458, 53, 243, "Output"],
+Cell[187176, 4356, 2445, 53, 243, "Output"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[189730, 4430, 86, 1, 44, "Subsection"],
+Cell[189670, 4415, 86, 1, 44, "Subsection"],
 Cell[CellGroupData[{
-Cell[189841, 4435, 1013, 27, 78, "Input"],
-Cell[190857, 4464, 65607, 1462, 235, "Output"]
+Cell[189781, 4420, 1013, 27, 78, "Input"],
+Cell[190797, 4449, 65607, 1462, 235, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[256501, 5931, 1115, 25, 101, "Input"],
-Cell[257619, 5958, 37112, 818, 235, "Output"]
+Cell[256441, 5916, 1115, 25, 101, "Input"],
+Cell[257559, 5943, 37112, 818, 235, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[294768, 6781, 1766, 44, 100, "Input"],
-Cell[296537, 6827, 115459, 2204, 248, "Output"]
+Cell[294708, 6766, 1766, 44, 100, "Input"],
+Cell[296477, 6812, 115459, 2204, 248, "Output"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[412045, 9037, 89, 1, 44, "Subsection"],
-Cell[412137, 9040, 810, 23, 101, "Input"],
-Cell[412950, 9065, 747, 20, 78, "Input"],
+Cell[411985, 9022, 89, 1, 44, "Subsection"],
+Cell[412077, 9025, 810, 23, 101, "Input"],
+Cell[412890, 9050, 747, 20, 78, "Input"],
 Cell[CellGroupData[{
-Cell[413722, 9089, 760, 15, 34, "Input"],
-Cell[414485, 9106, 231568, 5011, 232, "Output"]
+Cell[413662, 9074, 760, 15, 34, "Input"],
+Cell[414425, 9091, 231568, 5011, 232, "Output"]
 }, Open  ]],
-Cell[646068, 14120, 236, 3, 32, "Input"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[646341, 14128, 311, 5, 45, "Subsection"],
-Cell[646655, 14135, 1484, 44, 95, "Input"],
-Cell[CellGroupData[{
-Cell[648164, 14183, 769, 14, 34, "Input"],
-Cell[648936, 14199, 2171, 49, 52, "Output"]
+Cell[646008, 14105, 236, 3, 32, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[651144, 14253, 311, 6, 34, "Input"],
-Cell[651458, 14261, 902, 20, 52, "Output"]
+Cell[646281, 14113, 311, 5, 45, "Subsection"],
+Cell[646595, 14120, 1484, 44, 95, "Input"],
+Cell[CellGroupData[{
+Cell[648104, 14168, 769, 14, 34, "Input"],
+Cell[648876, 14184, 2171, 49, 52, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[652397, 14286, 256, 6, 34, "Input"],
-Cell[652656, 14294, 685, 17, 52, "Output"]
+Cell[651084, 14238, 311, 6, 34, "Input"],
+Cell[651398, 14246, 902, 20, 52, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[652337, 14271, 256, 6, 34, "Input"],
+Cell[652596, 14279, 685, 17, 52, "Output"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[653402, 14318, 288, 4, 65, "Section"],
-Cell[653693, 14324, 5520, 99, 585, "Input"],
-Cell[659216, 14425, 4460, 85, 747, "Input"],
-Cell[663679, 14512, 115, 1, 32, "Input"],
-Cell[663797, 14515, 1362, 29, 218, "Input"],
-Cell[665162, 14546, 4049, 72, 448, "Input"]
+Cell[653342, 14303, 288, 4, 65, "Section"],
+Cell[653633, 14309, 5520, 99, 585, "Input"],
+Cell[659156, 14410, 4460, 85, 747, "Input"],
+Cell[663619, 14497, 115, 1, 32, "Input"],
+Cell[663737, 14500, 1362, 29, 218, "Input"],
+Cell[665102, 14531, 4049, 72, 448, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[669248, 14623, 310, 4, 65, "Section"],
-Cell[669561, 14629, 346257, 7898, 1283, "Input"],
-Cell[1015821, 22529, 255, 6, 34, "Input"],
-Cell[1016079, 22537, 1788, 36, 147, "Input"],
-Cell[1017870, 22575, 147, 5, 34, "Input"],
-Cell[1018020, 22582, 7242, 113, 282, "Input"],
-Cell[1025265, 22697, 291, 4, 143, "Input"],
-Cell[1025559, 22703, 92, 1, 32, "Input"]
+Cell[669188, 14608, 310, 4, 65, "Section"],
+Cell[669501, 14614, 346257, 7898, 1283, "Input"],
+Cell[1015761, 22514, 255, 6, 34, "Input"],
+Cell[1016019, 22522, 1788, 36, 147, "Input"],
+Cell[1017810, 22560, 147, 5, 34, "Input"],
+Cell[1017960, 22567, 7242, 113, 282, "Input"],
+Cell[1025205, 22682, 291, 4, 143, "Input"],
+Cell[1025499, 22688, 92, 1, 32, "Input"]
 }, Open  ]]
 }, Open  ]]
 }
