@@ -59,5 +59,5 @@ if __name__ == '__main__':
             run_pso(pso_parameters, data_file_name, pso_summary_file_name, pso_ultimate_result_file_name)
 
         # run lma
-        #lma_parameters = _parse_function_parameters(lma_parameter_file_in)
-        #run_lma(lma_parameters, data_file_name, lma_candidates_import_path, lma_candidates_export_path)
+        lma_parameters = _parse_function_parameters(lma_parameter_file_in)
+        run_lma(lma_parameters, data_file_name, lma_candidates_import_path, lma_candidates_export_path)
