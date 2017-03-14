@@ -304,7 +304,7 @@ simulateKmData[rxn_, metsFull_, metSatForSub_, metSatRevSub_, kmList_, otherParm
 	kmListFull = handleCosubstrateData[kmListFull, metsFull, metSatForSub, metSatRevSub, dataRange, assumedSaturatingConc];
 
 	ionicStrength = calculateIonicStrength[kmListFull, bufferInfo, ionCharge];
-	
+	Print[ionicStrength];
 	adjustedKeqVal= 
 		If[NumericQ[KeqVal],	
 			ConstantArray[{Keq[getID[rxn]]-> KeqVal}, Dimensions[kmListFull][[1]]],
@@ -417,7 +417,7 @@ simulateS05Data[rxn_, metsFull_, metSatForSub_, metSatRevSub_, s05List_, otherPa
 	s05ListFull = handleCosubstrateData[s05ListFull, metsFull, metSatForSub, metSatRevSub, dataRange, assumedSaturatingConc];
 
 	ionicStrength = calculateIonicStrength[s05ListFull, bufferInfo, ionCharge];
-Print[ionicStrength];
+
 	adjustedKeqVal= 
 		If[NumericQ[KeqVal],	
 			ConstantArray[{Keq[getID[rxn]]-> KeqVal}, Dimensions[s05ListFull][[1]]],
