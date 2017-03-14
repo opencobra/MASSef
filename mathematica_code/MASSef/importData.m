@@ -16,7 +16,7 @@ Begin["`Private`"];
 
 
 getIonData[dataPath_] := Module[{data, ionChargeData},
-	data = Import[dataPath, "TSV"];
+	data = Import[dataPath, "CSV"];
 	ionChargeData = data[[2;;, All]];
 	Return[ionChargeData];
 ];
@@ -29,7 +29,7 @@ getIonData[dataPath_] := Module[{data, ionChargeData},
 getBufferInfoData[dataPath_] := 
 	Module[{data, nLines, bufferInfoData, line, bufferID, bufferName, pKa, acidCharge, baseCharge, row},
 	
-	data = Import[dataPath, "TSV"];
+	data = Import[dataPath, "CSV"];
 	data = data[[2;;, All]];
 	nLines = Dimensions[data][[1]];
 	
@@ -61,7 +61,7 @@ getEnzymeData[enzName_, dataPath_] := Module[{data, enzymesInd, curEnzymeInd, ne
 										       ecNumber, organism, rxn, mechanism, structure, nActiveSites,  
 										       nAllostericSites, line, dataType, kmList={}, kcatList={}, s05List={},  
 										       inhibitionList={}, activationList={}, otherParmsList={}},
-	data = Import[dataPath, "TSV"];
+	data = Import[dataPath, "CSV"];
 										  
 	enzymesInd = Flatten@Position[Map[StringLength[#] > 1&, data[[All,1]]], True];
 	curEnzymeInd = Flatten[Position[data[[All,1]], enzName]][[1]];
