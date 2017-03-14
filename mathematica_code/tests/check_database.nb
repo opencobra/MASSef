@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[      4390,        130]
-NotebookOptionsPosition[      3790,        105]
-NotebookOutlinePosition[      4129,        120]
-CellTagsIndexPosition[      4086,        117]
+NotebookDataLength[      4425,        130]
+NotebookOptionsPosition[      3825,        105]
+NotebookOutlinePosition[      4164,        120]
+CellTagsIndexPosition[      4121,        117]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -38,10 +38,9 @@ Cell[BoxData[{
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
-   RowBox[{"Get", "[", "\"\<MASSFittingPackage`\>\"", "]"}], ";"}], 
-  "\n"}], "\n", 
+   RowBox[{"Get", "[", "\"\<MASSef`\>\"", "]"}], ";"}], "\n"}], "\n", 
  RowBox[{
-  RowBox[{"dataPath", "=", " ", "\"\<../../data/kinetic_data.xls\>\""}], 
+  RowBox[{"dataPath", "=", " ", "\"\<../../data/kinetic_data.csv\>\""}], 
   ";"}], "\n", 
  RowBox[{
   RowBox[{"enzymeNames", "=", 
@@ -53,7 +52,8 @@ Cell[BoxData[{
    3.6883820106116667`*^9, {3.688382068123302*^9, 3.6883820926808*^9}, {
    3.688910853486333*^9, 3.688910862789702*^9}, {3.688911013551326*^9, 
    3.688911046647273*^9}, {3.689084801130081*^9, 3.689084810233368*^9}, {
-   3.689338695226034*^9, 3.6893387197755537`*^9}, 3.689338880506575*^9}],
+   3.689338695226034*^9, 3.6893387197755537`*^9}, 3.689338880506575*^9, {
+   3.698489357443829*^9, 3.698489362008801*^9}}],
 
 Cell[CellGroupData[{
 
@@ -104,7 +104,7 @@ Cell[BoxData[""], "Input",
  CellChangeTimes->{{3.688910904552006*^9, 3.688910905962446*^9}}]
 },
 WindowSize->{808, 867},
-WindowMargins->{{267, Automatic}, {3, Automatic}},
+WindowMargins->{{270, Automatic}, {3, Automatic}},
 FrontEndVersion->"11.0 for Linux x86 (64-bit) (September 21, 2016)",
 StyleDefinitions->"Default.nb"
 ]
@@ -121,17 +121,17 @@ CellTagsIndex->{}
 Notebook[{
 Cell[558, 20, 171, 4, 50, "Input"],
 Cell[732, 26, 118, 2, 32, "Input"],
-Cell[853, 30, 1007, 25, 148, "Input"],
+Cell[853, 30, 1042, 25, 148, "Input"],
 Cell[CellGroupData[{
-Cell[1885, 59, 1053, 21, 102, "Input"],
+Cell[1920, 59, 1053, 21, 102, "Input"],
 Cell[CellGroupData[{
-Cell[2963, 84, 173, 2, 24, "Print"],
-Cell[3139, 88, 175, 2, 24, "Print"],
-Cell[3317, 92, 173, 2, 24, "Print"],
-Cell[3493, 96, 174, 2, 24, "Print"]
+Cell[2998, 84, 173, 2, 24, "Print"],
+Cell[3174, 88, 175, 2, 24, "Print"],
+Cell[3352, 92, 173, 2, 24, "Print"],
+Cell[3528, 96, 174, 2, 24, "Print"]
 }, Open  ]]
 }, Open  ]],
-Cell[3694, 102, 92, 1, 32, "Input"]
+Cell[3729, 102, 92, 1, 32, "Input"]
 }
 ]
 *)

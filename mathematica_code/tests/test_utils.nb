@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     10811,        297]
-NotebookOptionsPosition[     10387,        277]
-NotebookOutlinePosition[     10720,        292]
-CellTagsIndexPosition[     10677,        289]
+NotebookDataLength[     10827,        297]
+NotebookOptionsPosition[     10397,        277]
+NotebookOutlinePosition[     10736,        292]
+CellTagsIndexPosition[     10693,        289]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -28,7 +28,7 @@ Cell[BoxData[{
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
-   RowBox[{"Get", "[", "\"\<MASSFittingPackage`\>\"", "]"}], ";"}], 
+   RowBox[{"Get", "[", "\"\<MASSef`\>\"", "]"}], ";"}], 
   "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
@@ -55,7 +55,7 @@ Cell[BoxData[{
    3.688379610834086*^9, 3.688379615162458*^9}, {3.6883796704649563`*^9, 
    3.6883796795516977`*^9}, {3.68838057838741*^9, 3.688380615452154*^9}, {
    3.688463975330852*^9, 3.688464039417232*^9}, 3.68933879159813*^9, 
-   3.689338918644104*^9}],
+   3.689338918644104*^9, 3.698489410747109*^9}],
 
 Cell[CellGroupData[{
 
@@ -276,7 +276,7 @@ by other definitions.\"",2,9,1,22746064636932349452,"Local"},
 }, Open  ]]
 },
 WindowSize->{1440, 876},
-WindowMargins->{{Automatic, 0}, {147, 24}},
+WindowMargins->{{Automatic, 3}, {Automatic, 48}},
 FrontEndVersion->"11.0 for Linux x86 (64-bit) (September 21, 2016)",
 StyleDefinitions->"Default.nb"
 ]
@@ -291,12 +291,12 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[558, 20, 1419, 37, 238, "Input"],
+Cell[558, 20, 1429, 37, 238, "Input"],
 Cell[CellGroupData[{
-Cell[2002, 61, 211, 3, 35, "Subsubsection"],
+Cell[2012, 61, 211, 3, 35, "Subsubsection"],
 Cell[CellGroupData[{
-Cell[2238, 68, 7537, 192, 421, "Input"],
-Cell[9778, 262, 581, 11, 23, "Message"]
+Cell[2248, 68, 7537, 192, 421, "Input"],
+Cell[9788, 262, 581, 11, 23, "Message"]
 }, Open  ]]
 }, Open  ]]
 }
