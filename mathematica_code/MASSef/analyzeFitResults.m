@@ -39,11 +39,14 @@ calculateFitSSD[resultsFile_, enzName_, fittingData_, inputPath_, outputPath_, f
 					fittingData[[dataPoint,-2]]/.fileListSub/.Thread[rateConstsSub[[All,1]]-> paramFitProcessed[[paramSet]]]/.Thread[metsSub[[All,1]]-> fittingData[[dataPoint,1;;-3]]]//Abs,
 			{paramSet, 1, Length @ paramFitProcessed}, {dataPoint, 1, Length @ fittingData}];
 
-			If[flagFitType == "abs_ssd",
-				vRelSSD = Total[Table[(Log10[vRelData[[dataSet]]]-Log10[vRelFit[[paramSet,dataSet]]])^2, {paramSet, 1, Length @ vRelFit}, {dataSet, 1, Length @ vRelData}],{2}]];
-			If[flagFitType == "rel_ssd",
-				vRelSSD = Total[Table[(Log10[vRelData[[dataSet]]]-Log10[vRelFit[[paramSet,dataSet]]])^2/Abs[Log10[vRelData[[dataSet]]]], {paramSet, 1, Length[vRelFit]}, {dataSet, 1, Length[vRelData]}],{2}]];
-
+			Which[flagFitType == "abs_ssd",
+				vRelSSD = Total[Table[(vRelData[[dataSet]]-vRelFit[[paramSet,dataSet]])^2, {paramSet, 1, Length @ vRelFit}, {dataSet, 1, Length @ vRelData}],{2}],
+				flagFitType == "rel_ssd",
+				vRelSSD = Total[Table[(vRelData[[dataSet]]-vRelFit[[paramSet,dataSet]])^2/Abs[vRelData[[dataSet]]], {paramSet, 1, Length[vRelFit]}, {dataSet, 1, Length[vRelData]}],{2}],
+				flagFitType == "log_ssd",
+				vRelSSD = Total[Table[(Log10[vRelData[[dataSet]]] - Log10[vRelFit[[paramSet,dataSet]]])^2, {paramSet, 1, Length @ vRelFit}, {dataSet, 1, Length @ vRelData}],{2}]
+			];
+			
 			dataArrayWithSSD = SortBy[
 				Table[
 					{vRelSSD[[i]], paramFitProcessed[[i]], vRelFit[[i]]}, 
