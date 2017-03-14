@@ -193,7 +193,7 @@ parseOtherEntry[line_] := Module[{paramType,entry, substrate, value, uncertainty
 	salts = Map[{#}&, StringSplit[line[[10]], ";"]];
 	salts = parseSubMetLists[salts];
 	
-	entry = {paramType, substrate, value, coSubstrates, units, ph, temperature, buffer, salts};
+	entry = {paramType, substrate, value, units, ph, temperature, buffer, salts};
 	Return[entry];
 ];
 
