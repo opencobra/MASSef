@@ -5,10 +5,11 @@ This is temporary, in the future the documentation will be hosted in readthedocs
 
 Note that not all example notebooks are updated to match the documentation yet.
 
-26/2/2017, examples working:
- - ADK1
- - G3PD2
- - GAPD
- - PFKq
- - TALA2
+Notes 21/3/2017:
+ - dataFileName variable added to customize the name of the data file.
+ - fitLabel variable added to customize the name of the fit results file.
+ - path for pso and lma results no longer in the pso/lma parameters file, now passed directly through the python call
+ - paths with spaces issue fixed
+
+Only the example notebooks GAPD and GAPD_parameter_scan are updated.
 
