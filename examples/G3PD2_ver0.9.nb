@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[   1469773,      32344]
-NotebookOptionsPosition[   1460218,      32033]
-NotebookOutlinePosition[   1460579,      32049]
-CellTagsIndexPosition[   1460536,      32046]
+NotebookDataLength[   1467018,      32378]
+NotebookOptionsPosition[   1458197,      32091]
+NotebookOutlinePosition[   1458559,      32107]
+CellTagsIndexPosition[   1458516,      32104]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -57,17 +57,25 @@ Cell[BoxData[{
  RowBox[{
   RowBox[{"rxnName", "=", "\"\<G3PD2\>\""}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
+  RowBox[{"fitLabel", "=", "rxnName"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"dataFileName", "=", "rxnName"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
   RowBox[{
    RowBox[{"KeqEquilibrator", "=", 
     RowBox[{"2.4", "*", 
      RowBox[{"10", "^", 
-      RowBox[{"-", "5"}]}]}]}], ";"}], 
-  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+      RowBox[{"-", "5"}]}]}]}], ";"}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "user", " ", "will", " ", "need", " ", "to", " ", "change", " ", "this", 
+    " ", "path"}], " ", "*)"}]}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
    RowBox[{
-   "pathMASSFittingPath", " ", "=", " ", 
-    "\"\</home/mrama/Dropbox/MASSef/\>\""}], ";"}], 
+   "pathMASSFittingPackage", " ", "=", " ", 
+    "\"\</home/mrama/Dropbox/test bla/MASSef/\>\""}], ";"}], 
   "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"mainFolder", " ", "=", " ", "\"\<test_refactor\>\""}], 
@@ -80,7 +88,7 @@ Cell[BoxData[{
      " ", "inputPath", ",", " ", "outputPath", ",", " ", 
      "bigg2equilibrator"}], "}"}], "=", 
    RowBox[{"initializeNotebook", "[", 
-    RowBox[{"pathMASSFittingPath", ",", "mainFolder"}], "]"}]}], 
+    RowBox[{"pathMASSFittingPackage", ",", "mainFolder"}], "]"}]}], 
   ";"}]}], "Input",
  CellChangeTimes->{{3.63757078137438*^9, 3.637570781586528*^9}, {
    3.6726085987262*^9, 3.672608601453661*^9}, {3.6872598134554*^9, 
@@ -91,16 +99,24 @@ Cell[BoxData[{
    3.694499464715234*^9}, {3.694856056573072*^9, 3.694856057126384*^9}, 
    3.694861949562727*^9, 3.694862643270625*^9, {3.694862708308373*^9, 
    3.694862709645002*^9}, {3.695362657503477*^9, 3.695362659754779*^9}, {
-   3.695375707900296*^9, 3.695375710471491*^9}, 3.698413513027938*^9}],
+   3.695375707900296*^9, 3.695375710471491*^9}, 3.698413513027938*^9, {
+   3.699087041607155*^9, 3.6990870499529896`*^9}, 3.6990870915591497`*^9, {
+   3.6990879319291162`*^9, 3.699087933688066*^9}}],
 
 Cell[CellGroupData[{
 
-Cell[BoxData["\<\"/home/mrama/Dropbox/MASS_fitting_package/data\"\>"], "Print",
- CellChangeTimes->{3.698399979841403*^9, 3.698400052680719*^9}],
+Cell[BoxData["\<\"/home/mrama/Dropbox/test bla/MASSef/data\"\>"], "Print",
+ CellChangeTimes->{
+  3.698399979841403*^9, 3.698400052680719*^9, {3.699087060998094*^9, 
+   3.6990871042424183`*^9}, 3.699087938505*^9, 3.6990880379802027`*^9, 
+   3.69908831273158*^9}],
 
-Cell[BoxData["\<\"Working \
-dir:/home/mrama/Dropbox/MASS_fitting_package/examples/\"\>"], "Print",
- CellChangeTimes->{3.698399979841403*^9, 3.698400058200966*^9}]
+Cell[BoxData["\<\"Working dir:/home/mrama/Dropbox/test bla/MASSef/examples/\"\
+\>"], "Print",
+ CellChangeTimes->{
+  3.698399979841403*^9, 3.698400052680719*^9, {3.699087060998094*^9, 
+   3.6990871042424183`*^9}, 3.699087938505*^9, 3.6990880379802027`*^9, 
+   3.6990883183378563`*^9}]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
@@ -358,32 +374,44 @@ Cell[BoxData[
   Selectable->False]], "Print",
  CellChangeTimes->{
   3.6983987180749893`*^9, {3.698398869413212*^9, 3.698398898067668*^9}, 
-   3.698399477711253*^9, 3.698399992705015*^9, 3.6984000623630342`*^9}],
+   3.698399477711253*^9, 3.698399992705015*^9, 3.6984000623630342`*^9, 
+   3.699087063509345*^9, 3.6990871133413277`*^9, 3.699087944419058*^9, 
+   3.699088043927298*^9, 3.699088318489818*^9}],
 
 Cell[BoxData["\<\"ordered bi bi; [nadp,glyc3p,dhap,nadph]\"\>"], "Print",
  CellChangeTimes->{
   3.6983987180749893`*^9, {3.698398869413212*^9, 3.698398898067668*^9}, 
-   3.698399477711253*^9, 3.698399992705015*^9, 3.6984000623638678`*^9}],
+   3.698399477711253*^9, 3.698399992705015*^9, 3.6984000623630342`*^9, 
+   3.699087063509345*^9, 3.6990871133413277`*^9, 3.699087944419058*^9, 
+   3.699088043927298*^9, 3.699088318490766*^9}],
 
 Cell[BoxData["\<\"Structure: \"\>"], "Print",
  CellChangeTimes->{
   3.6983987180749893`*^9, {3.698398869413212*^9, 3.698398898067668*^9}, 
-   3.698399477711253*^9, 3.698399992705015*^9, 3.698400062364558*^9}],
+   3.698399477711253*^9, 3.698399992705015*^9, 3.6984000623630342`*^9, 
+   3.699087063509345*^9, 3.6990871133413277`*^9, 3.699087944419058*^9, 
+   3.699088043927298*^9, 3.699088318491543*^9}],
 
 Cell[BoxData["\<\"Active sites: \"\>"], "Print",
  CellChangeTimes->{
   3.6983987180749893`*^9, {3.698398869413212*^9, 3.698398898067668*^9}, 
-   3.698399477711253*^9, 3.698399992705015*^9, 3.698400062365291*^9}],
+   3.698399477711253*^9, 3.698399992705015*^9, 3.6984000623630342`*^9, 
+   3.699087063509345*^9, 3.6990871133413277`*^9, 3.699087944419058*^9, 
+   3.699088043927298*^9, 3.6990883184922657`*^9}],
 
 Cell[BoxData["\<\"\"\>"], "Print",
  CellChangeTimes->{
   3.6983987180749893`*^9, {3.698398869413212*^9, 3.698398898067668*^9}, 
-   3.698399477711253*^9, 3.698399992705015*^9, 3.6984000623659782`*^9}],
+   3.698399477711253*^9, 3.698399992705015*^9, 3.6984000623630342`*^9, 
+   3.699087063509345*^9, 3.6990871133413277`*^9, 3.699087944419058*^9, 
+   3.699088043927298*^9, 3.699088318492963*^9}],
 
 Cell[BoxData["\<\"Km Values:\"\>"], "Print",
  CellChangeTimes->{
   3.6983987180749893`*^9, {3.698398869413212*^9, 3.698398898067668*^9}, 
-   3.698399477711253*^9, 3.698399992705015*^9, 3.698400062366603*^9}],
+   3.698399477711253*^9, 3.698399992705015*^9, 3.6984000623630342`*^9, 
+   3.699087063509345*^9, 3.6990871133413277`*^9, 3.699087944419058*^9, 
+   3.699088043927298*^9, 3.699088318493679*^9}],
 
 Cell[BoxData[
  InterpretationBox[GridBox[{
@@ -478,17 +506,23 @@ Cell[BoxData[
     "glyc3p", 0.00003, {}, "M", 7.4, 23, {{"trishcl", 0.1}}, {}}}]]], "Print",
  CellChangeTimes->{
   3.6983987180749893`*^9, {3.698398869413212*^9, 3.698398898067668*^9}, 
-   3.698399477711253*^9, 3.698399992705015*^9, 3.698400062367671*^9}],
+   3.698399477711253*^9, 3.698399992705015*^9, 3.6984000623630342`*^9, 
+   3.699087063509345*^9, 3.6990871133413277`*^9, 3.699087944419058*^9, 
+   3.699088043927298*^9, 3.699088318494897*^9}],
 
 Cell[BoxData["\<\"\"\>"], "Print",
  CellChangeTimes->{
   3.6983987180749893`*^9, {3.698398869413212*^9, 3.698398898067668*^9}, 
-   3.698399477711253*^9, 3.698399992705015*^9, 3.6984000623692303`*^9}],
+   3.698399477711253*^9, 3.698399992705015*^9, 3.6984000623630342`*^9, 
+   3.699087063509345*^9, 3.6990871133413277`*^9, 3.699087944419058*^9, 
+   3.699088043927298*^9, 3.699088318496613*^9}],
 
 Cell[BoxData["\<\"S0.5 Values:\"\>"], "Print",
  CellChangeTimes->{
   3.6983987180749893`*^9, {3.698398869413212*^9, 3.698398898067668*^9}, 
-   3.698399477711253*^9, 3.698399992705015*^9, 3.6984000623699083`*^9}],
+   3.698399477711253*^9, 3.698399992705015*^9, 3.6984000623630342`*^9, 
+   3.699087063509345*^9, 3.6990871133413277`*^9, 3.699087944419058*^9, 
+   3.699088043927298*^9, 3.699088318497346*^9}],
 
 Cell[BoxData[
  TagBox[GridBox[{
@@ -510,17 +544,23 @@ Cell[BoxData[
    TableForm[BoxForm`e$]]]], "Print",
  CellChangeTimes->{
   3.6983987180749893`*^9, {3.698398869413212*^9, 3.698398898067668*^9}, 
-   3.698399477711253*^9, 3.698399992705015*^9, 3.698400062370682*^9}],
+   3.698399477711253*^9, 3.698399992705015*^9, 3.6984000623630342`*^9, 
+   3.699087063509345*^9, 3.6990871133413277`*^9, 3.699087944419058*^9, 
+   3.699088043927298*^9, 3.699088318498172*^9}],
 
 Cell[BoxData["\<\"\"\>"], "Print",
  CellChangeTimes->{
   3.6983987180749893`*^9, {3.698398869413212*^9, 3.698398898067668*^9}, 
-   3.698399477711253*^9, 3.698399992705015*^9, 3.698400062371603*^9}],
+   3.698399477711253*^9, 3.698399992705015*^9, 3.6984000623630342`*^9, 
+   3.699087063509345*^9, 3.6990871133413277`*^9, 3.699087944419058*^9, 
+   3.699088043927298*^9, 3.699088318499114*^9}],
 
 Cell[BoxData["\<\"kcat Values:\"\>"], "Print",
  CellChangeTimes->{
   3.6983987180749893`*^9, {3.698398869413212*^9, 3.698398898067668*^9}, 
-   3.698399477711253*^9, 3.698399992705015*^9, 3.6984000623723793`*^9}],
+   3.698399477711253*^9, 3.698399992705015*^9, 3.6984000623630342`*^9, 
+   3.699087063509345*^9, 3.6990871133413277`*^9, 3.699087944419058*^9, 
+   3.699088043927298*^9, 3.699088318499855*^9}],
 
 Cell[BoxData[
  TagBox[GridBox[{
@@ -542,17 +582,23 @@ Cell[BoxData[
    TableForm[BoxForm`e$]]]], "Print",
  CellChangeTimes->{
   3.6983987180749893`*^9, {3.698398869413212*^9, 3.698398898067668*^9}, 
-   3.698399477711253*^9, 3.698399992705015*^9, 3.698400062373281*^9}],
+   3.698399477711253*^9, 3.698399992705015*^9, 3.6984000623630342`*^9, 
+   3.699087063509345*^9, 3.6990871133413277`*^9, 3.699087944419058*^9, 
+   3.699088043927298*^9, 3.699088318500733*^9}],
 
 Cell[BoxData["\<\"\"\>"], "Print",
  CellChangeTimes->{
   3.6983987180749893`*^9, {3.698398869413212*^9, 3.698398898067668*^9}, 
-   3.698399477711253*^9, 3.698399992705015*^9, 3.698400062374153*^9}],
+   3.698399477711253*^9, 3.698399992705015*^9, 3.6984000623630342`*^9, 
+   3.699087063509345*^9, 3.6990871133413277`*^9, 3.699087944419058*^9, 
+   3.699088043927298*^9, 3.6990883185015993`*^9}],
 
 Cell[BoxData["\<\"Inhibition Values:\"\>"], "Print",
  CellChangeTimes->{
   3.6983987180749893`*^9, {3.698398869413212*^9, 3.698398898067668*^9}, 
-   3.698399477711253*^9, 3.698399992705015*^9, 3.698400062374786*^9}],
+   3.698399477711253*^9, 3.698399992705015*^9, 3.6984000623630342`*^9, 
+   3.699087063509345*^9, 3.6990871133413277`*^9, 3.699087944419058*^9, 
+   3.699088043927298*^9, 3.699088318502249*^9}],
 
 Cell[BoxData[
  InterpretationBox[GridBox[{
@@ -1105,17 +1151,23 @@ Cell[BoxData[
      23, {{"trishcl", 0.1}}, {}}}]]], "Print",
  CellChangeTimes->{
   3.6983987180749893`*^9, {3.698398869413212*^9, 3.698398898067668*^9}, 
-   3.698399477711253*^9, 3.698399992705015*^9, 3.698400062377762*^9}],
+   3.698399477711253*^9, 3.698399992705015*^9, 3.6984000623630342`*^9, 
+   3.699087063509345*^9, 3.6990871133413277`*^9, 3.699087944419058*^9, 
+   3.699088043927298*^9, 3.699088318505376*^9}],
 
 Cell[BoxData["\<\"\"\>"], "Print",
  CellChangeTimes->{
   3.6983987180749893`*^9, {3.698398869413212*^9, 3.698398898067668*^9}, 
-   3.698399477711253*^9, 3.698399992705015*^9, 3.698400062381926*^9}],
+   3.698399477711253*^9, 3.698399992705015*^9, 3.6984000623630342`*^9, 
+   3.699087063509345*^9, 3.6990871133413277`*^9, 3.699087944419058*^9, 
+   3.699088043927298*^9, 3.699088318510096*^9}],
 
 Cell[BoxData["\<\"Activation Values:\"\>"], "Print",
  CellChangeTimes->{
   3.6983987180749893`*^9, {3.698398869413212*^9, 3.698398898067668*^9}, 
-   3.698399477711253*^9, 3.698399992705015*^9, 3.698400062382594*^9}],
+   3.698399477711253*^9, 3.698399992705015*^9, 3.6984000623630342`*^9, 
+   3.699087063509345*^9, 3.6990871133413277`*^9, 3.699087944419058*^9, 
+   3.699088043927298*^9, 3.699088318510831*^9}],
 
 Cell[BoxData[
  TagBox[GridBox[{
@@ -1138,17 +1190,23 @@ Cell[BoxData[
    TableForm[BoxForm`e$]]]], "Print",
  CellChangeTimes->{
   3.6983987180749893`*^9, {3.698398869413212*^9, 3.698398898067668*^9}, 
-   3.698399477711253*^9, 3.698399992705015*^9, 3.698400062383407*^9}],
+   3.698399477711253*^9, 3.698399992705015*^9, 3.6984000623630342`*^9, 
+   3.699087063509345*^9, 3.6990871133413277`*^9, 3.699087944419058*^9, 
+   3.699088043927298*^9, 3.6990883185116463`*^9}],
 
 Cell[BoxData["\<\"\"\>"], "Print",
  CellChangeTimes->{
   3.6983987180749893`*^9, {3.698398869413212*^9, 3.698398898067668*^9}, 
-   3.698399477711253*^9, 3.698399992705015*^9, 3.698400062384322*^9}],
+   3.698399477711253*^9, 3.698399992705015*^9, 3.6984000623630342`*^9, 
+   3.699087063509345*^9, 3.6990871133413277`*^9, 3.699087944419058*^9, 
+   3.699088043927298*^9, 3.699088318512617*^9}],
 
 Cell[BoxData["\<\"Other Parameters:\"\>"], "Print",
  CellChangeTimes->{
   3.6983987180749893`*^9, {3.698398869413212*^9, 3.698398898067668*^9}, 
-   3.698399477711253*^9, 3.698399992705015*^9, 3.698400062384981*^9}],
+   3.698399477711253*^9, 3.698399992705015*^9, 3.6984000623630342`*^9, 
+   3.699087063509345*^9, 3.6990871133413277`*^9, 3.699087944419058*^9, 
+   3.699088043927298*^9, 3.6990883185133057`*^9}],
 
 Cell[BoxData[
  TagBox[GridBox[{
@@ -1170,7 +1228,9 @@ Cell[BoxData[
    TableForm[BoxForm`e$]]]], "Print",
  CellChangeTimes->{
   3.6983987180749893`*^9, {3.698398869413212*^9, 3.698398898067668*^9}, 
-   3.698399477711253*^9, 3.698399992705015*^9, 3.698400062385754*^9}]
+   3.698399477711253*^9, 3.698399992705015*^9, 3.6984000623630342`*^9, 
+   3.699087063509345*^9, 3.6990871133413277`*^9, 3.699087944419058*^9, 
+   3.699088043927298*^9, 3.699088318514093*^9}]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
@@ -1669,7 +1729,7 @@ Cell[BoxData[{
           Toolbox`metabolite["glyc3p", "c"],
           Editable->False,
           Selectable->False], "\[Rule]", "0"}]}], "}"}]}], "}"}]}], ";"}], 
-  "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  "\[IndentingNewLine]", "\n", 
   RowBox[{"(*", 
    RowBox[{
     RowBox[{"competitiveRxns", "=", 
@@ -1691,7 +1751,7 @@ Cell[BoxData[{
        FontWeight->"Bold"], " ", "modify", " ", "this"}], "*)"}], "Text",
     FontWeight->"Plain"], 
    StyleBox["*)", "Text",
-    FontWeight->"Plain"]}], "\[IndentingNewLine]", "\n", 
+    FontWeight->"Plain"]}], "\n", "\[IndentingNewLine]", 
   StyleBox[
    RowBox[{"(*", 
     RowBox[{
@@ -1701,7 +1761,7 @@ Cell[BoxData[{
      RowBox[{"but", " ", "you", " ", 
       RowBox[{"shouldn", "'"}], "t", " ", "unless", " ", "you", " ", "run", 
       " ", "into", " ", "problems"}]}], "*)"}], "Text"], 
-  "\n"}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"lowerParamBound", "=", 
    RowBox[{"-", "6"}]}], ";"}], "\[IndentingNewLine]", 
@@ -1741,11 +1801,11 @@ Cell[BoxData[{
      RowBox[{"allCatalyticReactions", ",", " ", "nonCatalyticReactions"}], 
      "}"}], "=", 
     RowBox[{"classifyReactions", "[", "enzymeModel", "]"}]}], ";"}], 
-  "\[IndentingNewLine]", "\n", "\[IndentingNewLine]", 
+  "\[IndentingNewLine]", "\[IndentingNewLine]", "\[IndentingNewLine]", 
   StyleBox[
    RowBox[{"(*", 
     RowBox[{"Identify", " ", "Transition", " ", "Rate", " ", "Equations"}], 
-    "*)"}], "Text"]}], "\[IndentingNewLine]", 
+    "*)"}], "Text"]}], "\n", 
  RowBox[{
   RowBox[{
    RowBox[{"transitionID", " ", "=", 
@@ -3044,7 +3104,9 @@ Cell[BoxData[
    Column],
   Function[BoxForm`e$, 
    TableForm[BoxForm`e$]]]], "Output",
- CellChangeTimes->{{3.6984000440961027`*^9, 3.698400071794896*^9}}]
+ CellChangeTimes->{{3.6984000440961027`*^9, 3.698400071794896*^9}, 
+   3.699087064988493*^9, 3.6990871166676607`*^9, 3.699087948005505*^9, 
+   3.699088044168653*^9, 3.699088318732255*^9}]
 }, Open  ]],
 
 Cell[BoxData[
@@ -3261,11 +3323,11 @@ Cell[BoxData[
      RowBox[{"in", " ", 
       StyleBox["Molarity",
        FontSlant->"Italic"]}], "*)"}], "Text",
-    FontWeight->"Plain"], "\[IndentingNewLine]", "\n", 
+    FontWeight->"Plain"], "\[IndentingNewLine]", "\[IndentingNewLine]", 
    StyleBox[
     RowBox[{"(*", 
      RowBox[{"Chemical", " ", "Activity", " ", "Correction", " ", "Options"}],
-      "*)"}], "Text"], "\[IndentingNewLine]", 
+      "*)"}], "Text"], "\n", 
    RowBox[{
     RowBox[{"inVivoPH", "=", "7.5"}], ";"}], 
    StyleBox[
@@ -3474,6 +3536,8 @@ Cell["Simulate data", "Subsection",
 Cell[BoxData[""], "Input",
  CellChangeTimes->{{3.695372231756269*^9, 3.695372232884898*^9}}],
 
+Cell[CellGroupData[{
+
 Cell[BoxData[{
  RowBox[{
   RowBox[{"pHandT", "=", 
@@ -3523,19 +3587,31 @@ Cell[BoxData[{
  RowBox[{
   RowBox[{"logStepSize", "=", "0.5"}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
-  RowBox[{"inhibFittingData", "=", 
-   RowBox[{"simulateInhibData", "[", 
-    RowBox[{
-    "rxn", ",", " ", "metsFull", ",", " ", "metSatForSub", ",", " ", 
-     "metSatRevSub", ",", "  ", "inhibitionList", ",", " ", "kmList", ",", 
-     " ", "assumedSaturatingConc", ",", " ", "eTotal", ",", "\n", "\t\t\t   ",
-      "logStepSize", ",", " ", "activeIsoSub", ",", " ", "bufferInfo", ",", 
-     " ", "ionCharge", ",", " ", "inputPath", ",", " ", "fileList", ",", " ", 
-     "KeqEquilibrator"}], "]"}]}], ";"}], "\[IndentingNewLine]"}], "Input",
+  RowBox[{
+   RowBox[{"inhibFittingData", "=", 
+    RowBox[{"simulateInhibData", "[", 
+     RowBox[{
+     "rxn", ",", " ", "metsFull", ",", " ", "metSatForSub", ",", " ", 
+      "metSatRevSub", ",", "  ", "inhibitionList", ",", " ", "kmList", ",", 
+      " ", "assumedSaturatingConc", ",", " ", "eTotal", ",", "\n", 
+      "\t\t\t   ", "logStepSize", ",", " ", "activeIsoSub", ",", " ", 
+      "bufferInfo", ",", " ", "ionCharge", ",", " ", "inputPath", ",", " ", 
+      "fileList", ",", " ", "KeqEquilibrator"}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]"}], "Input",
  CellChangeTimes->{{3.695372111980945*^9, 3.6953721135085373`*^9}, 
    3.695372234367865*^9, 3.695375964696722*^9, {3.695381490455525*^9, 
    3.6953814908817596`*^9}, {3.695644835804923*^9, 3.695644840914895*^9}, {
-   3.698388013613977*^9, 3.6983880244652357`*^9}}]
+   3.698388013613977*^9, 3.6983880244652357`*^9}, {3.699087139947988*^9, 
+   3.699087144125406*^9}, {3.6990883019901123`*^9, 3.699088302266034*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "0.04230225502160474`", ",", "0.04230225502160474`", ",", 
+   "0.04230225502160474`", ",", "0.04230225502160474`"}], "}"}]], "Print",
+ CellChangeTimes->{{3.6990871209290867`*^9, 3.6990871446074543`*^9}, 
+   3.699088137519373*^9, 3.699088342621211*^9}]
+}, Open  ]]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -6592,7 +6668,8 @@ Cell[BoxData[{
      RowBox[{
       RowBox[{"{", 
        RowBox[{"inputPath", ",", 
-        RowBox[{"rxnName", " ", "<>", "\"\<.dat\>\""}]}], "}"}], ",", " ", 
+        RowBox[{"dataFileName", " ", "<>", "\"\<.dat\>\""}]}], "}"}], ",", 
+      " ", 
       RowBox[{"OperatingSystem", "\[Rule]", "$OperatingSystem"}]}], "]"}]}], 
    ";"}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
  RowBox[{
@@ -6642,540 +6719,693 @@ Cell[BoxData[{
    3.6954646972060757`*^9, 3.6954646991636963`*^9}, {3.695465484428089*^9, 
    3.695465489208044*^9}, {3.6954655438624783`*^9, 3.695465549779044*^9}, {
    3.695466105011508*^9, 3.6954661102074738`*^9}, {3.695469608793943*^9, 
-   3.695469613494821*^9}, 3.6956483451278973`*^9}],
+   3.695469613494821*^9}, 3.6956483451278973`*^9, {3.6990872822252145`*^9, 
+   3.6990872841474066`*^9}}],
 
 Cell["\<\
-Keq_G3PD2\tdhap[c]\tglyc3p[c]\tnadp[c]\tnadph[c]\tparam_E_total\tparam_pH\t\
-param_Temp\tFileFlag\tTarget_Data
+Keq_G3PD2\tdhap[c]\tglyc3p[c]\tnadp[c]\tnadph[c]\tparam_G3PD2_total\tparam_pH\
+\tparam_Temp\tFileFlag\tTarget_Data
 0.000024\t0.01\t0\t0\t3.400000000000002e-7\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/\
-relRateRev_nadph.txt\t0.09090909090909097
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/relRateRev_nadph.txt\"\t\
+0.09090909090909097
 0.000024\t0.01\t0\t0\t5.388636854367791e-7\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/\
-relRateRev_nadph.txt\t0.1368068886032101
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/relRateRev_nadph.txt\"\t\
+0.1368068886032101
 0.000024\t0.01\t0\t0\t8.540413867132584e-7\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/\
-relRateRev_nadph.txt\t0.20076000891310194
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/relRateRev_nadph.txt\"\t\
+0.20076000891310194
 0.000024\t0.01\t0\t0\t1.3535643798818904e-6\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/\
-relRateRev_nadph.txt\t0.2847472489508014
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/relRateRev_nadph.txt\"\t\
+0.2847472489508014
 0.000024\t0.01\t0\t0\t2.1452549712326573e-6\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/\
-relRateRev_nadph.txt\t0.386863179846857
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/relRateRev_nadph.txt\"\t\
+0.386863179846857
 0.000024\t0.01\t0\t0\t3.4000000000000018e-6\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/\
-relRateRev_nadph.txt\t0.5000000000000001
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/relRateRev_nadph.txt\"\t\
+0.5000000000000001
 0.000024\t0.01\t0\t0\t5.388636854367791e-6\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/\
-relRateRev_nadph.txt\t0.6131368201531433
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/relRateRev_nadph.txt\"\t\
+0.6131368201531433
 0.000024\t0.01\t0\t0\t8.540413867132584e-6\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/\
-relRateRev_nadph.txt\t0.7152527510491989
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/relRateRev_nadph.txt\"\t\
+0.7152527510491989
 0.000024\t0.01\t0\t0\t0.000013535643798818902\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/\
-relRateRev_nadph.txt\t0.7992399910868982
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/relRateRev_nadph.txt\"\t\
+0.7992399910868982
 0.000024\t0.01\t0\t0\t0.000021452549712326573\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/\
-relRateRev_nadph.txt\t0.86319311139679
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/relRateRev_nadph.txt\"\t\
+0.86319311139679
 0.000024\t0.01\t0\t0\t0.00003400000000000002\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/\
-relRateRev_nadph.txt\t0.9090909090909091
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/relRateRev_nadph.txt\"\t\
+0.9090909090909091
 0.000024\t0.000018000000000000017\t0\t0\t0.01\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/\
-relRateRev_dhap.txt\t0.09090909090909098
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/relRateRev_dhap.txt\"\t\
+0.09090909090909098
 0.000024\t0.00002852807746430008\t0\t0\t0.01\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/\
-relRateRev_dhap.txt\t0.13680688860321016
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/relRateRev_dhap.txt\"\t\
+0.13680688860321016
 0.000024\t0.00004521395576717252\t0\t0\t0.01\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/\
-relRateRev_dhap.txt\t0.200760008913102
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/relRateRev_dhap.txt\"\t\
+0.200760008913102
 0.000024\t0.00007165929069962952\t0\t0\t0.01\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/\
-relRateRev_dhap.txt\t0.28474724895080145
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/relRateRev_dhap.txt\"\t\
+0.28474724895080145
 0.000024\t0.00011357232200643484\t0\t0\t0.01\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/\
-relRateRev_dhap.txt\t0.38686317984685703
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/relRateRev_dhap.txt\"\t\
+0.38686317984685703
 0.000024\t0.00018000000000000017\t0\t0\t0.01\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/\
-relRateRev_dhap.txt\t0.5000000000000002
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/relRateRev_dhap.txt\"\t\
+0.5000000000000002
 0.000024\t0.0002852807746430008\t0\t0\t0.01\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/\
-relRateRev_dhap.txt\t0.6131368201531433
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/relRateRev_dhap.txt\"\t\
+0.6131368201531433
 0.000024\t0.0004521395576717252\t0\t0\t0.01\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/\
-relRateRev_dhap.txt\t0.7152527510491989
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/relRateRev_dhap.txt\"\t\
+0.7152527510491989
 0.000024\t0.0007165929069962958\t0\t0\t0.01\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/\
-relRateRev_dhap.txt\t0.7992399910868984
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/relRateRev_dhap.txt\"\t\
+0.7992399910868984
 0.000024\t0.0011357232200643484\t0\t0\t0.01\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/\
-relRateRev_dhap.txt\t0.86319311139679
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/relRateRev_dhap.txt\"\t0.86319311139679
 0.000024\t0.0018000000000000017\t0\t0\t0.01\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/\
-relRateRev_dhap.txt\t0.9090909090909092
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/relRateRev_dhap.txt\"\t\
+0.9090909090909092
 0.000024\t0\t0.01\t0.000016500000000000015\t0\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/\
-relRateFor_nadp.txt\t0.09090909090909097
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/relRateFor_nadp.txt\"\t\
+0.09090909090909097
 0.000024\t0\t0.01\t0.000026150737675608408\t0\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/\
-relRateFor_nadp.txt\t0.13680688860321016
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/relRateFor_nadp.txt\"\t\
+0.13680688860321016
 0.000024\t0\t0.01\t0.000041446126119908146\t0\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/\
-relRateFor_nadp.txt\t0.20076000891310203
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/relRateFor_nadp.txt\"\t\
+0.20076000891310203
 0.000024\t0\t0.01\t0.00006568768314132706\t0\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/\
-relRateFor_nadp.txt\t0.2847472489508014
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/relRateFor_nadp.txt\"\t\
+0.2847472489508014
 0.000024\t0\t0.01\t0.00010410796183923194\t0\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/\
-relRateFor_nadp.txt\t0.3868631798468571
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/relRateFor_nadp.txt\"\t\
+0.3868631798468571
 0.000024\t0\t0.01\t0.00016500000000000016\t0\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/\
-relRateFor_nadp.txt\t0.5000000000000002
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/relRateFor_nadp.txt\"\t\
+0.5000000000000002
 0.000024\t0\t0.01\t0.0002615073767560841\t0\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/\
-relRateFor_nadp.txt\t0.6131368201531434
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/relRateFor_nadp.txt\"\t\
+0.6131368201531434
 0.000024\t0\t0.01\t0.0004144612611990815\t0\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/\
-relRateFor_nadp.txt\t0.7152527510491989
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/relRateFor_nadp.txt\"\t\
+0.7152527510491989
 0.000024\t0\t0.01\t0.0006568768314132713\t0\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/\
-relRateFor_nadp.txt\t0.7992399910868985
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/relRateFor_nadp.txt\"\t\
+0.7992399910868985
 0.000024\t0\t0.01\t0.0010410796183923194\t0\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/\
-relRateFor_nadp.txt\t0.8631931113967901
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/relRateFor_nadp.txt\"\t\
+0.8631931113967901
 0.000024\t0\t0.01\t0.0016500000000000017\t0\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/\
-relRateFor_nadp.txt\t0.9090909090909092
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/relRateFor_nadp.txt\"\t\
+0.9090909090909092
 0.000024\t0\t3.0000000000000013e-6\t0.01\t0\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/\
-relRateFor_glyc3p.txt\t0.09090909090909094
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/relRateFor_glyc3p.txt\"\t\
+0.09090909090909094
 0.000024\t0\t4.7546795773833446e-6\t0.01\t0\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/\
-relRateFor_glyc3p.txt\t0.1368068886032101
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/relRateFor_glyc3p.txt\"\t\
+0.1368068886032101
 0.000024\t0\t7.535659294528749e-6\t0.01\t0\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/\
-relRateFor_glyc3p.txt\t0.20076000891310194
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/relRateFor_glyc3p.txt\"\t\
+0.20076000891310194
 0.000024\t0\t0.000011943215116604912\t0.01\t0\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/\
-relRateFor_glyc3p.txt\t0.28474724895080133
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/relRateFor_glyc3p.txt\"\t\
+0.28474724895080133
 0.000024\t0\t0.000018928720334405797\t0.01\t0\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/\
-relRateFor_glyc3p.txt\t0.3868631798468569
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/relRateFor_glyc3p.txt\"\t\
+0.3868631798468569
 0.000024\t0\t0.00003000000000000001\t0.01\t0\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/\
-relRateFor_glyc3p.txt\t0.5000000000000001
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/relRateFor_glyc3p.txt\"\t\
+0.5000000000000001
 0.000024\t0\t0.00004754679577383344\t0.01\t0\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/\
-relRateFor_glyc3p.txt\t0.6131368201531432
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/relRateFor_glyc3p.txt\"\t\
+0.6131368201531432
 0.000024\t0\t0.00007535659294528749\t0.01\t0\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/\
-relRateFor_glyc3p.txt\t0.7152527510491988
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/relRateFor_glyc3p.txt\"\t\
+0.7152527510491988
 0.000024\t0\t0.00011943215116604925\t0.01\t0\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/\
-relRateFor_glyc3p.txt\t0.7992399910868984
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/relRateFor_glyc3p.txt\"\t\
+0.7992399910868984
 0.000024\t0\t0.00018928720334405796\t0.01\t0\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/\
-relRateFor_glyc3p.txt\t0.86319311139679
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/relRateFor_glyc3p.txt\"\t\
+0.86319311139679
 0.000024\t0\t0.00030000000000000014\t0.01\t0\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/\
-relRateFor_glyc3p.txt\t0.9090909090909091
-0.000024\t0\t0\t0\t0\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/\
-haldaneRatio.txt\t0.000024
-0.000024\t0\t0\t0\t0\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/\
-haldaneRatio.txt\t0.000024
-0.000024\t0\t0\t0\t0\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/\
-haldaneRatio.txt\t0.000024
-0.000024\t0\t0\t0\t0\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/\
-haldaneRatio.txt\t0.000024
-0.000024\t0\t0\t0\t0\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/\
-haldaneRatio.txt\t0.000024
-0.000024\t0\t0\t0\t0\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/\
-haldaneRatio.txt\t0.000024
-0.000024\t0\t0\t0\t0\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/\
-haldaneRatio.txt\t0.000024
-0.000024\t0\t0\t0\t0\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/\
-haldaneRatio.txt\t0.000024
-0.000024\t0\t0\t0\t0\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/\
-haldaneRatio.txt\t0.000024
-0.000024\t0\t0\t0\t0\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/\
-haldaneRatio.txt\t0.000024
-0.000024\t0\t0\t0\t0\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/\
-haldaneRatio.txt\t0.000024
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/relRateFor_glyc3p.txt\"\t\
+0.9090909090909091
+0.000024\t0\t0\t0\t0\t1\t7.4\t23\t\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/haldaneRatio.txt\"\t0.000024
+0.000024\t0\t0\t0\t0\t1\t7.4\t23\t\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/haldaneRatio.txt\"\t0.000024
+0.000024\t0\t0\t0\t0\t1\t7.4\t23\t\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/haldaneRatio.txt\"\t0.000024
+0.000024\t0\t0\t0\t0\t1\t7.4\t23\t\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/haldaneRatio.txt\"\t0.000024
+0.000024\t0\t0\t0\t0\t1\t7.4\t23\t\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/haldaneRatio.txt\"\t0.000024
+0.000024\t0\t0\t0\t0\t1\t7.4\t23\t\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/haldaneRatio.txt\"\t0.000024
+0.000024\t0\t0\t0\t0\t1\t7.4\t23\t\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/haldaneRatio.txt\"\t0.000024
+0.000024\t0\t0\t0\t0\t1\t7.4\t23\t\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/haldaneRatio.txt\"\t0.000024
+0.000024\t0\t0\t0\t0\t1\t7.4\t23\t\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/haldaneRatio.txt\"\t0.000024
+0.000024\t0\t0\t0\t0\t1\t7.4\t23\t\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/haldaneRatio.txt\"\t0.000024
+0.000024\t0\t0\t0\t0\t1\t7.4\t23\t\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/haldaneRatio.txt\"\t0.000024
 0.000024\t0.000018000000000000017\t2.1e-6\t0\t0.0001\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_glyc3p.txt\t0.06250000000000006
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_glyc3p.txt\"\t\
+0.06250000000000006
 0.000024\t0.000056920997883030876\t2.1e-6\t0\t0.0001\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_glyc3p.txt\t0.17411239489546845
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_glyc3p.txt\"\t\
+0.17411239489546845
 0.000024\t0.00018000000000000017\t2.1e-6\t0\t0.0001\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_glyc3p.txt\t0.4000000000000002
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_glyc3p.txt\"\t\
+0.4000000000000002
 0.000024\t0.0005692099788303088\t2.1e-6\t0\t0.0001\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_glyc3p.txt\t0.6782688399674107
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_glyc3p.txt\"\t\
+0.6782688399674107
 0.000024\t0.0018000000000000017\t2.1e-6\t0\t0.0001\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_glyc3p.txt\t0.8695652173913044
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_glyc3p.txt\"\t\
+0.8695652173913044
 0.000024\t0.000018000000000000017\t4.2e-6\t0\t0.0001\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_glyc3p.txt\t0.047619047619047665
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_glyc3p.txt\"\t\
+0.047619047619047665
 0.000024\t0.000056920997883030876\t4.2e-6\t0\t0.0001\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_glyc3p.txt\t0.13652705949581442
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_glyc3p.txt\"\t\
+0.13652705949581442
 0.000024\t0.00018000000000000017\t4.2e-6\t0\t0.0001\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_glyc3p.txt\t0.33333333333333354
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_glyc3p.txt\"\t\
+0.33333333333333354
 0.000024\t0.0005692099788303088\t4.2e-6\t0\t0.0001\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_glyc3p.txt\t0.6125741132772071
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_glyc3p.txt\"\t\
+0.6125741132772071
 0.000024\t0.0018000000000000017\t4.2e-6\t0\t0.0001\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_glyc3p.txt\t0.8333333333333335
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_glyc3p.txt\"\t\
+0.8333333333333335
 0.000024\t0.000018000000000000017\t8.4e-6\t0\t0.0001\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_glyc3p.txt\t0.032258064516129066
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_glyc3p.txt\"\t\
+0.032258064516129066
 0.000024\t0.000056920997883030876\t8.4e-6\t0\t0.0001\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_glyc3p.txt\t0.09535767393826004
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_glyc3p.txt\"\t\
+0.09535767393826004
 0.000024\t0.00018000000000000017\t8.4e-6\t0\t0.0001\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_glyc3p.txt\t0.2500000000000002
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_glyc3p.txt\"\t\
+0.2500000000000002
 0.000024\t0.0005692099788303088\t8.4e-6\t0\t0.0001\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_glyc3p.txt\t0.5131670194948622
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_glyc3p.txt\"\t\
+0.5131670194948622
 0.000024\t0.0018000000000000017\t8.4e-6\t0\t0.0001\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_glyc3p.txt\t0.7692307692307694
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_glyc3p.txt\"\t\
+0.7692307692307694
 0.000024\t0.0001\t2.25e-6\t0\t3.400000000000002e-7\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_glyc3p.txt\t0.04914933837429115
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_glyc3p.txt\"\t\
+0.04914933837429115
 0.000024\t0.0001\t2.25e-6\t0\t1.0751744044572496e-6\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_glyc3p.txt\t0.1359715179829786
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_glyc3p.txt\"\t\
+0.1359715179829786
 0.000024\t0.0001\t2.25e-6\t0\t3.4000000000000018e-6\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_glyc3p.txt\t0.3080568720379148
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_glyc3p.txt\"\t\
+0.3080568720379148
 0.000024\t0.0001\t2.25e-6\t0\t0.000010751744044572496\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_glyc3p.txt\t0.5136142175737065
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_glyc3p.txt\"\t\
+0.5136142175737065
 0.000024\t0.0001\t2.25e-6\t0\t0.00003400000000000002\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_glyc3p.txt\t0.6509764646970455
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_glyc3p.txt\"\t\
+0.6509764646970455
 0.000024\t0.0001\t4.5e-6\t0\t3.400000000000002e-7\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_glyc3p.txt\t0.03367875647668395
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_glyc3p.txt\"\t\
+0.03367875647668395
 0.000024\t0.0001\t4.5e-6\t0\t1.0751744044572496e-6\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_glyc3p.txt\t0.09481652165128764
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_glyc3p.txt\"\t\
+0.09481652165128764
 0.000024\t0.0001\t4.5e-6\t0\t3.4000000000000018e-6\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_glyc3p.txt\t0.22260273972602748
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_glyc3p.txt\"\t\
+0.22260273972602748
 0.000024\t0.0001\t4.5e-6\t0\t0.000010751744044572496\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_glyc3p.txt\t0.3879359014999326
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_glyc3p.txt\"\t\
+0.3879359014999326
 0.000024\t0.0001\t4.5e-6\t0\t0.00003400000000000002\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_glyc3p.txt\t0.5070202808112324
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_glyc3p.txt\"\t\
+0.5070202808112324
 0.000024\t0.0001\t9.e-6\t0\t3.400000000000002e-7\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_glyc3p.txt\t0.0206677265500795
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_glyc3p.txt\"\t\
+0.0206677265500795
 0.000024\t0.0001\t9.e-6\t0\t1.0751744044572496e-6\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_glyc3p.txt\t0.059062933642962216
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_glyc3p.txt\"\t\
+0.059062933642962216
 0.000024\t0.0001\t9.e-6\t0\t3.4000000000000018e-6\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_glyc3p.txt\t0.14317180616740097
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_glyc3p.txt\"\t\
+0.14317180616740097
 0.000024\t0.0001\t9.e-6\t0\t0.000010751744044572496\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_glyc3p.txt\t0.2604666499256048
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_glyc3p.txt\"\t\
+0.2604666499256048
 0.000024\t0.0001\t9.e-6\t0\t0.00003400000000000002\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_glyc3p.txt\t0.351541373715522
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_glyc3p.txt\"\t\
+0.351541373715522
 0.000024\t0.000018000000000000017\t0\t0.00065\t0.00001\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_nadp.txt\t0.06060606060606066
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_nadp.txt\"\t\
+0.06060606060606066
 0.000024\t0.000056920997883030876\t0\t0.00065\t0.00001\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_nadp.txt\t0.16016871556802817
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_nadp.txt\"\t\
+0.16016871556802817
 0.000024\t0.00018000000000000017\t0\t0.00065\t0.00001\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_nadp.txt\t0.3333333333333335
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_nadp.txt\"\t\
+0.3333333333333335
 0.000024\t0.0005692099788303088\t0\t0.00065\t0.00001\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_nadp.txt\t0.5064979510986386
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_nadp.txt\"\t\
+0.5064979510986386
 0.000024\t0.0018000000000000017\t0\t0.00065\t0.00001\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_nadp.txt\t0.6060606060606061
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_nadp.txt\"\t\
+0.6060606060606061
 0.000024\t0.000018000000000000017\t0\t0.0013\t0.00001\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_nadp.txt\t0.04545454545454549
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_nadp.txt\"\t\
+0.04545454545454549
 0.000024\t0.000056920997883030876\t0\t0.0013\t0.00001\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_nadp.txt\t0.12012653667602116
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_nadp.txt\"\t\
+0.12012653667602116
 0.000024\t0.00018000000000000017\t0\t0.0013\t0.00001\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_nadp.txt\t0.2500000000000001
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_nadp.txt\"\t\
+0.2500000000000001
 0.000024\t0.0005692099788303088\t0\t0.0013\t0.00001\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_nadp.txt\t0.379873463323979
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_nadp.txt\"\t\
+0.379873463323979
 0.000024\t0.0018000000000000017\t0\t0.0013\t0.00001\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_nadp.txt\t0.4545454545454546
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_nadp.txt\"\t\
+0.4545454545454546
 0.000024\t0.000018000000000000017\t0\t0.0026\t0.00001\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_nadp.txt\t0.03030303030303033
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_nadp.txt\"\t\
+0.03030303030303033
 0.000024\t0.000056920997883030876\t0\t0.0026\t0.00001\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_nadp.txt\t0.08008435778401408
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_nadp.txt\"\t\
+0.08008435778401408
 0.000024\t0.00018000000000000017\t0\t0.0026\t0.00001\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_nadp.txt\t0.16666666666666674
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_nadp.txt\"\t\
+0.16666666666666674
 0.000024\t0.0005692099788303088\t0\t0.0026\t0.00001\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_nadp.txt\t0.2532489755493193
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_nadp.txt\"\t\
+0.2532489755493193
 0.000024\t0.0018000000000000017\t0\t0.0026\t0.00001\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_nadp.txt\t0.30303030303030304
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_nadp.txt\"\t\
+0.30303030303030304
 0.000024\t0.002\t0\t0.0000935\t3.400000000000002e-7\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_nadp.txt\t0.06250000000000003
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_nadp.txt\"\t\
+0.06250000000000003
 0.000024\t0.002\t0\t0.0000935\t1.0751744044572496e-6\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_nadp.txt\t0.1741123948954684
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_nadp.txt\"\t\
+0.1741123948954684
 0.000024\t0.002\t0\t0.0000935\t3.4000000000000018e-6\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_nadp.txt\t0.40000000000000013
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_nadp.txt\"\t\
+0.40000000000000013
 0.000024\t0.002\t0\t0.0000935\t0.000010751744044572496\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_nadp.txt\t0.6782688399674105
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_nadp.txt\"\t\
+0.6782688399674105
 0.000024\t0.002\t0\t0.0000935\t0.00003400000000000002\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_nadp.txt\t0.8695652173913044
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_nadp.txt\"\t\
+0.8695652173913044
 0.000024\t0.002\t0\t0.000187\t3.400000000000002e-7\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_nadp.txt\t0.047619047619047644
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_nadp.txt\"\t\
+0.047619047619047644
 0.000024\t0.002\t0\t0.000187\t1.0751744044572496e-6\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_nadp.txt\t0.1365270594958144
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_nadp.txt\"\t\
+0.1365270594958144
 0.000024\t0.002\t0\t0.000187\t3.4000000000000018e-6\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_nadp.txt\t0.3333333333333334
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_nadp.txt\"\t\
+0.3333333333333334
 0.000024\t0.002\t0\t0.000187\t0.000010751744044572496\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_nadp.txt\t0.612574113277207
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_nadp.txt\"\t\
+0.612574113277207
 0.000024\t0.002\t0\t0.000187\t0.00003400000000000002\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_nadp.txt\t0.8333333333333334
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_nadp.txt\"\t\
+0.8333333333333334
 0.000024\t0.002\t0\t0.000374\t3.400000000000002e-7\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_nadp.txt\t0.032258064516129045
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_nadp.txt\"\t\
+0.032258064516129045
 0.000024\t0.002\t0\t0.000374\t1.0751744044572496e-6\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_nadp.txt\t0.09535767393826002
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_nadp.txt\"\t\
+0.09535767393826002
 0.000024\t0.002\t0\t0.000374\t3.4000000000000018e-6\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_nadp.txt\t0.2500000000000001
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_nadp.txt\"\t\
+0.2500000000000001
 0.000024\t0.002\t0\t0.000374\t0.000010751744044572496\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_nadp.txt\t0.5131670194948621
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_nadp.txt\"\t\
+0.5131670194948621
 0.000024\t0.002\t0\t0.000374\t0.00003400000000000002\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_nadp.txt\t0.7692307692307694
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_nadp.txt\"\t\
+0.7692307692307694
 0.000024\t0.000019\t3.0000000000000013e-6\t0.002\t0\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_dhap.txt\t0.06250000000000003
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_dhap.txt\"\t\
+0.06250000000000003
 0.000024\t0.000019\t9.486832980505141e-6\t0.002\t0\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_dhap.txt\t0.17411239489546837
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_dhap.txt\"\t\
+0.17411239489546837
 0.000024\t0.000019\t0.00003000000000000001\t0.002\t0\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_dhap.txt\t0.40000000000000013
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_dhap.txt\"\t\
+0.40000000000000013
 0.000024\t0.000019\t0.00009486832980505142\t0.002\t0\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_dhap.txt\t0.6782688399674105
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_dhap.txt\"\t\
+0.6782688399674105
 0.000024\t0.000019\t0.00030000000000000014\t0.002\t0\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_dhap.txt\t0.8695652173913044
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_dhap.txt\"\t\
+0.8695652173913044
 0.000024\t0.000038\t3.0000000000000013e-6\t0.002\t0\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_dhap.txt\t0.04761904761904764
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_dhap.txt\"\t\
+0.04761904761904764
 0.000024\t0.000038\t9.486832980505141e-6\t0.002\t0\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_dhap.txt\t0.13652705949581434
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_dhap.txt\"\t\
+0.13652705949581434
 0.000024\t0.000038\t0.00003000000000000001\t0.002\t0\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_dhap.txt\t0.3333333333333334
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_dhap.txt\"\t\
+0.3333333333333334
 0.000024\t0.000038\t0.00009486832980505142\t0.002\t0\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_dhap.txt\t0.612574113277207
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_dhap.txt\"\t\
+0.612574113277207
 0.000024\t0.000038\t0.00030000000000000014\t0.002\t0\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_dhap.txt\t0.8333333333333335
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_dhap.txt\"\t\
+0.8333333333333335
 0.000024\t0.000076\t3.0000000000000013e-6\t0.002\t0\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_dhap.txt\t0.032258064516129045
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_dhap.txt\"\t\
+0.032258064516129045
 0.000024\t0.000076\t9.486832980505141e-6\t0.002\t0\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_dhap.txt\t0.09535767393826
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_dhap.txt\"\t0.09535767393826
 0.000024\t0.000076\t0.00003000000000000001\t0.002\t0\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_dhap.txt\t0.25000000000000006
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_dhap.txt\"\t\
+0.25000000000000006
 0.000024\t0.000076\t0.00009486832980505142\t0.002\t0\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_dhap.txt\t0.5131670194948622
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_dhap.txt\"\t\
+0.5131670194948622
 0.000024\t0.000076\t0.00030000000000000014\t0.002\t0\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_dhap.txt\t0.7692307692307693
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_dhap.txt\"\t\
+0.7692307692307693
 0.000024\t0.00009\t0.0001\t0.000016500000000000015\t0\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_dhap.txt\t0.052980132450331174
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_dhap.txt\"\t\
+0.052980132450331174
 0.000024\t0.00009\t0.0001\t0.000052177581392778313\t0\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_dhap.txt\t0.1447390418373348
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_dhap.txt\"\t\
+0.1447390418373348
 0.000024\t0.00009\t0.0001\t0.00016500000000000016\t0\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_dhap.txt\t0.3200000000000002
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_dhap.txt\"\t\
+0.3200000000000002
 0.000024\t0.00009\t0.0001\t0.0005217758139277831\t0\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_dhap.txt\t0.518564992170751
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_dhap.txt\"\t\
+0.518564992170751
 0.000024\t0.00009\t0.0001\t0.0016500000000000017\t0\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_dhap.txt\t0.6451612903225806
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_dhap.txt\"\t\
+0.6451612903225806
 0.000024\t0.00018\t0.0001\t0.000016500000000000015\t0\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_dhap.txt\t0.03738317757009349
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_dhap.txt\"\t\
+0.03738317757009349
 0.000024\t0.00018\t0.0001\t0.000052177581392778313\t0\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_dhap.txt\t0.10356583218373844
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_dhap.txt\"\t\
+0.10356583218373844
 0.000024\t0.00018\t0.0001\t0.00016500000000000016\t0\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_dhap.txt\t0.235294117647059
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_dhap.txt\"\t\
+0.235294117647059
 0.000024\t0.00018\t0.0001\t0.0005217758139277831\t0\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_dhap.txt\t0.39361254767503817
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_dhap.txt\"\t\
+0.39361254767503817
 0.000024\t0.00018\t0.0001\t0.0016500000000000017\t0\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_dhap.txt\t0.5000000000000001
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_dhap.txt\"\t\
+0.5000000000000001
 0.000024\t0.00036\t0.0001\t0.000016500000000000015\t0\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_dhap.txt\t0.023529411764705903
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_dhap.txt\"\t\
+0.023529411764705903
 0.000024\t0.00036\t0.0001\t0.000052177581392778313\t0\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_dhap.txt\t0.06601047571169773
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_dhap.txt\"\t\
+0.06601047571169773
 0.000024\t0.00036\t0.0001\t0.00016500000000000016\t0\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_dhap.txt\t0.1538461538461539
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_dhap.txt\"\t\
+0.1538461538461539
 0.000024\t0.00036\t0.0001\t0.0005217758139277831\t0\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_dhap.txt\t0.26561052385648354
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_dhap.txt\"\t\
+0.26561052385648354
 0.000024\t0.00036\t0.0001\t0.0016500000000000017\t0\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_dhap.txt\t0.3448275862068966
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_dhap.txt\"\t\
+0.3448275862068966
 0.000024\t0\t3.0000000000000013e-6\t0.0001\t3.5e-7\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_nadph.txt\t0.057901085645355864
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_nadph.txt\"\t\
+0.057901085645355864
 0.000024\t0\t9.486832980505141e-6\t0.0001\t3.5e-7\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_nadph.txt\t0.15517252975139625
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_nadph.txt\"\t\
+0.15517252975139625
 0.000024\t0\t0.00003000000000000001\t0.0001\t3.5e-7\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_nadph.txt\t0.33103448275862074
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_nadph.txt\"\t\
+0.33103448275862074
 0.000024\t0\t0.00009486832980505142\t0.0001\t3.5e-7\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_nadph.txt\t0.5159442342521813
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_nadph.txt\"\t\
+0.5159442342521813
 0.000024\t0\t0.00030000000000000014\t0.0001\t3.5e-7\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_nadph.txt\t0.6266318537859008
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_nadph.txt\"\t\
+0.6266318537859008
 0.000024\t0\t3.0000000000000013e-6\t0.0001\t7.e-7\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_nadph.txt\t0.042477876106194704
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_nadph.txt\"\t\
+0.042477876106194704
 0.000024\t0\t9.486832980505141e-6\t0.0001\t7.e-7\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_nadph.txt\t0.11459214550830052
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_nadph.txt\"\t\
+0.11459214550830052
 0.000024\t0\t0.00003000000000000001\t0.0001\t7.e-7\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_nadph.txt\t0.2474226804123712
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_nadph.txt\"\t\
+0.2474226804123712
 0.000024\t0\t0.00009486832980505142\t0.0001\t7.e-7\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_nadph.txt\t0.39060056309756436
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_nadph.txt\"\t\
+0.39060056309756436
 0.000024\t0\t0.00030000000000000014\t0.0001\t7.e-7\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_nadph.txt\t0.47808764940239046
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_nadph.txt\"\t\
+0.47808764940239046
 0.000024\t0\t3.0000000000000013e-6\t0.0001\t1.4e-6\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_nadph.txt\t0.02771362586605082
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_nadph.txt\"\t\
+0.02771362586605082
 0.000024\t0\t9.486832980505141e-6\t0.0001\t1.4e-6\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_nadph.txt\t0.07523930500173176
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_nadph.txt\"\t\
+0.07523930500173176
 0.000024\t0\t0.00003000000000000001\t0.0001\t1.4e-6\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_nadph.txt\t0.16438356164383564
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_nadph.txt\"\t\
+0.16438356164383564
 0.000024\t0\t0.00009486832980505142\t0.0001\t1.4e-6\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_nadph.txt\t0.2628747818212248
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_nadph.txt\"\t\
+0.2628747818212248
 0.000024\t0\t0.00030000000000000014\t0.0001\t1.4e-6\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_nadph.txt\t0.32432432432432434
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_nadph.txt\"\t\
+0.32432432432432434
 0.000024\t0\t0.0002\t0.000016500000000000015\t2.e-7\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_nadph.txt\t0.06250000000000006
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_nadph.txt\"\t\
+0.06250000000000006
 0.000024\t0\t0.0002\t0.000052177581392778313\t2.e-7\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_nadph.txt\t0.17411239489546848
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_nadph.txt\"\t\
+0.17411239489546848
 0.000024\t0\t0.0002\t0.00016500000000000016\t2.e-7\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_nadph.txt\t0.4000000000000002
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_nadph.txt\"\t\
+0.4000000000000002
 0.000024\t0\t0.0002\t0.0005217758139277831\t2.e-7\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_nadph.txt\t0.6782688399674106
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_nadph.txt\"\t\
+0.6782688399674106
 0.000024\t0\t0.0002\t0.0016500000000000017\t2.e-7\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_nadph.txt\t0.8695652173913045
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_nadph.txt\"\t\
+0.8695652173913045
 0.000024\t0\t0.0002\t0.000016500000000000015\t4.e-7\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_nadph.txt\t0.047619047619047665
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_nadph.txt\"\t\
+0.047619047619047665
 0.000024\t0\t0.0002\t0.000052177581392778313\t4.e-7\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_nadph.txt\t0.13652705949581445
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_nadph.txt\"\t\
+0.13652705949581445
 0.000024\t0\t0.0002\t0.00016500000000000016\t4.e-7\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_nadph.txt\t0.33333333333333354
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_nadph.txt\"\t\
+0.33333333333333354
 0.000024\t0\t0.0002\t0.0005217758139277831\t4.e-7\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_nadph.txt\t0.6125741132772071
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_nadph.txt\"\t\
+0.6125741132772071
 0.000024\t0\t0.0002\t0.0016500000000000017\t4.e-7\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_nadph.txt\t0.8333333333333335
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_nadph.txt\"\t\
+0.8333333333333335
 0.000024\t0\t0.0002\t0.000016500000000000015\t8.e-7\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_nadph.txt\t0.03225806451612906
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_nadph.txt\"\t\
+0.03225806451612906
 0.000024\t0\t0.0002\t0.000052177581392778313\t8.e-7\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_nadph.txt\t0.09535767393826007
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_nadph.txt\"\t\
+0.09535767393826007
 0.000024\t0\t0.0002\t0.00016500000000000016\t8.e-7\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_nadph.txt\t0.25000000000000017
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_nadph.txt\"\t\
+0.25000000000000017
 0.000024\t0\t0.0002\t0.0005217758139277831\t8.e-7\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_nadph.txt\t0.5131670194948623
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_nadph.txt\"\t\
+0.5131670194948623
 0.000024\t0\t0.0002\t0.0016500000000000017\t8.e-7\t1\t7.4\t23\t\
-/home/mrama/Dropbox/MASS_fitting_package/examples/test_refactor/input/prod_\
-inhib_nadph.txt\t0.7692307692307693\
+\"/home/mrama/Dropbox/test \
+bla/MASSef/examples/test_refactor/input/prod_inhib_nadph.txt\"\t\
+0.7692307692307693\
 \>", "Print",
  CellChangeTimes->{3.695465550650482*^9, 3.6954661117518663`*^9, 
   3.69546637294528*^9, 3.695467426494032*^9, 3.695469615326358*^9, 
-  3.695470544731372*^9, 3.695644851178384*^9, 3.6984001792622766`*^9}]
+  3.695470544731372*^9, 3.695644851178384*^9, 3.6984001792622766`*^9, 
+  3.6990872845054426`*^9, 3.69908813781833*^9, 3.699088342743855*^9}]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
@@ -7190,7 +7420,7 @@ Cell["Configure the Particle Swarm Optimization", "Section",
 
 Cell[BoxData[{
  RowBox[{
-  RowBox[{"numTrials", "=", "5"}], ";"}], "\[IndentingNewLine]", 
+  RowBox[{"numTrials", "=", "1"}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
    RowBox[{"{", 
@@ -7201,12 +7431,13 @@ Cell[BoxData[{
     RowBox[{
     "inputPath", ",", " ", "outputPath", ",", " ", "dataPath", ",", " ", 
      "finalRateConsts", ",", " ", "fileList", ",", " ", "numTrials", ",", 
-     "lowerParamBound", ",", " ", "upperParamBound"}], "]"}]}], 
-  ";"}]}], "Input",
+     "lowerParamBound", ",", " ", "upperParamBound", ",", " ", "fitLabel"}], 
+    "]"}]}], ";"}]}], "Input",
  CellChangeTimes->{{3.6375711128701563`*^9, 3.637571112871838*^9}, 
    3.689335078335425*^9, {3.689336759477*^9, 3.689336766718511*^9}, {
    3.689336972443656*^9, 3.689336988069422*^9}, {3.695466461321055*^9, 
-   3.695466461434496*^9}, 3.6954674311481733`*^9}],
+   3.695466461434496*^9}, 3.6954674311481733`*^9, {3.699087291638156*^9, 
+   3.6990872961156034`*^9}}],
 
 Cell[CellGroupData[{
 
@@ -7287,7 +7518,8 @@ Cell[BoxData[
     RowBox[{
     "inputPath", ",", " ", "outputPath", ",", " ", "dataPath", ",", " ", 
      "finalRateConsts", ",", " ", "fileList", ",", " ", "lowerParamBound", 
-     ",", " ", "upperParamBound"}], "]"}]}], ";"}]], "Input",
+     ",", " ", "upperParamBound", ",", " ", "fitLabel"}], "]"}]}], 
+  ";"}]], "Input",
  CellChangeTimes->{{3.68837680299233*^9, 3.688376809170438*^9}, {
    3.688377062946416*^9, 3.688377063582418*^9}, 3.6883771745770893`*^9, {
    3.688377876439951*^9, 3.688377877362*^9}, {3.68837936496352*^9, 
@@ -7317,7 +7549,8 @@ Cell[BoxData[
    3.689082179108293*^9}, 3.68908251175272*^9, {3.689082583010434*^9, 
    3.689082614947809*^9}, {3.689083237571602*^9, 3.689083246822196*^9}, 
    3.68908344199546*^9, {3.689336809086529*^9, 3.689336810203635*^9}, {
-   3.689336954130762*^9, 3.68933696518394*^9}}],
+   3.689336954130762*^9, 3.68933696518394*^9}, {3.6990872989748893`*^9, 
+   3.699087300048997*^9}}],
 
 Cell[CellGroupData[{
 
@@ -7373,82 +7606,6 @@ data_row_high\t-2\
    3.6893380213735847`*^9, 3.6893380380918016`*^9}, 3.689338394493863*^9, 
    3.6893385061166553`*^9, 3.689338599334901*^9, 3.6894205403018017`*^9, 
    3.69546306716238*^9}]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell["Make the shell script to run pso and lma fitting methods", "Subsection",
- CellChangeTimes->{{3.556470727334036*^9, 3.556470747498764*^9}, {
-  3.5691075667920637`*^9, 3.5691075780540257`*^9}, {3.68326154449411*^9, 
-  3.6832615700937366`*^9}}],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[{
- RowBox[{"runFitScriptPath", "=", 
-  "\"\</home/mrama/Dropbox/Kinetics/Scripts/run_fit_rel.py\>\""}], "\
-\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{
-   RowBox[{"shRunFit", "=", 
-    RowBox[{"createCombinedFitShellScript", "[", 
-     RowBox[{
-     "runFitScriptPath", ",", " ", "psoParameterPath", ",", " ", 
-      "lmaParameterPath", ",", " ", "psoTrialSummaryFileName", ",", " ", 
-      "psoResultsFileName", ",", " ", "lmaResultsFileName", ",", " ", 
-      "numTrials", ",", " ", "dataPath"}], "]"}]}], ";"}], 
-  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"shRunFitPath", "=", 
-   RowBox[{"inputPath", "<>", "\"\<runFit.sh\>\""}]}], 
-  ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{
-   RowBox[{"Export", "[", 
-    RowBox[{"shRunFitPath", ",", "shRunFit", ",", "\"\<Table\>\""}], "]"}], 
-   ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
-  StyleBox[
-   RowBox[{"(*", 
-    RowBox[{
-    "Make", " ", "the", " ", "Shell", " ", "Script", " ", "Executable"}], 
-    "*)"}], "Subsubsection",
-   FontWeight->"Plain"]}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"mkShRunFitExec", "=", 
-   RowBox[{"\"\<chmod u+x \>\"", "<>", " ", "shRunFitPath"}]}], 
-  ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"mkShRunFitExecCmd", "=", 
-   RowBox[{"\"\<!\>\"", "<>", "mkShRunFitExec", "<>", "\"\< 2>&1\>\""}]}], 
-  ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"Import", "[", 
-   RowBox[{"mkShRunFitExecCmd", ",", "\"\<Text\>\""}], "]"}], ";"}]}], "Input",
- CellChangeTimes->{{3.683016973073614*^9, 3.683017017541731*^9}, {
-   3.683017059152872*^9, 3.683017062936243*^9}, {3.6830173424796257`*^9, 
-   3.683017373050825*^9}, {3.68301917239384*^9, 3.683019187703527*^9}, {
-   3.683457137762021*^9, 3.683457138355311*^9}, 3.683461516629546*^9, {
-   3.6836129225099487`*^9, 3.683612925153989*^9}, {3.689337170566061*^9, 
-   3.689337171731101*^9}, {3.68933730261579*^9, 3.689337306338266*^9}, {
-   3.6954653866760197`*^9, 3.6954653878469*^9}, {3.6954661266502*^9, 
-   3.695466140750469*^9}, {3.695466468062084*^9, 3.6954664682332973`*^9}, {
-   3.695467391645421*^9, 3.695467414540016*^9}}],
-
-Cell[BoxData["\<\"/home/mrama/Dropbox/Kinetics/Scripts/run_fit_rel.py\"\>"], \
-"Output",
- CellChangeTimes->{
-  3.683457139700046*^9, 3.6834615170547028`*^9, {3.6836129182868633`*^9, 
-   3.683612925711321*^9}, 3.68361324613617*^9, 3.6836143058801117`*^9, 
-   3.683615405897657*^9, 3.687257010765464*^9, 3.687258009259286*^9, 
-   3.687258949781425*^9, 3.68725935564377*^9, 3.68725997654592*^9, 
-   3.687501572505493*^9, 3.68750936612595*^9, 3.689336921677815*^9, 
-   3.689337172133263*^9, 3.689337611251473*^9, 3.68933839623772*^9, 
-   3.689338507618421*^9, 3.6893386021015377`*^9, 3.689420541237727*^9, 
-   3.689587154126569*^9, 3.6954630692788343`*^9, 3.695464712242608*^9, 
-   3.69546538850557*^9, 3.695465513104336*^9, {3.69546612839997*^9, 
-   3.695466141388442*^9}, 3.695466383566042*^9, {3.6954664651718683`*^9, 
-   3.695466468740137*^9}, 3.695467436615634*^9, 3.695470554502717*^9}]
-}, Open  ]]
 }, Open  ]]
 }, Open  ]],
 
@@ -7463,157 +7620,69 @@ Cell[CellGroupData[{
 Cell["Run Fitting on your Local System", "Subsection",
  CellChangeTimes->{{3.5799893985024776`*^9, 3.579989408740912*^9}}],
 
-Cell[CellGroupData[{
-
-Cell[BoxData[
- RowBox[{
-  StyleBox[
-   RowBox[{"(*", 
-    RowBox[{"Runs", " ", "in", " ", "Mathematica", " ", 
-     RowBox[{"Kernel", ".", " ", 
-      RowBox[{"Warning", ":", " ", 
-       RowBox[{
-       "This", " ", "make", " ", "take", " ", "some", " ", "time"}]}]}]}], 
-    "*)"}], "Text"], "\[IndentingNewLine]", 
-  RowBox[{
-   RowBox[{
-    RowBox[{"runBothCmd", "=", 
-     RowBox[{
-     "\"\<cd \>\"", "<>", "inputPath", "<>", "\"\< && ./\>\"", "<>", 
-      "\"\<runFit.sh\>\""}]}], ";"}], "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"runBothExe", "=", 
-     RowBox[{"\"\<!\>\"", "<>", "runBothCmd", "<>", "\"\< 2>&1\>\""}]}], 
-    ";"}], "\[IndentingNewLine]", 
-   RowBox[{"Import", "[", 
-    RowBox[{"runBothExe", ",", "\"\<Text\>\""}], "]"}]}]}]], "Input",
- CellChangeTimes->{{3.579989563266985*^9, 3.579989578558457*^9}, {
-  3.5799900355624228`*^9, 3.579990039691216*^9}, {3.689337228250647*^9, 
-  3.689337230177497*^9}, {3.689337293605835*^9, 3.689337295580982*^9}}],
-
-Cell[BoxData["\<\"best_fit: 5.20214971656\\nbest_fit: \
-11.3530198528\\nbest_fit: 8.03050813666\\nbest_fit: 2.71457695991\\nbest_fit: \
-10.3974864859\"\>"], "Output",
- CellChangeTimes->{3.695468799893302*^9}]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell["Run the PSO Algorithm Independently - not working", "Subsubsection",
- CellChangeTimes->{{3.5799896103159513`*^9, 3.57998964228244*^9}, {
-  3.579989673025776*^9, 3.579989674841228*^9}, {3.689338611259571*^9, 
-  3.689338614245805*^9}}],
-
-Cell[CellGroupData[{
-
 Cell[BoxData[{
  RowBox[{
-  RowBox[{"runShRunPsoExec", "=", 
-   RowBox[{
-   "\"\<cd \>\"", "<>", "outputPath", "<>", "\"\< && ./\>\"", "<>", 
-    "\"\<runPso.sh\>\""}]}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
- RowBox[{
-  StyleBox[
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{"You", " ", "can", " ", "copy"}], "+", 
-     RowBox[{
-     "paste", " ", "this", " ", "output", " ", "to", " ", "a", " ", 
-      "shell"}]}], "*)"}], "Text"]}]}], "Input",
- CellChangeTimes->{{3.579989701313575*^9, 3.579989707020117*^9}}],
-
-Cell[BoxData["\<\"cd \
-/home/mrama/Dropbox/Kinetics/Enzymes_new/GAPD_dKd/Parameter_Fitting/\
-Development/ && ./runPso.sh\"\>"], "Output",
- CellChangeTimes->{3.5799897241911297`*^9, 3.676708234426024*^9}]
-}, Open  ]],
-
-Cell[BoxData[
- RowBox[{
-  StyleBox[
-   RowBox[{"(*", 
-    RowBox[{"Runs", " ", "in", " ", "Mathematica", " ", 
-     RowBox[{"Kernel", ".", " ", 
-      RowBox[{"Warning", ":", " ", 
-       RowBox[{
-       "This", " ", "make", " ", "take", " ", "some", " ", "time"}]}]}]}], 
-    "*)"}], "Text"], "\[IndentingNewLine]", 
   RowBox[{
-   RowBox[{
-    RowBox[{"runShRunPsoCmd", "=", 
-     RowBox[{"\"\<!\>\"", "<>", "runShRunPsoExec", "<>", "\"\< 2>&1\>\""}]}], 
-    ";"}], "\[IndentingNewLine]", 
-   RowBox[{"Import", "[", 
-    RowBox[{"runShRunPsoCmd", ",", "\"\<Text\>\""}], "]"}]}]}]], "Input",
- CellChangeTimes->{{3.579990030915916*^9, 3.5799900317058907`*^9}}]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell["\<\
-Run the Levenberg-Marquardt Algorithm Independently - not working\
-\>", "Subsubsection",
- CellChangeTimes->{{3.579989767425912*^9, 3.579989772128173*^9}, {
-  3.579989815656789*^9, 3.579989837579278*^9}, {3.689338616272093*^9, 
-  3.689338617262748*^9}}],
-
-Cell["\<\
-The Levenberg-Marquardt Algorithm needs to be run after the Particle Swarm \
-Optimization\
-\>", "Text",
- CellChangeTimes->{{3.579989905278615*^9, 3.579989989966679*^9}}],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[{
+   RowBox[{"runFitScriptPath", "=", " ", 
+    RowBox[{"FileNameJoin", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{
+        "pathMASSFittingPackage", " ", "<>", " ", "\"\<python_code\>\""}], 
+        ",", "\"\<src\>\"", ",", " ", "\"\<run_fit_rel.py\>\""}], "}"}], ",", 
+      " ", 
+      RowBox[{"OperatingSystem", "\[Rule]", "$OperatingSystem"}]}], "]"}]}], 
+   ";"}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
  RowBox[{
-  RowBox[{"lmaRunCmd", "=", 
-   RowBox[{
-   "\"\<python \>\"", "<>", "lmaScriptPath", "<>", "\"\< \>\"", "<>", 
-    "lmaParameterPath", "<>", "\"\< \>\"", "<>", "psoResultsFileName", "<>", 
-    "\"\< \>\"", "<>", "resultsFileName"}]}], 
+  RowBox[{
+   RowBox[{"runPythonCmd", " ", "=", 
+    RowBox[{"StringRiffle", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"\"\<python\>\"", ",", 
+        RowBox[{
+        "\"\<\\\"\>\"", "<>", "runFitScriptPath", " ", "<>", "\"\<\\\"\>\""}],
+         ",", " ", 
+        RowBox[{
+        "\"\<\\\"\>\"", "<>", "psoParameterPath", " ", "<>", "\"\<\\\"\>\""}],
+         ",", " ", 
+        RowBox[{
+        "\"\<\\\"\>\"", "<>", "lmaParameterPath", " ", "<>", "\"\<\\\"\>\""}],
+         ",", " ", 
+        RowBox[{
+        "\"\<\\\"\>\"", "<>", "psoTrialSummaryFileName", " ", "<>", 
+         "\"\<\\\"\>\""}], ",", 
+        RowBox[{
+        "\"\<\\\"\>\"", "<>", " ", "psoResultsFileName", " ", "<>", 
+         "\"\<\\\"\>\""}], ",", " ", 
+        RowBox[{
+        "\"\<\\\"\>\"", "<>", "lmaResultsFileName", " ", "<>", 
+         "\"\<\\\"\>\""}], ",", " ", 
+        RowBox[{"ToString", " ", "@", "numTrials"}], ",", " ", 
+        RowBox[{
+        "\"\<\\\"\>\"", "<>", "dataPath", " ", "<>", "\"\<\\\"\>\""}]}], 
+       "}"}], ",", " ", "\"\< \>\""}], "]"}]}], ";"}], 
   "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
  RowBox[{
-  StyleBox[
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{"You", " ", "can", " ", "copy"}], "+", 
-     RowBox[{
-     "paste", " ", "this", " ", "output", " ", "to", " ", "a", " ", 
-      "shell"}]}], "*)"}], "Text"]}]}], "Input",
- CellChangeTimes->{{3.579989867932508*^9, 3.579989868267654*^9}}],
-
-Cell[BoxData["\<\"python \
-/media/users/jdebree/ProjectFiles/Scripts/lma_ver0.10.1.py \
-/media/users/jdebree/ProjectFiles/Enzymes/PFK1/Parameter_Fitting/Development/\
-lmaParameters.txt \
-/media/users/jdebree/ProjectFiles/Enzymes/PFK1/Parameter_Fitting/Development/\
-psoResults.txt \
-/media/users/jdebree/ProjectFiles/Enzymes/PFK1/Parameter_Fitting/Development/\
-lmaResults.txt\"\>"], "Output",
- CellChangeTimes->{3.579989879742255*^9}]
-}, Open  ]],
-
-Cell[BoxData[
- RowBox[{
-  StyleBox[
-   RowBox[{"(*", 
-    RowBox[{"Runs", " ", "in", " ", "Mathematica", " ", 
-     RowBox[{"Kernel", ".", " ", 
-      RowBox[{"Warning", ":", " ", 
-       RowBox[{
-       "This", " ", "make", " ", "take", " ", "some", " ", "time"}]}]}]}], 
-    "*)"}], "Text"], "\[IndentingNewLine]", 
-  RowBox[{
+  RowBox[{"runBothCmd", "=", 
    RowBox[{
-    RowBox[{"lmaRunExe", "=", 
-     RowBox[{"\"\<!\>\"", "<>", "lmaRunCmd", "<>", "\"\< 2>&1\>\""}]}], ";"}],
-    "\[IndentingNewLine]", 
-   RowBox[{"Import", "[", 
-    RowBox[{"lmaRunExe", ",", "\"\<Text\>\""}], "]"}]}]}]], "Input",
- CellChangeTimes->{{3.579989871203149*^9, 3.5799898778242893`*^9}, {
-  3.579990000303708*^9, 3.5799900243822536`*^9}}]
-}, Closed]]
+   "\"\<cd \\\"\>\"", "<>", "inputPath", "<>", "\"\<\\\" && \>\"", "<>", 
+    "runPythonCmd"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"runBothExe", "=", 
+    RowBox[{"\"\<!\>\"", "<>", "runBothCmd", " ", "<>", "\"\< 2>&1\>\""}]}], 
+   ";"}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Import", "[", 
+   RowBox[{
+    RowBox[{"runBothExe", "<>", "\"\< 2>&1\>\""}], ",", "\"\<Text\>\""}], 
+   "]"}], " "}]}], "Input",
+ CellChangeTimes->{{3.579989563266985*^9, 3.579989578558457*^9}, {
+   3.5799900355624228`*^9, 3.579990039691216*^9}, {3.689337228250647*^9, 
+   3.689337230177497*^9}, {3.689337293605835*^9, 3.689337295580982*^9}, 
+   3.6990873147684684`*^9}]
 }, Open  ]]
 }, Open  ]],
 
@@ -7624,41 +7693,52 @@ Cell["Pull in Parameters and Check Fit and Enzyme Statistics", "Section",
   3.55646733475666*^9, {3.557082571155723*^9, 3.5570825750045*^9}, 
    3.572639669917342*^9, {3.577037633802854*^9, 3.577037654094092*^9}}],
 
-Cell[BoxData[
- RowBox[{"\[IndentingNewLine]", 
-  RowBox[{
-   RowBox[{
-    RowBox[{"fittingData", " ", "=", " ", 
-     RowBox[{"Import", "[", 
-      RowBox[{"inputPath", " ", "<>", " ", "\"\<G3PD2.dat\>\""}], "]"}]}], 
-    ";"}], "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"fittingData", " ", "=", " ", 
-     RowBox[{"fittingData", "[", 
-      RowBox[{"[", 
-       RowBox[{
-        RowBox[{"2", ";;"}], ",", "All"}], "]"}], "]"}]}], ";"}], 
-   "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"resultsFile", " ", "=", " ", "\"\<raw/lmaResults.txt\>\""}], 
-    ";"}], "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"flagFitType", " ", "=", " ", "\"\<abs_ssd\>\""}], ";"}], 
-   "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   RowBox[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"fittingData", " ", "=", " ", 
+   RowBox[{"Import", "[", 
+    RowBox[{"FileNameJoin", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"inputPath", ",", " ", 
+        RowBox[{"dataFileName", "<>", "\"\<.dat\>\""}]}], "}"}], ",", " ", 
+      RowBox[{"OperatingSystem", "\[Rule]", "$OperatingSystem"}]}], "]"}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"fittingData", " ", "=", " ", 
+   RowBox[{"fittingData", "[", 
+    RowBox[{"[", 
+     RowBox[{
+      RowBox[{"2", ";;"}], ",", "All"}], "]"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"resultsFile", " ", "=", " ", 
+   RowBox[{"FileNameJoin", "[", 
     RowBox[{
      RowBox[{"{", 
-      RowBox[{
-      "flagFitLocal", ",", " ", "msgLocal", ",", " ", "filteredDataList", ",",
-        " ", "bestFitDetails"}], "}"}], "=", 
-     RowBox[{"getRatesWithSSD", "[", 
-      RowBox[{
-      "resultsFile", ",", " ", "rxnName", ",", " ", "fittingData", ",", " ", 
-       "inputPath", ",", " ", "outputPath", ",", "  ", "fileListSub", ",", 
-       " ", "rateConstsSub", ",", " ", "metsSub", ",", " ", "flagFitType", 
-       ",", " ", 
-       RowBox[{"{", "}"}], ",", " ", "False", ",", "\"\<\>\""}], "]"}]}], 
-    ";"}], "\[IndentingNewLine]"}]}]], "Input",
+      RowBox[{"\"\<raw\>\"", ",", 
+       RowBox[{
+       "\"\<lmaResults_\>\"", "<>", " ", "fitLabel", "<>", " ", 
+        "\"\<.txt\>\""}]}], "}"}], ",", " ", 
+     RowBox[{"OperatingSystem", "\[Rule]", "$OperatingSystem"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"flagFitType", " ", "=", " ", "\"\<abs_ssd\>\""}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+    "flagFitLocal", ",", " ", "msgLocal", ",", " ", "filteredDataList", ",", 
+     " ", "bestFitDetails"}], "}"}], "=", 
+   RowBox[{"getRatesWithSSD", "[", 
+    RowBox[{
+    "resultsFile", ",", " ", "rxnName", ",", " ", "fittingData", ",", " ", 
+     "inputPath", ",", " ", "outputPath", ",", "  ", "fileListSub", ",", " ", 
+     "rateConstsSub", ",", " ", "metsSub", ",", " ", "flagFitType", ",", " ", 
+     RowBox[{"{", "}"}], ",", " ", "False", ",", "fitLabel"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]"}], "Input",
  CellChangeTimes->{{3.689070021283847*^9, 3.689070120202732*^9}, {
    3.689070636210306*^9, 3.689070639193725*^9}, {3.689071604541892*^9, 
    3.689071622404344*^9}, {3.689071679865387*^9, 3.6890716805167418`*^9}, 
@@ -7667,7 +7747,7 @@ Cell[BoxData[
    3.6890733231011457`*^9, 3.689073343408504*^9}, {3.68907345227697*^9, 
    3.689073460025923*^9}, {3.689074215207395*^9, 3.689074221447101*^9}, {
    3.689338255826692*^9, 3.689338264200614*^9}, {3.695465114522986*^9, 
-   3.695465115506113*^9}}],
+   3.695465115506113*^9}, 3.699087326477639*^9}],
 
 Cell[CellGroupData[{
 
@@ -31794,32 +31874,9 @@ Cell[BoxData[{
  RowBox[{
   RowBox[{"enzymeSub", "=", " ", 
    RowBox[{
-    InterpretationBox[
-     UnderscriptBox[
-      StyleBox["E_total",
-       StripOnInput->False,
-       ShowSyntaxStyles->False,
-       AutoSpacing->False,
-       ZeroWidthTimes->True,
-       LineColor->RGBColor[0, 0, 0],
-       FrontFaceColor->RGBColor[0, 0, 0],
-       BackFaceColor->RGBColor[0, 0, 0],
-       GraphicsColor->RGBColor[0, 0, 0],
-       FontColor->RGBColor[0, 0, 0]], 
-      StyleBox["Global",
-       StripOnInput->False,
-       ShowSyntaxStyles->False,
-       AutoSpacing->False,
-       ZeroWidthTimes->True,
-       LineColor->RGBColor[0, 0, 0],
-       FrontFaceColor->RGBColor[0, 0, 0],
-       BackFaceColor->RGBColor[0, 0, 0],
-       GraphicsColor->RGBColor[0, 0, 0],
-       FontColor->RGBColor[0, 0, 0]]],
-     Toolbox`parameter["E_total"],
-     Editable->False,
-     Selectable->False], "\[Rule]", " ", "eTotal"}]}], 
-  ";"}], "\[IndentingNewLine]", 
+    RowBox[{"parameter", "[", 
+     RowBox[{"rxnName", "<>", "\"\<_total\>\""}], "]"}], "\[Rule]", " ", 
+    "eTotal"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"paramSet", " ", "=", " ", "1"}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
@@ -31834,7 +31891,8 @@ Cell[BoxData[{
        RowBox[{"paramSet", ",", "2"}], "]"}], "]"}]}], "]"}]}], 
   ";"}]}], "Input",
  CellChangeTimes->{{3.689505136653905*^9, 3.689505144879554*^9}, {
-  3.689587089544483*^9, 3.689587089869431*^9}}],
+  3.689587089544483*^9, 3.689587089869431*^9}, {3.6990873337183633`*^9, 
+  3.6990873403840294`*^9}}],
 
 Cell[CellGroupData[{
 
@@ -32032,7 +32090,7 @@ Cell[BoxData[
 }, Open  ]]
 },
 WindowSize->{1259, 873},
-WindowMargins->{{480, Automatic}, {3, Automatic}},
+WindowMargins->{{358, Automatic}, {Automatic, 42}},
 ShowSelection->True,
 FrontEndVersion->"11.0 for Linux x86 (64-bit) (September 21, 2016)",
 StyleDefinitions->"Default.nb"
@@ -32055,293 +32113,269 @@ Cell[CellGroupData[{
 Cell[1030, 34, 112, 1, 65, "Section"],
 Cell[1145, 37, 470, 10, 80, "Input"],
 Cell[CellGroupData[{
-Cell[1640, 51, 1788, 42, 216, "Input"],
+Cell[1640, 51, 2264, 52, 284, "Input"],
 Cell[CellGroupData[{
-Cell[3453, 97, 143, 1, 24, "Print"],
-Cell[3599, 100, 162, 2, 24, "Print"]
+Cell[3929, 107, 261, 4, 24, "Print"],
+Cell[4193, 113, 283, 5, 24, "Print"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[3822, 109, 121, 2, 65, "Section"],
-Cell[3946, 113, 2477, 65, 306, "Input"]
+Cell[4537, 125, 121, 2, 65, "Section"],
+Cell[4661, 129, 2477, 65, 306, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[6460, 183, 307, 4, 65, "Section"],
+Cell[7175, 199, 307, 4, 65, "Section"],
 Cell[CellGroupData[{
-Cell[6792, 191, 158, 2, 45, "Subsection"],
+Cell[7507, 207, 158, 2, 45, "Subsection"],
 Cell[CellGroupData[{
-Cell[6975, 197, 408, 8, 34, "Input"],
+Cell[7690, 213, 408, 8, 34, "Input"],
 Cell[CellGroupData[{
-Cell[7408, 209, 5049, 151, 35, "Print"],
-Cell[12460, 362, 238, 3, 26, "Print"],
-Cell[12701, 367, 208, 3, 24, "Print"],
-Cell[12912, 372, 211, 3, 24, "Print"],
-Cell[13126, 377, 199, 3, 24, "Print"],
-Cell[13328, 382, 207, 3, 24, "Print"],
-Cell[13538, 387, 3742, 93, 102, "Print"],
-Cell[17283, 482, 199, 3, 24, "Print"],
-Cell[17485, 487, 211, 3, 24, "Print"],
-Cell[17699, 492, 860, 20, 26, "Print"],
-Cell[18562, 514, 197, 3, 24, "Print"],
-Cell[18762, 519, 211, 3, 24, "Print"],
-Cell[18976, 524, 836, 20, 26, "Print"],
-Cell[19815, 546, 197, 3, 24, "Print"],
-Cell[20015, 551, 215, 3, 24, "Print"],
-Cell[20233, 556, 21960, 551, 269, "Print"],
-Cell[42196, 1109, 197, 3, 24, "Print"],
-Cell[42396, 1114, 215, 3, 24, "Print"],
-Cell[42614, 1119, 911, 21, 26, "Print"],
-Cell[43528, 1142, 197, 3, 24, "Print"],
-Cell[43728, 1147, 214, 3, 24, "Print"],
-Cell[43945, 1152, 859, 20, 26, "Print"]
+Cell[8123, 225, 5169, 153, 35, "Print"],
+Cell[13295, 380, 358, 5, 26, "Print"],
+Cell[13656, 387, 330, 5, 24, "Print"],
+Cell[13989, 394, 335, 5, 24, "Print"],
+Cell[14327, 401, 319, 5, 24, "Print"],
+Cell[14649, 408, 329, 5, 24, "Print"],
+Cell[14981, 415, 3864, 95, 102, "Print"],
+Cell[18848, 512, 319, 5, 24, "Print"],
+Cell[19170, 519, 331, 5, 24, "Print"],
+Cell[19504, 526, 982, 22, 26, "Print"],
+Cell[20489, 550, 319, 5, 24, "Print"],
+Cell[20811, 557, 331, 5, 24, "Print"],
+Cell[21145, 564, 958, 22, 26, "Print"],
+Cell[22106, 588, 321, 5, 24, "Print"],
+Cell[22430, 595, 337, 5, 24, "Print"],
+Cell[22770, 602, 22082, 553, 269, "Print"],
+Cell[44855, 1157, 319, 5, 24, "Print"],
+Cell[45177, 1164, 337, 5, 24, "Print"],
+Cell[45517, 1171, 1035, 23, 26, "Print"],
+Cell[46555, 1196, 319, 5, 24, "Print"],
+Cell[46877, 1203, 338, 5, 24, "Print"],
+Cell[47218, 1210, 981, 22, 26, "Print"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[44865, 1179, 113, 1, 45, "Subsection"],
-Cell[44981, 1182, 8504, 199, 44, "Output"],
-Cell[53488, 1383, 658, 19, 49, InheritFromParent],
-Cell[54149, 1404, 4575, 74, 237, "Input"],
-Cell[58727, 1480, 145, 2, 32, "Input"]
+Cell[48260, 1239, 113, 1, 45, "Subsection"],
+Cell[48376, 1242, 8504, 199, 44, "Output"],
+Cell[56883, 1443, 658, 19, 49, "Input"],
+Cell[57544, 1464, 4575, 74, 237, "Input"],
+Cell[62122, 1540, 145, 2, 32, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[58909, 1487, 169, 3, 45, "Subsection"],
+Cell[62304, 1547, 169, 3, 45, "Subsection"],
 Cell[CellGroupData[{
-Cell[59103, 1494, 15210, 420, 1344, "Input"],
-Cell[74316, 1916, 46970, 1130, 326, "Output"]
+Cell[62498, 1554, 15210, 420, 1344, "Input"],
+Cell[77711, 1976, 47090, 1132, 326, "Output"]
 }, Open  ]],
-Cell[121301, 3049, 4735, 104, 642, "Input"]
+Cell[124816, 3111, 4735, 104, 642, "Input"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[126085, 3159, 191, 2, 65, "Section"],
+Cell[129600, 3221, 191, 2, 65, "Section"],
 Cell[CellGroupData[{
-Cell[126301, 3165, 82, 1, 45, "Subsection"],
-Cell[126386, 3168, 9946, 295, 443, "Input"]
+Cell[129816, 3227, 82, 1, 45, "Subsection"],
+Cell[129901, 3230, 9946, 295, 443, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[136369, 3468, 178, 3, 44, "Subsection"],
-Cell[136550, 3473, 92, 1, 32, "Input"],
-Cell[136645, 3476, 2820, 61, 352, "Input"]
-}, Open  ]],
+Cell[139884, 3530, 178, 3, 44, "Subsection"],
+Cell[140065, 3535, 92, 1, 32, "Input"],
 Cell[CellGroupData[{
-Cell[139502, 3542, 212, 6, 70, "Subsection"],
-Cell[CellGroupData[{
-Cell[139739, 3552, 116, 1, 35, "Subsubsection"],
-Cell[CellGroupData[{
-Cell[139880, 3557, 1378, 43, 103, "Input"],
-Cell[141261, 3602, 2366, 47, 243, "Output"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[143664, 3654, 4254, 124, 218, "Input"],
-Cell[147921, 3780, 298, 5, 34, "Output"],
-Cell[148222, 3787, 315, 6, 34, "Output"],
-Cell[148540, 3795, 315, 6, 34, "Output"],
-Cell[148858, 3803, 8023, 149, 245, "Output"]
+Cell[140182, 3540, 2966, 64, 397, "Input"],
+Cell[143151, 3606, 293, 6, 26, "Print"]
 }, Open  ]]
-}, Closed]],
-Cell[CellGroupData[{
-Cell[156930, 3958, 118, 1, 29, "Subsubsection"],
-Cell[CellGroupData[{
-Cell[157073, 3963, 1204, 40, 103, "Input"],
-Cell[158280, 4005, 2363, 47, 244, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[160680, 4057, 4070, 122, 218, "Input"],
-Cell[164753, 4181, 234, 5, 38, "Output"],
-Cell[164990, 4188, 236, 5, 38, "Output"],
-Cell[165229, 4195, 236, 5, 34, "Output"],
-Cell[165468, 4202, 8046, 149, 369, "Output"]
+Cell[143493, 3618, 212, 6, 70, "Subsection"],
+Cell[CellGroupData[{
+Cell[143730, 3628, 116, 1, 35, "Subsubsection"],
+Cell[CellGroupData[{
+Cell[143871, 3633, 1378, 43, 103, "Input"],
+Cell[145252, 3678, 2366, 47, 243, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[147655, 3730, 4254, 124, 218, "Input"],
+Cell[151912, 3856, 298, 5, 34, "Output"],
+Cell[152213, 3863, 315, 6, 34, "Output"],
+Cell[152531, 3871, 315, 6, 34, "Output"],
+Cell[152849, 3879, 8023, 149, 245, "Output"]
 }, Open  ]]
 }, Closed]],
 Cell[CellGroupData[{
-Cell[173563, 4357, 165, 2, 29, "Subsubsection"],
+Cell[160921, 4034, 118, 1, 29, "Subsubsection"],
 Cell[CellGroupData[{
-Cell[173753, 4363, 1252, 41, 103, "Input"],
-Cell[175008, 4406, 2389, 48, 243, "Output"]
+Cell[161064, 4039, 1204, 40, 103, "Input"],
+Cell[162271, 4081, 2363, 47, 244, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[177434, 4459, 4070, 122, 218, "Input"],
-Cell[181507, 4583, 258, 5, 34, "Output"],
-Cell[181768, 4590, 259, 5, 34, "Output"],
-Cell[182030, 4597, 257, 5, 34, "Output"],
-Cell[182290, 4604, 8031, 148, 381, "Output"]
+Cell[164671, 4133, 4070, 122, 218, "Input"],
+Cell[168744, 4257, 234, 5, 38, "Output"],
+Cell[168981, 4264, 236, 5, 38, "Output"],
+Cell[169220, 4271, 236, 5, 34, "Output"],
+Cell[169459, 4278, 8046, 149, 369, "Output"]
 }, Open  ]]
 }, Closed]],
 Cell[CellGroupData[{
-Cell[190370, 4758, 216, 3, 29, "Subsubsection"],
+Cell[177554, 4433, 165, 2, 29, "Subsubsection"],
 Cell[CellGroupData[{
-Cell[190611, 4765, 1303, 42, 103, "Input"],
-Cell[191917, 4809, 2417, 49, 244, "Output"]
+Cell[177744, 4439, 1252, 41, 103, "Input"],
+Cell[178999, 4482, 2389, 48, 243, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[194371, 4863, 4070, 122, 218, "Input"],
-Cell[198444, 4987, 283, 6, 38, "Output"],
-Cell[198730, 4995, 266, 5, 38, "Output"],
-Cell[198999, 5002, 285, 6, 34, "Output"],
-Cell[199287, 5010, 8093, 150, 369, "Output"]
+Cell[181425, 4535, 4070, 122, 218, "Input"],
+Cell[185498, 4659, 258, 5, 34, "Output"],
+Cell[185759, 4666, 259, 5, 34, "Output"],
+Cell[186021, 4673, 257, 5, 34, "Output"],
+Cell[186281, 4680, 8031, 148, 381, "Output"]
 }, Open  ]]
 }, Closed]],
 Cell[CellGroupData[{
-Cell[207429, 5166, 265, 3, 29, "Subsubsection"],
+Cell[194361, 4834, 216, 3, 29, "Subsubsection"],
 Cell[CellGroupData[{
-Cell[207719, 5173, 1349, 42, 103, "Input"],
-Cell[209071, 5217, 2419, 47, 234, "Output"]
+Cell[194602, 4841, 1303, 42, 103, "Input"],
+Cell[195908, 4885, 2417, 49, 244, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[211527, 5269, 4070, 122, 218, "Input"],
-Cell[215600, 5393, 288, 5, 34, "Output"],
-Cell[215891, 5400, 287, 5, 34, "Output"],
-Cell[216181, 5407, 290, 5, 34, "Output"],
-Cell[216474, 5414, 8120, 150, 381, "Output"]
+Cell[198362, 4939, 4070, 122, 218, "Input"],
+Cell[202435, 5063, 283, 6, 38, "Output"],
+Cell[202721, 5071, 266, 5, 38, "Output"],
+Cell[202990, 5078, 285, 6, 34, "Output"],
+Cell[203278, 5086, 8093, 150, 369, "Output"]
 }, Open  ]]
 }, Closed]],
 Cell[CellGroupData[{
-Cell[224643, 5570, 342, 4, 29, "Subsubsection"],
+Cell[211420, 5242, 265, 3, 29, "Subsubsection"],
 Cell[CellGroupData[{
-Cell[225010, 5578, 1402, 43, 103, "Input"],
-Cell[226415, 5623, 2464, 49, 243, "Output"]
+Cell[211710, 5249, 1349, 42, 103, "Input"],
+Cell[213062, 5293, 2419, 47, 234, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[228916, 5677, 4070, 122, 218, "Input"],
-Cell[232989, 5801, 311, 5, 34, "Output"],
-Cell[233303, 5808, 311, 5, 34, "Output"],
-Cell[233617, 5815, 326, 6, 34, "Output"],
-Cell[233946, 5823, 8102, 149, 381, "Output"]
+Cell[215518, 5345, 4070, 122, 218, "Input"],
+Cell[219591, 5469, 288, 5, 34, "Output"],
+Cell[219882, 5476, 287, 5, 34, "Output"],
+Cell[220172, 5483, 290, 5, 34, "Output"],
+Cell[220465, 5490, 8120, 150, 381, "Output"]
 }, Open  ]]
 }, Closed]],
 Cell[CellGroupData[{
-Cell[242097, 5978, 412, 5, 29, "Subsubsection"],
+Cell[228634, 5646, 342, 4, 29, "Subsubsection"],
 Cell[CellGroupData[{
-Cell[242534, 5987, 1505, 44, 103, "Input"],
-Cell[244042, 6033, 2537, 50, 243, "Output"]
+Cell[229001, 5654, 1402, 43, 103, "Input"],
+Cell[230406, 5699, 2464, 49, 243, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[246616, 6088, 4070, 122, 218, "Input"],
-Cell[250689, 6212, 372, 7, 34, "Output"],
-Cell[251064, 6221, 372, 7, 34, "Output"],
-Cell[251439, 6230, 373, 7, 34, "Output"],
-Cell[251815, 6239, 8199, 151, 381, "Output"]
+Cell[232907, 5753, 4070, 122, 218, "Input"],
+Cell[236980, 5877, 311, 5, 34, "Output"],
+Cell[237294, 5884, 311, 5, 34, "Output"],
+Cell[237608, 5891, 326, 6, 34, "Output"],
+Cell[237937, 5899, 8102, 149, 381, "Output"]
+}, Open  ]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[246088, 6054, 412, 5, 29, "Subsubsection"],
+Cell[CellGroupData[{
+Cell[246525, 6063, 1505, 44, 103, "Input"],
+Cell[248033, 6109, 2537, 50, 243, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[260051, 6395, 95, 1, 32, "Input"],
-Cell[260149, 6398, 4927, 149, 77, "Output"]
+Cell[250607, 6164, 4070, 122, 218, "Input"],
+Cell[254680, 6288, 372, 7, 34, "Output"],
+Cell[255055, 6297, 372, 7, 34, "Output"],
+Cell[255430, 6306, 373, 7, 34, "Output"],
+Cell[255806, 6315, 8199, 151, 381, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[264042, 6471, 95, 1, 32, "Input"],
+Cell[264140, 6474, 4927, 149, 77, "Output"]
 }, Open  ]]
 }, Open  ]]
 }, Closed]],
 Cell[CellGroupData[{
-Cell[265137, 6554, 176, 6, 62, "Subsection"],
+Cell[269128, 6630, 176, 6, 62, "Subsection"],
 Cell[CellGroupData[{
-Cell[265338, 6564, 4044, 80, 237, "Input"],
-Cell[269385, 6646, 31057, 531, 2999, "Print"]
+Cell[269329, 6640, 4110, 82, 237, "Input"],
+Cell[273442, 6724, 31258, 683, 2999, "Print"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[300503, 7184, 297, 4, 65, "Section"],
-Cell[300803, 7190, 809, 18, 80, "Input"],
+Cell[304761, 7414, 297, 4, 65, "Section"],
+Cell[305061, 7420, 885, 19, 80, "Input"],
 Cell[CellGroupData[{
-Cell[301637, 7212, 544, 11, 56, "Input"],
-Cell[302184, 7225, 1643, 42, 399, "Print"]
+Cell[305971, 7443, 544, 11, 56, "Input"],
+Cell[306518, 7456, 1643, 42, 399, "Print"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[303876, 7273, 297, 4, 65, "Section"],
-Cell[304176, 7279, 2571, 40, 57, "Input"],
+Cell[308210, 7504, 297, 4, 65, "Section"],
+Cell[308510, 7510, 2648, 42, 57, "Input"],
 Cell[CellGroupData[{
-Cell[306772, 7323, 437, 8, 56, "Input"],
-Cell[307212, 7333, 1844, 41, 297, "Print"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[309093, 7379, 247, 3, 45, "Subsection"],
-Cell[CellGroupData[{
-Cell[309365, 7386, 2131, 48, 285, "Input"],
-Cell[311499, 7436, 888, 13, 32, "Output"]
-}, Open  ]]
+Cell[311183, 7556, 437, 8, 56, "Input"],
+Cell[311623, 7566, 1844, 41, 279, "Print"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[312448, 7456, 160, 2, 65, "Section"],
+Cell[313516, 7613, 160, 2, 70, "Section"],
 Cell[CellGroupData[{
-Cell[312633, 7462, 122, 1, 45, "Subsection"],
-Cell[CellGroupData[{
-Cell[312780, 7467, 980, 24, 103, "Input"],
-Cell[313763, 7493, 208, 3, 121, "Output"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[314008, 7501, 239, 3, 35, "Subsubsection"],
-Cell[CellGroupData[{
-Cell[314272, 7508, 522, 14, 78, "Input"],
-Cell[314797, 7524, 203, 3, 55, "Output"]
-}, Open  ]],
-Cell[315015, 7530, 659, 17, 80, "Input"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[315711, 7552, 262, 5, 35, "Subsubsection"],
-Cell[315976, 7559, 179, 4, 70, "Text"],
-Cell[CellGroupData[{
-Cell[316180, 7567, 616, 16, 70, "Input"],
-Cell[316799, 7585, 435, 8, 70, "Output"]
-}, Open  ]],
-Cell[317249, 7596, 693, 18, 70, "Input"]
-}, Closed]]
+Cell[313701, 7619, 122, 1, 49, "Subsection"],
+Cell[313826, 7622, 2383, 62, 212, "Input"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[318003, 7621, 233, 3, 65, "Section"],
-Cell[318239, 7626, 1942, 43, 238, "Input"],
+Cell[316258, 7690, 233, 3, 70, "Section"],
+Cell[316494, 7695, 2332, 54, 192, "Input"],
 Cell[CellGroupData[{
-Cell[320206, 7673, 211, 3, 32, "Input"],
-Cell[320420, 7678, 25345, 501, 2208, "Output"]
+Cell[318851, 7753, 211, 3, 31, "Input"],
+Cell[319065, 7758, 25345, 501, 1842, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[345802, 8184, 101, 1, 44, "Subsection"],
+Cell[344447, 8264, 101, 1, 49, "Subsection"],
 Cell[CellGroupData[{
-Cell[345928, 8189, 1203, 34, 57, "Input"],
-Cell[347134, 8225, 5001, 96, 474, "Output"],
-Cell[352138, 8323, 4921, 94, 241, "Output"]
+Cell[344573, 8269, 1203, 34, 52, "Input"],
+Cell[345779, 8305, 5001, 96, 476, "Output"],
+Cell[350783, 8403, 4921, 94, 243, "Output"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[357108, 8423, 86, 1, 44, "Subsection"],
+Cell[355753, 8503, 86, 1, 49, "Subsection"],
 Cell[CellGroupData[{
-Cell[357219, 8428, 1013, 27, 124, "Input"],
-Cell[358235, 8457, 141719, 3130, 235, "Output"]
+Cell[355864, 8508, 1013, 27, 92, "Input"],
+Cell[356880, 8537, 141719, 3130, 238, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[499991, 11592, 1115, 25, 124, "Input"],
-Cell[501109, 11619, 73608, 1619, 235, "Output"]
+Cell[498636, 11672, 1115, 25, 92, "Input"],
+Cell[499754, 11699, 73608, 1619, 238, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[574754, 13243, 1766, 44, 146, "Input"],
-Cell[576523, 13289, 220425, 4198, 248, "Output"]
+Cell[573399, 13323, 1766, 44, 112, "Input"],
+Cell[575168, 13369, 220425, 4198, 250, "Output"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[796997, 17493, 89, 1, 44, "Subsection"],
-Cell[797089, 17496, 810, 23, 101, "Input"],
-Cell[797902, 17521, 747, 20, 101, "Input"],
+Cell[795642, 17573, 89, 1, 49, "Subsection"],
+Cell[795734, 17576, 810, 23, 92, "Input"],
+Cell[796547, 17601, 747, 20, 72, "Input"],
 Cell[CellGroupData[{
-Cell[798674, 17545, 760, 15, 79, "Input"],
-Cell[799437, 17562, 651017, 14212, 232, "Output"]
+Cell[797319, 17625, 760, 15, 52, "Input"],
+Cell[798082, 17642, 651017, 14212, 234, "Output"]
 }, Open  ]],
-Cell[1450469, 31777, 236, 3, 32, "Input"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[1450742, 31785, 311, 5, 45, "Subsection"],
-Cell[1451056, 31792, 1484, 44, 95, "Input"],
-Cell[CellGroupData[{
-Cell[1452565, 31840, 769, 14, 57, "Input"],
-Cell[1453337, 31856, 4259, 102, 96, "Output"]
+Cell[1449114, 31857, 236, 3, 31, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[1457633, 31963, 496, 11, 57, "Input"],
-Cell[1458132, 31976, 852, 19, 52, "Output"]
+Cell[1449387, 31865, 311, 5, 49, "Subsection"],
+Cell[1449701, 31872, 818, 22, 72, "Input"],
+Cell[CellGroupData[{
+Cell[1450544, 31898, 769, 14, 52, "Input"],
+Cell[1451316, 31914, 4259, 102, 81, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[1459021, 32000, 311, 6, 34, "Input"],
-Cell[1459335, 32008, 831, 19, 52, "Output"]
+Cell[1455612, 32021, 496, 11, 52, "Input"],
+Cell[1456111, 32034, 852, 19, 45, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1457000, 32058, 311, 6, 31, "Input"],
+Cell[1457314, 32066, 831, 19, 45, "Output"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]

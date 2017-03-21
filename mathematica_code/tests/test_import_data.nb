@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    164255,       3921]
-NotebookOptionsPosition[    163200,       3882]
-NotebookOutlinePosition[    163543,       3897]
-CellTagsIndexPosition[    163500,       3894]
+NotebookDataLength[    164284,       3921]
+NotebookOptionsPosition[    163228,       3882]
+NotebookOutlinePosition[    163572,       3897]
+CellTagsIndexPosition[    163529,       3894]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -1675,7 +1675,7 @@ Cell[BoxData[
                  TagBox[
                   
                   TemplateBox[{
-                   "0.049503`4.845146516845684","\"s\"","seconds",
+                   "0.059171`4.922623906821903","\"s\"","seconds",
                     "\"Seconds\""},
                    "Quantity"],
                   Short[#, 
@@ -1756,8 +1756,8 @@ Cell[BoxData[
           "teoahcl", "triethanolamine-HCl"}, 7.83, 1, 0}, {{
           "pi_buffer", "Phosphoric acid"}, 7.198, -1, -2}}], 
       "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
-      Quantity[0.049503`4.845146516845684, "Seconds"], "CPUTimeUsed" -> 
-      Quantity[0.04800000000000004, "Seconds"], "MemoryUsed" -> 
+      Quantity[0.059171`4.922623906821903, "Seconds"], "CPUTimeUsed" -> 
+      Quantity[0.06000000000000005, "Seconds"], "MemoryUsed" -> 
       Quantity[3026544, "Bytes"]]],
     Editable->False,
     SelectWithContents->True,
@@ -1985,7 +1985,7 @@ Cell[BoxData[
                  TagBox[
                   
                   TemplateBox[{
-                   "0.000105`2.171704296901928","\"s\"","seconds",
+                   "0.000116`2.2149729870589105","\"s\"","seconds",
                     "\"Seconds\""},
                    "Quantity"],
                   Short[#, 
@@ -2026,7 +2026,7 @@ Cell[BoxData[
       HoldForm[{{"cl", -1}, {"mg2", 2}, {"k", 1}, {"so4", -2}, {"mn2", 2}, {
          "na1", 1}, {"hco3", -1}}], "ExpectedMessages" -> {}, 
       "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
-      Quantity[0.000105`2.171704296901928, "Seconds"], "CPUTimeUsed" -> 
+      Quantity[0.000116`2.2149729870589105, "Seconds"], "CPUTimeUsed" -> 
       Quantity[0., "Seconds"], "MemoryUsed" -> Quantity[96, "Bytes"]]],
     Editable->False,
     SelectWithContents->True,
@@ -2530,7 +2530,7 @@ Cell[BoxData[
                  TagBox[
                   
                   TemplateBox[{
-                   "0.000102`2.159115169593909","\"s\"","seconds",
+                   "0.00024`2.5307262395435974","\"s\"","seconds",
                     "\"Seconds\""},
                    "Quantity"],
                   Short[#, 
@@ -2688,7 +2688,7 @@ Cell[BoxData[
             "Competitive", Null, Null, "nadp", Null}}, "M", 7.4, 
            23, {{"trishcl", 0.1}}, {}}}, {}, {}}], "ExpectedMessages" -> {}, 
       "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
-      Quantity[0.000102`2.159115169593909, "Seconds"], "CPUTimeUsed" -> 
+      Quantity[0.00024`2.5307262395435974, "Seconds"], "CPUTimeUsed" -> 
       Quantity[0., "Seconds"], "MemoryUsed" -> Quantity[104, "Bytes"]]],
     Editable->False,
     SelectWithContents->True,
@@ -3206,7 +3206,7 @@ Cell[BoxData[
                  TagBox[
                   
                   TemplateBox[{
-                   "0.000096`2.13278623087156","\"s\"","seconds",
+                   "0.000158`2.349172084786414","\"s\"","seconds",
                     "\"Seconds\""},
                    "Quantity"],
                   Short[#, 
@@ -3302,7 +3302,7 @@ Cell[BoxData[
            30, {{"detam", 0.051}, {"netmphn", 0.051}, {"mes", 0.1}}, {}}, {
           "L0", "", 4000000, "", 8.5, 28, {{"tris", 0.05}}, {}}}}], 
       "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
-      Quantity[0.000096`2.13278623087156, "Seconds"], "CPUTimeUsed" -> 
+      Quantity[0.000158`2.349172084786414, "Seconds"], "CPUTimeUsed" -> 
       Quantity[0., "Seconds"], "MemoryUsed" -> Quantity[32, "Bytes"]]],
     Editable->False,
     SelectWithContents->True,
@@ -3750,7 +3750,7 @@ Cell[BoxData[
                  TagBox[
                   
                   TemplateBox[{
-                   "0.000105`2.1717042969019293","\"s\"","seconds",
+                   "0.000133`2.2743666387990773","\"s\"","seconds",
                     "\"Seconds\""},
                    "Quantity"],
                   Short[#, 
@@ -3853,7 +3853,7 @@ Cell[BoxData[
            0.019, {{"s7p", Null}}, {{"Competitive", Null, Null, "g3p", Null}},
             "M", 8.5, 30, {{"glygly", 0.05}}, {}}}, {}, {}}], 
       "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
-      Quantity[0.000105`2.1717042969019293, "Seconds"], "CPUTimeUsed" -> 
+      Quantity[0.000133`2.2743666387990773, "Seconds"], "CPUTimeUsed" -> 
       Quantity[0., "Seconds"], "MemoryUsed" -> Quantity[32, "Bytes"]]],
     Editable->False,
     SelectWithContents->True,
@@ -3876,12 +3876,12 @@ Cell[BoxData[
    3.698389171633502*^9, 3.698492083964953*^9, 3.698492120713175*^9, {
    3.698492168070672*^9, 3.69849221798197*^9}, {3.69849275492155*^9, 
    3.6984927689506063`*^9}, 3.6984951465761538`*^9, 3.698495488478771*^9, 
-   3.698495913465066*^9}]
+   3.698495913465066*^9, 3.6990914665257893`*^9}]
 }, Open  ]]
 }, Open  ]]
 },
 WindowSize->{1641, 1020},
-WindowMargins->{{Automatic, 235}, {-80, Automatic}},
+WindowMargins->{{Automatic, 232}, {-104, Automatic}},
 FrontEndVersion->"11.0 for Linux x86 (64-bit) (September 21, 2016)",
 StyleDefinitions->"Default.nb"
 ]
@@ -3920,7 +3920,7 @@ Cell[46573, 1139, 12627, 304, 471, "Input"],
 Cell[59203, 1445, 92, 1, 32, "Input"],
 Cell[CellGroupData[{
 Cell[59320, 1450, 103, 1, 32, "Input"],
-Cell[59426, 1453, 103746, 2425, 182, "Output"]
+Cell[59426, 1453, 103774, 2425, 125, "Output"]
 }, Open  ]]
 }, Open  ]]
 }

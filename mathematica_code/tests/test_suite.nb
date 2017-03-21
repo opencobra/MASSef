@@ -3,10 +3,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[         0,          0]
-NotebookDataLength[     25323,        640]
-NotebookOptionsPosition[     24329,        599]
-NotebookOutlinePosition[     24670,        614]
-CellTagsIndexPosition[     24627,        611]
+NotebookDataLength[     37365,       1018]
+NotebookOptionsPosition[     35845,        964]
+NotebookOutlinePosition[     36186,        979]
+CellTagsIndexPosition[     36143,        976]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -23,7 +23,7 @@ Cell[BoxData[
 Cell[BoxData[{
  RowBox[{"<<", "Toolbox`"}], "\[IndentingNewLine]", 
  RowBox[{
-  RowBox[{"Get", "[", "\"\<MASSFittingPackage`\>\"", "]"}], 
+  RowBox[{"Get", "[", "\"\<MASSef`\>\"", "]"}], 
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
@@ -116,7 +116,8 @@ Cell[BoxData[{
    3.624547582591302*^9, 3.624547618004697*^9}, {3.6261974114501534`*^9, 
    3.626197462101013*^9}, {3.626197499221789*^9, 3.626197511932768*^9}, {
    3.6261975695482388`*^9, 3.6261975874705887`*^9}, 3.6261983016985807`*^9, {
-   3.6893388069316387`*^9, 3.689338809402128*^9}}],
+   3.6893388069316387`*^9, 3.689338809402128*^9}, {3.6990914930117273`*^9, 
+   3.699091497302978*^9}}],
 
 Cell[CellGroupData[{
 
@@ -151,23 +152,387 @@ Cell[BoxData[{
   ";"}]}], "Input",
  CellChangeTimes->{{3.6890841726292543`*^9, 3.6890842574097767`*^9}}],
 
+Cell[BoxData[
+ TemplateBox[{
+  "DeleteFile","fdnfnd",
+   "\"Directory or file \
+\\!\\(\\*RowBox[{\\\"\\\\\\\"test_files/build_module/absoluteFlux.m\\\\\\\"\\\
+\"}]\\) not found.\"",2,52,1,22813404479740006901,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.699091506609531*^9}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "DeleteFile","fdnfnd",
+   "\"Directory or file \
+\\!\\(\\*RowBox[{\\\"\\\\\\\"test_files/build_module/enzSol.m\\\\\\\"\\\"}]\\)\
+ not found.\"",2,53,2,22813404479740006901,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.6990915066996937`*^9}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "DeleteFile","fdnfnd",
+   "\"Directory or file \
+\\!\\(\\*RowBox[{\\\"\\\\\\\"test_files/build_module/absoluteFlux.m\\\\\\\"\\\
+\"}]\\) not found.\"",2,97,3,22813404479740006901,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.699091507920019*^9}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "DeleteFile","fdnfnd",
+   "\"Directory or file \
+\\!\\(\\*RowBox[{\\\"\\\\\\\"test_files/build_module/enzSol.m\\\\\\\"\\\"}]\\)\
+ not found.\"",2,98,4,22813404479740006901,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.699091507931355*^9}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "DeleteFile","fdnfnd",
+   "\"Directory or file \
+\\!\\(\\*RowBox[{\\\"\\\\\\\"test_files/build_module/absoluteFlux.m\\\\\\\"\\\
+\"}]\\) not found.\"",2,116,5,22813404479740006901,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.699091508717209*^9}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "DeleteFile","fdnfnd",
+   "\"Directory or file \
+\\!\\(\\*RowBox[{\\\"\\\\\\\"test_files/build_module/enzSol.m\\\\\\\"\\\"}]\\)\
+ not found.\"",2,117,6,22813404479740006901,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.6990915087236423`*^9}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "DeleteFile","fdnfnd",
+   "\"Directory or file \
+\\!\\(\\*RowBox[{\\\"\\\\\\\"test_files/build_module/absoluteFlux.m\\\\\\\"\\\
+\"}]\\) not found.\"",2,135,7,22813404479740006901,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.699091508958518*^9}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "DeleteFile","fdnfnd",
+   "\"Directory or file \
+\\!\\(\\*RowBox[{\\\"\\\\\\\"test_files/build_module/enzSol.m\\\\\\\"\\\"}]\\)\
+ not found.\"",2,136,8,22813404479740006901,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.69909150896581*^9}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "DeleteFile","fdnfnd",
+   "\"Directory or file \
+\\!\\(\\*RowBox[{\\\"\\\\\\\"test_files/build_module/absoluteFlux.m\\\\\\\"\\\
+\"}]\\) not found.\"",2,161,9,22813404479740006901,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.699091534187253*^9}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "DeleteFile","fdnfnd",
+   "\"Directory or file \
+\\!\\(\\*RowBox[{\\\"\\\\\\\"test_files/build_module/enzSol.m\\\\\\\"\\\"}]\\)\
+ not found.\"",2,162,10,22813404479740006901,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.699091534197863*^9}],
+
 Cell[CellGroupData[{
 
 Cell[BoxData["\<\"../../data\"\>"], "Print",
- CellChangeTimes->{3.6971255293549433`*^9}],
+ CellChangeTimes->{3.6990915434585333`*^9}],
 
-Cell[BoxData["\<\"Working \
-dir:/home/mrama/Dropbox/MASS_fitting_package/mathematica_code/tests/\"\>"], \
-"Print",
- CellChangeTimes->{3.697125534676633*^9}],
-
-Cell[BoxData[
- RowBox[{"{", "0.07309600202638361`", "}"}]], "Print",
- CellChangeTimes->{3.697125537223023*^9}],
+Cell[BoxData["\<\"Working dir:/home/mrama/Dropbox/test \
+bla/MASSef/mathematica_code/tests/\"\>"], "Print",
+ CellChangeTimes->{3.69909155049942*^9}],
 
 Cell[BoxData[
- RowBox[{"{", "0.07309600202638361`", "}"}]], "Print",
- CellChangeTimes->{3.697125537898417*^9}]
+ RowBox[{"{", 
+  RowBox[{
+   InterpretationBox[
+    SuperscriptBox[
+     StyleBox[
+      RowBox[{"13", "dpg"}],
+      StripOnInput->False,
+      ShowSyntaxStyles->False,
+      AutoSpacing->False,
+      ZeroWidthTimes->True,
+      LineColor->RGBColor[0, 0, 0],
+      FrontFaceColor->RGBColor[0, 0, 0],
+      BackFaceColor->RGBColor[0, 0, 0],
+      GraphicsColor->RGBColor[0, 0, 0],
+      FontColor->RGBColor[0, 0, 0]], 
+     StyleBox["c",
+      StripOnInput->False,
+      ShowSyntaxStyles->False,
+      AutoSpacing->False,
+      ZeroWidthTimes->True,
+      LineColor->RGBColor[0, 0, 0],
+      FrontFaceColor->RGBColor[0, 0, 0],
+      BackFaceColor->RGBColor[0, 0, 0],
+      GraphicsColor->RGBColor[0, 0, 0],
+      FontColor->RGBColor[0, 0, 0]]],
+    Toolbox`metabolite["13dpg", "c"],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    SuperscriptBox[
+     StyleBox["g3p",
+      StripOnInput->False,
+      ShowSyntaxStyles->False,
+      AutoSpacing->False,
+      ZeroWidthTimes->True,
+      LineColor->RGBColor[0, 0, 0],
+      FrontFaceColor->RGBColor[0, 0, 0],
+      BackFaceColor->RGBColor[0, 0, 0],
+      GraphicsColor->RGBColor[0, 0, 0],
+      FontColor->RGBColor[0, 0, 0]], 
+     StyleBox["c",
+      StripOnInput->False,
+      ShowSyntaxStyles->False,
+      AutoSpacing->False,
+      ZeroWidthTimes->True,
+      LineColor->RGBColor[0, 0, 0],
+      FrontFaceColor->RGBColor[0, 0, 0],
+      BackFaceColor->RGBColor[0, 0, 0],
+      GraphicsColor->RGBColor[0, 0, 0],
+      FontColor->RGBColor[0, 0, 0]]],
+    Toolbox`metabolite["g3p", "c"],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    SuperscriptBox[
+     StyleBox["nad",
+      StripOnInput->False,
+      ShowSyntaxStyles->False,
+      AutoSpacing->False,
+      ZeroWidthTimes->True,
+      LineColor->RGBColor[0, 0, 0],
+      FrontFaceColor->RGBColor[0, 0, 0],
+      BackFaceColor->RGBColor[0, 0, 0],
+      GraphicsColor->RGBColor[0, 0, 0],
+      FontColor->RGBColor[0, 0, 0]], 
+     StyleBox["c",
+      StripOnInput->False,
+      ShowSyntaxStyles->False,
+      AutoSpacing->False,
+      ZeroWidthTimes->True,
+      LineColor->RGBColor[0, 0, 0],
+      FrontFaceColor->RGBColor[0, 0, 0],
+      BackFaceColor->RGBColor[0, 0, 0],
+      GraphicsColor->RGBColor[0, 0, 0],
+      FontColor->RGBColor[0, 0, 0]]],
+    Toolbox`metabolite["nad", "c"],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    SuperscriptBox[
+     StyleBox["nadh",
+      StripOnInput->False,
+      ShowSyntaxStyles->False,
+      AutoSpacing->False,
+      ZeroWidthTimes->True,
+      LineColor->RGBColor[0, 0, 0],
+      FrontFaceColor->RGBColor[0, 0, 0],
+      BackFaceColor->RGBColor[0, 0, 0],
+      GraphicsColor->RGBColor[0, 0, 0],
+      FontColor->RGBColor[0, 0, 0]], 
+     StyleBox["c",
+      StripOnInput->False,
+      ShowSyntaxStyles->False,
+      AutoSpacing->False,
+      ZeroWidthTimes->True,
+      LineColor->RGBColor[0, 0, 0],
+      FrontFaceColor->RGBColor[0, 0, 0],
+      BackFaceColor->RGBColor[0, 0, 0],
+      GraphicsColor->RGBColor[0, 0, 0],
+      FontColor->RGBColor[0, 0, 0]]],
+    Toolbox`metabolite["nadh", "c"],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    SuperscriptBox[
+     StyleBox["pi",
+      StripOnInput->False,
+      ShowSyntaxStyles->False,
+      AutoSpacing->False,
+      ZeroWidthTimes->True,
+      LineColor->RGBColor[0, 0, 0],
+      FrontFaceColor->RGBColor[0, 0, 0],
+      BackFaceColor->RGBColor[0, 0, 0],
+      GraphicsColor->RGBColor[0, 0, 0],
+      FontColor->RGBColor[0, 0, 0]], 
+     StyleBox["c",
+      StripOnInput->False,
+      ShowSyntaxStyles->False,
+      AutoSpacing->False,
+      ZeroWidthTimes->True,
+      LineColor->RGBColor[0, 0, 0],
+      FrontFaceColor->RGBColor[0, 0, 0],
+      BackFaceColor->RGBColor[0, 0, 0],
+      GraphicsColor->RGBColor[0, 0, 0],
+      FontColor->RGBColor[0, 0, 0]]],
+    Toolbox`metabolite["pi", "c"],
+    Editable->False,
+    Selectable->False]}], "}"}]], "Print",
+ CellChangeTimes->{3.699091550560947*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "0.0015687534988604339`", ",", "0.0015687534988604339`", ",", 
+   "0.0015687534988604339`"}], "}"}]], "Print",
+ CellChangeTimes->{3.6990915505832148`*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   InterpretationBox[
+    SuperscriptBox[
+     StyleBox[
+      RowBox[{"13", "dpg"}],
+      StripOnInput->False,
+      ShowSyntaxStyles->False,
+      AutoSpacing->False,
+      ZeroWidthTimes->True,
+      LineColor->RGBColor[0, 0, 0],
+      FrontFaceColor->RGBColor[0, 0, 0],
+      BackFaceColor->RGBColor[0, 0, 0],
+      GraphicsColor->RGBColor[0, 0, 0],
+      FontColor->RGBColor[0, 0, 0]], 
+     StyleBox["c",
+      StripOnInput->False,
+      ShowSyntaxStyles->False,
+      AutoSpacing->False,
+      ZeroWidthTimes->True,
+      LineColor->RGBColor[0, 0, 0],
+      FrontFaceColor->RGBColor[0, 0, 0],
+      BackFaceColor->RGBColor[0, 0, 0],
+      GraphicsColor->RGBColor[0, 0, 0],
+      FontColor->RGBColor[0, 0, 0]]],
+    Toolbox`metabolite["13dpg", "c"],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    SuperscriptBox[
+     StyleBox["g3p",
+      StripOnInput->False,
+      ShowSyntaxStyles->False,
+      AutoSpacing->False,
+      ZeroWidthTimes->True,
+      LineColor->RGBColor[0, 0, 0],
+      FrontFaceColor->RGBColor[0, 0, 0],
+      BackFaceColor->RGBColor[0, 0, 0],
+      GraphicsColor->RGBColor[0, 0, 0],
+      FontColor->RGBColor[0, 0, 0]], 
+     StyleBox["c",
+      StripOnInput->False,
+      ShowSyntaxStyles->False,
+      AutoSpacing->False,
+      ZeroWidthTimes->True,
+      LineColor->RGBColor[0, 0, 0],
+      FrontFaceColor->RGBColor[0, 0, 0],
+      BackFaceColor->RGBColor[0, 0, 0],
+      GraphicsColor->RGBColor[0, 0, 0],
+      FontColor->RGBColor[0, 0, 0]]],
+    Toolbox`metabolite["g3p", "c"],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    SuperscriptBox[
+     StyleBox["nad",
+      StripOnInput->False,
+      ShowSyntaxStyles->False,
+      AutoSpacing->False,
+      ZeroWidthTimes->True,
+      LineColor->RGBColor[0, 0, 0],
+      FrontFaceColor->RGBColor[0, 0, 0],
+      BackFaceColor->RGBColor[0, 0, 0],
+      GraphicsColor->RGBColor[0, 0, 0],
+      FontColor->RGBColor[0, 0, 0]], 
+     StyleBox["c",
+      StripOnInput->False,
+      ShowSyntaxStyles->False,
+      AutoSpacing->False,
+      ZeroWidthTimes->True,
+      LineColor->RGBColor[0, 0, 0],
+      FrontFaceColor->RGBColor[0, 0, 0],
+      BackFaceColor->RGBColor[0, 0, 0],
+      GraphicsColor->RGBColor[0, 0, 0],
+      FontColor->RGBColor[0, 0, 0]]],
+    Toolbox`metabolite["nad", "c"],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    SuperscriptBox[
+     StyleBox["nadh",
+      StripOnInput->False,
+      ShowSyntaxStyles->False,
+      AutoSpacing->False,
+      ZeroWidthTimes->True,
+      LineColor->RGBColor[0, 0, 0],
+      FrontFaceColor->RGBColor[0, 0, 0],
+      BackFaceColor->RGBColor[0, 0, 0],
+      GraphicsColor->RGBColor[0, 0, 0],
+      FontColor->RGBColor[0, 0, 0]], 
+     StyleBox["c",
+      StripOnInput->False,
+      ShowSyntaxStyles->False,
+      AutoSpacing->False,
+      ZeroWidthTimes->True,
+      LineColor->RGBColor[0, 0, 0],
+      FrontFaceColor->RGBColor[0, 0, 0],
+      BackFaceColor->RGBColor[0, 0, 0],
+      GraphicsColor->RGBColor[0, 0, 0],
+      FontColor->RGBColor[0, 0, 0]]],
+    Toolbox`metabolite["nadh", "c"],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    SuperscriptBox[
+     StyleBox["pi",
+      StripOnInput->False,
+      ShowSyntaxStyles->False,
+      AutoSpacing->False,
+      ZeroWidthTimes->True,
+      LineColor->RGBColor[0, 0, 0],
+      FrontFaceColor->RGBColor[0, 0, 0],
+      BackFaceColor->RGBColor[0, 0, 0],
+      GraphicsColor->RGBColor[0, 0, 0],
+      FontColor->RGBColor[0, 0, 0]], 
+     StyleBox["c",
+      StripOnInput->False,
+      ShowSyntaxStyles->False,
+      AutoSpacing->False,
+      ZeroWidthTimes->True,
+      LineColor->RGBColor[0, 0, 0],
+      FrontFaceColor->RGBColor[0, 0, 0],
+      BackFaceColor->RGBColor[0, 0, 0],
+      GraphicsColor->RGBColor[0, 0, 0],
+      FontColor->RGBColor[0, 0, 0]]],
+    Toolbox`metabolite["pi", "c"],
+    Editable->False,
+    Selectable->False]}], "}"}]], "Print",
+ CellChangeTimes->{3.699091553012216*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "0.0015687534988604339`", ",", "0.0015687534988604339`", ",", 
+   "0.0015687534988604339`"}], "}"}]], "Print",
+ CellChangeTimes->{3.699091553034089*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "0.01665348561457806`", ",", "0.01665348561457806`", ",", 
+   "0.01665348561457806`", ",", "0.01665348561457806`"}], "}"}]], "Print",
+ CellChangeTimes->{3.699091553174934*^9}]
 }, Open  ]]
 }, Open  ]],
 
@@ -598,7 +963,7 @@ Cell[BoxData[
 }, Open  ]]
 },
 WindowSize->{1440, 848},
-WindowMargins->{{Automatic, -80}, {87, Automatic}},
+WindowMargins->{{Automatic, 183}, {58, Automatic}},
 FrontEndVersion->"11.0 for Linux x86 (64-bit) (September 21, 2016)",
 StyleDefinitions->"Default.nb"
 ]
@@ -616,23 +981,36 @@ Notebook[{
 Cell[CellGroupData[{
 Cell[422, 15, 92, 1, 65, "Section"],
 Cell[517, 18, 120, 2, 32, "Input"],
-Cell[640, 22, 4907, 96, 331, "Input"],
+Cell[640, 22, 4947, 97, 331, "Input"],
 Cell[CellGroupData[{
-Cell[5572, 122, 1247, 29, 260, "Input"],
+Cell[5612, 123, 1247, 29, 260, "Input"],
+Cell[6862, 154, 301, 7, 23, "Message"],
+Cell[7166, 163, 297, 7, 23, "Message"],
+Cell[7466, 172, 301, 7, 23, "Message"],
+Cell[7770, 181, 295, 7, 23, "Message"],
+Cell[8068, 190, 302, 7, 23, "Message"],
+Cell[8373, 199, 298, 7, 23, "Message"],
+Cell[8674, 208, 302, 7, 23, "Message"],
+Cell[8979, 217, 295, 7, 23, "Message"],
+Cell[9277, 226, 302, 7, 23, "Message"],
+Cell[9582, 235, 297, 7, 23, "Message"],
 Cell[CellGroupData[{
-Cell[6844, 155, 88, 1, 24, "Print"],
-Cell[6935, 158, 156, 3, 24, "Print"],
-Cell[7094, 163, 110, 2, 24, "Print"],
-Cell[7207, 167, 110, 2, 24, "Print"]
+Cell[9904, 246, 88, 1, 24, "Print"],
+Cell[9995, 249, 148, 2, 24, "Print"],
+Cell[10146, 253, 4034, 129, 28, "Print"],
+Cell[14183, 384, 196, 5, 26, "Print"],
+Cell[14382, 391, 4034, 129, 28, "Print"],
+Cell[18419, 522, 194, 5, 26, "Print"],
+Cell[18616, 529, 217, 5, 26, "Print"]
 }, Open  ]]
 }, Open  ]],
-Cell[7344, 173, 3419, 97, 304, "Input"]
+Cell[18860, 538, 3419, 97, 304, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[10800, 275, 146, 2, 65, "Section"],
+Cell[22316, 640, 146, 2, 65, "Section"],
 Cell[CellGroupData[{
-Cell[10971, 281, 4144, 67, 57, "Input"],
-Cell[15118, 350, 9183, 245, 237, "Output"]
+Cell[22487, 646, 4144, 67, 57, "Input"],
+Cell[26634, 715, 9183, 245, 166, "Output"]
 }, Open  ]]
 }, Open  ]]
 }

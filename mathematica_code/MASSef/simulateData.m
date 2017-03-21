@@ -700,7 +700,7 @@ simulateInhibData[rxn_, metsFull_, metSatForSub_, metSatRevSub_, inhibList_, kmL
 	(*Match to Comparision Equations*)	
 	Do[
 		If[MemberQ[Flatten[{getSubstrates[rxn], getProducts[rxn]}], inhibListFull[[inhib]][[2]]],
-			AppendTo[inhibListFull[[inhib]], Flatten[DeleteCases[StringCases["\""<>fileList, RegularExpression[".*inhib.*" <> getID@inhibListFull[[inhib]][[2]] <> ".txt\""]], {}]][[1]]],			
+			AppendTo[inhibListFull[[inhib]], "\""<>Flatten[DeleteCases[StringCases[fileList, RegularExpression[".*inhib.*" <> getID@inhibListFull[[inhib]][[2]] <> ".txt"]], {}]][[1]] <>"\""],			
 			
 			If[MemberQ[getSubstrates[rxn], inhibListFull[[inhib]][[5, 1, 4]]],
 				AppendTo[inhibListFull[[inhib]], FileNameJoin[{"\""<>inputPath, "absRateFor.txt"<>"\""}, OperatingSystem->$OperatingSystem]],

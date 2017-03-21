@@ -8,15 +8,17 @@ getInputTestSimulateKmDataGAPD[] := Block[{rxn, metsFull, metSatForSub, metSatRe
 	{reverseZeroSub, forwardZeroSub, metSatForSub, metSatRevSub} = getMetsSub[rxn];
 	metsFull = {Toolbox`metabolite["13dpg", "c"],Toolbox`metabolite["g3p", "c"],Toolbox`metabolite["nad", "c"],Toolbox`metabolite["nadh", "c"],Toolbox`metabolite["pi", "c"]};
 	logStepSize=0.2;
-
+	
 	eTotal=1;
 	assumedSaturatingConc=0.01 ;
+	Print[metsFull];
 	activeIsoSub=Thread[metsFull->metsFull];
 	
-	bufferInfoDataPath = FileNameJoin[{"test_files","simulate_data","buffer_info.xls"}, OperatingSystem->$OperatingSystem];
-	ionChargeDataPath = FileNameJoin[{"test_files","simulate_data","ion_charge.xls"}, OperatingSystem->$OperatingSystem];
+	bufferInfoDataPath = FileNameJoin[{"test_files","simulate_data","buffer_info.csv"}, OperatingSystem->$OperatingSystem];
+	ionChargeDataPath = FileNameJoin[{"test_files","simulate_data","ion_charge.csv"}, OperatingSystem->$OperatingSystem];
 	bufferInfo = getBufferInfoData[bufferInfoDataPath];
 	ionCharge = getIonData[ionChargeDataPath];
+
 	
 	kmList = {{"nad",0.000044999999999999996`,{{"pi",0.053`},{"g3p",0.089`}},"M",8.9`,22.`,{{"teoa",0.04`}},{}},
 		  {"g3p",0.0008900000000000001`,{{"nad",0.0045`},{"pi",0.053`}},"M",8.9`,22.`,{{"teoa",0.04`}},{}},
@@ -45,8 +47,8 @@ getInputTestSimulateKmDataTALA2[] := Block[{rxnTALA2, metsFullTALA2, metSatForSu
 	eTotal=1;
 	assumedSaturatingConc=0.01 ;
 
-	bufferInfoDataPath = FileNameJoin[{"test_files","simulate_data","buffer_info.xls"}, OperatingSystem->$OperatingSystem];
-	ionChargeDataPath = FileNameJoin[{"test_files","simulate_data","ion_charge.xls"}, OperatingSystem->$OperatingSystem];
+	bufferInfoDataPath = FileNameJoin[{"test_files","simulate_data","buffer_info.csv"}, OperatingSystem->$OperatingSystem];
+	ionChargeDataPath = FileNameJoin[{"test_files","simulate_data","ion_charge.csv"}, OperatingSystem->$OperatingSystem];
 
 	bufferInfo = getBufferInfoData[bufferInfoDataPath];
 	ionCharge = getIonData[ionChargeDataPath];
@@ -87,8 +89,8 @@ getInputTestSimulateS05DataPFK1[] := Block[{rxn, metsFull, metSatForSub, metSatR
 	assumedSaturatingConc=0.01 ;
 	activeIsoSub=Thread[metsFull->metsFull];
 
-	bufferInfoDataPath = FileNameJoin[{"test_files","simulate_data","buffer_info.xls"}, OperatingSystem->$OperatingSystem];
-	ionChargeDataPath = FileNameJoin[{"test_files","simulate_data","ion_charge.xls"}, OperatingSystem->$OperatingSystem];
+	bufferInfoDataPath = FileNameJoin[{"test_files","simulate_data","buffer_info.csv"}, OperatingSystem->$OperatingSystem];
+	ionChargeDataPath = FileNameJoin[{"test_files","simulate_data","ion_charge.csv"}, OperatingSystem->$OperatingSystem];
 
 	bufferInfo = getBufferInfoData[bufferInfoDataPath];
 	ionCharge = getIonData[ionChargeDataPath];
@@ -126,8 +128,8 @@ getInputTestSimulateKcatDataGAPD[] := Block[{rxn, metsFull, metSatForSub, metSat
 
 	metsFull = {Toolbox`metabolite["13dpg", "c"],Toolbox`metabolite["g3p", "c"],Toolbox`metabolite["nad", "c"],Toolbox`metabolite["nadh", "c"],Toolbox`metabolite["pi", "c"]};
 	
-	bufferInfoDataPath = FileNameJoin[{"test_files","simulate_data","buffer_info.xls"}, OperatingSystem->$OperatingSystem];
-	ionChargeDataPath = FileNameJoin[{"test_files","simulate_data","ion_charge.xls"}, OperatingSystem->$OperatingSystem];
+	bufferInfoDataPath = FileNameJoin[{"test_files","simulate_data","buffer_info.csv"}, OperatingSystem->$OperatingSystem];
+	ionChargeDataPath = FileNameJoin[{"test_files","simulate_data","ion_charge.csv"}, OperatingSystem->$OperatingSystem];
 
 	bufferInfo = getBufferInfoData[bufferInfoDataPath];
 	ionCharge = getIonData[ionChargeDataPath];
@@ -289,8 +291,8 @@ getInputTestSimulateInhibDataTALA2[] := Block[{rxn, metsFull, metSatForSub, metS
 	logStepSize=0.2;
 	activeIsoSub = {Toolbox`metabolite["e4p", "c"]->Toolbox`metabolite["e4p", "c"],Toolbox`metabolite["f6p", "c"]->Toolbox`metabolite["f6p", "c"],Toolbox`metabolite["g3p", "c"]->Toolbox`metabolite["g3p", "c"],Toolbox`metabolite["s7p", "c"]->Toolbox`metabolite["s7p", "c"],Toolbox`metabolite["pi", "c"]->Toolbox`metabolite["pi", "c"]};
 
-	bufferInfoDataPath = FileNameJoin[{"test_files","simulate_data","buffer_info.xls"}, OperatingSystem->$OperatingSystem];
-	ionChargeDataPath = FileNameJoin[{"test_files","simulate_data","ion_charge.xls"}, OperatingSystem->$OperatingSystem];
+	bufferInfoDataPath = FileNameJoin[{"test_files","simulate_data","buffer_info.csv"}, OperatingSystem->$OperatingSystem];
+	ionChargeDataPath = FileNameJoin[{"test_files","simulate_data","ion_charge.csv"}, OperatingSystem->$OperatingSystem];
 
 	bufferInfo = getBufferInfoData[bufferInfoDataPath];
 	ionCharge = getIonData[ionChargeDataPath];
@@ -324,8 +326,8 @@ getInputTestSimulateInhibDataG3PD2[] := Block[{rxn, metsFull, metSatForSub, metS
 	logStepSize=0.5;
 	activeIsoSub = {Toolbox`metabolite["dhap", "c"]->Toolbox`metabolite["dhap", "c"],Toolbox`metabolite["glyc3p", "c"]->Toolbox`metabolite["glyc3p", "c"],Toolbox`metabolite["nadp", "c"]->Toolbox`metabolite["nadp", "c"],Toolbox`metabolite["nadph", "c"]->Toolbox`metabolite["nadph", "c"]};
 	
-	bufferInfoDataPath = FileNameJoin[{"test_files","simulate_data","buffer_info.xls"}, OperatingSystem->$OperatingSystem];
-	ionChargeDataPath = FileNameJoin[{"test_files","simulate_data","ion_charge.xls"}, OperatingSystem->$OperatingSystem];
+	bufferInfoDataPath = FileNameJoin[{"test_files","simulate_data","buffer_info.csv"}, OperatingSystem->$OperatingSystem];
+	ionChargeDataPath = FileNameJoin[{"test_files","simulate_data","ion_charge.csv"}, OperatingSystem->$OperatingSystem];
 
 	bufferInfo = getBufferInfoData[bufferInfoDataPath];
 	ionCharge = getIonData[ionChargeDataPath];

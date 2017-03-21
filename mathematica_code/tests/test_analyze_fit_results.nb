@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    280509,       6262]
-NotebookOptionsPosition[    279534,       6225]
-NotebookOutlinePosition[    279874,       6240]
-CellTagsIndexPosition[    279831,       6237]
+NotebookDataLength[    280530,       6261]
+NotebookOptionsPosition[    279555,       6224]
+NotebookOutlinePosition[    279896,       6239]
+CellTagsIndexPosition[    279853,       6236]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -4204,7 +4204,7 @@ Cell[BoxData[
  CellChangeTimes->{
   3.6967595006354933`*^9, 3.6983891446685123`*^9, 3.6984013082619247`*^9, 
    3.698402061250873*^9, 3.698402457243269*^9, {3.6984902256328993`*^9, 
-   3.698490255231908*^9}}]
+   3.698490255231908*^9}, 3.699091285591832*^9}]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -4427,7 +4427,7 @@ Cell[BoxData[
                  TagBox[
                   
                   TemplateBox[{
-                   "0.049445`4.844637379059467","\"s\"","seconds",
+                   "0.049026`4.84094145871445","\"s\"","seconds",
                     "\"Seconds\""},
                    "Quantity"],
                   Short[#, 
@@ -4921,9 +4921,9 @@ NTK37KlN820HRnN/lQO1aQBXG0Gu
           "dKdRatio", 1.0786263118234274`*^-6, 1.1634347205578096`*^-12, 
            0.00024836257815717114`, 425., 424.99894445904283`}}}], 
       "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
-      Quantity[0.049445`4.844637379059467, "Seconds"], "CPUTimeUsed" -> 
+      Quantity[0.049026`4.84094145871445, "Seconds"], "CPUTimeUsed" -> 
       Quantity[0.04800000000000004, "Seconds"], "MemoryUsed" -> 
-      Quantity[3026584, "Bytes"]]],
+      Quantity[3026480, "Bytes"]]],
     Editable->False,
     SelectWithContents->True,
     Selectable->False], ",", 
@@ -5137,7 +5137,7 @@ NTK37KlN820HRnN/lQO1aQBXG0Gu
                  TagBox[
                   
                   TemplateBox[{
-                   "0.000111`2.195837976618649","\"s\"","seconds",
+                   "0.000097`2.1372867320982385","\"s\"","seconds",
                     "\"Seconds\""},
                    "Quantity"],
                   Short[#, 
@@ -5645,7 +5645,7 @@ XF5XEy9zy57adPFFuex1/VUO1KYBwkIr7Q==
           "dKdRatio", 1.631184076700265*^-11, 2.660761492080496*^-22, 
            3.755918870036325*^-9, 425., 424.99999998403734`}}}], 
       "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
-      Quantity[0.000111`2.195837976618649, "Seconds"], "CPUTimeUsed" -> 
+      Quantity[0.000097`2.1372867320982385, "Seconds"], "CPUTimeUsed" -> 
       Quantity[0., "Seconds"], "MemoryUsed" -> Quantity[96, "Bytes"]]],
     Editable->False,
     SelectWithContents->True,
@@ -5857,7 +5857,7 @@ XF5XEy9zy57adPFFuex1/VUO1KYBwkIr7Q==
                  TagBox[
                   
                   TemplateBox[{
-                   "0.000095`2.12823860312084","\"s\"","seconds",
+                   "0.000096`2.132786230871562","\"s\"","seconds",
                     "\"Seconds\""},
                    "Quantity"],
                   Short[#, 
@@ -5919,9 +5919,8 @@ XF5XEy9zy57adPFFuex1/VUO1KYBwkIr7Q==
          3209.166230286114, 0.0009600000000009531}}, {
          "GAPD1", "GAPD2", "GAPD3", "GAPD4", "GAPD5", "GAPD6"}}], 
       "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
-      Quantity[0.000095`2.12823860312084, "Seconds"], "CPUTimeUsed" -> 
-      Quantity[0.0040000000000000036`, "Seconds"], "MemoryUsed" -> 
-      Quantity[120, "Bytes"]]],
+      Quantity[0.000096`2.132786230871562, "Seconds"], "CPUTimeUsed" -> 
+      Quantity[0., "Seconds"], "MemoryUsed" -> Quantity[104, "Bytes"]]],
     Editable->False,
     SelectWithContents->True,
     Selectable->False], ",", 
@@ -6154,7 +6153,7 @@ XF5XEy9zy57adPFFuex1/VUO1KYBwkIr7Q==
                  TagBox[
                   
                   TemplateBox[{
-                   "0.00009`2.104757507271315","\"s\"","seconds",
+                   "0.000089`2.099905004476907","\"s\"","seconds",
                     "\"Seconds\""},
                    "Quantity"],
                   Short[#, 
@@ -6207,7 +6206,7 @@ XF5XEy9zy57adPFFuex1/VUO1KYBwkIr7Q==
          0.000044, {{-1.7243926523431132`}, {0.00004400032139229513}}, {{
           3.919174209870712*^6}, {0.0007304370343832542}}}}], 
       "ExpectedMessages" -> {}, "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
-      Quantity[0.00009`2.104757507271315, "Seconds"], "CPUTimeUsed" -> 
+      Quantity[0.000089`2.099905004476907, "Seconds"], "CPUTimeUsed" -> 
       Quantity[0., "Seconds"], "MemoryUsed" -> Quantity[32, "Bytes"]]],
     Editable->False,
     SelectWithContents->True,
@@ -6219,12 +6218,12 @@ XF5XEy9zy57adPFFuex1/VUO1KYBwkIr7Q==
    3.6960758692040453`*^9, 3.69607593905503*^9, 3.6964930338651123`*^9, 
    3.696759508460493*^9, 3.698389145451428*^9, 3.698401309304775*^9, 
    3.6984020619287643`*^9, 3.698402457806938*^9, {3.6984902262839823`*^9, 
-   3.698490255859476*^9}}]
+   3.698490255859476*^9}, 3.699091286488661*^9}]
 }, Open  ]]
 }, Open  ]]
 },
-WindowSize->{1902, 1173},
-WindowMargins->{{Automatic, 3}, {Automatic, 24}},
+WindowSize->{1902, 967},
+WindowMargins->{{193, Automatic}, {22, Automatic}},
 FrontEndVersion->"11.0 for Linux x86 (64-bit) (September 21, 2016)",
 StyleDefinitions->"Default.nb"
 ]
@@ -6257,11 +6256,11 @@ Cell[CellGroupData[{
 Cell[62913, 1563, 624, 11, 35, "Subsubsection"],
 Cell[CellGroupData[{
 Cell[63562, 1578, 110899, 2617, 482, "Input"],
-Cell[174464, 4197, 359, 9, 38, "Output"]
+Cell[174464, 4197, 381, 9, 38, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[174860, 4211, 154, 2, 32, "Input"],
-Cell[175017, 4215, 104489, 2006, 122, "Output"]
+Cell[174882, 4211, 154, 2, 32, "Input"],
+Cell[175039, 4215, 104488, 2005, 65, "Output"]
 }, Open  ]]
 }, Open  ]]
 }
