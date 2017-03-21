@@ -304,7 +304,7 @@ simulateKmData[rxn_, metsFull_, metSatForSub_, metSatRevSub_, kmList_, otherParm
 	kmListFull = handleCosubstrateData[kmListFull, metsFull, metSatForSub, metSatRevSub, dataRange, assumedSaturatingConc];
 
 	ionicStrength = calculateIonicStrength[kmListFull, bufferInfo, ionCharge];
-	Print[ionicStrength];
+	
 	adjustedKeqVal= 
 		If[NumericQ[KeqVal],	
 			ConstantArray[{Keq[getID[rxn]]-> KeqVal}, Dimensions[kmListFull][[1]]],
@@ -349,7 +349,7 @@ simulateKmData[rxn_, metsFull_, metSatForSub_, metSatRevSub_, kmList_, otherParm
 ];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Simulate S05 data*)
 
 
@@ -457,7 +457,7 @@ simulateS05Data[rxn_, metsFull_, metSatForSub_, metSatRevSub_, s05List_, otherPa
 ];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Simulate kcat data*)
 
 
@@ -596,7 +596,7 @@ simulateKcatData[rxn_, metsFull_, metSatForSub_, metSatRevSub_, kcatList_, other
 ];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Simulate inhibition data*)
 
 
@@ -870,7 +870,7 @@ simulateInhibData[rxn_, metsFull_, metSatForSub_, metSatRevSub_, inhibList_, kmL
 (*Simulate rate constant ratios  data (e.g.  Keq, dKd, Kd)*)
 
 
-simulateRateConstRatiosData[dKdRatio_, dKdVal_, KeqVal_, metsFull_, rateConstsSub_, metsSub_, eTotal_, nonKmParamWeight_,
+simulateRateConstRatiosData[ratio_, ratioVal_, KeqVal_, metsFull_, rateConstsSub_, metsSub_, eTotal_, nonKmParamWeight_,
 							inputPath_, fileList_, fileListSub_, eqnNameList_, eqnValList_, eqnValListPy_, pHandT_, eqnName_] := 
 	Block[{dKdRatioPy, fileName, fileNameSub, eqnList, assayMet, 
 			fileListLocal=fileList, fileListSubLocal=fileListSub, 
@@ -879,7 +879,7 @@ simulateRateConstRatiosData[dKdRatio_, dKdVal_, KeqVal_, metsFull_, rateConstsSu
 			
 	(*Transform Equation for Python and Extract the Data from the Database*)
 
-	dKdRatioPy = ToPython[dKdRatio /. rateConstsSub /. metsSub];
+	dKdRatioPy = ToPython[ratio /. rateConstsSub /. metsSub];
 
 	(*Incorporate the Equation Into the Existing Notebook Framework*)
 	(*Equation Naming and Export*)
@@ -888,10 +888,10 @@ simulateRateConstRatiosData[dKdRatio_, dKdVal_, KeqVal_, metsFull_, rateConstsSu
 
 	(*Incorporating the Equation for Down Stream Equation Handling*)
 	fileListLocal = DeleteDuplicates @ Append[fileListLocal, fileName];
-	fileNameSub  = fileName -> dKdRatio;
+	fileNameSub  = fileName -> ratio;
 	fileListSubLocal = DeleteDuplicates @ Append[fileListSubLocal, fileNameSub];
 	eqnNameListLocal = DeleteDuplicates @ Append[eqnNameListLocal, eqnName];
-	eqnValListLocal = DeleteDuplicates @ Append[eqnValListLocal, dKdRatio];
+	eqnValListLocal = DeleteDuplicates @ Append[eqnValListLocal, ratio];
 	eqnValListPyLocal = DeleteDuplicates @ Append[eqnValListPyLocal, dKdRatioPy];
 
 	(*Data Handling for Fitting*)
@@ -899,7 +899,7 @@ simulateRateConstRatiosData[dKdRatio_, dKdVal_, KeqVal_, metsFull_, rateConstsSu
 	assayMet = 0 & /@ metsFull; (*Set All Mets to Zero*)
 	AppendTo[assayMet, eTotal]; (*Enzyme Total*)
 	dKdFitPt = Join[assayMet, pHandT];(*pH and Temperature - dirty trick, assayCond comes from Km data sim*)
-	dKdFitPt = Join[dKdFitPt, {"\""<>fileName<>"\"", dKdVal}];(*File Name and Target Value*)
+	dKdFitPt = Join[dKdFitPt, {"\""<>fileName<>"\"", ratioVal}];(*File Name and Target Value*)
 	dKdFitPt = Join[{KeqVal}, dKdFitPt];(*Keq Value*)(*Append Data*)
 
 	If[! MemberQ[dKdFittingData, dKdFitPt],(*True:  Data Is Not Already Appended*)
@@ -909,6 +909,58 @@ simulateRateConstRatiosData[dKdRatio_, dKdVal_, KeqVal_, metsFull_, rateConstsSu
 
 	
 	Return[{dKdFittingData, fileListLocal, fileListSubLocal, eqnNameListLocal, eqnValListLocal, eqnValListPyLocal}];
+];
+
+
+(* ::Subsection:: *)
+(*Parameter scan function*)
+
+
+simulateParameterScanData[inputPath_, dataType_, dataList_, dataEntry_, newValuesList_, remainingFittingDataset_, dataFileName_, metsSub_, simulateDataFunctionArguments_]:= 
+	Block[{newValuesListLocal=newValuesList, dataListLocal=dataList,simulateDataFunctionArgumentsLocal=simulateDataFunctionArguments, header, 
+		   scannedfittingData, fittingData, dataPath, vList, dataPathList, labelList={}},
+	
+	newValuesListLocal = Map[ToString[AccountingForm[#]]&, newValuesListLocal];
+	header=Join[Map[ToString, metsSub[[All,1]]],{"FileFlag", "Target_Data"}];
+	
+	dataPathList = Table[
+			scannedfittingData = Which[StringMatchQ[dataType, {"Km"}],
+									dataListLocal[[dataEntry,2]] = ToExpression[val];
+									simulateDataFunctionArgumentsLocal[[5]] = dataListLocal;
+									Apply[simulateKmData, simulateDataFunctionArgumentsLocal],
+							
+									StringMatchQ[dataType, {"s05"}],
+									dataListLocal[[dataEntry,2]] = ToExpression[val];
+									simulateDataFunctionArgumentsLocal[[5]] = dataListLocal;
+									Apply[simulateS05Data, simulateDataFunctionArgumentsLocal],
+							
+									StringMatchQ[dataType, {"kcat"}],
+									dataListLocal[[dataEntry,2]] = ToExpression[val];
+									simulateDataFunctionArgumentsLocal[[5]] = dataListLocal;
+									Apply[simulateKcatData, simulateDataFunctionArgumentsLocal],
+							
+									StringMatchQ[dataType, {"inhib"}],
+									dataListLocal[[dataEntry,3]] = ToExpression[val];
+									simulateDataFunctionArgumentsLocal[[5]] = dataListLocal;
+									Apply[simulateInhibData, simulateDataFunctionArgumentsLocal],
+							
+									StringMatchQ[dataType, {"ratio"}],
+									simulateDataFunctionArgumentsLocal[[2]] = ToExpression[val];
+									Apply[simulateRateConstRatiosData, simulateDataFunctionArgumentsLocal][[1]]
+									
+							];
+
+		(* assemble data and export*)
+		fittingData= Flatten[{{scannedfittingData}, remainingFittingDataset}, 2];
+		dataPath = FileNameJoin[{inputPath, dataFileName <> "_" <> dataType <> "_" <> ToString[dataEntry] <> "_" <> ToString[val] <> ".dat"}, OperatingSystem->$OperatingSystem];
+		AppendTo[labelList,  "_" <> dataType <> "_" <> ToString[dataEntry] <> "_" <> ToString[val]];
+		vList = Join[{header},fittingData];
+		Export[dataPath, vList, "Table"];
+		dataPath,
+	
+	{val, newValuesListLocal}];
+	
+	Return[{dataPathList, labelList}];		
 ];
 
 

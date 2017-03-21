@@ -101,11 +101,11 @@ definePSOparameters[inputPath_, outputPath_, finalRateConsts_, fileList_,
    	{"filesWithFunctions", fileListPy = listToPython[Map[FileNameJoin[{inputPath, StringSplit[#, splitChar][[-1]]}, OperatingSystem->$OperatingSystem] &, fileList]]},
    	{"value_row", valueRow = -1},
    	{"function_row", functionRow = -2},
-   	{"data_row_high", dataRowHigh = -2},
-   	{"summary_file_name", psoTrialSummaryFileName = FileNameJoin[{outputPath, "raw", "summary_" <> fitLabel <> ".txt"}, OperatingSystem->$OperatingSystem]},
-   	{"ultimate_result_name", psoResultsFileName = FileNameJoin[{outputPath, "raw", "psoResults_" <> fitLabel <> ".txt"}, OperatingSystem->$OperatingSystem]}
+   	{"data_row_high", dataRowHigh = -2}
 	};
-
+	
+    psoTrialSummaryFileName = FileNameJoin[{outputPath, "raw", "summary_" <> fitLabel <> ".txt"}, OperatingSystem->$OperatingSystem];
+    psoResultsFileName = FileNameJoin[{outputPath, "raw", "psoResults_" <> fitLabel <> ".txt"}, OperatingSystem->$OperatingSystem];
 	psoParameterPath = FileNameJoin[{inputPath, "psoParameters_" <> fitLabel<> ".txt"}, OperatingSystem->$OperatingSystem];
 	Export[psoParameterPath, psoParameters, "Table"];
 	
@@ -176,16 +176,15 @@ defineLMAparameters[inputPath_, outputPath_, finalRateConsts_, fileList_,
    				function_row \[Rule] Column with the fitting target functions ;
    				data_row_high \[Rule] Column above the last data value ;*)
 					
-					splitChar = If[$OperatingSystem == "Windows", "\\", "/"];
-   				{"candidates_import_path", psoResultsFileName = FileNameJoin[{outputPath, "raw", "psoResults_" <> fitLabel <> ".txt"}, OperatingSystem->$OperatingSystem]},
-   				{"candidates_export_path", lmaResultsFileName = FileNameJoin[{outputPath, "raw", "lmaResults_" <> fitLabel <> ".txt"}, OperatingSystem->$OperatingSystem]},
+				   splitChar = If[$OperatingSystem == "Windows", "\\", "/"];
    				{"filesWithFunctions", fileListPy = listToPython[Map[FileNameJoin[{inputPath,  StringSplit[#, splitChar][[-1]]}, OperatingSystem->$OperatingSystem] &,fileList]]},
    				{"value_row", valueRow = -1},
    				{"function_row", functionRow = -2},
    				{"data_row_high", dataRowHigh = -2}
-
 	};
-
+	
+	psoResultsFileName = FileNameJoin[{outputPath, "raw", "psoResults_" <> fitLabel <> ".txt"}, OperatingSystem->$OperatingSystem];
+    lmaResultsFileName = FileNameJoin[{outputPath, "raw", "lmaResults_" <> fitLabel <> ".txt"}, OperatingSystem->$OperatingSystem];				
 	lmaParameterPath = FileNameJoin[{inputPath, "lmaParameters_" <> fitLabel <> ".txt"}, OperatingSystem->$OperatingSystem];
 	Export[lmaParameterPath, lmaParameters, "Table"];	
 	

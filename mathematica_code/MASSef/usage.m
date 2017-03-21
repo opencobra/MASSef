@@ -82,8 +82,8 @@ simulateInhibData::usage="simulateInhibData[rxn, metsFull, metsSub, metSatForSub
 			   logStepSize, activeIsoSub, bufferInfo, ionCharge, inputPath, outputPath, fileList, KeqVal]"
 
 
-simulateInhibDataGeneralize::usage="simulateInhibData[rxn, metsFull, metsSub, metSatForSub, metSatRevSub, inhibEqn, inhibList, assumedSaturatingConc, eTotal,
-			   logStepSize, activeIsoSub, bufferInfo, ionCharge, inputPath, outputPath, fileList, KeqVal]"
+simulateParameterScanData::usage="generateParameterScanData[inputPath, dataType, dataList, dataEntry, newValuesList, remainingFittingDataset, dataFileName, 
+								metsSub, simulateDataFunctionArguments]";
 
 
 getMinMaxPsDataVal::usage="getMinMaxPsDataVal[val]";
@@ -100,15 +100,6 @@ definePSOparameters::usage="definePSOparameters[inputPath, outputPath, dataPath,
 
 defineLMAparameters::usage="defineLMAparameters[inputPath, outputPath, dataPath, finalRateConsts, fileList, 
 					lowerParamBound, upperParamBound, numCpus:1]";
-
-
-createPSOFitShellScript::usage="createPSOFitShellScript[psoScriptPath, parameterPath, dataFileName, trialSummaryFileName, resultsFileName, numTrials] ";
-
-
-createCombinedFitShellScript::usage="createCombinedFitShellScript[runFitScriptPath, psoParameterPath, lmaParameterPath, psoSummaryFilePath, psoResultsFilePath, lmaResultsFilePath, numTrials, dataFileName]";
-
-
-
 
 
 (* ::Subsection:: *)
