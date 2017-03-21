@@ -15,7 +15,7 @@ Begin["`Private`"];
 (*Define PSO parameters*)
 
 
-definePSOparameters[inputPath_, outputPath_, dataPath_, finalRateConsts_, fileList_, 
+definePSOparameters[inputPath_, outputPath_, finalRateConsts_, fileList_, 
 					numTrial_, lowerParamBound_, upperParamBound_, fitLabel_:"", numCpus_:1, 
 					numGenerations_: 2000, popSize_: 20] := 
 	Module[{psoParameterPath, psoParameters, tempCorr, neighborSize, inertia, cognitiveRate, socialRate, useKeepBest, 
@@ -99,7 +99,6 @@ definePSOparameters[inputPath_, outputPath_, dataPath_, finalRateConsts_, fileLi
    			ultimate_result_name \[Rule] Final candidate values;*)
 		splitChar = If[$OperatingSystem == "Windows", "\\", "/"];
    	{"filesWithFunctions", fileListPy = listToPython[Map[FileNameJoin[{inputPath, StringSplit[#, splitChar][[-1]]}, OperatingSystem->$OperatingSystem] &, fileList]]},
-   	{"data_file_name", dataPath},
    	{"value_row", valueRow = -1},
    	{"function_row", functionRow = -2},
    	{"data_row_high", dataRowHigh = -2},
@@ -118,7 +117,7 @@ definePSOparameters[inputPath_, outputPath_, dataPath_, finalRateConsts_, fileLi
 (*Define LMA parameters*)
 
 
-defineLMAparameters[inputPath_, outputPath_, dataPath_, finalRateConsts_, fileList_, 
+defineLMAparameters[inputPath_, outputPath_, finalRateConsts_, fileList_, 
 					lowerParamBound_, upperParamBound_, fitLabel_:"", numCpus_:1] := 
 	Module[{temperatureCorrect, xtolValue, ftolValue, gtolValue, epsfcnMinValue, maxfevValue, 
 			numFuncVar, psoResultsFileName, lmaResultsFileName,splitChar,
@@ -181,7 +180,6 @@ defineLMAparameters[inputPath_, outputPath_, dataPath_, finalRateConsts_, fileLi
    				{"candidates_import_path", psoResultsFileName = FileNameJoin[{outputPath, "raw", "psoResults_" <> fitLabel <> ".txt"}, OperatingSystem->$OperatingSystem]},
    				{"candidates_export_path", lmaResultsFileName = FileNameJoin[{outputPath, "raw", "lmaResults_" <> fitLabel <> ".txt"}, OperatingSystem->$OperatingSystem]},
    				{"filesWithFunctions", fileListPy = listToPython[Map[FileNameJoin[{inputPath,  StringSplit[#, splitChar][[-1]]}, OperatingSystem->$OperatingSystem] &,fileList]]},
-   				{"data_file_name", dataPath},
    				{"value_row", valueRow = -1},
    				{"function_row", functionRow = -2},
    				{"data_row_high", dataRowHigh = -2}
