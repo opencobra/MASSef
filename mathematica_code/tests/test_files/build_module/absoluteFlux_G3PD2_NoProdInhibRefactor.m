@@ -1,5 +1,5 @@
 (* Created with the Wolfram Language for Students - Personal Use Only : www.wolfram.com *)
-parameter["v", "G3PD2"] -> (parameter["E_total"]*parameter["Volume", "c"]*
+parameter["v", "G3PD2"] -> (parameter["G3PD2_total"]*parameter["Volume", "c"]*
    rateconst["G3PD25", False]*
    (-(metabolite["dhap", "c"]*metabolite["nadph", "c"]*
       rateconst["G3PD21", False]*rateconst["G3PD22", False]*

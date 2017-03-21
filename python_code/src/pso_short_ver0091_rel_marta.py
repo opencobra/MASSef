@@ -358,6 +358,7 @@ def run_pso(parameter, data_file_name, summary_file_name, ultimate_result_name):
     global data_row_high
 
 
+
     """"""
 
     ## General Python Namespace parameters
@@ -476,13 +477,16 @@ def run_pso(parameter, data_file_name, summary_file_name, ultimate_result_name):
     dataDicts = [dict(zip(header, row)) for row in data]
     order = header
     data = [[d[k] for k in order] for d in dataDicts]
+    """ Handle "" in data file """
+    for i in range(len(data)):
+        data[i][-2] = data[i][-2].replace("\"", "")
     """"""
-
+	
     """Import the Rate Functions"""
     functionDict = dict()
     for index, path in enumerate(filesWithFunctions):
         funcName = 'f' + str(index+1)
-        path = path.replace("\"", "")
+        path = path.replace("\"", "").strip()
         func_template = open(path).read()
         mkFuncCommand = 'def %s(x,d): return %s' % (funcName,func_template)
         exec(mkFuncCommand)

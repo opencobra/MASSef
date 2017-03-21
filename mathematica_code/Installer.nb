@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[      6294,        189]
-NotebookOptionsPosition[      5612,        159]
-NotebookOutlinePosition[      6072,        180]
-CellTagsIndexPosition[      5999,        175]
+NotebookDataLength[      6340,        189]
+NotebookOptionsPosition[      5657,        159]
+NotebookOutlinePosition[      6118,        180]
+CellTagsIndexPosition[      6045,        175]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -75,7 +75,7 @@ Cell[BoxData[{
   3.689508985227004*^9, 3.689508987684746*^9}, {3.69494626116938*^9, 
   3.6949462662328043`*^9}, {3.694952802628078*^9, 3.6949528032811613`*^9}, {
   3.695366773344282*^9, 3.695366775004059*^9}, {3.698413401686648*^9, 
-  3.698413403880302*^9}},
+  3.698413403880302*^9}, {3.69908245222779*^9, 3.699082454438184*^9}},
  CellTags->"InstallCode"],
 
 Cell[BoxData[
@@ -110,7 +110,7 @@ installation of the Toolbox. It will not be removed.\>\""}],
   RowBox[{
    RowBox[{"SetDirectory", "[", 
     RowBox[{"NotebookDirectory", "[", "]"}], "]"}], ";"}], 
-  "\n"}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]"}], "\n", 
  RowBox[{
   RowBox[{"installationDirectory", "=", 
    RowBox[{"FileNameJoin", "[", 
@@ -158,7 +158,7 @@ installation of the Toolbox. It will not be removed.\>\""}],
 }, Open  ]]
 },
 WindowSize->{954, 573},
-WindowMargins->{{Automatic, 480}, {176, Automatic}},
+WindowMargins->{{Automatic, 162}, {-120, Automatic}},
 FrontEndVersion->"11.0 for Linux x86 (64-bit) (September 21, 2016)",
 StyleDefinitions->"Default.nb"
 ]
@@ -168,13 +168,13 @@ StyleDefinitions->"Default.nb"
 (*CellTagsOutline
 CellTagsIndex->{
  "InstallCode"->{
-  Cell[991, 34, 1945, 44, 171, "Input",
+  Cell[991, 34, 1990, 44, 171, "Input",
    CellTags->"InstallCode"]}
  }
 *)
 (*CellTagsIndex
 CellTagsIndex->{
- {"InstallCode", 5906, 169}
+ {"InstallCode", 5952, 169}
  }
 *)
 (*NotebookFileOutline
@@ -182,14 +182,14 @@ Notebook[{
 Cell[CellGroupData[{
 Cell[580, 22, 156, 2, 45, "Subsection"],
 Cell[739, 26, 249, 6, 33, "Text"],
-Cell[991, 34, 1945, 44, 171, "Input",
+Cell[991, 34, 1990, 44, 171, "Input",
  CellTags->"InstallCode"],
-Cell[2939, 80, 127, 2, 32, "Input"]
+Cell[2984, 80, 127, 2, 32, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[3103, 87, 166, 5, 70, "Subsection"],
-Cell[3272, 94, 201, 4, 33, "Text"],
-Cell[3476, 100, 2120, 56, 328, "Input"]
+Cell[3148, 87, 166, 5, 70, "Subsection"],
+Cell[3317, 94, 201, 4, 33, "Text"],
+Cell[3521, 100, 2120, 56, 328, "Input"]
 }, Open  ]]
 }
 ]

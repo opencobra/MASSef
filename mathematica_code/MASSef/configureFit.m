@@ -15,7 +15,7 @@ Begin["`Private`"];
 (*Define PSO parameters*)
 
 
-definePSOparameters[inputPath_, outputPath_, dataPath_, finalRateConsts_, fileList_, 
+definePSOparameters[inputPath_, outputPath_, finalRateConsts_, fileList_, 
 					numTrial_, lowerParamBound_, upperParamBound_, fitLabel_:"", numCpus_:1, 
 					numGenerations_: 2000, popSize_: 20] := 
 	Module[{psoParameterPath, psoParameters, tempCorr, neighborSize, inertia, cognitiveRate, socialRate, useKeepBest, 
@@ -99,15 +99,14 @@ definePSOparameters[inputPath_, outputPath_, dataPath_, finalRateConsts_, fileLi
    			ultimate_result_name \[Rule] Final candidate values;*)
 		splitChar = If[$OperatingSystem == "Windows", "\\", "/"];
    	{"filesWithFunctions", fileListPy = listToPython[Map[FileNameJoin[{inputPath, StringSplit[#, splitChar][[-1]]}, OperatingSystem->$OperatingSystem] &, fileList]]},
-   	{"data_file_name", dataPath},
    	{"value_row", valueRow = -1},
    	{"function_row", functionRow = -2},
-   	{"data_row_high", dataRowHigh = -2},
-   	{"summary_file_name", psoTrialSummaryFileName = FileNameJoin[{outputPath, "raw", "summary" <> fitLabel <> ".txt"}, OperatingSystem->$OperatingSystem]},
-   	{"ultimate_result_name", psoResultsFileName = FileNameJoin[{outputPath, "raw", "psoResults" <> fitLabel <> ".txt"}, OperatingSystem->$OperatingSystem]}
+   	{"data_row_high", dataRowHigh = -2}
 	};
-
-	psoParameterPath = FileNameJoin[{inputPath, "psoParameters.txt"}, OperatingSystem->$OperatingSystem];
+	
+    psoTrialSummaryFileName = FileNameJoin[{outputPath, "raw", "summary_" <> fitLabel <> ".txt"}, OperatingSystem->$OperatingSystem];
+    psoResultsFileName = FileNameJoin[{outputPath, "raw", "psoResults_" <> fitLabel <> ".txt"}, OperatingSystem->$OperatingSystem];
+	psoParameterPath = FileNameJoin[{inputPath, "psoParameters_" <> fitLabel<> ".txt"}, OperatingSystem->$OperatingSystem];
 	Export[psoParameterPath, psoParameters, "Table"];
 	
 	Return[{psoParameterPath, psoResultsFileName, psoTrialSummaryFileName}];
@@ -118,7 +117,7 @@ definePSOparameters[inputPath_, outputPath_, dataPath_, finalRateConsts_, fileLi
 (*Define LMA parameters*)
 
 
-defineLMAparameters[inputPath_, outputPath_, dataPath_, finalRateConsts_, fileList_, 
+defineLMAparameters[inputPath_, outputPath_, finalRateConsts_, fileList_, 
 					lowerParamBound_, upperParamBound_, fitLabel_:"", numCpus_:1] := 
 	Module[{temperatureCorrect, xtolValue, ftolValue, gtolValue, epsfcnMinValue, maxfevValue, 
 			numFuncVar, psoResultsFileName, lmaResultsFileName,splitChar,
@@ -177,18 +176,16 @@ defineLMAparameters[inputPath_, outputPath_, dataPath_, finalRateConsts_, fileLi
    				function_row \[Rule] Column with the fitting target functions ;
    				data_row_high \[Rule] Column above the last data value ;*)
 					
-					splitChar = If[$OperatingSystem == "Windows", "\\", "/"];
-   				{"candidates_import_path", psoResultsFileName = FileNameJoin[{outputPath, "raw", "psoResults" <> fitLabel <> ".txt"}, OperatingSystem->$OperatingSystem]},
-   				{"candidates_export_path", lmaResultsFileName = FileNameJoin[{outputPath, "raw", "lmaResults" <> fitLabel <> ".txt"}, OperatingSystem->$OperatingSystem]},
+				   splitChar = If[$OperatingSystem == "Windows", "\\", "/"];
    				{"filesWithFunctions", fileListPy = listToPython[Map[FileNameJoin[{inputPath,  StringSplit[#, splitChar][[-1]]}, OperatingSystem->$OperatingSystem] &,fileList]]},
-   				{"data_file_name", dataPath},
    				{"value_row", valueRow = -1},
    				{"function_row", functionRow = -2},
    				{"data_row_high", dataRowHigh = -2}
-
 	};
-
-	lmaParameterPath = FileNameJoin[{inputPath, "lmaParameters.txt"}, OperatingSystem->$OperatingSystem];
+	
+	psoResultsFileName = FileNameJoin[{outputPath, "raw", "psoResults_" <> fitLabel <> ".txt"}, OperatingSystem->$OperatingSystem];
+    lmaResultsFileName = FileNameJoin[{outputPath, "raw", "lmaResults_" <> fitLabel <> ".txt"}, OperatingSystem->$OperatingSystem];				
+	lmaParameterPath = FileNameJoin[{inputPath, "lmaParameters_" <> fitLabel <> ".txt"}, OperatingSystem->$OperatingSystem];
 	Export[lmaParameterPath, lmaParameters, "Table"];	
 	
 	Return[{lmaParameterPath, lmaResultsFileName}];

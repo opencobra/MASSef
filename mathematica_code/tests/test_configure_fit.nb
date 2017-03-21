@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     58919,       1442]
-NotebookOptionsPosition[     58282,       1416]
-NotebookOutlinePosition[     58622,       1431]
-CellTagsIndexPosition[     58579,       1428]
+NotebookDataLength[     57759,       1430]
+NotebookOptionsPosition[     57119,       1404]
+NotebookOutlinePosition[     57462,       1419]
+CellTagsIndexPosition[     57419,       1416]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -23,7 +23,9 @@ Cell[BoxData[""], "Input",
    3.696504972122088*^9, 3.6965049751391478`*^9}, {3.6965051378427353`*^9, 
    3.6965051426268044`*^9}, {3.696505254338997*^9, 3.696505255012175*^9}, 
    3.69650539254959*^9, {3.696758548258681*^9, 3.6967585532201767`*^9}, {
-   3.6967586188527393`*^9, 3.696758624326287*^9}}],
+   3.6967586188527393`*^9, 3.696758624326287*^9}, {3.699093289812045*^9, 
+   3.699093292211234*^9}, {3.699093450740306*^9, 3.6990934531042023`*^9}, {
+   3.699093733616433*^9, 3.699093736261408*^9}}],
 
 Cell[BoxData[{
  RowBox[{
@@ -412,10 +414,10 @@ Cell[BoxData[
    RowBox[{
     RowBox[{"definePSOparameters", "[", 
      RowBox[{
-     "inputPath", ",", " ", "outputPath", ",", " ", "dataPath", ",", " ", 
-      "finalRateConsts", ",", " ", "fileList", ",", " ", "numTrial", ",", 
-      "lowerParamBound", ",", " ", "upperParamBound"}], "]"}], ";"}], 
-   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+     "inputPath", ",", " ", "outputPath", ",", " ", "finalRateConsts", ",", 
+      " ", "fileList", ",", " ", "numTrial", ",", "lowerParamBound", ",", " ",
+       "upperParamBound"}], "]"}], ";"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"result", "=", 
      RowBox[{"Import", "[", 
@@ -424,7 +426,7 @@ Cell[BoxData[
         RowBox[{"{", 
          RowBox[{
          "\"\<test_files\>\"", ",", "\"\<configure_fit\>\"", ",", 
-          "\"\<psoParameters.txt\>\""}], "}"}], ",", " ", 
+          "\"\<psoParameters_.txt\>\""}], "}"}], ",", " ", 
         RowBox[{"OperatingSystem", "\[Rule]", "$OperatingSystem"}]}], "]"}], 
       "]"}]}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
    RowBox[{
@@ -466,7 +468,8 @@ Cell[BoxData[
    3.696076053316963*^9}, {3.696488456499558*^9, 3.696488563177512*^9}, {
    3.696504966318862*^9, 3.696504968819008*^9}, {3.696505345895417*^9, 
    3.6965053556266193`*^9}, {3.696758541632018*^9, 3.6967585463454895`*^9}, {
-   3.6967586046733217`*^9, 3.6967586052603807`*^9}}]
+   3.6967586046733217`*^9, 3.6967586052603807`*^9}, {3.699093243757*^9, 
+   3.6990932440601587`*^9}, 3.699093448238223*^9}]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -512,7 +515,7 @@ Cell[BoxData[
             "\"\<true_lmaParameters.txt\>\""}], "}"}], ",", " ", 
           RowBox[{"OperatingSystem", "\[Rule]", "$OperatingSystem"}]}], "]"}],
          "]"}]}], "\[IndentingNewLine]", "]"}]}], ";"}], 
-   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"inputPath", " ", "=", " ", 
      RowBox[{"FileNameJoin", "[", 
@@ -525,16 +528,6 @@ Cell[BoxData[
    RowBox[{
     RowBox[{"outputPath", " ", "=", " ", "inputPath"}], ";"}], 
    "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"dataPath", " ", "=", " ", 
-     RowBox[{"FileNameJoin", "[", 
-      RowBox[{
-       RowBox[{"{", 
-        RowBox[{
-        "\"\<test_files\>\"", ",", "\"\<configure_fit\>\"", ",", 
-         "\"\<GAPD.dat\>\""}], "}"}], ",", " ", 
-       RowBox[{"OperatingSystem", "\[Rule]", "$OperatingSystem"}]}], "]"}]}], 
-    ";"}], "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"finalRateConsts", " ", "=", " ", 
      RowBox[{"{", 
@@ -808,13 +801,13 @@ Cell[BoxData[
      RowBox[{"-", "6"}]}], ";"}], "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"upperParamBound", " ", "=", " ", "9"}], ";"}], 
-   "\[IndentingNewLine]", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"defineLMAparameters", "[", 
      RowBox[{
-     "inputPath", ",", " ", "outputPath", ",", " ", "dataPath", ",", " ", 
-      "finalRateConsts", ",", " ", "fileList", ",", " ", "lowerParamBound", 
-      ",", " ", "upperParamBound"}], "]"}], ";"}], "\[IndentingNewLine]", 
+     "inputPath", ",", " ", "outputPath", ",", " ", "finalRateConsts", ",", 
+      " ", "fileList", ",", " ", "lowerParamBound", ",", " ", 
+      "upperParamBound"}], "]"}], ";"}], "\[IndentingNewLine]", 
    "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"result", "=", 
@@ -824,7 +817,7 @@ Cell[BoxData[
         RowBox[{"{", 
          RowBox[{
          "\"\<test_files\>\"", ",", "\"\<configure_fit\>\"", ",", 
-          "\"\<lmaParameters.txt\>\""}], "}"}], ",", " ", 
+          "\"\<lmaParameters_.txt\>\""}], "}"}], ",", " ", 
         RowBox[{"OperatingSystem", "\[Rule]", "$OperatingSystem"}]}], "]"}], 
       "]"}]}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
    RowBox[{
@@ -866,12 +859,14 @@ Cell[BoxData[
    3.68908344199546*^9, {3.689336888213193*^9, 3.6893368884915752`*^9}, {
    3.69648857018649*^9, 3.6964886453145037`*^9}, 3.696493729987259*^9, {
    3.6965049591836653`*^9, 3.696504962061214*^9}, {3.696758446819538*^9, 
-   3.696758522077063*^9}, {3.6967586149503493`*^9, 3.6967586156934233`*^9}}],
+   3.696758522077063*^9}, {3.6967586149503493`*^9, 3.6967586156934233`*^9}, {
+   3.6990932464060926`*^9, 3.6990932466298723`*^9}, {3.6990933950756598`*^9, 
+   3.699093444671159*^9}}],
 
 Cell[CellGroupData[{
 
 Cell[BoxData["testResults"], "Input",
- CellChangeTimes->{{3.68908346993931*^9, 3.689083470689396*^9}}],
+ CellChangeTimes->{{3.699093730335306*^9, 3.69909373069825*^9}}],
 
 Cell[BoxData[
  RowBox[{"{", 
@@ -1031,7 +1026,8 @@ Cell[BoxData[
                  TagBox[
                   
                   RowBox[{"\<\"num_Cpus\\t1\\ntemperature_correction\\tFals\"\
-\>", "\[Ellipsis]", "\<\"_files/configure_fit/raw/psoResults.txt\"\>"}],
+\>", "\[Ellipsis]", \
+"\<\"row\\t-1\\nfunction_row\\t-2\\ndata_row_high\\t-2\"\>"}],
                   Short[#, 
                    Rational[2, 3]]& ],
                  BaselinePosition->Baseline,
@@ -1049,7 +1045,8 @@ Cell[BoxData[
                  TagBox[
                   
                   RowBox[{"\<\"num_Cpus\\t1\\ntemperature_correction\\tFals\"\
-\>", "\[Ellipsis]", "\<\"_files/configure_fit/raw/psoResults.txt\"\>"}],
+\>", "\[Ellipsis]", \
+"\<\"row\\t-1\\nfunction_row\\t-2\\ndata_row_high\\t-2\"\>"}],
                   Short[#, 
                    Rational[2, 3]]& ],
                  BaselinePosition->Baseline,
@@ -1067,7 +1064,7 @@ Cell[BoxData[
                  TagBox[
                   
                   TemplateBox[{
-                   "0.049954`4.849085267338428","\"s\"","seconds",
+                   "0.051899`4.865673987690743","\"s\"","seconds",
                     "\"Seconds\""},
                    "Quantity"],
                   Short[#, 
@@ -1108,35 +1105,34 @@ num_generations\t2000\nval_pop_size\t20\nbestFitnessCutoff\t1.1\n\
 val_neigh_size\t3\nval_inertia\t1\nval_cogn_rate\t2.1\nval_soc_rate\t2.1\n\
 use_Keep_Best\tTrue\nuse_Random_Replace\tTrue\npercent_Rand\t0.05\n\
 lower_bound\t-6\nupper_bound\t9\nnum_func_var\t12\nfilesWithFunctions\t\
-[test_files/configure_fit/absRateFor.txt,test_files/configure_fit/absRateRev.\
-txt,test_files/configure_fit/relRateFor_g3p.txt,test_files/configure_fit/\
-relRateFor_nad.txt,test_files/configure_fit/relRateFor_pi.txt,test_files/\
-configure_fit/relRateRev_13dpg.txt,test_files/configure_fit/relRateRev_nadh.\
-txt,test_files/configure_fit/dKdRatio.txt,test_files/configure_fit/KdRatio.\
-txt,test_files/configure_fit/haldaneRatio.txt]\ndata_file_name\t\
-test_files/configure_fit/GAPD.dat\nvalue_row\t-1\nfunction_row\t-2\n\
-data_row_high\t-2\nsummary_file_name\t\
-test_files/configure_fit/raw/summary.txt\nultimate_result_name\t\
-test_files/configure_fit/raw/psoResults.txt"], "ActualOutput" -> 
+[test_files/configure_fit/absRateFor.txt, \
+test_files/configure_fit/absRateRev.txt, \
+test_files/configure_fit/relRateFor_g3p.txt, \
+test_files/configure_fit/relRateFor_nad.txt, \
+test_files/configure_fit/relRateFor_pi.txt, \
+test_files/configure_fit/relRateRev_13dpg.txt, \
+test_files/configure_fit/relRateRev_nadh.txt, \
+test_files/configure_fit/dKdRatio.txt, test_files/configure_fit/KdRatio.txt, \
+test_files/configure_fit/haldaneRatio.txt]\nvalue_row\t-1\nfunction_row\t-2\n\
+data_row_high\t-2"], "ActualOutput" -> 
       HoldForm["num_Cpus\t1\ntemperature_correction\tFalse\nnum_trial\t5\n\
 num_generations\t2000\nval_pop_size\t20\nbestFitnessCutoff\t1.1\n\
 val_neigh_size\t3\nval_inertia\t1\nval_cogn_rate\t2.1\nval_soc_rate\t2.1\n\
 use_Keep_Best\tTrue\nuse_Random_Replace\tTrue\npercent_Rand\t0.05\n\
 lower_bound\t-6\nupper_bound\t9\nnum_func_var\t12\nfilesWithFunctions\t\
-[test_files/configure_fit/absRateFor.txt,test_files/configure_fit/absRateRev.\
-txt,test_files/configure_fit/relRateFor_g3p.txt,test_files/configure_fit/\
-relRateFor_nad.txt,test_files/configure_fit/relRateFor_pi.txt,test_files/\
-configure_fit/relRateRev_13dpg.txt,test_files/configure_fit/relRateRev_nadh.\
-txt,test_files/configure_fit/dKdRatio.txt,test_files/configure_fit/KdRatio.\
-txt,test_files/configure_fit/haldaneRatio.txt]\ndata_file_name\t\
-test_files/configure_fit/GAPD.dat\nvalue_row\t-1\nfunction_row\t-2\n\
-data_row_high\t-2\nsummary_file_name\t\
-test_files/configure_fit/raw/summary.txt\nultimate_result_name\t\
-test_files/configure_fit/raw/psoResults.txt"], "ExpectedMessages" -> {}, 
-      "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
-      Quantity[0.049954`4.849085267338428, "Seconds"], "CPUTimeUsed" -> 
-      Quantity[0.052000000000000046`, "Seconds"], "MemoryUsed" -> 
-      Quantity[3026480, "Bytes"]]],
+[test_files/configure_fit/absRateFor.txt, \
+test_files/configure_fit/absRateRev.txt, \
+test_files/configure_fit/relRateFor_g3p.txt, \
+test_files/configure_fit/relRateFor_nad.txt, \
+test_files/configure_fit/relRateFor_pi.txt, \
+test_files/configure_fit/relRateRev_13dpg.txt, \
+test_files/configure_fit/relRateRev_nadh.txt, \
+test_files/configure_fit/dKdRatio.txt, test_files/configure_fit/KdRatio.txt, \
+test_files/configure_fit/haldaneRatio.txt]\nvalue_row\t-1\nfunction_row\t-2\n\
+data_row_high\t-2"], "ExpectedMessages" -> {}, "ActualMessages" -> {}, 
+      "AbsoluteTimeUsed" -> Quantity[0.051899`4.865673987690743, "Seconds"], 
+      "CPUTimeUsed" -> Quantity[0.052000000000000046`, "Seconds"], 
+      "MemoryUsed" -> Quantity[3026480, "Bytes"]]],
     Editable->False,
     SelectWithContents->True,
     Selectable->False], ",", 
@@ -1333,7 +1329,7 @@ test_files/configure_fit/raw/psoResults.txt"], "ExpectedMessages" -> {},
                  TagBox[
                   
                   TemplateBox[{
-                   "0.000115`2.2112128381856038","\"s\"","seconds",
+                   "0.000107`2.1798987755172035","\"s\"","seconds",
                     "\"Seconds\""},
                    "Quantity"],
                   Short[#, 
@@ -1372,50 +1368,42 @@ test_files/configure_fit/raw/psoResults.txt"], "ExpectedMessages" -> {},
       HoldForm["num_Cpus\t1\ntemperature_correction\tFalse\nxtol_value\t\
 1.e-15\nftol_value\t1.e-7\ngtol_value\t1.e-7\nepsfcn_min_value\t7\n\
 maxfev_value\t1000\nlower_bound\t-6\nupper_bound\t9\nnum_func_var\t12\n\
-candidates_import_path\ttest_files/configure_fit/raw/psoResults.txt\n\
-candidates_export_path\ttest_files/configure_fit/raw/lmaResults.txt\n\
-filesWithFunctions\t\
-[test_files/configure_fit/absRateFor.txt,test_files/configure_fit/absRateRev.\
-txt,test_files/configure_fit/relRateFor_g3p.txt,test_files/configure_fit/\
-relRateFor_nad.txt,test_files/configure_fit/relRateFor_pi.txt,test_files/\
-configure_fit/relRateRev_13dpg.txt,test_files/configure_fit/relRateRev_nadh.\
-txt,test_files/configure_fit/dKdRatio.txt,test_files/configure_fit/KdRatio.\
-txt,test_files/configure_fit/haldaneRatio.txt]\ndata_file_name\t\
-test_files/configure_fit/GAPD.dat\nvalue_row\t-1\nfunction_row\t-2\n\
+filesWithFunctions\t[test_files/configure_fit/absRateFor.txt, \
+test_files/configure_fit/absRateRev.txt, \
+test_files/configure_fit/relRateFor_g3p.txt, \
+test_files/configure_fit/relRateFor_nad.txt, \
+test_files/configure_fit/relRateFor_pi.txt, \
+test_files/configure_fit/relRateRev_13dpg.txt, \
+test_files/configure_fit/relRateRev_nadh.txt, \
+test_files/configure_fit/dKdRatio.txt, test_files/configure_fit/KdRatio.txt, \
+test_files/configure_fit/haldaneRatio.txt]\nvalue_row\t-1\nfunction_row\t-2\n\
 data_row_high\t-2"], "ActualOutput" -> 
       HoldForm["num_Cpus\t1\ntemperature_correction\tFalse\nxtol_value\t\
 1.e-15\nftol_value\t1.e-7\ngtol_value\t1.e-7\nepsfcn_min_value\t7\n\
 maxfev_value\t1000\nlower_bound\t-6\nupper_bound\t9\nnum_func_var\t12\n\
-candidates_import_path\ttest_files/configure_fit/raw/psoResults.txt\n\
-candidates_export_path\ttest_files/configure_fit/raw/lmaResults.txt\n\
-filesWithFunctions\t\
-[test_files/configure_fit/absRateFor.txt,test_files/configure_fit/absRateRev.\
-txt,test_files/configure_fit/relRateFor_g3p.txt,test_files/configure_fit/\
-relRateFor_nad.txt,test_files/configure_fit/relRateFor_pi.txt,test_files/\
-configure_fit/relRateRev_13dpg.txt,test_files/configure_fit/relRateRev_nadh.\
-txt,test_files/configure_fit/dKdRatio.txt,test_files/configure_fit/KdRatio.\
-txt,test_files/configure_fit/haldaneRatio.txt]\ndata_file_name\t\
-test_files/configure_fit/GAPD.dat\nvalue_row\t-1\nfunction_row\t-2\n\
+filesWithFunctions\t[test_files/configure_fit/absRateFor.txt, \
+test_files/configure_fit/absRateRev.txt, \
+test_files/configure_fit/relRateFor_g3p.txt, \
+test_files/configure_fit/relRateFor_nad.txt, \
+test_files/configure_fit/relRateFor_pi.txt, \
+test_files/configure_fit/relRateRev_13dpg.txt, \
+test_files/configure_fit/relRateRev_nadh.txt, \
+test_files/configure_fit/dKdRatio.txt, test_files/configure_fit/KdRatio.txt, \
+test_files/configure_fit/haldaneRatio.txt]\nvalue_row\t-1\nfunction_row\t-2\n\
 data_row_high\t-2"], "ExpectedMessages" -> {}, "ActualMessages" -> {}, 
-      "AbsoluteTimeUsed" -> Quantity[0.000115`2.2112128381856038, "Seconds"], 
+      "AbsoluteTimeUsed" -> Quantity[0.000107`2.1798987755172035, "Seconds"], 
       "CPUTimeUsed" -> Quantity[0., "Seconds"], "MemoryUsed" -> 
       Quantity[96, "Bytes"]]],
     Editable->False,
     SelectWithContents->True,
     Selectable->False]}], "}"}]], "Output",
  CellChangeTimes->{
-  3.689083471613372*^9, 3.689083662699472*^9, 3.689336890623693*^9, 
-   3.689338008609683*^9, 3.696076074355077*^9, 3.696493713688292*^9, 
-   3.6964937457096453`*^9, 3.696504823196005*^9, {3.6965049814428453`*^9, 
-   3.696504989032633*^9}, 3.6965050251404676`*^9, 3.696505148480342*^9, 
-   3.696505398955144*^9, 3.696758093863246*^9, {3.696758559832838*^9, 
-   3.696758564512306*^9}, 3.6967586333631907`*^9, 3.6967594353063765`*^9, 
-   3.6983891576296263`*^9}]
+  3.699093753267198*^9, {3.699100912175384*^9, 3.699100915770512*^9}}]
 }, Open  ]]
 }, Open  ]]
 },
 WindowSize->{1440, 876},
-WindowMargins->{{Automatic, 16}, {-5, Automatic}},
+WindowMargins->{{Automatic, 230}, {-118, Automatic}},
 FrontEndVersion->"11.0 for Linux x86 (64-bit) (September 21, 2016)",
 StyleDefinitions->"Default.nb"
 ]
@@ -1430,18 +1418,18 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[558, 20, 369, 5, 32, "Input"],
-Cell[930, 27, 1891, 40, 171, "Input"],
+Cell[558, 20, 517, 7, 32, "Input"],
+Cell[1078, 29, 1891, 40, 171, "Input"],
 Cell[CellGroupData[{
-Cell[2846, 71, 676, 11, 35, "Subsubsection"],
-Cell[3525, 84, 15965, 384, 787, "Input"]
+Cell[2994, 73, 676, 11, 35, "Subsubsection"],
+Cell[3673, 86, 16015, 385, 787, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[19527, 473, 726, 12, 35, "Subsubsection"],
-Cell[20256, 487, 15859, 381, 742, "Input"],
+Cell[19725, 476, 726, 12, 35, "Subsubsection"],
+Cell[20454, 490, 15575, 373, 719, "Input"],
 Cell[CellGroupData[{
-Cell[36140, 872, 102, 1, 32, "Input"],
-Cell[36245, 875, 22009, 537, 122, "Output"]
+Cell[36054, 867, 102, 1, 32, "Input"],
+Cell[36159, 870, 20932, 530, 65, "Output"]
 }, Open  ]]
 }, Open  ]]
 }

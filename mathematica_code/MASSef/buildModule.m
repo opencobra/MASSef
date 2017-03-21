@@ -93,17 +93,20 @@ dummyF[absoluteFlux_]:=Block[{}, Return[absoluteFlux]];
 getFluxEquation[inputDir_, rxnName_, enzymeModel_, unifiedRateConstList_, transitionRateEqs_, outFileLabel_:""]:=
 	Block[{enzSol, absoluteFlux, fluxEq, enzForms, enzConservationEq, enzPos, ssEq},
 	
-	If[ FileExistsQ[FileNameJoin[{inputDir, "enzSol"<> outFileLabel<> ".m"}, OperatingSystem->$OperatingSystem]] && FileExistsQ[FileNameJoin[{inputDir, "absoluteFlux"<> outFileLabel<>".m"}, OperatingSystem->$OperatingSystem]],
+	enSolFilePath = FileNameJoin[{inputDir, "enzSol_" <> rxnName<> "_" <> outFileLabel<> ".m"}, OperatingSystem->$OperatingSystem];
+	absFluxFilePath = FileNameJoin[{inputDir, "absoluteFlux_" <> rxnName<> "_" <> outFileLabel<> ".m"}, OperatingSystem->$OperatingSystem];
+	
+	If[ FileExistsQ[enSolFilePath] && FileExistsQ[absFluxFilePath],
 		(*True: 'enzSol.m' and 'absoluteFlux.m' Exists*) 
 
-		enzSol = Import[FileNameJoin[{inputDir, "enzSol" <> outFileLabel<>".m"}, OperatingSystem->$OperatingSystem]];
-		absoluteFlux = Import[FileNameJoin[{inputDir, "absoluteFlux"<> outFileLabel<> ".m"}, OperatingSystem->$OperatingSystem]];,
+		enzSol = Import[enSolFilePath];
+		absoluteFlux = Import[absFluxFilePath];,
 		
 		(*False: 'enzSol.m' and 'absoluteFlux.m'  Do Not Exist*)
 		(*Generate a System of Equations *)
 		fluxEq = (*unifyRateConstants[*)Total[transitionRateEqs]/.unifiedRateConstList(*]*);(*Flux Will Always Go through the Transition Step*)
 		enzForms = Cases[enzymeModel["Species"],_enzyme]//Union;
-		enzConservationEq = parameter["E_total"]==Total[enzForms];(*Enzyme Conservation Equation*)
+		enzConservationEq = parameter[rxnName <> "_total"]==Total[enzForms];(*Enzyme Conservation Equation*)
 
 		enzPos = Flatten[Position[enzymeModel["Species"],_enzyme]];
 		ssEq = stripTime[enzymeModel["ODE"][[enzPos]]/._'[t]->0];(*Steady State Equations*)
@@ -121,8 +124,8 @@ getFluxEquation[inputDir_, rxnName_, enzymeModel_, unifiedRateConstList_, transi
 		Print["post simplify"];*)
 		
 		(*Cache the Results*)
-		Export[FileNameJoin[{inputDir, "enzSol"<> outFileLabel<> ".m"}, OperatingSystem->$OperatingSystem],  enzSol]; 
-		Export[FileNameJoin[{inputDir, "absoluteFlux"<> outFileLabel<> ".m"}, OperatingSystem->$OperatingSystem], absoluteFlux];
+		Export[enSolFilePath,  enzSol]; 
+		Export[absFluxFilePath, absoluteFlux];
 	];
 	
 	Return[absoluteFlux];
@@ -432,7 +435,7 @@ getMetRatesSubs[enzymeModel_, absoluteRateForward_, absoluteRateReverse_, relati
 
 
 	(*Handle Metabolites for Export*)
-	finalMets = Join[metsFull,{Toolbox`parameter["E_total"],parameter["pH"],parameter["Temp"]}];
+	finalMets = Join[metsFull,{Toolbox`parameter[getID@KeqVal<>"_total"],parameter["pH"],parameter["Temp"]}];
 	finalMets = Prepend[finalMets, KeqVal];
 	metsSub = Thread[finalMets -> Table["d<"<>ToString[i]<>">", {i,0,Length[finalMets]-1}] ];
 
