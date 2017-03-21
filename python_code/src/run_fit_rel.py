@@ -32,6 +32,7 @@ def _parse_function_parameters(parameter_file_in):
                         lineList.append(False)
                 else:
                     lineList.append(elem)
+
         parameter[lineList[0]] = lineList[1]
     """"""
 

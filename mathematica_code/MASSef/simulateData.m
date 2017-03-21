@@ -297,7 +297,7 @@ simulateKmData[rxn_, metsFull_, metSatForSub_, metSatRevSub_, kmList_, otherParm
 	(*Match to Comparision Equations*)
 	Do[
 		If[StringMatchQ[path, RegularExpression[".*relRate.*_" <> kmListFull[[km,1,1]]<>"\\.txt"]],
-			AppendTo[kmListFull[[km]], FileNameJoin[Flatten@{inputPath, StringCases[StringReplace[path, "\\" -> "/"], RegularExpression[StringReplace[inputPath, "\\" -> "/"] <> "(.*)"] -> "$1"]}, OperatingSystem-> $OperatingSystem]]
+			AppendTo[kmListFull[[km]], FileNameJoin[Flatten@{"\""<>inputPath, StringCases[StringReplace[path, "\\" -> "/"], RegularExpression[StringReplace[inputPath, "\\" -> "/"] <> "(.*)"] -> "$1"]<>"\""}, OperatingSystem-> $OperatingSystem]]
 		],
 		{km, Length @ kmListFull}, {path,fileList}];
 
@@ -409,7 +409,7 @@ simulateS05Data[rxn_, metsFull_, metSatForSub_, metSatRevSub_, s05List_, otherPa
 	(*Match to Comparision Equations*)
 	Do[
 		If[StringMatchQ[path, RegularExpression[".*_" <> s05ListFull[[s05, 1, 1]]<>"\\.txt"]],
-			AppendTo[s05ListFull[[s05]], FileNameJoin[Flatten@{inputPath, StringCases[StringReplace[path, "\\" -> "/"], RegularExpression[StringReplace[inputPath, "\\" -> "/"] <> "(.*)"] -> "$1"]}, OperatingSystem-> $OperatingSystem]]
+			AppendTo[s05ListFull[[s05]], FileNameJoin[Flatten@{"\""<>inputPath, StringCases[StringReplace[path, "\\" -> "/"], RegularExpression[StringReplace[inputPath, "\\" -> "/"] <> "(.*)"] -> "$1"]<>"\""}, OperatingSystem-> $OperatingSystem]]
 		],
 	{s05, Length @ s05ListFull}, {path,fileList}];
 
@@ -491,9 +491,9 @@ simulateKcatData[rxn_, metsFull_, metSatForSub_, metSatRevSub_, kcatList_, other
 				(*If any of the metabolites are substrates, this returns True*)
 				Or @@ substrateCheck,
 				(*True: kcat is for the Forward Reaction*)
-				FileNameJoin[{inputPath, "absRateFor.txt"}, OperatingSystem->$OperatingSystem],
+				FileNameJoin[{"\""<>inputPath, "absRateFor.txt"<>"\""}, OperatingSystem->$OperatingSystem],
 				(*True: kcat is for the Reverse Reaction*)
-				FileNameJoin[{inputPath, "absRateRev.txt"}, OperatingSystem->$OperatingSystem]
+				FileNameJoin[{"\""<>inputPath, "absRateRev.txt"<>"\""}, OperatingSystem->$OperatingSystem]
 			],
 		{kcat,kcatListFull//Length}, {nonKmParamWeight}];
 	
@@ -700,11 +700,11 @@ simulateInhibData[rxn_, metsFull_, metSatForSub_, metSatRevSub_, inhibList_, kmL
 	(*Match to Comparision Equations*)	
 	Do[
 		If[MemberQ[Flatten[{getSubstrates[rxn], getProducts[rxn]}], inhibListFull[[inhib]][[2]]],
-			AppendTo[inhibListFull[[inhib]], Flatten[DeleteCases[StringCases[fileList, RegularExpression[".*inhib.*" <> getID@inhibListFull[[inhib]][[2]] <> ".txt"]], {}]][[1]]],			
+			AppendTo[inhibListFull[[inhib]], Flatten[DeleteCases[StringCases["\""<>fileList, RegularExpression[".*inhib.*" <> getID@inhibListFull[[inhib]][[2]] <> ".txt\""]], {}]][[1]]],			
 			
 			If[MemberQ[getSubstrates[rxn], inhibListFull[[inhib]][[5, 1, 4]]],
-				AppendTo[inhibListFull[[inhib]], FileNameJoin[{inputPath, "absRateFor.txt"}, OperatingSystem->$OperatingSystem]],
-				AppendTo[inhibListFull[[inhib]], FileNameJoin[{inputPath, "absRateRev.txt"}, OperatingSystem->$OperatingSystem]]
+				AppendTo[inhibListFull[[inhib]], FileNameJoin[{"\""<>inputPath, "absRateFor.txt"<>"\""}, OperatingSystem->$OperatingSystem]],
+				AppendTo[inhibListFull[[inhib]], FileNameJoin[{"\""<>inputPath, "absRateRev.txt"<>"\""}, OperatingSystem->$OperatingSystem]]
 			]
 		],
 	{inhib, Length @ inhibListFull}];
@@ -887,7 +887,6 @@ simulateRateConstRatiosData[dKdRatio_, dKdVal_, KeqVal_, metsFull_, rateConstsSu
 	Export[fileName, dKdRatioPy];
 
 	(*Incorporating the Equation for Down Stream Equation Handling*)
-
 	fileListLocal = DeleteDuplicates @ Append[fileListLocal, fileName];
 	fileNameSub  = fileName -> dKdRatio;
 	fileListSubLocal = DeleteDuplicates @ Append[fileListSubLocal, fileNameSub];
@@ -900,7 +899,7 @@ simulateRateConstRatiosData[dKdRatio_, dKdVal_, KeqVal_, metsFull_, rateConstsSu
 	assayMet = 0 & /@ metsFull; (*Set All Mets to Zero*)
 	AppendTo[assayMet, eTotal]; (*Enzyme Total*)
 	dKdFitPt = Join[assayMet, pHandT];(*pH and Temperature - dirty trick, assayCond comes from Km data sim*)
-	dKdFitPt = Join[dKdFitPt, {fileName, dKdVal}];(*File Name and Target Value*)
+	dKdFitPt = Join[dKdFitPt, {"\""<>fileName<>"\"", dKdVal}];(*File Name and Target Value*)
 	dKdFitPt = Join[{KeqVal}, dKdFitPt];(*Keq Value*)(*Append Data*)
 
 	If[! MemberQ[dKdFittingData, dKdFitPt],(*True:  Data Is Not Already Appended*)

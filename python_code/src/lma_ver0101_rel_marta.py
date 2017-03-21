@@ -297,12 +297,16 @@ def run_lma(parameter, data_file_name, candidates_import_path, candidates_export
     dataDicts = [dict(zip(header, row)) for row in data]
     order = header
     data = [[d[k] for k in order] for d in dataDicts]
+    """ Handle "" in data file """
+    for i in range(len(data)):
+        data[i][-2] = data[i][-2].replace("\"", "")
     """"""
-
+        
     """Import the Rate Functions"""
     functionDict = dict()
     for index, path in enumerate(filesWithFunctions):
         funcName = 'f' + str(index+1)
+        path = path.replace("\"", "").strip()
         func_template = open(path).read()
         mkFuncCommand = 'def %s(x, d): return %s' % (funcName,func_template)
         exec(mkFuncCommand)
@@ -310,7 +314,6 @@ def run_lma(parameter, data_file_name, candidates_import_path, candidates_export
     """"""
 
     """Run the 'leastsq' Algorithm in a Parallel Manner using multiprocessing"""
-    print  platform.system() == "Windows"
 
     if platform.system() == "Windows":
         minimization_results = []
