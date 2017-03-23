@@ -90,7 +90,7 @@ getUnifiedRateConstList[allCatalyticReactions_, nonCatalyticReactions_]:=Block[{
 
 dummyF[absoluteFlux_]:=Block[{}, Return[absoluteFlux]];
 
-getFluxEquation[inputDir_, rxnName_, enzymeModel_, unifiedRateConstList_, transitionRateEqs_, simplifyMaxTime_, nActiveSites_:1, outFileLabel_:""]:=
+getFluxEquation[inputDir_, rxnName_, enzymeModel_, unifiedRateConstList_, transitionRateEqs_, simplifyMaxTime_:300, nActiveSites_:1, outFileLabel_:""]:=
 	Block[{enzSol, absoluteFlux, fluxEq, enzForms, enzConservationEq, enzPos, ssEq},
 	
 	enSolFilePath = FileNameJoin[{inputDir, "enzSol_" <> rxnName<> "_" <> outFileLabel<> ".m"}, OperatingSystem->$OperatingSystem];
