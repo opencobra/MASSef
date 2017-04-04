@@ -170,9 +170,8 @@ addInhibitionReactions[enzymeModel_, enzName_, inhibitionList_,  allCatalyticRea
 
 	inhibitorMetsList = inhibitionList[[All, 2]];
 	inhibitorMetsList = inhibitorMetsList /. getConversionChar2Met[inhibitorMetsList];
-	Print["1"];
 	paramTypeList = inhibitionList[[All, 1]];
-Print["2"];
+	
 	affectedMetsListLocal = 
 		If[affectedMetsList == {},
 			temp = Flatten[inhibitionList[[All,5]], 1][[All,4]];
@@ -187,13 +186,13 @@ Print[affectedMetsListLocal];
 			inhibitorMet = inhibitorMetsList[[i]];
 			paramType = paramTypeList[[i]];
 			affectedMets = If[ListQ[affectedMetsListLocal[[i]]], affectedMetsListLocal[[i]], {affectedMetsListLocal[[i]]}];
-			Print["4"];
+		
 			affectedRxns =
 				Table[
 					Select[allCatalyticReactions, MemberQ[Union[{getSubstrates[#], getProducts[#]}]~Flatten~1, met] &],
 				{met, affectedMets}];
 			affectedEnzForms = getAffectedEnzForms[paramType, affectedMets, affectedRxns];
-Print["5"];
+
 			DeleteCases[
 				{Table[
 					r[enzName <> "_" <> paramType <> "_" <> getID @ inhibitorMet <> "_" <> ToString[enz] <>"_" <> getID @ affectedMets[[1]], (*Reaction Name*)
@@ -207,15 +206,15 @@ Print["5"];
 					{bindCatalytic[affectedEnzForms[[1]], inhibitorMet], affectedMets[[1]]}, (*Substrates*)
 					{bindCatalytic[affectedEnzForms[[1]], affectedMets[[1]], inhibitorMet]}, (*Products*)
 					{1,1,1}] (*Stoichiometry*)]
-		Print["6"];
+
 			}, Null],
 			
 		{i, 1, Length @ inhibitorMetsList}]
 	];
-Print["7"];
+
 Print[inhibitedRxns];
 	enzymeModelLocal = addReactions[enzymeModel, Flatten @ inhibitedRxns];
-	Print["7.1"];
+
 	nonCatalyticReactionsLocal = Flatten @ Join[nonCatalyticReactions, inhibitedRxns];
 	Print["8"];
 	Return[{enzymeModelLocal, nonCatalyticReactionsLocal}];
@@ -226,19 +225,20 @@ Print[inhibitedRxns];
 (*Get equivalent rate constant substitutions for random ordered mechanisms*)
 
 
-getRateConstSubRandomMech[enzymeModel_, eqRateConstSubTemp_, allCatalyticReactions_, nonCatalyticReactions_] := 
+getEquivRateConsts[enzymeModel_, eqRateConstSubTemp_, nonCatalyticReactions_] := 
 	Block[{enzName, eqIDSub, eqRateConstSub, freeMetRxns, allSubstrates, equivalentRxns, equivalentRxnIDs, eqRateConst, indvRateConst},
 
 	enzName=enzymeModel["Enzymes"][[1]]//getID//ToString;
 
 	eqRateConstSub=eqRateConstSubTemp;
 
-	(*Catalytic Reactions*)
+
 	(*Work Around for Added Competitive Reaction ID's*)
 	eqIDSub=Union[getID[#[[1]]]->getID[#[[2]]]&/@eqRateConstSub];
 
-
+(*
 	(*Catalytic Reactions*)
+	
 	freeMetRxns=Cases[getSpecies[#],_metabolite,\[Infinity]]&/@allCatalyticReactions;
 	allSubstrates=Cases[getSpecies[enzymeModel],_metabolite,\[Infinity]];
 	equivalentRxns={};
@@ -283,10 +283,11 @@ getRateConstSubRandomMech[enzymeModel_, eqRateConstSubTemp_, allCatalyticReactio
 			#->eqRateConst[[eqRate,direction]]&/@indvRateConst[[eqRate,direction]],
 		{eqRate,Length[eqRateConst]},{direction,Length[eqRateConst[[eqRate]]]}]
 	]];
-
+*)
 
 	(*Non-Catalytic Reactions*)
 	freeMetRxns=Cases[getSpecies[#],_metabolite,\[Infinity]]&/@nonCatalyticReactions;
+	Print[freeMetRxns];
 	allSubstrates=Cases[getSpecies[enzymeModel],_metabolite,\[Infinity]];
 	equivalentRxns={};
 	Do[
