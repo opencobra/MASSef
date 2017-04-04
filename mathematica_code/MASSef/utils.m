@@ -11,7 +11,7 @@
 Begin["`Private`"];
 
 
-createDirectories[dataFolder_] := Module[{workingDir, dataPath, inputPath, outputPath, mkDirCmd},
+createDirectories[dataFolder_, removeInputFiles_, removeOutputFiles_] := Module[{workingDir, dataPath, inputPath, outputPath, mkDirCmd},
 	
 	workingDir = NotebookDirectory[];
 	Print["Working dir:" <> workingDir];
@@ -20,10 +20,20 @@ createDirectories[dataFolder_] := Module[{workingDir, dataPath, inputPath, outpu
 	inputPath= FileNameJoin[{dataPath, "input"}, OperatingSystem -> $OperatingSystem];
 	outputPath= FileNameJoin[{dataPath, "output"}, OperatingSystem -> $OperatingSystem];
 	
-	If[ !DirectoryQ[inputPath],	
-		CreateDirectory[inputPath];
+	If[ DirectoryQ[inputPath] && removeInputFiles,
+		 DeleteDirectory[inputPath, DeleteContents->True]
 	];
-	If[ !DirectoryQ[outputPath],
+	
+	If[!DirectoryQ[inputPath],	
+		 CreateDirectory[inputPath]
+	];
+	
+	If[ 
+		DirectoryQ[outputPath] && removeOutputFiles,
+		DeleteDirectory[outputPath, DeleteContents->True]
+	];
+	
+	If[!DirectoryQ[outputPath],
 		CreateDirectory[outputPath];
 		CreateDirectory[FileNameJoin[{outputPath, "raw"}, OperatingSystem -> $OperatingSystem]];
 		CreateDirectory[FileNameJoin[{outputPath, "treated_data"}, OperatingSystem -> $OperatingSystem]];
@@ -33,19 +43,18 @@ createDirectories[dataFolder_] := Module[{workingDir, dataPath, inputPath, outpu
 ];
 
 
-initializeNotebook[pathMASSFittingPath_, dataFolder_] := 
+initializeNotebook[pathMASSFittingPath_, dataFolder_, removeInputFiles_:False, removeOutputFiles_:False] := 
 	Module[{pathModel, pathBigg, pathData, pathMASSCode, runFitScriptPath, 
 	iJO, bigg2equilibrator, workingDir, inputPath, outputPath},
 	
 	pathData = FileNameJoin[{pathMASSFittingPath, "data"}, OperatingSystem -> $OperatingSystem];
-	Print[pathData];
 	pathModel = FileNameJoin[{pathData, "iJO1366.m.gz"}, OperatingSystem -> $OperatingSystem];
 	pathBigg = FileNameJoin[{pathData, "bigg2equilibratorViaKEGG.m.gz"}, OperatingSystem -> $OperatingSystem];	
 	runFitScriptPath = FileNameJoin[{pathData, "python_code", "src", "run_fit_rel.py"}, OperatingSystem -> $OperatingSystem];
     (*iJO=Import[pathModel];*)
 	bigg2equilibrator=Import[pathBigg];
 	
-	{workingDir, inputPath, outputPath} = createDirectories[dataFolder];
+	{workingDir, inputPath, outputPath} = createDirectories[dataFolder, removeInputFiles, removeOutputFiles];
 	
 	Return[{workingDir, pathData, runFitScriptPath, inputPath, outputPath, bigg2equilibrator}];
 ];
