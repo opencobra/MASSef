@@ -153,7 +153,7 @@ getCosubDataKm[rxn_, kmList_, kmMet_, assumedSaturatingConc_, char2met_] := Modu
 		Table[
 			met = km[[1]]/.char2met;
 			If[SameQ[met, kmMet], cosub[[1]] -> cosub[[2]]], 
-		{km, kmList}, {cosub, km[[3]]}];
+		{km, kmList}, {cosub, km[[4]]}];
 	
 	dataCosubKm = DeleteCases[Flatten@dataCosubKm, Null]/.char2met;
 	dataCosubKm = If[!ListQ[dataCosubKm], {dataCosubKm}, dataCosubKm];
