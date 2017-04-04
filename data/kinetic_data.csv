@@ -57,11 +57,11 @@ GAPD,ec_number,1.2.1.12,,,,,,,,,,,,,
 ,active_sites,4,,Crystallography,8636984,E. coli strain DF221 w/ pBR322::EcoGAPDH,,,,,,,,,
 ,allosteric_sites,0,,,,,,,,,,,,,
 ,parameter type,metabolite,value,uncertainty,"cosubstrate,concentration",unit,pH,temperature,"buffer,concentration","salts,concentration",other info,experiment,reference,strain,notes
-,Km,nad,0.000045,"[0.000041,0.000049]","pi,0.053;g3p,0.089",M,8.9,22,"teoa,0.04",,,Not Reported,10190977,E. coli strain DS112,"Cosubtrates at saturating concentrations, assuming x100 Km"
-,Km,g3p,0.00089,"[0.00072,0.00106]","nad,0.0045;pi,0.053",M,8.9,22,"teoa,0.04",,,Not Reported,10190977,E. coli strain DS112,"Cosubtrates at saturating concentrations, assuming x100 Km"
-,Km,pi,0.00053,"[0.00042,0.00064]","nad,0.0045;g3p,0.089",M,8.9,22,"teoa,0.04",,,Not Reported,10190977,E. coli strain DS112,"Cosubtrates at saturating concentrations, assuming x100 Km"
-,kcat,"g3p,Null;nad,Null;pi,Null",268,"[262,274]",,1/s,8.9,22,"teoa,0.04",,,Not Reported,10190977,E. coli strain DS112,
-,Kd,nad,0.00000032,"[0.00000025,0.00000039]",,M,8.9,22,"teoa,0.04",,,Not Reported,10190977,E. coli strain DS112,
+,Km,nad,0.000045,"0.000041,0.000049","pi,0.053;g3p,0.089",M,8.9,22,"teoa,0.04",,,Not Reported,10190977,E. coli strain DS112,"Cosubtrates at saturating concentrations, assuming x100 Km"
+,Km,g3p,0.00089,,"nad,0.0045;pi,0.053",M,8.9,22,"teoa,0.04",,,Not Reported,10190977,E. coli strain DS112,"Cosubtrates at saturating concentrations, assuming x100 Km"
+,Km,pi,0.00053,"0.00042,0.00064","nad,0.0045;g3p,0.089",M,8.9,22,"teoa,0.04",,,Not Reported,10190977,E. coli strain DS112,"Cosubtrates at saturating concentrations, assuming x100 Km"
+,kcat,"g3p,Null;nad,Null;pi,Null",268,"262.0,274.0",,1/s,8.9,22,"teoa,0.04",,,Not Reported,10190977,E. coli strain DS112,
+,Kd,nad,0.00000032,"0.00000025,0.00000039",,M,8.9,22,"teoa,0.04",,,Not Reported,10190977,E. coli strain DS112,
 PFK1,ec_number,2.7.1.11,,,,,,,,,,,,,
 ,organism,E. coli,,,,,,,,,,,,,
 ,reaction,atp[c] + f6p[c] <-> adp[c] + fbp[c] + h[c],,,,,,,,,,,,,
@@ -71,15 +71,15 @@ PFK1,ec_number,2.7.1.11,,,,,,,,,,,,,
 ,active_sites,4,,Crystallography,2975709,E.  coli  w/  pHE1001 or  pHE1007,,,,,,,,,
 ,allosteric_sites,4,,Crystallography,2975709,E.  coli  w/  pHE1001 or  pHE1007,,,,,,,,,
 ,parameter type,metabolite,value,uncertainty,"cosubstrate,concentration",unit,pH,temperature,"buffer,concentration","salts,concentration",other info,experiment,reference,strain,notes
-,Km,atp,0.00009,"[0.000054,0.000126]","gdp,0.001;f6p,0.001",M,8.5,30,"detam,0.051;netmphn,0.051;mes,0.1",,,GraFit (Michaelis-Menten Equation),1429704,E. coli strain DF1020 w/ wt-pfk1,Km is a K0.5
-,Km,gdp,0.0042,"[0.00293,0.00547]","f6p,0.00004;atp,0.005",M,8.5,30,"detam,0.051;netmphn,0.051;mes,0.1",,,GraFit (Hill Equation),1429704,E. coli strain DF1020 w/ wt-pfk1,Km is a K0.5
-,s05,f6p,0.00009,"[0.000054,0.000126]","gdp,0.001;atp,0.001",M,8.5,30,"detam,0.051;netmphn,0.051;mes,0.1",,,GraFit (Hill Equation),1429704,E. coli strain DF1020 w/ wt-pfk1,Km is a K0.5
-,kcat,"gdp,0.001;atp,Null;f6p,Null",110.7,"[108.1,113.3]",,1/s,8.5,30,"detam,0.051;netmphn,0.051;mes,0.1",,,GraFit (Hill Equation),1429704,E. coli strain DF1020 w/ wt-pfk1,
-,Kinc,pep,0.00075,"[0.0007,0.0008]",,M,8.5,28,"tris,0.05",,"NonCompetitive,Null,142,atp,Null;NonCompetitive,Null,142,f6p,Null",Lineweaver-Burk,4229913,E.  coli  Hfr  3000,Mixed Assay (PFKI&II)
+,Km,atp,0.00009,"0.000054,0.000126","gdp,0.001;f6p,0.001",M,8.5,30,"detam,0.051;netmphn,0.051;mes,0.1",,,GraFit (Michaelis-Menten Equation),1429704,E. coli strain DF1020 w/ wt-pfk1,Km is a K0.5
+,Km,gdp,0.0042,"0.00293,0.00547","f6p,0.00004;atp,0.005",M,8.5,30,"detam,0.051;netmphn,0.051;mes,0.1",,,GraFit (Hill Equation),1429704,E. coli strain DF1020 w/ wt-pfk1,Km is a K0.5
+,s05,f6p,0.00009,"0.000054,0.000126","gdp,0.001;atp,0.001",M,8.5,30,"detam,0.051;netmphn,0.051;mes,0.1",,,GraFit (Hill Equation),1429704,E. coli strain DF1020 w/ wt-pfk1,Km is a K0.5
+,kcat,"gdp,0.001;atp,Null;f6p,Null",110.7,"108.1,113.3",,1/s,8.5,30,"detam,0.051;netmphn,0.051;mes,0.1",,,GraFit (Hill Equation),1429704,E. coli strain DF1020 w/ wt-pfk1,
+,Kinc,pep,0.00075,"0.0007,0.0008",,M,8.5,28,"tris,0.05",,"NonCompetitive,Null,142,atp,Null;NonCompetitive,Null,142,f6p,Null",Lineweaver-Burk,4229913,E.  coli  Hfr  3000,Mixed Assay (PFKI&II)
 ,Kic,adp,0.0002,,,M,8.5,28,"tris,0.05",,"Competitive,Null,141,atp,Null",Lineweaver-Burk,4229913,E.  coli  Hfr  3000,Mixed Assay (PFKI&II)
 ,Ka,adp,0.000025,,,M,8.5,28,"tris,0.05",,,Lineweaver-Burk,4229913,E.  coli  Hfr  3000,Mixed Assay (PFKI&II)
-,Ka,gdp,0.00004,"[0.000035,0.000045]",,M,8.5,28,"tris,0.05",,,Lineweaver-Burk,4229913,E.  coli  Hfr  3000,Mixed Assay (PFKI&II)
-,n,,2.11,"[2.00,2.22]",,,8.5,30,"detam,0.051;netmphn,0.051;mes,0.1",,,GraFit (Hill Equation),1429704,E. coli strain DF1020 w/ wt-pfk1,
+,Ka,gdp,0.00004,"0.000035,0.000045",,M,8.5,28,"tris,0.05",,,Lineweaver-Burk,4229913,E.  coli  Hfr  3000,Mixed Assay (PFKI&II)
+,n,,2.11,"2.00,2.22",,,8.5,30,"detam,0.051;netmphn,0.051;mes,0.1",,,GraFit (Hill Equation),1429704,E. coli strain DF1020 w/ wt-pfk1,
 ,L0,,4000000,,,,8.5,28,"tris,0.05",,,Lineweaver-Burk,4229913,E.  coli  Hfr  3000,Mixed Assay (PFKI&II)
 TALA2,ec_number,2.2.1.2,,,,,,,,,,,,,
 ,organism,E. coli,,,,,,,,,,,,,
@@ -97,10 +97,10 @@ TALA2,ec_number,2.2.1.2,,,,,,,,,,,,,
 ,Km,s7p,0.000285,,"g3p,0.0038",M,8.5,30,"glygly,0.05",,,Lineweaver-Burk,7592346,E. coli K-12 cells (strain DH5/pGSJ451),"'Cosubtrates at ''excess'' concentrations, assuming x100 Km'"
 ,kcat,"f6p,Null;e4p,0.002",71.4,,,1/s,8.5,30,"glygly,0.05",,,Excel (Unspecified linear fitting),11298760,E. coli strain LJ110 (W3110),"Assay buffer and temperature conditions were not expicitly stated, but implied through referenced methods"
 ,kcat,"e4p,Null;f6p,0.05",79.4,,,1/s,8.5,30,"glygly,0.05",,,Excel (Unspecified linear fitting),11298760,E. coli strain LJ110 (W3110),"Assay buffer and temperature conditions were not expicitly stated, but implied through referenced methods"
-,Kic,pi,0.019,"[0.016,0.022]",e4p,M,8.5,30,"glygly,0.05",,"Competitive,Null,Null,f6p,Null",Lineweaver-Burk,7592346,E. coli K-12 cells (strain DH5/pGSJ451),
-,Kic,pi,0.019,"[0.016,0.022]",f6p,M,8.5,30,"glygly,0.05",,"Competitive,Null,Null,e4p,Null",Lineweaver-Burk,7592346,E. coli K-12 cells (strain DH5/pGSJ451),
-,Kic,pi,0.019,"[0.016,0.022]",g3p,M,8.5,30,"glygly,0.05",,"Competitive,Null,Null,s7p,Null",Lineweaver-Burk,7592346,E. coli K-12 cells (strain DH5/pGSJ451),
-,Kic,pi,0.019,"[0.016,0.022]",s7p,M,8.5,30,"glygly,0.05",,"Competitive,Null,Null,g3p,Null",Lineweaver-Burk,7592346,E. coli K-12 cells (strain DH5/pGSJ451),
+,Kic,pi,0.019,"0.016,0.022",e4p,M,8.5,30,"glygly,0.05",,"Competitive,Null,Null,f6p,Null",Lineweaver-Burk,7592346,E. coli K-12 cells (strain DH5/pGSJ451),
+,Kic,pi,0.019,"0.016,0.022",f6p,M,8.5,30,"glygly,0.05",,"Competitive,Null,Null,e4p,Null",Lineweaver-Burk,7592346,E. coli K-12 cells (strain DH5/pGSJ451),
+,Kic,pi,0.019,"0.016,0.022",g3p,M,8.5,30,"glygly,0.05",,"Competitive,Null,Null,s7p,Null",Lineweaver-Burk,7592346,E. coli K-12 cells (strain DH5/pGSJ451),
+,Kic,pi,0.019,"0.016,0.022",s7p,M,8.5,30,"glygly,0.05",,"Competitive,Null,Null,g3p,Null",Lineweaver-Burk,7592346,E. coli K-12 cells (strain DH5/pGSJ451),
 dPGM,ec_number,5.4.2.1,,,,,,,,,,,,,
 ,organism,E. coli,,,,,,,,,,,,,
 ,reaction,2pg[c] <-> 3pg[c],,,,,,,,,,,,,

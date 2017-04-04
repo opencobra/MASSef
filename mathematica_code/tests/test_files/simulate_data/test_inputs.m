@@ -20,11 +20,11 @@ getInputTestSimulateKmDataGAPD[] := Block[{rxn, metsFull, metSatForSub, metSatRe
 	ionCharge = getIonData[ionChargeDataPath];
 
 	
-	kmList = {{"nad",0.000044999999999999996`,{{"pi",0.053`},{"g3p",0.089`}},"M",8.9`,22.`,{{"teoa",0.04`}},{}},
-		  {"g3p",0.0008900000000000001`,{{"nad",0.0045`},{"pi",0.053`}},"M",8.9`,22.`,{{"teoa",0.04`}},{}},
-		  {"pi",0.0005300000000000001`,{{"nad",0.0045`},{"g3p",0.089`}},"M",8.9`,22.`,{{"teoa",0.04`}},{}}};
+	kmList = {{"nad",0.000045`,{0.000041`,0.000049`},{{"pi",0.053`},{"g3p",0.089`}},"M",8.9`,22,{{"teoa",0.04`}},{}},
+				{"g3p",0.00089`,{0.0008454999999999999`,0.0009345`},{{"nad",0.0045`},{"pi",0.053`}},"M",8.9`,22,{{"teoa",0.04`}},{}},
+				{"pi",0.00053`,{0.00042`,0.00064`},{{"nad",0.0045`},{"g3p",0.089`}},"M",8.9`,22,{{"teoa",0.04`}},{}}};
 	
-	otherParmsList = {{"Kd","nad",3.2`*^-7,"M",8.9`,22.`,{{"teoa",0.04`}},{}}};
+	otherParmsList = {{"Kd","nad",3.2`*^-7,{2.5`*^-7,3.9`*^-7},"M",8.9`,22,{{"teoa",0.04`}},{}}};
 		  
 	fileList={FileNameJoin[{"test_files","simulate_data","absRateFor.txt"}, OperatingSystem->$OperatingSystem],
 		 FileNameJoin[{"test_files","simulate_data","absRateRev.txt"}, OperatingSystem->$OperatingSystem],
@@ -58,7 +58,7 @@ getInputTestSimulateKmDataTALA2[] := Block[{rxnTALA2, metsFullTALA2, metSatForSu
 	
 	metSatForSubTALA2 = {Toolbox`metabolite["e4p", "c"]->\[Infinity],Toolbox`metabolite["f6p", "c"]->\[Infinity]};
 	metSatRevSubTALA2 = {Toolbox`metabolite["g3p", "c"]->\[Infinity],Toolbox`metabolite["s7p", "c"]->\[Infinity]};
-	kmListTALA2 = {{"g3p",0.000037999999999999995`,{{"f6p",0.0285`}},"M",8.5`,30.`,{{"glygly",0.05`}},{}},{"e4p",0.00009`,{{"f6p",0.0285`}},"M",8.5`,30.`,{{"glygly",0.05`}},{}},{"r5p",0.031`,{{"f6p",0.0285`}},"M",8.5`,30.`,{{"glygly",0.05`}},{}},{"f6p",0.0012000000000000001`,{{"g3p",0.0038`}},"M",8.5`,30.`,{{"glygly",0.05`}},{}},{"s7p",0.000285`,{{"g3p",0.0038`}},"M",8.5`,30.`,{{"glygly",0.05`}},{}}};
+	kmListTALA2 = {{"g3p",0.000038`,{0.0000361`,0.0000399`},{{"f6p",0.0285`}},"M",8.5`,30,{{"glygly",0.05`}},{}},{"e4p",0.00009`,{0.0000855`,0.0000945`},{{"f6p",0.0285`}},"M",8.5`,30,{{"glygly",0.05`}},{}},{"r5p",0.031`,{0.02945`,0.03255`},{{"f6p",0.0285`}},"M",8.5`,30,{{"glygly",0.05`}},{}},{"f6p",0.0012`,{0.00114`,0.0012599999999999998`},{{"g3p",0.0038`}},"M",8.5`,30,{{"glygly",0.05`}},{}},{"s7p",0.000285`,{0.00027075`,0.00029925`},{{"g3p",0.0038`}},"M",8.5`,30,{{"glygly",0.05`}},{}}};
 	otherParmsListTALA2 ={};
 	fileListTALA2 = {FileNameJoin[{"test_files","simulate_data","absRateFor.txt"}, OperatingSystem->$OperatingSystem],
 					FileNameJoin[{"test_files","simulate_data","absRateRev.txt"}, OperatingSystem->$OperatingSystem],
@@ -95,9 +95,9 @@ getInputTestSimulateS05DataPFK1[] := Block[{rxn, metsFull, metSatForSub, metSatR
 	bufferInfo = getBufferInfoData[bufferInfoDataPath];
 	ionCharge = getIonData[ionChargeDataPath];
 	
-	s05List = {{"f6p",0.00009`,{{"gdp",0.001`},{"atp",0.001`}},"M",8.5`,30.`,{{"detam",0.051`},{"netmphn",0.051`},{"mes",0.1`}},{}}};
+	s05List = {{"f6p",0.00009`,{0.000054`,0.000126`},{{"gdp",0.001`},{"atp",0.001`}},"M",8.5`,30,{{"detam",0.051`},{"netmphn",0.051`},{"mes",0.1`}},{}}};
 	
-	otherParmsList = {{"n","",2.11`,"Null",8.5`,30.`,{{"detam",0.051`},{"netmphn",0.051`},{"mes",0.1`}},{}},{"L0","",4.`*^6,"Null",8.5`,28.`,{{"tris",0.05`}},{}}};
+	otherParmsList = {{"n","",2.11`,{2.`,2.22`},"",8.5`,30,{{"detam",0.051`},{"netmphn",0.051`},{"mes",0.1`}},{}},{"L0","",4000000,{3.8`*^6,4.2`*^6},"",8.5`,28,{{"tris",0.05`}},{}}};
 		  
 	fileList={FileNameJoin[{"test_files","simulate_data","absRateFor.txt"}, OperatingSystem->$OperatingSystem],
 				FileNameJoin[{"test_files","simulate_data","absRateRev.txt"}, OperatingSystem->$OperatingSystem],
@@ -134,9 +134,9 @@ getInputTestSimulateKcatDataGAPD[] := Block[{rxn, metsFull, metSatForSub, metSat
 	bufferInfo = getBufferInfoData[bufferInfoDataPath];
 	ionCharge = getIonData[ionChargeDataPath];
 	
-	kcatList = {{{{"g3p",Null},{"nad",Null},{"pi",Null}},268.`,"1/s",8.9`,22.`,{{"teoa",0.04`}},{}}};
+	kcatList = {{{{"g3p",Null},{"nad",Null},{"pi",Null}},268,{262.`,274.`},"1/s",8.9`,22,{{"teoa",0.04`}},{}}};
 	
-	otherParmsList = {{"Kd","nad",3.2`*^-7,"M",8.9`,22.`,{{"teoa",0.04`}},{}}};
+	otherParmsList = {{"Kd","nad",3.2`*^-7,{2.5`*^-7,3.9`*^-7},"M",8.9`,22,{{"teoa",0.04`}},{}}};
 		  
 	fileList={FileNameJoin[{"test_files","simulate_data","absRateFor.txt"}, OperatingSystem->$OperatingSystem],
 		  FileNameJoin[{"test_files","simulate_data","absRateRev.txt"}, OperatingSystem->$OperatingSystem],
@@ -285,8 +285,8 @@ getInputTestSimulateInhibDataTALA2[] := Block[{rxn, metsFull, metSatForSub, metS
 	metsFull = {Toolbox`metabolite["e4p", "c"],Toolbox`metabolite["f6p", "c"],Toolbox`metabolite["g3p", "c"],Toolbox`metabolite["s7p", "c"],Toolbox`metabolite["pi", "c"]};
 	metSatForSub = {Toolbox`metabolite["e4p", "c"]->\[Infinity],Toolbox`metabolite["f6p", "c"]->\[Infinity]};
 	metSatRevSub = {Toolbox`metabolite["g3p", "c"]->\[Infinity],Toolbox`metabolite["s7p", "c"]->\[Infinity]};
-	inhibitionList = {{"Kic","pi",0.019`,{{"e4p",Null}},{{"Competitive",Null,Null,"f6p",Null}},"M",8.5`,30.`,{{"glygly",0.05`}},{}},{"Kic","pi",0.019`,{{"f6p",Null}},{{"Competitive",Null,Null,"e4p",Null}},"M",8.5`,30.`,{{"glygly",0.05`}},{}},{"Kic","pi",0.019`,{{"g3p",Null}},{{"Competitive",Null,Null,"s7p",Null}},"M",8.5`,30.`,{{"glygly",0.05`}},{}},{"Kic","pi",0.019`,{{"s7p",Null}},{{"Competitive",Null,Null,"g3p",Null}},"M",8.5`,30.`,{{"glygly",0.05`}},{}}};
-	kmList = {{"g3p",0.000037999999999999995`,{{"f6p",0.0285`}},"M",8.5`,30.`,{{"glygly",0.05`}},{}},{"e4p",0.00009`,{{"f6p",0.0285`}},"M",8.5`,30.`,{{"glygly",0.05`}},{}},{"r5p",0.031`,{{"f6p",0.0285`}},"M",8.5`,30.`,{{"glygly",0.05`}},{}},{"f6p",0.0012000000000000001`,{{"g3p",0.0038`}},"M",8.5`,30.`,{{"glygly",0.05`}},{}},{"s7p",0.000285`,{{"g3p",0.0038`}},"M",8.5`,30.`,{{"glygly",0.05`}},{}}};
+	inhibitionList = {{"Kic","pi",0.019`,{0.016`,0.022`},{{"e4p",Null}},{{"Competitive",Null,Null,"f6p",Null}},"M",8.5`,30,{{"glygly",0.05`}},{}},{"Kic","pi",0.019`,{0.016`,0.022`},{{"f6p",Null}},{{"Competitive",Null,Null,"e4p",Null}},"M",8.5`,30,{{"glygly",0.05`}},{}},{"Kic","pi",0.019`,{0.016`,0.022`},{{"g3p",Null}},{{"Competitive",Null,Null,"s7p",Null}},"M",8.5`,30,{{"glygly",0.05`}},{}},{"Kic","pi",0.019`,{0.016`,0.022`},{{"s7p",Null}},{{"Competitive",Null,Null,"g3p",Null}},"M",8.5`,30,{{"glygly",0.05`}},{}}};
+	kmList = {{"g3p",0.000038`,{0.0000361`,0.0000399`},{{"f6p",0.0285`}},"M",8.5`,30,{{"glygly",0.05`}},{}},{"e4p",0.00009`,{0.0000855`,0.0000945`},{{"f6p",0.0285`}},"M",8.5`,30,{{"glygly",0.05`}},{}},{"r5p",0.031`,{0.02945`,0.03255`},{{"f6p",0.0285`}},"M",8.5`,30,{{"glygly",0.05`}},{}},{"f6p",0.0012`,{0.00114`,0.0012599999999999998`},{{"g3p",0.0038`}},"M",8.5`,30,{{"glygly",0.05`}},{}},{"s7p",0.000285`,{0.00027075`,0.00029925`},{{"g3p",0.0038`}},"M",8.5`,30,{{"glygly",0.05`}},{}}};
 	assumedSaturatingConc = 0.01;
 	eTotal = 1;
 	logStepSize=0.2;
@@ -320,8 +320,8 @@ getInputTestSimulateInhibDataG3PD2[] := Block[{rxn, metsFull, metSatForSub, metS
 	metsFull ={Toolbox`metabolite["dhap", "c"],Toolbox`metabolite["glyc3p", "c"],Toolbox`metabolite["nadp", "c"],Toolbox`metabolite["nadph", "c"]};
 	metSatForSub = {Toolbox`metabolite["glyc3p", "c"]->\[Infinity],Toolbox`metabolite["nadp", "c"]->\[Infinity]};
 	metSatRevSub = {Toolbox`metabolite["dhap", "c"]->\[Infinity],Toolbox`metabolite["nadph", "c"]->\[Infinity]};
-	inhibitionList = {{"Kic","glyc3p",4.2`*^-6,{{"nadph",0.0001`}},{{"Competitive",Null,Null,"dhap",Null}},"M",7.4`,23.`,{{"trishcl",0.1`}},{}},{"Kincu","glyc3p",6.5`*^-6,{{"dhap",0.0001`}},{{"NonCompetitive",Null,Null,"nadph",Null}},"M",7.4`,23.`,{{"trishcl",0.1`}},{}},{"Kincc","glyc3p",2.4999999999999998`*^-6,{{"dhap",0.0001`}},{{"NonCompetitive",Null,Null,"nadph",Null}},"M",7.4`,23.`,{{"trishcl",0.1`}},{}},{"Kincu","nadp",0.0013000000000000002`,{{"nadph",0.00001`}},{{"NonCompetitive",Null,Null,"dhap",Null}},"M",7.4`,23.`,{{"trishcl",0.1`}},{}},{"Kincc","nadp",0.0013000000000000002`,{{"nadph",0.00001`}},{{"NonCompetitive",Null,Null,"dhap",Null}},"M",7.4`,23.`,{{"trishcl",0.1`}},{}},{"Kic","nadp",0.000187`,{{"dhap",0.002`}},{{"Competitive",Null,Null,"nadph",Null}},"M",7.4`,23.`,{{"trishcl",0.1`}},{}},{"Kic","dhap",0.000037999999999999995`,{{"nadp",0.002`}},{{"Competitive",Null,Null,"glyc3p",Null}},"M",7.4`,23.`,{{"trishcl",0.1`}},{}},{"Kincu","dhap",0.00024000000000000003`,{{"glyc3p",0.0001`}},{{"NonCompetitive",Null,Null,"nadp",Null}},"M",7.4`,23.`,{{"trishcl",0.1`}},{}},{"Kincc","dhap",0.00012000000000000002`,{{"glyc3p",0.0001`}},{{"NonCompetitive",Null,Null,"nadp",Null}},"M",7.4`,23.`,{{"trishcl",0.1`}},{}},{"Kincu","nadph",8.`*^-7,{{"nadp",0.0001`}},{{"NonCompetitive",Null,Null,"glyc3p",Null}},"M",7.4`,23.`,{{"trishcl",0.1`}},{}},{"Kincc","nadph",6.`*^-7,{{"nadp",0.0001`}},{{"NonCompetitive",Null,Null,"glyc3p",Null}},"M",7.4`,23.`,{{"trishcl",0.1`}},{}},{"Kic","nadph",4.`*^-7,{{"glyc3p",0.0002`}},{{"Competitive",Null,Null,"nadp",Null}},"M",7.4`,23.`,{{"trishcl",0.1`}},{}}};
-	kmList = {{"nadph",3.3999999999999996`*^-6,{},"M",7.4`,23.`,{{"trishcl",0.1`}},{}},{"dhap",0.00018`,{},"M",7.4`,23.`,{{"trishcl",0.1`}},{}},{"nadp",0.000165`,{},"M",7.4`,23.`,{{"trishcl",0.1`}},{}},{"glyc3p",0.000030000000000000004`,{},"M",7.4`,23.`,{{"trishcl",0.1`}},{}}};
+	inhibitionList = {{"Kic","glyc3p",4.2`*^-6,{3.99`*^-6,4.409999999999999`*^-6},{{"nadph",0.0001`}},{{"Competitive",Null,Null,"dhap",Null}},"M",7.4`,23,{{"trishcl",0.1`}},{}},{"Kincu","glyc3p",6.5`*^-6,{6.174999999999999`*^-6,6.825`*^-6},{{"dhap",0.0001`}},{{"NonCompetitive",Null,Null,"nadph",Null}},"M",7.4`,23,{{"trishcl",0.1`}},{}},{"Kincc","glyc3p",2.5`*^-6,{2.375`*^-6,2.6250000000000003`*^-6},{{"dhap",0.0001`}},{{"NonCompetitive",Null,Null,"nadph",Null}},"M",7.4`,23,{{"trishcl",0.1`}},{}},{"Kincu","nadp",0.0013`,{0.001235`,0.001365`},{{"nadph",0.00001`}},{{"NonCompetitive",Null,Null,"dhap",Null}},"M",7.4`,23,{{"trishcl",0.1`}},{}},{"Kincc","nadp",0.0013`,{0.001235`,0.001365`},{{"nadph",0.00001`}},{{"NonCompetitive",Null,Null,"dhap",Null}},"M",7.4`,23,{{"trishcl",0.1`}},{}},{"Kic","nadp",0.000187`,{0.00017764999999999998`,0.00019635`},{{"dhap",0.002`}},{{"Competitive",Null,Null,"nadph",Null}},"M",7.4`,23,{{"trishcl",0.1`}},{}},{"Kic","dhap",0.000038`,{0.0000361`,0.0000399`},{{"nadp",0.002`}},{{"Competitive",Null,Null,"glyc3p",Null}},"M",7.4`,23,{{"trishcl",0.1`}},{}},{"Kincu","dhap",0.00024`,{0.000228`,0.000252`},{{"glyc3p",0.0001`}},{{"NonCompetitive",Null,Null,"nadp",Null}},"M",7.4`,23,{{"trishcl",0.1`}},{}},{"Kincc","dhap",0.00012`,{0.000114`,0.000126`},{{"glyc3p",0.0001`}},{{"NonCompetitive",Null,Null,"nadp",Null}},"M",7.4`,23,{{"trishcl",0.1`}},{}},{"Kincu","nadph",8.`*^-7,{7.599999999999999`*^-7,8.4`*^-7},{{"nadp",0.0001`}},{{"NonCompetitive",Null,Null,"glyc3p",Null}},"M",7.4`,23,{{"trishcl",0.1`}},{}},{"Kincc","nadph",6.`*^-7,{5.699999999999999`*^-7,6.3`*^-7},{{"nadp",0.0001`}},{{"NonCompetitive",Null,Null,"glyc3p",Null}},"M",7.4`,23,{{"trishcl",0.1`}},{}},{"Kic","nadph",4.`*^-7,{3.7999999999999996`*^-7,4.2`*^-7},{{"glyc3p",0.0002`}},{{"Competitive",Null,Null,"nadp",Null}},"M",7.4`,23,{{"trishcl",0.1`}},{}}};
+	kmList = {{"nadph",3.4`*^-6,{3.23`*^-6,3.57`*^-6},{},"M",7.4`,23,{{"trishcl",0.1`}},{}},{"dhap",0.00018`,{0.000171`,0.000189`},{},"M",7.4`,23,{{"trishcl",0.1`}},{}},{"nadp",0.000165`,{0.00015675`,0.00017325`},{},"M",7.4`,23,{{"trishcl",0.1`}},{}},{"glyc3p",0.00003`,{0.0000285`,0.0000315`},{},"M",7.4`,23,{{"trishcl",0.1`}},{}}};
 	assumedSaturatingConc = 0.01;
 	eTotal = 1;
 	logStepSize=0.5;

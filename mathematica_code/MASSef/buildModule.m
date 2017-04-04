@@ -178,9 +178,7 @@ addInhibitionReactions[enzymeModel_, enzName_, inhibitionList_,  allCatalyticRea
 			affectedMetsListLocal = temp /. getConversionChar2Met[temp],
 			affectedMetsList
 		];
-Print[inhibitorMetsList];
-Print[paramTypeList];
-Print[affectedMetsListLocal];
+
 	AppendTo[inhibitedRxns, 
 		Table[			
 			inhibitorMet = inhibitorMetsList[[i]];
@@ -212,11 +210,8 @@ Print[affectedMetsListLocal];
 		{i, 1, Length @ inhibitorMetsList}]
 	];
 
-Print[inhibitedRxns];
 	enzymeModelLocal = addReactions[enzymeModel, Flatten @ inhibitedRxns];
-
 	nonCatalyticReactionsLocal = Flatten @ Join[nonCatalyticReactions, inhibitedRxns];
-	Print["8"];
 	Return[{enzymeModelLocal, nonCatalyticReactionsLocal}];
 ];
 
