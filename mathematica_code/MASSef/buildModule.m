@@ -92,7 +92,7 @@ dummyF[absoluteFlux_]:=Block[{}, Return[absoluteFlux]];
 
 getFluxEquation[inputDir_, rxnName_, enzymeModel_, unifiedRateConstList_, transitionRateEqs_, simplifyMaxTime_:300, nActiveSites_:1, outFileLabel_:""]:=
 	Block[{enzSol, absoluteFlux, fluxEq, enzForms, enzConservationEq, enzPos, ssEq},
-	
+
 	enSolFilePath = FileNameJoin[{inputDir, "enzSol_" <> rxnName<> "_" <> outFileLabel<> ".m"}, OperatingSystem->$OperatingSystem];
 	absFluxFilePath = FileNameJoin[{inputDir, "absoluteFlux_" <> rxnName<> "_" <> outFileLabel<> ".m"}, OperatingSystem->$OperatingSystem];
 	
@@ -174,11 +174,11 @@ addInhibitionReactions[enzymeModel_, enzName_, inhibitionList_,  allCatalyticRea
 	
 	affectedMetsListLocal = 
 		If[affectedMetsList == {},
-			temp = Flatten[inhibitionList[[All,5]], 1][[All,4]];
+			temp = Flatten[inhibitionList[[All,6]], 1][[All,4]];
 			affectedMetsListLocal = temp /. getConversionChar2Met[temp],
 			affectedMetsList
 		];
-
+	
 	AppendTo[inhibitedRxns, 
 		Table[			
 			inhibitorMet = inhibitorMetsList[[i]];
@@ -282,7 +282,6 @@ getEquivRateConsts[enzymeModel_, eqRateConstSubTemp_, nonCatalyticReactions_] :=
 
 	(*Non-Catalytic Reactions*)
 	freeMetRxns=Cases[getSpecies[#],_metabolite,\[Infinity]]&/@nonCatalyticReactions;
-	Print[freeMetRxns];
 	allSubstrates=Cases[getSpecies[enzymeModel],_metabolite,\[Infinity]];
 	equivalentRxns={};
 	Do[
