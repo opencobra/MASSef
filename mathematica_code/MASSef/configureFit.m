@@ -20,7 +20,7 @@ definePSOparameters[inputPath_, outputPath_, finalRateConsts_, fileList_,
 					numGenerations_: 2000, popSize_: 20] := 
 	Module[{psoParameterPath, psoParameters, tempCorr, neighborSize, inertia, cognitiveRate, socialRate, useKeepBest, 
 			useRandomReplace, percentRandomParticles, numFuncVar, fileListPy, valueRow, functionRow, dataRowHigh, 
-			psoTrialSummaryFileName, psoResultsFileName, splitChar},
+			psoTrialSummaryFileName, psoResultsFileName, splitChar, timeStamp},
 
 	psoParameters = {  
    
@@ -104,9 +104,10 @@ definePSOparameters[inputPath_, outputPath_, finalRateConsts_, fileList_,
    	{"data_row_high", dataRowHigh = -2}
 	};
 	
-    psoTrialSummaryFileName = FileNameJoin[{outputPath, "raw", "summary_" <> fitLabel <> ".txt"}, OperatingSystem->$OperatingSystem];
-    psoResultsFileName = FileNameJoin[{outputPath, "raw", "psoResults_" <> fitLabel <> ".txt"}, OperatingSystem->$OperatingSystem];
-	psoParameterPath = FileNameJoin[{inputPath, "psoParameters_" <> fitLabel<> ".txt"}, OperatingSystem->$OperatingSystem];
+    timeStamp = StringRiffle[DateList[TimeZone->  "Europe/London"][[;;-2]], ""];
+    psoTrialSummaryFileName = FileNameJoin[{outputPath, "raw", "summary_" <> fitLabel <> "_" <> timeStamp <> ".txt"}, OperatingSystem->$OperatingSystem];
+    psoResultsFileName = FileNameJoin[{outputPath, "raw", "psoResults_" <> fitLabel <> "_" <> timeStamp <> ".txt"}, OperatingSystem->$OperatingSystem];
+	psoParameterPath = FileNameJoin[{inputPath, "psoParameters_" <> fitLabel <> "_" <> timeStamp <> ".txt"}, OperatingSystem->$OperatingSystem];
 	Export[psoParameterPath, psoParameters, "Table"];
 	
 	Return[{psoParameterPath, psoResultsFileName, psoTrialSummaryFileName}];
@@ -120,7 +121,7 @@ definePSOparameters[inputPath_, outputPath_, finalRateConsts_, fileList_,
 defineLMAparameters[inputPath_, outputPath_, finalRateConsts_, fileList_, 
 					lowerParamBound_, upperParamBound_, fitLabel_:"", numCpus_:1] := 
 	Module[{temperatureCorrect, xtolValue, ftolValue, gtolValue, epsfcnMinValue, maxfevValue, 
-			numFuncVar, psoResultsFileName, lmaResultsFileName,splitChar,
+			numFuncVar, psoResultsFileName, lmaResultsFileName,splitChar, timeStamp,
 			fileListPy, valueRow, functionRow, dataRowHigh, lmaParameterPath, lmaParameters},
 
 	lmaParameters = {   
@@ -183,9 +184,10 @@ defineLMAparameters[inputPath_, outputPath_, finalRateConsts_, fileList_,
    				{"data_row_high", dataRowHigh = -2}
 	};
 	
-	psoResultsFileName = FileNameJoin[{outputPath, "raw", "psoResults_" <> fitLabel <> ".txt"}, OperatingSystem->$OperatingSystem];
-    lmaResultsFileName = FileNameJoin[{outputPath, "raw", "lmaResults_" <> fitLabel <> ".txt"}, OperatingSystem->$OperatingSystem];				
-	lmaParameterPath = FileNameJoin[{inputPath, "lmaParameters_" <> fitLabel <> ".txt"}, OperatingSystem->$OperatingSystem];
+	timeStamp = StringRiffle[DateList[TimeZone->  "Europe/London"][[;;-2]], ""];
+	psoResultsFileName = FileNameJoin[{outputPath, "raw", "psoResults_" <> fitLabel <> "_" <> timeStamp <> ".txt"}, OperatingSystem->$OperatingSystem];
+    lmaResultsFileName = FileNameJoin[{outputPath, "raw", "lmaResults_" <> fitLabel <> "_" <> timeStamp <> ".txt"}, OperatingSystem->$OperatingSystem];				
+	lmaParameterPath = FileNameJoin[{inputPath, "lmaParameters_" <> fitLabel <> "_" <> timeStamp <> ".txt"}, OperatingSystem->$OperatingSystem];
 	Export[lmaParameterPath, lmaParameters, "Table"];	
 	
 	Return[{lmaParameterPath, lmaResultsFileName}];
