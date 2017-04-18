@@ -114,7 +114,7 @@ calculateAdjustedKeq[rxn_, ionicStrength_, dataListFull_, bigg2equilibrator_] :=
 getDataListFull[rxn_, dataList_, dataListSub_] := Block[{char2met, dataListFull},
 		
 	char2met = getConversionChar2Met[rxn];
-	dataListFull = dataList/.char2met; 
+	dataListFull = dataList/.DeleteDuplicates[Flatten@{char2met,dataListSub}]; 
 	
 	Return[dataListFull];
 ];
@@ -135,7 +135,7 @@ getMetSub[dataList_] := Block[{dataListSub},
 	dataListSub=Table[
 		{pt[[1]] -> m[pt[[1]],"c"], coSub[[1]] -> m[coSub[[1]],"c"]},
 	{pt, dataList}, {coSub,pt[[4]]}]//Flatten//Union;
-	
+
 	Return[dataListSub];
 ];
 
@@ -154,7 +154,7 @@ removeMetsNotInReaction[rxn_, kmListFull_] := Block[{kmListFullLocal, entriesToD
 ];
 
 
-handleCosubstrateData[dataListFull_, metsFull_, metSatForSub_, metSatRevSub_, dataRange_, assumedSaturatingConc_] := 
+handleCosubstrateData[dataListFull_, metsFull_, metSatForSub_, metSatRevSub_, dataRange_, assumedSaturatingConc_, rxn_] := 
 	Block[{dataCoSub, dataListFullLocal, coSubList={}, indicies, dataCoSubFull},
 
 	(*Handle CoSubstrates*)
@@ -189,7 +189,6 @@ handleCosubstrateData[dataListFull_, metsFull_, metSatForSub_, metSatRevSub_, da
 	(*Handle CoSubstrate Data*)
 	dataCoSubFull=
 		Table[
-
 			Which[
 				(*CoSubstrate is Present in Data and Has a Data Value*)
 				MemberQ[dataCoSub[[pt,All,1]],coSubList[[pt,met]]] && NumberQ[Select[dataCoSub[[pt]],#[[1]]==coSubList[[pt,met]]&][[1,2]]],
@@ -200,14 +199,22 @@ handleCosubstrateData[dataListFull_, metsFull_, metSatForSub_, metSatRevSub_, da
 					{dataRange[[pt]]//Length}]
 				},
 				(*CoSubstrate is Present in Data but Does not Have a Data Value*)
-				MemberQ[dataCoSub[[pt,All,1]],coSubList[[pt,met]]] && !NumberQ[Select[dataCoSub[[pt]],#[[1]]==coSubList[[pt,met]]&][[1,2]]],
+				MemberQ[dataCoSub[[pt,All,1]], coSubList[[pt,met]]] && !NumberQ[Select[dataCoSub[[pt]],#[[1]]==coSubList[[pt,met]]&][[1,2]]],
 					(*Use an Assumed Concentration and Repeat It for Each Data Point*)
 					{Select[dataCoSub[[pt]],#[[1]]==coSubList[[pt,met]]&][[1,1]],
 					Table[
 						assumedSaturatingConc,
 					{Length @ dataRange[[pt]]}]
 				},
-				(*CoSubstrate is Not Present in Data*)
+				(*CoSubstrate is Not Present in Data and is not a substrate nor product *)
+				!MemberQ[dataCoSub[[pt,All,1]],coSubList[[pt,met]]] && !MemberQ[dataCoSub[[pt,All,1]], Flatten@{getSubstrates[rxn],getProducts[rxn]}],
+				(*Use an Assumed Concentration and Repeat It for Each Data Point*)
+					{coSubList[[pt,met]],
+					Table[
+						0,
+					{Length @ dataRange[[pt]]}]
+				},
+				(*CoSubstrate is Not Present in Data but is a substrate or product*)
 				!MemberQ[dataCoSub[[pt,All,1]],coSubList[[pt,met]]],
 				(*Use an Assumed Concentration and Repeat It for Each Data Point*)
 					{coSubList[[pt,met]],
@@ -305,7 +312,7 @@ simulateKmData[rxn_, metsFull_, metSatForSub_, metSatRevSub_, kmList_, otherParm
 		],
 		{km, Length @ kmListFull}, {path,fileList}];
 
-	kmListFull = handleCosubstrateData[kmListFull, metsFull, metSatForSub, metSatRevSub, dataRange, assumedSaturatingConc];
+	kmListFull = handleCosubstrateData[kmListFull, metsFull, metSatForSub, metSatRevSub, dataRange, assumedSaturatingConc, rxn];
 
 	ionicStrength = calculateIonicStrength[kmListFull, bufferInfo, ionCharge];
 
@@ -348,7 +355,6 @@ simulateKmData[rxn_, metsFull_, metSatForSub_, metSatRevSub_, kmList_, otherParm
 		Join[{adjustedKeqVal[[pt,2]]}, kmFittingData[[pt]]],
 	{pt, Length @ kmFittingData}];
 
-	
 	Return[kmFittingData];
 ];
 
@@ -418,7 +424,7 @@ simulateS05Data[rxn_, metsFull_, metSatForSub_, metSatRevSub_, s05List_, otherPa
 	{s05, Length @ s05ListFull}, {path,fileList}];
 
 	(*Handle CoSubstrates*)
-	s05ListFull = handleCosubstrateData[s05ListFull, metsFull, metSatForSub, metSatRevSub, dataRange, assumedSaturatingConc];
+	s05ListFull = handleCosubstrateData[s05ListFull, metsFull, metSatForSub, metSatRevSub, dataRange, assumedSaturatingConc, rxn];
 
 	ionicStrength = calculateIonicStrength[s05ListFull, bufferInfo, ionCharge];
 
@@ -507,7 +513,6 @@ simulateKcatData[rxn_, metsFull_, metSatForSub_, metSatRevSub_, kcatList_, other
 		Table[
 			Select[kcat,#[[2]]!="Null"&],
 		{kcat,kcatListFull[[All,1]]}];
-	
 
 	coSub = 
 		Table[
@@ -547,13 +552,11 @@ simulateKcatData[rxn_, metsFull_, metSatForSub_, metSatRevSub_, kcatList_, other
 				],{met,localMets[[All,1]]}]
 		], {kcat,kcatListFull//Length}];
 
-
 	(*Replace Data Metabolites with Full CoSubstrates*)
 	kcatListFull=
 		Table[
 			ReplacePart[kcatListFull[[kcat]],1->coSub[[kcat]]],
 		{kcat, Length @ kcatListFull}];
-
 
 	ionicStrength = calculateIonicStrength[kcatListFull, bufferInfo, ionCharge];
 

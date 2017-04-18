@@ -118,11 +118,12 @@ getFluxEquation[inputDir_, rxnName_, enzymeModel_, unifiedRateConstList_, transi
 		
 		(*Apply the Solution to the Flux Equation*)
 		absoluteFlux=fluxEq/.enzSol;(*In terms of E_total*)
+		Print["before simplify"];
 		absoluteFlux =  parameter["v", rxnName] -> nActiveSites * keq2kHT[anonymize[Simplify[absoluteFlux, TimeConstraint -> simplifyMaxTime]]];
 		
 		
-		(*absoluteFlux = MemoryConstrained[Simplify[absoluteFlux, TimeConstraint->3600], 8000000000];
-		Print["post simplify"];*)
+		(*absoluteFlux = MemoryConstrained[Simplify[absoluteFlux, TimeConstraint->3600], 8000000000];*)
+		Print["post simplify"];
 		
 		(*Cache the Results*)
 		Export[enSolFilePath,  enzSol]; 

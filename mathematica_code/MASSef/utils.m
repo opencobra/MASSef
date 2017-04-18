@@ -62,7 +62,7 @@ initializeNotebook[pathMASSFittingPath_, dataFolder_, removeInputFiles_:False, r
 
 
 ToPython[x_] := StringReplace[ToString[x,InputForm], {
-				"\""->"","["->"(","]"->")","<"->"[",">"->"]",(*" "\[Rule]"",*)"Sqrt"->"sqrt","Log"->"log","List"->"list","^"->"**"}];
+				"\""->"","["->"(","]"->")","<"->"[",">"->"]",(*" "\[Rule]"",*)"Sqrt"->"sqrt","Log"->"log","List"->"list","^"->"**", "{"-> "[", "}"-> "]"}];
 				
 
 
@@ -213,6 +213,17 @@ printEnzymeData[rxn_, mechanism_, structure_, nActiveSites_, kmList_, s05List_, 
 	Print["Other Parameters:"];
 	Print[{{"Parameter_Type","Metabolite","Value","Uncertainty","Units","pH","Temperature_C","Buffer_Concentrations","Salt_Concentrations"}}~Join~otherParmsList//TableForm];
 
+];
+
+
+(* ::Subsection:: *)
+(*Get  haldane*)
+
+
+getHaldane[allCatalyticReactions_, unifiedRateConstList_, KeqName_] := Block[{haldane},
+	
+	haldane = haldaneRelation[KeqName, allCatalyticReactions] /. unifiedRateConstList;
+	Return[haldane];
 ];
 
 
