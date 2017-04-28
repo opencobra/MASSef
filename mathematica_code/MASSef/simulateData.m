@@ -315,7 +315,7 @@ simulateKmData[rxn_, metsFull_, metSatForSub_, metSatRevSub_, kmList_, otherParm
 	kmListFull = handleCosubstrateData[kmListFull, metsFull, metSatForSub, metSatRevSub, dataRange, assumedSaturatingConc, rxn];
 
 	ionicStrength = calculateIonicStrength[kmListFull, bufferInfo, ionCharge];
-
+	Print[ionicStrength];
 	adjustedKeqVal= 
 		If[NumericQ[KeqVal],	
 			ConstantArray[{Keq[getID[rxn]]-> KeqVal}, Dimensions[kmListFull][[1]]],
@@ -968,6 +968,292 @@ simulateParameterScanData[inputPath_, dataType_, dataList_, dataEntry_, newValue
 	
 	Return[{dataPathList, labelList}];		
 ];
+
+
+exportData[fittingData_,inputPath_, dataFileName_, metsSub_] := Block[{header, fittingDataLocal, dataPath, vList},
+	
+	header=Join[Map[ToString, metsSub[[All,1]]],{"FileFlag", "Target_Data"}];
+	fittingDataLocal = Flatten[fittingData, 1];
+	dataPath =FileNameJoin[{inputPath,dataFileName <>".dat"}, OperatingSystem->$OperatingSystem];
+	
+	vList=Join[{header},fittingDataLocal];
+	Export[dataPath,vList,"Table"];
+
+	Return[{fittingDataLocal, dataPath}];
+];
+
+
+(* ::Subsection:: *)
+(*Simulate all data automatically*)
+
+
+simulateData[enzymeModel_,dataFileName_,KmList_, s05List_, kcatList_, inhibList_, activationList_, otherParmsList_, rxn_, metsFull_,  
+			metSatForSub_, metSatRevSub_,   bufferInfo_, ionCharge_, inputPath_,  fileList_, fileListSub_, 
+			eqnNameList_,eqnValList_, eqnValListPy_, eqnNameList_, rateConstsSub_, 
+			metsSub_, KeqEquilibrator_, KeqName_, allCatalyticReactions_, unifiedRateConstList_, customRatiosList_:{}]:=
+
+	Block[{kmFittingData, s05FittingData, kcatFittingData, inhibFittingData, activationData,  KeqFittingData, KdFittingData, 
+			L0FittingData, inhibRatioFittingData, customRatioFittingData, activationRatioFittingData, haldane, haldaneRatio,
+			logStepSize, minPsDataVal, maxPsDataVal,nonKmParamWeight, eTotal, assumedSaturatingConc, inVivoPH, inVivoIS, 
+			effectiveIonDiameter, activityCoefficient, activeIsoSub, pHandT, paramType,ratio,  val, inhibitor, activator, 
+			fileListLocal=fileList, fileListSubLocal=fileListSub, eqnNameListLocal=eqnNameList, eqnValListLocal=eqnValList,
+			eqnValListPyLocal=eqnValListPy, affectedRxnList, affectedRxnProductsList, reactionOverlap, count, allFittingData={},
+			dataPath},
+
+
+	(* define key parameters *)
+	logStepSize=0.2;
+	(*nonKmParamWeight=3;*)
+	(*Weighting factor for non-Km data points. You can be specify this manually*)
+	{minPsDataVal, maxPsDataVal}= getMinMaxPsDataVal[1];
+	nonKmParamWeight=Length[Table[1,{i,minPsDataVal, maxPsDataVal,logStepSize}]];
+	eTotal=1;(*Enzyme Total, Should Be 1 for Fitting*)
+	assumedSaturatingConc=0.01 ;(*in Molarity*)
+
+	(* chemical activity correction parameters *)
+	inVivoPH=7.5;(*Assumed in vivo pH*)
+	inVivoIS=0.25;(*Assumed in vivo Ionic Strength, in Molarity*)
+	effectiveIonDiameter=3;(*Used in Debye-Huckel equation, in Angstroms*)
+	
+	(* initialization of chemical activity correction. these values represent no correction (ie chemical activity is just the metabolite concentration *)
+	activeIsoSub=Thread[metsFull->metsFull];(*[(S^z)] = [S] *)
+	activityCoefficient=Thread[metsFull->1];(* \[Gamma] = 1 *)
+
+	pHandT= {7, 25};
+
+	(* simulate Keq data *)
+	haldane=haldaneRelation[KeqName,allCatalyticReactions]/.unifiedRateConstList;
+	haldaneRatio=haldane[[2]];
+	{KeqFittingData, fileListLocal, fileListSubLocal, eqnNameListLocal, eqnValListLocal, eqnValListPyLocal} = 
+			simulateRateConstRatiosData[haldaneRatio,KeqEquilibrator, KeqEquilibrator, metsFull, rateConstsSub, metsSub, eTotal, nonKmParamWeight, inputPath, 
+										fileListLocal, fileListSubLocal, eqnNameListLocal, eqnValListLocal, eqnValListPyLocal, pHandT,"haldaneRatio"];
+
+	AppendTo[allFittingData,KeqFittingData];
+
+
+	If[ !SameQ[KmList, {}],
+		kmFittingData= simulateKmData[rxn, metsFull,  metSatForSub, metSatRevSub, KmList, otherParmsList, assumedSaturatingConc, eTotal,
+									logStepSize,activeIsoSub, bufferInfo, ionCharge, inputPath,  fileListLocal, KeqEquilibrator];
+
+		AppendTo[allFittingData,kmFittingData];
+	];
+
+	If[!SameQ[s05List,{}],
+		s05FittingData = simulateS05Data[rxn, metsFull, metSatForSub, metSatRevSub, s05List, otherParmsList, assumedSaturatingConc, eTotal,
+										logStepSize, activeIsoSub, bufferInfo, ionCharge, inputPath,  fileListLocal, KeqEquilibrator];
+
+		AppendTo[allFittingData,s05FittingData];
+	];
+
+	If[ !SameQ[kcatList, {}],
+		kcatFittingData=simulateKcatData[rxn, metsFull,  metSatForSub, metSatRevSub, kcatList, otherParmsList, assumedSaturatingConc, eTotal,
+										logStepSize, nonKmParamWeight, activeIsoSub, bufferInfo, ionCharge, inputPath,  fileListLocal, KeqEquilibrator];
+
+		AppendTo[allFittingData,kcatFittingData];
+	];
+
+	If[ !SameQ[inhibList, {}],
+
+		logStepSize=0.5;
+		inhibFittingData=simulateInhibData[rxn, metsFull, metSatForSub, metSatRevSub,  inhibList,KmList, assumedSaturatingConc, eTotal, logStepSize, 
+											activeIsoSub, bufferInfo, ionCharge, inputPath, fileListLocal, KeqEquilibrator];
+
+		AppendTo[allFittingData,inhibFittingData];
+
+		Do[
+
+			inhibitor=m[inhibEntry[[2]],"c"];
+			affectedRxnList=Select[enzymeModel["Reactions"],MemberQ[getSubstrates[#], inhibitor]&];
+			affectedRxnProductsList =Map[getProducts[#]&,affectedRxnList];
+			reactionOverlap = Table[
+						Map[MemberQ[Flatten@{getSubstrates[#], getProducts[#]},affectedRxnProducts[[1]]]&,enzymeModel["Reactions"]],
+					{affectedRxnProducts, affectedRxnProductsList}];
+
+			If[AnyTrue [Map[Count[#, True]&,reactionOverlap], #<= 1&],
+				ratio = getRatio[enzymeModel, inhibitor];
+				val=inhibEntry[[3]];
+
+				{inhibRatioFittingData, fileListLocal, fileListSubLocal, eqnNameListLocal, eqnValListLocal, eqnValListPyLocal} = 
+						simulateRateConstRatiosData[ratio,val, KeqEquilibrator, metsFull, rateConstsSub, metsSub, eTotal, nonKmParamWeight, 
+													inputPath, fileListLocal, fileListSubLocal, eqnNameListLocal, eqnValListLocal, eqnValListPyLocal, pHandT, 
+													eqnName= inhibEntry[[2]]<>"_inhibRatio"];
+	
+				AppendTo[allFittingData,inhibRatioFittingData];
+
+			];,
+		{inhibEntry, inhibList}];
+	];
+
+	If[ !SameQ[activationList, {}],
+
+		Do[
+			activator=m[activationEntry[[2]],"c"];
+			ratio = getRatio[enzymeModel, activator];
+			val=activationEntry[[3]];
+
+			{activationRatioFittingData, fileListLocal, fileListSubLocal, eqnNameListLocal, eqnValListLocal, eqnValListPyLocal} = 
+					simulateRateConstRatiosData[ratio,val, KeqEquilibrator, metsFull, rateConstsSub, metsSub, eTotal, nonKmParamWeight, inputPath, fileListLocal, 
+												fileListSubLocal, eqnNameListLocal, eqnValListLocal, eqnValListPyLocal, pHandT, eqnName= activationEntry[[2]]<>"_inhibRatio"];
+												
+			AppendTo[allFittingData,activationRatioFittingData];,
+
+		{activationEntry, activationList}];
+
+	];
+
+	If[ !SameQ[otherParmsList, {}],
+		Do[
+			paramType = paramEntry[[1]];
+
+			Which[
+				StringStartsQ[paramType, "Kd"],
+				ratio= getRatio[enzymeModel, m[paramEntry[[2]],"c"]];
+				val = paramEntry[[3]];
+
+				{KdFittingData, fileListLocal, fileListSubLocal, eqnNameListLocal, eqnValListLocal, eqnValListPyLocal} = 
+					simulateRateConstRatiosData[ratio,val, KeqEquilibrator, metsFull, rateConstsSub, metsSub, eTotal, nonKmParamWeight, inputPath,
+												 fileListLocal, fileListSubLocal, eqnNameListLocal, eqnValListLocal, eqnValListPyLocal, pHandT, "KdRatio"];
+
+				AppendTo[allFittingData,KdFittingData];,
+
+
+				StringStartsQ[paramType, "L0"],
+				ratio = getAllostericTransitionRatio[enzymeModel, nonCatalyticReactions];
+				val =getOtherParamsValue[paramType, otherParmsList];
+
+				{L0FittingData, fileListLocal, fileListSubLocal, eqnNameListLocal, eqnValListLocal, eqnValListPyLocal} = 
+					simulateRateConstRatiosData[ratio,val, KeqEquilibrator, metsFull, rateConstsSub, metsSub, eTotal, nonKmParamWeight, 
+												inputPath, fileListLocal, fileListSubLocal, eqnNameListLocal, eqnValListLocal, eqnValListPyLocal, 
+												pHandT, "L0Ratio"];
+
+				AppendTo[allFittingData,L0FittingData];
+			 ];,
+
+		{paramEntry, otherParmsList}];
+	];
+
+	If[!SameQ[customRatiosList, {}],
+		count =1;
+		Do[
+			ratio= customRatio[[1]];
+			val = customRatio[[2]];
+
+			{customRatioFittingData,fileListLocal, fileListSubLocal, eqnNameListLocal, eqnValListLocal, eqnValListPyLocal} = 
+				simulateRateConstRatiosData[ratio,val, KeqEquilibrator, metsFull, rateConstsSub, metsSub, eTotal, nonKmParamWeight, 
+											inputPath, fileListLocal, fileListSubLocal, eqnNameListLocal, eqnValListLocal, eqnValListPyLocal, 
+											pHandT, "customRatio_"<>ToString[count]];
+
+			AppendTo[allFittingData,customRatioFittingData];
+			count = count +1,
+
+		{customRatio, customRatiosList} ];
+	];
+
+
+	{allFittingData, dataPath} = exportData[allFittingData,inputPath,dataFileName, metsSub];
+
+	Return[{allFittingData, dataPath}];
+];
+
+
+
+(* ::Subsection:: *)
+(*Simulate all data with uncertainty automatically*)
+
+
+simulateDataWithUncertainty[nSamples_,enzymeModel_,dataFileBaseName_,KmList_, s05List_, kcatList_, inhibList_, activationList_, othersList_, 
+							rxn_, metsFull_,  metSatForSub_, metSatRevSub_, otherParmsList_,  bufferInfo_, ionCharge_, inputPath_,  fileList_, 
+							fileListSub_, eqnNameList_,eqnValList_, eqnValListPy_, eqnNameList_, rateConstsSub_, 
+							metsSub_,KeqEquilibrator_, KeqName_,allCatalyticReactions_, unifiedRateConstList_, customRatiosList_:{}]:=
+	Block[{KmListLocal=KmList, s05ListLocal=s05List, kcatListLocal= kcatList, inhibListLocal=inhibList, activationListLocal=activationList, 
+			otherParmsListLocal=otherParmsList, customRatiosListLocal=customRatiosList,KeqEquilibratorLocal=KeqEquilibrator, uncertainty, 
+			newValue, dataFileName, allFittingData, dataPath, allFittingDataList={}, dataPathList={}},
+
+	Do[
+		uncertainty=0.1*KeqEquilibrator;
+		KeqEquilibratorLocal = RandomVariate[NormalDistribution[ KeqEquilibrator, uncertainty]];
+
+		If[ !SameQ[KmList, {}],
+			Do[
+				uncertainty = Abs[KmList[[kmEntryI]][[3]][[2]]- KmList[[kmEntryI]][[3]][[1]]]/2.;
+				newValue = RandomVariate[NormalDistribution[ KmList[[kmEntryI]][[2]], uncertainty]];
+				KmListLocal[[kmEntryI]][[2]] = newValue;,
+
+		{kmEntryI, 1, Length@ KmList}];
+		];
+
+
+		If[!SameQ[s05List,{}],
+			Do[
+				uncertainty = Abs[s05List[[s05EntryI]][[3]][[2]]- s05List[[s05EntryI]][[3]][[1]]]/2.;
+				newValue = RandomVariate[NormalDistribution[ s05List[[s05EntryI]][[2]], uncertainty]];
+				s05ListLocal[[s05EntryI]][[2]] = newValue;,
+
+			{s05EntryI, 1, Length@ s05List}];
+		];
+
+		If[ !SameQ[kcatList, {}],
+			Do[
+				uncertainty = Abs[kcatList[[kcatEntryI]][[3]][[2]]- kcatList[[kcatEntryI]][[3]][[1]]]/2.;
+				newValue = RandomVariate[NormalDistribution[ kcatList[[kcatEntryI]][[2]], uncertainty]];
+				kcatListLocal[[kcatEntryI]][[2]] = newValue;,
+
+			{kcatEntryI, 1, Length@ kcatList}];
+		];
+
+		If[ !SameQ[inhibList, {}],
+			Do[
+				uncertainty = Abs[inhibList[[inhibEntryI]][[4]][[2]]- inhibList[[inhibEntryI]][[4]][[1]]]/2.;
+				newValue = RandomVariate[NormalDistribution[ inhibList[[inhibEntryI]][[3]], uncertainty]];
+				inhibListLocal[[inhibEntryI]][[3]] = newValue;,
+
+				{inhibEntryI, 1, Length@ inhibList}];
+		];
+
+		If[ !SameQ[activationList, {}],
+			Do[
+				uncertainty = Abs[activationList[[activationEntryI]][[4]][[2]]- activationList[[activationEntryI]][[4]][[1]]]/2.;
+				newValue = RandomVariate[NormalDistribution[ activationList[[activationEntryI]][[3]], uncertainty]];
+				activationListLocal[[activationEntryI]][[3]] = newValue;,
+
+			{activationEntryI, 1, Length@ activationList}];
+
+		];
+
+		If[ !SameQ[otherParmsList, {}],
+			Do[
+				uncertainty = Abs[otherParmsList[[otherEntryI]][[4]][[2]]- otherParmsList[[otherEntryI]][[4]][[1]]]/2.;
+				newValue = RandomVariate[NormalDistribution[ otherParmsList[[otherEntryI]][[3]], uncertainty]];
+				otherParmsListLocal[[otherEntryI]][[3]] = newValue;,
+	
+			{otherEntryI, 1, Length@ otherParmsList}];
+		];
+
+		If[!SameQ[customRatiosList, {}],
+			Do[
+				uncertainty = Abs[customRatiosList[[customRatioEntryI]][[3]][[2]]- customRatiosList[[customRatioEntryI]][[3]][[1]]]/2.;
+				newValue = RandomVariate[NormalDistribution[ customRatiosList[[customRatioEntryI]][[2]], uncertainty]];
+				customRatiosListLocal[[customRatioEntryI]][[2]] = newValue;,
+
+			{customRatioEntryI, 1, Length@ customRatiosList}];
+		];
+
+		dataFileName = dataFileBaseName <> "_" <>ToString[sampleI];
+	
+		{allFittingData, dataPath} = simulateData[enzymeModel,dataFileName,KmListLocal, s05ListLocal, kcatListLocal, inhibListLocal, 
+													activationListLocal, otherParmsListLocal, rxn, metsFull,  metSatForSub, metSatRevSub, 
+													bufferInfo, ionCharge, inputPath,  fileList,fileListSub, eqnNameList,eqnValList, eqnValListPy, 
+													eqnNameList, rateConstsSub, metsSub,KeqEquilibratorLocal, KeqName,allCatalyticReactions, 
+													unifiedRateConstList, customRatiosListLocal];
+
+		AppendTo[allFittingDataList, allFittingData];
+		AppendTo[dataPathList, dataPath];,
+
+	{sampleI, 1, nSamples}];
+
+	Return[{allFittingDataList, dataPathList}];
+];
+
 
 
 (* ::Subsection:: *)

@@ -148,27 +148,28 @@ getAllostericTransitionRatio[enzymeModel_, nonCatalyticReactions_] :=
 
 
 getRatio[enzymeModel_, metabolite_] := 
-	Block[{inhibitorRxn, inhibitorRxnID, forInhibitorRateConsts, revInhibitorRateConsts,
-			forInhibConst, revInhibConst},
+	Block[{affectedRxn, affectedRxnID, forAffectedRateConsts, revAffectedRateConsts,
+			forAffectedConst, revAffectedConst},
 	
-	(*Get Reactions with the 'inhibitor' as a Reactant*)
-	inhibitorRxn=Select[enzymeModel["Reactions"],MemberQ[Union[getSubstrates[#],getProducts[#]], metabolite]&];
-	inhibitorRxnID=getID[#]&/@inhibitorRxn;
+	(*Get Reactions with the 'inhibitor' or 'activator' as a Reactant*)
+	affectedRxn=Select[enzymeModel["Reactions"],MemberQ[getSubstrates[#]], metabolite]&];
+	affectedRxnID=getID[#]&/@affectedRxn;
 	
-	(*Get the Rate Constants from the Reactions with the 'inhibitor' as a Reactant*)
-	forInhibitorRateConsts=Select[getForwardRateConstants[enzymeModel],MemberQ[inhibitorRxnID,getID[#]]&];
-	revInhibitorRateConsts=Select[reverseConsts[enzymeModel],MemberQ[inhibitorRxnID,getID[#]]&];
+	(*Get the Rate Constants from the Reactions with the 'inhibitor' or 'activator'  as a Reactant*)
+	forAffectedRateConsts=Select[getForwardRateConstants[enzymeModel], MemberQ[affectedRxnID,getID[#]]&];
+	revAffectedRateConsts=Select[reverseConsts[enzymeModel], MemberQ[affectedRxnID,getID[#]]&];
 	
 	(*Unify the Rate Constants (i.e. Extract the Rate Constants for Repetitive Reactions)*)
-	forInhibConst=Union[unifyRateConstants[forInhibitorRateConsts]];
-	revInhibConst=Union[unifyRateConstants[revInhibitorRateConsts]];
+	forAffectedConst=Union[unifyRateConstants[forAffectedRateConsts]];
+	revAffectedConst=Union[unifyRateConstants[revAffectedRateConsts]];
 	
-	If[Length[forInhibConst] == 1 && Length[revInhibConst] == 1,
-		Return[revInhibConst[[1]]/forInhibConst[[1]]];,
+	If[Length[forAffectedConst] == 1 && Length[revAffectedConst] == 1,
+		Return[revAffectedConst[[1]]/forAffectedConst[[1]]];,
+		
 		Print["Possibly there are more than one transition equation and the more than one ratio"];
-		Print[inhibitorRxn];
-		Print[forInhibitorRateConsts];
-		Print[revInhibitorRateConsts];
+		Print[affectedRxn];
+		Print[forAffectedRateConsts];
+		Print[revAffectedRateConsts];
 	];
 ];
 

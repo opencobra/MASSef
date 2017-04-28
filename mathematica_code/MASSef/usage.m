@@ -89,6 +89,18 @@ simulateParameterScanData::usage="generateParameterScanData[inputPath, dataType,
 getMinMaxPsDataVal::usage="getMinMaxPsDataVal[val]";
 
 
+simulateData::usage="simulateData[enzymeModel,dataFileName,KmList, s05List, kcatList, inhibList, activationList, otherParmsList, rxn, metsFull,  
+					metSatForSub, metSatRevSub,   bufferInfo, ionCharge, inputPath,  fileList, fileListSub, 
+					eqnNameList,eqnValList, eqnValListPy, eqnNameList, rateConstsSub, \[IndentingNewLine]					metsSub, KeqEquilibrator, KeqName, allCatalyticReactions, unifiedRateConstList, customRatiosList]";
+
+
+
+simulateDataWithUncertainty::usage="simulateDataWithUncertainty[nSamples,enzymeModel,dataFileBaseName,KmList, s05List, kcatList, inhibList, activationList, othersList, 
+									rxn, metsFull,  metSatForSub, metSatRevSub, otherParmsList,  bufferInfo, ionCharge, inputPath,  fileList, 
+									fileListSub, eqnNameList,eqnValList, eqnValListPy, eqnNameList, rateConstsSub, 
+									metsSub,KeqEquilibrator, KeqName,allCatalyticReactions, unifiedRateConstList, customRatiosList]";
+
+
 (* ::Subsection:: *)
 (*configureFit*)
 
