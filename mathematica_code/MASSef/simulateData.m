@@ -158,26 +158,63 @@ handleCosubstrateData[dataListFull_, metsFull_, metSatForSub_, metSatRevSub_, da
 	Block[{dataCoSub, dataListFullLocal, coSubList={}, indicies, dataCoSubFull},
 
 	(*Handle CoSubstrates*)
+	Print[dataListFull];
+	
 	dataCoSub = Table[pt[[4]], {pt,dataListFull}];
 	dataListFullLocal = Map[ReplacePart[#, 4->Table[{met}, {met,metsFull}]]&, dataListFull];
-
+	Print[dataCoSub];
+	Print[dataListFullLocal];
+	Print["++++++++++"];
+	Print[coSubList];
 	(*Extract CoSubstrates*)
-	Do[
-		If[
-			(*True: Is a Reactant*)
+	(*Do[
+			Print[metSatForSub[[All,1]]];
+			Print[metSatRevSub[[All,1]]];
+			Print[pt[[1]]];
+			Print["---"];
+		
+		Which[
+			(*Is a Reactant*)
 			MemberQ[metSatForSub[[All,1]], pt[[1]]],
 			indicies = Position[Flatten @ metsFull, pt[[1]]];(*Subject Metabolite Index*)
 			Map[AppendTo[indicies, Flatten[Position[Flatten @ metsFull,#],1]]&, metSatRevSub[[All,1]]];(*Relative Product Indices*)
 			indicies = DeleteCases[indicies, {}];
 			AppendTo[coSubList, Delete[Flatten @ metsFull,indicies]];,
 			
-			(*False: Is a Product*)
+			(*Is a Product*)
+			MemberQ[metSatRevSub[[All,1]], pt[[1]]],
 			indicies = Position[Flatten @ metsFull, pt[[1]]];(*Subject Metabolite Index*)
 			Map[AppendTo[indicies, Flatten[Position[Flatten @ metsFull, #],1]]&, metSatForSub[[All,1]]];(*Relative Product Indices*)
 			indicies = DeleteCases[indicies, {}];
 			AppendTo[coSubList, Delete[Flatten @ metsFull, indicies]];
 		],
+	{pt, dataListFullLocal}];*)
+	
+	Do[
+			Print[metSatForSub[[All,1]]];
+			Print[metSatRevSub[[All,1]]];
+			Print[pt[[1]]];
+			Print["---"];
+		
+		Which[
+			(*Is a Reactant*)
+			MemberQ[metSatForSub[[All,1]], pt[[1]]],
+			indicies = Position[Flatten @ metSatForSub[[All,1]], pt[[1]]];(*Subject Metabolite Index*)
+			
+			indicies = DeleteCases[indicies, {}];
+			AppendTo[coSubList, Delete[Flatten @ metSatForSub[[All,1]],indicies]];,
+			
+			(*Is a Product*)
+			MemberQ[metSatRevSub[[All,1]], pt[[1]]],
+			indicies = Position[Flatten @ metSatRevSub[[All,1]], pt[[1]]];(*Subject Metabolite Index*)
+			indicies = DeleteCases[indicies, {}];
+			AppendTo[coSubList, Delete[Flatten @ metSatRevSub[[All,1]], indicies]];
+		],
 	{pt, dataListFullLocal}];
+	
+	Print["**********"];
+	Print[coSubList];
+	Print["**********"];
 
 	(*Append the Pseudo-Data Concentrations for Substrate*)
 	Do[
@@ -194,6 +231,10 @@ handleCosubstrateData[dataListFull_, metsFull_, metSatForSub_, metSatRevSub_, da
 			Print[coSubList[[pt]]];
 			Print[dataCoSub[[pt,All,1]]];
 			Print[coSubList[[pt,met]]];
+			Print["***"];
+			Print[dataCoSub[[pt,All,1]][[1]]];
+			Print[Flatten@{getSubstrates[rxn],getProducts[rxn]}];
+			Print[MemberQ[Flatten@{getSubstrates[rxn],getProducts[rxn]}, dataCoSub[[pt,All,1]][[1]]]];
 			
 			Which[
 				(*CoSubstrate is Present in Data and Has a Data Value*)
@@ -215,7 +256,7 @@ handleCosubstrateData[dataListFull_, metsFull_, metSatForSub_, metSatRevSub_, da
 					{Length @ dataRange[[pt]]}]
 				},
 				(*CoSubstrate is Not Present in Data and is not a substrate nor product *)
-				!MemberQ[dataCoSub[[pt,All,1]],coSubList[[pt,met]]] && !MemberQ[dataCoSub[[pt,All,1]], Flatten@{getSubstrates[rxn],getProducts[rxn]}],
+				!MemberQ[dataCoSub[[pt,All,1]],coSubList[[pt,met]]] && !MemberQ[Flatten@{getSubstrates[rxn],getProducts[rxn]}, dataCoSub[[pt,All,1]][[1]]],
 				Print["3"];
 				(*Use an Assumed Concentration and Repeat It for Each Data Point*)
 					{coSubList[[pt,met]],
@@ -232,8 +273,7 @@ handleCosubstrateData[dataListFull_, metsFull_, metSatForSub_, metSatRevSub_, da
 						assumedSaturatingConc,
 					{Length @ dataRange[[pt]]}]
 				}
-				]
-				Print["------"];,
+				],
 		{pt, Length @ coSubList},{met, Length @ coSubList[[pt]]}];
 
     (*Append All Remaining CoSubstrate Concentrations to 'dataListFullLocal'*)
@@ -315,14 +355,15 @@ simulateKmData[rxn_, metsFull_, metSatForSub_, metSatRevSub_, kmList_, otherParm
 	(*Switch Data to Euclidean Space and Append to the Km List*)
 	dataRange=10^#[[All,1]]&/@dataRange;
 	kmListFull=Table[Append[kmListFull[[km]],vValues[[km]]],{km,Length[kmListFull]}];
-
+	Print[kmListFull];
 	(*Match to Comparision Equations*)
 	Do[
 		If[StringMatchQ[path, RegularExpression[".*relRate.*_" <> kmListFull[[km,1,1]]<>"\\.txt"]],
 			AppendTo[kmListFull[[km]], FileNameJoin[Flatten@{"\""<>inputPath, StringCases[StringReplace[path, "\\" -> "/"], RegularExpression[StringReplace[inputPath, "\\" -> "/"] <> "(.*)"] -> "$1"]<>"\""}, OperatingSystem-> $OperatingSystem]]
 		],
 		{km, Length @ kmListFull}, {path,fileList}];
-
+	Print[kmListFull];
+	Print["-----"];
 	kmListFull = handleCosubstrateData[kmListFull, metsFull, metSatForSub, metSatRevSub, dataRange, assumedSaturatingConc, rxn];
 
 	ionicStrength = calculateIonicStrength[kmListFull, bufferInfo, ionCharge];
