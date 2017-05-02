@@ -232,9 +232,9 @@ handleCosubstrateData[dataListFull_, metsFull_, metSatForSub_, metSatRevSub_, da
 			Print[dataCoSub[[pt,All,1]]];
 			Print[coSubList[[pt,met]]];
 			Print["***"];
-			Print[dataCoSub[[pt,All,1]][[1]]];
+			Print[coSubList[[pt,met]]];
 			Print[Flatten@{getSubstrates[rxn],getProducts[rxn]}];
-			Print[MemberQ[Flatten@{getSubstrates[rxn],getProducts[rxn]}, dataCoSub[[pt,All,1]][[1]]]];
+			Print[MemberQ[Flatten@{getSubstrates[rxn],getProducts[rxn]}, coSubList[[pt,met]]]];
 			
 			Which[
 				(*CoSubstrate is Present in Data and Has a Data Value*)
@@ -256,7 +256,7 @@ handleCosubstrateData[dataListFull_, metsFull_, metSatForSub_, metSatRevSub_, da
 					{Length @ dataRange[[pt]]}]
 				},
 				(*CoSubstrate is Not Present in Data and is not a substrate nor product *)
-				!MemberQ[dataCoSub[[pt,All,1]],coSubList[[pt,met]]] && !MemberQ[Flatten@{getSubstrates[rxn],getProducts[rxn]}, dataCoSub[[pt,All,1]][[1]]],
+				!MemberQ[dataCoSub[[pt,All,1]],coSubList[[pt,met]]] && !MemberQ[Flatten@{getSubstrates[rxn],getProducts[rxn]},coSubList[[pt,met]]],
 				Print["3"];
 				(*Use an Assumed Concentration and Repeat It for Each Data Point*)
 					{coSubList[[pt,met]],
