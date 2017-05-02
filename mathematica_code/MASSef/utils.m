@@ -152,7 +152,7 @@ getRatio[enzymeModel_, metabolite_] :=
 			forAffectedConst, revAffectedConst},
 	
 	(*Get Reactions with the 'inhibitor' or 'activator' as a Reactant*)
-	affectedRxn=Select[enzymeModel["Reactions"],MemberQ[getSubstrates[#]], metabolite]&];
+	affectedRxn=Select[enzymeModel["Reactions"],MemberQ[getSubstrates[#], metabolite]&];
 	affectedRxnID=getID[#]&/@affectedRxn;
 	
 	(*Get the Rate Constants from the Reactions with the 'inhibitor' or 'activator'  as a Reactant*)

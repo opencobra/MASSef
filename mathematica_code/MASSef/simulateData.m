@@ -185,13 +185,20 @@ handleCosubstrateData[dataListFull_, metsFull_, metSatForSub_, metSatRevSub_, da
 			dataListFullLocal[[pt,4,Position[dataListFullLocal[[pt,4]],dataListFullLocal[[pt,1]]][[1,1]]]], 
 			dataRange[[pt]]],
 	{pt, Length @ dataListFullLocal}];
-
+	Print[dataListFullLocal];
+	Print[coSubList];
 	(*Handle CoSubstrate Data*)
 	dataCoSubFull=
 		Table[
+			Print[dataListFullLocal[[pt]]];
+			Print[coSubList[[pt]]];
+			Print[dataCoSub[[pt,All,1]]];
+			Print[coSubList[[pt,met]]];
+			
 			Which[
 				(*CoSubstrate is Present in Data and Has a Data Value*)
 				MemberQ[dataCoSub[[pt,All,1]],coSubList[[pt,met]]] && NumberQ[Select[dataCoSub[[pt]],#[[1]]==coSubList[[pt,met]]&][[1,2]]],
+					Print["1"];
 					(*Extract CoSubstrate Concentration and Repeat It for Each Data Point*)
 					{Select[dataCoSub[[pt]],#[[1]]==coSubList[[pt,met]]&][[1,1]],
 					Table[
@@ -200,6 +207,7 @@ handleCosubstrateData[dataListFull_, metsFull_, metSatForSub_, metSatRevSub_, da
 				},
 				(*CoSubstrate is Present in Data but Does not Have a Data Value*)
 				MemberQ[dataCoSub[[pt,All,1]], coSubList[[pt,met]]] && !NumberQ[Select[dataCoSub[[pt]],#[[1]]==coSubList[[pt,met]]&][[1,2]]],
+				Print["2"];
 					(*Use an Assumed Concentration and Repeat It for Each Data Point*)
 					{Select[dataCoSub[[pt]],#[[1]]==coSubList[[pt,met]]&][[1,1]],
 					Table[
@@ -208,6 +216,7 @@ handleCosubstrateData[dataListFull_, metsFull_, metSatForSub_, metSatRevSub_, da
 				},
 				(*CoSubstrate is Not Present in Data and is not a substrate nor product *)
 				!MemberQ[dataCoSub[[pt,All,1]],coSubList[[pt,met]]] && !MemberQ[dataCoSub[[pt,All,1]], Flatten@{getSubstrates[rxn],getProducts[rxn]}],
+				Print["3"];
 				(*Use an Assumed Concentration and Repeat It for Each Data Point*)
 					{coSubList[[pt,met]],
 					Table[
@@ -216,13 +225,15 @@ handleCosubstrateData[dataListFull_, metsFull_, metSatForSub_, metSatRevSub_, da
 				},
 				(*CoSubstrate is Not Present in Data but is a substrate or product*)
 				!MemberQ[dataCoSub[[pt,All,1]],coSubList[[pt,met]]],
+				Print["4"];
 				(*Use an Assumed Concentration and Repeat It for Each Data Point*)
 					{coSubList[[pt,met]],
 					Table[
 						assumedSaturatingConc,
 					{Length @ dataRange[[pt]]}]
 				}
-				],
+				]
+				Print["------"];,
 		{pt, Length @ coSubList},{met, Length @ coSubList[[pt]]}];
 
     (*Append All Remaining CoSubstrate Concentrations to 'dataListFullLocal'*)
@@ -878,19 +889,19 @@ simulateInhibData[rxn_, metsFull_, metSatForSub_, metSatRevSub_, inhibList_, kmL
 
 simulateRateConstRatiosData[ratio_, ratioVal_, KeqVal_, metsFull_, rateConstsSub_, metsSub_, eTotal_, nonKmParamWeight_,
 							inputPath_, fileList_, fileListSub_, eqnNameList_, eqnValList_, eqnValListPy_, pHandT_, eqnName_] := 
-	Block[{dKdRatioPy, fileName, fileNameSub, eqnList, assayMet, 
+	Block[{ratioPy, fileName, fileNameSub, eqnList, assayMet, 
 			fileListLocal=fileList, fileListSubLocal=fileListSub, 
 			eqnNameListLocal=eqnNameList, eqnValListLocal=eqnValList, eqnValListPyLocal=eqnValListPy, 
-			dKdFitPt, header, dKdFittingData={}},
+			fitPt, header, fittingData={}},
 			
 	(*Transform Equation for Python and Extract the Data from the Database*)
 
-	dKdRatioPy = ToPython[ratio /. rateConstsSub /. metsSub];
+	ratioPy = ToPython[ratio /. rateConstsSub /. metsSub];
 
 	(*Incorporate the Equation Into the Existing Notebook Framework*)
 	(*Equation Naming and Export*)
 	fileName = FileNameJoin[{inputPath, eqnName <> ".txt"}, OperatingSystem->$OperatingSystem];
-	Export[fileName, dKdRatioPy];
+	Export[fileName, ratioPy];
 
 	(*Incorporating the Equation for Down Stream Equation Handling*)
 	fileListLocal = DeleteDuplicates @ Append[fileListLocal, fileName];
@@ -898,23 +909,23 @@ simulateRateConstRatiosData[ratio_, ratioVal_, KeqVal_, metsFull_, rateConstsSub
 	fileListSubLocal = DeleteDuplicates @ Append[fileListSubLocal, fileNameSub];
 	eqnNameListLocal = DeleteDuplicates @ Append[eqnNameListLocal, eqnName];
 	eqnValListLocal = DeleteDuplicates @ Append[eqnValListLocal, ratio];
-	eqnValListPyLocal = DeleteDuplicates @ Append[eqnValListPyLocal, dKdRatioPy];
+	eqnValListPyLocal = DeleteDuplicates @ Append[eqnValListPyLocal, ratioPy];
 
 	(*Data Handling for Fitting*)
 
 	assayMet = 0 & /@ metsFull; (*Set All Mets to Zero*)
 	AppendTo[assayMet, eTotal]; (*Enzyme Total*)
-	dKdFitPt = Join[assayMet, pHandT];(*pH and Temperature - dirty trick, assayCond comes from Km data sim*)
-	dKdFitPt = Join[dKdFitPt, {"\""<>fileName<>"\"", ratioVal}];(*File Name and Target Value*)
-	dKdFitPt = Join[{KeqVal}, dKdFitPt];(*Keq Value*)(*Append Data*)
+	fitPt = Join[assayMet, pHandT];(*pH and Temperature - dirty trick, assayCond comes from Km data sim*)
+	fitPt = Join[fitPt, {"\""<>fileName<>"\"", ratioVal}];(*File Name and Target Value*)
+	fitPt = Join[{KeqVal}, fitPt];(*Keq Value*)(*Append Data*)
 
-	If[! MemberQ[dKdFittingData, dKdFitPt],(*True:  Data Is Not Already Appended*)
+	If[! MemberQ[fittingData, fitPt],(*True:  Data Is Not Already Appended*)
 		Do[
-			AppendTo[dKdFittingData, dKdFitPt], 
+			AppendTo[fittingData, fitPt], 
 		{nonKmParamWeight}](*Data Weight*)];
 
 	
-	Return[{dKdFittingData, fileListLocal, fileListSubLocal, eqnNameListLocal, eqnValListLocal, eqnValListPyLocal}];
+	Return[{fittingData, fileListLocal, fileListSubLocal, eqnNameListLocal, eqnValListLocal, eqnValListPyLocal}];
 ];
 
 
@@ -987,7 +998,7 @@ exportData[fittingData_,inputPath_, dataFileName_, metsSub_] := Block[{header, f
 (*Simulate all data automatically*)
 
 
-simulateData[enzymeModel_,dataFileName_,KmList_, s05List_, kcatList_, inhibList_, activationList_, otherParmsList_, rxn_, metsFull_,  
+simulateData[enzymeModel_,dataFileName_, haldaneRatiosList_, KmList_, s05List_, kcatList_, inhibList_, activationList_, otherParmsList_, rxn_, metsFull_,  
 			metSatForSub_, metSatRevSub_,   bufferInfo_, ionCharge_, inputPath_,  fileList_, fileListSub_, 
 			eqnNameList_,eqnValList_, eqnValListPy_, eqnNameList_, rateConstsSub_, 
 			metsSub_, KeqEquilibrator_, KeqName_, allCatalyticReactions_, unifiedRateConstList_, customRatiosList_:{}]:=
@@ -999,7 +1010,6 @@ simulateData[enzymeModel_,dataFileName_,KmList_, s05List_, kcatList_, inhibList_
 			fileListLocal=fileList, fileListSubLocal=fileListSub, eqnNameListLocal=eqnNameList, eqnValListLocal=eqnValList,
 			eqnValListPyLocal=eqnValListPy, affectedRxnList, affectedRxnProductsList, reactionOverlap, count, allFittingData={},
 			dataPath},
-
 
 	(* define key parameters *)
 	logStepSize=0.2;
@@ -1021,15 +1031,16 @@ simulateData[enzymeModel_,dataFileName_,KmList_, s05List_, kcatList_, inhibList_
 
 	pHandT= {7, 25};
 
-	(* simulate Keq data *)
-	haldane=haldaneRelation[KeqName,allCatalyticReactions]/.unifiedRateConstList;
-	haldaneRatio=haldane[[2]];
-	{KeqFittingData, fileListLocal, fileListSubLocal, eqnNameListLocal, eqnValListLocal, eqnValListPyLocal} = 
-			simulateRateConstRatiosData[haldaneRatio,KeqEquilibrator, KeqEquilibrator, metsFull, rateConstsSub, metsSub, eTotal, nonKmParamWeight, inputPath, 
-										fileListLocal, fileListSubLocal, eqnNameListLocal, eqnValListLocal, eqnValListPyLocal, pHandT,"haldaneRatio"];
-
-	AppendTo[allFittingData,KeqFittingData];
-
+	Do[
+		(* simulate Keq data 
+		haldane=haldaneRelation[KeqName,allCatalyticReactions]/.unifiedRateConstList;
+		haldaneRatio=haldane[[2]];*)
+		{KeqFittingData, fileListLocal, fileListSubLocal, eqnNameListLocal, eqnValListLocal, eqnValListPyLocal} = 
+				simulateRateConstRatiosData[haldaneRatiosList[[haldaneI,1]], haldaneRatiosList[[haldaneI,2]], KeqEquilibrator, metsFull, rateConstsSub, metsSub, eTotal, nonKmParamWeight, inputPath, 
+										fileListLocal, fileListSubLocal, eqnNameListLocal, eqnValListLocal, eqnValListPyLocal, pHandT, "haldaneRatio_"<>ToString[haldaneI]];
+		
+		AppendTo[allFittingData,KeqFittingData];,
+	{haldaneI, 1, Length@haldaneRatiosList}];
 
 	If[ !SameQ[KmList, {}],
 		kmFittingData= simulateKmData[rxn, metsFull,  metSatForSub, metSatRevSub, KmList, otherParmsList, assumedSaturatingConc, eTotal,
@@ -1161,18 +1172,25 @@ simulateData[enzymeModel_,dataFileName_,KmList_, s05List_, kcatList_, inhibList_
 (*Simulate all data with uncertainty automatically*)
 
 
-simulateDataWithUncertainty[nSamples_,enzymeModel_,dataFileBaseName_,KmList_, s05List_, kcatList_, inhibList_, activationList_, othersList_, 
+simulateDataWithUncertainty[nSamples_,enzymeModel_,dataFileBaseName_, haldaneRatiosList_, KmList_, s05List_, kcatList_, inhibList_, activationList_, othersList_, 
 							rxn_, metsFull_,  metSatForSub_, metSatRevSub_, otherParmsList_,  bufferInfo_, ionCharge_, inputPath_,  fileList_, 
 							fileListSub_, eqnNameList_,eqnValList_, eqnValListPy_, eqnNameList_, rateConstsSub_, 
 							metsSub_,KeqEquilibrator_, KeqName_,allCatalyticReactions_, unifiedRateConstList_, customRatiosList_:{}]:=
-	Block[{KmListLocal=KmList, s05ListLocal=s05List, kcatListLocal= kcatList, inhibListLocal=inhibList, activationListLocal=activationList, 
+	Block[{haldaneRatiosListLocal=haldaneRatiosList,KmListLocal=KmList, s05ListLocal=s05List, kcatListLocal= kcatList, inhibListLocal=inhibList, activationListLocal=activationList, 
 			otherParmsListLocal=otherParmsList, customRatiosListLocal=customRatiosList,KeqEquilibratorLocal=KeqEquilibrator, uncertainty, 
 			newValue, dataFileName, allFittingData, dataPath, allFittingDataList={}, dataPathList={}},
-
+	
 	Do[
-		uncertainty=0.1*KeqEquilibrator;
-		KeqEquilibratorLocal = RandomVariate[NormalDistribution[ KeqEquilibrator, uncertainty]];
+	
+		If[ !SameQ[haldaneRatiosList, {}],
+			Do[
+				uncertainty = Abs[haldaneRatiosList[[haldaneI]][[3]][[2]]- haldaneRatiosList[[haldaneI]][[3]][[1]]]/2.;
+				newValue = RandomVariate[NormalDistribution[ haldaneRatiosList[[haldaneI]][[2]], uncertainty]];
+				haldaneRatiosListLocal[[haldaneI]][[2]] = newValue;,
 
+		{haldaneI, 1, Length@ haldaneRatiosList}];
+		];
+				
 		If[ !SameQ[KmList, {}],
 			Do[
 				uncertainty = Abs[KmList[[kmEntryI]][[3]][[2]]- KmList[[kmEntryI]][[3]][[1]]]/2.;
@@ -1240,7 +1258,7 @@ simulateDataWithUncertainty[nSamples_,enzymeModel_,dataFileBaseName_,KmList_, s0
 
 		dataFileName = dataFileBaseName <> "_" <>ToString[sampleI];
 	
-		{allFittingData, dataPath} = simulateData[enzymeModel,dataFileName,KmListLocal, s05ListLocal, kcatListLocal, inhibListLocal, 
+		{allFittingData, dataPath} = simulateData[enzymeModel,dataFileName,haldaneRatiosListLocal,KmListLocal, s05ListLocal, kcatListLocal, inhibListLocal, 
 													activationListLocal, otherParmsListLocal, rxn, metsFull,  metSatForSub, metSatRevSub, 
 													bufferInfo, ionCharge, inputPath,  fileList,fileListSub, eqnNameList,eqnValList, eqnValListPy, 
 													eqnNameList, rateConstsSub, metsSub,KeqEquilibratorLocal, KeqName,allCatalyticReactions, 
