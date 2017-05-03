@@ -90,11 +90,11 @@ TALA2,ec_number,2.2.1.2,,,,,,,,,,,,,
 ,active_sites,2,,Crystallography,8805555,E. coli K-12 cells (strain DH5/pGSJ451),,,,,,,,,
 ,allosteric_sites,0,,,,,,,,,,,,,
 ,parameter type,metabolite,value,uncertainty,"cosubstrate,concentration",unit,pH,temperature,"buffer,concentration","salts,concentration",other info,experiment,reference,strain,notes
-,Km,g3p,0.000038,,"f6p,0.0285",M,8.5,30,"glygly,0.05",,,Lineweaver-Burk,7592346,E. coli K-12 cells (strain DH5/pGSJ451),"'Cosubtrates at ''excess'' concentrations, assuming x100 Km'"
-,Km,e4p,0.00009,,"f6p,0.0285",M,8.5,30,"glygly,0.05",,,Lineweaver-Burk,7592346,E. coli K-12 cells (strain DH5/pGSJ451),"'Cosubtrates at ''excess'' concentrations, assuming x100 Km'"
-,Km,r5p,0.031,,"f6p,0.0285",M,8.5,30,"glygly,0.05",,,Lineweaver-Burk,7592346,E. coli K-12 cells (strain DH5/pGSJ451),"'Cosubtrates at ''excess'' concentrations, assuming x100 Km'"
-,Km,f6p,0.0012,,"g3p,0.0038",M,8.5,30,"glygly,0.05",,,Lineweaver-Burk,7592346,E. coli K-12 cells (strain DH5/pGSJ451),"'Cosubtrates at ''excess'' concentrations, assuming x100 Km'"
-,Km,s7p,0.000285,,"g3p,0.0038",M,8.5,30,"glygly,0.05",,,Lineweaver-Burk,7592346,E. coli K-12 cells (strain DH5/pGSJ451),"'Cosubtrates at ''excess'' concentrations, assuming x100 Km'"
+,Km,g3p,0.000038,,,M,8.5,30,"glygly,0.05",,,Lineweaver-Burk,7592346,E. coli K-12 cells (strain DH5/pGSJ451),"'Cosubtrates at ''excess'' concentrations, assuming x100 Km'; MM: removed co-substrates concentrations as I couldn't find evidence in the reference "
+,Km,e4p,0.00009,,,M,8.5,30,"glygly,0.05",,,Lineweaver-Burk,7592346,E. coli K-12 cells (strain DH5/pGSJ451),"'Cosubtrates at ''excess'' concentrations, assuming x100 Km'; MM: removed co-substrates concentrations as I couldn't find evidence in the reference "
+,Km,r5p,0.031,,,M,8.5,30,"glygly,0.05",,,Lineweaver-Burk,7592346,E. coli K-12 cells (strain DH5/pGSJ451),"'Cosubtrates at ''excess'' concentrations, assuming x100 Km'; MM: removed co-substrates concentrations as I couldn't find evidence in the reference "
+,Km,f6p,0.0012,,,M,8.5,30,"glygly,0.05",,,Lineweaver-Burk,7592346,E. coli K-12 cells (strain DH5/pGSJ451),"'Cosubtrates at ''excess'' concentrations, assuming x100 Km'; MM: removed co-substrates concentrations as I couldn't find evidence in the reference "
+,Km,s7p,0.000285,,,M,8.5,30,"glygly,0.05",,,Lineweaver-Burk,7592346,E. coli K-12 cells (strain DH5/pGSJ451),"'Cosubtrates at ''excess'' concentrations, assuming x100 Km'; MM: removed co-substrates concentrations as I couldn't find evidence in the reference "
 ,kcat,"f6p,Null;e4p,0.002",71.4,,,1/s,8.5,30,"glygly,0.05",,,Excel (Unspecified linear fitting),11298760,E. coli strain LJ110 (W3110),"Assay buffer and temperature conditions were not expicitly stated, but implied through referenced methods"
 ,kcat,"e4p,Null;f6p,0.05",79.4,,,1/s,8.5,30,"glygly,0.05",,,Excel (Unspecified linear fitting),11298760,E. coli strain LJ110 (W3110),"Assay buffer and temperature conditions were not expicitly stated, but implied through referenced methods"
 ,Kic,pi,0.019,"0.016,0.022",e4p,M,8.5,30,"glygly,0.05",,"Competitive,Null,Null,f6p,Null",Lineweaver-Burk,7592346,E. coli K-12 cells (strain DH5/pGSJ451),

@@ -357,14 +357,15 @@ getRateEqs[absoluteFlux_, unifiedRateConstList_, eqRateConstSub_, reverseZeroSub
 
 			
 	(*kcat Forward*)
+	Print["kcat for"];
 	absoluteRateForward = Simplify[(absoluteFluxEqn/.reverseZeroSub/.volumeSub)];
-
+	Print["kcat rev"];
 	(*kcat Reverse*)
 	absoluteRateReverse = Simplify[(-absoluteFluxEqn/.forwardZeroSub/.volumeSub)];
-
+Print["km for"];
 	(*Forward Km(s)*)
 	relativeRateForward = Map[ Simplify[absoluteRateForward/(Limit[absoluteFluxEqnRelRateFor/.reverseZeroSub/.volumeSub,#])]&, metSatForSub];
-
+Print["km rev"];
 	(*Reverse Km(s)*)
 	relativeRateReverse = Map[Simplify[-absoluteRateReverse/(Limit[absoluteFluxEqnRelRateRev/.forwardZeroSub/.volumeSub,#])]&, metSatRevSub];
 
@@ -434,7 +435,7 @@ getMetRatesSubs[enzymeModel_, absoluteRateForward_, absoluteRateReverse_, relati
 
 	(*Handle Metabolites for Export*)
 	finalMets = Join[metsFull,{Toolbox`parameter[getID@KeqVal<>"_total"],parameter["pH"],parameter["Temp"]}];
-	finalMets = Prepend[finalMets, KeqVal];
+	(*finalMets = Prepend[finalMets, KeqVal];*)
 	metsSub = Thread[finalMets -> Table["d<"<>ToString[i]<>">", {i,0,Length[finalMets]-1}] ];
 
 	Return[{finalRateConsts, metsFull, metsSub, rateConstsSub}];

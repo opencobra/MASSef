@@ -46,6 +46,7 @@ def load_enzyme_data(path):
         data.append(subList)
     return (header, data)
 
+
 def _evaluator(candidate):
     """Lower level wrapper function for fitness evaluation"""
     #print "evaluating..."
@@ -64,15 +65,6 @@ def _evaluator(candidate):
         newC = numpy.array(newC)
 
     # Actual fitness evalutation
-    #sse = sum_squared_errors(newC)
-
-
-    
-    #print(newC)
-    #print("length of newC")
-    #print(len(newC))
-    
-
     data_value = list()         # Data to fit to
     predicted_value = list()    # Predicted value based off of the fitted function
 
@@ -87,7 +79,6 @@ def _evaluator(candidate):
     # Convert to log space
     data_value = numpy.log10(data_value)
     predicted_value = numpy.log10(predicted_value)
-
 
     # Calculate the Residuals and SSE
     # NOTE: THIS WAS CHANGED AS A TEST TO THE OPERATOR.SUB NOTATION BECAUSE THE LISTS WERE NO LONGER NUMPY OBJECTS AND SUBTRACTING THEM THREW AN ERROR - DZ 9/7/2016
@@ -481,7 +472,7 @@ def run_pso(parameter, data_file_name, summary_file_name, ultimate_result_name):
     for i in range(len(data)):
         data[i][-2] = data[i][-2].replace("\"", "")
     """"""
-	
+
     """Import the Rate Functions"""
     functionDict = dict()
     for index, path in enumerate(filesWithFunctions):
