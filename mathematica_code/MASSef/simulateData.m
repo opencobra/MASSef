@@ -163,12 +163,8 @@ handleCosubstrateData[dataListFull_, metsFull_, metSatForSub_, metSatRevSub_, da
 	dataListFullLocal = Map[ReplacePart[#, 4->Table[{met}, {met,metsFull}]]&, dataListFull];
 
 	(*Extract CoSubstrates*)
-	(*Do[
-			Print[metSatForSub[[All,1]]];
-			Print[metSatRevSub[[All,1]]];
-			Print[pt[[1]]];
-			Print["---"];
-		
+	Do[
+
 		Which[
 			(*Is a Reactant*)
 			MemberQ[metSatForSub[[All,1]], pt[[1]]],
@@ -184,8 +180,8 @@ handleCosubstrateData[dataListFull_, metsFull_, metSatForSub_, metSatRevSub_, da
 			indicies = DeleteCases[indicies, {}];
 			AppendTo[coSubList, Delete[Flatten @ metsFull, indicies]];
 		],
-	{pt, dataListFullLocal}];*)
-	
+	{pt, dataListFullLocal}];
+	(*
 	Do[
 	
 		Which[
@@ -203,6 +199,7 @@ handleCosubstrateData[dataListFull_, metsFull_, metSatForSub_, metSatRevSub_, da
 			AppendTo[coSubList, Delete[Flatten @ metSatRevSub[[All,1]], indicies]];
 		],
 	{pt, dataListFullLocal}];
+	*)
 
 	(*Append the Pseudo-Data Concentrations for Substrate*)
 	Do[
@@ -210,7 +207,7 @@ handleCosubstrateData[dataListFull_, metsFull_, metSatForSub_, metSatRevSub_, da
 			dataListFullLocal[[pt,4,Position[dataListFullLocal[[pt,4]],dataListFullLocal[[pt,1]]][[1,1]]]], 
 			dataRange[[pt]]],
 	{pt, Length @ dataListFullLocal}];
-
+	
 	(*Handle CoSubstrate Data*)
 	dataCoSubFull=
 		Table[			
