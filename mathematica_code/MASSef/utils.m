@@ -147,14 +147,20 @@ getAllostericTransitionRatio[enzymeModel_, nonCatalyticReactions_] :=
 ];
 
 
-getRatio[enzymeModel_, metabolite_, eqRateConstSub_:{}] := 
+getRatio[enzymeModel_, metabolite_, eqRateConstSub_:{}, rxnIDpattern_:Null] := 
 	Block[{affectedRxn, affectedRxnID, forAffectedRateConsts, revAffectedRateConsts,
-			forAffectedConst, revAffectedConst},
-	
+			forAffectedConst, revAffectedConst, relevantEntries, entriesIndices},
+
 	(*Get Reactions with the 'inhibitor' or 'activator' as a Reactant*)
 	affectedRxn=Select[enzymeModel["Reactions"],MemberQ[getSubstrates[#], metabolite]&];
 	affectedRxnID=getID[#]&/@affectedRxn;
-	
+
+	If[!SameQ[rxnIDpattern, Null],
+		relevantEntries = StringCases[affectedRxnID, rxnIDpattern];
+		entriesIndices =  Flatten@Position[relevantEntries,{_}];
+		affectedRxnID =affectedRxnID[[entriesIndices]];
+	];
+		
 	(*Get the Rate Constants from the Reactions with the 'inhibitor' or 'activator'  as a Reactant*)
 	forAffectedRateConsts=Select[getForwardRateConstants[enzymeModel], MemberQ[affectedRxnID,getID[#]]&]/.eqRateConstSub;
 	revAffectedRateConsts=Select[reverseConsts[enzymeModel], MemberQ[affectedRxnID,getID[#]]&]/.eqRateConstSub;
@@ -170,6 +176,7 @@ getRatio[enzymeModel_, metabolite_, eqRateConstSub_:{}] :=
 		Print[affectedRxn];
 		Print[forAffectedRateConsts];
 		Print[revAffectedRateConsts];
+		Return[Null];
 	];
 ];
 

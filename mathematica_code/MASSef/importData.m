@@ -190,9 +190,7 @@ parseInhibKaEntry[line_, uncertaintyFraction_] :=
 	
 	actionType = Map[{#}&, StringSplit[line[[11]], ";"]];
 	actionType = Flatten[ Map[StringSplit[#, ","]&, actionType], 1];
-	actionType[[All,2]] = ToExpression[actionType[[All,2]]];
 	actionType[[All,3]] = ToExpression[actionType[[All,3]]];
-	actionType[[All,5]] = ToExpression[actionType[[All,5]]];
 
 	entry = {paramType, substrate, paramValue, uncertainty, coSubstrates, actionType, units, ph, temperature, buffer, salts};
 	Return[entry];

@@ -172,7 +172,7 @@ addInhibitionReactions[enzymeModel_, enzName_, inhibitionList_,  allCatalyticRea
 	
 	affectedMetsListLocal = 
 		If[affectedMetsList == {},
-			temp = Flatten[inhibitionList[[All,6]], 1][[All,4]];
+			temp = Flatten[inhibitionList[[All,6]], 1][[All,2]];
 			affectedMetsListLocal = temp /. getConversionChar2Met[temp],
 			affectedMetsList
 		];
