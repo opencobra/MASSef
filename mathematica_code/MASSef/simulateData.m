@@ -382,7 +382,7 @@ simulateKmData[rxn_, metsFull_, metSatForSub_, metSatRevSub_, kmList_, otherParm
 ];
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*Simulate S05 data*)
 
 
@@ -1200,16 +1200,16 @@ simulateData[enzymeModel_,dataFileName_, haldaneRatiosList_, KmList_, s05List_, 
 					{affectedRxnProducts, affectedRxnProductsList}];
 
 			(* check if it's a dead-end reaction - if so, define ratio=Ki *)
-			If[AnyTrue [Map[Count[#, True]&, reactionOverlap], #<= 1&],  
+			(*If[AnyTrue [Map[Count[#, True]&, reactionOverlap], #<= 1&],  *)
 				ratio = getRatio[enzymeModel, inhibitor, eqRateConstSub, {"Inhibition", "Ki"}];
 			
-					If[!SameQ[ratio, Null],
+				If[!SameQ[ratio, Null],
 					val=inhibEntry[[3]];
 
 					{inhibRatioFittingData, fileListLocal, fileListSubLocal, eqnNameListLocal, eqnValListLocal, eqnValListPyLocal} = 
-							simulateRateConstRatiosData[ratio,val, metsFull, rateConstsSub, metsSub, eTotal, nonKmParamWeight, 
+							simulateRateConstRatiosData[ratio, val, metsFull, rateConstsSub, metsSub, eTotal, nonKmParamWeight, 
 														inputPath, fileListLocal, fileListSubLocal, eqnNameListLocal, eqnValListLocal, eqnValListPyLocal, pHandT, 
-														eqnName= "inhibRatio_"<>  inhibEntry[[2]]];
+														eqnName="inhibRatio_" <> inhibEntry[[2]]];
 				
 					(* make sure the data isn't repeated *)
 					If[ Length[allFittingData] <=  11 || !SameQ[inhibRatioFittingData, allFittingData[[-nonKmParamWeight;;-1,All]]],
@@ -1217,7 +1217,7 @@ simulateData[enzymeModel_,dataFileName_, haldaneRatiosList_, KmList_, s05List_, 
 					];
 				];
 
-			];,
+			(*];*),
 		{inhibEntry, inhibList}];
 	];
 
@@ -1225,13 +1225,18 @@ simulateData[enzymeModel_,dataFileName_, haldaneRatiosList_, KmList_, s05List_, 
 		Do[
 			activator=m[activationEntry[[2]],"c"];
 			ratio = getRatio[enzymeModel, activator, eqRateConstSub, {"Activation", "Ka"}];
-			val=activationEntry[[3]];
+			If[!SameQ[ratio, Null],
+				val=activationEntry[[3]];
 
-			{activationRatioFittingData, fileListLocal, fileListSubLocal, eqnNameListLocal, eqnValListLocal, eqnValListPyLocal} = 
-					simulateRateConstRatiosData[ratio,val, metsFull, rateConstsSub, metsSub, eTotal, nonKmParamWeight, inputPath, fileListLocal, 
-												fileListSubLocal, eqnNameListLocal, eqnValListLocal, eqnValListPyLocal, pHandT, eqnName= "activationRatio_"<>activationEntry[[2]]];
-												
-			allFittingData = Join[allFittingData,activationRatioFittingData];,
+				{activationRatioFittingData, fileListLocal, fileListSubLocal, eqnNameListLocal, eqnValListLocal, eqnValListPyLocal} = 
+						simulateRateConstRatiosData[ratio,val, metsFull, rateConstsSub, metsSub, eTotal, nonKmParamWeight, inputPath, fileListLocal, 
+													fileListSubLocal, eqnNameListLocal, eqnValListLocal, eqnValListPyLocal, pHandT, eqnName= "activationRatio_"<>activationEntry[[2]]];
+				(* make sure the data isn't repeated *)
+					If[ Length[allFittingData] <=  11 || !SameQ[activationRatioFittingData, allFittingData[[-nonKmParamWeight;;-1,All]]],
+						allFittingData = Join[allFittingData,activationRatioFittingData];
+					];								
+				
+			];,
 
 		{activationEntry, activationList}];
 
@@ -1254,14 +1259,17 @@ simulateData[enzymeModel_,dataFileName_, haldaneRatiosList_, KmList_, s05List_, 
 
 				StringStartsQ[paramType, "L0"],
 				ratio = getAllostericTransitionRatio[enzymeModel, nonCatalyticReactions];
-				val =getOtherParamsValue[paramType, otherParmsList];
+				If[!SameQ[ratio, Null],
+				
+					val =getOtherParamsValue[paramType, otherParmsList];
 
-				{L0FittingData, fileListLocal, fileListSubLocal, eqnNameListLocal, eqnValListLocal, eqnValListPyLocal} = 
-					simulateRateConstRatiosData[ratio,val, metsFull, rateConstsSub, metsSub, eTotal, nonKmParamWeight, 
-												inputPath, fileListLocal, fileListSubLocal, eqnNameListLocal, eqnValListLocal, eqnValListPyLocal, 
-												pHandT, "L0Ratio"];
+					{L0FittingData, fileListLocal, fileListSubLocal, eqnNameListLocal, eqnValListLocal, eqnValListPyLocal} = 
+							simulateRateConstRatiosData[ratio,val, metsFull, rateConstsSub, metsSub, eTotal, nonKmParamWeight, 
+													inputPath, fileListLocal, fileListSubLocal, eqnNameListLocal, eqnValListLocal, eqnValListPyLocal, 
+													pHandT, "L0Ratio"];
 
-				allFittingData = Join[allFittingData,L0FittingData];
+					allFittingData = Join[allFittingData,L0FittingData];
+				];
 			 ];,
 
 		{paramEntry, otherParmsList}];
@@ -1307,12 +1315,11 @@ simulateDataWithUncertainty[nSamples_,enzymeModel_,dataFileBaseName_, haldaneRat
 	Do[
 	
 		If[ !SameQ[haldaneRatiosList, {}],
-			Do[
-				uncertainty = Abs[haldaneRatiosList[[haldaneI]][[3]][[2]]- haldaneRatiosList[[haldaneI]][[3]][[1]]]/2.;
-				newValue = RandomVariate[NormalDistribution[ haldaneRatiosList[[haldaneI]][[2]], uncertainty]];
+			uncertainty = Abs[haldaneRatiosList[[1]][[3]][[2]]- haldaneRatiosList[[1]][[3]][[1]]]/2.;
+			newValue = RandomVariate[NormalDistribution[ haldaneRatiosList[[1]][[2]], uncertainty]];
+			Do[		
 				haldaneRatiosListLocal[[haldaneI]][[2]] = newValue;,
-
-		{haldaneI, 1, Length@ haldaneRatiosList}];
+			{haldaneI, 1, Length@ haldaneRatiosList}];
 		];
 				
 		If[ !SameQ[KmList, {}],
@@ -1381,12 +1388,13 @@ simulateDataWithUncertainty[nSamples_,enzymeModel_,dataFileBaseName_, haldaneRat
 		];
 
 		dataFileName = dataFileBaseName <> "_" <>ToString[sampleI];
-	
+
 		{allFittingData, dataPath, fileListLocal, fileListSubLocal} = simulateData[enzymeModel,dataFileName, haldaneRatiosListLocal, KmListLocal, s05ListLocal, kcatListLocal, 
 																					inhibListLocal, activationListLocal, otherParmsListLocal, rxn, metsFull,  metSatForSub, 
 																					metSatRevSub,  bufferInfo, ionCharge, inputPath,  fileListLocal, fileListSubLocal, eqnNameList, 
 																					eqnValList, eqnValListPy, eqnNameList, rateConstsSub, metsSub,  allCatalyticReactions, 
 																					nonCatalyticReactions, unifiedRateConstList, eqRateConstSub, customRatiosList];
+							
 
 		AppendTo[allFittingDataList, allFittingData];
 		AppendTo[dataPathList, dataPath];,

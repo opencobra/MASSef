@@ -161,33 +161,49 @@ getAffectedEnzForms[paramType_, affectedMets_, affectedRxns_] := Block[{affected
 ];
 
 
-addInhibitionReactions[enzymeModel_, enzName_, inhibitionList_,  allCatalyticReactions_, nonCatalyticReactions_, affectedMetsList_:{}] := 
+positionDuplicates[list_]:=GatherBy[Range@Length[list],list[[#]]&];
+
+
+addInhibitionReactions[enzymeModel_, enzName_, inhibitionList_,  allCatalyticReactions_, nonCatalyticReactions_] := 
 	Block[{char2met, inhibitorMetsList, inhibitorMet, affectedMets, affectedRxns, affectedEnzForms, 
 			inhibitedRxns={}, affectedMetsListLocal, paramType, paramTypeList, enzymeModelLocal = enzymeModel, 
-			nonCatalyticReactionsLocal, temp},
+			nonCatalyticReactionsLocal, temp, posDuplicates,entriesToDelete},
 
 	inhibitorMetsList = inhibitionList[[All, 2]];
 	inhibitorMetsList = inhibitorMetsList /. getConversionChar2Met[inhibitorMetsList];
 	paramTypeList = inhibitionList[[All, 1]];
-	
+	(*
 	affectedMetsListLocal = 
 		If[affectedMetsList == {},
 			temp = Flatten[inhibitionList[[All,6]], 1][[All,2]];
 			affectedMetsListLocal = temp /. getConversionChar2Met[temp],
 			affectedMetsList
-		];
-	
+		];*)
+		
 	AppendTo[inhibitedRxns, 
-		Table[			
+		Table[	
+				
 			inhibitorMet = inhibitorMetsList[[i]];
 			paramType = paramTypeList[[i]];
-			affectedMets = If[ListQ[affectedMetsListLocal[[i]]], affectedMetsListLocal[[i]], {affectedMetsListLocal[[i]]}];
+
+			temp = inhibitionList[[i,6]][[All,2]];
+			affectedMets = temp /. getConversionChar2Met[temp];
 		
 			affectedRxns =
 				Table[
 					Select[allCatalyticReactions, MemberQ[Union[{getSubstrates[#], getProducts[#]}]~Flatten~1, met] &],
 				{met, affectedMets}];
 			affectedEnzForms = getAffectedEnzForms[paramType, affectedMets, affectedRxns];
+
+			posDuplicates = positionDuplicates[affectedEnzForms];
+
+			If[AnyTrue[posDuplicates, Length@# > 1&],
+				entriesToDelete = Map[If[Length@#>1, Rest[#]] &, posDuplicates];
+				entriesToDelete = DeleteCases[entriesToDelete, Null];
+				entriesToDelete = Map[{#}&, Flatten@entriesToDelete];
+				affectedEnzForms = Delete[affectedEnzForms,entriesToDelete];
+				affectedRxns = Delete[affectedRxns,entriesToDelete];
+			];
 
 			DeleteCases[
 				{Table[
@@ -403,23 +419,25 @@ Print["km rev"];
 (*Get rate and met substitutions *)
 
 
-getMetRatesSubs[enzymeModel_, absoluteRateForward_, absoluteRateReverse_, relativeRateForward_, relativeRateReverse_, KeqVal_,
-				otherAbsoluteRatesForward_:{}, otherAbsoluteRatesReverse_:{}] := 
-	Block[{finalRateConsts, rateConstsSub, mets, char2met, metsFull, finalMets, metsSub, finalRateConstsTest},
+getMetRatesSubs[enzymeModel_, haldaneRatiosList_, absoluteRateForward_, absoluteRateReverse_, relativeRateForward_, 
+				relativeRateReverse_, KeqVal_, otherAbsoluteRatesForward_:{}, otherAbsoluteRatesReverse_:{}] := 
+	Block[{finalRateConsts, rateConstsSub, mets, char2met, metsFull, finalMets, metsSub, finalRateConstsTest,
+			otherAbsoluteRatesForwardLocal=otherAbsoluteRatesForward, otherAbsoluteRatesReverseLocal=otherAbsoluteRatesReverse},
+	
+	otherAbsoluteRatesForwardLocal = If[! SameQ[otherAbsoluteRatesForward, Null], 
+										otherAbsoluteRatesForward[[All,2]], 
+										otherAbsoluteRatesForward];
+									
+	otherAbsoluteRatesReverseLocal = If[! SameQ[otherAbsoluteRatesReverse, Null], 
+										otherAbsoluteRatesReverse[[All,2]], 
+										otherAbsoluteRatesReverse];
 	
 	finalRateConsts= Variables[Cases[
-		Flatten @ Join[{absoluteRateForward},{absoluteRateReverse},relativeRateForward,relativeRateReverse],
+		Flatten @ {absoluteRateForward, absoluteRateReverse ,relativeRateForward,relativeRateReverse, 
+					otherAbsoluteRatesForwardLocal, otherAbsoluteRatesReverseLocal, haldaneRatiosList},
 	_rateconst,\[Infinity]]];
 
-	If[otherAbsoluteRatesForward != {},
-		AppendTo[finalRateConsts, Variables[Cases[otherAbsoluteRatesForward[[All,2]], _rateconst,\[Infinity]]]];
-	];
-	
-	If[otherAbsoluteRatesReverse != {},
-		AppendTo[finalRateConsts, Variables[Cases[otherAbsoluteRatesReverse[[All,2]], _rateconst,\[Infinity]]]];
-	];
-
-	finalRateConsts = Union[Flatten[finalRateConsts]];
+	finalRateConsts = DeleteDuplicates @ Flatten[finalRateConsts];
 	
 	rateConstsSub=Thread[finalRateConsts -> Table["x<"<>ToString[i]<>">", {i,0,Length[finalRateConsts]-1}]];
 

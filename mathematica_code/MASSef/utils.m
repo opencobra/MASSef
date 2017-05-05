@@ -143,6 +143,7 @@ getAllostericTransitionRatio[enzymeModel_, nonCatalyticReactions_] :=
 		Print[transStepRxn];
 		Print[forTransConst];
 		Print[revTransConst];
+		Return[Null];
 	];
 ];
 
@@ -172,10 +173,10 @@ getRatio[enzymeModel_, metabolite_, eqRateConstSub_:{}, rxnIDpattern_:Null] :=
 	If[Length[forAffectedConst] == 1 && Length[revAffectedConst] == 1,
 		Return[revAffectedConst[[1]]/forAffectedConst[[1]]];,
 		
-		Print["Possibly there are more than one transition equation and the more than one ratio"];
+		(*Print["Possibly there are more than one transition equation and the more than one ratio"];
 		Print[affectedRxn];
 		Print[forAffectedRateConsts];
-		Print[revAffectedRateConsts];
+		Print[revAffectedRateConsts];*)
 		Return[Null];
 	];
 ];
