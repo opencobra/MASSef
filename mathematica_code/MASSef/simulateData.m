@@ -1002,7 +1002,7 @@ simulateInhibData[rxn_, metsFull_, metSatForSub_, metSatRevSub_, inhibList_, ass
 ];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Simulate rate constant ratios  data (e.g.  Keq, dKd, Kd)*)
 
 
@@ -1061,7 +1061,7 @@ exportData[fittingData_,inputPath_, dataFileName_, metsSub_] := Block[{header, d
 ];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Simulate all data automatically*)
 
 
@@ -1247,7 +1247,7 @@ simulateData[enzymeModel_,dataFileName_, haldaneRatiosList_, KmList_, s05List_, 
 
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Simulate all data with uncertainty automatically*)
 
 
@@ -1354,7 +1354,7 @@ simulateDataWithUncertainty[nSamples_,enzymeModel_,dataFileBaseName_, haldaneRat
 
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Parameter scan function*)
 
 

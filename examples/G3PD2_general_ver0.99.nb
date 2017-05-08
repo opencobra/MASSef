@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[   1774055,      38636]
-NotebookOptionsPosition[   1762291,      38269]
-NotebookOutlinePosition[   1762651,      38285]
-CellTagsIndexPosition[   1762608,      38282]
+NotebookDataLength[   1716565,      37161]
+NotebookOptionsPosition[   1705055,      36799]
+NotebookOutlinePosition[   1705419,      36815]
+CellTagsIndexPosition[   1705376,      36812]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -124,7 +124,10 @@ Cell[BoxData["\<\"Working dir:/home/mrama/Dropbox/test bla/MASSef/examples/\"\
    3.7028066867712297`*^9, 3.702807821339837*^9, 3.702808890846422*^9, 
    3.702809297114168*^9, 3.702971689680101*^9, 3.7029753267191668`*^9, 
    3.7029771905623093`*^9, 3.7029783833104553`*^9, 3.7029784304758053`*^9, 
-   3.7032320914505463`*^9, {3.703232485433833*^9, 3.703232509119773*^9}}]
+   3.7032320914505463`*^9, {3.703232485433833*^9, 3.703232509119773*^9}, 
+   3.7032346662218437`*^9, 3.7032355951463537`*^9, 3.703236177967099*^9, 
+   3.7032375451184177`*^9, 3.7032375871123123`*^9, 3.7032376461514893`*^9, 
+   3.7032377672948837`*^9, 3.7032380517153473`*^9, 3.7032381671270523`*^9}]
 }, Open  ]]
 }, Open  ]],
 
@@ -228,7 +231,8 @@ Cell[BoxData[
     "nActiveSites", ",", " ", "kmList", ",", " ", "s05List", ",", " ", 
     "kcatList", ",", " ", "inhibitionList", ",", " ", "activationList", ",", 
     " ", "otherParmsList"}], "]"}], ";"}]], "Input",
- CellChangeTimes->{{3.6970265956574087`*^9, 3.697026626142229*^9}}],
+ CellChangeTimes->{{3.6970265956574087`*^9, 3.697026626142229*^9}, {
+  3.7032380406677513`*^9, 3.7032380427024918`*^9}}],
 
 Cell[CellGroupData[{
 
@@ -391,7 +395,10 @@ Cell[BoxData[
    3.702808891234782*^9, 3.702809297589802*^9, 3.702971690051053*^9, 
    3.702975327102364*^9, 3.702977191183917*^9, 3.702978383454691*^9, 
    3.702978430610198*^9, 3.703232092279833*^9, {3.7032324856875467`*^9, 
-   3.7032325093221617`*^9}}],
+   3.7032325093221617`*^9}, 3.7032346665862226`*^9, 3.703235595266713*^9, 
+   3.703236178127399*^9, 3.703237545250805*^9, 3.703237587504815*^9, 
+   3.703237647701943*^9, 3.703237767575378*^9, 3.703238052081986*^9, 
+   3.703238167290312*^9}],
 
 Cell[BoxData["\<\"ordered bi bi; [nadp,glyc3p,dhap,nadph]\"\>"], "Print",
  CellChangeTimes->{
@@ -404,7 +411,10 @@ Cell[BoxData["\<\"ordered bi bi; [nadp,glyc3p,dhap,nadph]\"\>"], "Print",
    3.702808891234782*^9, 3.702809297589802*^9, 3.702971690051053*^9, 
    3.702975327102364*^9, 3.702977191183917*^9, 3.702978383454691*^9, 
    3.702978430610198*^9, 3.703232092279833*^9, {3.7032324856875467`*^9, 
-   3.703232509323227*^9}}],
+   3.7032325093221617`*^9}, 3.7032346665862226`*^9, 3.703235595266713*^9, 
+   3.703236178127399*^9, 3.703237545250805*^9, 3.703237587504815*^9, 
+   3.703237647701943*^9, 3.703237767575378*^9, 3.703238052081986*^9, 
+   3.703238167292045*^9}],
 
 Cell[BoxData["\<\"Structure: \"\>"], "Print",
  CellChangeTimes->{
@@ -417,7 +427,10 @@ Cell[BoxData["\<\"Structure: \"\>"], "Print",
    3.702808891234782*^9, 3.702809297589802*^9, 3.702971690051053*^9, 
    3.702975327102364*^9, 3.702977191183917*^9, 3.702978383454691*^9, 
    3.702978430610198*^9, 3.703232092279833*^9, {3.7032324856875467`*^9, 
-   3.703232509324264*^9}}],
+   3.7032325093221617`*^9}, 3.7032346665862226`*^9, 3.703235595266713*^9, 
+   3.703236178127399*^9, 3.703237545250805*^9, 3.703237587504815*^9, 
+   3.703237647701943*^9, 3.703237767575378*^9, 3.703238052081986*^9, 
+   3.703238167294127*^9}],
 
 Cell[BoxData["\<\"Active sites: \"\>"], "Print",
  CellChangeTimes->{
@@ -430,7 +443,10 @@ Cell[BoxData["\<\"Active sites: \"\>"], "Print",
    3.702808891234782*^9, 3.702809297589802*^9, 3.702971690051053*^9, 
    3.702975327102364*^9, 3.702977191183917*^9, 3.702978383454691*^9, 
    3.702978430610198*^9, 3.703232092279833*^9, {3.7032324856875467`*^9, 
-   3.703232509325255*^9}}],
+   3.7032325093221617`*^9}, 3.7032346665862226`*^9, 3.703235595266713*^9, 
+   3.703236178127399*^9, 3.703237545250805*^9, 3.703237587504815*^9, 
+   3.703237647701943*^9, 3.703237767575378*^9, 3.703238052081986*^9, 
+   3.7032381672958384`*^9}],
 
 Cell[BoxData["\<\"\"\>"], "Print",
  CellChangeTimes->{
@@ -443,7 +459,10 @@ Cell[BoxData["\<\"\"\>"], "Print",
    3.702808891234782*^9, 3.702809297589802*^9, 3.702971690051053*^9, 
    3.702975327102364*^9, 3.702977191183917*^9, 3.702978383454691*^9, 
    3.702978430610198*^9, 3.703232092279833*^9, {3.7032324856875467`*^9, 
-   3.7032325093262587`*^9}}],
+   3.7032325093221617`*^9}, 3.7032346665862226`*^9, 3.703235595266713*^9, 
+   3.703236178127399*^9, 3.703237545250805*^9, 3.703237587504815*^9, 
+   3.703237647701943*^9, 3.703237767575378*^9, 3.703238052081986*^9, 
+   3.7032381672975903`*^9}],
 
 Cell[BoxData["\<\"Km Values:\"\>"], "Print",
  CellChangeTimes->{
@@ -456,7 +475,10 @@ Cell[BoxData["\<\"Km Values:\"\>"], "Print",
    3.702808891234782*^9, 3.702809297589802*^9, 3.702971690051053*^9, 
    3.702975327102364*^9, 3.702977191183917*^9, 3.702978383454691*^9, 
    3.702978430610198*^9, 3.703232092279833*^9, {3.7032324856875467`*^9, 
-   3.7032325093276978`*^9}}],
+   3.7032325093221617`*^9}, 3.7032346665862226`*^9, 3.703235595266713*^9, 
+   3.703236178127399*^9, 3.703237545250805*^9, 3.703237587504815*^9, 
+   3.703237647701943*^9, 3.703237767575378*^9, 3.703238052081986*^9, 
+   3.703238167299301*^9}],
 
 Cell[BoxData[
  InterpretationBox[GridBox[{
@@ -616,7 +638,10 @@ Cell[BoxData[
    3.702808891234782*^9, 3.702809297589802*^9, 3.702971690051053*^9, 
    3.702975327102364*^9, 3.702977191183917*^9, 3.702978383454691*^9, 
    3.702978430610198*^9, 3.703232092279833*^9, {3.7032324856875467`*^9, 
-   3.7032325093293858`*^9}}],
+   3.7032325093221617`*^9}, 3.7032346665862226`*^9, 3.703235595266713*^9, 
+   3.703236178127399*^9, 3.703237545250805*^9, 3.703237587504815*^9, 
+   3.703237647701943*^9, 3.703237767575378*^9, 3.703238052081986*^9, 
+   3.7032381673023767`*^9}],
 
 Cell[BoxData["\<\"\"\>"], "Print",
  CellChangeTimes->{
@@ -629,7 +654,10 @@ Cell[BoxData["\<\"\"\>"], "Print",
    3.702808891234782*^9, 3.702809297589802*^9, 3.702971690051053*^9, 
    3.702975327102364*^9, 3.702977191183917*^9, 3.702978383454691*^9, 
    3.702978430610198*^9, 3.703232092279833*^9, {3.7032324856875467`*^9, 
-   3.7032325093316307`*^9}}],
+   3.7032325093221617`*^9}, 3.7032346665862226`*^9, 3.703235595266713*^9, 
+   3.703236178127399*^9, 3.703237545250805*^9, 3.703237587504815*^9, 
+   3.703237647701943*^9, 3.703237767575378*^9, 3.703238052081986*^9, 
+   3.70323816730787*^9}],
 
 Cell[BoxData["\<\"S0.5 Values:\"\>"], "Print",
  CellChangeTimes->{
@@ -642,7 +670,10 @@ Cell[BoxData["\<\"S0.5 Values:\"\>"], "Print",
    3.702808891234782*^9, 3.702809297589802*^9, 3.702971690051053*^9, 
    3.702975327102364*^9, 3.702977191183917*^9, 3.702978383454691*^9, 
    3.702978430610198*^9, 3.703232092279833*^9, {3.7032324856875467`*^9, 
-   3.7032325093326387`*^9}}],
+   3.7032325093221617`*^9}, 3.7032346665862226`*^9, 3.703235595266713*^9, 
+   3.703236178127399*^9, 3.703237545250805*^9, 3.703237587504815*^9, 
+   3.703237647701943*^9, 3.703237767575378*^9, 3.703238052081986*^9, 
+   3.7032381673090897`*^9}],
 
 Cell[BoxData[
  TagBox[GridBox[{
@@ -673,7 +704,10 @@ Cell[BoxData[
    3.702808891234782*^9, 3.702809297589802*^9, 3.702971690051053*^9, 
    3.702975327102364*^9, 3.702977191183917*^9, 3.702978383454691*^9, 
    3.702978430610198*^9, 3.703232092279833*^9, {3.7032324856875467`*^9, 
-   3.7032325093337593`*^9}}],
+   3.7032325093221617`*^9}, 3.7032346665862226`*^9, 3.703235595266713*^9, 
+   3.703236178127399*^9, 3.703237545250805*^9, 3.703237587504815*^9, 
+   3.703237647701943*^9, 3.703237767575378*^9, 3.703238052081986*^9, 
+   3.7032381673104353`*^9}],
 
 Cell[BoxData["\<\"\"\>"], "Print",
  CellChangeTimes->{
@@ -686,7 +720,10 @@ Cell[BoxData["\<\"\"\>"], "Print",
    3.702808891234782*^9, 3.702809297589802*^9, 3.702971690051053*^9, 
    3.702975327102364*^9, 3.702977191183917*^9, 3.702978383454691*^9, 
    3.702978430610198*^9, 3.703232092279833*^9, {3.7032324856875467`*^9, 
-   3.703232509334947*^9}}],
+   3.7032325093221617`*^9}, 3.7032346665862226`*^9, 3.703235595266713*^9, 
+   3.703236178127399*^9, 3.703237545250805*^9, 3.703237587504815*^9, 
+   3.703237647701943*^9, 3.703237767575378*^9, 3.703238052081986*^9, 
+   3.703238167311907*^9}],
 
 Cell[BoxData["\<\"kcat Values:\"\>"], "Print",
  CellChangeTimes->{
@@ -699,7 +736,10 @@ Cell[BoxData["\<\"kcat Values:\"\>"], "Print",
    3.702808891234782*^9, 3.702809297589802*^9, 3.702971690051053*^9, 
    3.702975327102364*^9, 3.702977191183917*^9, 3.702978383454691*^9, 
    3.702978430610198*^9, 3.703232092279833*^9, {3.7032324856875467`*^9, 
-   3.703232509335829*^9}}],
+   3.7032325093221617`*^9}, 3.7032346665862226`*^9, 3.703235595266713*^9, 
+   3.703236178127399*^9, 3.703237545250805*^9, 3.703237587504815*^9, 
+   3.703237647701943*^9, 3.703237767575378*^9, 3.703238052081986*^9, 
+   3.703238167313056*^9}],
 
 Cell[BoxData[
  TagBox[GridBox[{
@@ -729,7 +769,10 @@ Cell[BoxData[
    3.702808891234782*^9, 3.702809297589802*^9, 3.702971690051053*^9, 
    3.702975327102364*^9, 3.702977191183917*^9, 3.702978383454691*^9, 
    3.702978430610198*^9, 3.703232092279833*^9, {3.7032324856875467`*^9, 
-   3.703232509336857*^9}}],
+   3.7032325093221617`*^9}, 3.7032346665862226`*^9, 3.703235595266713*^9, 
+   3.703236178127399*^9, 3.703237545250805*^9, 3.703237587504815*^9, 
+   3.703237647701943*^9, 3.703237767575378*^9, 3.703238052081986*^9, 
+   3.70323816731421*^9}],
 
 Cell[BoxData["\<\"\"\>"], "Print",
  CellChangeTimes->{
@@ -742,7 +785,10 @@ Cell[BoxData["\<\"\"\>"], "Print",
    3.702808891234782*^9, 3.702809297589802*^9, 3.702971690051053*^9, 
    3.702975327102364*^9, 3.702977191183917*^9, 3.702978383454691*^9, 
    3.702978430610198*^9, 3.703232092279833*^9, {3.7032324856875467`*^9, 
-   3.703232509338039*^9}}],
+   3.7032325093221617`*^9}, 3.7032346665862226`*^9, 3.703235595266713*^9, 
+   3.703236178127399*^9, 3.703237545250805*^9, 3.703237587504815*^9, 
+   3.703237647701943*^9, 3.703237767575378*^9, 3.703238052081986*^9, 
+   3.70323816731548*^9}],
 
 Cell[BoxData["\<\"Inhibition Values:\"\>"], "Print",
  CellChangeTimes->{
@@ -755,7 +801,10 @@ Cell[BoxData["\<\"Inhibition Values:\"\>"], "Print",
    3.702808891234782*^9, 3.702809297589802*^9, 3.702971690051053*^9, 
    3.702975327102364*^9, 3.702977191183917*^9, 3.702978383454691*^9, 
    3.702978430610198*^9, 3.703232092279833*^9, {3.7032324856875467`*^9, 
-   3.703232509338952*^9}}],
+   3.7032325093221617`*^9}, 3.7032346665862226`*^9, 3.703235595266713*^9, 
+   3.703236178127399*^9, 3.703237545250805*^9, 3.703237587504815*^9, 
+   3.703237647701943*^9, 3.703237767575378*^9, 3.703238052081986*^9, 
+   3.703238167316475*^9}],
 
 Cell[BoxData[
  InterpretationBox[GridBox[{
@@ -1462,7 +1511,10 @@ Cell[BoxData[
    3.702808891234782*^9, 3.702809297589802*^9, 3.702971690051053*^9, 
    3.702975327102364*^9, 3.702977191183917*^9, 3.702978383454691*^9, 
    3.702978430610198*^9, 3.703232092279833*^9, {3.7032324856875467`*^9, 
-   3.7032325093431664`*^9}}],
+   3.7032325093221617`*^9}, 3.7032346665862226`*^9, 3.703235595266713*^9, 
+   3.703236178127399*^9, 3.703237545250805*^9, 3.703237587504815*^9, 
+   3.703237647701943*^9, 3.703237767575378*^9, 3.703238052081986*^9, 
+   3.703238167320672*^9}],
 
 Cell[BoxData["\<\"\"\>"], "Print",
  CellChangeTimes->{
@@ -1475,7 +1527,10 @@ Cell[BoxData["\<\"\"\>"], "Print",
    3.702808891234782*^9, 3.702809297589802*^9, 3.702971690051053*^9, 
    3.702975327102364*^9, 3.702977191183917*^9, 3.702978383454691*^9, 
    3.702978430610198*^9, 3.703232092279833*^9, {3.7032324856875467`*^9, 
-   3.703232509348206*^9}}],
+   3.7032325093221617`*^9}, 3.7032346665862226`*^9, 3.703235595266713*^9, 
+   3.703236178127399*^9, 3.703237545250805*^9, 3.703237587504815*^9, 
+   3.703237647701943*^9, 3.703237767575378*^9, 3.703238052081986*^9, 
+   3.703238167328953*^9}],
 
 Cell[BoxData["\<\"Activation Values:\"\>"], "Print",
  CellChangeTimes->{
@@ -1488,7 +1543,10 @@ Cell[BoxData["\<\"Activation Values:\"\>"], "Print",
    3.702808891234782*^9, 3.702809297589802*^9, 3.702971690051053*^9, 
    3.702975327102364*^9, 3.702977191183917*^9, 3.702978383454691*^9, 
    3.702978430610198*^9, 3.703232092279833*^9, {3.7032324856875467`*^9, 
-   3.703232509349127*^9}}],
+   3.7032325093221617`*^9}, 3.7032346665862226`*^9, 3.703235595266713*^9, 
+   3.703236178127399*^9, 3.703237545250805*^9, 3.703237587504815*^9, 
+   3.703237647701943*^9, 3.703237767575378*^9, 3.703238052081986*^9, 
+   3.703238167330989*^9}],
 
 Cell[BoxData[
  TagBox[GridBox[{
@@ -1519,7 +1577,10 @@ Cell[BoxData[
    3.702808891234782*^9, 3.702809297589802*^9, 3.702971690051053*^9, 
    3.702975327102364*^9, 3.702977191183917*^9, 3.702978383454691*^9, 
    3.702978430610198*^9, 3.703232092279833*^9, {3.7032324856875467`*^9, 
-   3.703232509350277*^9}}],
+   3.7032325093221617`*^9}, 3.7032346665862226`*^9, 3.703235595266713*^9, 
+   3.703236178127399*^9, 3.703237545250805*^9, 3.703237587504815*^9, 
+   3.703237647701943*^9, 3.703237767575378*^9, 3.703238052081986*^9, 
+   3.703238167332416*^9}],
 
 Cell[BoxData["\<\"\"\>"], "Print",
  CellChangeTimes->{
@@ -1532,7 +1593,10 @@ Cell[BoxData["\<\"\"\>"], "Print",
    3.702808891234782*^9, 3.702809297589802*^9, 3.702971690051053*^9, 
    3.702975327102364*^9, 3.702977191183917*^9, 3.702978383454691*^9, 
    3.702978430610198*^9, 3.703232092279833*^9, {3.7032324856875467`*^9, 
-   3.703232509351563*^9}}],
+   3.7032325093221617`*^9}, 3.7032346665862226`*^9, 3.703235595266713*^9, 
+   3.703236178127399*^9, 3.703237545250805*^9, 3.703237587504815*^9, 
+   3.703237647701943*^9, 3.703237767575378*^9, 3.703238052081986*^9, 
+   3.703238167333929*^9}],
 
 Cell[BoxData["\<\"Other Parameters:\"\>"], "Print",
  CellChangeTimes->{
@@ -1545,7 +1609,10 @@ Cell[BoxData["\<\"Other Parameters:\"\>"], "Print",
    3.702808891234782*^9, 3.702809297589802*^9, 3.702971690051053*^9, 
    3.702975327102364*^9, 3.702977191183917*^9, 3.702978383454691*^9, 
    3.702978430610198*^9, 3.703232092279833*^9, {3.7032324856875467`*^9, 
-   3.703232509352537*^9}}],
+   3.7032325093221617`*^9}, 3.7032346665862226`*^9, 3.703235595266713*^9, 
+   3.703236178127399*^9, 3.703237545250805*^9, 3.703237587504815*^9, 
+   3.703237647701943*^9, 3.703237767575378*^9, 3.703238052081986*^9, 
+   3.7032381673349457`*^9}],
 
 Cell[BoxData[
  TagBox[GridBox[{
@@ -1576,7 +1643,10 @@ Cell[BoxData[
    3.702808891234782*^9, 3.702809297589802*^9, 3.702971690051053*^9, 
    3.702975327102364*^9, 3.702977191183917*^9, 3.702978383454691*^9, 
    3.702978430610198*^9, 3.703232092279833*^9, {3.7032324856875467`*^9, 
-   3.70323250935364*^9}}]
+   3.7032325093221617`*^9}, 3.7032346665862226`*^9, 3.703235595266713*^9, 
+   3.703236178127399*^9, 3.703237545250805*^9, 3.703237587504815*^9, 
+   3.703237647701943*^9, 3.703237767575378*^9, 3.703238052081986*^9, 
+   3.703238167336074*^9}]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
@@ -1838,9 +1908,10 @@ Cell[BoxData[{
       RowBox[{"{", "}"}]}], ",", 
      RowBox[{"InhibitionSites", "\[Rule]", " ", "0"}]}], "]"}]}], 
   ";"}], "\[IndentingNewLine]", 
+ RowBox[{"enzymeModel", "[", "\"\<Reactions\>\"", 
+  "]"}], "\[IndentingNewLine]", 
  RowBox[{
-  RowBox[{"enzymeModel", "[", "\"\<Reactions\>\"", "]"}], 
-  "\[IndentingNewLine]"}], "\[IndentingNewLine]"}], "Input",
+  RowBox[{"nActiveSites", "=", "1"}], ";"}], "\[IndentingNewLine]"}], "Input",
  CellChangeTimes->{{3.557001344869328*^9, 3.5570013448705177`*^9}, 
    3.5571555662336597`*^9, {3.557240813160924*^9, 3.557240814361676*^9}, {
    3.569607754071563*^9, 3.5696077996470613`*^9}, 3.569607837608725*^9, {
@@ -1887,7 +1958,8 @@ Cell[BoxData[{
    3.658828542402584*^9, 3.6588285464865637`*^9}, {3.658833946799782*^9, 
    3.6588339620962553`*^9}, {3.6945010771429577`*^9, 
    3.6945011103701687`*^9}, {3.6945017145200377`*^9, 3.694501719748404*^9}, {
-   3.702971716057502*^9, 3.70297171628615*^9}}],
+   3.702971716057502*^9, 3.70297171628615*^9}, {3.703235855930697*^9, 
+   3.703235857682539*^9}}],
 
 Cell[BoxData[
  RowBox[{"{", 
@@ -2767,7 +2839,11 @@ Cell[BoxData[
  CellChangeTimes->{
   3.702971716583577*^9, {3.702975327362649*^9, 3.702975332650078*^9}, 
    3.702977191466316*^9, 3.702978383620533*^9, 3.702978430746683*^9, 
-   3.703232092554614*^9, {3.70323248584898*^9, 3.703232509538554*^9}}]
+   3.703232092554614*^9, {3.70323248584898*^9, 3.703232509538554*^9}, 
+   3.703234666844924*^9, 3.703235635773552*^9, 3.7032358581543417`*^9, 
+   3.7032361782696753`*^9, 3.7032375454979467`*^9, 3.703237587774846*^9, 
+   3.703237647983259*^9, 3.703237767723709*^9, 3.703238052436095*^9, 
+   3.703238167479561*^9}]
 }, Open  ]]
 }, Open  ]],
 
@@ -3688,62 +3764,22 @@ Cell[BoxData[{
 
 Cell[CellGroupData[{
 
-Cell["Setup King-Altmann Equations", "Subsection",
+Cell["Setup King-Altman Equations", "Subsection",
  CellChangeTimes->{
   3.557001382100561*^9, {3.557001425381547*^9, 3.5570015172314568`*^9}, 
-   3.557241358075612*^9}],
+   3.557241358075612*^9, 3.703234669906918*^9}],
+
+Cell[CellGroupData[{
+
+Cell["Define some parameters", "Subsubsection",
+ CellChangeTimes->{
+  3.557001382100561*^9, {3.557001425381547*^9, 3.5570015172314568`*^9}, 
+   3.557241358075612*^9, {3.703234669906918*^9, 3.703234693217103*^9}}],
 
 Cell[BoxData[{
  RowBox[{
-  RowBox[{"rxnMets", " ", "=", "  ", 
-   RowBox[{"Map", "[", 
-    RowBox[{
-     RowBox[{
-      RowBox[{"getID", "[", "#", "]"}], "&"}], ",", " ", 
-     RowBox[{"Flatten", "[", 
-      RowBox[{"{", 
-       RowBox[{
-        RowBox[{"getSubstrates", "[", "rxn", "]"}], ",", " ", 
-        RowBox[{"getProducts", "[", "rxn", "]"}]}], "}"}], "]"}]}], "]"}]}], 
-  ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"inhibitors", " ", "=", 
-   RowBox[{"inhibitionList", "[", 
-    RowBox[{"[", 
-     RowBox[{"All", ",", "2"}], "]"}], "]"}]}], " ", 
-  ";"}], "\[IndentingNewLine]", 
- RowBox[{
   RowBox[{
-   RowBox[{"prodInhibBool", " ", "=", " ", 
-    RowBox[{"MemberQ", "[", 
-     RowBox[{
-      RowBox[{"Map", "[", 
-       RowBox[{
-        RowBox[{
-         RowBox[{"MemberQ", "[", 
-          RowBox[{"rxnMets", ",", " ", "#"}], "]"}], "&"}], ",", " ", 
-        "inhibitors"}], "]"}], ",", " ", "True"}], "]"}]}], ";"}], 
-  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{
-   RowBox[{"{", 
-    RowBox[{
-    "reverseZeroSub", ",", " ", "forwardZeroSub", ",", " ", "metSatForSub", 
-     ",", " ", "metSatRevSub"}], "}"}], " ", "=", " ", 
-   RowBox[{"getMetsSub", "[", "rxn", "]"}]}], ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"rates", " ", "=", " ", 
-   RowBox[{"getEnzymeRates", "[", "enzymeModel", "]"}]}], 
-  ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{
-   RowBox[{
-    RowBox[{"{", 
-     RowBox[{"KeqName", ",", " ", "KeqVal", ",", " ", "volumeSub"}], "}"}], 
-    " ", "=", " ", 
-    RowBox[{"getMisc", "[", 
-     RowBox[{"enzymeModel", ",", " ", "rxnName"}], "]"}]}], ";"}], 
-  "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"simplifyMaxTime", "=", "300"}], ";"}], "\[IndentingNewLine]", 
   RowBox[{"(*", " ", 
    RowBox[{
    "for", " ", "the", " ", "flux", " ", "equation", " ", "regarding", " ", 
@@ -3810,1466 +3846,124 @@ Cell[BoxData[{
          Selectable->False], "\[Rule]", "0"}]}], "}"}]}], "}"}]}], 
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
-  RowBox[{
-   RowBox[{"otherMetsForwardZeroSub", "=", 
-    RowBox[{"{", 
-     RowBox[{
-      RowBox[{"{", 
-       RowBox[{"\"\<prod_inhib_glyc3p\>\"", ",", " ", 
-        RowBox[{
-         InterpretationBox[
-          SuperscriptBox[
-           StyleBox["nadp",
-            StripOnInput->False,
-            ShowSyntaxStyles->False,
-            AutoSpacing->False,
-            ZeroWidthTimes->True,
-            LineColor->RGBColor[0, 0, 0],
-            FrontFaceColor->RGBColor[0, 0, 0],
-            BackFaceColor->RGBColor[0, 0, 0],
-            GraphicsColor->RGBColor[0, 0, 0],
-            FontColor->RGBColor[0, 0, 0]], 
-           StyleBox["c",
-            StripOnInput->False,
-            ShowSyntaxStyles->False,
-            AutoSpacing->False,
-            ZeroWidthTimes->True,
-            LineColor->RGBColor[0, 0, 0],
-            FrontFaceColor->RGBColor[0, 0, 0],
-            BackFaceColor->RGBColor[0, 0, 0],
-            GraphicsColor->RGBColor[0, 0, 0],
-            FontColor->RGBColor[0, 0, 0]]],
-          Toolbox`metabolite["nadp", "c"],
-          Editable->False,
-          Selectable->False], "\[Rule]", "0"}]}], "}"}], ",", 
-      RowBox[{"{", 
-       RowBox[{"\"\<prod_inhib_nadp\>\"", ",", " ", 
-        RowBox[{
-         InterpretationBox[
-          SuperscriptBox[
-           StyleBox["glyc3p",
-            StripOnInput->False,
-            ShowSyntaxStyles->False,
-            AutoSpacing->False,
-            ZeroWidthTimes->True,
-            LineColor->RGBColor[0, 0, 0],
-            FrontFaceColor->RGBColor[0, 0, 0],
-            BackFaceColor->RGBColor[0, 0, 0],
-            GraphicsColor->RGBColor[0, 0, 0],
-            FontColor->RGBColor[0, 0, 0]], 
-           StyleBox["c",
-            StripOnInput->False,
-            ShowSyntaxStyles->False,
-            AutoSpacing->False,
-            ZeroWidthTimes->True,
-            LineColor->RGBColor[0, 0, 0],
-            FrontFaceColor->RGBColor[0, 0, 0],
-            BackFaceColor->RGBColor[0, 0, 0],
-            GraphicsColor->RGBColor[0, 0, 0],
-            FontColor->RGBColor[0, 0, 0]]],
-          Toolbox`metabolite["glyc3p", "c"],
-          Editable->False,
-          Selectable->False], "\[Rule]", "0"}]}], "}"}]}], "}"}]}], ";"}], 
-  "\n", "\[IndentingNewLine]", 
-  RowBox[{"(*", 
-   RowBox[{
-    RowBox[{"competitiveRxns", "=", 
-     RowBox[{"{", "}"}]}], ";", 
-    StyleBox[
-     RowBox[{"(*", 
-      RowBox[{"Initialization", " ", "for", " ", 
-       RowBox[{"later", ".", " ", "Do"}], " ", 
-       StyleBox["not", "Text",
-        FontWeight->"Bold"], " ", "modify", " ", "this"}], "*)"}], "Text",
-     FontWeight->"Plain"], "\[IndentingNewLine]", 
-    RowBox[{"eqRateConstSub", "=", 
-     RowBox[{"{", "}"}]}], ";"}], 
-   StyleBox[
-    RowBox[{"(*", 
-     RowBox[{"Initialization", " ", "for", " ", 
-      RowBox[{"later", ".", " ", "Do"}], " ", 
-      StyleBox["not", "Text",
-       FontWeight->"Bold"], " ", "modify", " ", "this"}], "*)"}], "Text",
-    FontWeight->"Plain"], 
-   StyleBox["*)", "Text",
-    FontWeight->"Plain"]}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
-  StyleBox[
-   RowBox[{"(*", 
+  RowBox[{"otherMetsForwardZeroSub", "=", 
+   RowBox[{"{", 
     RowBox[{
-     RowBox[{"You", " ", 
-      StyleBox["could",
-       FontSlant->"Italic"], " ", "modify", " ", "these"}], ",", " ", 
-     RowBox[{"but", " ", "you", " ", 
-      RowBox[{"shouldn", "'"}], "t", " ", "unless", " ", "you", " ", "run", 
-      " ", "into", " ", "problems"}]}], "*)"}], "Text"], 
-  "\[IndentingNewLine]"}], "\n", 
- RowBox[{
-  RowBox[{"lowerParamBound", "=", 
-   RowBox[{"-", "6"}]}], ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"upperParamBound", "=", "9"}], ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{
-   RowBox[{"simplifyMaxTime", "=", "1*^-5"}], ";"}], "\[IndentingNewLine]", 
-  "\[IndentingNewLine]", 
-  RowBox[{"(*", 
-   RowBox[{
-    RowBox[{
-    "Extract", " ", "Transition", " ", "ID", " ", "from", " ", "Mass", " ", 
-     "Action", " ", "Equations", " ", "and", " ", "Separate", " ", 
-     "Catalytic", " ", "and", " ", "Non"}], "-", 
-    RowBox[{"Catalytic", " ", "Reactions"}]}], "*)"}], "\[IndentingNewLine]", 
-  RowBox[{"(*", 
-   RowBox[{
-   "The", " ", "transition", " ", "indices", " ", "are", " ", "extracted", 
-    " ", "based", " ", "off", " ", "of", " ", "the", " ", "sum", " ", "of", 
-    " ", "their", " ", "mass", " ", "action", " ", 
-    RowBox[{"stoichiometry", ".", "Reactions"}], " ", "with", " ", "a", " ", 
-    "sum", " ", "of", " ", "zero", " ", "are", " ", "assumed", " ", "to", " ",
-     "be", " ", 
-    RowBox[{"catalytic", "."}]}], "*)"}], "\[IndentingNewLine]", 
-  "\[IndentingNewLine]", 
-  StyleBox[
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{"Separate", " ", "Catalytic", " ", "and", " ", "Non"}], "-", 
-     RowBox[{"Catalytic", " ", "Reactions"}]}], "*)"}], 
-   "Text"]}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{
-   RowBox[{
-    RowBox[{"{", 
-     RowBox[{"allCatalyticReactions", ",", " ", "nonCatalyticReactions"}], 
-     "}"}], "=", 
-    RowBox[{"classifyReactions", "[", "enzymeModel", "]"}]}], ";"}], 
-  "\[IndentingNewLine]", "\[IndentingNewLine]", "\[IndentingNewLine]", 
-  StyleBox[
-   RowBox[{"(*", 
-    RowBox[{"Identify", " ", "Transition", " ", "Rate", " ", "Equations"}], 
-    "*)"}], "Text"]}], "\n", 
- RowBox[{
-  RowBox[{
-   RowBox[{"transitionID", " ", "=", 
-    RowBox[{"getTransitionIDs", "[", "allCatalyticReactions", "]"}]}], ";"}], 
-  "\[IndentingNewLine]", "\[IndentingNewLine]", 
-  StyleBox[
-   RowBox[{"(*", 
-    RowBox[{"Extract", " ", "Transition", " ", "Rate", " ", "Equations"}], 
-    "*)"}], "Text"]}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{
-   RowBox[{"transitionRateEqs", "=", 
-    RowBox[{"getTransitionRateEqs", "[", 
-     RowBox[{"transitionID", ",", " ", "rates"}], "]"}]}], ";"}], 
-  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{
-   RowBox[{"unifiedRateConstList", "=", 
-    RowBox[{"getUnifiedRateConstList", "[", 
-     RowBox[{"allCatalyticReactions", ",", " ", "nonCatalyticReactions"}], 
-     "]"}]}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
-  "\[IndentingNewLine]", 
-  RowBox[{"(*", " ", 
-   RowBox[{"semi", "-", 
-    RowBox[{
-    "automated", " ", "add", " ", "competitive", " ", "inhibition", " ", 
-     "steps"}], " ", "-", " ", 
-    RowBox[{"none", " ", "in", " ", "this", " ", "enzyme"}]}], 
-   "*)"}]}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{
-   RowBox[{"eqRateConstSub", "=", 
-    RowBox[{"{", "}"}]}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]",
-   "\[IndentingNewLine]", 
-  RowBox[{"(*", 
-   RowBox[{"King", "-", 
-    RowBox[{"Altman", " ", "Workaround", " ", 
-     StyleBox[
-      RowBox[{"Using", 
-       StyleBox["Mathematica",
-        FontSlant->"Italic"], "Solve"}]]}]}], "*)"}], "\[IndentingNewLine]", 
-  RowBox[{"(*", 
-   RowBox[{
-    RowBox[{
-     StyleBox["This", "Text"], 
-     StyleBox[" ", "Text"], 
-     StyleBox["section", "Text"], 
-     StyleBox[" ", "Text"], 
-     StyleBox["of", "Text"], 
-     StyleBox[" ", "Text"], 
-     StyleBox["code", "Text"], 
-     StyleBox[" ", "Text"], 
-     StyleBox["will", "Text"], 
-     StyleBox[" ", "Text"], 
-     StyleBox["check", "Text"], 
-     StyleBox[" ", "Text"], 
-     StyleBox["to", "Text"], 
-     StyleBox[" ", "Text"], 
-     StyleBox["see", "Text"], 
-     StyleBox[" ", "Text"], 
-     StyleBox["if", "Text"], 
-     StyleBox[" ", "Text"], 
-     StyleBox["there", "Text"], 
-     StyleBox[" ", "Text"], 
-     StyleBox["is", "Text"], 
-     StyleBox[" ", "Text"], 
-     StyleBox[
-      RowBox[{"a", " ", "'"}], "Text"], 
-     RowBox[{"absoluteFlux", 
-      StyleBox[".", "Text"], 
-      StyleBox[
-       RowBox[{"m", "'"}], "Text"]}], 
-     StyleBox[" ", "Text"], 
-     StyleBox["file", "Text"], 
-     StyleBox[" ", "Text"], 
-     StyleBox["in", "Text"], 
-     StyleBox[" ", "Text"], 
-     StyleBox["the", "Text"], 
-     StyleBox[" ", "Text"], 
-     StyleBox["notebook", "Text"], 
-     StyleBox[" ", "Text"], 
-     StyleBox["directory", "Text"], 
-     StyleBox[" ", "Text"], 
-     StyleBox["from", "Text"], 
-     StyleBox[" ", "Text"], 
-     StyleBox["a", "Text"], 
-     StyleBox[" ", "Text"], 
-     StyleBox["previous", "Text"], 
-     StyleBox[" ", "Text"], 
-     StyleBox["cell", "Text"], 
-     StyleBox[" ", "Text"], 
-     StyleBox["evalution", "Text"]}], 
-    StyleBox[",", "Text"], 
-    StyleBox[" ", "Text"], 
-    StyleBox[
-     RowBox[{
-     "and", " ", "it", " ", "will", " ", "either", " ", "derive", " ", "a", 
-      " ", "generalized", " ", "flux", " ", "equation", " ", 
-      RowBox[{"(", 
-       RowBox[{"may", " ", "take", " ", "a", " ", "long", " ", "time"}], 
-       ")"}], " ", "or", " ", "import", " ", "the", " ", "previously", " ", 
-      "derived", " ", "flux", " ", 
-      RowBox[{"equation", ".", " ", 
-       RowBox[{"Note", ":", " ", 
-        RowBox[{
-        "If", " ", "you", " ", "modify", " ", "the", " ", "binding", " ", 
-         "mechanism", " ", "used", " ", "in", " ", "the", " ", 
-         "constructEnzymeModule", " ", "or", " ", "manually", " ", "add", " ",
-          "additional", " ", "reactions", " ", "to", " ", "the", " ", 
-         "model"}]}]}]}], "Text"], 
-    StyleBox[",", "Text"], 
-    StyleBox[" ", "Text"], 
-    RowBox[{
-     StyleBox["you", "Text"], 
-     StyleBox[" ", "Text"], 
-     StyleBox["should", "Text"], 
-     StyleBox[" ", "Text"], 
-     StyleBox["delete", "Text"], 
-     StyleBox[" ", "Text"], 
-     StyleBox[
-      RowBox[{"the", " ", "'"}], "Text"], 
-     RowBox[{"absoluteFlux", ".", 
-      RowBox[{"m", 
-       StyleBox["'", "Text"]}]}], 
-     StyleBox[" ", "Text"], 
-     StyleBox["file", "Text"], 
-     StyleBox[" ", "Text"], 
-     StyleBox["in", "Text"], 
-     StyleBox[" ", "Text"], 
-     StyleBox["this", "Text"], 
-     StyleBox[" ", "Text"], 
-     StyleBox[
-      RowBox[{"notebook", "'"}], "Text"], 
-     StyleBox["s", "Text"], 
-     StyleBox[" ", "Text"], 
-     StyleBox["current", "Text"], 
-     StyleBox[" ", "Text"], 
-     StyleBox[
-      RowBox[{"directory", "."}], "Text"]}]}], 
-   "*)"}]}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"simplifyMaxTime", "=", " ", "100"}], ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"nActiveSites", "=", "1"}], ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{
-   RowBox[{"absoluteFluxNoProdInhib", "=", "\[IndentingNewLine]", "\t", 
-    RowBox[{"If", "[", 
-     RowBox[{"prodInhibBool", ",", "\[IndentingNewLine]", "\t\t", 
-      RowBox[{"getFluxEquation", "[", 
+     RowBox[{"{", 
+      RowBox[{"\"\<prod_inhib_glyc3p\>\"", ",", " ", 
        RowBox[{
-       "inputPath", ",", " ", "rxnName", ",", " ", "enzymeModel", ",", " ", 
-        "unifiedRateConstList", ",", " ", "transitionRateEqs", ",", 
-        "simplifyMaxTime", ",", "nActiveSites", ",", " ", 
-        "\"\<NoProdInhibRefactor\>\""}], "]"}], ",", "\[IndentingNewLine]", 
-      "\t\t", "Null"}], "\[IndentingNewLine]", "\t", "]"}]}], ";"}], 
-  "\[IndentingNewLine]"}], "\[IndentingNewLine]"}], "Input",
- CellChangeTimes->{{3.702717635032337*^9, 3.7027176592481623`*^9}, {
-  3.7027177197316628`*^9, 3.702717723381381*^9}, {3.7029754936726427`*^9, 
-  3.7029754967252417`*^9}}],
+        InterpretationBox[
+         SuperscriptBox[
+          StyleBox["nadp",
+           StripOnInput->False,
+           ShowSyntaxStyles->False,
+           AutoSpacing->False,
+           ZeroWidthTimes->True,
+           LineColor->RGBColor[0, 0, 0],
+           FrontFaceColor->RGBColor[0, 0, 0],
+           BackFaceColor->RGBColor[0, 0, 0],
+           GraphicsColor->RGBColor[0, 0, 0],
+           FontColor->RGBColor[0, 0, 0]], 
+          StyleBox["c",
+           StripOnInput->False,
+           ShowSyntaxStyles->False,
+           AutoSpacing->False,
+           ZeroWidthTimes->True,
+           LineColor->RGBColor[0, 0, 0],
+           FrontFaceColor->RGBColor[0, 0, 0],
+           BackFaceColor->RGBColor[0, 0, 0],
+           GraphicsColor->RGBColor[0, 0, 0],
+           FontColor->RGBColor[0, 0, 0]]],
+         Toolbox`metabolite["nadp", "c"],
+         Editable->False,
+         Selectable->False], "\[Rule]", "0"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"\"\<prod_inhib_nadp\>\"", ",", " ", 
+       RowBox[{
+        InterpretationBox[
+         SuperscriptBox[
+          StyleBox["glyc3p",
+           StripOnInput->False,
+           ShowSyntaxStyles->False,
+           AutoSpacing->False,
+           ZeroWidthTimes->True,
+           LineColor->RGBColor[0, 0, 0],
+           FrontFaceColor->RGBColor[0, 0, 0],
+           BackFaceColor->RGBColor[0, 0, 0],
+           GraphicsColor->RGBColor[0, 0, 0],
+           FontColor->RGBColor[0, 0, 0]], 
+          StyleBox["c",
+           StripOnInput->False,
+           ShowSyntaxStyles->False,
+           AutoSpacing->False,
+           ZeroWidthTimes->True,
+           LineColor->RGBColor[0, 0, 0],
+           FrontFaceColor->RGBColor[0, 0, 0],
+           BackFaceColor->RGBColor[0, 0, 0],
+           GraphicsColor->RGBColor[0, 0, 0],
+           FontColor->RGBColor[0, 0, 0]]],
+         Toolbox`metabolite["glyc3p", "c"],
+         Editable->False,
+         Selectable->False], "\[Rule]", "0"}]}], "}"}]}], "}"}]}], 
+  ";"}]}], "Input",
+ CellChangeTimes->{{3.703234858526586*^9, 3.703234859308795*^9}, 
+   3.70323538289713*^9, {3.703237236905774*^9, 3.703237260635869*^9}, 
+   3.70323732086651*^9, {3.7032373602309227`*^9, 3.703237373809078*^9}, {
+   3.703237508170805*^9, 3.703237519218768*^9}, {3.703237625562934*^9, 
+   3.703237654433756*^9}, 3.7032379513295116`*^9}],
 
 Cell[CellGroupData[{
 
 Cell[BoxData[
- RowBox[{"\[IndentingNewLine]", 
+ RowBox[{
   RowBox[{
-   RowBox[{
+   RowBox[{"{", 
     RowBox[{
-     RowBox[{"{", 
-      RowBox[{"enzymeModel", ",", " ", "nonCatalyticReactions"}], "}"}], " ", 
-     "=", 
-     RowBox[{"addInhibitionReactions", "[", 
-      RowBox[{"enzymeModel", ",", " ", "rxnName", ",", " ", 
-       RowBox[{"inhibitionList", "[", 
-        RowBox[{"[", 
-         RowBox[{"{", 
-          RowBox[{"2", ",", "3", ",", "8", ",", "9"}], "}"}], "]"}], "]"}], 
-       ",", "  ", "allCatalyticReactions", ",", " ", 
-       "nonCatalyticReactions"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
-   RowBox[{"nonCatalyticReactions", "//", "TableForm"}]}]}]], "Input",
- CellChangeTimes->{{3.7029755590240507`*^9, 3.702975569081489*^9}, 
-   3.702977200906466*^9}],
-
-Cell[BoxData[
- TagBox[
-  TagBox[GridBox[{
-     {
-      InterpretationBox[
-       OverscriptBox[
-        RowBox[{
-         RowBox[{
-          InterpretationBox[
-           UnderoverscriptBox[
-            StyleBox[
-             RowBox[{
-              SuperscriptBox[
-               StyleBox["G3PD2",
-                StripOnInput->False,
-                ShowSyntaxStyles->False,
-                AutoSpacing->False,
-                ZeroWidthTimes->True,
-                LineColor->RGBColor[0, 0, 0],
-                FrontFaceColor->RGBColor[0, 0, 0],
-                BackFaceColor->RGBColor[0, 0, 0],
-                GraphicsColor->RGBColor[0, 0, 0],
-                FontColor->RGBColor[0, 0, 0]], 
-               StyleBox["c",
-                StripOnInput->False,
-                ShowSyntaxStyles->False,
-                AutoSpacing->False,
-                ZeroWidthTimes->True,
-                LineColor->RGBColor[0, 0, 0],
-                FrontFaceColor->RGBColor[0, 0, 0],
-                BackFaceColor->RGBColor[0, 0, 0],
-                GraphicsColor->RGBColor[0, 0, 0],
-                FontColor->RGBColor[0, 0, 0]]], "&", 
-              InterpretationBox[
-               SuperscriptBox[
-                StyleBox["nadph",
-                 StripOnInput->False,
-                 ShowSyntaxStyles->False,
-                 AutoSpacing->False,
-                 ZeroWidthTimes->True,
-                 LineColor->RGBColor[0, 0, 0],
-                 FrontFaceColor->RGBColor[0, 0, 0],
-                 BackFaceColor->RGBColor[0, 0, 0],
-                 GraphicsColor->RGBColor[0, 0, 0],
-                 FontColor->RGBColor[0, 0, 0]], 
-                StyleBox["c",
-                 StripOnInput->False,
-                 ShowSyntaxStyles->False,
-                 AutoSpacing->False,
-                 ZeroWidthTimes->True,
-                 LineColor->RGBColor[0, 0, 0],
-                 FrontFaceColor->RGBColor[0, 0, 0],
-                 BackFaceColor->RGBColor[0, 0, 0],
-                 GraphicsColor->RGBColor[0, 0, 0],
-                 FontColor->RGBColor[0, 0, 0]]],
-               Toolbox`metabolite["nadph", "c"],
-               Editable->False,
-               Selectable->False]}],
-             Background->RGBColor[0.9, 0.9, 0.9]], "", ""],
-           
-           Toolbox`enzyme[{
-            "ID" -> "G3PD2", "Compartment" -> "c", "BoundCatalytic" -> {
-               Toolbox`Private`wrap[Toolbox`metabolite]["nadph", "c"]}, 
-             "BoundActivators" -> {}, "BoundInhibitors" -> {}, 
-             "CatalyticSites" -> DirectedInfinity[1], "ActivationSites" -> 0, 
-             "InhibitionSites" -> 0}],
-           Editable->False,
-           Selectable->False], "+", 
-          InterpretationBox[
-           SuperscriptBox[
-            StyleBox["glyc3p",
-             StripOnInput->False,
-             ShowSyntaxStyles->False,
-             AutoSpacing->False,
-             ZeroWidthTimes->True,
-             LineColor->RGBColor[0, 0, 0],
-             FrontFaceColor->RGBColor[0, 0, 0],
-             BackFaceColor->RGBColor[0, 0, 0],
-             GraphicsColor->RGBColor[0, 0, 0],
-             FontColor->RGBColor[0, 0, 0]], 
-            StyleBox["c",
-             StripOnInput->False,
-             ShowSyntaxStyles->False,
-             AutoSpacing->False,
-             ZeroWidthTimes->True,
-             LineColor->RGBColor[0, 0, 0],
-             FrontFaceColor->RGBColor[0, 0, 0],
-             BackFaceColor->RGBColor[0, 0, 0],
-             GraphicsColor->RGBColor[0, 0, 0],
-             FontColor->RGBColor[0, 0, 0]]],
-           Toolbox`metabolite["glyc3p", "c"],
-           Editable->False,
-           Selectable->False]}], "\[Equilibrium]", 
-         InterpretationBox[
-          UnderoverscriptBox[
-           StyleBox[
-            RowBox[{
-             SuperscriptBox[
-              StyleBox["G3PD2",
-               StripOnInput->False,
-               ShowSyntaxStyles->False,
-               AutoSpacing->False,
-               ZeroWidthTimes->True,
-               LineColor->RGBColor[0, 0, 0],
-               FrontFaceColor->RGBColor[0, 0, 0],
-               BackFaceColor->RGBColor[0, 0, 0],
-               GraphicsColor->RGBColor[0, 0, 0],
-               FontColor->RGBColor[0, 0, 0]], 
-              StyleBox["c",
-               StripOnInput->False,
-               ShowSyntaxStyles->False,
-               AutoSpacing->False,
-               ZeroWidthTimes->True,
-               LineColor->RGBColor[0, 0, 0],
-               FrontFaceColor->RGBColor[0, 0, 0],
-               BackFaceColor->RGBColor[0, 0, 0],
-               GraphicsColor->RGBColor[0, 0, 0],
-               FontColor->RGBColor[0, 0, 0]]], "&", 
-             InterpretationBox[
-              SuperscriptBox[
-               StyleBox["nadph",
-                StripOnInput->False,
-                ShowSyntaxStyles->False,
-                AutoSpacing->False,
-                ZeroWidthTimes->True,
-                LineColor->RGBColor[0, 0, 0],
-                FrontFaceColor->RGBColor[0, 0, 0],
-                BackFaceColor->RGBColor[0, 0, 0],
-                GraphicsColor->RGBColor[0, 0, 0],
-                FontColor->RGBColor[0, 0, 0]], 
-               StyleBox["c",
-                StripOnInput->False,
-                ShowSyntaxStyles->False,
-                AutoSpacing->False,
-                ZeroWidthTimes->True,
-                LineColor->RGBColor[0, 0, 0],
-                FrontFaceColor->RGBColor[0, 0, 0],
-                BackFaceColor->RGBColor[0, 0, 0],
-                GraphicsColor->RGBColor[0, 0, 0],
-                FontColor->RGBColor[0, 0, 0]]],
-              Toolbox`metabolite["nadph", "c"],
-              Editable->False,
-              Selectable->False], "&", 
-             InterpretationBox[
-              SuperscriptBox[
-               StyleBox["glyc3p",
-                StripOnInput->False,
-                ShowSyntaxStyles->False,
-                AutoSpacing->False,
-                ZeroWidthTimes->True,
-                LineColor->RGBColor[0, 0, 0],
-                FrontFaceColor->RGBColor[0, 0, 0],
-                BackFaceColor->RGBColor[0, 0, 0],
-                GraphicsColor->RGBColor[0, 0, 0],
-                FontColor->RGBColor[0, 0, 0]], 
-               StyleBox["c",
-                StripOnInput->False,
-                ShowSyntaxStyles->False,
-                AutoSpacing->False,
-                ZeroWidthTimes->True,
-                LineColor->RGBColor[0, 0, 0],
-                FrontFaceColor->RGBColor[0, 0, 0],
-                BackFaceColor->RGBColor[0, 0, 0],
-                GraphicsColor->RGBColor[0, 0, 0],
-                FontColor->RGBColor[0, 0, 0]]],
-              Toolbox`metabolite["glyc3p", "c"],
-              Editable->False,
-              Selectable->False]}],
-            Background->RGBColor[0.9, 0.9, 0.9]], "", ""],
-          
-          Toolbox`enzyme[{
-           "ID" -> "G3PD2", "Compartment" -> "c", "BoundCatalytic" -> {
-              Toolbox`Private`wrap[Toolbox`metabolite]["nadph", "c"], 
-              Toolbox`Private`wrap[Toolbox`metabolite]["glyc3p", "c"]}, 
-            "BoundActivators" -> {}, "BoundInhibitors" -> {}, 
-            "CatalyticSites" -> DirectedInfinity[1], "ActivationSites" -> 0, 
-            "InhibitionSites" -> 0}],
-          Editable->False,
-          Selectable->False]}], 
-        StyleBox[
-         RowBox[{"G3PD2_Kincu", "_glyc3p", "_", "1", "_nadph"}],
-         StripOnInput->False,
-         ShowSyntaxStyles->False,
-         AutoSpacing->False,
-         ZeroWidthTimes->True,
-         LineColor->RGBColor[0, 0, 0],
-         FrontFaceColor->RGBColor[0, 0, 0],
-         BackFaceColor->RGBColor[0, 0, 0],
-         GraphicsColor->RGBColor[0, 0, 0],
-         FontColor->RGBColor[0, 0, 0]]],
-       Toolbox`reaction["G3PD2_Kincu_glyc3p_1_nadph", {
-         Toolbox`enzyme[{
-          "ID" -> "G3PD2", "Compartment" -> "c", "BoundCatalytic" -> {
-             Toolbox`Private`wrap[Toolbox`metabolite]["nadph", "c"]}, 
-           "BoundActivators" -> {}, "BoundInhibitors" -> {}, "CatalyticSites" -> 
-           DirectedInfinity[1], "ActivationSites" -> 0, "InhibitionSites" -> 
-           0}], 
-         Toolbox`metabolite["glyc3p", "c"]}, {
-         Toolbox`enzyme[{
-          "ID" -> "G3PD2", "Compartment" -> "c", "BoundCatalytic" -> {
-             Toolbox`Private`wrap[Toolbox`metabolite]["nadph", "c"], 
-             Toolbox`Private`wrap[Toolbox`metabolite]["glyc3p", "c"]}, 
-           "BoundActivators" -> {}, "BoundInhibitors" -> {}, "CatalyticSites" -> 
-           DirectedInfinity[1], "ActivationSites" -> 0, "InhibitionSites" -> 
-           0}]}, {1, 1, 1}, True],
-       Editable->False,
-       Selectable->False]},
-     {
-      InterpretationBox[
-       OverscriptBox[
-        RowBox[{
-         RowBox[{
-          InterpretationBox[
-           UnderoverscriptBox[
-            StyleBox[
-             SuperscriptBox[
-              StyleBox["G3PD2",
-               StripOnInput->False,
-               ShowSyntaxStyles->False,
-               AutoSpacing->False,
-               ZeroWidthTimes->True,
-               LineColor->RGBColor[0, 0, 0],
-               FrontFaceColor->RGBColor[0, 0, 0],
-               BackFaceColor->RGBColor[0, 0, 0],
-               GraphicsColor->RGBColor[0, 0, 0],
-               FontColor->RGBColor[0, 0, 0]], 
-              StyleBox["c",
-               StripOnInput->False,
-               ShowSyntaxStyles->False,
-               AutoSpacing->False,
-               ZeroWidthTimes->True,
-               LineColor->RGBColor[0, 0, 0],
-               FrontFaceColor->RGBColor[0, 0, 0],
-               BackFaceColor->RGBColor[0, 0, 0],
-               GraphicsColor->RGBColor[0, 0, 0],
-               FontColor->RGBColor[0, 0, 0]]],
-             Background->RGBColor[0.9, 0.9, 0.9]], "", ""],
-           
-           Toolbox`enzyme[{
-            "ID" -> "G3PD2", "Compartment" -> "c", "BoundCatalytic" -> {}, 
-             "BoundActivators" -> {}, "BoundInhibitors" -> {}, 
-             "CatalyticSites" -> DirectedInfinity[1], "ActivationSites" -> 0, 
-             "InhibitionSites" -> 0}],
-           Editable->False,
-           Selectable->False], "+", 
-          InterpretationBox[
-           SuperscriptBox[
-            StyleBox["glyc3p",
-             StripOnInput->False,
-             ShowSyntaxStyles->False,
-             AutoSpacing->False,
-             ZeroWidthTimes->True,
-             LineColor->RGBColor[0, 0, 0],
-             FrontFaceColor->RGBColor[0, 0, 0],
-             BackFaceColor->RGBColor[0, 0, 0],
-             GraphicsColor->RGBColor[0, 0, 0],
-             FontColor->RGBColor[0, 0, 0]], 
-            StyleBox["c",
-             StripOnInput->False,
-             ShowSyntaxStyles->False,
-             AutoSpacing->False,
-             ZeroWidthTimes->True,
-             LineColor->RGBColor[0, 0, 0],
-             FrontFaceColor->RGBColor[0, 0, 0],
-             BackFaceColor->RGBColor[0, 0, 0],
-             GraphicsColor->RGBColor[0, 0, 0],
-             FontColor->RGBColor[0, 0, 0]]],
-           Toolbox`metabolite["glyc3p", "c"],
-           Editable->False,
-           Selectable->False]}], "\[Equilibrium]", 
-         InterpretationBox[
-          UnderoverscriptBox[
-           StyleBox[
-            RowBox[{
-             SuperscriptBox[
-              StyleBox["G3PD2",
-               StripOnInput->False,
-               ShowSyntaxStyles->False,
-               AutoSpacing->False,
-               ZeroWidthTimes->True,
-               LineColor->RGBColor[0, 0, 0],
-               FrontFaceColor->RGBColor[0, 0, 0],
-               BackFaceColor->RGBColor[0, 0, 0],
-               GraphicsColor->RGBColor[0, 0, 0],
-               FontColor->RGBColor[0, 0, 0]], 
-              StyleBox["c",
-               StripOnInput->False,
-               ShowSyntaxStyles->False,
-               AutoSpacing->False,
-               ZeroWidthTimes->True,
-               LineColor->RGBColor[0, 0, 0],
-               FrontFaceColor->RGBColor[0, 0, 0],
-               BackFaceColor->RGBColor[0, 0, 0],
-               GraphicsColor->RGBColor[0, 0, 0],
-               FontColor->RGBColor[0, 0, 0]]], "&", 
-             InterpretationBox[
-              SuperscriptBox[
-               StyleBox["glyc3p",
-                StripOnInput->False,
-                ShowSyntaxStyles->False,
-                AutoSpacing->False,
-                ZeroWidthTimes->True,
-                LineColor->RGBColor[0, 0, 0],
-                FrontFaceColor->RGBColor[0, 0, 0],
-                BackFaceColor->RGBColor[0, 0, 0],
-                GraphicsColor->RGBColor[0, 0, 0],
-                FontColor->RGBColor[0, 0, 0]], 
-               StyleBox["c",
-                StripOnInput->False,
-                ShowSyntaxStyles->False,
-                AutoSpacing->False,
-                ZeroWidthTimes->True,
-                LineColor->RGBColor[0, 0, 0],
-                FrontFaceColor->RGBColor[0, 0, 0],
-                BackFaceColor->RGBColor[0, 0, 0],
-                GraphicsColor->RGBColor[0, 0, 0],
-                FontColor->RGBColor[0, 0, 0]]],
-              Toolbox`metabolite["glyc3p", "c"],
-              Editable->False,
-              Selectable->False]}],
-            Background->RGBColor[0.9, 0.9, 0.9]], "", ""],
-          
-          Toolbox`enzyme[{
-           "ID" -> "G3PD2", "Compartment" -> "c", "BoundCatalytic" -> {
-              Toolbox`Private`wrap[Toolbox`metabolite]["glyc3p", "c"]}, 
-            "BoundActivators" -> {}, "BoundInhibitors" -> {}, 
-            "CatalyticSites" -> DirectedInfinity[1], "ActivationSites" -> 0, 
-            "InhibitionSites" -> 0}],
-          Editable->False,
-          Selectable->False]}], 
-        StyleBox[
-         RowBox[{"G3PD2_Kincc", "_glyc3p", "_", "1", "_nadph"}],
-         StripOnInput->False,
-         ShowSyntaxStyles->False,
-         AutoSpacing->False,
-         ZeroWidthTimes->True,
-         LineColor->RGBColor[0, 0, 0],
-         FrontFaceColor->RGBColor[0, 0, 0],
-         BackFaceColor->RGBColor[0, 0, 0],
-         GraphicsColor->RGBColor[0, 0, 0],
-         FontColor->RGBColor[0, 0, 0]]],
-       Toolbox`reaction["G3PD2_Kincc_glyc3p_1_nadph", {
-         Toolbox`enzyme[{
-          "ID" -> "G3PD2", "Compartment" -> "c", "BoundCatalytic" -> {}, 
-           "BoundActivators" -> {}, "BoundInhibitors" -> {}, "CatalyticSites" -> 
-           DirectedInfinity[1], "ActivationSites" -> 0, "InhibitionSites" -> 
-           0}], 
-         Toolbox`metabolite["glyc3p", "c"]}, {
-         Toolbox`enzyme[{
-          "ID" -> "G3PD2", "Compartment" -> "c", "BoundCatalytic" -> {
-             Toolbox`Private`wrap[Toolbox`metabolite]["glyc3p", "c"]}, 
-           "BoundActivators" -> {}, "BoundInhibitors" -> {}, "CatalyticSites" -> 
-           DirectedInfinity[1], "ActivationSites" -> 0, "InhibitionSites" -> 
-           0}]}, {1, 1, 1}, True],
-       Editable->False,
-       Selectable->False]},
-     {
-      InterpretationBox[
-       OverscriptBox[
-        RowBox[{
-         RowBox[{
-          InterpretationBox[
-           UnderoverscriptBox[
-            StyleBox[
-             RowBox[{
-              SuperscriptBox[
-               StyleBox["G3PD2",
-                StripOnInput->False,
-                ShowSyntaxStyles->False,
-                AutoSpacing->False,
-                ZeroWidthTimes->True,
-                LineColor->RGBColor[0, 0, 0],
-                FrontFaceColor->RGBColor[0, 0, 0],
-                BackFaceColor->RGBColor[0, 0, 0],
-                GraphicsColor->RGBColor[0, 0, 0],
-                FontColor->RGBColor[0, 0, 0]], 
-               StyleBox["c",
-                StripOnInput->False,
-                ShowSyntaxStyles->False,
-                AutoSpacing->False,
-                ZeroWidthTimes->True,
-                LineColor->RGBColor[0, 0, 0],
-                FrontFaceColor->RGBColor[0, 0, 0],
-                BackFaceColor->RGBColor[0, 0, 0],
-                GraphicsColor->RGBColor[0, 0, 0],
-                FontColor->RGBColor[0, 0, 0]]], "&", 
-              InterpretationBox[
-               SuperscriptBox[
-                StyleBox["glyc3p",
-                 StripOnInput->False,
-                 ShowSyntaxStyles->False,
-                 AutoSpacing->False,
-                 ZeroWidthTimes->True,
-                 LineColor->RGBColor[0, 0, 0],
-                 FrontFaceColor->RGBColor[0, 0, 0],
-                 BackFaceColor->RGBColor[0, 0, 0],
-                 GraphicsColor->RGBColor[0, 0, 0],
-                 FontColor->RGBColor[0, 0, 0]], 
-                StyleBox["c",
-                 StripOnInput->False,
-                 ShowSyntaxStyles->False,
-                 AutoSpacing->False,
-                 ZeroWidthTimes->True,
-                 LineColor->RGBColor[0, 0, 0],
-                 FrontFaceColor->RGBColor[0, 0, 0],
-                 BackFaceColor->RGBColor[0, 0, 0],
-                 GraphicsColor->RGBColor[0, 0, 0],
-                 FontColor->RGBColor[0, 0, 0]]],
-               Toolbox`metabolite["glyc3p", "c"],
-               Editable->False,
-               Selectable->False]}],
-             Background->RGBColor[0.9, 0.9, 0.9]], "", ""],
-           
-           Toolbox`enzyme[{
-            "ID" -> "G3PD2", "Compartment" -> "c", "BoundCatalytic" -> {
-               Toolbox`Private`wrap[Toolbox`metabolite]["glyc3p", "c"]}, 
-             "BoundActivators" -> {}, "BoundInhibitors" -> {}, 
-             "CatalyticSites" -> DirectedInfinity[1], "ActivationSites" -> 0, 
-             "InhibitionSites" -> 0}],
-           Editable->False,
-           Selectable->False], "+", 
-          InterpretationBox[
-           SuperscriptBox[
-            StyleBox["nadph",
-             StripOnInput->False,
-             ShowSyntaxStyles->False,
-             AutoSpacing->False,
-             ZeroWidthTimes->True,
-             LineColor->RGBColor[0, 0, 0],
-             FrontFaceColor->RGBColor[0, 0, 0],
-             BackFaceColor->RGBColor[0, 0, 0],
-             GraphicsColor->RGBColor[0, 0, 0],
-             FontColor->RGBColor[0, 0, 0]], 
-            StyleBox["c",
-             StripOnInput->False,
-             ShowSyntaxStyles->False,
-             AutoSpacing->False,
-             ZeroWidthTimes->True,
-             LineColor->RGBColor[0, 0, 0],
-             FrontFaceColor->RGBColor[0, 0, 0],
-             BackFaceColor->RGBColor[0, 0, 0],
-             GraphicsColor->RGBColor[0, 0, 0],
-             FontColor->RGBColor[0, 0, 0]]],
-           Toolbox`metabolite["nadph", "c"],
-           Editable->False,
-           Selectable->False]}], "\[Equilibrium]", 
-         InterpretationBox[
-          UnderoverscriptBox[
-           StyleBox[
-            RowBox[{
-             SuperscriptBox[
-              StyleBox["G3PD2",
-               StripOnInput->False,
-               ShowSyntaxStyles->False,
-               AutoSpacing->False,
-               ZeroWidthTimes->True,
-               LineColor->RGBColor[0, 0, 0],
-               FrontFaceColor->RGBColor[0, 0, 0],
-               BackFaceColor->RGBColor[0, 0, 0],
-               GraphicsColor->RGBColor[0, 0, 0],
-               FontColor->RGBColor[0, 0, 0]], 
-              StyleBox["c",
-               StripOnInput->False,
-               ShowSyntaxStyles->False,
-               AutoSpacing->False,
-               ZeroWidthTimes->True,
-               LineColor->RGBColor[0, 0, 0],
-               FrontFaceColor->RGBColor[0, 0, 0],
-               BackFaceColor->RGBColor[0, 0, 0],
-               GraphicsColor->RGBColor[0, 0, 0],
-               FontColor->RGBColor[0, 0, 0]]], "&", 
-             InterpretationBox[
-              SuperscriptBox[
-               StyleBox["nadph",
-                StripOnInput->False,
-                ShowSyntaxStyles->False,
-                AutoSpacing->False,
-                ZeroWidthTimes->True,
-                LineColor->RGBColor[0, 0, 0],
-                FrontFaceColor->RGBColor[0, 0, 0],
-                BackFaceColor->RGBColor[0, 0, 0],
-                GraphicsColor->RGBColor[0, 0, 0],
-                FontColor->RGBColor[0, 0, 0]], 
-               StyleBox["c",
-                StripOnInput->False,
-                ShowSyntaxStyles->False,
-                AutoSpacing->False,
-                ZeroWidthTimes->True,
-                LineColor->RGBColor[0, 0, 0],
-                FrontFaceColor->RGBColor[0, 0, 0],
-                BackFaceColor->RGBColor[0, 0, 0],
-                GraphicsColor->RGBColor[0, 0, 0],
-                FontColor->RGBColor[0, 0, 0]]],
-              Toolbox`metabolite["nadph", "c"],
-              Editable->False,
-              Selectable->False], "&", 
-             InterpretationBox[
-              SuperscriptBox[
-               StyleBox["glyc3p",
-                StripOnInput->False,
-                ShowSyntaxStyles->False,
-                AutoSpacing->False,
-                ZeroWidthTimes->True,
-                LineColor->RGBColor[0, 0, 0],
-                FrontFaceColor->RGBColor[0, 0, 0],
-                BackFaceColor->RGBColor[0, 0, 0],
-                GraphicsColor->RGBColor[0, 0, 0],
-                FontColor->RGBColor[0, 0, 0]], 
-               StyleBox["c",
-                StripOnInput->False,
-                ShowSyntaxStyles->False,
-                AutoSpacing->False,
-                ZeroWidthTimes->True,
-                LineColor->RGBColor[0, 0, 0],
-                FrontFaceColor->RGBColor[0, 0, 0],
-                BackFaceColor->RGBColor[0, 0, 0],
-                GraphicsColor->RGBColor[0, 0, 0],
-                FontColor->RGBColor[0, 0, 0]]],
-              Toolbox`metabolite["glyc3p", "c"],
-              Editable->False,
-              Selectable->False]}],
-            Background->RGBColor[0.9, 0.9, 0.9]], "", ""],
-          
-          Toolbox`enzyme[{
-           "ID" -> "G3PD2", "Compartment" -> "c", "BoundCatalytic" -> {
-              Toolbox`Private`wrap[Toolbox`metabolite]["nadph", "c"], 
-              Toolbox`Private`wrap[Toolbox`metabolite]["glyc3p", "c"]}, 
-            "BoundActivators" -> {}, "BoundInhibitors" -> {}, 
-            "CatalyticSites" -> DirectedInfinity[1], "ActivationSites" -> 0, 
-            "InhibitionSites" -> 0}],
-          Editable->False,
-          Selectable->False]}], 
-        StyleBox[
-         RowBox[{"G3PD2_NC", "_glyc3p"}],
-         StripOnInput->False,
-         ShowSyntaxStyles->False,
-         AutoSpacing->False,
-         ZeroWidthTimes->True,
-         LineColor->RGBColor[0, 0, 0],
-         FrontFaceColor->RGBColor[0, 0, 0],
-         BackFaceColor->RGBColor[0, 0, 0],
-         GraphicsColor->RGBColor[0, 0, 0],
-         FontColor->RGBColor[0, 0, 0]]],
-       Toolbox`reaction["G3PD2_NC_glyc3p", {
-         Toolbox`enzyme[{
-          "ID" -> "G3PD2", "Compartment" -> "c", "BoundCatalytic" -> {
-             Toolbox`Private`wrap[Toolbox`metabolite]["glyc3p", "c"]}, 
-           "BoundActivators" -> {}, "BoundInhibitors" -> {}, "CatalyticSites" -> 
-           DirectedInfinity[1], "ActivationSites" -> 0, "InhibitionSites" -> 
-           0}], 
-         Toolbox`metabolite["nadph", "c"]}, {
-         Toolbox`enzyme[{
-          "ID" -> "G3PD2", "Compartment" -> "c", "BoundCatalytic" -> {
-             Toolbox`Private`wrap[Toolbox`metabolite]["nadph", "c"], 
-             Toolbox`Private`wrap[Toolbox`metabolite]["glyc3p", "c"]}, 
-           "BoundActivators" -> {}, "BoundInhibitors" -> {}, "CatalyticSites" -> 
-           DirectedInfinity[1], "ActivationSites" -> 0, "InhibitionSites" -> 
-           0}]}, {1, 1, 1}, True],
-       Editable->False,
-       Selectable->False]},
-     {
-      InterpretationBox[
-       OverscriptBox[
-        RowBox[{
-         RowBox[{
-          InterpretationBox[
-           UnderoverscriptBox[
-            StyleBox[
-             RowBox[{
-              SuperscriptBox[
-               StyleBox["G3PD2",
-                StripOnInput->False,
-                ShowSyntaxStyles->False,
-                AutoSpacing->False,
-                ZeroWidthTimes->True,
-                LineColor->RGBColor[0, 0, 0],
-                FrontFaceColor->RGBColor[0, 0, 0],
-                BackFaceColor->RGBColor[0, 0, 0],
-                GraphicsColor->RGBColor[0, 0, 0],
-                FontColor->RGBColor[0, 0, 0]], 
-               StyleBox["c",
-                StripOnInput->False,
-                ShowSyntaxStyles->False,
-                AutoSpacing->False,
-                ZeroWidthTimes->True,
-                LineColor->RGBColor[0, 0, 0],
-                FrontFaceColor->RGBColor[0, 0, 0],
-                BackFaceColor->RGBColor[0, 0, 0],
-                GraphicsColor->RGBColor[0, 0, 0],
-                FontColor->RGBColor[0, 0, 0]]], "&", 
-              InterpretationBox[
-               SuperscriptBox[
-                StyleBox["nadp",
-                 StripOnInput->False,
-                 ShowSyntaxStyles->False,
-                 AutoSpacing->False,
-                 ZeroWidthTimes->True,
-                 LineColor->RGBColor[0, 0, 0],
-                 FrontFaceColor->RGBColor[0, 0, 0],
-                 BackFaceColor->RGBColor[0, 0, 0],
-                 GraphicsColor->RGBColor[0, 0, 0],
-                 FontColor->RGBColor[0, 0, 0]], 
-                StyleBox["c",
-                 StripOnInput->False,
-                 ShowSyntaxStyles->False,
-                 AutoSpacing->False,
-                 ZeroWidthTimes->True,
-                 LineColor->RGBColor[0, 0, 0],
-                 FrontFaceColor->RGBColor[0, 0, 0],
-                 BackFaceColor->RGBColor[0, 0, 0],
-                 GraphicsColor->RGBColor[0, 0, 0],
-                 FontColor->RGBColor[0, 0, 0]]],
-               Toolbox`metabolite["nadp", "c"],
-               Editable->False,
-               Selectable->False]}],
-             Background->RGBColor[0.9, 0.9, 0.9]], "", ""],
-           
-           Toolbox`enzyme[{
-            "ID" -> "G3PD2", "Compartment" -> "c", "BoundCatalytic" -> {
-               Toolbox`Private`wrap[Toolbox`metabolite]["nadp", "c"]}, 
-             "BoundActivators" -> {}, "BoundInhibitors" -> {}, 
-             "CatalyticSites" -> DirectedInfinity[1], "ActivationSites" -> 0, 
-             "InhibitionSites" -> 0}],
-           Editable->False,
-           Selectable->False], "+", 
-          InterpretationBox[
-           SuperscriptBox[
-            StyleBox["dhap",
-             StripOnInput->False,
-             ShowSyntaxStyles->False,
-             AutoSpacing->False,
-             ZeroWidthTimes->True,
-             LineColor->RGBColor[0, 0, 0],
-             FrontFaceColor->RGBColor[0, 0, 0],
-             BackFaceColor->RGBColor[0, 0, 0],
-             GraphicsColor->RGBColor[0, 0, 0],
-             FontColor->RGBColor[0, 0, 0]], 
-            StyleBox["c",
-             StripOnInput->False,
-             ShowSyntaxStyles->False,
-             AutoSpacing->False,
-             ZeroWidthTimes->True,
-             LineColor->RGBColor[0, 0, 0],
-             FrontFaceColor->RGBColor[0, 0, 0],
-             BackFaceColor->RGBColor[0, 0, 0],
-             GraphicsColor->RGBColor[0, 0, 0],
-             FontColor->RGBColor[0, 0, 0]]],
-           Toolbox`metabolite["dhap", "c"],
-           Editable->False,
-           Selectable->False]}], "\[Equilibrium]", 
-         InterpretationBox[
-          UnderoverscriptBox[
-           StyleBox[
-            RowBox[{
-             SuperscriptBox[
-              StyleBox["G3PD2",
-               StripOnInput->False,
-               ShowSyntaxStyles->False,
-               AutoSpacing->False,
-               ZeroWidthTimes->True,
-               LineColor->RGBColor[0, 0, 0],
-               FrontFaceColor->RGBColor[0, 0, 0],
-               BackFaceColor->RGBColor[0, 0, 0],
-               GraphicsColor->RGBColor[0, 0, 0],
-               FontColor->RGBColor[0, 0, 0]], 
-              StyleBox["c",
-               StripOnInput->False,
-               ShowSyntaxStyles->False,
-               AutoSpacing->False,
-               ZeroWidthTimes->True,
-               LineColor->RGBColor[0, 0, 0],
-               FrontFaceColor->RGBColor[0, 0, 0],
-               BackFaceColor->RGBColor[0, 0, 0],
-               GraphicsColor->RGBColor[0, 0, 0],
-               FontColor->RGBColor[0, 0, 0]]], "&", 
-             InterpretationBox[
-              SuperscriptBox[
-               StyleBox["nadp",
-                StripOnInput->False,
-                ShowSyntaxStyles->False,
-                AutoSpacing->False,
-                ZeroWidthTimes->True,
-                LineColor->RGBColor[0, 0, 0],
-                FrontFaceColor->RGBColor[0, 0, 0],
-                BackFaceColor->RGBColor[0, 0, 0],
-                GraphicsColor->RGBColor[0, 0, 0],
-                FontColor->RGBColor[0, 0, 0]], 
-               StyleBox["c",
-                StripOnInput->False,
-                ShowSyntaxStyles->False,
-                AutoSpacing->False,
-                ZeroWidthTimes->True,
-                LineColor->RGBColor[0, 0, 0],
-                FrontFaceColor->RGBColor[0, 0, 0],
-                BackFaceColor->RGBColor[0, 0, 0],
-                GraphicsColor->RGBColor[0, 0, 0],
-                FontColor->RGBColor[0, 0, 0]]],
-              Toolbox`metabolite["nadp", "c"],
-              Editable->False,
-              Selectable->False], "&", 
-             InterpretationBox[
-              SuperscriptBox[
-               StyleBox["dhap",
-                StripOnInput->False,
-                ShowSyntaxStyles->False,
-                AutoSpacing->False,
-                ZeroWidthTimes->True,
-                LineColor->RGBColor[0, 0, 0],
-                FrontFaceColor->RGBColor[0, 0, 0],
-                BackFaceColor->RGBColor[0, 0, 0],
-                GraphicsColor->RGBColor[0, 0, 0],
-                FontColor->RGBColor[0, 0, 0]], 
-               StyleBox["c",
-                StripOnInput->False,
-                ShowSyntaxStyles->False,
-                AutoSpacing->False,
-                ZeroWidthTimes->True,
-                LineColor->RGBColor[0, 0, 0],
-                FrontFaceColor->RGBColor[0, 0, 0],
-                BackFaceColor->RGBColor[0, 0, 0],
-                GraphicsColor->RGBColor[0, 0, 0],
-                FontColor->RGBColor[0, 0, 0]]],
-              Toolbox`metabolite["dhap", "c"],
-              Editable->False,
-              Selectable->False]}],
-            Background->RGBColor[0.9, 0.9, 0.9]], "", ""],
-          Toolbox`enzyme[{
-           "ID" -> "G3PD2", "Compartment" -> "c", "BoundCatalytic" -> {
-              Toolbox`Private`wrap[Toolbox`metabolite]["nadp", "c"], 
-              Toolbox`Private`wrap[Toolbox`metabolite]["dhap", "c"]}, 
-            "BoundActivators" -> {}, "BoundInhibitors" -> {}, 
-            "CatalyticSites" -> DirectedInfinity[1], "ActivationSites" -> 0, 
-            "InhibitionSites" -> 0}],
-          Editable->False,
-          Selectable->False]}], 
-        StyleBox[
-         RowBox[{"G3PD2_Kincu", "_dhap", "_", "1", "_nadp"}],
-         StripOnInput->False,
-         ShowSyntaxStyles->False,
-         AutoSpacing->False,
-         ZeroWidthTimes->True,
-         LineColor->RGBColor[0, 0, 0],
-         FrontFaceColor->RGBColor[0, 0, 0],
-         BackFaceColor->RGBColor[0, 0, 0],
-         GraphicsColor->RGBColor[0, 0, 0],
-         FontColor->RGBColor[0, 0, 0]]],
-       Toolbox`reaction["G3PD2_Kincu_dhap_1_nadp", {
-         Toolbox`enzyme[{
-          "ID" -> "G3PD2", "Compartment" -> "c", "BoundCatalytic" -> {
-             Toolbox`Private`wrap[Toolbox`metabolite]["nadp", "c"]}, 
-           "BoundActivators" -> {}, "BoundInhibitors" -> {}, "CatalyticSites" -> 
-           DirectedInfinity[1], "ActivationSites" -> 0, "InhibitionSites" -> 
-           0}], 
-         Toolbox`metabolite["dhap", "c"]}, {
-         Toolbox`enzyme[{
-          "ID" -> "G3PD2", "Compartment" -> "c", "BoundCatalytic" -> {
-             Toolbox`Private`wrap[Toolbox`metabolite]["nadp", "c"], 
-             Toolbox`Private`wrap[Toolbox`metabolite]["dhap", "c"]}, 
-           "BoundActivators" -> {}, "BoundInhibitors" -> {}, "CatalyticSites" -> 
-           DirectedInfinity[1], "ActivationSites" -> 0, "InhibitionSites" -> 
-           0}]}, {1, 1, 1}, True],
-       Editable->False,
-       Selectable->False]},
-     {
-      InterpretationBox[
-       OverscriptBox[
-        RowBox[{
-         RowBox[{
-          InterpretationBox[
-           UnderoverscriptBox[
-            StyleBox[
-             SuperscriptBox[
-              StyleBox["G3PD2",
-               StripOnInput->False,
-               ShowSyntaxStyles->False,
-               AutoSpacing->False,
-               ZeroWidthTimes->True,
-               LineColor->RGBColor[0, 0, 0],
-               FrontFaceColor->RGBColor[0, 0, 0],
-               BackFaceColor->RGBColor[0, 0, 0],
-               GraphicsColor->RGBColor[0, 0, 0],
-               FontColor->RGBColor[0, 0, 0]], 
-              StyleBox["c",
-               StripOnInput->False,
-               ShowSyntaxStyles->False,
-               AutoSpacing->False,
-               ZeroWidthTimes->True,
-               LineColor->RGBColor[0, 0, 0],
-               FrontFaceColor->RGBColor[0, 0, 0],
-               BackFaceColor->RGBColor[0, 0, 0],
-               GraphicsColor->RGBColor[0, 0, 0],
-               FontColor->RGBColor[0, 0, 0]]],
-             Background->RGBColor[0.9, 0.9, 0.9]], "", ""],
-           
-           Toolbox`enzyme[{
-            "ID" -> "G3PD2", "Compartment" -> "c", "BoundCatalytic" -> {}, 
-             "BoundActivators" -> {}, "BoundInhibitors" -> {}, 
-             "CatalyticSites" -> DirectedInfinity[1], "ActivationSites" -> 0, 
-             "InhibitionSites" -> 0}],
-           Editable->False,
-           Selectable->False], "+", 
-          InterpretationBox[
-           SuperscriptBox[
-            StyleBox["dhap",
-             StripOnInput->False,
-             ShowSyntaxStyles->False,
-             AutoSpacing->False,
-             ZeroWidthTimes->True,
-             LineColor->RGBColor[0, 0, 0],
-             FrontFaceColor->RGBColor[0, 0, 0],
-             BackFaceColor->RGBColor[0, 0, 0],
-             GraphicsColor->RGBColor[0, 0, 0],
-             FontColor->RGBColor[0, 0, 0]], 
-            StyleBox["c",
-             StripOnInput->False,
-             ShowSyntaxStyles->False,
-             AutoSpacing->False,
-             ZeroWidthTimes->True,
-             LineColor->RGBColor[0, 0, 0],
-             FrontFaceColor->RGBColor[0, 0, 0],
-             BackFaceColor->RGBColor[0, 0, 0],
-             GraphicsColor->RGBColor[0, 0, 0],
-             FontColor->RGBColor[0, 0, 0]]],
-           Toolbox`metabolite["dhap", "c"],
-           Editable->False,
-           Selectable->False]}], "\[Equilibrium]", 
-         InterpretationBox[
-          UnderoverscriptBox[
-           StyleBox[
-            RowBox[{
-             SuperscriptBox[
-              StyleBox["G3PD2",
-               StripOnInput->False,
-               ShowSyntaxStyles->False,
-               AutoSpacing->False,
-               ZeroWidthTimes->True,
-               LineColor->RGBColor[0, 0, 0],
-               FrontFaceColor->RGBColor[0, 0, 0],
-               BackFaceColor->RGBColor[0, 0, 0],
-               GraphicsColor->RGBColor[0, 0, 0],
-               FontColor->RGBColor[0, 0, 0]], 
-              StyleBox["c",
-               StripOnInput->False,
-               ShowSyntaxStyles->False,
-               AutoSpacing->False,
-               ZeroWidthTimes->True,
-               LineColor->RGBColor[0, 0, 0],
-               FrontFaceColor->RGBColor[0, 0, 0],
-               BackFaceColor->RGBColor[0, 0, 0],
-               GraphicsColor->RGBColor[0, 0, 0],
-               FontColor->RGBColor[0, 0, 0]]], "&", 
-             InterpretationBox[
-              SuperscriptBox[
-               StyleBox["dhap",
-                StripOnInput->False,
-                ShowSyntaxStyles->False,
-                AutoSpacing->False,
-                ZeroWidthTimes->True,
-                LineColor->RGBColor[0, 0, 0],
-                FrontFaceColor->RGBColor[0, 0, 0],
-                BackFaceColor->RGBColor[0, 0, 0],
-                GraphicsColor->RGBColor[0, 0, 0],
-                FontColor->RGBColor[0, 0, 0]], 
-               StyleBox["c",
-                StripOnInput->False,
-                ShowSyntaxStyles->False,
-                AutoSpacing->False,
-                ZeroWidthTimes->True,
-                LineColor->RGBColor[0, 0, 0],
-                FrontFaceColor->RGBColor[0, 0, 0],
-                BackFaceColor->RGBColor[0, 0, 0],
-                GraphicsColor->RGBColor[0, 0, 0],
-                FontColor->RGBColor[0, 0, 0]]],
-              Toolbox`metabolite["dhap", "c"],
-              Editable->False,
-              Selectable->False]}],
-            Background->RGBColor[0.9, 0.9, 0.9]], "", ""],
-          
-          Toolbox`enzyme[{
-           "ID" -> "G3PD2", "Compartment" -> "c", "BoundCatalytic" -> {
-              Toolbox`Private`wrap[Toolbox`metabolite]["dhap", "c"]}, 
-            "BoundActivators" -> {}, "BoundInhibitors" -> {}, 
-            "CatalyticSites" -> DirectedInfinity[1], "ActivationSites" -> 0, 
-            "InhibitionSites" -> 0}],
-          Editable->False,
-          Selectable->False]}], 
-        StyleBox[
-         RowBox[{"G3PD2_Kincc", "_dhap", "_", "1", "_nadp"}],
-         StripOnInput->False,
-         ShowSyntaxStyles->False,
-         AutoSpacing->False,
-         ZeroWidthTimes->True,
-         LineColor->RGBColor[0, 0, 0],
-         FrontFaceColor->RGBColor[0, 0, 0],
-         BackFaceColor->RGBColor[0, 0, 0],
-         GraphicsColor->RGBColor[0, 0, 0],
-         FontColor->RGBColor[0, 0, 0]]],
-       Toolbox`reaction["G3PD2_Kincc_dhap_1_nadp", {
-         Toolbox`enzyme[{
-          "ID" -> "G3PD2", "Compartment" -> "c", "BoundCatalytic" -> {}, 
-           "BoundActivators" -> {}, "BoundInhibitors" -> {}, "CatalyticSites" -> 
-           DirectedInfinity[1], "ActivationSites" -> 0, "InhibitionSites" -> 
-           0}], 
-         Toolbox`metabolite["dhap", "c"]}, {
-         Toolbox`enzyme[{
-          "ID" -> "G3PD2", "Compartment" -> "c", "BoundCatalytic" -> {
-             Toolbox`Private`wrap[Toolbox`metabolite]["dhap", "c"]}, 
-           "BoundActivators" -> {}, "BoundInhibitors" -> {}, "CatalyticSites" -> 
-           DirectedInfinity[1], "ActivationSites" -> 0, "InhibitionSites" -> 
-           0}]}, {1, 1, 1}, True],
-       Editable->False,
-       Selectable->False]},
-     {
-      InterpretationBox[
-       OverscriptBox[
-        RowBox[{
-         RowBox[{
-          InterpretationBox[
-           UnderoverscriptBox[
-            StyleBox[
-             RowBox[{
-              SuperscriptBox[
-               StyleBox["G3PD2",
-                StripOnInput->False,
-                ShowSyntaxStyles->False,
-                AutoSpacing->False,
-                ZeroWidthTimes->True,
-                LineColor->RGBColor[0, 0, 0],
-                FrontFaceColor->RGBColor[0, 0, 0],
-                BackFaceColor->RGBColor[0, 0, 0],
-                GraphicsColor->RGBColor[0, 0, 0],
-                FontColor->RGBColor[0, 0, 0]], 
-               StyleBox["c",
-                StripOnInput->False,
-                ShowSyntaxStyles->False,
-                AutoSpacing->False,
-                ZeroWidthTimes->True,
-                LineColor->RGBColor[0, 0, 0],
-                FrontFaceColor->RGBColor[0, 0, 0],
-                BackFaceColor->RGBColor[0, 0, 0],
-                GraphicsColor->RGBColor[0, 0, 0],
-                FontColor->RGBColor[0, 0, 0]]], "&", 
-              InterpretationBox[
-               SuperscriptBox[
-                StyleBox["dhap",
-                 StripOnInput->False,
-                 ShowSyntaxStyles->False,
-                 AutoSpacing->False,
-                 ZeroWidthTimes->True,
-                 LineColor->RGBColor[0, 0, 0],
-                 FrontFaceColor->RGBColor[0, 0, 0],
-                 BackFaceColor->RGBColor[0, 0, 0],
-                 GraphicsColor->RGBColor[0, 0, 0],
-                 FontColor->RGBColor[0, 0, 0]], 
-                StyleBox["c",
-                 StripOnInput->False,
-                 ShowSyntaxStyles->False,
-                 AutoSpacing->False,
-                 ZeroWidthTimes->True,
-                 LineColor->RGBColor[0, 0, 0],
-                 FrontFaceColor->RGBColor[0, 0, 0],
-                 BackFaceColor->RGBColor[0, 0, 0],
-                 GraphicsColor->RGBColor[0, 0, 0],
-                 FontColor->RGBColor[0, 0, 0]]],
-               Toolbox`metabolite["dhap", "c"],
-               Editable->False,
-               Selectable->False]}],
-             Background->RGBColor[0.9, 0.9, 0.9]], "", ""],
-           
-           Toolbox`enzyme[{
-            "ID" -> "G3PD2", "Compartment" -> "c", "BoundCatalytic" -> {
-               Toolbox`Private`wrap[Toolbox`metabolite]["dhap", "c"]}, 
-             "BoundActivators" -> {}, "BoundInhibitors" -> {}, 
-             "CatalyticSites" -> DirectedInfinity[1], "ActivationSites" -> 0, 
-             "InhibitionSites" -> 0}],
-           Editable->False,
-           Selectable->False], "+", 
-          InterpretationBox[
-           SuperscriptBox[
-            StyleBox["nadp",
-             StripOnInput->False,
-             ShowSyntaxStyles->False,
-             AutoSpacing->False,
-             ZeroWidthTimes->True,
-             LineColor->RGBColor[0, 0, 0],
-             FrontFaceColor->RGBColor[0, 0, 0],
-             BackFaceColor->RGBColor[0, 0, 0],
-             GraphicsColor->RGBColor[0, 0, 0],
-             FontColor->RGBColor[0, 0, 0]], 
-            StyleBox["c",
-             StripOnInput->False,
-             ShowSyntaxStyles->False,
-             AutoSpacing->False,
-             ZeroWidthTimes->True,
-             LineColor->RGBColor[0, 0, 0],
-             FrontFaceColor->RGBColor[0, 0, 0],
-             BackFaceColor->RGBColor[0, 0, 0],
-             GraphicsColor->RGBColor[0, 0, 0],
-             FontColor->RGBColor[0, 0, 0]]],
-           Toolbox`metabolite["nadp", "c"],
-           Editable->False,
-           Selectable->False]}], "\[Equilibrium]", 
-         InterpretationBox[
-          UnderoverscriptBox[
-           StyleBox[
-            RowBox[{
-             SuperscriptBox[
-              StyleBox["G3PD2",
-               StripOnInput->False,
-               ShowSyntaxStyles->False,
-               AutoSpacing->False,
-               ZeroWidthTimes->True,
-               LineColor->RGBColor[0, 0, 0],
-               FrontFaceColor->RGBColor[0, 0, 0],
-               BackFaceColor->RGBColor[0, 0, 0],
-               GraphicsColor->RGBColor[0, 0, 0],
-               FontColor->RGBColor[0, 0, 0]], 
-              StyleBox["c",
-               StripOnInput->False,
-               ShowSyntaxStyles->False,
-               AutoSpacing->False,
-               ZeroWidthTimes->True,
-               LineColor->RGBColor[0, 0, 0],
-               FrontFaceColor->RGBColor[0, 0, 0],
-               BackFaceColor->RGBColor[0, 0, 0],
-               GraphicsColor->RGBColor[0, 0, 0],
-               FontColor->RGBColor[0, 0, 0]]], "&", 
-             InterpretationBox[
-              SuperscriptBox[
-               StyleBox["nadp",
-                StripOnInput->False,
-                ShowSyntaxStyles->False,
-                AutoSpacing->False,
-                ZeroWidthTimes->True,
-                LineColor->RGBColor[0, 0, 0],
-                FrontFaceColor->RGBColor[0, 0, 0],
-                BackFaceColor->RGBColor[0, 0, 0],
-                GraphicsColor->RGBColor[0, 0, 0],
-                FontColor->RGBColor[0, 0, 0]], 
-               StyleBox["c",
-                StripOnInput->False,
-                ShowSyntaxStyles->False,
-                AutoSpacing->False,
-                ZeroWidthTimes->True,
-                LineColor->RGBColor[0, 0, 0],
-                FrontFaceColor->RGBColor[0, 0, 0],
-                BackFaceColor->RGBColor[0, 0, 0],
-                GraphicsColor->RGBColor[0, 0, 0],
-                FontColor->RGBColor[0, 0, 0]]],
-              Toolbox`metabolite["nadp", "c"],
-              Editable->False,
-              Selectable->False], "&", 
-             InterpretationBox[
-              SuperscriptBox[
-               StyleBox["dhap",
-                StripOnInput->False,
-                ShowSyntaxStyles->False,
-                AutoSpacing->False,
-                ZeroWidthTimes->True,
-                LineColor->RGBColor[0, 0, 0],
-                FrontFaceColor->RGBColor[0, 0, 0],
-                BackFaceColor->RGBColor[0, 0, 0],
-                GraphicsColor->RGBColor[0, 0, 0],
-                FontColor->RGBColor[0, 0, 0]], 
-               StyleBox["c",
-                StripOnInput->False,
-                ShowSyntaxStyles->False,
-                AutoSpacing->False,
-                ZeroWidthTimes->True,
-                LineColor->RGBColor[0, 0, 0],
-                FrontFaceColor->RGBColor[0, 0, 0],
-                BackFaceColor->RGBColor[0, 0, 0],
-                GraphicsColor->RGBColor[0, 0, 0],
-                FontColor->RGBColor[0, 0, 0]]],
-              Toolbox`metabolite["dhap", "c"],
-              Editable->False,
-              Selectable->False]}],
-            Background->RGBColor[0.9, 0.9, 0.9]], "", ""],
-          
-          Toolbox`enzyme[{
-           "ID" -> "G3PD2", "Compartment" -> "c", "BoundCatalytic" -> {
-              Toolbox`Private`wrap[Toolbox`metabolite]["nadp", "c"], 
-              Toolbox`Private`wrap[Toolbox`metabolite]["dhap", "c"]}, 
-            "BoundActivators" -> {}, "BoundInhibitors" -> {}, 
-            "CatalyticSites" -> DirectedInfinity[1], "ActivationSites" -> 0, 
-            "InhibitionSites" -> 0}],
-          Editable->False,
-          Selectable->False]}], 
-        StyleBox[
-         RowBox[{"G3PD2_NC", "_dhap"}],
-         StripOnInput->False,
-         ShowSyntaxStyles->False,
-         AutoSpacing->False,
-         ZeroWidthTimes->True,
-         LineColor->RGBColor[0, 0, 0],
-         FrontFaceColor->RGBColor[0, 0, 0],
-         BackFaceColor->RGBColor[0, 0, 0],
-         GraphicsColor->RGBColor[0, 0, 0],
-         FontColor->RGBColor[0, 0, 0]]],
-       Toolbox`reaction["G3PD2_NC_dhap", {
-         Toolbox`enzyme[{
-          "ID" -> "G3PD2", "Compartment" -> "c", "BoundCatalytic" -> {
-             Toolbox`Private`wrap[Toolbox`metabolite]["dhap", "c"]}, 
-           "BoundActivators" -> {}, "BoundInhibitors" -> {}, "CatalyticSites" -> 
-           DirectedInfinity[1], "ActivationSites" -> 0, "InhibitionSites" -> 
-           0}], 
-         Toolbox`metabolite["nadp", "c"]}, {
-         Toolbox`enzyme[{
-          "ID" -> "G3PD2", "Compartment" -> "c", "BoundCatalytic" -> {
-             Toolbox`Private`wrap[Toolbox`metabolite]["nadp", "c"], 
-             Toolbox`Private`wrap[Toolbox`metabolite]["dhap", "c"]}, 
-           "BoundActivators" -> {}, "BoundInhibitors" -> {}, "CatalyticSites" -> 
-           DirectedInfinity[1], "ActivationSites" -> 0, "InhibitionSites" -> 
-           0}]}, {1, 1, 1}, True],
-       Editable->False,
-       Selectable->False]}
-    },
-    GridBoxAlignment->{
-     "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
-      "RowsIndexed" -> {}},
-    GridBoxSpacings->{"Columns" -> {
-        Offset[0.27999999999999997`], {
-         Offset[0.5599999999999999]}, 
-        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
-        Offset[0.2], {
-         Offset[0.4]}, 
-        Offset[0.2]}, "RowsIndexed" -> {}}],
-   Column],
-  Function[BoxForm`e$, 
-   TableForm[BoxForm`e$]]]], "Output",
+    "haldaneRatiosList", ",", " ", "metsFull", ",", "  ", "metSatForSub", ",",
+      " ", "metSatRevSub", ",", "  ", "fileList", ",", " ", "fileListSub", 
+     ",", " ", "eqnNameList", ",", "eqnValList", ",", " ", "eqnValListPy", 
+     ",", " ", "eqnNameList", ",", " ", "rateConstsSub", ",", 
+     "\[IndentingNewLine]", "metsSub", ",", " ", "allCatalyticReactions", ",",
+      "nonCatalyticReactions", ",", " ", "unifiedRateConstList", ",", " ", 
+     "eqRateConstSub", ",", "absoluteFlux", ",", " ", "absoluteRateForward", 
+     ",", " ", "absoluteRateReverse", ",", "\[IndentingNewLine]", 
+     "relativeRateForward", ",", " ", "relativeRateReverse", ",", " ", 
+     "otherAbsoluteRatesForward", ",", " ", "otherAbsoluteRatesReverse"}], 
+    "}"}], " ", "=", "\[IndentingNewLine]", "\[IndentingNewLine]", "\t", 
+   RowBox[{"setUpFluxEquations", "[", 
+    RowBox[{
+    "enzymeModel", ",", " ", "rxn", ",", " ", "rxnName", ",", " ", 
+     "inputPath", ",", " ", "inhibitionList", ",", " ", 
+     RowBox[{"inhibitionList", "[", 
+      RowBox[{"[", 
+       RowBox[{"{", 
+        RowBox[{"2", ",", "3", ",", "8", ",", "9"}], "}"}], "]"}], "]"}], ",",
+      " ", "catalyticReactionsSetsList", ",", " ", "otherMetsReverseZeroSub", 
+     ",", "  ", "\n", "\t\t\t\t\t\t ", "otherMetsForwardZeroSub", ",", "  ", 
+     "simplifyMaxTime", ",", " ", "nActiveSites"}], "]"}]}], ";"}]], "Input",
  CellChangeTimes->{
-  3.702975347347093*^9, {3.7029755632148447`*^9, 3.702975570037231*^9}, 
-   3.702975625211285*^9, 3.702975945223836*^9, 3.7029759880743923`*^9, 
-   3.702976294269681*^9, 3.702977201564479*^9, 3.7029783838136187`*^9, 
-   3.702978430925148*^9, 3.703232096839736*^9, {3.7032324881613493`*^9, 
-   3.703232513575788*^9}}]
-}, Open  ]],
+  3.7032379837903843`*^9, {3.703238075089065*^9, 3.70323812753857*^9}, {
+   3.703238206576185*^9, 3.7032382585786*^9}}],
 
-Cell[BoxData[""], "Input",
- CellChangeTimes->{{3.702975344133861*^9, 3.702975344137651*^9}}],
+Cell[CellGroupData[{
+
+Cell[BoxData["\<\"kcat for\"\>"], "Print",
+ CellChangeTimes->{3.703238131154503*^9, 3.703238168072927*^9, 
+  3.703238252795528*^9}],
+
+Cell[BoxData["\<\"kcat rev\"\>"], "Print",
+ CellChangeTimes->{3.703238131154503*^9, 3.703238168072927*^9, 
+  3.70323825281269*^9}],
+
+Cell[BoxData["\<\"km for\"\>"], "Print",
+ CellChangeTimes->{3.703238131154503*^9, 3.703238168072927*^9, 
+  3.703238252815507*^9}],
+
+Cell[BoxData["\<\"km rev\"\>"], "Print",
+ CellChangeTimes->{3.703238131154503*^9, 3.703238168072927*^9, 
+  3.703238252872698*^9}]
+}, Open  ]]
+}, Open  ]],
 
 Cell[BoxData[
  RowBox[{
@@ -6424,183 +5118,11 @@ Cell[BoxData[
   RowBox[{"trueRes", ",", " ", "nonCatalyticReactions"}], "]"}]], "Input",
  CellChangeTimes->{{3.702976324054329*^9, 3.702976334366609*^9}}],
 
-Cell[BoxData["True"], "Output",
+Cell[BoxData["False"], "Output",
  CellChangeTimes->{{3.702976325143423*^9, 3.702976334844379*^9}, 
-   3.7029784382752857`*^9}]
-}, Open  ]],
-
-Cell[BoxData[
- RowBox[{"\[IndentingNewLine]", 
-  RowBox[{"(*", " ", 
-   RowBox[{
-   "get", " ", "flux", " ", "equation", " ", "including", " ", 
-    "inhibitions"}], "*)"}], "\[IndentingNewLine]", 
-  RowBox[{
-   RowBox[{
-    RowBox[{"simplifyMaxTime", " ", "=", " ", "100"}], ";"}], " ", 
-   RowBox[{"(*", 
-    RowBox[{"in", " ", "seconds"}], "*)"}], "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"absoluteFlux", "=", 
-     RowBox[{"getFluxEquation", "[", 
-      RowBox[{
-      "inputPath", ",", " ", "rxnName", ",", " ", "enzymeModel", ",", " ", 
-       "unifiedRateConstList", ",", " ", "transitionRateEqs", ",", " ", 
-       "simplifyMaxTime", ",", " ", "nActiveSites"}], "]"}]}], 
-    ";"}]}]}]], "Input"],
-
-Cell[BoxData[
- RowBox[{
-  RowBox[{"(*", 
-   RowBox[{
-   "Equivalent", " ", "Rate", " ", "Constant", " ", "Substitution", " ", 
-    "for", " ", "Random", " ", "Ordered", " ", "Mechanisms"}], "*)"}], 
-  "\[IndentingNewLine]", 
-  RowBox[{"(*", 
-   RowBox[{
-    RowBox[{"This", " ", "should", " ", "work", " ", "automatically"}], ",", 
-    RowBox[{
-    "a", " ", "substitution", " ", "rule", " ", "list", " ", "is", " ", 
-     "created", " ", "with", " ", "the", " ", 
-     RowBox[{"name", ":", 
-      RowBox[{"'", 
-       RowBox[{
-        RowBox[{"eqRateConstSub", "'"}], ".", "It"}], " ", "is", " ", "kind", 
-       " ", "of", " ", "a", " ", "greedy", " ", "section", " ", "of", " ", 
-       "code"}]}]}], ",", 
-    RowBox[{
-    "so", " ", "double", " ", "check", " ", "the", " ", "results", " ", "to", 
-     " ", "make", " ", "sure", " ", 
-     RowBox[{"they", "'"}], "re", " ", "accurate"}]}], "*)"}], 
-  "\[IndentingNewLine]", 
-  RowBox[{
-   RowBox[{
-    RowBox[{"eqRateConstSub", "=", 
-     RowBox[{"getEquivRateConsts", "[", 
-      RowBox[{
-      "enzymeModel", ",", " ", "eqRateConstSub", ",", " ", 
-       "nonCatalyticReactions"}], "]"}]}], ";"}], 
-   "\[IndentingNewLine]"}]}]], "Input",
- CellChangeTimes->{
-  3.70271803179412*^9, {3.702806442846635*^9, 3.70280644543314*^9}}],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- RowBox[{
-  RowBox[{
-   RowBox[{"{", 
-    RowBox[{
-    "absoluteRateForward", ",", " ", "absoluteRateReverse", ",", " ", 
-     "relativeRateForward", ",", " ", "relativeRateReverse", ",", " ", 
-     "otherAbsoluteRatesForward", ",", " ", "otherAbsoluteRatesReverse"}], 
-    "}"}], "=", 
-   RowBox[{"getRateEqs", "[", 
-    RowBox[{
-    "absoluteFlux", ",", " ", "unifiedRateConstList", ",", " ", 
-     "eqRateConstSub", ",", " ", "reverseZeroSub", ",", " ", "forwardZeroSub",
-      ",", " ", "volumeSub", ",", " ", "metSatForSub", ",", " ", 
-     "metSatRevSub", ",", " ", "absoluteFluxNoProdInhib", ",", " ", 
-     "absoluteFluxNoProdInhib", ",", "\[IndentingNewLine]", 
-     "otherMetsForwardZeroSub", ",", " ", "otherMetsReverseZeroSub"}], 
-    "]"}]}], ";"}]], "Input"],
-
-Cell[CellGroupData[{
-
-Cell[BoxData["\<\"kcat for\"\>"], "Print",
- CellChangeTimes->{
-  3.702806448453624*^9, 3.7028068107706823`*^9, 3.7028079760524387`*^9, 
-   3.70280889648239*^9, 3.7028093008191977`*^9, 3.702971750614234*^9, {
-   3.702977207111925*^9, 3.702977213637926*^9}, 3.70323210519171*^9, {
-   3.70323249181329*^9, 3.703232519344911*^9}}],
-
-Cell[BoxData["\<\"kcat rev\"\>"], "Print",
- CellChangeTimes->{
-  3.702806448453624*^9, 3.7028068107706823`*^9, 3.7028079760524387`*^9, 
-   3.70280889648239*^9, 3.7028093008191977`*^9, 3.702971750614234*^9, {
-   3.702977207111925*^9, 3.702977213637926*^9}, 3.70323210519171*^9, {
-   3.70323249181329*^9, 3.7032325198278923`*^9}}],
-
-Cell[BoxData["\<\"km for\"\>"], "Print",
- CellChangeTimes->{
-  3.702806448453624*^9, 3.7028068107706823`*^9, 3.7028079760524387`*^9, 
-   3.70280889648239*^9, 3.7028093008191977`*^9, 3.702971750614234*^9, {
-   3.702977207111925*^9, 3.702977213637926*^9}, 3.70323210519171*^9, {
-   3.70323249181329*^9, 3.7032325203052998`*^9}}],
-
-Cell[BoxData["\<\"km rev\"\>"], "Print",
- CellChangeTimes->{
-  3.702806448453624*^9, 3.7028068107706823`*^9, 3.7028079760524387`*^9, 
-   3.70280889648239*^9, 3.7028093008191977`*^9, 3.702971750614234*^9, {
-   3.702977207111925*^9, 3.702977213637926*^9}, 3.70323210519171*^9, {
-   3.70323249181329*^9, 3.703232520648342*^9}}]
+   3.7029784382752857`*^9, 3.703236369728812*^9, 3.703237547205789*^9}]
 }, Open  ]]
-}, Open  ]],
-
-Cell[BoxData[
- RowBox[{"\[IndentingNewLine]", "\[IndentingNewLine]", 
-  RowBox[{
-   RowBox[{
-    RowBox[{"haldaneRatiosList", "  ", "=", " ", 
-     RowBox[{"Table", "[", "\[IndentingNewLine]", "\t", 
-      RowBox[{
-       RowBox[{
-        RowBox[{"haldane", "=", 
-         RowBox[{
-          RowBox[{"haldaneRelation", "[", 
-           RowBox[{"KeqName", ",", "catalyticReactionsSet"}], "]"}], "/.", 
-          "unifiedRateConstList"}]}], ";", "\[IndentingNewLine]", "\t", 
-        RowBox[{"haldane", "[", 
-         RowBox[{"[", "2", "]"}], "]"}]}], ",", "\[IndentingNewLine]", 
-       RowBox[{"{", 
-        RowBox[{
-        "catalyticReactionsSet", ",", " ", "catalyticReactionsSetsList"}], 
-        "}"}]}], "]"}]}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]",
-    "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-    "Assemble", " ", "Rate", " ", "Constant", " ", "And", " ", "Metabolite", 
-     " ", "Substitutions", " ", "for", " ", "Export"}], "*)"}], 
-   "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{
-     RowBox[{"{", 
-      RowBox[{
-      "finalRateConsts", ",", "metsFull", ",", " ", "metsSub", ",", " ", 
-       "rateConstsSub"}], "}"}], "=", 
-     RowBox[{"getMetRatesSubs", "[", 
-      RowBox[{
-      "enzymeModel", ",", " ", "haldaneRatiosList", ",", " ", 
-       "absoluteRateForward", ",", " ", "absoluteRateReverse", ",", " ", 
-       "relativeRateForward", ",", " ", "relativeRateReverse", ",", "KeqVal", 
-       ",", "\[IndentingNewLine]", "\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t", 
-       "otherAbsoluteRatesForward", ",", " ", "otherAbsoluteRatesReverse"}], 
-      "]"}]}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{"Export", " ", "Equations"}], "*)"}], "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{
-     RowBox[{"{", 
-      RowBox[{
-      "eqnNameList", ",", " ", "eqnValList", ",", " ", "eqnValListPy", ",", 
-       " ", "fileList", ",", " ", "fileListSub"}], "}"}], "=", 
-     RowBox[{"exportRateEqs", "[", 
-      RowBox[{
-      "inputPath", ",", " ", "absoluteRateForward", ",", " ", 
-       "absoluteRateReverse", ",", " ", "relativeRateForward", ",", " ", 
-       "relativeRateReverse", ",", " ", "metsSub", ",", " ", "metSatForSub", 
-       ",", " ", "metSatRevSub", ",", " ", "rateConstsSub", ",", " ", 
-       "otherAbsoluteRatesForward", ",", " ", "otherAbsoluteRatesReverse"}], 
-      "]"}]}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   "\[IndentingNewLine]"}]}]], "Input",
- CellChangeTimes->{{3.689592564630452*^9, 3.689592579290135*^9}, 
-   3.689592627239296*^9, {3.689592753375087*^9, 3.689592754495549*^9}, {
-   3.695644476634062*^9, 3.695644523554031*^9}, {3.695714273404965*^9, 
-   3.695714273629366*^9}, {3.697046664613205*^9, 3.697046666174961*^9}, {
-   3.697047012903697*^9, 3.697047060223641*^9}, 3.6984000428287086`*^9, {
-   3.702717747409244*^9, 3.7027177571636763`*^9}, 3.7027178292528677`*^9, {
-   3.702718027926803*^9, 3.702718044632572*^9}, {3.702971764297595*^9, 
-   3.7029717677965527`*^9}, 3.703232108100371*^9}]
+}, Open  ]]
 }, Open  ]]
 }, Open  ]],
 
@@ -6739,8 +5261,8 @@ Cell[BoxData[
  RowBox[{"FilePrint", "@", "dataPath"}]], "Input"],
 
 Cell["\<\
-dhap[c]\tglyc3p[c]\tnadp[c]\tnadph[c]\tparam_G3PD2_total\tparam_pH\t\
-param_Temp\tFileFlag\tTarget_Data
+dhap[c]\tglyc3p[c]\tnadp[c]\tnadph[c]\tparamG3PD2_total\tparam_pH\tparam_Temp\
+\tFileFlag\tTarget_Data
 0\t0\t0\t0\t1\t7\t25\t\"/home/mrama/Dropbox/test \
 bla/MASSef/examples/fit_G3PD2/input/haldaneRatio_1.txt\"\t0.000024
 0\t0\t0\t0\t1\t7\t25\t\"/home/mrama/Dropbox/test \
@@ -7231,10 +5753,12 @@ bla/MASSef/examples/fit_G3PD2/input/prod_inhib_nadph.txt\"\t0.5131670194948623
 \"/home/mrama/Dropbox/test \
 bla/MASSef/examples/fit_G3PD2/input/prod_inhib_nadph.txt\"\t0.7692307692307693\
 \>", "Print",
+ GeneratedCell->False,
+ CellAutoOverwrite->False,
  CellChangeTimes->{3.702966089760662*^9, 3.702966413361278*^9, 
   3.702967761164448*^9, 3.70296797963535*^9, 3.702970820385481*^9, 
   3.702971876000194*^9, 3.702977229481098*^9, 3.703232349960072*^9, 
-  3.7032324205716867`*^9, 3.703232537831978*^9}]
+  3.7032324205716867`*^9, 3.703232537831978*^9, 3.703235836741493*^9}]
 }, Open  ]]
 }, Open  ]],
 
@@ -10892,7 +9416,7 @@ bla/MASSef/examples/fit_G3PD2/input/prod_inhib_nadph.txt\"\t0.7692307692307693\
  CellChangeTimes->{{3.70281037377944*^9, 3.7028103828253183`*^9}, 
    3.702970666884993*^9, 3.702970768534795*^9, 3.702972027327581*^9, 
    3.7032325485225143`*^9}]
-}, Open  ]]
+}, Closed]]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -11872,7 +10396,7 @@ bla/MASSef/examples/fit_G3PD2/input/prod_inhib_nadph.txt\"\t0.5131670194948623
 bla/MASSef/examples/fit_G3PD2/input/prod_inhib_nadph.txt\"\t0.7692307692307693\
 \>", "Print",
  CellChangeTimes->{3.703232406845189*^9, 3.703232568894362*^9}]
-}, Open  ]]
+}, Closed]]
 }, Open  ]]
 }, Open  ]],
 
@@ -11889,6 +10413,11 @@ Configure the Particle Swarm Optimization and Levenberg-Marquardt Algorithm\
 Cell[BoxData[{
  RowBox[{
   RowBox[{"numTrials", "=", "1"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"lowerParamBound", "=", 
+   RowBox[{"-", "6"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"upperParamBound", "=", "9"}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
    RowBox[{"{", 
@@ -11917,7 +10446,8 @@ Cell[BoxData[{
    3.699080175556538*^9, 3.699080176610743*^9}, {3.699093023162232*^9, 
    3.699093023543878*^9}, {3.69909640222742*^9, 3.699096402448701*^9}, 
    3.7027937601891117`*^9, 3.7027945053206263`*^9, 3.702802409130516*^9, {
-   3.7028028799136877`*^9, 3.702802881684051*^9}}],
+   3.7028028799136877`*^9, 3.702802881684051*^9}, {3.7032372475486403`*^9, 
+   3.7032372477427263`*^9}}],
 
 Cell[CellGroupData[{
 
@@ -38267,8 +36797,8 @@ Cell[BoxData[
 }, Open  ]]
 }, Open  ]]
 },
-WindowSize->{1920, 1024},
-WindowMargins->{{0, Automatic}, {0, Automatic}},
+WindowSize->{1539, 1012},
+WindowMargins->{{248, Automatic}, {-77, Automatic}},
 ShowSelection->True,
 FrontEndVersion->"11.0 for Linux x86 (64-bit) (September 21, 2016)",
 StyleDefinitions->"Default.nb"
@@ -38291,349 +36821,344 @@ Cell[CellGroupData[{
 Cell[1031, 34, 112, 1, 65, "Section"],
 Cell[1146, 37, 470, 10, 80, "Input"],
 Cell[CellGroupData[{
-Cell[1641, 51, 2806, 66, 330, "Input"],
-Cell[4450, 119, 475, 7, 24, "Print"]
+Cell[1641, 51, 2806, 66, 353, "Input"],
+Cell[4450, 119, 701, 10, 24, "Print"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[4974, 132, 121, 2, 65, "Section"],
-Cell[5098, 136, 2554, 67, 283, "Input"]
+Cell[5200, 135, 121, 2, 65, "Section"],
+Cell[5324, 139, 2554, 67, 306, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[7689, 208, 307, 4, 65, "Section"],
+Cell[7915, 211, 307, 4, 65, "Section"],
 Cell[CellGroupData[{
-Cell[8021, 216, 158, 2, 45, "Subsection"],
+Cell[8247, 219, 158, 2, 45, "Subsection"],
 Cell[CellGroupData[{
-Cell[8204, 222, 408, 8, 34, "Input"],
+Cell[8430, 225, 461, 9, 34, "Input"],
 Cell[CellGroupData[{
-Cell[8637, 234, 5576, 159, 35, "Print"],
-Cell[14216, 395, 763, 11, 26, "Print"],
-Cell[14982, 408, 735, 11, 24, "Print"],
-Cell[15720, 421, 738, 11, 24, "Print"],
-Cell[16461, 434, 726, 11, 24, "Print"],
-Cell[17190, 447, 736, 11, 24, "Print"],
-Cell[17929, 460, 6351, 158, 157, "Print"],
-Cell[24283, 620, 726, 11, 24, "Print"],
-Cell[25012, 633, 738, 11, 24, "Print"],
-Cell[25753, 646, 1414, 29, 26, "Print"],
-Cell[27170, 677, 724, 11, 24, "Print"],
-Cell[27897, 690, 736, 11, 24, "Print"],
-Cell[28636, 703, 1386, 28, 26, "Print"],
-Cell[30025, 733, 724, 11, 24, "Print"],
-Cell[30752, 746, 742, 11, 24, "Print"],
-Cell[31497, 759, 28420, 705, 443, "Print"],
-Cell[59920, 1466, 724, 11, 24, "Print"],
-Cell[60647, 1479, 742, 11, 24, "Print"],
-Cell[61392, 1492, 1461, 29, 26, "Print"],
-Cell[62856, 1523, 724, 11, 24, "Print"],
-Cell[63583, 1536, 741, 11, 24, "Print"],
-Cell[64327, 1549, 1410, 29, 26, "Print"]
+Cell[8916, 238, 5788, 162, 35, "Print"],
+Cell[14707, 402, 977, 14, 26, "Print"],
+Cell[15687, 418, 949, 14, 24, "Print"],
+Cell[16639, 434, 954, 14, 24, "Print"],
+Cell[17596, 450, 940, 14, 24, "Print"],
+Cell[18539, 466, 948, 14, 24, "Print"],
+Cell[19490, 482, 6565, 161, 157, "Print"],
+Cell[26058, 645, 937, 14, 24, "Print"],
+Cell[26998, 661, 952, 14, 24, "Print"],
+Cell[27953, 677, 1628, 32, 26, "Print"],
+Cell[29584, 711, 938, 14, 24, "Print"],
+Cell[30525, 727, 950, 14, 24, "Print"],
+Cell[31478, 743, 1599, 31, 26, "Print"],
+Cell[33080, 776, 937, 14, 24, "Print"],
+Cell[34020, 792, 956, 14, 24, "Print"],
+Cell[34979, 808, 28632, 708, 443, "Print"],
+Cell[63614, 1518, 938, 14, 24, "Print"],
+Cell[64555, 1534, 956, 14, 24, "Print"],
+Cell[65514, 1550, 1675, 32, 26, "Print"],
+Cell[67192, 1584, 938, 14, 24, "Print"],
+Cell[68133, 1600, 957, 14, 24, "Print"],
+Cell[69093, 1616, 1625, 32, 26, "Print"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[65798, 1585, 113, 1, 45, "Subsection"],
-Cell[65914, 1588, 8504, 199, 44, "Output"],
-Cell[74421, 1789, 658, 19, 49, "Input"],
+Cell[70779, 1655, 113, 1, 45, "Subsection"],
+Cell[70895, 1658, 8504, 199, 44, "Output"],
+Cell[79402, 1859, 658, 19, 49, "Input"],
 Cell[CellGroupData[{
-Cell[75104, 1812, 4698, 77, 259, "Input"],
-Cell[79805, 1891, 34945, 878, 62, "Output"]
+Cell[80085, 1882, 4791, 79, 260, "Input"],
+Cell[84879, 1963, 35187, 882, 119, "Output"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[114799, 2775, 166, 2, 45, "Subsection"],
-Cell[114968, 2779, 37177, 906, 167, "Input"]
+Cell[120115, 2851, 166, 2, 45, "Subsection"],
+Cell[120284, 2855, 37177, 906, 167, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[152182, 3690, 169, 3, 45, "Subsection"],
-Cell[152354, 3695, 14975, 413, 1233, "Input"],
+Cell[157498, 3766, 190, 3, 45, "Subsection"],
 Cell[CellGroupData[{
-Cell[167354, 4112, 751, 18, 78, "Input"],
-Cell[168108, 4132, 47239, 1135, 326, "Output"]
-}, Open  ]],
-Cell[215362, 5270, 92, 1, 32, "Input"],
-Cell[215457, 5273, 49415, 1144, 318, "Input"],
+Cell[157713, 3773, 212, 3, 35, "Subsubsection"],
+Cell[157928, 3778, 4965, 134, 106, "Input"],
 Cell[CellGroupData[{
-Cell[264897, 6421, 178, 3, 34, "Input"],
-Cell[265078, 6426, 125, 2, 32, "Output"]
-}, Open  ]],
-Cell[265218, 6431, 711, 18, 101, "Input"],
-Cell[265932, 6451, 1283, 33, 101, "Input"],
+Cell[162918, 3916, 1589, 29, 148, "Input"],
 Cell[CellGroupData[{
-Cell[267240, 6488, 786, 17, 80, "Input"],
-Cell[CellGroupData[{
-Cell[268051, 6509, 326, 5, 24, "Print"],
-Cell[268380, 6516, 328, 5, 24, "Print"],
-Cell[268711, 6523, 326, 5, 24, "Print"],
-Cell[269040, 6530, 324, 5, 24, "Print"]
+Cell[164532, 3949, 131, 2, 24, "Print"],
+Cell[164666, 3953, 130, 2, 24, "Print"],
+Cell[164799, 3957, 129, 2, 24, "Print"],
+Cell[164931, 3961, 129, 2, 24, "Print"]
 }, Open  ]]
 }, Open  ]],
-Cell[269391, 6539, 3055, 63, 436, "Input"]
+Cell[165087, 3967, 49415, 1144, 318, "Input"],
+Cell[CellGroupData[{
+Cell[214527, 5115, 178, 3, 34, "Input"],
+Cell[214708, 5120, 170, 2, 32, "Output"]
+}, Open  ]]
+}, Open  ]]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[272495, 6608, 191, 2, 65, "Section"],
-Cell[272689, 6612, 686, 18, 124, "Input"],
+Cell[214951, 5130, 191, 2, 65, "Section"],
+Cell[215145, 5134, 686, 18, 124, "Input"],
 Cell[CellGroupData[{
-Cell[273400, 6634, 248, 4, 45, "Subsection"],
-Cell[273651, 6640, 1762, 31, 126, "Input"],
+Cell[215856, 5156, 248, 4, 45, "Subsection"],
+Cell[216107, 5162, 1762, 31, 149, "Input"],
 Cell[CellGroupData[{
-Cell[275438, 6675, 2567, 44, 215, "Input"],
-Cell[278008, 6721, 628, 11, 26, "Print"]
+Cell[217894, 5197, 2567, 44, 238, "Input"],
+Cell[220464, 5243, 628, 11, 26, "Print"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[278673, 6737, 64, 1, 32, "Input"],
-Cell[278740, 6740, 28398, 496, 2999, "Print"]
+Cell[221129, 5259, 64, 1, 32, "Input"],
+Cell[221196, 5262, 28469, 498, 2999, "Print"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[307187, 7242, 212, 6, 70, "Subsection"],
-Cell[307402, 7250, 1295, 33, 193, "Input"],
+Cell[249714, 5766, 212, 6, 70, "Subsection"],
+Cell[249929, 5774, 1295, 33, 193, "Input"],
 Cell[CellGroupData[{
-Cell[308722, 7287, 116, 1, 35, "Subsubsection"],
+Cell[251249, 5811, 116, 1, 35, "Subsubsection"],
 Cell[CellGroupData[{
-Cell[308863, 7292, 1426, 43, 103, "Input"],
-Cell[310292, 7337, 2392, 48, 243, "Output"]
+Cell[251390, 5816, 1426, 43, 103, "Input"],
+Cell[252819, 5861, 2392, 48, 243, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[312721, 7390, 4254, 124, 218, "Input"],
-Cell[316978, 7516, 323, 6, 34, "Output"],
-Cell[317304, 7524, 340, 7, 34, "Output"],
-Cell[317647, 7533, 340, 7, 34, "Output"],
-Cell[317990, 7542, 8045, 150, 245, "Output"]
+Cell[255248, 5914, 4254, 124, 218, "Input"],
+Cell[259505, 6040, 323, 6, 34, "Output"],
+Cell[259831, 6048, 340, 7, 34, "Output"],
+Cell[260174, 6057, 340, 7, 34, "Output"],
+Cell[260517, 6066, 8045, 150, 245, "Output"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[326084, 7698, 118, 1, 35, "Subsubsection"],
+Cell[268611, 6222, 118, 1, 35, "Subsubsection"],
 Cell[CellGroupData[{
-Cell[326227, 7703, 1255, 41, 103, "Input"],
-Cell[327485, 7746, 2384, 48, 244, "Output"]
+Cell[268754, 6227, 1255, 41, 103, "Input"],
+Cell[270012, 6270, 2384, 48, 244, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[329906, 7799, 4070, 122, 218, "Input"],
-Cell[333979, 7923, 257, 5, 38, "Output"],
-Cell[334239, 7930, 259, 5, 38, "Output"],
-Cell[334501, 7937, 258, 5, 34, "Output"],
-Cell[334762, 7944, 8061, 149, 369, "Output"]
+Cell[272433, 6323, 4070, 122, 218, "Input"],
+Cell[276506, 6447, 257, 5, 38, "Output"],
+Cell[276766, 6454, 259, 5, 38, "Output"],
+Cell[277028, 6461, 258, 5, 34, "Output"],
+Cell[277289, 6468, 8061, 149, 369, "Output"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[342872, 8099, 165, 2, 35, "Subsubsection"],
+Cell[285399, 6623, 165, 2, 35, "Subsubsection"],
 Cell[CellGroupData[{
-Cell[343062, 8105, 1303, 42, 103, "Input"],
-Cell[344368, 8149, 2411, 48, 243, "Output"]
+Cell[285589, 6629, 1303, 42, 103, "Input"],
+Cell[286895, 6673, 2411, 48, 243, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[346816, 8202, 4070, 122, 218, "Input"],
-Cell[350889, 8326, 284, 6, 34, "Output"],
-Cell[351176, 8334, 283, 6, 34, "Output"],
-Cell[351462, 8342, 283, 6, 34, "Output"],
-Cell[351748, 8350, 8054, 149, 381, "Output"]
+Cell[289343, 6726, 4070, 122, 218, "Input"],
+Cell[293416, 6850, 284, 6, 34, "Output"],
+Cell[293703, 6858, 283, 6, 34, "Output"],
+Cell[293989, 6866, 283, 6, 34, "Output"],
+Cell[294275, 6874, 8054, 149, 381, "Output"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[359851, 8505, 216, 3, 35, "Subsubsection"],
+Cell[302378, 7029, 216, 3, 35, "Subsubsection"],
 Cell[CellGroupData[{
-Cell[360092, 8512, 1351, 42, 103, "Input"],
-Cell[361446, 8556, 2423, 47, 244, "Output"]
+Cell[302619, 7036, 1351, 42, 103, "Input"],
+Cell[303973, 7080, 2423, 47, 244, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[363906, 8608, 4070, 122, 218, "Input"],
-Cell[367979, 8732, 289, 5, 38, "Output"],
-Cell[368271, 8739, 290, 5, 38, "Output"],
-Cell[368564, 8746, 306, 6, 34, "Output"],
-Cell[368873, 8754, 8102, 150, 369, "Output"]
+Cell[306433, 7132, 4070, 122, 218, "Input"],
+Cell[310506, 7256, 289, 5, 38, "Output"],
+Cell[310798, 7263, 290, 5, 38, "Output"],
+Cell[311091, 7270, 306, 6, 34, "Output"],
+Cell[311400, 7278, 8102, 150, 369, "Output"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[377024, 8910, 265, 3, 35, "Subsubsection"],
+Cell[319551, 7434, 265, 3, 35, "Subsubsection"],
 Cell[CellGroupData[{
-Cell[377314, 8917, 1400, 43, 103, "Input"],
-Cell[378717, 8962, 2447, 48, 234, "Output"]
+Cell[319841, 7441, 1400, 43, 103, "Input"],
+Cell[321244, 7486, 2447, 48, 234, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[381201, 9015, 4070, 122, 218, "Input"],
-Cell[385274, 9139, 326, 6, 34, "Output"],
-Cell[385603, 9147, 327, 6, 34, "Output"],
-Cell[385933, 9155, 310, 5, 34, "Output"],
-Cell[386246, 9162, 8136, 150, 381, "Output"]
+Cell[323728, 7539, 4070, 122, 218, "Input"],
+Cell[327801, 7663, 326, 6, 34, "Output"],
+Cell[328130, 7671, 327, 6, 34, "Output"],
+Cell[328460, 7679, 310, 5, 34, "Output"],
+Cell[328773, 7686, 8136, 150, 381, "Output"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[394431, 9318, 342, 4, 35, "Subsubsection"],
+Cell[336958, 7842, 342, 4, 35, "Subsubsection"],
 Cell[CellGroupData[{
-Cell[394798, 9326, 1451, 44, 103, "Input"],
-Cell[396252, 9372, 2486, 49, 243, "Output"]
+Cell[337325, 7850, 1451, 44, 103, "Input"],
+Cell[338779, 7896, 2486, 49, 243, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[398775, 9426, 4070, 122, 218, "Input"],
-Cell[402848, 9550, 337, 6, 34, "Output"],
-Cell[403188, 9558, 338, 6, 34, "Output"],
-Cell[403529, 9566, 351, 7, 34, "Output"],
-Cell[403883, 9575, 8124, 150, 381, "Output"]
+Cell[341302, 7950, 4070, 122, 218, "Input"],
+Cell[345375, 8074, 337, 6, 34, "Output"],
+Cell[345715, 8082, 338, 6, 34, "Output"],
+Cell[346056, 8090, 351, 7, 34, "Output"],
+Cell[346410, 8099, 8124, 150, 381, "Output"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[412056, 9731, 412, 5, 35, "Subsubsection"],
+Cell[354583, 8255, 412, 5, 35, "Subsubsection"],
 Cell[CellGroupData[{
-Cell[412493, 9740, 1554, 45, 103, "Input"],
-Cell[414050, 9787, 2559, 50, 243, "Output"]
+Cell[355020, 8264, 1554, 45, 103, "Input"],
+Cell[356577, 8311, 2559, 50, 243, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[416646, 9842, 4070, 122, 218, "Input"],
-Cell[420719, 9966, 394, 7, 34, "Output"],
-Cell[421116, 9975, 395, 7, 34, "Output"],
-Cell[421514, 9984, 395, 7, 34, "Output"],
-Cell[421912, 9993, 8220, 151, 381, "Output"]
+Cell[359173, 8366, 4070, 122, 218, "Input"],
+Cell[363246, 8490, 394, 7, 34, "Output"],
+Cell[363643, 8499, 395, 7, 34, "Output"],
+Cell[364041, 8508, 395, 7, 34, "Output"],
+Cell[364439, 8517, 8220, 151, 381, "Output"]
 }, Open  ]]
 }, Open  ]]
 }, Closed]],
 Cell[CellGroupData[{
-Cell[430193, 10151, 291, 4, 37, "Subsection"],
-Cell[430487, 10157, 1638, 31, 148, "Input"],
+Cell[372720, 8675, 291, 4, 37, "Subsection"],
+Cell[373014, 8681, 1638, 31, 148, "Input"],
 Cell[CellGroupData[{
-Cell[432150, 10192, 1784, 34, 171, "Input"],
+Cell[374677, 8716, 1784, 34, 194, "Input"],
 Cell[CellGroupData[{
-Cell[433959, 10230, 681, 12, 26, "Print"],
-Cell[434643, 10244, 681, 12, 26, "Print"],
-Cell[435327, 10258, 680, 12, 26, "Print"],
-Cell[436010, 10272, 683, 12, 26, "Print"],
-Cell[436696, 10286, 681, 12, 26, "Print"],
-Cell[437380, 10300, 681, 12, 26, "Print"],
-Cell[438064, 10314, 680, 12, 26, "Print"],
-Cell[438747, 10328, 683, 12, 26, "Print"],
-Cell[439433, 10342, 683, 12, 26, "Print"],
-Cell[440119, 10356, 680, 12, 26, "Print"]
+Cell[376486, 8754, 681, 12, 26, "Print"],
+Cell[377170, 8768, 681, 12, 26, "Print"],
+Cell[377854, 8782, 680, 12, 26, "Print"],
+Cell[378537, 8796, 683, 12, 26, "Print"],
+Cell[379223, 8810, 681, 12, 26, "Print"],
+Cell[379907, 8824, 681, 12, 26, "Print"],
+Cell[380591, 8838, 680, 12, 26, "Print"],
+Cell[381274, 8852, 683, 12, 26, "Print"],
+Cell[381960, 8866, 683, 12, 26, "Print"],
+Cell[382646, 8880, 680, 12, 26, "Print"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[440848, 10374, 193, 4, 32, "Input"],
-Cell[441044, 10380, 30237, 513, 2999, "Print"]
+Cell[383375, 8898, 193, 4, 32, "Input"],
+Cell[383571, 8904, 30237, 513, 2999, "Print"]
+}, Closed]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[413857, 9423, 277, 4, 44, "Subsection"],
+Cell[414137, 9429, 1855, 34, 194, "Input"],
+Cell[CellGroupData[{
+Cell[416017, 9467, 4209, 100, 423, "Input"],
+Cell[CellGroupData[{
+Cell[420251, 9571, 607, 11, 26, "Print"],
+Cell[420861, 9584, 605, 11, 26, "Print"],
+Cell[421469, 9597, 603, 11, 26, "Print"],
+Cell[422075, 9610, 604, 11, 26, "Print"],
+Cell[422682, 9623, 605, 11, 26, "Print"],
+Cell[423290, 9636, 605, 11, 26, "Print"],
+Cell[423898, 9649, 607, 11, 26, "Print"],
+Cell[424508, 9662, 605, 11, 26, "Print"],
+Cell[425116, 9675, 605, 11, 26, "Print"],
+Cell[425724, 9688, 605, 11, 26, "Print"],
+Cell[426332, 9701, 605, 11, 26, "Print"],
+Cell[426940, 9714, 604, 11, 26, "Print"],
+Cell[427547, 9727, 607, 11, 26, "Print"],
+Cell[428157, 9740, 605, 11, 26, "Print"],
+Cell[428765, 9753, 604, 11, 26, "Print"],
+Cell[429372, 9766, 607, 11, 26, "Print"],
+Cell[429982, 9779, 605, 11, 26, "Print"],
+Cell[430590, 9792, 605, 11, 26, "Print"],
+Cell[431198, 9805, 605, 11, 26, "Print"],
+Cell[431806, 9818, 607, 11, 26, "Print"],
+Cell[432416, 9831, 605, 11, 26, "Print"],
+Cell[433024, 9844, 605, 11, 26, "Print"],
+Cell[433632, 9857, 607, 11, 26, "Print"],
+Cell[434242, 9870, 605, 11, 26, "Print"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[471330, 10899, 277, 4, 44, "Subsection"],
-Cell[471610, 10905, 1855, 34, 251, "Input"],
-Cell[CellGroupData[{
-Cell[473490, 10943, 4209, 100, 423, "Input"],
-Cell[CellGroupData[{
-Cell[477724, 11047, 607, 11, 26, "Print"],
-Cell[478334, 11060, 605, 11, 26, "Print"],
-Cell[478942, 11073, 603, 11, 26, "Print"],
-Cell[479548, 11086, 604, 11, 26, "Print"],
-Cell[480155, 11099, 605, 11, 26, "Print"],
-Cell[480763, 11112, 605, 11, 26, "Print"],
-Cell[481371, 11125, 607, 11, 26, "Print"],
-Cell[481981, 11138, 605, 11, 26, "Print"],
-Cell[482589, 11151, 605, 11, 26, "Print"],
-Cell[483197, 11164, 605, 11, 26, "Print"],
-Cell[483805, 11177, 605, 11, 26, "Print"],
-Cell[484413, 11190, 604, 11, 26, "Print"],
-Cell[485020, 11203, 607, 11, 26, "Print"],
-Cell[485630, 11216, 605, 11, 26, "Print"],
-Cell[486238, 11229, 604, 11, 26, "Print"],
-Cell[486845, 11242, 607, 11, 26, "Print"],
-Cell[487455, 11255, 605, 11, 26, "Print"],
-Cell[488063, 11268, 605, 11, 26, "Print"],
-Cell[488671, 11281, 605, 11, 26, "Print"],
-Cell[489279, 11294, 607, 11, 26, "Print"],
-Cell[489889, 11307, 605, 11, 26, "Print"],
-Cell[490497, 11320, 605, 11, 26, "Print"],
-Cell[491105, 11333, 607, 11, 26, "Print"],
-Cell[491715, 11346, 605, 11, 26, "Print"]
+Cell[434896, 9887, 240, 5, 32, "Input"],
+Cell[435139, 9894, 28501, 503, 2999, "Print"]
+}, Closed]]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[492369, 11363, 240, 5, 32, "Input"],
-Cell[492612, 11370, 28501, 503, 2999, "Print"]
-}, Open  ]]
-}, Open  ]]
+Cell[463701, 10404, 387, 6, 65, "Section"],
+Cell[464091, 10412, 1677, 37, 149, "Input"],
+Cell[CellGroupData[{
+Cell[465793, 10453, 610, 12, 78, "Input"],
+Cell[466406, 10467, 1486, 43, 348, "Print"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[521174, 11880, 387, 6, 65, "Section"],
-Cell[521564, 11888, 1440, 31, 80, "Input"],
-Cell[CellGroupData[{
-Cell[523029, 11923, 610, 12, 78, "Input"],
-Cell[523642, 11937, 1486, 43, 348, "Print"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[525165, 11985, 491, 9, 56, "Input"],
-Cell[525659, 11996, 1422, 37, 246, "Print"]
+Cell[467929, 10515, 491, 9, 56, "Input"],
+Cell[468423, 10526, 1422, 37, 246, "Print"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[527130, 12039, 160, 2, 65, "Section"],
+Cell[469894, 10569, 160, 2, 65, "Section"],
 Cell[CellGroupData[{
-Cell[527315, 12045, 122, 1, 45, "Subsection"],
+Cell[470079, 10575, 122, 1, 45, "Subsection"],
 Cell[CellGroupData[{
-Cell[527462, 12050, 3066, 71, 215, "Input"],
-Cell[530531, 12123, 649, 10, 121, "Output"]
+Cell[470226, 10580, 3066, 71, 215, "Input"],
+Cell[473295, 10653, 649, 10, 121, "Output"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[531229, 12139, 190, 2, 45, "Subsection"],
-Cell[531422, 12143, 4481, 86, 420, "Input"]
+Cell[473993, 10669, 190, 2, 45, "Subsection"],
+Cell[474186, 10673, 4481, 86, 420, "Input"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[535952, 12235, 233, 3, 65, "Section"],
-Cell[536188, 12240, 248, 6, 34, "Input"],
-Cell[536439, 12248, 3610, 80, 283, "Input"],
+Cell[478716, 10765, 233, 3, 65, "Section"],
+Cell[478952, 10770, 248, 6, 34, "Input"],
+Cell[479203, 10778, 3610, 80, 283, "Input"],
 Cell[CellGroupData[{
-Cell[540074, 12332, 211, 3, 32, "Input"],
-Cell[540288, 12337, 24641, 400, 1610, "Output"]
+Cell[482838, 10862, 211, 3, 32, "Input"],
+Cell[483052, 10867, 24641, 400, 1610, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[564966, 12742, 150, 2, 44, "Subsection"],
+Cell[507730, 11272, 150, 2, 44, "Subsection"],
 Cell[CellGroupData[{
-Cell[565141, 12748, 1203, 34, 57, "Input"],
-Cell[566347, 12784, 3482, 70, 243, "Output"],
-Cell[569832, 12856, 3455, 69, 241, "Output"]
+Cell[507905, 11278, 1203, 34, 57, "Input"],
+Cell[509111, 11314, 3482, 70, 243, "Output"],
+Cell[512596, 11386, 3455, 69, 241, "Output"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[573336, 12931, 86, 1, 44, "Subsection"],
+Cell[516100, 11461, 86, 1, 44, "Subsection"],
 Cell[CellGroupData[{
-Cell[573447, 12936, 1013, 27, 78, "Input"],
-Cell[574463, 12965, 144432, 3181, 235, "Output"]
+Cell[516211, 11466, 1013, 27, 78, "Input"],
+Cell[517227, 11495, 144432, 3181, 235, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[718932, 16151, 1115, 25, 101, "Input"],
-Cell[720050, 16178, 76902, 1687, 235, "Output"]
+Cell[661696, 14681, 1115, 25, 101, "Input"],
+Cell[662814, 14708, 76902, 1687, 235, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[796989, 17870, 1766, 44, 100, "Input"],
-Cell[798758, 17916, 224066, 4258, 248, "Output"]
+Cell[739753, 16400, 1766, 44, 100, "Input"],
+Cell[741522, 16446, 224066, 4258, 248, "Output"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[1022873, 22180, 89, 1, 44, "Subsection"],
-Cell[1022965, 22183, 810, 23, 101, "Input"],
-Cell[1023778, 22208, 1108, 28, 78, "Input"],
+Cell[965637, 20710, 89, 1, 44, "Subsection"],
+Cell[965729, 20713, 810, 23, 101, "Input"],
+Cell[966542, 20738, 1108, 28, 78, "Input"],
 Cell[CellGroupData[{
-Cell[1024911, 22240, 760, 15, 34, "Input"],
-Cell[1025674, 22257, 725318, 15720, 235, "Output"]
+Cell[967675, 20770, 760, 15, 34, "Input"],
+Cell[968438, 20787, 725318, 15720, 235, "Output"]
 }, Open  ]],
-Cell[1751007, 37980, 236, 3, 32, "Input"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[1751280, 37988, 311, 5, 45, "Subsection"],
-Cell[1751594, 37995, 953, 25, 103, "Input"],
-Cell[CellGroupData[{
-Cell[1752572, 38024, 815, 14, 34, "Input"],
-Cell[1753390, 38040, 4015, 98, 84, "Output"]
+Cell[1693771, 36510, 236, 3, 32, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[1757442, 38143, 496, 11, 34, "Input"],
-Cell[1757941, 38156, 1203, 24, 52, "Output"]
+Cell[1694044, 36518, 311, 5, 45, "Subsection"],
+Cell[1694358, 36525, 953, 25, 103, "Input"],
+Cell[CellGroupData[{
+Cell[1695336, 36554, 815, 14, 34, "Input"],
+Cell[1696154, 36570, 4015, 98, 84, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[1759181, 38185, 608, 15, 34, "Input"],
-Cell[1759792, 38202, 1211, 24, 48, "Output"]
+Cell[1700206, 36673, 496, 11, 34, "Input"],
+Cell[1700705, 36686, 1203, 24, 52, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[1761040, 38231, 487, 13, 34, "Input"],
-Cell[1761530, 38246, 709, 17, 48, "Output"]
+Cell[1701945, 36715, 608, 15, 34, "Input"],
+Cell[1702556, 36732, 1211, 24, 48, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1703804, 36761, 487, 13, 34, "Input"],
+Cell[1704294, 36776, 709, 17, 48, "Output"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
