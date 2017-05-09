@@ -11,7 +11,7 @@
 Begin["`Private`"];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Separate catalytic and non-catalytic reactions*)
 
 
@@ -30,7 +30,7 @@ classifyReactions[enzymeModel_]:=Block[{enzName, allCatalyticReactions={}, nonCa
 ];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Get transition IDs*)
 
 
@@ -50,7 +50,7 @@ getTransitionIDs[allCatalyticReactions_]:=Block[{transitionID={}, sumReactionSto
 ];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Get transition rate equations*)
 
 
@@ -65,7 +65,7 @@ getTransitionRateEqs[transitionID_, rates_]:=Block[{transitionRateEqs={}},
 ];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Get unified rate constants list*)
 
 
@@ -84,7 +84,7 @@ getUnifiedRateConstList[allCatalyticReactions_, nonCatalyticReactions_]:=Block[{
 ];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Get flux equation*)
 
 
@@ -98,7 +98,6 @@ getFluxEquation[inputDir_, rxnName_, enzymeModel_, unifiedRateConstList_, transi
 
 	If[ FileExistsQ[enSolFilePath] && FileExistsQ[absFluxFilePath],
 		(*True: 'enzSol.m' and 'absoluteFlux.m' Exists*) 
-	Print["creating it"];
 		enzSol = Import[enSolFilePath];
 		absoluteFlux = Import[absFluxFilePath];,
 		
@@ -132,7 +131,7 @@ getFluxEquation[inputDir_, rxnName_, enzymeModel_, unifiedRateConstList_, transi
 
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Add inhibition*)
 
 
@@ -229,7 +228,7 @@ addInhibitionReactions[enzymeModel_, enzName_, inhibitionList_,  allCatalyticRea
 ];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Get equivalent rate constant substitutions for random ordered mechanisms*)
 
 
@@ -347,7 +346,7 @@ getEquivRateConsts[enzymeModel_, eqRateConstSubTemp_, nonCatalyticReactions_] :=
 ];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Get  rate  equations*)
 
 
@@ -412,7 +411,7 @@ Print["km rev"];
 ];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Get rate and met substitutions *)
 
 
@@ -457,8 +456,8 @@ getMetRatesSubs[enzymeModel_, haldaneRatiosList_, absoluteRateForward_, absolute
 ];
 
 
-(* ::Subsection:: *)
-(**)
+(* ::Subsection::Closed:: *)
+(*Export rate equations*)
 
 
 exportRateEqs[outputPath_, absoluteRateForward_, absoluteRateReverse_, relativeRateForward_, relativeRateReverse_, 
@@ -510,7 +509,7 @@ exportRateEqs[outputPath_, absoluteRateForward_, absoluteRateReverse_, relativeR
 ];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Get  haldane*)
 
 
@@ -548,14 +547,14 @@ setUpFluxEquations[enzymeModel_, rxn_, rxnName_, inputPath_, inhibitionListFull_
 	{KeqName, KeqVal, volumeSub} = getMisc[enzymeModelLocal, rxnName];
 
 	{allCatalyticReactions, nonCatalyticReactions} = classifyReactions[enzymeModelLocal];
+	
+	unifiedRateConstList = getUnifiedRateConstList[allCatalyticReactions, nonCatalyticReactions];
 
 	(*Identify Transition Rate Equations*)
 	transitionID = getTransitionIDs[allCatalyticReactions];
 
 	(*Extract Transition Rate Equations*)
 	transitionRateEqs = getTransitionRateEqs[transitionID, rates];
-
-	unifiedRateConstList = getUnifiedRateConstList[allCatalyticReactions, nonCatalyticReactions];
 
 	(*King-Altman Workaround UsingMathematicaSolve*)
 	(*This section of code will check to see if there is a 'absoluteFlux.m' file in the notebook directory from a previous cell evalution, and it will either derive a generalized flux equation (may take a long time) or import the previously derived flux equation. Note: If you modify the binding mechanism used in the constructEnzymeModule or manually add additional reactions to the model, you should delete the 'absoluteFlux.m' file in this notebook's current directory.*)
@@ -565,7 +564,7 @@ setUpFluxEquations[enzymeModel_, rxn_, rxnName_, inputPath_, inhibitionListFull_
 			Null
 		];
 
-	If[!SameQ[inhibitionListFull,{}],
+	If[!SameQ[inhibitionListSubset,{}],
 		{enzymeModelLocal,nonCatalyticReactions} = addInhibitionReactions[enzymeModelLocal,rxnName,inhibitionListSubset,allCatalyticReactions,nonCatalyticReactions];
 	];
 
@@ -599,9 +598,9 @@ setUpFluxEquations[enzymeModel_, rxn_, rxnName_, inputPath_, inhibitionListFull_
 							relativeRateReverse, metsSub, metSatForSub, metSatRevSub, rateConstsSub,
 							otherAbsoluteRatesForward, otherAbsoluteRatesReverse];
 	
-	Return[{haldaneRatiosList, metsFull,  metSatForSub, metSatRevSub,  fileList, fileListSub, 
-			eqnNameList,eqnValList, eqnValListPy, eqnNameList, rateConstsSub, 
-			metsSub, allCatalyticReactions,nonCatalyticReactions, unifiedRateConstList, eqRateConstSub,
+	Return[{haldaneRatiosList,  metSatForSub, metSatRevSub,  finalRateConsts, metsFull, metsSub, rateConstsSub, 
+			fileList, fileListSub, eqnNameList,eqnValList, eqnValListPy, 
+			allCatalyticReactions,nonCatalyticReactions, unifiedRateConstList, eqRateConstSub,
 			absoluteFlux, absoluteRateForward, absoluteRateReverse, relativeRateForward, relativeRateReverse, 
 			otherAbsoluteRatesForward, otherAbsoluteRatesReverse}];
 

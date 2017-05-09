@@ -11,6 +11,10 @@
 Begin["`Private`"];
 
 
+(* ::Subsection:: *)
+(*Initialize notebook*)
+
+
 createDirectories[dataFolder_, removeInputFiles_, removeOutputFiles_] := Module[{workingDir, dataPath, inputPath, outputPath, mkDirCmd},
 	
 	workingDir = NotebookDirectory[];
@@ -61,17 +65,27 @@ initializeNotebook[pathMASSFittingPath_, dataFolder_, removeInputFiles_:False, r
 
 
 
+(* ::Subsection::Closed:: *)
+(*Convert stuff to python format*)
+
+
 ToPython[x_] := StringReplace[ToString[x,InputForm], {
 				"\""->"","["->"(","]"->")","<"->"[",">"->"]",(*" "\[Rule]"",*)"Sqrt"->"sqrt","Log"->"log","List"->"list","^"->"**", "{"-> "[", "}"-> "]"}];
-				
-
 
 (*listToPython[x_] := x~ToString~InputForm~StringReplace~{"\""->"","*^"->"*10**","^"->"**","{"->"[","}"->"]"," "->""};*)
-listToPython[x_] := x~ToString~InputForm~StringReplace~{"\""->"","*^"->"*10**","^"->"**","{"->"[","}"->"]"};
+listToPython[x_] := x~ToString~InputForm~StringReplace~{"\""->"","*^"->"*10**","^"->"**","{"->"[","}"->"]"};	
+
+
+(* ::Subsection::Closed:: *)
+(*Convert Keqs to rate constants*)
 
 
 keq2kHT = #/.keq_Keq:>rateconst[getID[keq],True]/rateconst[getID[keq],False]&;(*High-Throughput version of keq2k[]*)
 
+
+
+(* ::Subsection::Closed:: *)
+(*Stuff*)
 
 
 reverseConsts[model_] := Select[Variables[keq2kHT[model["EquilibriumConstants"]]], #[[2]]==False&];
@@ -80,6 +94,10 @@ reverseConsts[model_] := Select[Variables[keq2kHT[model["EquilibriumConstants"]]
 
 rNonModelMets[metList_] := Delete[Delete[metList,Position[metList,MASSToolbox`metabolite["h", "c"]]],Position[metList,MASSToolbox`metabolite["h2o", "c"]]];
 
+
+
+(* ::Subsection::Closed:: *)
+(*Get metabolite substitutions for rate constants*)
 
 
 getMetsSub[rxn_] := Module[{reverseZeroSub, forwardZeroSub, metSatForSub, metSatRevSub},
@@ -93,10 +111,18 @@ getMetsSub[rxn_] := Module[{reverseZeroSub, forwardZeroSub, metSatForSub, metSat
 
 
 
+(* ::Subsection:: *)
+(*Get enzyme rates*)
+
+
 getEnzymeRates[enzymeModel_] := Module[{rates},
 	rates=enzymeModel["Rates"]/.elem_[t]:>elem;
 	Return[rates];
 ];
+
+
+(* ::Subsection:: *)
+(*Get misc*)
 
 
 getMisc[enzymeModel_, rxnName_] := Module[{KeqName, KeqVal, volumeSub},
@@ -111,6 +137,10 @@ getMisc[enzymeModel_, rxnName_] := Module[{KeqName, KeqVal, volumeSub},
 
 
 
+(* ::Subsection::Closed:: *)
+(*Get conversion string to metabolite*)
+
+
 getConversionChar2Met[mets_] := Module[{char2met},
 
 	char2met = 
@@ -122,6 +152,10 @@ getConversionChar2Met[mets_] := Module[{char2met},
 	
 	Return[char2met];
 ];
+
+
+(* ::Subsection::Closed:: *)
+(*Get allosteric transition ratio*)
 
 
 getAllostericTransitionRatio[enzymeModel_, nonCatalyticReactions_] := 
@@ -146,6 +180,10 @@ getAllostericTransitionRatio[enzymeModel_, nonCatalyticReactions_] :=
 		Return[Null];
 	];
 ];
+
+
+(* ::Subsection::Closed:: *)
+(*Print ratios (dissociation constants in particular)*)
 
 
 getRatio[enzymeModel_, metabolite_, eqRateConstSub_:{}, rxnIDpattern_:Null] := 
@@ -182,6 +220,10 @@ getRatio[enzymeModel_, metabolite_, eqRateConstSub_:{}, rxnIDpattern_:Null] :=
 ];
 
 
+(* ::Subsection::Closed:: *)
+(*Get other params value*)
+
+
 getOtherParamsValue[param_, otherParamsList_] := 
 	Block[{otherData, paramValue},
 
@@ -193,6 +235,10 @@ getOtherParamsValue[param_, otherParamsList_] :=
 	
 	Return[paramValue];
 ];
+
+
+(* ::Subsection::Closed:: *)
+(*Print enzyme data*)
 
 
 printEnzymeData[rxn_, mechanism_, structure_, nActiveSites_, kmList_, s05List_, kcatList_, inhibitionList_, activationList_, otherParmsList_] := Block[{},
@@ -225,7 +271,7 @@ printEnzymeData[rxn_, mechanism_, structure_, nActiveSites_, kmList_, s05List_, 
 ];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Get  haldane*)
 
 

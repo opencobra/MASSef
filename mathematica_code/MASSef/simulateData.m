@@ -11,8 +11,8 @@
 Begin["`Private`"];
 
 
-(* ::Subsection:: *)
-(*Calculate buffer ionic strength*)
+(* ::Subsection::Closed:: *)
+(*Calculate ionic strength*)
 
 
 calculateBufferIonicStrength[bufferInfo_, dataListFull_] := Block[{bufferData, localBuffInfo, localAcid, localBase, bufferIonStrength, ind1, ind2},
@@ -55,10 +55,6 @@ calculateBufferIonicStrength[bufferInfo_, dataListFull_] := Block[{bufferData, l
 ];
 
 
-(* ::Subsection:: *)
-(*Calculate salt ionic strength*)
-
-
 calculateSaltIonicStrength[ionCharge_, dataListFull_] := 
 	Block[{localSaltCharge, saltIonStrength, ind},
 	
@@ -92,7 +88,7 @@ calculateIonicStrength[dataListFull_, bufferInfo_, ionCharge_]:=Block[{bufferIon
 ];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Calculate adjusted Keq using equilibrator*)
 
 
@@ -109,6 +105,10 @@ calculateAdjustedKeq[rxn_, ionicStrength_, dataListFull_, bigg2equilibrator_] :=
 		
 	Return[adjustedKeqVal];	
 ];
+
+
+(* ::Subsection::Closed:: *)
+(*Misc*)
 
 
 getDataListFull[rxn_, dataList_, dataListSub_] := Block[{char2met, dataListFull},
@@ -152,6 +152,10 @@ removeMetsNotInReaction[rxn_, kmListFull_] := Block[{kmListFullLocal, entriesToD
 	
 	Return[kmListFullLocal];
 ];
+
+
+(* ::Subsection::Closed:: *)
+(*Handle cosubstrate data*)
 
 
 handleCosubstrateData[dataListFull_, metsFull_, metSatForSub_, metSatRevSub_, dataRange_, assumedSaturatingConc_, rxn_] := 
@@ -269,6 +273,10 @@ handleCosubstrateData[dataListFull_, metsFull_, metSatForSub_, metSatRevSub_, da
 
 	Return[dataListFullLocal];
 ];
+
+
+(* ::Subsection::Closed:: *)
+(*Correct chemical activities*)
 
 
 correctChemicalActivities[dataListFull_, metsFull_, activeIsoSub_, ionicStrength_] := 
@@ -626,7 +634,7 @@ simulateKcatData[rxn_, metsFull_, metSatForSub_, metSatRevSub_, kcatList_, other
 ];
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*Simulate inhibition data*)
 
 
@@ -710,7 +718,7 @@ simulateInhibData[rxn_, metsFull_, metSatForSub_, metSatRevSub_, inhibList_, ass
 	(*check if all affected mets have a Km or S05*)
 	inhibListLocal = checkAffectedMetsKmS05[inhibListLocal];
 	If[Length @ inhibListLocal == 0,
-		Return[Null]
+		Return[Null];
 	];	
 
 	kmValues = Map[metabolite[#[[1]], "c"] -> #[[2]]&, inhibListLocal[[All,6]][[All,1,{2,3}]]];
@@ -1061,7 +1069,7 @@ exportData[fittingData_,inputPath_, dataFileName_, metsSub_] := Block[{header, d
 ];
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*Simulate all data automatically*)
 
 
@@ -1136,8 +1144,9 @@ simulateData[enzymeModel_,dataFileName_, haldaneRatiosList_, KmList_, s05List_, 
 		logStepSize=0.5;
 		inhibFittingData=simulateInhibData[rxn, metsFull, metSatForSub, metSatRevSub, inhibList, assumedSaturatingConc, eTotal, logStepSize, 
 											activeIsoSub, bufferInfo, ionCharge, inputPath, fileListLocal];
-
-		allFittingData = Join[allFittingData,inhibFittingData];
+		If[!SameQ[inhibFittingData, Null],
+			allFittingData = Join[allFittingData,inhibFittingData];
+		];
 
 		Do[
 			inhibitor=m[inhibEntry[[2]],"c"];
