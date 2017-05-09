@@ -11,7 +11,7 @@
 Begin["`Private`"];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Get ion data*)
 
 
@@ -22,7 +22,7 @@ getIonData[dataPath_] := Block[{data, ionChargeData},
 ];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Get buffer data*)
 
 
@@ -55,57 +55,6 @@ getBufferInfoData[dataPath_] :=
 
 (* ::Subsection:: *)
 (*Get enzyme data*)
-
-
-getEnzymeData[enzName_, dataPath_, assumedUncertaintyFraction_] := 
-	Block[{data, enzymesInd, curEnzymeInd, nextEnzymeInd, curEnzymeData, 
-			ecNumber, organism, rxn, mechanism, structure, nActiveSites,  
-			nAllostericSites, line, dataType, kmList={}, kcatList={}, s05List={},  
-			inhibitionList={}, activationList={}, otherParmsList={}},
-			
-	data = Import[dataPath, "CSV"];
-										  
-	enzymesInd = Flatten@Position[Map[StringLength[#] > 1&, data[[All,1]]], True];
-	curEnzymeInd = Flatten[Position[data[[All,1]], enzName]][[1]];
-	nextEnzymeInd = enzymesInd[[Flatten[Position[enzymesInd, curEnzymeInd]][[1]]+1]];
-	curEnzymeData = data[[curEnzymeInd;;(nextEnzymeInd-1)]];
-
-	Assert[StringMatchQ[curEnzymeData[[1,2]], "ec_number"]];
-	Assert[StringMatchQ[curEnzymeData[[2,2]], "organism"]];
-	Assert[StringMatchQ[curEnzymeData[[3,2]], "reaction"]];
-	Assert[StringMatchQ[curEnzymeData[[4,2]], ""]];
-	Assert[StringMatchQ[curEnzymeData[[5,2]], "mechanism"]];
-	Assert[StringMatchQ[curEnzymeData[[6,2]], "structure"]];
-	Assert[StringMatchQ[curEnzymeData[[7,2]], "active_sites"]];
-	Assert[StringMatchQ[curEnzymeData[[8,2]], "allosteric_sites"]];
-	Assert[StringMatchQ[curEnzymeData[[9,2]], "parameter type"]];
-
-	ecNumber = curEnzymeData[[1,3]];
-	rxn = str2mass[enzName <> ": "<>curEnzymeData[[3,3]]];
-	mechanism = curEnzymeData[[5,3]] <> "; " <> curEnzymeData[[5,4]];
-	structure = curEnzymeData[[6,3]];
-	nActiveSites = curEnzymeData[[7,3]];
-	nAllostericSites = curEnzymeData[[8,3]];
-
-
-	Table[
-	
-		dataType = curEnzymeData[[i,2]];
-		line = curEnzymeData[[i]];
-
-		Which[
-			StringMatchQ[dataType, "Km"], AppendTo[kmList, parseKmS05Entry[line[[3;;]], assumedUncertaintyFraction]],
-			StringMatchQ[dataType, "s05"], AppendTo[s05List, parseKmS05Entry[line[[3;;]], assumedUncertaintyFraction]],
-			StringMatchQ[dataType, "kcat"], AppendTo[kcatList, parseKcatEntry[line[[3;;]], assumedUncertaintyFraction]],
-			StringMatchQ[dataType, {"Ki", "Kic", "Kinc", "Kincu", "Kincc"}], AppendTo[inhibitionList, parseInhibKaEntry[line[[2;;]], assumedUncertaintyFraction]],
-			StringMatchQ[dataType, "Ka"], AppendTo[activationList, parseInhibKaEntry[line[[2;;]], assumedUncertaintyFraction]],
-			True, AppendTo[otherParmsList, parseOtherEntry[line[[2;;]], assumedUncertaintyFraction]]
-		];,
-	{i, 10, Length@curEnzymeData}];
-	
-	Return[{rxn, mechanism, structure, nActiveSites, nAllostericSites, kmList, s05List, kcatList, inhibitionList, activationList, otherParmsList}];
-];
-
 
 
 parseSubMetLists[list_]:=Block[{parsedList, res},
@@ -215,6 +164,57 @@ parseOtherEntry[line_, uncertaintyFraction_] := Block[{paramType,entry, substrat
 	
 	entry = {paramType, substrate, value, uncertainty, units, ph, temperature, buffer, salts};
 	Return[entry];
+];
+
+
+
+getEnzymeData[enzName_, dataPath_, assumedUncertaintyFraction_] := 
+	Block[{data, enzymesInd, curEnzymeInd, nextEnzymeInd, curEnzymeData, 
+			ecNumber, organism, rxn, mechanism, structure, nActiveSites,  
+			nAllostericSites, line, dataType, kmList={}, kcatList={}, s05List={},  
+			inhibitionList={}, activationList={}, otherParmsList={}},
+			
+	data = Import[dataPath, "CSV"];
+										  
+	enzymesInd = Flatten@Position[Map[StringLength[#] > 1&, data[[All,1]]], True];
+	curEnzymeInd = Flatten[Position[data[[All,1]], enzName]][[1]];
+	nextEnzymeInd = enzymesInd[[Flatten[Position[enzymesInd, curEnzymeInd]][[1]]+1]];
+	curEnzymeData = data[[curEnzymeInd;;(nextEnzymeInd-1)]];
+
+	Assert[StringMatchQ[curEnzymeData[[1,2]], "ec_number"]];
+	Assert[StringMatchQ[curEnzymeData[[2,2]], "organism"]];
+	Assert[StringMatchQ[curEnzymeData[[3,2]], "reaction"]];
+	Assert[StringMatchQ[curEnzymeData[[4,2]], ""]];
+	Assert[StringMatchQ[curEnzymeData[[5,2]], "mechanism"]];
+	Assert[StringMatchQ[curEnzymeData[[6,2]], "structure"]];
+	Assert[StringMatchQ[curEnzymeData[[7,2]], "active_sites"]];
+	Assert[StringMatchQ[curEnzymeData[[8,2]], "allosteric_sites"]];
+	Assert[StringMatchQ[curEnzymeData[[9,2]], "parameter type"]];
+
+	ecNumber = curEnzymeData[[1,3]];
+	rxn = str2mass[enzName <> ": "<>curEnzymeData[[3,3]]];
+	mechanism = curEnzymeData[[5,3]] <> "; " <> curEnzymeData[[5,4]];
+	structure = curEnzymeData[[6,3]];
+	nActiveSites = curEnzymeData[[7,3]];
+	nAllostericSites = curEnzymeData[[8,3]];
+
+
+	Table[
+	
+		dataType = curEnzymeData[[i,2]];
+		line = curEnzymeData[[i]];
+
+		Which[
+			StringMatchQ[dataType, "Km"], AppendTo[kmList, parseKmS05Entry[line[[3;;]], assumedUncertaintyFraction]],
+			StringMatchQ[dataType, "s05"], AppendTo[s05List, parseKmS05Entry[line[[3;;]], assumedUncertaintyFraction]],
+			StringMatchQ[dataType, "kcat"], AppendTo[kcatList, parseKcatEntry[line[[3;;]], assumedUncertaintyFraction]],
+			StringMatchQ[dataType, {"Ki", "Kic", "Kinc", "Kincu", "Kincc"}], AppendTo[inhibitionList, parseInhibKaEntry[line[[2;;]], assumedUncertaintyFraction]],
+			StringMatchQ[dataType, "Ka"], AppendTo[activationList, parseInhibKaEntry[line[[2;;]], assumedUncertaintyFraction]],
+			True, AppendTo[otherParmsList, parseOtherEntry[line[[2;;]], assumedUncertaintyFraction]]
+		];,
+	{i, 10, Length@curEnzymeData}];
+	
+	Return[{rxn, mechanism, structure, nActiveSites, nAllostericSites, kmList, s05List, kcatList, inhibitionList, activationList, otherParmsList}];
 ];
 
 
