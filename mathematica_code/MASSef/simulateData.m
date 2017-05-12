@@ -1076,7 +1076,7 @@ exportData[fittingData_,inputPath_, dataFileName_, metsSub_] := Block[{header, d
 simulateData[enzymeModel_,dataFileName_, haldaneRatiosList_, KmList_, s05List_, kcatList_, inhibList_, activationList_, otherParmsList_, rxn_, metsFull_,  
 			metSatForSub_, metSatRevSub_,  bufferInfo_, ionCharge_, inputPath_,  fileList_, fileListSub_, 
 			eqnNameList_,eqnValList_, eqnValListPy_, eqnNameList_, rateConstsSub_, 
-			metsSub_, allCatalyticReactions_, nonCatalyticReactions_, unifiedRateConstList_, eqRateConstSub_, customRatiosList_:{}]:=
+			metsSub_, allCatalyticReactions_, nonCatalyticReactions_, unifiedRateConstList_, customRatiosList_:{}]:=
 
 	Block[{kmFittingData, s05FittingData, kcatFittingData, inhibFittingData, activationData,  KeqFittingData, KdFittingData, 
 			L0FittingData, inhibRatioFittingData, customRatioFittingData, activationRatioFittingData, haldane, haldaneRatio,
@@ -1110,7 +1110,7 @@ simulateData[enzymeModel_,dataFileName_, haldaneRatiosList_, KmList_, s05List_, 
 		(* simulate Keq data 
 		haldane=haldaneRelation[KeqName,allCatalyticReactions]/.unifiedRateConstList;
 		haldaneRatio=haldane[[2]];*)
-		haldane/.eqRateConstSub;
+		haldane;
 		{KeqFittingData, fileListLocal, fileListSubLocal, eqnNameListLocal, eqnValListLocal, eqnValListPyLocal} = 
 				simulateRateConstRatiosData[haldaneRatiosList[[haldaneI,1]], haldaneRatiosList[[haldaneI,2]],  metsFull, rateConstsSub, metsSub, eTotal, nonKmParamWeight, inputPath, 
 										fileListLocal, fileListSubLocal, eqnNameListLocal, eqnValListLocal, eqnValListPyLocal, pHandT, "haldaneRatio_"<>ToString[haldaneI]];
@@ -1158,7 +1158,7 @@ simulateData[enzymeModel_,dataFileName_, haldaneRatiosList_, KmList_, s05List_, 
 
 			(* check if it's a dead-end reaction - if so, define ratio=Ki *)
 			If[AnyTrue [Map[Count[#, True]&, reactionOverlap], #<= 1&],  
-				ratio = getRatio[enzymeModel, inhibitor, eqRateConstSub, {"Inhibition", "Ki"}];
+				ratio = getRatio[enzymeModel, inhibitor, {"Inhibition", "Ki"}];
 			
 				If[!SameQ[ratio, Null],
 					val=inhibEntry[[3]];
@@ -1181,7 +1181,7 @@ simulateData[enzymeModel_,dataFileName_, haldaneRatiosList_, KmList_, s05List_, 
 	If[ !SameQ[activationList, {}],
 		Do[
 			activator=m[activationEntry[[2]],"c"];
-			ratio = getRatio[enzymeModel, activator, eqRateConstSub, {"Activation", "Ka"}];
+			ratio = getRatio[enzymeModel, activator, {"Activation", "Ka"}];
 			If[!SameQ[ratio, Null],
 				val=activationEntry[[3]];
 
@@ -1256,14 +1256,14 @@ simulateData[enzymeModel_,dataFileName_, haldaneRatiosList_, KmList_, s05List_, 
 
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*Simulate all data with uncertainty automatically*)
 
 
 simulateDataWithUncertainty[nSamples_,enzymeModel_,dataFileBaseName_, haldaneRatiosList_, KmList_, s05List_, kcatList_, inhibList_, activationList_, othersList_, 
 							rxn_, metsFull_,  metSatForSub_, metSatRevSub_, otherParmsList_, bufferInfo_, ionCharge_, inputPath_,  fileList_, 
 							fileListSub_, eqnNameList_,eqnValList_, eqnValListPy_, eqnNameList_, rateConstsSub_, 
-							metsSub_, KeqName_, allCatalyticReactions_, nonCatalyticReactions_, unifiedRateConstList_, eqRateConstSub_, customRatiosList_:{}]:=
+							metsSub_, KeqName_, allCatalyticReactions_, nonCatalyticReactions_, unifiedRateConstList_, customRatiosList_:{}]:=
 	Block[{haldaneRatiosListLocal=haldaneRatiosList,KmListLocal=KmList, s05ListLocal=s05List, kcatListLocal= kcatList, inhibListLocal=inhibList, activationListLocal=activationList, 
 			otherParmsListLocal=otherParmsList, customRatiosListLocal=customRatiosList, uncertainty, 
 			newValue, dataFileName, allFittingData, dataPath, allFittingDataList={}, dataPathList={},
@@ -1350,7 +1350,7 @@ simulateDataWithUncertainty[nSamples_,enzymeModel_,dataFileBaseName_, haldaneRat
 																					inhibListLocal, activationListLocal, otherParmsListLocal, rxn, metsFull,  metSatForSub, 
 																					metSatRevSub,  bufferInfo, ionCharge, inputPath,  fileListLocal, fileListSubLocal, eqnNameList, 
 																					eqnValList, eqnValListPy, eqnNameList, rateConstsSub, metsSub,  allCatalyticReactions, 
-																					nonCatalyticReactions, unifiedRateConstList, eqRateConstSub, customRatiosList];
+																					nonCatalyticReactions, unifiedRateConstList, customRatiosList];
 							
 
 		AppendTo[allFittingDataList, allFittingData];
@@ -1363,7 +1363,7 @@ simulateDataWithUncertainty[nSamples_,enzymeModel_,dataFileBaseName_, haldaneRat
 
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*Parameter scan function*)
 
 
@@ -1372,7 +1372,7 @@ simulateParameterScanData[paramScanList_, enzymeModel_, dataFileName_,
 						  otherParmsList_, rxn_, metsFull_, metSatForSub_, metSatRevSub_,  bufferInfo_, 
 						  ionCharge_, inputPath_, fileList_, fileListSub_, eqnNameList_, 
 						  eqnValList_, eqnValListPy_, eqnNameList_, rateConstsSub_, metsSub_, allCatalyticReactions_,
-						  nonCatalyticReactions_, unifiedRateConstList_, eqRateConstSub_, customRatiosList_:{}]:= 
+						  nonCatalyticReactions_, unifiedRateConstList_, customRatiosList_:{}]:= 
 	Block[{haldaneRatiosListLocal=haldaneRatiosList,KmListLocal=KmList, s05ListLocal=s05List, kcatListLocal= kcatList, 
 			inhibListLocal=inhibList, activationListLocal=activationList, otherParmsListLocal=otherParmsList, 
 			customRatiosListLocal=customRatiosList, allFittingData, dataPath, dataPathList={}, dataFileNameLocal, 
@@ -1422,7 +1422,7 @@ simulateParameterScanData[paramScanList_, enzymeModel_, dataFileName_,
 																				inhibListLocal, activationListLocal, otherParmsListLocal, rxn, metsFull,  metSatForSub, 
 																				metSatRevSub,  bufferInfo, ionCharge, inputPath,  fileListLocal, fileListSubLocal, eqnNameList, 
 																				eqnValList, eqnValListPy, eqnNameList, rateConstsSub, metsSub,  allCatalyticReactions, 
-																				nonCatalyticReactions, unifiedRateConstList, eqRateConstSub, customRatiosListLocal];
+																				nonCatalyticReactions, unifiedRateConstList, customRatiosListLocal];
 		AppendTo[allFittingDataList, allFittingData];																			
 		AppendTo[dataPathList,dataPath];,
 																				

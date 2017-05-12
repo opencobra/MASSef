@@ -182,11 +182,11 @@ getAllostericTransitionRatio[enzymeModel_, nonCatalyticReactions_] :=
 ];
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*Print ratios (dissociation constants in particular)*)
 
 
-getRatio[enzymeModel_, metabolite_, eqRateConstSub_:{}, rxnIDpattern_:Null] := 
+getRatio[enzymeModel_, metabolite_, rxnIDpattern_:Null] := 
 	Block[{affectedRxn, affectedRxnID, forAffectedRateConsts, revAffectedRateConsts,
 			forAffectedConst, revAffectedConst, relevantEntries, entriesIndices},
 
@@ -201,8 +201,8 @@ getRatio[enzymeModel_, metabolite_, eqRateConstSub_:{}, rxnIDpattern_:Null] :=
 	];
 		
 	(*Get the Rate Constants from the Reactions with the 'inhibitor' or 'activator'  as a Reactant*)
-	forAffectedRateConsts=Select[getForwardRateConstants[enzymeModel], MemberQ[affectedRxnID,getID[#]]&]/.eqRateConstSub;
-	revAffectedRateConsts=Select[reverseConsts[enzymeModel], MemberQ[affectedRxnID,getID[#]]&]/.eqRateConstSub;
+	forAffectedRateConsts=Select[getForwardRateConstants[enzymeModel], MemberQ[affectedRxnID,getID[#]]&];
+	revAffectedRateConsts=Select[reverseConsts[enzymeModel], MemberQ[affectedRxnID,getID[#]]&];
 	
 	(*Unify the Rate Constants (i.e. Extract the Rate Constants for Repetitive Reactions)*)
 	forAffectedConst=Union[unifyRateConstants[forAffectedRateConsts]];

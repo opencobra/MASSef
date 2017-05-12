@@ -228,27 +228,27 @@ addInhibitionReactions[enzymeModel_, enzName_, inhibitionList_,  allCatalyticRea
 ];
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*Get  rate  equations*)
 
 
-getRateEqs[absoluteFlux_, unifiedRateConstList_, eqRateConstSub_, reverseZeroSub_, 
+getRateEqs[absoluteFlux_, unifiedRateConstList_, reverseZeroSub_, 
 		   forwardZeroSub_, volumeSub_, metSatForSub_, metSatRevSub_,
 		   absoluteFluxRelRateFor_:Null, absoluteFluxRelRateRev_:Null, otherMetsForwardZeroSub_:Null, otherMetsReverseZeroSub_:Null]:= 
 	Block[{absoluteFluxEqn, absoluteRateForward, absoluteRateReverse, relativeRateForward, relativeRateReverse,
 			absoluteFluxEqnRelRateFor, absoluteFluxEqnRelRateRev, otherAbsoluteRatesForward={}, otherAbsoluteRatesReverse={}},
 			
 	
-	absoluteFluxEqn = absoluteFlux[[2]]/.unifiedRateConstList/.eqRateConstSub;(*Equivalent Rate Constants*)
+	absoluteFluxEqn = absoluteFlux[[2]]/.unifiedRateConstList;(*Equivalent Rate Constants*)
 
 	absoluteFluxEqnRelRateFor = If[absoluteFluxRelRateFor=== Null,
 		absoluteFluxEqn,
-		absoluteFluxRelRateFor[[2]]/.unifiedRateConstList/.eqRateConstSub
+		absoluteFluxRelRateFor[[2]]/.unifiedRateConstList
 	];
 	
 	absoluteFluxEqnRelRateRev = If[absoluteFluxRelRateRev=== Null, 
 		absoluteFluxEqn,
-		absoluteFluxRelRateRev[[2]]/.unifiedRateConstList/.eqRateConstSub
+		absoluteFluxRelRateRev[[2]]/.unifiedRateConstList
 	];		
 
 			
@@ -408,20 +408,20 @@ getHaldane[allCatalyticReactions_, unifiedRateConstList_, KeqName_] := Block[{ha
 
 setUpFluxEquations[enzymeModel_, rxn_, rxnName_, inputPath_, inhibitionListFull_, inhibitionListSubset_, 
 					catalyticReactionsSetsList_, otherMetsReverseZeroSub_,  
-					otherMetsForwardZeroSub_,  simplifyMaxTime_:300, nActiveSites_:1] :=
+					otherMetsForwardZeroSub_,  MWCFlag_: False, simplifyMaxTime_:300, nActiveSites_:1] :=
 	Block[{enzymeModelLocal=enzymeModel, rxnMets, inhibitors,prodInhibBool,reverseZeroSub, forwardZeroSub, 
 		metSatForSub, metSatRevSub, rates, KeqName, KeqVal, volumeSub,
 		allCatalyticReactions, nonCatalyticReactions, transitionID, transitionRateEqs, unifiedRateConstList, 
-		absoluteFluxNoProdInhib, absoluteFlux,eqRateConstSub={},absoluteRateForward, absoluteRateReverse,
+		absoluteFluxNoProdInhib, absoluteFlux, absoluteRateForward, absoluteRateReverse,
 		relativeRateForward, relativeRateReverse, otherAbsoluteRatesForward, otherAbsoluteRatesReverse,
 		haldaneRatiosList, haldane, finalRateConsts,metsFull, metsSub, rateConstsSub,
 		eqnNameList, eqnValList, eqnValListPy, fileList, fileListSub},
 
 	rxnMets =  Map[getID[#]&, Flatten[{getSubstrates[rxn], getProducts[rxn]}]];
-	If[!SameQ[inhibitionListFull, {}],
-		inhibitors =inhibitionListFull[[All,2]];
+	If[ !SameQ[inhibitionListFull, {}],
+		inhibitors = inhibitionListFull[[All,2]];
 		prodInhibBool = MemberQ[Map[MemberQ[rxnMets, #]&, inhibitors], True];,
-		prodInhibBool=False;
+		prodInhibBool = False;
 	];
 
 	{reverseZeroSub, forwardZeroSub, metSatForSub, metSatRevSub} = getMetsSub[rxn];
@@ -430,8 +430,12 @@ setUpFluxEquations[enzymeModel_, rxn_, rxnName_, inputPath_, inhibitionListFull_
 
 	{allCatalyticReactions, nonCatalyticReactions} = classifyReactions[enzymeModelLocal];
 	
-	unifiedRateConstList = getUnifiedRateConstList[allCatalyticReactions, nonCatalyticReactions];
-
+	unifiedRateConstList = 
+		If[TrueQ[MWCFlag],
+			getUnifiedRateConstList[allCatalyticReactions, nonCatalyticReactions],
+			{}
+		];
+			
 	(*Identify Transition Rate Equations*)
 	transitionID = getTransitionIDs[allCatalyticReactions];
 
@@ -454,7 +458,7 @@ setUpFluxEquations[enzymeModel_, rxn_, rxnName_, inputPath_, inhibitionListFull_
 	absoluteFlux = getFluxEquation[inputPath, rxnName, enzymeModelLocal, unifiedRateConstList, transitionRateEqs, simplifyMaxTime, nActiveSites];
 
 	{absoluteRateForward, absoluteRateReverse, relativeRateForward, relativeRateReverse, otherAbsoluteRatesForward, otherAbsoluteRatesReverse} = 
-		getRateEqs[absoluteFlux, unifiedRateConstList, eqRateConstSub, reverseZeroSub, forwardZeroSub, volumeSub, metSatForSub, metSatRevSub, 
+		getRateEqs[absoluteFlux, unifiedRateConstList, reverseZeroSub, forwardZeroSub, volumeSub, metSatForSub, metSatRevSub, 
 					absoluteFluxNoProdInhib, absoluteFluxNoProdInhib,otherMetsForwardZeroSub, otherMetsReverseZeroSub];
 
 	(* set up haldane relations *)
@@ -475,9 +479,9 @@ setUpFluxEquations[enzymeModel_, rxn_, rxnName_, inputPath_, inhibitionListFull_
 							relativeRateReverse, metsSub, metSatForSub, metSatRevSub, rateConstsSub,
 							otherAbsoluteRatesForward, otherAbsoluteRatesReverse];
 	
-	Return[{haldaneRatiosList,  metSatForSub, metSatRevSub,  finalRateConsts, metsFull, metsSub, rateConstsSub, 
-			fileList, fileListSub, eqnNameList,eqnValList, eqnValListPy, 
-			allCatalyticReactions,nonCatalyticReactions, unifiedRateConstList, eqRateConstSub,
+	Return[{enzymeModelLocal, haldaneRatiosList,  metSatForSub, metSatRevSub,  finalRateConsts, metsFull, 
+			metsSub, rateConstsSub, fileList, fileListSub, eqnNameList,eqnValList, eqnValListPy, 
+			allCatalyticReactions,nonCatalyticReactions, unifiedRateConstList,
 			absoluteFlux, absoluteRateForward, absoluteRateReverse, relativeRateForward, relativeRateReverse, 
 			otherAbsoluteRatesForward, otherAbsoluteRatesReverse}];
 
