@@ -229,124 +229,6 @@ addInhibitionReactions[enzymeModel_, enzName_, inhibitionList_,  allCatalyticRea
 
 
 (* ::Subsection::Closed:: *)
-(*Get equivalent rate constant substitutions for random ordered mechanisms*)
-
-
-getEquivRateConsts[enzymeModel_, eqRateConstSubTemp_, nonCatalyticReactions_] := 
-	Block[{enzName, eqIDSub, eqRateConstSub, freeMetRxns, allSubstrates, equivalentRxns, equivalentRxnIDs, eqRateConst, indvRateConst},
-
-	enzName=enzymeModel["Enzymes"][[1]]//getID//ToString;
-
-	eqRateConstSub=eqRateConstSubTemp;
-
-
-	(*Work Around for Added Competitive Reaction ID's*)
-	eqIDSub=Union[getID[#[[1]]]->getID[#[[2]]]&/@eqRateConstSub];
-
-(*
-	(*Catalytic Reactions*)
-	
-	freeMetRxns=Cases[getSpecies[#],_metabolite,\[Infinity]]&/@allCatalyticReactions;
-	allSubstrates=Cases[getSpecies[enzymeModel],_metabolite,\[Infinity]];
-	equivalentRxns={};
-	Do[
-		AppendTo[equivalentRxns,{}],
-		{Length[allSubstrates]}];
-		(*Extract Equivalent Reactions*)
-		Table[
-			If[
-			SameQ[freeMetRxns[[rxn,1]],allSubstrates[[met]]],
-			AppendTo[equivalentRxns[[met]],rxn]];
-			freeMetRxns[[rxn,1]],
-			{met,Length[allSubstrates]},{rxn,Length[freeMetRxns]}]~Quiet~{Part::partw};
-		(*Parallel Catalytic Reactions Are Not Dealt with Using this Rule List*)
-		equivalentRxns=Table[{unifyRateConstants[getID[allCatalyticReactions[[#]]]],#}&/@rxnSet,{rxnSet,equivalentRxns}];
-		equivalentRxns=Table[
-		If[Length[DeleteDuplicates[rxnSet,#1[[1]]==#2[[1]]&]]>1,
-			DeleteDuplicates[rxnSet,#1[[1]]==#2[[1]]&][[All,2]],
-			{}
-		],
-		{rxnSet,equivalentRxns}];
-
-	(*Assemble Rule List and New 'rateconst' Names*)
-	equivalentRxnIDs=Table[
-		ToString[enzName]<>ToString[equivalentRxns[[eqSet,react]]],
-	{eqSet,Length[equivalentRxns]},{react,Length[equivalentRxns[[eqSet]]]}];
-
-	eqRateConst=Table[
-		StringJoin[Riffle[Map[ToString,Join[{enzName},equivalentRxns[[eqRxn]]]],"_"]],
-	{eqRxn,Length[equivalentRxns]}];
-
-	eqRateConst=Table[
-		rateconst[rate,If[boole==1,False,True]],
-	{rate,eqRateConst},{boole,2}];
-
-	indvRateConst=Table[
-		rateconst[equivalentRxnIDs[[eqSet,reactID]],If[boole==1,False,True]],
-	{eqSet,Length[equivalentRxnIDs]},{boole,2},{reactID,Length[equivalentRxnIDs[[eqSet]]]}];
-
-	eqRateConstSub=Join[eqRateConstSub,Flatten[
-		Table[
-			#->eqRateConst[[eqRate,direction]]&/@indvRateConst[[eqRate,direction]],
-		{eqRate,Length[eqRateConst]},{direction,Length[eqRateConst[[eqRate]]]}]
-	]];
-*)
-
-	(*Non-Catalytic Reactions*)
-	freeMetRxns=Cases[getSpecies[#],_metabolite,\[Infinity]]&/@nonCatalyticReactions;
-	allSubstrates=Cases[getSpecies[enzymeModel],_metabolite,\[Infinity]];
-	equivalentRxns={};
-	Do[
-		AppendTo[equivalentRxns,{}],
-	{Length[allSubstrates]}];
-
-	(*Extract Equivalent Reactions*)
-	Table[
-		If[
-			SameQ[freeMetRxns[[rxn,1]],allSubstrates[[met]]],
-			AppendTo[equivalentRxns[[met]],rxn]];
-			freeMetRxns[[rxn,1]],
-	{met,Length[allSubstrates]},{rxn,Length[freeMetRxns]}]~Quiet~{Part::partw};
-
-	(*Parallel Catalytic Reactions Are Not Dealt with Using this Rule List*)
-	equivalentRxns=Table[{unifyRateConstants[getID[nonCatalyticReactions[[#]]]],#}&/@rxnSet,{rxnSet,equivalentRxns}]/.eqIDSub;
-
-	equivalentRxns=Table[
-		If[Length[DeleteDuplicates[rxnSet,#1[[1]]==#2[[1]]&]]>1,
-			DeleteDuplicates[rxnSet,#1[[1]]==#2[[1]]&][[All,1]], (* changed to fix issue on TALA2, hopefully it's general enough *)
-			{}
-		],
-	{rxnSet,equivalentRxns}];
-
-	(*Assemble Rule List and New 'rateconst' Names*)
-	equivalentRxnIDs=Table[
-		(*ToString[enzName]<>*)ToString[equivalentRxns[[eqSet,react]]],
-	{eqSet,Length[equivalentRxns]},{react,Length[equivalentRxns[[eqSet]]]}];
-	
-	eqRateConst=Table[
-		(*StringJoin[Riffle[Map[ToString,Join[{enzName},equivalentRxns[[eqRxn]]]],"_"]],*)
-		StringJoin[Riffle[Map[ToString,equivalentRxns[[eqRxn]]],"_"]],
-	{eqRxn,Length[equivalentRxns]}];
-
-	eqRateConst=Table[
-		rateconst[rate,If[boole==1,False,True]],
-	{rate,eqRateConst},{boole,2}];
-	
-	indvRateConst=Table[
-		rateconst[equivalentRxnIDs[[eqSet,reactID]],If[boole==1,False,True]],
-	{eqSet,Length[equivalentRxnIDs]},{boole,2},{reactID,Length[equivalentRxnIDs[[eqSet]]]}];
-		
-	eqRateConstSub=Join[eqRateConstSub,Flatten[
-		Table[
-			Map[#->eqRateConst[[eqRate,direction]]&, indvRateConst[[eqRate,direction]]],
-		{eqRate,Length[eqRateConst]},{direction,Length[eqRateConst[[eqRate]]]}]
-	]]//Union;
-
-	Return[eqRateConstSub];
-];
-
-
-(* ::Subsection::Closed:: *)
 (*Get  rate  equations*)
 
 
@@ -570,11 +452,6 @@ setUpFluxEquations[enzymeModel_, rxn_, rxnName_, inputPath_, inhibitionListFull_
 
 	(* get flux equation including inhibitions*)
 	absoluteFlux = getFluxEquation[inputPath, rxnName, enzymeModelLocal, unifiedRateConstList, transitionRateEqs, simplifyMaxTime, nActiveSites];
-
-	(*Equivalent Rate Constant Substitution for Random Ordered Mechanisms*)
-	(*This should work automatically,a substitution rule list is created with the name:'eqRateConstSub'.It is kind of a greedy section of code,
-		so double check the results to make sure they're accurate*)
-	eqRateConstSub = getEquivRateConsts[enzymeModelLocal, eqRateConstSub, nonCatalyticReactions];
 
 	{absoluteRateForward, absoluteRateReverse, relativeRateForward, relativeRateReverse, otherAbsoluteRatesForward, otherAbsoluteRatesReverse} = 
 		getRateEqs[absoluteFlux, unifiedRateConstList, eqRateConstSub, reverseZeroSub, forwardZeroSub, volumeSub, metSatForSub, metSatRevSub, 
