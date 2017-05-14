@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     17991,        475]
-NotebookOptionsPosition[     17485,        453]
-NotebookOutlinePosition[     17825,        468]
-CellTagsIndexPosition[     17782,        465]
+NotebookDataLength[     18016,        476]
+NotebookOptionsPosition[     17510,        454]
+NotebookOutlinePosition[     17850,        469]
+CellTagsIndexPosition[     17807,        466]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -400,7 +400,7 @@ Cell[BoxData[
                 TagBox[
                  
                  TemplateBox[{
-                  "0.052401`4.869854572799265","\"s\"","seconds",
+                  "0.051477`4.862128226790645","\"s\"","seconds",
                    "\"Seconds\""},
                   "Quantity"],
                  Short[#, 
@@ -441,18 +441,19 @@ Cell[BoxData[
        "GAPD1", True]], "ActualOutput" -> 
      HoldForm[Toolbox`rateconst["GAPD1", False]/Toolbox`rateconst[
        "GAPD1", True]], "ExpectedMessages" -> {}, "ActualMessages" -> {}, 
-     "AbsoluteTimeUsed" -> Quantity[0.052401`4.869854572799265, "Seconds"], 
-     "CPUTimeUsed" -> Quantity[0.10400000000000009`, "Seconds"], "MemoryUsed" -> 
+     "AbsoluteTimeUsed" -> Quantity[0.051477`4.862128226790645, "Seconds"], 
+     "CPUTimeUsed" -> Quantity[0.10000000000000009`, "Seconds"], "MemoryUsed" -> 
      Quantity[3003360, "Bytes"]]],
    Editable->False,
    SelectWithContents->True,
    Selectable->False], "}"}]], "Output",
- CellChangeTimes->{3.7033343218689127`*^9, 3.703771686526661*^9}]
+ CellChangeTimes->{3.7033343218689127`*^9, 3.703771686526661*^9, 
+  3.703782215652769*^9}]
 }, Open  ]]
 }, Open  ]]
 },
 WindowSize->{1440, 876},
-WindowMargins->{{Automatic, 159}, {3, Automatic}},
+WindowMargins->{{Automatic, 156}, {3, Automatic}},
 FrontEndVersion->"11.0 for Linux x86 (64-bit) (September 21, 2016)",
 StyleDefinitions->"Default.nb"
 ]
@@ -474,7 +475,7 @@ Cell[1741, 50, 248, 3, 35, "Subsubsection"],
 Cell[1992, 55, 3954, 90, 443, "Input"],
 Cell[CellGroupData[{
 Cell[5971, 149, 140, 2, 55, "Input"],
-Cell[6114, 153, 11343, 296, 98, "Output"]
+Cell[6114, 153, 11368, 297, 65, "Output"]
 }, Open  ]]
 }, Open  ]]
 }

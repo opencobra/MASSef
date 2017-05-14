@@ -237,11 +237,11 @@ getOtherParamsValue[param_, otherParamsList_] :=
 ];
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*Print enzyme data*)
 
 
-printEnzymeData[rxn_, mechanism_, structure_, nActiveSites_, kmList_, s05List_, kcatList_, inhibitionList_, activationList_, otherParmsList_] := Block[{},
+printEnzymeData[rxn_, mechanism_, structure_, nActiveSites_, KeqList_, kmList_, s05List_, kcatList_, inhibitionList_, activationList_, otherParmsList_] := Block[{},
 
 	Print[rxn];
 	Print[mechanism];
@@ -249,6 +249,9 @@ printEnzymeData[rxn_, mechanism_, structure_, nActiveSites_, kmList_, s05List_, 
 	Print["Active sites: " <> ToString@nActiveSites];
 
 	(*Print Available Kinetic Data*)
+	Print[""];
+	Print["Keq Values:"];
+	Print[{{"Substrate","Keq_Value","Uncertainty","CoSubstrate","Units","pH","Temperature_C","Buffer_Concentrations","Salt_Concentrations"}}~Join~KeqList//TableForm];
 	Print[""];
 	Print["Km Values:"];
 	Print[{{"Substrate","Km_Value","Uncertainty","CoSubstrate","Units","pH","Temperature_C","Buffer_Concentrations","Salt_Concentrations"}}~Join~kmList//TableForm];

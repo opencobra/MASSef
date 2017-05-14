@@ -80,6 +80,17 @@ handleUncertainty[paramValue_, uncertainty_, defaultUncertaintyFraction_] :=
 	Return[uncertaintyLocal];
 ];
 
+parseKeqEntry[line_, uncertaintyFraction_] := Block[{entry, substrate, value, uncertainty, coSubstrates, units, ph, temperature, buffer, salts},
+	substrate = line[[1]];
+	value = line[[2]];
+	uncertainty = line[[3]];
+	uncertainty = handleUncertainty[value, uncertainty, uncertaintyFraction];
+	ph = line[[6]];
+
+	entry = {substrate, value, uncertainty, Null, Null, ph, Null, Null, Null};
+	Return[entry];
+];
+
 parseKmS05Entry[line_, uncertaintyFraction_] := Block[{entry, substrate, value, uncertainty, coSubstrates, units, ph, temperature, buffer, salts},
 	substrate = line[[1]];
 	value = line[[2]];
@@ -172,7 +183,7 @@ getEnzymeData[enzName_, dataPath_, assumedUncertaintyFraction_] :=
 	Block[{data, enzymesInd, curEnzymeInd, nextEnzymeInd, curEnzymeData, 
 			ecNumber, organism, rxn, mechanism, structure, nActiveSites,  
 			nAllostericSites, line, dataType, kmList={}, kcatList={}, s05List={},  
-			inhibitionList={}, activationList={}, otherParmsList={}},
+			inhibitionList={}, activationList={}, otherParmsList={}, KeqList={}},
 			
 	data = Import[dataPath, "CSV"];
 										  
@@ -200,21 +211,21 @@ getEnzymeData[enzName_, dataPath_, assumedUncertaintyFraction_] :=
 
 
 	Table[
-	
 		dataType = curEnzymeData[[i,2]];
 		line = curEnzymeData[[i]];
-
+	
 		Which[
-			StringMatchQ[dataType, "Km"], AppendTo[kmList, parseKmS05Entry[line[[3;;]], assumedUncertaintyFraction]],
-			StringMatchQ[dataType, "s05"], AppendTo[s05List, parseKmS05Entry[line[[3;;]], assumedUncertaintyFraction]],
-			StringMatchQ[dataType, "kcat"], AppendTo[kcatList, parseKcatEntry[line[[3;;]], assumedUncertaintyFraction]],
-			StringMatchQ[dataType, {"Ki", "Kic", "Kinc", "Kincu", "Kincc"}], AppendTo[inhibitionList, parseInhibKaEntry[line[[2;;]], assumedUncertaintyFraction]],
-			StringMatchQ[dataType, "Ka"], AppendTo[activationList, parseInhibKaEntry[line[[2;;]], assumedUncertaintyFraction]],
+			StringMatchQ[ToLowerCase@dataType, "keq"], AppendTo[KeqList, parseKeqEntry[line[[3;;]], assumedUncertaintyFraction]],
+			StringMatchQ[ToLowerCase@dataType, "km"], AppendTo[kmList, parseKmS05Entry[line[[3;;]], assumedUncertaintyFraction]],
+			StringMatchQ[ToLowerCase@dataType, "s05"], AppendTo[s05List, parseKmS05Entry[line[[3;;]], assumedUncertaintyFraction]],
+			StringMatchQ[ToLowerCase@dataType, "kcat"], AppendTo[kcatList, parseKcatEntry[line[[3;;]], assumedUncertaintyFraction]],
+			StringMatchQ[ToLowerCase@dataType, {"ki", "kic", "kinc", "kincu", "kincc"}], AppendTo[inhibitionList, parseInhibKaEntry[line[[2;;]], assumedUncertaintyFraction]],
+			StringMatchQ[ToLowerCase@dataType, "ka"], AppendTo[activationList, parseInhibKaEntry[line[[2;;]], assumedUncertaintyFraction]],
 			True, AppendTo[otherParmsList, parseOtherEntry[line[[2;;]], assumedUncertaintyFraction]]
 		];,
 	{i, 10, Length@curEnzymeData}];
 	
-	Return[{rxn, mechanism, structure, nActiveSites, nAllostericSites, kmList, s05List, kcatList, inhibitionList, activationList, otherParmsList}];
+	Return[{rxn, mechanism, structure, nActiveSites, nAllostericSites, KeqList, kmList, s05List, kcatList, inhibitionList, activationList, otherParmsList}];
 ];
 
 
