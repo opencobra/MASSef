@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[   3021450,      67243]
-NotebookOptionsPosition[   3012978,      66972]
-NotebookOutlinePosition[   3013382,      66990]
-CellTagsIndexPosition[   3013339,      66987]
+NotebookDataLength[   3063777,      68355]
+NotebookOptionsPosition[   3055139,      68079]
+NotebookOutlinePosition[   3055543,      68097]
+CellTagsIndexPosition[   3055500,      68094]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -38,11 +38,10 @@ Cell[BoxData[{
  RowBox[{
   RowBox[{"<<", "Toolbox`"}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
-  RowBox[{"Get", "[", "\"\<MASSef`\>\"", "]"}], ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"Get", "[", "\"\<MASSef`\>\"", "]"}], ";"}]}], "Input",
+  RowBox[{"<<", "MASSef`"}], ";"}], "\[IndentingNewLine]"}], "Input",
  CellChangeTimes->{{3.689587098358124*^9, 3.6895870987800817`*^9}, {
-   3.6984135184897203`*^9, 3.6984135190388327`*^9}, 3.703238268224558*^9}],
+   3.6984135184897203`*^9, 3.6984135190388327`*^9}, 3.703238268224558*^9, {
+   3.703761306129043*^9, 3.703761309122531*^9}}],
 
 Cell[CellGroupData[{
 
@@ -119,7 +118,8 @@ Cell[BoxData["\<\"Working dir:/home/mrama/Dropbox/test bla/MASSef/examples/\"\
   3.703311095143362*^9, 3.703314611274457*^9, 3.70332703231665*^9, 
   3.703327153493384*^9, 3.7033272268734713`*^9, 3.703330251801182*^9, 
   3.703390097591514*^9, 3.703397531985612*^9, 3.703406776118178*^9, 
-  3.703406839944872*^9, 3.7034074213734922`*^9, 3.703407496123489*^9}]
+  3.703406839944872*^9, 3.7034074213734922`*^9, 3.703407496123489*^9, 
+  3.703761322008986*^9, 3.703761612401061*^9, 3.703762138167427*^9}]
 }, Open  ]]
 }, Open  ]],
 
@@ -351,42 +351,48 @@ Cell[BoxData[
   3.703314613776823*^9, 3.703327032400509*^9, 3.703327153674427*^9, 
    3.703327226942553*^9, {3.70333025202549*^9, 3.7033302537888107`*^9}, 
    3.7033900978262167`*^9, 3.70339753207158*^9, 3.703406776214449*^9, 
-   3.703406840015951*^9, 3.703407421553937*^9, 3.703407496293404*^9}],
+   3.703406840015951*^9, 3.703407421553937*^9, 3.703407496293404*^9, 
+   3.703761322355234*^9, 3.7037616126169853`*^9, 3.70376213839467*^9}],
 
 Cell[BoxData["\<\"Bi Bi (iso-ordered); [f6p,atp,fdp,adp]\"\>"], "Print",
  CellChangeTimes->{
   3.703314613776823*^9, 3.703327032400509*^9, 3.703327153674427*^9, 
    3.703327226942553*^9, {3.70333025202549*^9, 3.7033302537888107`*^9}, 
    3.7033900978262167`*^9, 3.70339753207158*^9, 3.703406776214449*^9, 
-   3.703406840015951*^9, 3.703407421553937*^9, 3.703407496294435*^9}],
+   3.703406840015951*^9, 3.703407421553937*^9, 3.703407496293404*^9, 
+   3.703761322355234*^9, 3.7037616126169853`*^9, 3.703762138395626*^9}],
 
 Cell[BoxData["\<\"Structure: 4\"\>"], "Print",
  CellChangeTimes->{
   3.703314613776823*^9, 3.703327032400509*^9, 3.703327153674427*^9, 
    3.703327226942553*^9, {3.70333025202549*^9, 3.7033302537888107`*^9}, 
    3.7033900978262167`*^9, 3.70339753207158*^9, 3.703406776214449*^9, 
-   3.703406840015951*^9, 3.703407421553937*^9, 3.7034074962955*^9}],
+   3.703406840015951*^9, 3.703407421553937*^9, 3.703407496293404*^9, 
+   3.703761322355234*^9, 3.7037616126169853`*^9, 3.7037621383964787`*^9}],
 
 Cell[BoxData["\<\"Active sites: 4\"\>"], "Print",
  CellChangeTimes->{
   3.703314613776823*^9, 3.703327032400509*^9, 3.703327153674427*^9, 
    3.703327226942553*^9, {3.70333025202549*^9, 3.7033302537888107`*^9}, 
    3.7033900978262167`*^9, 3.70339753207158*^9, 3.703406776214449*^9, 
-   3.703406840015951*^9, 3.703407421553937*^9, 3.703407496296442*^9}],
+   3.703406840015951*^9, 3.703407421553937*^9, 3.703407496293404*^9, 
+   3.703761322355234*^9, 3.7037616126169853`*^9, 3.703762138397273*^9}],
 
 Cell[BoxData["\<\"\"\>"], "Print",
  CellChangeTimes->{
   3.703314613776823*^9, 3.703327032400509*^9, 3.703327153674427*^9, 
    3.703327226942553*^9, {3.70333025202549*^9, 3.7033302537888107`*^9}, 
    3.7033900978262167`*^9, 3.70339753207158*^9, 3.703406776214449*^9, 
-   3.703406840015951*^9, 3.703407421553937*^9, 3.703407496297372*^9}],
+   3.703406840015951*^9, 3.703407421553937*^9, 3.703407496293404*^9, 
+   3.703761322355234*^9, 3.7037616126169853`*^9, 3.703762138398094*^9}],
 
 Cell[BoxData["\<\"Km Values:\"\>"], "Print",
  CellChangeTimes->{
   3.703314613776823*^9, 3.703327032400509*^9, 3.703327153674427*^9, 
    3.703327226942553*^9, {3.70333025202549*^9, 3.7033302537888107`*^9}, 
    3.7033900978262167`*^9, 3.70339753207158*^9, 3.703406776214449*^9, 
-   3.703406840015951*^9, 3.703407421553937*^9, 3.703407496298308*^9}],
+   3.703406840015951*^9, 3.703407421553937*^9, 3.703407496293404*^9, 
+   3.703761322355234*^9, 3.7037616126169853`*^9, 3.7037621383988447`*^9}],
 
 Cell[BoxData[
  InterpretationBox[GridBox[{
@@ -507,21 +513,24 @@ Cell[BoxData[
   3.703314613776823*^9, 3.703327032400509*^9, 3.703327153674427*^9, 
    3.703327226942553*^9, {3.70333025202549*^9, 3.7033302537888107`*^9}, 
    3.7033900978262167`*^9, 3.70339753207158*^9, 3.703406776214449*^9, 
-   3.703406840015951*^9, 3.703407421553937*^9, 3.703407496299939*^9}],
+   3.703406840015951*^9, 3.703407421553937*^9, 3.703407496293404*^9, 
+   3.703761322355234*^9, 3.7037616126169853`*^9, 3.703762138400138*^9}],
 
 Cell[BoxData["\<\"\"\>"], "Print",
  CellChangeTimes->{
   3.703314613776823*^9, 3.703327032400509*^9, 3.703327153674427*^9, 
    3.703327226942553*^9, {3.70333025202549*^9, 3.7033302537888107`*^9}, 
    3.7033900978262167`*^9, 3.70339753207158*^9, 3.703406776214449*^9, 
-   3.703406840015951*^9, 3.703407421553937*^9, 3.7034074963020353`*^9}],
+   3.703406840015951*^9, 3.703407421553937*^9, 3.703407496293404*^9, 
+   3.703761322355234*^9, 3.7037616126169853`*^9, 3.70376213840199*^9}],
 
 Cell[BoxData["\<\"S0.5 Values:\"\>"], "Print",
  CellChangeTimes->{
   3.703314613776823*^9, 3.703327032400509*^9, 3.703327153674427*^9, 
    3.703327226942553*^9, {3.70333025202549*^9, 3.7033302537888107`*^9}, 
    3.7033900978262167`*^9, 3.70339753207158*^9, 3.703406776214449*^9, 
-   3.703406840015951*^9, 3.703407421553937*^9, 3.703407496302928*^9}],
+   3.703406840015951*^9, 3.703407421553937*^9, 3.703407496293404*^9, 
+   3.703761322355234*^9, 3.7037616126169853`*^9, 3.7037621384027843`*^9}],
 
 Cell[BoxData[
  InterpretationBox[GridBox[{
@@ -595,21 +604,24 @@ Cell[BoxData[
   3.703314613776823*^9, 3.703327032400509*^9, 3.703327153674427*^9, 
    3.703327226942553*^9, {3.70333025202549*^9, 3.7033302537888107`*^9}, 
    3.7033900978262167`*^9, 3.70339753207158*^9, 3.703406776214449*^9, 
-   3.703406840015951*^9, 3.703407421553937*^9, 3.703407496304123*^9}],
+   3.703406840015951*^9, 3.703407421553937*^9, 3.703407496293404*^9, 
+   3.703761322355234*^9, 3.7037616126169853`*^9, 3.703762138403913*^9}],
 
 Cell[BoxData["\<\"\"\>"], "Print",
  CellChangeTimes->{
   3.703314613776823*^9, 3.703327032400509*^9, 3.703327153674427*^9, 
    3.703327226942553*^9, {3.70333025202549*^9, 3.7033302537888107`*^9}, 
    3.7033900978262167`*^9, 3.70339753207158*^9, 3.703406776214449*^9, 
-   3.703406840015951*^9, 3.703407421553937*^9, 3.703407496305484*^9}],
+   3.703406840015951*^9, 3.703407421553937*^9, 3.703407496293404*^9, 
+   3.703761322355234*^9, 3.7037616126169853`*^9, 3.7037621384052153`*^9}],
 
 Cell[BoxData["\<\"kcat Values:\"\>"], "Print",
  CellChangeTimes->{
   3.703314613776823*^9, 3.703327032400509*^9, 3.703327153674427*^9, 
    3.703327226942553*^9, {3.70333025202549*^9, 3.7033302537888107`*^9}, 
    3.7033900978262167`*^9, 3.70339753207158*^9, 3.703406776214449*^9, 
-   3.703406840015951*^9, 3.703407421553937*^9, 3.703407496306324*^9}],
+   3.703406840015951*^9, 3.703407421553937*^9, 3.703407496293404*^9, 
+   3.703761322355234*^9, 3.7037616126169853`*^9, 3.703762138405918*^9}],
 
 Cell[BoxData[
  InterpretationBox[GridBox[{
@@ -683,21 +695,24 @@ Cell[BoxData[
   3.703314613776823*^9, 3.703327032400509*^9, 3.703327153674427*^9, 
    3.703327226942553*^9, {3.70333025202549*^9, 3.7033302537888107`*^9}, 
    3.7033900978262167`*^9, 3.70339753207158*^9, 3.703406776214449*^9, 
-   3.703406840015951*^9, 3.703407421553937*^9, 3.703407496307473*^9}],
+   3.703406840015951*^9, 3.703407421553937*^9, 3.703407496293404*^9, 
+   3.703761322355234*^9, 3.7037616126169853`*^9, 3.703762138406925*^9}],
 
 Cell[BoxData["\<\"\"\>"], "Print",
  CellChangeTimes->{
   3.703314613776823*^9, 3.703327032400509*^9, 3.703327153674427*^9, 
    3.703327226942553*^9, {3.70333025202549*^9, 3.7033302537888107`*^9}, 
    3.7033900978262167`*^9, 3.70339753207158*^9, 3.703406776214449*^9, 
-   3.703406840015951*^9, 3.703407421553937*^9, 3.703407496308826*^9}],
+   3.703406840015951*^9, 3.703407421553937*^9, 3.703407496293404*^9, 
+   3.703761322355234*^9, 3.7037616126169853`*^9, 3.703762138408169*^9}],
 
 Cell[BoxData["\<\"Inhibition Values:\"\>"], "Print",
  CellChangeTimes->{
   3.703314613776823*^9, 3.703327032400509*^9, 3.703327153674427*^9, 
    3.703327226942553*^9, {3.70333025202549*^9, 3.7033302537888107`*^9}, 
    3.7033900978262167`*^9, 3.70339753207158*^9, 3.703406776214449*^9, 
-   3.703406840015951*^9, 3.703407421553937*^9, 3.703407496309668*^9}],
+   3.703406840015951*^9, 3.703407421553937*^9, 3.703407496293404*^9, 
+   3.703761322355234*^9, 3.7037616126169853`*^9, 3.703762138408888*^9}],
 
 Cell[BoxData[
  InterpretationBox[GridBox[{
@@ -818,21 +833,24 @@ Cell[BoxData[
   3.703314613776823*^9, 3.703327032400509*^9, 3.703327153674427*^9, 
    3.703327226942553*^9, {3.70333025202549*^9, 3.7033302537888107`*^9}, 
    3.7033900978262167`*^9, 3.70339753207158*^9, 3.703406776214449*^9, 
-   3.703406840015951*^9, 3.703407421553937*^9, 3.703407496311026*^9}],
+   3.703406840015951*^9, 3.703407421553937*^9, 3.703407496293404*^9, 
+   3.703761322355234*^9, 3.7037616126169853`*^9, 3.70376213841007*^9}],
 
 Cell[BoxData["\<\"\"\>"], "Print",
  CellChangeTimes->{
   3.703314613776823*^9, 3.703327032400509*^9, 3.703327153674427*^9, 
    3.703327226942553*^9, {3.70333025202549*^9, 3.7033302537888107`*^9}, 
    3.7033900978262167`*^9, 3.70339753207158*^9, 3.703406776214449*^9, 
-   3.703406840015951*^9, 3.703407421553937*^9, 3.703407496312882*^9}],
+   3.703406840015951*^9, 3.703407421553937*^9, 3.703407496293404*^9, 
+   3.703761322355234*^9, 3.7037616126169853`*^9, 3.7037621384117537`*^9}],
 
 Cell[BoxData["\<\"Activation Values:\"\>"], "Print",
  CellChangeTimes->{
   3.703314613776823*^9, 3.703327032400509*^9, 3.703327153674427*^9, 
    3.703327226942553*^9, {3.70333025202549*^9, 3.7033302537888107`*^9}, 
    3.7033900978262167`*^9, 3.70339753207158*^9, 3.703406776214449*^9, 
-   3.703406840015951*^9, 3.703407421553937*^9, 3.703407496313786*^9}],
+   3.703406840015951*^9, 3.703407421553937*^9, 3.703407496293404*^9, 
+   3.703761322355234*^9, 3.7037616126169853`*^9, 3.703762138412489*^9}],
 
 Cell[BoxData[
  InterpretationBox[GridBox[{
@@ -927,21 +945,24 @@ Cell[BoxData[
   3.703314613776823*^9, 3.703327032400509*^9, 3.703327153674427*^9, 
    3.703327226942553*^9, {3.70333025202549*^9, 3.7033302537888107`*^9}, 
    3.7033900978262167`*^9, 3.70339753207158*^9, 3.703406776214449*^9, 
-   3.703406840015951*^9, 3.703407421553937*^9, 3.703407496315156*^9}],
+   3.703406840015951*^9, 3.703407421553937*^9, 3.703407496293404*^9, 
+   3.703761322355234*^9, 3.7037616126169853`*^9, 3.703762138413624*^9}],
 
 Cell[BoxData["\<\"\"\>"], "Print",
  CellChangeTimes->{
   3.703314613776823*^9, 3.703327032400509*^9, 3.703327153674427*^9, 
    3.703327226942553*^9, {3.70333025202549*^9, 3.7033302537888107`*^9}, 
    3.7033900978262167`*^9, 3.70339753207158*^9, 3.703406776214449*^9, 
-   3.703406840015951*^9, 3.703407421553937*^9, 3.70340749631705*^9}],
+   3.703406840015951*^9, 3.703407421553937*^9, 3.703407496293404*^9, 
+   3.703761322355234*^9, 3.7037616126169853`*^9, 3.7037621384151173`*^9}],
 
 Cell[BoxData["\<\"Other Parameters:\"\>"], "Print",
  CellChangeTimes->{
   3.703314613776823*^9, 3.703327032400509*^9, 3.703327153674427*^9, 
    3.703327226942553*^9, {3.70333025202549*^9, 3.7033302537888107`*^9}, 
    3.7033900978262167`*^9, 3.70339753207158*^9, 3.703406776214449*^9, 
-   3.703406840015951*^9, 3.703407421553937*^9, 3.703407496318098*^9}],
+   3.703406840015951*^9, 3.703407421553937*^9, 3.703407496293404*^9, 
+   3.703761322355234*^9, 3.7037616126169853`*^9, 3.703762138415827*^9}],
 
 Cell[BoxData[
  InterpretationBox[GridBox[{
@@ -1031,7 +1052,8 @@ Cell[BoxData[
   3.703314613776823*^9, 3.703327032400509*^9, 3.703327153674427*^9, 
    3.703327226942553*^9, {3.70333025202549*^9, 3.7033302537888107`*^9}, 
    3.7033900978262167`*^9, 3.70339753207158*^9, 3.703406776214449*^9, 
-   3.703406840015951*^9, 3.703407421553937*^9, 3.703407496319441*^9}]
+   3.703406840015951*^9, 3.703407421553937*^9, 3.703407496293404*^9, 
+   3.703761322355234*^9, 3.7037616126169853`*^9, 3.703762138416932*^9}]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
@@ -4855,7 +4877,8 @@ Cell[BoxData[
    3.7033271541611633`*^9, 3.703327227268662*^9, 3.703330256461965*^9, 
    3.7033303151313953`*^9, 3.703390098283062*^9, 3.7033975324588537`*^9, 
    3.7034067807135*^9, 3.7034068403008747`*^9, 3.703407422078611*^9, 
-   3.703407512286656*^9}]
+   3.703407512286656*^9, 3.7037613237215357`*^9, 3.7037616129268503`*^9, 
+   3.703762138772691*^9}]
 }, Open  ]]
 }, Open  ]],
 
@@ -18003,35 +18026,34 @@ Cell[CellGroupData[{
 Cell[BoxData[
  RowBox[{"\[IndentingNewLine]", "\[IndentingNewLine]", 
   RowBox[{
-   RowBox[{"MemoryConstrained", "[", 
+   RowBox[{
     RowBox[{
-     RowBox[{
+     RowBox[{"{", 
       RowBox[{
+      "enzymeModel", ",", " ", "haldaneRatiosList", ",", "  ", "metSatForSub",
+        ",", " ", "metSatRevSub", ",", "  ", "finalRateConsts", ",", " ", 
+       "metsFull", ",", " ", "metsSub", ",", " ", "rateConstsSub", ",", " ", 
+       "\n", "\t\t\t", "fileList", ",", " ", "fileListSub", ",", " ", 
+       "eqnNameList", ",", "eqnValList", ",", " ", "eqnValListPy", ",", " ", 
+       "\n", "\t\t\t", "allCatalyticReactions", ",", "nonCatalyticReactions", 
+       ",", " ", "unifiedRateConstList", ",", " ", "\n", "\t\t\t", 
+       "absoluteFlux", ",", " ", "absoluteRateForward", ",", " ", 
+       "absoluteRateReverse", ",", " ", "relativeRateForward", ",", " ", 
+       "relativeRateReverse", ",", " ", "\n", "\t\t\t", 
+       "otherAbsoluteRatesForward", ",", " ", "otherAbsoluteRatesReverse"}], 
+      "}"}], "=", "\[IndentingNewLine]", "\[IndentingNewLine]", "\t", 
+     RowBox[{"setUpFluxEquations", "[", 
+      RowBox[{
+      "enzymeModel", ",", " ", "rxn", ",", " ", "rxnName", ",", " ", 
+       "inputPath", ",", " ", "inhibitionList", ",", 
        RowBox[{"{", 
-        RowBox[{
-        "enzymeModel", ",", " ", "haldaneRatiosList", ",", "  ", 
-         "metSatForSub", ",", " ", "metSatRevSub", ",", "  ", 
-         "finalRateConsts", ",", " ", "metsFull", ",", " ", "metsSub", ",", 
-         " ", "rateConstsSub", ",", " ", "\n", "\t\t\t", "fileList", ",", " ",
-          "fileListSub", ",", " ", "eqnNameList", ",", "eqnValList", ",", " ",
-          "eqnValListPy", ",", " ", "\n", "\t\t\t", "allCatalyticReactions", 
-         ",", "nonCatalyticReactions", ",", " ", "unifiedRateConstList", ",", 
-         " ", "\n", "\t\t\t", "absoluteFlux", ",", " ", "absoluteRateForward",
-          ",", " ", "absoluteRateReverse", ",", " ", "relativeRateForward", 
-         ",", " ", "relativeRateReverse", ",", " ", "\n", "\t\t\t", 
-         "otherAbsoluteRatesForward", ",", " ", "otherAbsoluteRatesReverse"}],
-         "}"}], "=", "\[IndentingNewLine]", "\[IndentingNewLine]", "\t", 
-       RowBox[{"setUpFluxEquations", "[", 
-        RowBox[{
-        "enzymeModel", ",", " ", "rxn", ",", " ", "rxnName", ",", " ", 
-         "inputPath", ",", " ", "inhibitionList", ",", " ", 
-         RowBox[{"{", 
-          RowBox[{"inhibitionList", "[", "2", "]"}], "}"}], ",", " ", 
-         "catalyticReactionsSetsList", ",", " ", "otherMetsReverseZeroSub", 
-         ",", "  ", "\n", "\t\t\t\t\t\t ", "otherMetsForwardZeroSub", ",", 
-         "  ", "MWCFlag", ",", " ", "simplifyMaxTime", ",", " ", 
-         "nActiveSites"}], "]"}]}], ";"}], ",", " ", "1250000000"}], "]"}], "//",
-    "\[IndentingNewLine]", "\[IndentingNewLine]"}]}]], "Input",
+        RowBox[{"inhibitionList", "[", 
+         RowBox[{"[", "2", "]"}], "]"}], "}"}], ",", " ", 
+       "catalyticReactionsSetsList", ",", " ", "otherMetsReverseZeroSub", ",",
+        "  ", "\n", "\t\t\t\t\t\t ", "otherMetsForwardZeroSub", ",", "  ", 
+       "MWCFlag", ",", " ", "simplifyMaxTime", ",", " ", "nActiveSites"}], 
+      "]"}]}], ";"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]"}]}]], "Input",
  CellChangeTimes->{{3.703234858526586*^9, 3.703234859308795*^9}, 
    3.70323538289713*^9, {3.703237236905774*^9, 3.703237291226242*^9}, {
    3.703237376442387*^9, 3.703237376963108*^9}, 3.7032382620368853`*^9, {
@@ -18041,21 +18063,27 @@ Cell[BoxData[
    3.703321370522962*^9, {3.703323691164734*^9, 3.703323693151431*^9}, {
    3.703324989454906*^9, 3.703324998279133*^9}, {3.703600866750472*^9, 
    3.703600866903696*^9}, {3.703601831634418*^9, 3.703601831861562*^9}, {
-   3.703604074243597*^9, 3.7036040744028397`*^9}}],
-
-Cell[BoxData[
- RowBox[{"{", 
-  RowBox[{"307.802478`", ",", "$Aborted"}], "}"}]], "Output",
- CellChangeTimes->{3.703321677431674*^9, 3.703324003024253*^9}]
-}, Open  ]],
+   3.703604074243597*^9, 3.7036040744028397`*^9}, 3.7037613381619062`*^9, {
+   3.703761592074133*^9, 3.70376159648463*^9}}],
 
 Cell[CellGroupData[{
 
-Cell[BoxData[
- RowBox[{"MaxMemoryUsed", "[", "]"}]], "Input"],
+Cell[BoxData["\<\"kcat for\"\>"], "Print",
+ CellChangeTimes->{3.703761535918186*^9, 3.703761715193819*^9, 
+  3.703762237879017*^9}],
 
-Cell[BoxData["1481758328"], "Output",
- CellChangeTimes->{3.70332502508329*^9}]
+Cell[BoxData["\<\"kcat rev\"\>"], "Print",
+ CellChangeTimes->{3.703761535918186*^9, 3.703761715193819*^9, 
+  3.703762238119348*^9}],
+
+Cell[BoxData["\<\"km for\"\>"], "Print",
+ CellChangeTimes->{3.703761535918186*^9, 3.703761715193819*^9, 
+  3.703762238995364*^9}],
+
+Cell[BoxData["\<\"km rev\"\>"], "Print",
+ CellChangeTimes->{3.703761535918186*^9, 3.703761715193819*^9, 
+  3.703762239534563*^9}]
+}, Open  ]]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -19570,6 +19598,1238 @@ Cell[BoxData[
    3.7029672060736094`*^9, 3.702967631287136*^9, 3.702967933407386*^9, 
    3.702977996478485*^9, 3.702978044005679*^9, {3.702978094024683*^9, 
    3.70297816716877*^9}, 3.7032329444929657`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["nonCatalyticReactions"], "Input",
+ CellChangeTimes->{{3.7037615700405416`*^9, 3.7037615734329567`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   InterpretationBox[
+    OverscriptBox[
+     RowBox[{
+      RowBox[{
+       InterpretationBox[
+        UnderoverscriptBox[
+         StyleBox[
+          SuperscriptBox[
+           StyleBox["PFK1",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]], 
+           StyleBox["c",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]]],
+          Background->RGBColor[0.9, 0.9, 0.9]], "", ""],
+        Toolbox`enzyme[{
+         "ID" -> "PFK1", "Compartment" -> "c", "BoundCatalytic" -> {}, 
+          "BoundActivators" -> {}, "BoundInhibitors" -> {}, "CatalyticSites" -> 
+          DirectedInfinity[1], "ActivationSites" -> 1, "InhibitionSites" -> 
+          1}],
+        Editable->False,
+        Selectable->False], "+", 
+       InterpretationBox[
+        SuperscriptBox[
+         StyleBox["gdp",
+          StripOnInput->False,
+          ShowSyntaxStyles->False,
+          AutoSpacing->False,
+          ZeroWidthTimes->True,
+          LineColor->RGBColor[0, 0, 0],
+          FrontFaceColor->RGBColor[0, 0, 0],
+          BackFaceColor->RGBColor[0, 0, 0],
+          GraphicsColor->RGBColor[0, 0, 0],
+          FontColor->RGBColor[0, 0, 0]], 
+         StyleBox["c",
+          StripOnInput->False,
+          ShowSyntaxStyles->False,
+          AutoSpacing->False,
+          ZeroWidthTimes->True,
+          LineColor->RGBColor[0, 0, 0],
+          FrontFaceColor->RGBColor[0, 0, 0],
+          BackFaceColor->RGBColor[0, 0, 0],
+          GraphicsColor->RGBColor[0, 0, 0],
+          FontColor->RGBColor[0, 0, 0]]],
+        Toolbox`metabolite["gdp", "c"],
+        Editable->False,
+        Selectable->False]}], "\[Equilibrium]", 
+      InterpretationBox[
+       UnderoverscriptBox[
+        StyleBox[
+         SuperscriptBox[
+          StyleBox["PFK1",
+           StripOnInput->False,
+           ShowSyntaxStyles->False,
+           AutoSpacing->False,
+           ZeroWidthTimes->True,
+           LineColor->RGBColor[0, 0, 0],
+           FrontFaceColor->RGBColor[0, 0, 0],
+           BackFaceColor->RGBColor[0, 0, 0],
+           GraphicsColor->RGBColor[0, 0, 0],
+           FontColor->RGBColor[0, 0, 0]], 
+          StyleBox["c",
+           StripOnInput->False,
+           ShowSyntaxStyles->False,
+           AutoSpacing->False,
+           ZeroWidthTimes->True,
+           LineColor->RGBColor[0, 0, 0],
+           FrontFaceColor->RGBColor[0, 0, 0],
+           BackFaceColor->RGBColor[0, 0, 0],
+           GraphicsColor->RGBColor[0, 0, 0],
+           FontColor->RGBColor[0, 0, 0]]],
+         Background->RGBColor[0.9, 0.9, 0.9]], "", 
+        InterpretationBox[
+         SuperscriptBox[
+          StyleBox["gdp",
+           StripOnInput->False,
+           ShowSyntaxStyles->False,
+           AutoSpacing->False,
+           ZeroWidthTimes->True,
+           LineColor->RGBColor[0, 2/3, 0],
+           FrontFaceColor->RGBColor[0, 2/3, 0],
+           BackFaceColor->RGBColor[0, 2/3, 0],
+           GraphicsColor->RGBColor[0, 2/3, 0],
+           FontColor->RGBColor[0, 2/3, 0]], 
+          StyleBox["c",
+           StripOnInput->False,
+           ShowSyntaxStyles->False,
+           AutoSpacing->False,
+           ZeroWidthTimes->True,
+           LineColor->RGBColor[0, 2/3, 0],
+           FrontFaceColor->RGBColor[0, 2/3, 0],
+           BackFaceColor->RGBColor[0, 2/3, 0],
+           GraphicsColor->RGBColor[0, 2/3, 0],
+           FontColor->RGBColor[0, 2/3, 0]]],
+         Toolbox`metabolite["gdp", "c"],
+         Editable->False,
+         Selectable->False]],
+       Toolbox`enzyme[{
+        "ID" -> "PFK1", "Compartment" -> "c", "BoundCatalytic" -> {}, 
+         "BoundActivators" -> {
+           Toolbox`Private`wrap[Toolbox`metabolite]["gdp", "c"]}, 
+         "BoundInhibitors" -> {}, "CatalyticSites" -> DirectedInfinity[1], 
+         "ActivationSites" -> 1, "InhibitionSites" -> 1}],
+       Editable->False,
+       Selectable->False]}], 
+     StyleBox[
+      RowBox[{"PFK1_Activation", "_gdp$8"}],
+      StripOnInput->False,
+      ShowSyntaxStyles->False,
+      AutoSpacing->False,
+      ZeroWidthTimes->True,
+      LineColor->RGBColor[0, 0, 0],
+      FrontFaceColor->RGBColor[0, 0, 0],
+      BackFaceColor->RGBColor[0, 0, 0],
+      GraphicsColor->RGBColor[0, 0, 0],
+      FontColor->RGBColor[0, 0, 0]]],
+    Toolbox`reaction["PFK1_Activation_gdp$8", {
+      Toolbox`enzyme[{
+       "ID" -> "PFK1", "Compartment" -> "c", "BoundCatalytic" -> {}, 
+        "BoundActivators" -> {}, "BoundInhibitors" -> {}, "CatalyticSites" -> 
+        DirectedInfinity[1], "ActivationSites" -> 1, "InhibitionSites" -> 1}], 
+      Toolbox`metabolite["gdp", "c"]}, {
+      Toolbox`enzyme[{
+       "ID" -> "PFK1", "Compartment" -> "c", "BoundCatalytic" -> {}, 
+        "BoundActivators" -> {
+          Toolbox`Private`wrap[Toolbox`metabolite]["gdp", "c"]}, 
+        "BoundInhibitors" -> {}, "CatalyticSites" -> DirectedInfinity[1], 
+        "ActivationSites" -> 1, "InhibitionSites" -> 1}]}, {1, 1, 1}, True],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    OverscriptBox[
+     RowBox[{
+      RowBox[{
+       InterpretationBox[
+        UnderoverscriptBox[
+         StyleBox[
+          SuperscriptBox[
+           StyleBox["PFK1",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]], 
+           StyleBox["c",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]]],
+          Background->RGBColor[0.9, 0.9, 0.9]], "", ""],
+        Toolbox`enzyme[{
+         "ID" -> "PFK1", "Compartment" -> "c", "BoundCatalytic" -> {}, 
+          "BoundActivators" -> {}, "BoundInhibitors" -> {}, "CatalyticSites" -> 
+          DirectedInfinity[1], "ActivationSites" -> 1, "InhibitionSites" -> 
+          1}],
+        Editable->False,
+        Selectable->False], "+", 
+       InterpretationBox[
+        SuperscriptBox[
+         StyleBox["adp",
+          StripOnInput->False,
+          ShowSyntaxStyles->False,
+          AutoSpacing->False,
+          ZeroWidthTimes->True,
+          LineColor->RGBColor[0, 0, 0],
+          FrontFaceColor->RGBColor[0, 0, 0],
+          BackFaceColor->RGBColor[0, 0, 0],
+          GraphicsColor->RGBColor[0, 0, 0],
+          FontColor->RGBColor[0, 0, 0]], 
+         StyleBox["c",
+          StripOnInput->False,
+          ShowSyntaxStyles->False,
+          AutoSpacing->False,
+          ZeroWidthTimes->True,
+          LineColor->RGBColor[0, 0, 0],
+          FrontFaceColor->RGBColor[0, 0, 0],
+          BackFaceColor->RGBColor[0, 0, 0],
+          GraphicsColor->RGBColor[0, 0, 0],
+          FontColor->RGBColor[0, 0, 0]]],
+        Toolbox`metabolite["adp", "c"],
+        Editable->False,
+        Selectable->False]}], "\[Equilibrium]", 
+      InterpretationBox[
+       UnderoverscriptBox[
+        StyleBox[
+         SuperscriptBox[
+          StyleBox["PFK1",
+           StripOnInput->False,
+           ShowSyntaxStyles->False,
+           AutoSpacing->False,
+           ZeroWidthTimes->True,
+           LineColor->RGBColor[0, 0, 0],
+           FrontFaceColor->RGBColor[0, 0, 0],
+           BackFaceColor->RGBColor[0, 0, 0],
+           GraphicsColor->RGBColor[0, 0, 0],
+           FontColor->RGBColor[0, 0, 0]], 
+          StyleBox["c",
+           StripOnInput->False,
+           ShowSyntaxStyles->False,
+           AutoSpacing->False,
+           ZeroWidthTimes->True,
+           LineColor->RGBColor[0, 0, 0],
+           FrontFaceColor->RGBColor[0, 0, 0],
+           BackFaceColor->RGBColor[0, 0, 0],
+           GraphicsColor->RGBColor[0, 0, 0],
+           FontColor->RGBColor[0, 0, 0]]],
+         Background->RGBColor[0.9, 0.9, 0.9]], "", 
+        InterpretationBox[
+         SuperscriptBox[
+          StyleBox["adp",
+           StripOnInput->False,
+           ShowSyntaxStyles->False,
+           AutoSpacing->False,
+           ZeroWidthTimes->True,
+           LineColor->RGBColor[0, 2/3, 0],
+           FrontFaceColor->RGBColor[0, 2/3, 0],
+           BackFaceColor->RGBColor[0, 2/3, 0],
+           GraphicsColor->RGBColor[0, 2/3, 0],
+           FontColor->RGBColor[0, 2/3, 0]], 
+          StyleBox["c",
+           StripOnInput->False,
+           ShowSyntaxStyles->False,
+           AutoSpacing->False,
+           ZeroWidthTimes->True,
+           LineColor->RGBColor[0, 2/3, 0],
+           FrontFaceColor->RGBColor[0, 2/3, 0],
+           BackFaceColor->RGBColor[0, 2/3, 0],
+           GraphicsColor->RGBColor[0, 2/3, 0],
+           FontColor->RGBColor[0, 2/3, 0]]],
+         Toolbox`metabolite["adp", "c"],
+         Editable->False,
+         Selectable->False]],
+       Toolbox`enzyme[{
+        "ID" -> "PFK1", "Compartment" -> "c", "BoundCatalytic" -> {}, 
+         "BoundActivators" -> {
+           Toolbox`Private`wrap[Toolbox`metabolite]["adp", "c"]}, 
+         "BoundInhibitors" -> {}, "CatalyticSites" -> DirectedInfinity[1], 
+         "ActivationSites" -> 1, "InhibitionSites" -> 1}],
+       Editable->False,
+       Selectable->False]}], 
+     StyleBox[
+      RowBox[{"PFK1_Activation", "_adp$10"}],
+      StripOnInput->False,
+      ShowSyntaxStyles->False,
+      AutoSpacing->False,
+      ZeroWidthTimes->True,
+      LineColor->RGBColor[0, 0, 0],
+      FrontFaceColor->RGBColor[0, 0, 0],
+      BackFaceColor->RGBColor[0, 0, 0],
+      GraphicsColor->RGBColor[0, 0, 0],
+      FontColor->RGBColor[0, 0, 0]]],
+    Toolbox`reaction["PFK1_Activation_adp$10", {
+      Toolbox`enzyme[{
+       "ID" -> "PFK1", "Compartment" -> "c", "BoundCatalytic" -> {}, 
+        "BoundActivators" -> {}, "BoundInhibitors" -> {}, "CatalyticSites" -> 
+        DirectedInfinity[1], "ActivationSites" -> 1, "InhibitionSites" -> 1}], 
+      Toolbox`metabolite["adp", "c"]}, {
+      Toolbox`enzyme[{
+       "ID" -> "PFK1", "Compartment" -> "c", "BoundCatalytic" -> {}, 
+        "BoundActivators" -> {
+          Toolbox`Private`wrap[Toolbox`metabolite]["adp", "c"]}, 
+        "BoundInhibitors" -> {}, "CatalyticSites" -> DirectedInfinity[1], 
+        "ActivationSites" -> 1, "InhibitionSites" -> 1}]}, {1, 1, 1}, True],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    OverscriptBox[
+     RowBox[{
+      RowBox[{
+       InterpretationBox[
+        UnderoverscriptBox[
+         StyleBox[
+          SuperscriptBox[
+           StyleBox["PFK1_T",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]], 
+           StyleBox["c",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]]],
+          Background->RGBColor[0.9, 0.9, 0.9]], "", ""],
+        Toolbox`enzyme[{
+         "ID" -> "PFK1_T", "Compartment" -> "c", "BoundCatalytic" -> {}, 
+          "BoundActivators" -> {}, "BoundInhibitors" -> {}, "CatalyticSites" -> 
+          DirectedInfinity[1], "ActivationSites" -> 1, "InhibitionSites" -> 
+          1}],
+        Editable->False,
+        Selectable->False], "+", 
+       InterpretationBox[
+        SuperscriptBox[
+         StyleBox["pep",
+          StripOnInput->False,
+          ShowSyntaxStyles->False,
+          AutoSpacing->False,
+          ZeroWidthTimes->True,
+          LineColor->RGBColor[0, 0, 0],
+          FrontFaceColor->RGBColor[0, 0, 0],
+          BackFaceColor->RGBColor[0, 0, 0],
+          GraphicsColor->RGBColor[0, 0, 0],
+          FontColor->RGBColor[0, 0, 0]], 
+         StyleBox["c",
+          StripOnInput->False,
+          ShowSyntaxStyles->False,
+          AutoSpacing->False,
+          ZeroWidthTimes->True,
+          LineColor->RGBColor[0, 0, 0],
+          FrontFaceColor->RGBColor[0, 0, 0],
+          BackFaceColor->RGBColor[0, 0, 0],
+          GraphicsColor->RGBColor[0, 0, 0],
+          FontColor->RGBColor[0, 0, 0]]],
+        Toolbox`metabolite["pep", "c"],
+        Editable->False,
+        Selectable->False]}], "\[Equilibrium]", 
+      InterpretationBox[
+       UnderoverscriptBox[
+        StyleBox[
+         SuperscriptBox[
+          StyleBox["PFK1_T",
+           StripOnInput->False,
+           ShowSyntaxStyles->False,
+           AutoSpacing->False,
+           ZeroWidthTimes->True,
+           LineColor->RGBColor[0, 0, 0],
+           FrontFaceColor->RGBColor[0, 0, 0],
+           BackFaceColor->RGBColor[0, 0, 0],
+           GraphicsColor->RGBColor[0, 0, 0],
+           FontColor->RGBColor[0, 0, 0]], 
+          StyleBox["c",
+           StripOnInput->False,
+           ShowSyntaxStyles->False,
+           AutoSpacing->False,
+           ZeroWidthTimes->True,
+           LineColor->RGBColor[0, 0, 0],
+           FrontFaceColor->RGBColor[0, 0, 0],
+           BackFaceColor->RGBColor[0, 0, 0],
+           GraphicsColor->RGBColor[0, 0, 0],
+           FontColor->RGBColor[0, 0, 0]]],
+         Background->RGBColor[0.9, 0.9, 0.9]], 
+        InterpretationBox[
+         SuperscriptBox[
+          StyleBox["pep",
+           StripOnInput->False,
+           ShowSyntaxStyles->False,
+           AutoSpacing->False,
+           ZeroWidthTimes->True,
+           LineColor->RGBColor[2/3, 0, 0],
+           FrontFaceColor->RGBColor[2/3, 0, 0],
+           BackFaceColor->RGBColor[2/3, 0, 0],
+           GraphicsColor->RGBColor[2/3, 0, 0],
+           FontColor->RGBColor[2/3, 0, 0]], 
+          StyleBox["c",
+           StripOnInput->False,
+           ShowSyntaxStyles->False,
+           AutoSpacing->False,
+           ZeroWidthTimes->True,
+           LineColor->RGBColor[2/3, 0, 0],
+           FrontFaceColor->RGBColor[2/3, 0, 0],
+           BackFaceColor->RGBColor[2/3, 0, 0],
+           GraphicsColor->RGBColor[2/3, 0, 0],
+           FontColor->RGBColor[2/3, 0, 0]]],
+         Toolbox`metabolite["pep", "c"],
+         Editable->False,
+         Selectable->False], ""],
+       Toolbox`enzyme[{
+        "ID" -> "PFK1_T", "Compartment" -> "c", "BoundCatalytic" -> {}, 
+         "BoundActivators" -> {}, "BoundInhibitors" -> {
+           Toolbox`Private`wrap[Toolbox`metabolite]["pep", "c"]}, 
+         "CatalyticSites" -> DirectedInfinity[1], "ActivationSites" -> 1, 
+         "InhibitionSites" -> 1}],
+       Editable->False,
+       Selectable->False]}], 
+     StyleBox[
+      RowBox[{"PFK1_Inhibition", "_pep$11"}],
+      StripOnInput->False,
+      ShowSyntaxStyles->False,
+      AutoSpacing->False,
+      ZeroWidthTimes->True,
+      LineColor->RGBColor[0, 0, 0],
+      FrontFaceColor->RGBColor[0, 0, 0],
+      BackFaceColor->RGBColor[0, 0, 0],
+      GraphicsColor->RGBColor[0, 0, 0],
+      FontColor->RGBColor[0, 0, 0]]],
+    Toolbox`reaction["PFK1_Inhibition_pep$11", {
+      Toolbox`enzyme[{
+       "ID" -> "PFK1_T", "Compartment" -> "c", "BoundCatalytic" -> {}, 
+        "BoundActivators" -> {}, "BoundInhibitors" -> {}, "CatalyticSites" -> 
+        DirectedInfinity[1], "ActivationSites" -> 1, "InhibitionSites" -> 1}], 
+      Toolbox`metabolite["pep", "c"]}, {
+      Toolbox`enzyme[{
+       "ID" -> "PFK1_T", "Compartment" -> "c", "BoundCatalytic" -> {}, 
+        "BoundActivators" -> {}, "BoundInhibitors" -> {
+          Toolbox`Private`wrap[Toolbox`metabolite]["pep", "c"]}, 
+        "CatalyticSites" -> DirectedInfinity[1], "ActivationSites" -> 1, 
+        "InhibitionSites" -> 1}]}, {1, 1, 1}, True],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    OverscriptBox[
+     RowBox[{
+      InterpretationBox[
+       UnderoverscriptBox[
+        StyleBox[
+         SuperscriptBox[
+          StyleBox["PFK1",
+           StripOnInput->False,
+           ShowSyntaxStyles->False,
+           AutoSpacing->False,
+           ZeroWidthTimes->True,
+           LineColor->RGBColor[0, 0, 0],
+           FrontFaceColor->RGBColor[0, 0, 0],
+           BackFaceColor->RGBColor[0, 0, 0],
+           GraphicsColor->RGBColor[0, 0, 0],
+           FontColor->RGBColor[0, 0, 0]], 
+          StyleBox["c",
+           StripOnInput->False,
+           ShowSyntaxStyles->False,
+           AutoSpacing->False,
+           ZeroWidthTimes->True,
+           LineColor->RGBColor[0, 0, 0],
+           FrontFaceColor->RGBColor[0, 0, 0],
+           BackFaceColor->RGBColor[0, 0, 0],
+           GraphicsColor->RGBColor[0, 0, 0],
+           FontColor->RGBColor[0, 0, 0]]],
+         Background->RGBColor[0.9, 0.9, 0.9]], "", ""],
+       Toolbox`enzyme[{
+        "ID" -> "PFK1", "Compartment" -> "c", "BoundCatalytic" -> {}, 
+         "BoundActivators" -> {}, "BoundInhibitors" -> {}, "CatalyticSites" -> 
+         DirectedInfinity[1], "ActivationSites" -> 1, "InhibitionSites" -> 1}],
+       Editable->False,
+       Selectable->False], "\[Equilibrium]", 
+      InterpretationBox[
+       UnderoverscriptBox[
+        StyleBox[
+         SuperscriptBox[
+          StyleBox["PFK1_T",
+           StripOnInput->False,
+           ShowSyntaxStyles->False,
+           AutoSpacing->False,
+           ZeroWidthTimes->True,
+           LineColor->RGBColor[0, 0, 0],
+           FrontFaceColor->RGBColor[0, 0, 0],
+           BackFaceColor->RGBColor[0, 0, 0],
+           GraphicsColor->RGBColor[0, 0, 0],
+           FontColor->RGBColor[0, 0, 0]], 
+          StyleBox["c",
+           StripOnInput->False,
+           ShowSyntaxStyles->False,
+           AutoSpacing->False,
+           ZeroWidthTimes->True,
+           LineColor->RGBColor[0, 0, 0],
+           FrontFaceColor->RGBColor[0, 0, 0],
+           BackFaceColor->RGBColor[0, 0, 0],
+           GraphicsColor->RGBColor[0, 0, 0],
+           FontColor->RGBColor[0, 0, 0]]],
+         Background->RGBColor[0.9, 0.9, 0.9]], "", ""],
+       Toolbox`enzyme[{
+        "ID" -> "PFK1_T", "Compartment" -> "c", "BoundCatalytic" -> {}, 
+         "BoundActivators" -> {}, "BoundInhibitors" -> {}, "CatalyticSites" -> 
+         DirectedInfinity[1], "ActivationSites" -> 1, "InhibitionSites" -> 1}],
+       Editable->False,
+       Selectable->False]}], 
+     StyleBox["PFK1_TransitionStep",
+      StripOnInput->False,
+      ShowSyntaxStyles->False,
+      AutoSpacing->False,
+      ZeroWidthTimes->True,
+      LineColor->RGBColor[0, 0, 0],
+      FrontFaceColor->RGBColor[0, 0, 0],
+      BackFaceColor->RGBColor[0, 0, 0],
+      GraphicsColor->RGBColor[0, 0, 0],
+      FontColor->RGBColor[0, 0, 0]]],
+    Toolbox`reaction["PFK1_TransitionStep", {
+      Toolbox`enzyme[{
+       "ID" -> "PFK1", "Compartment" -> "c", "BoundCatalytic" -> {}, 
+        "BoundActivators" -> {}, "BoundInhibitors" -> {}, "CatalyticSites" -> 
+        DirectedInfinity[1], "ActivationSites" -> 1, "InhibitionSites" -> 
+        1}]}, {
+      Toolbox`enzyme[{
+       "ID" -> "PFK1_T", "Compartment" -> "c", "BoundCatalytic" -> {}, 
+        "BoundActivators" -> {}, "BoundInhibitors" -> {}, "CatalyticSites" -> 
+        DirectedInfinity[1], "ActivationSites" -> 1, "InhibitionSites" -> 
+        1}]}, {1, 1}, True],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    OverscriptBox[
+     RowBox[{
+      RowBox[{
+       InterpretationBox[
+        UnderoverscriptBox[
+         StyleBox[
+          RowBox[{
+           SuperscriptBox[
+            StyleBox["PFK1",
+             StripOnInput->False,
+             ShowSyntaxStyles->False,
+             AutoSpacing->False,
+             ZeroWidthTimes->True,
+             LineColor->RGBColor[0, 0, 0],
+             FrontFaceColor->RGBColor[0, 0, 0],
+             BackFaceColor->RGBColor[0, 0, 0],
+             GraphicsColor->RGBColor[0, 0, 0],
+             FontColor->RGBColor[0, 0, 0]], 
+            StyleBox["c",
+             StripOnInput->False,
+             ShowSyntaxStyles->False,
+             AutoSpacing->False,
+             ZeroWidthTimes->True,
+             LineColor->RGBColor[0, 0, 0],
+             FrontFaceColor->RGBColor[0, 0, 0],
+             BackFaceColor->RGBColor[0, 0, 0],
+             GraphicsColor->RGBColor[0, 0, 0],
+             FontColor->RGBColor[0, 0, 0]]], "&", 
+           InterpretationBox[
+            SuperscriptBox[
+             StyleBox["f6p",
+              StripOnInput->False,
+              ShowSyntaxStyles->False,
+              AutoSpacing->False,
+              ZeroWidthTimes->True,
+              LineColor->RGBColor[0, 0, 0],
+              FrontFaceColor->RGBColor[0, 0, 0],
+              BackFaceColor->RGBColor[0, 0, 0],
+              GraphicsColor->RGBColor[0, 0, 0],
+              FontColor->RGBColor[0, 0, 0]], 
+             StyleBox["c",
+              StripOnInput->False,
+              ShowSyntaxStyles->False,
+              AutoSpacing->False,
+              ZeroWidthTimes->True,
+              LineColor->RGBColor[0, 0, 0],
+              FrontFaceColor->RGBColor[0, 0, 0],
+              BackFaceColor->RGBColor[0, 0, 0],
+              GraphicsColor->RGBColor[0, 0, 0],
+              FontColor->RGBColor[0, 0, 0]]],
+            Toolbox`metabolite["f6p", "c"],
+            Editable->False,
+            Selectable->False]}],
+          Background->RGBColor[0.9, 0.9, 0.9]], "", ""],
+        Toolbox`enzyme[{
+         "ID" -> "PFK1", "Compartment" -> "c", "BoundCatalytic" -> {
+            Toolbox`Private`wrap[Toolbox`metabolite]["f6p", "c"]}, 
+          "BoundActivators" -> {}, "BoundInhibitors" -> {}, "CatalyticSites" -> 
+          DirectedInfinity[1], "ActivationSites" -> 1, "InhibitionSites" -> 
+          1}],
+        Editable->False,
+        Selectable->False], "+", 
+       InterpretationBox[
+        SuperscriptBox[
+         StyleBox["adp",
+          StripOnInput->False,
+          ShowSyntaxStyles->False,
+          AutoSpacing->False,
+          ZeroWidthTimes->True,
+          LineColor->RGBColor[0, 0, 0],
+          FrontFaceColor->RGBColor[0, 0, 0],
+          BackFaceColor->RGBColor[0, 0, 0],
+          GraphicsColor->RGBColor[0, 0, 0],
+          FontColor->RGBColor[0, 0, 0]], 
+         StyleBox["c",
+          StripOnInput->False,
+          ShowSyntaxStyles->False,
+          AutoSpacing->False,
+          ZeroWidthTimes->True,
+          LineColor->RGBColor[0, 0, 0],
+          FrontFaceColor->RGBColor[0, 0, 0],
+          BackFaceColor->RGBColor[0, 0, 0],
+          GraphicsColor->RGBColor[0, 0, 0],
+          FontColor->RGBColor[0, 0, 0]]],
+        Toolbox`metabolite["adp", "c"],
+        Editable->False,
+        Selectable->False]}], "\[Equilibrium]", 
+      InterpretationBox[
+       UnderoverscriptBox[
+        StyleBox[
+         RowBox[{
+          SuperscriptBox[
+           StyleBox["PFK1",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]], 
+           StyleBox["c",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]]], "&", 
+          InterpretationBox[
+           SuperscriptBox[
+            StyleBox["f6p",
+             StripOnInput->False,
+             ShowSyntaxStyles->False,
+             AutoSpacing->False,
+             ZeroWidthTimes->True,
+             LineColor->RGBColor[0, 0, 0],
+             FrontFaceColor->RGBColor[0, 0, 0],
+             BackFaceColor->RGBColor[0, 0, 0],
+             GraphicsColor->RGBColor[0, 0, 0],
+             FontColor->RGBColor[0, 0, 0]], 
+            StyleBox["c",
+             StripOnInput->False,
+             ShowSyntaxStyles->False,
+             AutoSpacing->False,
+             ZeroWidthTimes->True,
+             LineColor->RGBColor[0, 0, 0],
+             FrontFaceColor->RGBColor[0, 0, 0],
+             BackFaceColor->RGBColor[0, 0, 0],
+             GraphicsColor->RGBColor[0, 0, 0],
+             FontColor->RGBColor[0, 0, 0]]],
+           Toolbox`metabolite["f6p", "c"],
+           Editable->False,
+           Selectable->False], "&", 
+          InterpretationBox[
+           SuperscriptBox[
+            StyleBox["adp",
+             StripOnInput->False,
+             ShowSyntaxStyles->False,
+             AutoSpacing->False,
+             ZeroWidthTimes->True,
+             LineColor->RGBColor[0, 0, 0],
+             FrontFaceColor->RGBColor[0, 0, 0],
+             BackFaceColor->RGBColor[0, 0, 0],
+             GraphicsColor->RGBColor[0, 0, 0],
+             FontColor->RGBColor[0, 0, 0]], 
+            StyleBox["c",
+             StripOnInput->False,
+             ShowSyntaxStyles->False,
+             AutoSpacing->False,
+             ZeroWidthTimes->True,
+             LineColor->RGBColor[0, 0, 0],
+             FrontFaceColor->RGBColor[0, 0, 0],
+             BackFaceColor->RGBColor[0, 0, 0],
+             GraphicsColor->RGBColor[0, 0, 0],
+             FontColor->RGBColor[0, 0, 0]]],
+           Toolbox`metabolite["adp", "c"],
+           Editable->False,
+           Selectable->False]}],
+         Background->RGBColor[0.9, 0.9, 0.9]], "", ""],
+       Toolbox`enzyme[{"ID" -> "PFK1", "Compartment" -> "c", "BoundCatalytic" -> {
+           Toolbox`Private`wrap[Toolbox`metabolite]["f6p", "c"], 
+           Toolbox`Private`wrap[Toolbox`metabolite]["adp", "c"]}, 
+         "BoundActivators" -> {}, "BoundInhibitors" -> {}, "CatalyticSites" -> 
+         DirectedInfinity[1], "ActivationSites" -> 1, "InhibitionSites" -> 1}],
+       Editable->False,
+       Selectable->False]}], 
+     StyleBox[
+      RowBox[{"PFK1_Kic", "_adp", "_", "1", "_atp"}],
+      StripOnInput->False,
+      ShowSyntaxStyles->False,
+      AutoSpacing->False,
+      ZeroWidthTimes->True,
+      LineColor->RGBColor[0, 0, 0],
+      FrontFaceColor->RGBColor[0, 0, 0],
+      BackFaceColor->RGBColor[0, 0, 0],
+      GraphicsColor->RGBColor[0, 0, 0],
+      FontColor->RGBColor[0, 0, 0]]],
+    Toolbox`reaction["PFK1_Kic_adp_1_atp", {
+      Toolbox`enzyme[{"ID" -> "PFK1", "Compartment" -> "c", "BoundCatalytic" -> {
+          Toolbox`Private`wrap[Toolbox`metabolite]["f6p", "c"]}, 
+        "BoundActivators" -> {}, "BoundInhibitors" -> {}, "CatalyticSites" -> 
+        DirectedInfinity[1], "ActivationSites" -> 1, "InhibitionSites" -> 1}], 
+      Toolbox`metabolite["adp", "c"]}, {
+      Toolbox`enzyme[{"ID" -> "PFK1", "Compartment" -> "c", "BoundCatalytic" -> {
+          Toolbox`Private`wrap[Toolbox`metabolite]["f6p", "c"], 
+          Toolbox`Private`wrap[Toolbox`metabolite]["adp", "c"]}, 
+        "BoundActivators" -> {}, "BoundInhibitors" -> {}, "CatalyticSites" -> 
+        DirectedInfinity[1], "ActivationSites" -> 1, "InhibitionSites" -> 
+        1}]}, {1, 1, 1}, True],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    OverscriptBox[
+     RowBox[{
+      RowBox[{
+       InterpretationBox[
+        UnderoverscriptBox[
+         StyleBox[
+          RowBox[{
+           SuperscriptBox[
+            StyleBox["PFK1",
+             StripOnInput->False,
+             ShowSyntaxStyles->False,
+             AutoSpacing->False,
+             ZeroWidthTimes->True,
+             LineColor->RGBColor[0, 0, 0],
+             FrontFaceColor->RGBColor[0, 0, 0],
+             BackFaceColor->RGBColor[0, 0, 0],
+             GraphicsColor->RGBColor[0, 0, 0],
+             FontColor->RGBColor[0, 0, 0]], 
+            StyleBox["c",
+             StripOnInput->False,
+             ShowSyntaxStyles->False,
+             AutoSpacing->False,
+             ZeroWidthTimes->True,
+             LineColor->RGBColor[0, 0, 0],
+             FrontFaceColor->RGBColor[0, 0, 0],
+             BackFaceColor->RGBColor[0, 0, 0],
+             GraphicsColor->RGBColor[0, 0, 0],
+             FontColor->RGBColor[0, 0, 0]]], "&", 
+           InterpretationBox[
+            SuperscriptBox[
+             StyleBox["f6p",
+              StripOnInput->False,
+              ShowSyntaxStyles->False,
+              AutoSpacing->False,
+              ZeroWidthTimes->True,
+              LineColor->RGBColor[0, 0, 0],
+              FrontFaceColor->RGBColor[0, 0, 0],
+              BackFaceColor->RGBColor[0, 0, 0],
+              GraphicsColor->RGBColor[0, 0, 0],
+              FontColor->RGBColor[0, 0, 0]], 
+             StyleBox["c",
+              StripOnInput->False,
+              ShowSyntaxStyles->False,
+              AutoSpacing->False,
+              ZeroWidthTimes->True,
+              LineColor->RGBColor[0, 0, 0],
+              FrontFaceColor->RGBColor[0, 0, 0],
+              BackFaceColor->RGBColor[0, 0, 0],
+              GraphicsColor->RGBColor[0, 0, 0],
+              FontColor->RGBColor[0, 0, 0]]],
+            Toolbox`metabolite["f6p", "c"],
+            Editable->False,
+            Selectable->False]}],
+          Background->RGBColor[0.9, 0.9, 0.9]], "", 
+         InterpretationBox[
+          SuperscriptBox[
+           StyleBox["adp",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 2/3, 0],
+            FrontFaceColor->RGBColor[0, 2/3, 0],
+            BackFaceColor->RGBColor[0, 2/3, 0],
+            GraphicsColor->RGBColor[0, 2/3, 0],
+            FontColor->RGBColor[0, 2/3, 0]], 
+           StyleBox["c",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 2/3, 0],
+            FrontFaceColor->RGBColor[0, 2/3, 0],
+            BackFaceColor->RGBColor[0, 2/3, 0],
+            GraphicsColor->RGBColor[0, 2/3, 0],
+            FontColor->RGBColor[0, 2/3, 0]]],
+          Toolbox`metabolite["adp", "c"],
+          Editable->False,
+          Selectable->False]],
+        Toolbox`enzyme[{
+         "ID" -> "PFK1", "Compartment" -> "c", "BoundCatalytic" -> {
+            Toolbox`Private`wrap[Toolbox`metabolite]["f6p", "c"]}, 
+          "BoundActivators" -> {
+            Toolbox`Private`wrap[Toolbox`metabolite]["adp", "c"]}, 
+          "BoundInhibitors" -> {}, "CatalyticSites" -> DirectedInfinity[1], 
+          "ActivationSites" -> 1, "InhibitionSites" -> 1}],
+        Editable->False,
+        Selectable->False], "+", 
+       InterpretationBox[
+        SuperscriptBox[
+         StyleBox["adp",
+          StripOnInput->False,
+          ShowSyntaxStyles->False,
+          AutoSpacing->False,
+          ZeroWidthTimes->True,
+          LineColor->RGBColor[0, 0, 0],
+          FrontFaceColor->RGBColor[0, 0, 0],
+          BackFaceColor->RGBColor[0, 0, 0],
+          GraphicsColor->RGBColor[0, 0, 0],
+          FontColor->RGBColor[0, 0, 0]], 
+         StyleBox["c",
+          StripOnInput->False,
+          ShowSyntaxStyles->False,
+          AutoSpacing->False,
+          ZeroWidthTimes->True,
+          LineColor->RGBColor[0, 0, 0],
+          FrontFaceColor->RGBColor[0, 0, 0],
+          BackFaceColor->RGBColor[0, 0, 0],
+          GraphicsColor->RGBColor[0, 0, 0],
+          FontColor->RGBColor[0, 0, 0]]],
+        Toolbox`metabolite["adp", "c"],
+        Editable->False,
+        Selectable->False]}], "\[Equilibrium]", 
+      InterpretationBox[
+       UnderoverscriptBox[
+        StyleBox[
+         RowBox[{
+          SuperscriptBox[
+           StyleBox["PFK1",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]], 
+           StyleBox["c",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]]], "&", 
+          InterpretationBox[
+           SuperscriptBox[
+            StyleBox["f6p",
+             StripOnInput->False,
+             ShowSyntaxStyles->False,
+             AutoSpacing->False,
+             ZeroWidthTimes->True,
+             LineColor->RGBColor[0, 0, 0],
+             FrontFaceColor->RGBColor[0, 0, 0],
+             BackFaceColor->RGBColor[0, 0, 0],
+             GraphicsColor->RGBColor[0, 0, 0],
+             FontColor->RGBColor[0, 0, 0]], 
+            StyleBox["c",
+             StripOnInput->False,
+             ShowSyntaxStyles->False,
+             AutoSpacing->False,
+             ZeroWidthTimes->True,
+             LineColor->RGBColor[0, 0, 0],
+             FrontFaceColor->RGBColor[0, 0, 0],
+             BackFaceColor->RGBColor[0, 0, 0],
+             GraphicsColor->RGBColor[0, 0, 0],
+             FontColor->RGBColor[0, 0, 0]]],
+           Toolbox`metabolite["f6p", "c"],
+           Editable->False,
+           Selectable->False], "&", 
+          InterpretationBox[
+           SuperscriptBox[
+            StyleBox["adp",
+             StripOnInput->False,
+             ShowSyntaxStyles->False,
+             AutoSpacing->False,
+             ZeroWidthTimes->True,
+             LineColor->RGBColor[0, 0, 0],
+             FrontFaceColor->RGBColor[0, 0, 0],
+             BackFaceColor->RGBColor[0, 0, 0],
+             GraphicsColor->RGBColor[0, 0, 0],
+             FontColor->RGBColor[0, 0, 0]], 
+            StyleBox["c",
+             StripOnInput->False,
+             ShowSyntaxStyles->False,
+             AutoSpacing->False,
+             ZeroWidthTimes->True,
+             LineColor->RGBColor[0, 0, 0],
+             FrontFaceColor->RGBColor[0, 0, 0],
+             BackFaceColor->RGBColor[0, 0, 0],
+             GraphicsColor->RGBColor[0, 0, 0],
+             FontColor->RGBColor[0, 0, 0]]],
+           Toolbox`metabolite["adp", "c"],
+           Editable->False,
+           Selectable->False]}],
+         Background->RGBColor[0.9, 0.9, 0.9]], "", 
+        InterpretationBox[
+         SuperscriptBox[
+          StyleBox["adp",
+           StripOnInput->False,
+           ShowSyntaxStyles->False,
+           AutoSpacing->False,
+           ZeroWidthTimes->True,
+           LineColor->RGBColor[0, 2/3, 0],
+           FrontFaceColor->RGBColor[0, 2/3, 0],
+           BackFaceColor->RGBColor[0, 2/3, 0],
+           GraphicsColor->RGBColor[0, 2/3, 0],
+           FontColor->RGBColor[0, 2/3, 0]], 
+          StyleBox["c",
+           StripOnInput->False,
+           ShowSyntaxStyles->False,
+           AutoSpacing->False,
+           ZeroWidthTimes->True,
+           LineColor->RGBColor[0, 2/3, 0],
+           FrontFaceColor->RGBColor[0, 2/3, 0],
+           BackFaceColor->RGBColor[0, 2/3, 0],
+           GraphicsColor->RGBColor[0, 2/3, 0],
+           FontColor->RGBColor[0, 2/3, 0]]],
+         Toolbox`metabolite["adp", "c"],
+         Editable->False,
+         Selectable->False]],
+       Toolbox`enzyme[{"ID" -> "PFK1", "Compartment" -> "c", "BoundCatalytic" -> {
+           Toolbox`Private`wrap[Toolbox`metabolite]["f6p", "c"], 
+           Toolbox`Private`wrap[Toolbox`metabolite]["adp", "c"]}, 
+         "BoundActivators" -> {
+           Toolbox`Private`wrap[Toolbox`metabolite]["adp", "c"]}, 
+         "BoundInhibitors" -> {}, "CatalyticSites" -> DirectedInfinity[1], 
+         "ActivationSites" -> 1, "InhibitionSites" -> 1}],
+       Editable->False,
+       Selectable->False]}], 
+     StyleBox[
+      RowBox[{"PFK1_Kic", "_adp", "_", "2", "_atp"}],
+      StripOnInput->False,
+      ShowSyntaxStyles->False,
+      AutoSpacing->False,
+      ZeroWidthTimes->True,
+      LineColor->RGBColor[0, 0, 0],
+      FrontFaceColor->RGBColor[0, 0, 0],
+      BackFaceColor->RGBColor[0, 0, 0],
+      GraphicsColor->RGBColor[0, 0, 0],
+      FontColor->RGBColor[0, 0, 0]]],
+    Toolbox`reaction["PFK1_Kic_adp_2_atp", {
+      Toolbox`enzyme[{"ID" -> "PFK1", "Compartment" -> "c", "BoundCatalytic" -> {
+          Toolbox`Private`wrap[Toolbox`metabolite]["f6p", "c"]}, 
+        "BoundActivators" -> {
+          Toolbox`Private`wrap[Toolbox`metabolite]["adp", "c"]}, 
+        "BoundInhibitors" -> {}, "CatalyticSites" -> DirectedInfinity[1], 
+        "ActivationSites" -> 1, "InhibitionSites" -> 1}], 
+      Toolbox`metabolite["adp", "c"]}, {
+      Toolbox`enzyme[{"ID" -> "PFK1", "Compartment" -> "c", "BoundCatalytic" -> {
+          Toolbox`Private`wrap[Toolbox`metabolite]["f6p", "c"], 
+          Toolbox`Private`wrap[Toolbox`metabolite]["adp", "c"]}, 
+        "BoundActivators" -> {
+          Toolbox`Private`wrap[Toolbox`metabolite]["adp", "c"]}, 
+        "BoundInhibitors" -> {}, "CatalyticSites" -> DirectedInfinity[1], 
+        "ActivationSites" -> 1, "InhibitionSites" -> 1}]}, {1, 1, 1}, True],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    OverscriptBox[
+     RowBox[{
+      RowBox[{
+       InterpretationBox[
+        UnderoverscriptBox[
+         StyleBox[
+          RowBox[{
+           SuperscriptBox[
+            StyleBox["PFK1",
+             StripOnInput->False,
+             ShowSyntaxStyles->False,
+             AutoSpacing->False,
+             ZeroWidthTimes->True,
+             LineColor->RGBColor[0, 0, 0],
+             FrontFaceColor->RGBColor[0, 0, 0],
+             BackFaceColor->RGBColor[0, 0, 0],
+             GraphicsColor->RGBColor[0, 0, 0],
+             FontColor->RGBColor[0, 0, 0]], 
+            StyleBox["c",
+             StripOnInput->False,
+             ShowSyntaxStyles->False,
+             AutoSpacing->False,
+             ZeroWidthTimes->True,
+             LineColor->RGBColor[0, 0, 0],
+             FrontFaceColor->RGBColor[0, 0, 0],
+             BackFaceColor->RGBColor[0, 0, 0],
+             GraphicsColor->RGBColor[0, 0, 0],
+             FontColor->RGBColor[0, 0, 0]]], "&", 
+           InterpretationBox[
+            SuperscriptBox[
+             StyleBox["f6p",
+              StripOnInput->False,
+              ShowSyntaxStyles->False,
+              AutoSpacing->False,
+              ZeroWidthTimes->True,
+              LineColor->RGBColor[0, 0, 0],
+              FrontFaceColor->RGBColor[0, 0, 0],
+              BackFaceColor->RGBColor[0, 0, 0],
+              GraphicsColor->RGBColor[0, 0, 0],
+              FontColor->RGBColor[0, 0, 0]], 
+             StyleBox["c",
+              StripOnInput->False,
+              ShowSyntaxStyles->False,
+              AutoSpacing->False,
+              ZeroWidthTimes->True,
+              LineColor->RGBColor[0, 0, 0],
+              FrontFaceColor->RGBColor[0, 0, 0],
+              BackFaceColor->RGBColor[0, 0, 0],
+              GraphicsColor->RGBColor[0, 0, 0],
+              FontColor->RGBColor[0, 0, 0]]],
+            Toolbox`metabolite["f6p", "c"],
+            Editable->False,
+            Selectable->False]}],
+          Background->RGBColor[0.9, 0.9, 0.9]], "", 
+         InterpretationBox[
+          SuperscriptBox[
+           StyleBox["gdp",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 2/3, 0],
+            FrontFaceColor->RGBColor[0, 2/3, 0],
+            BackFaceColor->RGBColor[0, 2/3, 0],
+            GraphicsColor->RGBColor[0, 2/3, 0],
+            FontColor->RGBColor[0, 2/3, 0]], 
+           StyleBox["c",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 2/3, 0],
+            FrontFaceColor->RGBColor[0, 2/3, 0],
+            BackFaceColor->RGBColor[0, 2/3, 0],
+            GraphicsColor->RGBColor[0, 2/3, 0],
+            FontColor->RGBColor[0, 2/3, 0]]],
+          Toolbox`metabolite["gdp", "c"],
+          Editable->False,
+          Selectable->False]],
+        Toolbox`enzyme[{
+         "ID" -> "PFK1", "Compartment" -> "c", "BoundCatalytic" -> {
+            Toolbox`Private`wrap[Toolbox`metabolite]["f6p", "c"]}, 
+          "BoundActivators" -> {
+            Toolbox`Private`wrap[Toolbox`metabolite]["gdp", "c"]}, 
+          "BoundInhibitors" -> {}, "CatalyticSites" -> DirectedInfinity[1], 
+          "ActivationSites" -> 1, "InhibitionSites" -> 1}],
+        Editable->False,
+        Selectable->False], "+", 
+       InterpretationBox[
+        SuperscriptBox[
+         StyleBox["adp",
+          StripOnInput->False,
+          ShowSyntaxStyles->False,
+          AutoSpacing->False,
+          ZeroWidthTimes->True,
+          LineColor->RGBColor[0, 0, 0],
+          FrontFaceColor->RGBColor[0, 0, 0],
+          BackFaceColor->RGBColor[0, 0, 0],
+          GraphicsColor->RGBColor[0, 0, 0],
+          FontColor->RGBColor[0, 0, 0]], 
+         StyleBox["c",
+          StripOnInput->False,
+          ShowSyntaxStyles->False,
+          AutoSpacing->False,
+          ZeroWidthTimes->True,
+          LineColor->RGBColor[0, 0, 0],
+          FrontFaceColor->RGBColor[0, 0, 0],
+          BackFaceColor->RGBColor[0, 0, 0],
+          GraphicsColor->RGBColor[0, 0, 0],
+          FontColor->RGBColor[0, 0, 0]]],
+        Toolbox`metabolite["adp", "c"],
+        Editable->False,
+        Selectable->False]}], "\[Equilibrium]", 
+      InterpretationBox[
+       UnderoverscriptBox[
+        StyleBox[
+         RowBox[{
+          SuperscriptBox[
+           StyleBox["PFK1",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]], 
+           StyleBox["c",
+            StripOnInput->False,
+            ShowSyntaxStyles->False,
+            AutoSpacing->False,
+            ZeroWidthTimes->True,
+            LineColor->RGBColor[0, 0, 0],
+            FrontFaceColor->RGBColor[0, 0, 0],
+            BackFaceColor->RGBColor[0, 0, 0],
+            GraphicsColor->RGBColor[0, 0, 0],
+            FontColor->RGBColor[0, 0, 0]]], "&", 
+          InterpretationBox[
+           SuperscriptBox[
+            StyleBox["f6p",
+             StripOnInput->False,
+             ShowSyntaxStyles->False,
+             AutoSpacing->False,
+             ZeroWidthTimes->True,
+             LineColor->RGBColor[0, 0, 0],
+             FrontFaceColor->RGBColor[0, 0, 0],
+             BackFaceColor->RGBColor[0, 0, 0],
+             GraphicsColor->RGBColor[0, 0, 0],
+             FontColor->RGBColor[0, 0, 0]], 
+            StyleBox["c",
+             StripOnInput->False,
+             ShowSyntaxStyles->False,
+             AutoSpacing->False,
+             ZeroWidthTimes->True,
+             LineColor->RGBColor[0, 0, 0],
+             FrontFaceColor->RGBColor[0, 0, 0],
+             BackFaceColor->RGBColor[0, 0, 0],
+             GraphicsColor->RGBColor[0, 0, 0],
+             FontColor->RGBColor[0, 0, 0]]],
+           Toolbox`metabolite["f6p", "c"],
+           Editable->False,
+           Selectable->False], "&", 
+          InterpretationBox[
+           SuperscriptBox[
+            StyleBox["adp",
+             StripOnInput->False,
+             ShowSyntaxStyles->False,
+             AutoSpacing->False,
+             ZeroWidthTimes->True,
+             LineColor->RGBColor[0, 0, 0],
+             FrontFaceColor->RGBColor[0, 0, 0],
+             BackFaceColor->RGBColor[0, 0, 0],
+             GraphicsColor->RGBColor[0, 0, 0],
+             FontColor->RGBColor[0, 0, 0]], 
+            StyleBox["c",
+             StripOnInput->False,
+             ShowSyntaxStyles->False,
+             AutoSpacing->False,
+             ZeroWidthTimes->True,
+             LineColor->RGBColor[0, 0, 0],
+             FrontFaceColor->RGBColor[0, 0, 0],
+             BackFaceColor->RGBColor[0, 0, 0],
+             GraphicsColor->RGBColor[0, 0, 0],
+             FontColor->RGBColor[0, 0, 0]]],
+           Toolbox`metabolite["adp", "c"],
+           Editable->False,
+           Selectable->False]}],
+         Background->RGBColor[0.9, 0.9, 0.9]], "", 
+        InterpretationBox[
+         SuperscriptBox[
+          StyleBox["gdp",
+           StripOnInput->False,
+           ShowSyntaxStyles->False,
+           AutoSpacing->False,
+           ZeroWidthTimes->True,
+           LineColor->RGBColor[0, 2/3, 0],
+           FrontFaceColor->RGBColor[0, 2/3, 0],
+           BackFaceColor->RGBColor[0, 2/3, 0],
+           GraphicsColor->RGBColor[0, 2/3, 0],
+           FontColor->RGBColor[0, 2/3, 0]], 
+          StyleBox["c",
+           StripOnInput->False,
+           ShowSyntaxStyles->False,
+           AutoSpacing->False,
+           ZeroWidthTimes->True,
+           LineColor->RGBColor[0, 2/3, 0],
+           FrontFaceColor->RGBColor[0, 2/3, 0],
+           BackFaceColor->RGBColor[0, 2/3, 0],
+           GraphicsColor->RGBColor[0, 2/3, 0],
+           FontColor->RGBColor[0, 2/3, 0]]],
+         Toolbox`metabolite["gdp", "c"],
+         Editable->False,
+         Selectable->False]],
+       Toolbox`enzyme[{"ID" -> "PFK1", "Compartment" -> "c", "BoundCatalytic" -> {
+           Toolbox`Private`wrap[Toolbox`metabolite]["f6p", "c"], 
+           Toolbox`Private`wrap[Toolbox`metabolite]["adp", "c"]}, 
+         "BoundActivators" -> {
+           Toolbox`Private`wrap[Toolbox`metabolite]["gdp", "c"]}, 
+         "BoundInhibitors" -> {}, "CatalyticSites" -> DirectedInfinity[1], 
+         "ActivationSites" -> 1, "InhibitionSites" -> 1}],
+       Editable->False,
+       Selectable->False]}], 
+     StyleBox[
+      RowBox[{"PFK1_Kic", "_adp", "_", "3", "_atp"}],
+      StripOnInput->False,
+      ShowSyntaxStyles->False,
+      AutoSpacing->False,
+      ZeroWidthTimes->True,
+      LineColor->RGBColor[0, 0, 0],
+      FrontFaceColor->RGBColor[0, 0, 0],
+      BackFaceColor->RGBColor[0, 0, 0],
+      GraphicsColor->RGBColor[0, 0, 0],
+      FontColor->RGBColor[0, 0, 0]]],
+    Toolbox`reaction["PFK1_Kic_adp_3_atp", {
+      Toolbox`enzyme[{"ID" -> "PFK1", "Compartment" -> "c", "BoundCatalytic" -> {
+          Toolbox`Private`wrap[Toolbox`metabolite]["f6p", "c"]}, 
+        "BoundActivators" -> {
+          Toolbox`Private`wrap[Toolbox`metabolite]["gdp", "c"]}, 
+        "BoundInhibitors" -> {}, "CatalyticSites" -> DirectedInfinity[1], 
+        "ActivationSites" -> 1, "InhibitionSites" -> 1}], 
+      Toolbox`metabolite["adp", "c"]}, {
+      Toolbox`enzyme[{"ID" -> "PFK1", "Compartment" -> "c", "BoundCatalytic" -> {
+          Toolbox`Private`wrap[Toolbox`metabolite]["f6p", "c"], 
+          Toolbox`Private`wrap[Toolbox`metabolite]["adp", "c"]}, 
+        "BoundActivators" -> {
+          Toolbox`Private`wrap[Toolbox`metabolite]["gdp", "c"]}, 
+        "BoundInhibitors" -> {}, "CatalyticSites" -> DirectedInfinity[1], 
+        "ActivationSites" -> 1, "InhibitionSites" -> 1}]}, {1, 1, 1}, True],
+    Editable->False,
+    Selectable->False]}], "}"}]], "Output",
+ CellChangeTimes->{3.7037615749802303`*^9, 3.7037618587493277`*^9, 
+  3.703762242588657*^9}]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
@@ -19636,17 +20896,20 @@ Cell[BoxData[{
      "allFittingData", ",", " ", "dataPath", ",", " ", "fileList", ",", " ", 
       "fileListSub"}], "}"}], ",", "\"\<MX\>\""}], "]"}], ";"}]}], "Input",
  CellChangeTimes->{{3.7027226221154537`*^9, 3.702722651820066*^9}, {
-  3.702794579483548*^9, 3.702794584260536*^9}, {3.702803908606913*^9, 
-  3.7028039281300993`*^9}, {3.702805608712472*^9, 3.702805623116664*^9}, {
-  3.702809354518977*^9, 3.702809355010725*^9}, {3.702967946166939*^9, 
-  3.7029679511677628`*^9}, {3.702970824915492*^9, 3.702970856313736*^9}, {
-  3.7036008801344223`*^9, 3.703600881199561*^9}}],
+   3.702794579483548*^9, 3.702794584260536*^9}, {3.702803908606913*^9, 
+   3.7028039281300993`*^9}, {3.702805608712472*^9, 3.702805623116664*^9}, {
+   3.702809354518977*^9, 3.702809355010725*^9}, {3.702967946166939*^9, 
+   3.7029679511677628`*^9}, {3.702970824915492*^9, 3.702970856313736*^9}, {
+   3.7036008801344223`*^9, 3.703600881199561*^9}, 3.7037628695100193`*^9}],
 
 Cell[CellGroupData[{
 
 Cell[BoxData[
- RowBox[{"\[IndentingNewLine]", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+ RowBox[{"\[IndentingNewLine]", "\[IndentingNewLine]", 
   RowBox[{
+   RowBox[{
+    RowBox[{"Get", "[", "\"\<MASSef`\>\"", "]"}], ";"}], 
+   "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{
      RowBox[{"{", 
@@ -19683,7 +20946,8 @@ Cell[BoxData[
    3.70296664982485*^9, 3.702966707107092*^9}, {3.702966767421492*^9, 
    3.702966778587819*^9}, 3.702967728784054*^9, 3.702967759089267*^9, 
    3.7029679554788923`*^9, 3.7029681080090847`*^9, 3.70297822635492*^9, {
-   3.703600883537548*^9, 3.7036008838093653`*^9}}],
+   3.703600883537548*^9, 3.7036008838093653`*^9}, {3.703762476291988*^9, 
+   3.7037624913457327`*^9}}],
 
 Cell[BoxData[
  RowBox[{"{", "0.07309600202638361`", "}"}]], "Print",
@@ -19691,7 +20955,8 @@ Cell[BoxData[
   3.702899970590588*^9, {3.7029000364985027`*^9, 3.7029000639594793`*^9}, 
    3.7029001208232813`*^9, 3.702964922726554*^9, 3.7029660798533154`*^9, 
    3.702966411584956*^9, 3.702967720904045*^9, 3.702967759721301*^9, 
-   3.7029679793387203`*^9, 3.7029708194311*^9, 3.702978265210947*^9}]
+   3.7029679793387203`*^9, 3.7029708194311*^9, 3.702978265210947*^9, 
+   3.703761871330052*^9, 3.703762242952009*^9, 3.703762492166752*^9}]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -20014,50 +21279,6 @@ bla/MASSef/examples/fit_PFK1/input/inhibRatio_pep.txt\"\t0.00075
 0\t0\t0\t0\t0\t0\t1\t7\t25\t\"/home/mrama/Dropbox/test \
 bla/MASSef/examples/fit_PFK1/input/inhibRatio_pep.txt\"\t0.00075
 0\t0\t0\t0\t0\t0\t1\t7\t25\t\"/home/mrama/Dropbox/test \
-bla/MASSef/examples/fit_PFK1/input/activationRatio_adp.txt\"\t0.000025
-0\t0\t0\t0\t0\t0\t1\t7\t25\t\"/home/mrama/Dropbox/test \
-bla/MASSef/examples/fit_PFK1/input/activationRatio_adp.txt\"\t0.000025
-0\t0\t0\t0\t0\t0\t1\t7\t25\t\"/home/mrama/Dropbox/test \
-bla/MASSef/examples/fit_PFK1/input/activationRatio_adp.txt\"\t0.000025
-0\t0\t0\t0\t0\t0\t1\t7\t25\t\"/home/mrama/Dropbox/test \
-bla/MASSef/examples/fit_PFK1/input/activationRatio_adp.txt\"\t0.000025
-0\t0\t0\t0\t0\t0\t1\t7\t25\t\"/home/mrama/Dropbox/test \
-bla/MASSef/examples/fit_PFK1/input/activationRatio_adp.txt\"\t0.000025
-0\t0\t0\t0\t0\t0\t1\t7\t25\t\"/home/mrama/Dropbox/test \
-bla/MASSef/examples/fit_PFK1/input/activationRatio_adp.txt\"\t0.000025
-0\t0\t0\t0\t0\t0\t1\t7\t25\t\"/home/mrama/Dropbox/test \
-bla/MASSef/examples/fit_PFK1/input/activationRatio_adp.txt\"\t0.000025
-0\t0\t0\t0\t0\t0\t1\t7\t25\t\"/home/mrama/Dropbox/test \
-bla/MASSef/examples/fit_PFK1/input/activationRatio_adp.txt\"\t0.000025
-0\t0\t0\t0\t0\t0\t1\t7\t25\t\"/home/mrama/Dropbox/test \
-bla/MASSef/examples/fit_PFK1/input/activationRatio_adp.txt\"\t0.000025
-0\t0\t0\t0\t0\t0\t1\t7\t25\t\"/home/mrama/Dropbox/test \
-bla/MASSef/examples/fit_PFK1/input/activationRatio_adp.txt\"\t0.000025
-0\t0\t0\t0\t0\t0\t1\t7\t25\t\"/home/mrama/Dropbox/test \
-bla/MASSef/examples/fit_PFK1/input/activationRatio_adp.txt\"\t0.000025
-0\t0\t0\t0\t0\t0\t1\t7\t25\t\"/home/mrama/Dropbox/test \
-bla/MASSef/examples/fit_PFK1/input/activationRatio_gdp.txt\"\t0.00004
-0\t0\t0\t0\t0\t0\t1\t7\t25\t\"/home/mrama/Dropbox/test \
-bla/MASSef/examples/fit_PFK1/input/activationRatio_gdp.txt\"\t0.00004
-0\t0\t0\t0\t0\t0\t1\t7\t25\t\"/home/mrama/Dropbox/test \
-bla/MASSef/examples/fit_PFK1/input/activationRatio_gdp.txt\"\t0.00004
-0\t0\t0\t0\t0\t0\t1\t7\t25\t\"/home/mrama/Dropbox/test \
-bla/MASSef/examples/fit_PFK1/input/activationRatio_gdp.txt\"\t0.00004
-0\t0\t0\t0\t0\t0\t1\t7\t25\t\"/home/mrama/Dropbox/test \
-bla/MASSef/examples/fit_PFK1/input/activationRatio_gdp.txt\"\t0.00004
-0\t0\t0\t0\t0\t0\t1\t7\t25\t\"/home/mrama/Dropbox/test \
-bla/MASSef/examples/fit_PFK1/input/activationRatio_gdp.txt\"\t0.00004
-0\t0\t0\t0\t0\t0\t1\t7\t25\t\"/home/mrama/Dropbox/test \
-bla/MASSef/examples/fit_PFK1/input/activationRatio_gdp.txt\"\t0.00004
-0\t0\t0\t0\t0\t0\t1\t7\t25\t\"/home/mrama/Dropbox/test \
-bla/MASSef/examples/fit_PFK1/input/activationRatio_gdp.txt\"\t0.00004
-0\t0\t0\t0\t0\t0\t1\t7\t25\t\"/home/mrama/Dropbox/test \
-bla/MASSef/examples/fit_PFK1/input/activationRatio_gdp.txt\"\t0.00004
-0\t0\t0\t0\t0\t0\t1\t7\t25\t\"/home/mrama/Dropbox/test \
-bla/MASSef/examples/fit_PFK1/input/activationRatio_gdp.txt\"\t0.00004
-0\t0\t0\t0\t0\t0\t1\t7\t25\t\"/home/mrama/Dropbox/test \
-bla/MASSef/examples/fit_PFK1/input/activationRatio_gdp.txt\"\t0.00004
-0\t0\t0\t0\t0\t0\t1\t7\t25\t\"/home/mrama/Dropbox/test \
 bla/MASSef/examples/fit_PFK1/input/L0Ratio.txt\"\t4000000
 0\t0\t0\t0\t0\t0\t1\t7\t25\t\"/home/mrama/Dropbox/test \
 bla/MASSef/examples/fit_PFK1/input/L0Ratio.txt\"\t4000000
@@ -20082,7 +21303,8 @@ bla/MASSef/examples/fit_PFK1/input/L0Ratio.txt\"\t4000000\
 \>", "Print",
  CellChangeTimes->{3.702966089760662*^9, 3.702966413361278*^9, 
   3.702967761164448*^9, 3.70296797963535*^9, 3.702970820385481*^9, 
-  3.702978265515538*^9}]
+  3.702978265515538*^9, 3.7037618725512333`*^9, 3.7037622434275703`*^9, 
+  3.703762492738311*^9}]
 }, Closed]]
 }, Open  ]],
 
@@ -20111,10 +21333,10 @@ Cell[BoxData[{
        "\t\t\t\t\t\t\t", "fileListSub", ",", " ", "eqnNameList", ",", 
        "eqnValList", ",", " ", "eqnValListPy", ",", " ", "eqnNameList", ",", 
        " ", "rateConstsSub", ",", " ", "\n", "\t\t\t\t\t\t\t", "metsSub", ",",
-        " ", "KeqName", ",", "allCatalyticReactions", ",", 
-       "nonCatalyticReactions", ",", " ", "unifiedRateConstList", ",", " ", 
-       "customRatiosDataList"}], "}"}], ",", " ", "\"\<MX\>\""}], "]"}], 
-   ";"}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+        " ", "allCatalyticReactions", ",", "nonCatalyticReactions", ",", " ", 
+       "unifiedRateConstList", ",", " ", "customRatiosDataList"}], "}"}], ",",
+      " ", "\"\<MX\>\""}], "]"}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"Export", "[", 
    RowBox[{"\"\<PFK1SimulateDataWithUncertaintyResults.mx\>\"", ",", 
@@ -20124,19 +21346,14 @@ Cell[BoxData[{
       ",", " ", "fileListSub"}], "}"}], ",", "\"\<MX\>\""}], "]"}], 
   ";"}]}], "Input",
  CellChangeTimes->{{3.702970891245824*^9, 3.7029709161667547`*^9}, {
-  3.703600886075007*^9, 3.703600886841516*^9}}],
+  3.703600886075007*^9, 3.703600886841516*^9}, {3.703762917735396*^9, 
+  3.703762917909277*^9}}],
 
 Cell[CellGroupData[{
 
 Cell[BoxData[
- RowBox[{"\[IndentingNewLine]", 
+ RowBox[{"\[IndentingNewLine]", "\[IndentingNewLine]", 
   RowBox[{
-   RowBox[{
-    RowBox[{"Get", "[", "\"\<MASSef`\>\"", "]"}], ";"}], 
-   "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"Get", "[", "\"\<MASSef`\>\"", "]"}], ";"}], 
-   "\[IndentingNewLine]", "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"nSamples", "=", "10"}], ";"}], "\[IndentingNewLine]", 
    RowBox[{
@@ -20159,15 +21376,16 @@ Cell[BoxData[
        "\t\t\t\t\t\t\t", "fileListSub", ",", " ", "eqnNameList", ",", 
        "eqnValList", ",", " ", "eqnValListPy", ",", " ", "eqnNameList", ",", 
        " ", "rateConstsSub", ",", " ", "\n", "\t\t\t\t\t\t\t", "metsSub", ",",
-        " ", "KeqName", ",", "allCatalyticReactions", ",", 
-       "nonCatalyticReactions", ",", " ", "unifiedRateConstList", ",", " ", 
-       "customRatiosDataList"}], "]"}]}], ";"}]}]}]], "Input",
+        " ", "allCatalyticReactions", ",", "nonCatalyticReactions", ",", " ", 
+       "unifiedRateConstList", ",", " ", "customRatiosDataList"}], "]"}]}], 
+    ";"}]}]}]], "Input",
  CellChangeTimes->{
   3.702793466897821*^9, {3.702793719211514*^9, 3.702793744578011*^9}, {
    3.702803870199719*^9, 3.702803895719781*^9}, 3.702805595855981*^9, {
    3.70296782885581*^9, 3.702967844287743*^9}, {3.702968112894805*^9, 
    3.702968113387623*^9}, {3.7029705678890047`*^9, 3.702970571501679*^9}, {
-   3.703600888518778*^9, 3.703600888742467*^9}}],
+   3.703600888518778*^9, 3.703600888742467*^9}, {3.703762894300178*^9, 
+   3.70376289659002*^9}}],
 
 Cell[CellGroupData[{
 
@@ -20179,7 +21397,7 @@ Cell[BoxData[
    3.7028103810499983`*^9}, {3.702967839063427*^9, 3.702967844867916*^9}, 
    3.7029680419608517`*^9, {3.7029681138786697`*^9, 3.702968139549479*^9}, {
    3.702970561894059*^9, 3.702970572165882*^9}, 3.7029706603362827`*^9, 
-   3.702970766013514*^9, 3.7029783219151707`*^9}],
+   3.702970766013514*^9, 3.7029783219151707`*^9, 3.703762898229823*^9}],
 
 Cell[BoxData[
  RowBox[{"{", "0.07309600202638361`", "}"}]], "Print",
@@ -20189,7 +21407,7 @@ Cell[BoxData[
    3.7028103810499983`*^9}, {3.702967839063427*^9, 3.702967844867916*^9}, 
    3.7029680419608517`*^9, {3.7029681138786697`*^9, 3.702968139549479*^9}, {
    3.702970561894059*^9, 3.702970572165882*^9}, 3.7029706603362827`*^9, 
-   3.702970766013514*^9, 3.702978322141721*^9}],
+   3.702970766013514*^9, 3.7029783219151707`*^9, 3.703762898386977*^9}],
 
 Cell[BoxData[
  RowBox[{"{", "0.07309600202638361`", "}"}]], "Print",
@@ -20199,7 +21417,7 @@ Cell[BoxData[
    3.7028103810499983`*^9}, {3.702967839063427*^9, 3.702967844867916*^9}, 
    3.7029680419608517`*^9, {3.7029681138786697`*^9, 3.702968139549479*^9}, {
    3.702970561894059*^9, 3.702970572165882*^9}, 3.7029706603362827`*^9, 
-   3.702970766013514*^9, 3.702978322374765*^9}],
+   3.702970766013514*^9, 3.7029783219151707`*^9, 3.703762898546247*^9}],
 
 Cell[BoxData[
  RowBox[{"{", "0.07309600202638361`", "}"}]], "Print",
@@ -20209,7 +21427,7 @@ Cell[BoxData[
    3.7028103810499983`*^9}, {3.702967839063427*^9, 3.702967844867916*^9}, 
    3.7029680419608517`*^9, {3.7029681138786697`*^9, 3.702968139549479*^9}, {
    3.702970561894059*^9, 3.702970572165882*^9}, 3.7029706603362827`*^9, 
-   3.702970766013514*^9, 3.702978322609692*^9}],
+   3.702970766013514*^9, 3.7029783219151707`*^9, 3.7037628987055683`*^9}],
 
 Cell[BoxData[
  RowBox[{"{", "0.07309600202638361`", "}"}]], "Print",
@@ -20219,7 +21437,7 @@ Cell[BoxData[
    3.7028103810499983`*^9}, {3.702967839063427*^9, 3.702967844867916*^9}, 
    3.7029680419608517`*^9, {3.7029681138786697`*^9, 3.702968139549479*^9}, {
    3.702970561894059*^9, 3.702970572165882*^9}, 3.7029706603362827`*^9, 
-   3.702970766013514*^9, 3.702978322980379*^9}],
+   3.702970766013514*^9, 3.7029783219151707`*^9, 3.7037628988612328`*^9}],
 
 Cell[BoxData[
  RowBox[{"{", "0.07309600202638361`", "}"}]], "Print",
@@ -20229,7 +21447,7 @@ Cell[BoxData[
    3.7028103810499983`*^9}, {3.702967839063427*^9, 3.702967844867916*^9}, 
    3.7029680419608517`*^9, {3.7029681138786697`*^9, 3.702968139549479*^9}, {
    3.702970561894059*^9, 3.702970572165882*^9}, 3.7029706603362827`*^9, 
-   3.702970766013514*^9, 3.702978323125187*^9}],
+   3.702970766013514*^9, 3.7029783219151707`*^9, 3.703762899015278*^9}],
 
 Cell[BoxData[
  RowBox[{"{", "0.07309600202638361`", "}"}]], "Print",
@@ -20239,7 +21457,7 @@ Cell[BoxData[
    3.7028103810499983`*^9}, {3.702967839063427*^9, 3.702967844867916*^9}, 
    3.7029680419608517`*^9, {3.7029681138786697`*^9, 3.702968139549479*^9}, {
    3.702970561894059*^9, 3.702970572165882*^9}, 3.7029706603362827`*^9, 
-   3.702970766013514*^9, 3.7029783233512707`*^9}],
+   3.702970766013514*^9, 3.7029783219151707`*^9, 3.703762899170087*^9}],
 
 Cell[BoxData[
  RowBox[{"{", "0.07309600202638361`", "}"}]], "Print",
@@ -20249,7 +21467,7 @@ Cell[BoxData[
    3.7028103810499983`*^9}, {3.702967839063427*^9, 3.702967844867916*^9}, 
    3.7029680419608517`*^9, {3.7029681138786697`*^9, 3.702968139549479*^9}, {
    3.702970561894059*^9, 3.702970572165882*^9}, 3.7029706603362827`*^9, 
-   3.702970766013514*^9, 3.702978323583991*^9}],
+   3.702970766013514*^9, 3.7029783219151707`*^9, 3.703762899327437*^9}],
 
 Cell[BoxData[
  RowBox[{"{", "0.07309600202638361`", "}"}]], "Print",
@@ -20259,7 +21477,7 @@ Cell[BoxData[
    3.7028103810499983`*^9}, {3.702967839063427*^9, 3.702967844867916*^9}, 
    3.7029680419608517`*^9, {3.7029681138786697`*^9, 3.702968139549479*^9}, {
    3.702970561894059*^9, 3.702970572165882*^9}, 3.7029706603362827`*^9, 
-   3.702970766013514*^9, 3.7029783238298273`*^9}],
+   3.702970766013514*^9, 3.7029783219151707`*^9, 3.703762899484055*^9}],
 
 Cell[BoxData[
  RowBox[{"{", "0.07309600202638361`", "}"}]], "Print",
@@ -20269,7 +21487,7 @@ Cell[BoxData[
    3.7028103810499983`*^9}, {3.702967839063427*^9, 3.702967844867916*^9}, 
    3.7029680419608517`*^9, {3.7029681138786697`*^9, 3.702968139549479*^9}, {
    3.702970561894059*^9, 3.702970572165882*^9}, 3.7029706603362827`*^9, 
-   3.702970766013514*^9, 3.702978324069881*^9}]
+   3.702970766013514*^9, 3.7029783219151707`*^9, 3.7037628996392183`*^9}]
 }, Open  ]]
 }, Open  ]],
 
@@ -20596,72 +21814,6 @@ bla/MASSef/examples/fit_PFK1/input/inhibRatio_pep.txt\"\t0.0007517875714061652
 0\t0\t0\t0\t0\t0\t1\t7\t25\t\"/home/mrama/Dropbox/test \
 bla/MASSef/examples/fit_PFK1/input/inhibRatio_pep.txt\"\t0.0007517875714061652
 0\t0\t0\t0\t0\t0\t1\t7\t25\t\"/home/mrama/Dropbox/test \
-bla/MASSef/examples/fit_PFK1/input/activationRatio_adp.txt\"\t\
-0.000024886296269963493
-0\t0\t0\t0\t0\t0\t1\t7\t25\t\"/home/mrama/Dropbox/test \
-bla/MASSef/examples/fit_PFK1/input/activationRatio_adp.txt\"\t\
-0.000024886296269963493
-0\t0\t0\t0\t0\t0\t1\t7\t25\t\"/home/mrama/Dropbox/test \
-bla/MASSef/examples/fit_PFK1/input/activationRatio_adp.txt\"\t\
-0.000024886296269963493
-0\t0\t0\t0\t0\t0\t1\t7\t25\t\"/home/mrama/Dropbox/test \
-bla/MASSef/examples/fit_PFK1/input/activationRatio_adp.txt\"\t\
-0.000024886296269963493
-0\t0\t0\t0\t0\t0\t1\t7\t25\t\"/home/mrama/Dropbox/test \
-bla/MASSef/examples/fit_PFK1/input/activationRatio_adp.txt\"\t\
-0.000024886296269963493
-0\t0\t0\t0\t0\t0\t1\t7\t25\t\"/home/mrama/Dropbox/test \
-bla/MASSef/examples/fit_PFK1/input/activationRatio_adp.txt\"\t\
-0.000024886296269963493
-0\t0\t0\t0\t0\t0\t1\t7\t25\t\"/home/mrama/Dropbox/test \
-bla/MASSef/examples/fit_PFK1/input/activationRatio_adp.txt\"\t\
-0.000024886296269963493
-0\t0\t0\t0\t0\t0\t1\t7\t25\t\"/home/mrama/Dropbox/test \
-bla/MASSef/examples/fit_PFK1/input/activationRatio_adp.txt\"\t\
-0.000024886296269963493
-0\t0\t0\t0\t0\t0\t1\t7\t25\t\"/home/mrama/Dropbox/test \
-bla/MASSef/examples/fit_PFK1/input/activationRatio_adp.txt\"\t\
-0.000024886296269963493
-0\t0\t0\t0\t0\t0\t1\t7\t25\t\"/home/mrama/Dropbox/test \
-bla/MASSef/examples/fit_PFK1/input/activationRatio_adp.txt\"\t\
-0.000024886296269963493
-0\t0\t0\t0\t0\t0\t1\t7\t25\t\"/home/mrama/Dropbox/test \
-bla/MASSef/examples/fit_PFK1/input/activationRatio_adp.txt\"\t\
-0.000024886296269963493
-0\t0\t0\t0\t0\t0\t1\t7\t25\t\"/home/mrama/Dropbox/test \
-bla/MASSef/examples/fit_PFK1/input/activationRatio_gdp.txt\"\t\
-0.00003818235669722854
-0\t0\t0\t0\t0\t0\t1\t7\t25\t\"/home/mrama/Dropbox/test \
-bla/MASSef/examples/fit_PFK1/input/activationRatio_gdp.txt\"\t\
-0.00003818235669722854
-0\t0\t0\t0\t0\t0\t1\t7\t25\t\"/home/mrama/Dropbox/test \
-bla/MASSef/examples/fit_PFK1/input/activationRatio_gdp.txt\"\t\
-0.00003818235669722854
-0\t0\t0\t0\t0\t0\t1\t7\t25\t\"/home/mrama/Dropbox/test \
-bla/MASSef/examples/fit_PFK1/input/activationRatio_gdp.txt\"\t\
-0.00003818235669722854
-0\t0\t0\t0\t0\t0\t1\t7\t25\t\"/home/mrama/Dropbox/test \
-bla/MASSef/examples/fit_PFK1/input/activationRatio_gdp.txt\"\t\
-0.00003818235669722854
-0\t0\t0\t0\t0\t0\t1\t7\t25\t\"/home/mrama/Dropbox/test \
-bla/MASSef/examples/fit_PFK1/input/activationRatio_gdp.txt\"\t\
-0.00003818235669722854
-0\t0\t0\t0\t0\t0\t1\t7\t25\t\"/home/mrama/Dropbox/test \
-bla/MASSef/examples/fit_PFK1/input/activationRatio_gdp.txt\"\t\
-0.00003818235669722854
-0\t0\t0\t0\t0\t0\t1\t7\t25\t\"/home/mrama/Dropbox/test \
-bla/MASSef/examples/fit_PFK1/input/activationRatio_gdp.txt\"\t\
-0.00003818235669722854
-0\t0\t0\t0\t0\t0\t1\t7\t25\t\"/home/mrama/Dropbox/test \
-bla/MASSef/examples/fit_PFK1/input/activationRatio_gdp.txt\"\t\
-0.00003818235669722854
-0\t0\t0\t0\t0\t0\t1\t7\t25\t\"/home/mrama/Dropbox/test \
-bla/MASSef/examples/fit_PFK1/input/activationRatio_gdp.txt\"\t\
-0.00003818235669722854
-0\t0\t0\t0\t0\t0\t1\t7\t25\t\"/home/mrama/Dropbox/test \
-bla/MASSef/examples/fit_PFK1/input/activationRatio_gdp.txt\"\t\
-0.00003818235669722854
-0\t0\t0\t0\t0\t0\t1\t7\t25\t\"/home/mrama/Dropbox/test \
 bla/MASSef/examples/fit_PFK1/input/L0Ratio.txt\"\t4.111606127366231e6
 0\t0\t0\t0\t0\t0\t1\t7\t25\t\"/home/mrama/Dropbox/test \
 bla/MASSef/examples/fit_PFK1/input/L0Ratio.txt\"\t4.111606127366231e6
@@ -20685,7 +21837,7 @@ bla/MASSef/examples/fit_PFK1/input/L0Ratio.txt\"\t4.111606127366231e6
 bla/MASSef/examples/fit_PFK1/input/L0Ratio.txt\"\t4.111606127366231e6\
 \>", "Print",
  CellChangeTimes->{{3.70281037377944*^9, 3.7028103828253183`*^9}, 
-   3.702970666884993*^9, 3.702970768534795*^9}]
+   3.702970666884993*^9, 3.702970768534795*^9, 3.7037629007725*^9}]
 }, Closed]]
 }, Open  ]],
 
@@ -20735,80 +21887,78 @@ Cell[BoxData[{
 
 Cell[CellGroupData[{
 
-Cell[BoxData[{
- RowBox[{
-  RowBox[{"Get", "[", "\"\<MASSef`\>\"", "]"}], ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"Get", "[", "\"\<MASSef`\>\"", "]"}], ";"}], "\[IndentingNewLine]", 
- RowBox[{
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
   RowBox[{
-   RowBox[{"paramScanList", "=", 
-    RowBox[{"{", 
-     RowBox[{
-      RowBox[{"{", 
-       RowBox[{"\"\<Km\>\"", ",", "1", ",", 
-        RowBox[{"{", 
-         RowBox[{"0.1", ",", "1", ",", "100"}], "}"}]}], "}"}], ",", 
-      "\[IndentingNewLine]", "\t\t\t\t", 
-      RowBox[{"{", 
-       RowBox[{"\"\<s05\>\"", ",", "1", ",", 
-        RowBox[{"{", 
-         RowBox[{"0.01", ",", "10", ",", "100"}], "}"}]}], "}"}], ",", 
-      "\[IndentingNewLine]", "\t\t\t\t", 
-      RowBox[{"{", 
-       RowBox[{"\"\<kcat\>\"", ",", "1", ",", 
-        RowBox[{"{", 
-         RowBox[{"0.01", ",", "1", ",", "100"}], "}"}]}], "}"}], ",", 
-      "\[IndentingNewLine]", "\t\t\t\t", 
-      RowBox[{"{", 
-       RowBox[{"\"\<activation\>\"", ",", "1", ",", 
-        RowBox[{"{", 
-         RowBox[{"0.001", ",", "1", ",", "100"}], "}"}]}], "}"}], ",", 
-      "\[IndentingNewLine]", "\t\t\t\t", 
-      RowBox[{"{", 
-       RowBox[{"\"\<other\>\"", ",", "1", ",", 
-        RowBox[{"{", 
-         RowBox[{"1", ",", "3", ",", "4"}], "}"}]}], "}"}], ",", 
-      "\[IndentingNewLine]", "\t\t\t\t", 
-      RowBox[{"{", 
-       RowBox[{"\"\<other\>\"", ",", "2", ",", 
-        RowBox[{"{", 
-         RowBox[{
-          RowBox[{"10", "^", 
-           RowBox[{"-", "8"}]}], ",", 
-          RowBox[{"10.", "^", 
-           RowBox[{"-", "6"}]}], ",", 
-          RowBox[{"10", "^", 
-           RowBox[{"-", "4"}]}]}], "}"}]}], "}"}]}], "}"}]}], ";"}], 
-  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{
-   RowBox[{"{", 
+   RowBox[{
+    RowBox[{"paramScanList", "=", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"\"\<Km\>\"", ",", "1", ",", 
+         RowBox[{"{", 
+          RowBox[{"0.1", ",", "1", ",", "100"}], "}"}]}], "}"}], ",", 
+       "\[IndentingNewLine]", "\t\t\t\t", 
+       RowBox[{"{", 
+        RowBox[{"\"\<s05\>\"", ",", "1", ",", 
+         RowBox[{"{", 
+          RowBox[{"0.01", ",", "10", ",", "100"}], "}"}]}], "}"}], ",", 
+       "\[IndentingNewLine]", "\t\t\t\t", 
+       RowBox[{"{", 
+        RowBox[{"\"\<kcat\>\"", ",", "1", ",", 
+         RowBox[{"{", 
+          RowBox[{"0.01", ",", "1", ",", "100"}], "}"}]}], "}"}], ",", 
+       "\[IndentingNewLine]", "\t\t\t\t", 
+       RowBox[{"{", 
+        RowBox[{"\"\<activation\>\"", ",", "1", ",", 
+         RowBox[{"{", 
+          RowBox[{"0.001", ",", "1", ",", "100"}], "}"}]}], "}"}], ",", 
+       "\[IndentingNewLine]", "\t\t\t\t", 
+       RowBox[{"{", 
+        RowBox[{"\"\<other\>\"", ",", "1", ",", 
+         RowBox[{"{", 
+          RowBox[{"1", ",", "3", ",", "4"}], "}"}]}], "}"}], ",", 
+       "\[IndentingNewLine]", "\t\t\t\t", 
+       RowBox[{"{", 
+        RowBox[{"\"\<other\>\"", ",", "2", ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"10", "^", 
+            RowBox[{"-", "8"}]}], ",", 
+           RowBox[{"10.", "^", 
+            RowBox[{"-", "6"}]}], ",", 
+           RowBox[{"10", "^", 
+            RowBox[{"-", "4"}]}]}], "}"}]}], "}"}]}], "}"}]}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
     RowBox[{
-    "allFittingDataList", ",", " ", "dataPathList", ",", " ", "fileList", ",",
-      " ", "fileListSub"}], "}"}], "=", 
-   RowBox[{"simulateParameterScanData", "[", 
-    RowBox[{
-    "paramScanList", ",", " ", "enzymeModel", ",", " ", "dataFileName", ",", 
-     " ", "\n", "\t\t\t\t\t\t  ", "haldaneDataList", ",", " ", "kmList", ",", 
-     " ", "s05List", ",", " ", "kcatList", ",", " ", "inhibitionList", ",", 
-     " ", "activationList", ",", " ", "\n", "\t\t\t\t\t\t  ", 
-     "otherParmsList", ",", " ", "rxn", ",", " ", "metsFull", ",", " ", 
-     "metSatForSub", ",", " ", "metSatRevSub", ",", "  ", "bufferInfo", ",", 
-     " ", "\n", "\t\t\t\t\t\t  ", "ionCharge", ",", " ", "inputPath", ",", 
-     " ", "fileList", ",", " ", "fileListSub", ",", " ", "eqnNameList", ",", 
-     " ", "\n", "\t\t\t\t\t\t  ", "eqnValList", ",", " ", "eqnValListPy", ",",
-      " ", "eqnNameList", ",", " ", "rateConstsSub", ",", " ", "metsSub", ",",
-      " ", "allCatalyticReactions", ",", "\n", "\t\t\t\t\t\t  ", 
-     "nonCatalyticReactions", ",", " ", "unifiedRateConstList", ",", " ", 
-     "customRatiosDataList"}], "]"}]}], 
-  ";"}], "\[IndentingNewLine]"}], "Input",
+     RowBox[{"{", 
+      RowBox[{
+      "allFittingDataList", ",", " ", "dataPathList", ",", " ", "fileList", 
+       ",", " ", "fileListSub"}], "}"}], "=", 
+     RowBox[{"simulateParameterScanData", "[", 
+      RowBox[{
+      "paramScanList", ",", " ", "enzymeModel", ",", " ", "dataFileName", ",",
+        " ", "\n", "\t\t\t\t\t\t  ", "haldaneDataList", ",", " ", "kmList", 
+       ",", " ", "s05List", ",", " ", "kcatList", ",", " ", "inhibitionList", 
+       ",", " ", "activationList", ",", " ", "\n", "\t\t\t\t\t\t  ", 
+       "otherParmsList", ",", " ", "rxn", ",", " ", "metsFull", ",", " ", 
+       "metSatForSub", ",", " ", "metSatRevSub", ",", "  ", "bufferInfo", ",",
+        " ", "\n", "\t\t\t\t\t\t  ", "ionCharge", ",", " ", "inputPath", ",", 
+       " ", "fileList", ",", " ", "fileListSub", ",", " ", "eqnNameList", ",",
+        " ", "\n", "\t\t\t\t\t\t  ", "eqnValList", ",", " ", "eqnValListPy", 
+       ",", " ", "eqnNameList", ",", " ", "rateConstsSub", ",", " ", 
+       "metsSub", ",", " ", "allCatalyticReactions", ",", "\n", 
+       "\t\t\t\t\t\t  ", "nonCatalyticReactions", ",", " ", 
+       "unifiedRateConstList", ",", " ", "customRatiosDataList"}], "]"}]}], 
+    ";"}], "\[IndentingNewLine]"}]}]], "Input",
  CellChangeTimes->{{3.703225834723435*^9, 3.7032259877157993`*^9}, {
   3.703226021114073*^9, 3.7032260380179234`*^9}, {3.703226147318303*^9, 
   3.703226147720194*^9}, {3.703226193940736*^9, 3.703226209196756*^9}, {
   3.703226914393605*^9, 3.703226939578722*^9}, {3.7032314524899*^9, 
   3.703231466167097*^9}, {3.703232972537202*^9, 3.70323302753155*^9}, {
-  3.703600893287154*^9, 3.7036008937101707`*^9}}],
+  3.703600893287154*^9, 3.7036008937101707`*^9}, {3.703762923444211*^9, 
+  3.703762925047017*^9}}],
 
 Cell[CellGroupData[{
 
@@ -20820,7 +21970,7 @@ Cell[BoxData[
    3.703226915446666*^9, 3.70322694712932*^9}, 3.703227084549799*^9, 
    3.7032271477237797`*^9, {3.7032272213047657`*^9, 3.703227256254394*^9}, 
    3.703230864448483*^9, 3.703231471762294*^9, 3.703231922239695*^9, 
-   3.7032330294194117`*^9}],
+   3.7032330294194117`*^9, 3.7037629274124603`*^9}],
 
 Cell[BoxData[
  RowBox[{"{", "0.07309600202638361`", "}"}]], "Print",
@@ -20830,7 +21980,7 @@ Cell[BoxData[
    3.703226915446666*^9, 3.70322694712932*^9}, 3.703227084549799*^9, 
    3.7032271477237797`*^9, {3.7032272213047657`*^9, 3.703227256254394*^9}, 
    3.703230864448483*^9, 3.703231471762294*^9, 3.703231922239695*^9, 
-   3.70323302962978*^9}],
+   3.7032330294194117`*^9, 3.7037629275768757`*^9}],
 
 Cell[BoxData[
  RowBox[{"{", "0.07309600202638361`", "}"}]], "Print",
@@ -20840,7 +21990,7 @@ Cell[BoxData[
    3.703226915446666*^9, 3.70322694712932*^9}, 3.703227084549799*^9, 
    3.7032271477237797`*^9, {3.7032272213047657`*^9, 3.703227256254394*^9}, 
    3.703230864448483*^9, 3.703231471762294*^9, 3.703231922239695*^9, 
-   3.703233029820861*^9}],
+   3.7032330294194117`*^9, 3.7037629277323017`*^9}],
 
 Cell[BoxData[
  RowBox[{"{", "0.07309600202638361`", "}"}]], "Print",
@@ -20850,7 +22000,7 @@ Cell[BoxData[
    3.703226915446666*^9, 3.70322694712932*^9}, 3.703227084549799*^9, 
    3.7032271477237797`*^9, {3.7032272213047657`*^9, 3.703227256254394*^9}, 
    3.703230864448483*^9, 3.703231471762294*^9, 3.703231922239695*^9, 
-   3.703233030009853*^9}],
+   3.7032330294194117`*^9, 3.70376292788653*^9}],
 
 Cell[BoxData[
  RowBox[{"{", "0.07309600202638361`", "}"}]], "Print",
@@ -20860,7 +22010,7 @@ Cell[BoxData[
    3.703226915446666*^9, 3.70322694712932*^9}, 3.703227084549799*^9, 
    3.7032271477237797`*^9, {3.7032272213047657`*^9, 3.703227256254394*^9}, 
    3.703230864448483*^9, 3.703231471762294*^9, 3.703231922239695*^9, 
-   3.703233030211549*^9}],
+   3.7032330294194117`*^9, 3.703762928038909*^9}],
 
 Cell[BoxData[
  RowBox[{"{", "0.07309600202638361`", "}"}]], "Print",
@@ -20870,7 +22020,7 @@ Cell[BoxData[
    3.703226915446666*^9, 3.70322694712932*^9}, 3.703227084549799*^9, 
    3.7032271477237797`*^9, {3.7032272213047657`*^9, 3.703227256254394*^9}, 
    3.703230864448483*^9, 3.703231471762294*^9, 3.703231922239695*^9, 
-   3.7032330303986588`*^9}],
+   3.7032330294194117`*^9, 3.703762928193953*^9}],
 
 Cell[BoxData[
  RowBox[{"{", "0.07309600202638361`", "}"}]], "Print",
@@ -20880,7 +22030,7 @@ Cell[BoxData[
    3.703226915446666*^9, 3.70322694712932*^9}, 3.703227084549799*^9, 
    3.7032271477237797`*^9, {3.7032272213047657`*^9, 3.703227256254394*^9}, 
    3.703230864448483*^9, 3.703231471762294*^9, 3.703231922239695*^9, 
-   3.703233030587237*^9}],
+   3.7032330294194117`*^9, 3.703762928352296*^9}],
 
 Cell[BoxData[
  RowBox[{"{", "0.07309600202638361`", "}"}]], "Print",
@@ -20890,7 +22040,7 @@ Cell[BoxData[
    3.703226915446666*^9, 3.70322694712932*^9}, 3.703227084549799*^9, 
    3.7032271477237797`*^9, {3.7032272213047657`*^9, 3.703227256254394*^9}, 
    3.703230864448483*^9, 3.703231471762294*^9, 3.703231922239695*^9, 
-   3.703233030785172*^9}],
+   3.7032330294194117`*^9, 3.7037629285282927`*^9}],
 
 Cell[BoxData[
  RowBox[{"{", "0.07309600202638361`", "}"}]], "Print",
@@ -20900,7 +22050,7 @@ Cell[BoxData[
    3.703226915446666*^9, 3.70322694712932*^9}, 3.703227084549799*^9, 
    3.7032271477237797`*^9, {3.7032272213047657`*^9, 3.703227256254394*^9}, 
    3.703230864448483*^9, 3.703231471762294*^9, 3.703231922239695*^9, 
-   3.703233031086597*^9}],
+   3.7032330294194117`*^9, 3.7037629287097387`*^9}],
 
 Cell[BoxData[
  RowBox[{"{", "0.07309600202638361`", "}"}]], "Print",
@@ -20910,7 +22060,7 @@ Cell[BoxData[
    3.703226915446666*^9, 3.70322694712932*^9}, 3.703227084549799*^9, 
    3.7032271477237797`*^9, {3.7032272213047657`*^9, 3.703227256254394*^9}, 
    3.703230864448483*^9, 3.703231471762294*^9, 3.703231922239695*^9, 
-   3.703233031390239*^9}],
+   3.7032330294194117`*^9, 3.703762928863085*^9}],
 
 Cell[BoxData[
  RowBox[{"{", "0.07309600202638361`", "}"}]], "Print",
@@ -20920,7 +22070,7 @@ Cell[BoxData[
    3.703226915446666*^9, 3.70322694712932*^9}, 3.703227084549799*^9, 
    3.7032271477237797`*^9, {3.7032272213047657`*^9, 3.703227256254394*^9}, 
    3.703230864448483*^9, 3.703231471762294*^9, 3.703231922239695*^9, 
-   3.7032330316260757`*^9}],
+   3.7032330294194117`*^9, 3.703762929015501*^9}],
 
 Cell[BoxData[
  RowBox[{"{", "0.07309600202638361`", "}"}]], "Print",
@@ -20930,7 +22080,7 @@ Cell[BoxData[
    3.703226915446666*^9, 3.70322694712932*^9}, 3.703227084549799*^9, 
    3.7032271477237797`*^9, {3.7032272213047657`*^9, 3.703227256254394*^9}, 
    3.703230864448483*^9, 3.703231471762294*^9, 3.703231922239695*^9, 
-   3.7032330318253*^9}],
+   3.7032330294194117`*^9, 3.70376292916895*^9}],
 
 Cell[BoxData[
  RowBox[{"{", "0.07309600202638361`", "}"}]], "Print",
@@ -20940,7 +22090,7 @@ Cell[BoxData[
    3.703226915446666*^9, 3.70322694712932*^9}, 3.703227084549799*^9, 
    3.7032271477237797`*^9, {3.7032272213047657`*^9, 3.703227256254394*^9}, 
    3.703230864448483*^9, 3.703231471762294*^9, 3.703231922239695*^9, 
-   3.703233032015222*^9}],
+   3.7032330294194117`*^9, 3.7037629293253098`*^9}],
 
 Cell[BoxData[
  RowBox[{"{", "0.07309600202638361`", "}"}]], "Print",
@@ -20950,7 +22100,7 @@ Cell[BoxData[
    3.703226915446666*^9, 3.70322694712932*^9}, 3.703227084549799*^9, 
    3.7032271477237797`*^9, {3.7032272213047657`*^9, 3.703227256254394*^9}, 
    3.703230864448483*^9, 3.703231471762294*^9, 3.703231922239695*^9, 
-   3.703233032204617*^9}],
+   3.7032330294194117`*^9, 3.7037629294789333`*^9}],
 
 Cell[BoxData[
  RowBox[{"{", "0.07309600202638361`", "}"}]], "Print",
@@ -20960,7 +22110,7 @@ Cell[BoxData[
    3.703226915446666*^9, 3.70322694712932*^9}, 3.703227084549799*^9, 
    3.7032271477237797`*^9, {3.7032272213047657`*^9, 3.703227256254394*^9}, 
    3.703230864448483*^9, 3.703231471762294*^9, 3.703231922239695*^9, 
-   3.703233032395669*^9}],
+   3.7032330294194117`*^9, 3.703762929640074*^9}],
 
 Cell[BoxData[
  RowBox[{"{", "0.07309600202638361`", "}"}]], "Print",
@@ -20970,7 +22120,7 @@ Cell[BoxData[
    3.703226915446666*^9, 3.70322694712932*^9}, 3.703227084549799*^9, 
    3.7032271477237797`*^9, {3.7032272213047657`*^9, 3.703227256254394*^9}, 
    3.703230864448483*^9, 3.703231471762294*^9, 3.703231922239695*^9, 
-   3.703233032593287*^9}],
+   3.7032330294194117`*^9, 3.703762929794107*^9}],
 
 Cell[BoxData[
  RowBox[{"{", "0.07309600202638361`", "}"}]], "Print",
@@ -20980,7 +22130,7 @@ Cell[BoxData[
    3.703226915446666*^9, 3.70322694712932*^9}, 3.703227084549799*^9, 
    3.7032271477237797`*^9, {3.7032272213047657`*^9, 3.703227256254394*^9}, 
    3.703230864448483*^9, 3.703231471762294*^9, 3.703231922239695*^9, 
-   3.703233032835327*^9}],
+   3.7032330294194117`*^9, 3.703762929948019*^9}],
 
 Cell[BoxData[
  RowBox[{"{", "0.07309600202638361`", "}"}]], "Print",
@@ -20990,7 +22140,7 @@ Cell[BoxData[
    3.703226915446666*^9, 3.70322694712932*^9}, 3.703227084549799*^9, 
    3.7032271477237797`*^9, {3.7032272213047657`*^9, 3.703227256254394*^9}, 
    3.703230864448483*^9, 3.703231471762294*^9, 3.703231922239695*^9, 
-   3.703233033016515*^9}]
+   3.7032330294194117`*^9, 3.7037629301017847`*^9}]
 }, Open  ]]
 }, Open  ]],
 
@@ -21318,50 +22468,6 @@ bla/MASSef/examples/fit_PFK1/input/inhibRatio_pep.txt\"\t0.00075
 0\t0\t0\t0\t0\t0\t1\t7\t25\t\"/home/mrama/Dropbox/test \
 bla/MASSef/examples/fit_PFK1/input/inhibRatio_pep.txt\"\t0.00075
 0\t0\t0\t0\t0\t0\t1\t7\t25\t\"/home/mrama/Dropbox/test \
-bla/MASSef/examples/fit_PFK1/input/activationRatio_adp.txt\"\t0.000025
-0\t0\t0\t0\t0\t0\t1\t7\t25\t\"/home/mrama/Dropbox/test \
-bla/MASSef/examples/fit_PFK1/input/activationRatio_adp.txt\"\t0.000025
-0\t0\t0\t0\t0\t0\t1\t7\t25\t\"/home/mrama/Dropbox/test \
-bla/MASSef/examples/fit_PFK1/input/activationRatio_adp.txt\"\t0.000025
-0\t0\t0\t0\t0\t0\t1\t7\t25\t\"/home/mrama/Dropbox/test \
-bla/MASSef/examples/fit_PFK1/input/activationRatio_adp.txt\"\t0.000025
-0\t0\t0\t0\t0\t0\t1\t7\t25\t\"/home/mrama/Dropbox/test \
-bla/MASSef/examples/fit_PFK1/input/activationRatio_adp.txt\"\t0.000025
-0\t0\t0\t0\t0\t0\t1\t7\t25\t\"/home/mrama/Dropbox/test \
-bla/MASSef/examples/fit_PFK1/input/activationRatio_adp.txt\"\t0.000025
-0\t0\t0\t0\t0\t0\t1\t7\t25\t\"/home/mrama/Dropbox/test \
-bla/MASSef/examples/fit_PFK1/input/activationRatio_adp.txt\"\t0.000025
-0\t0\t0\t0\t0\t0\t1\t7\t25\t\"/home/mrama/Dropbox/test \
-bla/MASSef/examples/fit_PFK1/input/activationRatio_adp.txt\"\t0.000025
-0\t0\t0\t0\t0\t0\t1\t7\t25\t\"/home/mrama/Dropbox/test \
-bla/MASSef/examples/fit_PFK1/input/activationRatio_adp.txt\"\t0.000025
-0\t0\t0\t0\t0\t0\t1\t7\t25\t\"/home/mrama/Dropbox/test \
-bla/MASSef/examples/fit_PFK1/input/activationRatio_adp.txt\"\t0.000025
-0\t0\t0\t0\t0\t0\t1\t7\t25\t\"/home/mrama/Dropbox/test \
-bla/MASSef/examples/fit_PFK1/input/activationRatio_adp.txt\"\t0.000025
-0\t0\t0\t0\t0\t0\t1\t7\t25\t\"/home/mrama/Dropbox/test \
-bla/MASSef/examples/fit_PFK1/input/activationRatio_gdp.txt\"\t0.00004
-0\t0\t0\t0\t0\t0\t1\t7\t25\t\"/home/mrama/Dropbox/test \
-bla/MASSef/examples/fit_PFK1/input/activationRatio_gdp.txt\"\t0.00004
-0\t0\t0\t0\t0\t0\t1\t7\t25\t\"/home/mrama/Dropbox/test \
-bla/MASSef/examples/fit_PFK1/input/activationRatio_gdp.txt\"\t0.00004
-0\t0\t0\t0\t0\t0\t1\t7\t25\t\"/home/mrama/Dropbox/test \
-bla/MASSef/examples/fit_PFK1/input/activationRatio_gdp.txt\"\t0.00004
-0\t0\t0\t0\t0\t0\t1\t7\t25\t\"/home/mrama/Dropbox/test \
-bla/MASSef/examples/fit_PFK1/input/activationRatio_gdp.txt\"\t0.00004
-0\t0\t0\t0\t0\t0\t1\t7\t25\t\"/home/mrama/Dropbox/test \
-bla/MASSef/examples/fit_PFK1/input/activationRatio_gdp.txt\"\t0.00004
-0\t0\t0\t0\t0\t0\t1\t7\t25\t\"/home/mrama/Dropbox/test \
-bla/MASSef/examples/fit_PFK1/input/activationRatio_gdp.txt\"\t0.00004
-0\t0\t0\t0\t0\t0\t1\t7\t25\t\"/home/mrama/Dropbox/test \
-bla/MASSef/examples/fit_PFK1/input/activationRatio_gdp.txt\"\t0.00004
-0\t0\t0\t0\t0\t0\t1\t7\t25\t\"/home/mrama/Dropbox/test \
-bla/MASSef/examples/fit_PFK1/input/activationRatio_gdp.txt\"\t0.00004
-0\t0\t0\t0\t0\t0\t1\t7\t25\t\"/home/mrama/Dropbox/test \
-bla/MASSef/examples/fit_PFK1/input/activationRatio_gdp.txt\"\t0.00004
-0\t0\t0\t0\t0\t0\t1\t7\t25\t\"/home/mrama/Dropbox/test \
-bla/MASSef/examples/fit_PFK1/input/activationRatio_gdp.txt\"\t0.00004
-0\t0\t0\t0\t0\t0\t1\t7\t25\t\"/home/mrama/Dropbox/test \
 bla/MASSef/examples/fit_PFK1/input/L0Ratio.txt\"\t1.e-8
 0\t0\t0\t0\t0\t0\t1\t7\t25\t\"/home/mrama/Dropbox/test \
 bla/MASSef/examples/fit_PFK1/input/L0Ratio.txt\"\t1.e-8
@@ -21384,8 +22490,9 @@ bla/MASSef/examples/fit_PFK1/input/L0Ratio.txt\"\t1.e-8
 0\t0\t0\t0\t0\t0\t1\t7\t25\t\"/home/mrama/Dropbox/test \
 bla/MASSef/examples/fit_PFK1/input/L0Ratio.txt\"\t1.e-8\
 \>", "Print",
- CellChangeTimes->{{3.703233107050598*^9, 3.703233126770721*^9}}]
-}, Closed]]
+ CellChangeTimes->{{3.703233107050598*^9, 3.703233126770721*^9}, 
+   3.703762931477882*^9}]
+}, Open  ]]
 }, Open  ]]
 }, Open  ]],
 
@@ -66972,7 +68079,7 @@ Cell[BoxData[
 },
 Evaluator->"Local2",
 WindowSize->{1524, 937},
-WindowMargins->{{86, Automatic}, {3, Automatic}},
+WindowMargins->{{89, Automatic}, {3, Automatic}},
 ShowSelection->True,
 CellContext->Notebook,
 FrontEndVersion->"11.0 for Linux x86 (64-bit) (September 21, 2016)",
@@ -66994,254 +68101,259 @@ Cell[580, 22, 305, 4, 75, "Subtitle"],
 Cell[888, 28, 52, 1, 32, "Input"],
 Cell[CellGroupData[{
 Cell[965, 33, 112, 1, 65, "Section"],
-Cell[1080, 36, 394, 8, 80, "Input"],
+Cell[1080, 36, 359, 7, 79, "Input"],
 Cell[CellGroupData[{
-Cell[1499, 48, 2734, 63, 353, "Input"],
-Cell[4236, 113, 580, 8, 24, "Print"]
+Cell[1464, 47, 2734, 63, 353, "Input"],
+Cell[4201, 112, 649, 9, 24, "Print"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[4865, 127, 121, 2, 65, "Section"],
+Cell[4899, 127, 121, 2, 65, "Section"],
 Cell[CellGroupData[{
-Cell[5011, 133, 2637, 63, 283, "Input"],
+Cell[5045, 133, 2637, 63, 283, "Input"],
 Cell[CellGroupData[{
-Cell[7673, 200, 5164, 153, 35, "Print"],
-Cell[12840, 355, 375, 5, 26, "Print"],
-Cell[13218, 362, 347, 5, 24, "Print"],
-Cell[13568, 369, 352, 5, 24, "Print"],
-Cell[13923, 376, 337, 5, 24, "Print"],
-Cell[14263, 383, 347, 5, 24, "Print"],
-Cell[14613, 390, 4749, 119, 115, "Print"],
-Cell[19365, 511, 339, 5, 24, "Print"],
-Cell[19707, 518, 349, 5, 24, "Print"],
-Cell[20059, 525, 2956, 72, 69, "Print"],
-Cell[23018, 599, 337, 5, 24, "Print"],
-Cell[23358, 606, 349, 5, 24, "Print"],
-Cell[23710, 613, 2925, 72, 69, "Print"],
-Cell[26638, 687, 337, 5, 24, "Print"],
-Cell[26978, 694, 355, 5, 24, "Print"],
-Cell[27336, 701, 4849, 119, 87, "Print"],
-Cell[32188, 822, 337, 5, 24, "Print"],
-Cell[32528, 829, 355, 5, 24, "Print"],
-Cell[32886, 836, 3776, 93, 87, "Print"],
-Cell[36665, 931, 336, 5, 24, "Print"],
-Cell[37004, 938, 354, 5, 24, "Print"],
-Cell[37361, 945, 3539, 88, 107, "Print"]
-}, Open  ]]
-}, Open  ]]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[40961, 1040, 307, 4, 65, "Section"],
-Cell[CellGroupData[{
-Cell[41293, 1048, 113, 1, 45, "Subsection"],
-Cell[CellGroupData[{
-Cell[41431, 1053, 6860, 115, 599, "Input"],
-Cell[48294, 1170, 145374, 3687, 352, "Output"]
-}, Open  ]]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[193717, 4863, 215, 3, 45, "Subsection"],
-Cell[193935, 4868, 134128, 3256, 499, "Input"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[328100, 8129, 190, 3, 45, "Subsection"],
-Cell[CellGroupData[{
-Cell[328315, 8136, 212, 3, 35, "Subsubsection"],
-Cell[328530, 8141, 1806, 49, 150, "Input"],
-Cell[330339, 8192, 3158, 94, 509, "Input"],
-Cell[CellGroupData[{
-Cell[333522, 8290, 2481, 54, 281, "Input"],
-Cell[336006, 8346, 163, 3, 24, "Print"]
-}, Open  ]],
-Cell[336184, 8352, 609, 15, 144, "Input"],
-Cell[CellGroupData[{
-Cell[336818, 8371, 117, 1, 32, "Input"],
-Cell[336938, 8374, 124872, 3161, 276, "Output"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[461847, 11540, 146, 2, 32, "Input"],
-Cell[461996, 11544, 172750, 4381, 352, "Output"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[634783, 15930, 47, 0, 32, "Input"],
-Cell[634833, 15932, 47994, 1223, 150, "Output"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[682864, 17160, 794, 19, 123, "Input"],
-Cell[683661, 17181, 113, 1, 24, "Print"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[683811, 17187, 175, 3, 32, "Input"],
-Cell[683989, 17192, 168, 4, 34, "Output"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[684194, 17201, 207, 4, 34, "Input"],
-Cell[684404, 17207, 29909, 790, 107, "Output"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[714350, 18002, 2454, 41, 282, "Input"],
-Cell[716807, 18045, 154, 3, 34, "Output"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[716998, 18053, 61, 1, 32, "Input"],
-Cell[717062, 18056, 78, 1, 32, "Output"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[717177, 18062, 15791, 386, 1771, "Input"],
-Cell[732971, 18450, 46116, 1121, 405, "Output"]
-}, Open  ]]
+Cell[7707, 200, 5235, 154, 35, "Print"],
+Cell[12945, 356, 447, 6, 26, "Print"],
+Cell[13395, 364, 423, 6, 24, "Print"],
+Cell[13821, 372, 424, 6, 24, "Print"],
+Cell[14248, 380, 409, 6, 24, "Print"],
+Cell[14660, 388, 421, 6, 24, "Print"],
+Cell[15084, 396, 4821, 120, 115, "Print"],
+Cell[19908, 518, 408, 6, 24, "Print"],
+Cell[20319, 526, 423, 6, 24, "Print"],
+Cell[20745, 534, 3028, 73, 69, "Print"],
+Cell[23776, 609, 411, 6, 24, "Print"],
+Cell[24190, 617, 421, 6, 24, "Print"],
+Cell[24614, 625, 2997, 73, 69, "Print"],
+Cell[27614, 700, 409, 6, 24, "Print"],
+Cell[28026, 708, 427, 6, 24, "Print"],
+Cell[28456, 716, 4920, 120, 87, "Print"],
+Cell[33379, 838, 411, 6, 24, "Print"],
+Cell[33793, 846, 427, 6, 24, "Print"],
+Cell[34223, 854, 3848, 94, 87, "Print"],
+Cell[38074, 950, 411, 6, 24, "Print"],
+Cell[38488, 958, 426, 6, 24, "Print"],
+Cell[38917, 966, 3611, 89, 107, "Print"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[779160, 19579, 191, 2, 65, "Section"],
-Cell[779354, 19583, 686, 18, 124, "Input"],
+Cell[42589, 1062, 307, 4, 65, "Section"],
 Cell[CellGroupData[{
-Cell[780065, 19605, 248, 4, 45, "Subsection"],
-Cell[780316, 19611, 1732, 31, 149, "Input"],
+Cell[42921, 1070, 113, 1, 45, "Subsection"],
 Cell[CellGroupData[{
-Cell[782073, 19646, 2397, 39, 236, "Input"],
-Cell[784473, 19687, 377, 6, 24, "Print"]
+Cell[43059, 1075, 6860, 115, 599, "Input"],
+Cell[49922, 1192, 145448, 3688, 352, "Output"]
+}, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[784887, 19698, 64, 1, 32, "Input"],
-Cell[784954, 19701, 21984, 383, 2659, "Print"]
+Cell[195419, 4886, 215, 3, 45, "Subsection"],
+Cell[195637, 4891, 134128, 3256, 499, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[329802, 8152, 190, 3, 45, "Subsection"],
+Cell[CellGroupData[{
+Cell[330017, 8159, 212, 3, 35, "Subsubsection"],
+Cell[330232, 8164, 1806, 49, 150, "Input"],
+Cell[332041, 8215, 3158, 94, 509, "Input"],
+Cell[CellGroupData[{
+Cell[335224, 8313, 2481, 54, 281, "Input"],
+Cell[337708, 8369, 163, 3, 24, "Print"]
+}, Open  ]],
+Cell[337886, 8375, 609, 15, 144, "Input"],
+Cell[CellGroupData[{
+Cell[338520, 8394, 117, 1, 32, "Input"],
+Cell[338640, 8397, 124872, 3161, 276, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[463549, 11563, 146, 2, 32, "Input"],
+Cell[463698, 11567, 172750, 4381, 352, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[636485, 15953, 47, 0, 32, "Input"],
+Cell[636535, 15955, 47994, 1223, 150, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[684566, 17183, 794, 19, 123, "Input"],
+Cell[685363, 17204, 113, 1, 24, "Print"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[685513, 17210, 175, 3, 32, "Input"],
+Cell[685691, 17215, 168, 4, 34, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[685896, 17224, 207, 4, 34, "Input"],
+Cell[686106, 17230, 29909, 790, 107, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[716052, 18025, 2409, 41, 282, "Input"],
+Cell[CellGroupData[{
+Cell[718486, 18070, 131, 2, 24, "Print"],
+Cell[718620, 18074, 131, 2, 24, "Print"],
+Cell[718754, 18078, 129, 2, 24, "Print"],
+Cell[718886, 18082, 129, 2, 24, "Print"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[719064, 18090, 15791, 386, 1771, "Input"],
+Cell[734858, 18478, 46116, 1121, 405, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[781011, 19604, 117, 1, 32, "Input"],
+Cell[781131, 19607, 48024, 1224, 150, "Output"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[829228, 20839, 191, 2, 65, "Section"],
+Cell[829422, 20843, 686, 18, 124, "Input"],
+Cell[CellGroupData[{
+Cell[830133, 20865, 248, 4, 45, "Subsection"],
+Cell[830384, 20871, 1761, 31, 149, "Input"],
+Cell[CellGroupData[{
+Cell[832170, 20906, 2523, 43, 237, "Input"],
+Cell[834696, 20951, 447, 7, 24, "Print"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[835180, 20963, 64, 1, 32, "Input"],
+Cell[835247, 20966, 19252, 340, 2285, "Print"]
 }, Closed]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[806987, 20090, 291, 4, 45, "Subsection"],
-Cell[807281, 20096, 1601, 30, 148, "Input"],
+Cell[854548, 21312, 291, 4, 45, "Subsection"],
+Cell[854842, 21318, 1631, 31, 148, "Input"],
 Cell[CellGroupData[{
-Cell[808907, 20130, 1993, 39, 262, "Input"],
+Cell[856498, 21353, 1829, 34, 216, "Input"],
 Cell[CellGroupData[{
-Cell[810925, 20173, 507, 8, 24, "Print"],
-Cell[811435, 20183, 505, 8, 24, "Print"],
-Cell[811943, 20193, 505, 8, 24, "Print"],
-Cell[812451, 20203, 505, 8, 24, "Print"],
-Cell[812959, 20213, 505, 8, 24, "Print"],
-Cell[813467, 20223, 505, 8, 24, "Print"],
-Cell[813975, 20233, 507, 8, 24, "Print"],
-Cell[814485, 20243, 505, 8, 24, "Print"],
-Cell[814993, 20253, 507, 8, 24, "Print"],
-Cell[815503, 20263, 505, 8, 24, "Print"]
+Cell[858352, 21391, 529, 8, 24, "Print"],
+Cell[858884, 21401, 529, 8, 24, "Print"],
+Cell[859416, 21411, 529, 8, 24, "Print"],
+Cell[859948, 21421, 531, 8, 24, "Print"],
+Cell[860482, 21431, 531, 8, 24, "Print"],
+Cell[861016, 21441, 529, 8, 24, "Print"],
+Cell[861548, 21451, 529, 8, 24, "Print"],
+Cell[862080, 21461, 529, 8, 24, "Print"],
+Cell[862612, 21471, 529, 8, 24, "Print"],
+Cell[863144, 21481, 531, 8, 24, "Print"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[816057, 20277, 193, 4, 32, "Input"],
-Cell[816253, 20283, 23956, 404, 2659, "Print"]
+Cell[863724, 21495, 193, 4, 32, "Input"],
+Cell[863920, 21501, 20797, 338, 2285, "Print"]
 }, Closed]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[840258, 20693, 277, 4, 44, "Subsection"],
-Cell[840538, 20699, 1869, 34, 194, "Input"],
+Cell[884766, 21845, 277, 4, 44, "Subsection"],
+Cell[885046, 21851, 1869, 34, 251, "Input"],
 Cell[CellGroupData[{
-Cell[842432, 20737, 3308, 73, 377, "Input"],
+Cell[886940, 21889, 3297, 71, 353, "Input"],
 Cell[CellGroupData[{
-Cell[845765, 20814, 478, 8, 24, "Print"],
-Cell[846246, 20824, 475, 8, 24, "Print"],
-Cell[846724, 20834, 476, 8, 24, "Print"],
-Cell[847203, 20844, 476, 8, 24, "Print"],
-Cell[847682, 20854, 476, 8, 24, "Print"],
-Cell[848161, 20864, 478, 8, 24, "Print"],
-Cell[848642, 20874, 476, 8, 24, "Print"],
-Cell[849121, 20884, 476, 8, 24, "Print"],
-Cell[849600, 20894, 476, 8, 24, "Print"],
-Cell[850079, 20904, 476, 8, 24, "Print"],
-Cell[850558, 20914, 478, 8, 24, "Print"],
-Cell[851039, 20924, 474, 8, 24, "Print"],
-Cell[851516, 20934, 476, 8, 24, "Print"],
-Cell[851995, 20944, 476, 8, 24, "Print"],
-Cell[852474, 20954, 476, 8, 24, "Print"],
-Cell[852953, 20964, 476, 8, 24, "Print"],
-Cell[853432, 20974, 476, 8, 24, "Print"],
-Cell[853911, 20984, 476, 8, 24, "Print"]
+Cell[890262, 21964, 502, 8, 24, "Print"],
+Cell[890767, 21974, 502, 8, 24, "Print"],
+Cell[891272, 21984, 502, 8, 24, "Print"],
+Cell[891777, 21994, 499, 8, 24, "Print"],
+Cell[892279, 22004, 500, 8, 24, "Print"],
+Cell[892782, 22014, 500, 8, 24, "Print"],
+Cell[893285, 22024, 500, 8, 24, "Print"],
+Cell[893788, 22034, 502, 8, 24, "Print"],
+Cell[894293, 22044, 502, 8, 24, "Print"],
+Cell[894798, 22054, 500, 8, 24, "Print"],
+Cell[895301, 22064, 500, 8, 24, "Print"],
+Cell[895804, 22074, 499, 8, 24, "Print"],
+Cell[896306, 22084, 502, 8, 24, "Print"],
+Cell[896811, 22094, 502, 8, 24, "Print"],
+Cell[897316, 22104, 500, 8, 24, "Print"],
+Cell[897819, 22114, 500, 8, 24, "Print"],
+Cell[898322, 22124, 500, 8, 24, "Print"],
+Cell[898825, 22134, 502, 8, 24, "Print"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[854436, 20998, 240, 5, 32, "Input"],
-Cell[854679, 21005, 21871, 381, 2659, "Print"]
-}, Closed]]
+Cell[899376, 22148, 240, 5, 32, "Input"],
+Cell[899619, 22155, 19092, 338, 2285, "Print"]
+}, Open  ]]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[876611, 21393, 387, 6, 65, "Section"],
-Cell[877001, 21401, 1364, 30, 103, "Input"],
+Cell[918772, 22500, 387, 6, 65, "Section"],
+Cell[919162, 22508, 1364, 30, 103, "Input"],
 Cell[CellGroupData[{
-Cell[878390, 21435, 662, 13, 78, "Input"],
-Cell[879055, 21450, 1103, 33, 348, "Print"]
+Cell[920551, 22542, 662, 13, 78, "Input"],
+Cell[921216, 22557, 1103, 33, 348, "Print"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[880195, 21488, 513, 9, 56, "Input"],
-Cell[880711, 21499, 1015, 28, 246, "Print"]
+Cell[922356, 22595, 513, 9, 56, "Input"],
+Cell[922872, 22606, 1015, 28, 246, "Print"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[881775, 21533, 160, 2, 65, "Section"],
+Cell[923936, 22640, 160, 2, 65, "Section"],
 Cell[CellGroupData[{
-Cell[881960, 21539, 122, 1, 45, "Subsection"],
+Cell[924121, 22646, 122, 1, 45, "Subsection"],
 Cell[CellGroupData[{
-Cell[882107, 21544, 3114, 69, 259, "Input"],
-Cell[885224, 21615, 554, 10, 34, "Output"]
+Cell[924268, 22651, 3114, 69, 259, "Input"],
+Cell[927385, 22722, 554, 10, 34, "Output"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[885827, 21631, 190, 2, 45, "Subsection"],
-Cell[886020, 21635, 4481, 86, 420, "Input"]
+Cell[927988, 22738, 190, 2, 45, "Subsection"],
+Cell[928181, 22742, 4481, 86, 420, "Input"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[890550, 21727, 233, 3, 65, "Section"],
-Cell[890786, 21732, 485, 12, 57, "Input"],
-Cell[891274, 21746, 2902, 63, 216, "Input"],
+Cell[932711, 22834, 233, 3, 65, "Section"],
+Cell[932947, 22839, 485, 12, 57, "Input"],
+Cell[933435, 22853, 2902, 63, 216, "Input"],
 Cell[CellGroupData[{
-Cell[894201, 21813, 211, 3, 32, "Input"],
-Cell[894415, 21818, 22681, 373, 1522, "Output"]
+Cell[936362, 22920, 211, 3, 32, "Input"],
+Cell[936576, 22925, 22681, 373, 1522, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[917133, 22196, 141, 1, 69, "Subsection"],
+Cell[959294, 23303, 141, 1, 69, "Subsection"],
 Cell[CellGroupData[{
-Cell[917299, 22201, 1203, 34, 57, "Input"],
-Cell[918505, 22237, 3339, 67, 557, "Output"],
-Cell[921847, 22306, 3298, 67, 562, "Output"]
+Cell[959460, 23308, 1203, 34, 57, "Input"],
+Cell[960666, 23344, 3339, 67, 557, "Output"],
+Cell[964008, 23413, 3298, 67, 562, "Output"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[925194, 22379, 86, 1, 44, "Subsection"],
+Cell[967355, 23486, 86, 1, 44, "Subsection"],
 Cell[CellGroupData[{
-Cell[925305, 22384, 1013, 27, 78, "Input"],
-Cell[926321, 22413, 165327, 3648, 235, "Output"]
+Cell[967466, 23491, 1013, 27, 78, "Input"],
+Cell[968482, 23520, 165327, 3648, 235, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[1091685, 26066, 1115, 25, 101, "Input"],
-Cell[1092803, 26093, 89144, 1960, 235, "Output"]
+Cell[1133846, 27173, 1115, 25, 101, "Input"],
+Cell[1134964, 27200, 89144, 1960, 235, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[1181984, 28058, 1766, 44, 101, "Input"],
-Cell[1183753, 28104, 269200, 5085, 248, "Output"]
+Cell[1224145, 29165, 1766, 44, 101, "Input"],
+Cell[1225914, 29211, 269200, 5085, 248, "Output"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[1453002, 33195, 89, 1, 44, "Subsection"],
-Cell[1453094, 33198, 810, 23, 101, "Input"],
-Cell[1453907, 33223, 1108, 28, 101, "Input"],
+Cell[1495163, 34302, 89, 1, 44, "Subsection"],
+Cell[1495255, 34305, 810, 23, 101, "Input"],
+Cell[1496068, 34330, 1108, 28, 101, "Input"],
 Cell[CellGroupData[{
-Cell[1455040, 33255, 760, 15, 34, "Input"],
-Cell[1455803, 33272, 1547380, 33439, 235, "Output"]
+Cell[1497201, 34362, 760, 15, 34, "Input"],
+Cell[1497964, 34379, 1547380, 33439, 235, "Output"]
 }, Open  ]],
-Cell[3003198, 66714, 236, 3, 32, "Input"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[3003471, 66722, 311, 5, 45, "Subsection"],
-Cell[3003785, 66729, 950, 25, 103, "Input"],
-Cell[CellGroupData[{
-Cell[3004760, 66758, 1333, 28, 56, "Input"],
-Cell[3006096, 66788, 5118, 126, 102, "Output"]
+Cell[3045359, 67821, 236, 3, 32, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[3011251, 66919, 487, 13, 34, "Input"],
-Cell[3011741, 66934, 695, 17, 48, "Output"]
+Cell[3045632, 67829, 311, 5, 45, "Subsection"],
+Cell[3045946, 67836, 950, 25, 103, "Input"],
+Cell[CellGroupData[{
+Cell[3046921, 67865, 1333, 28, 56, "Input"],
+Cell[3048257, 67895, 5118, 126, 102, "Output"]
 }, Open  ]],
-Cell[3012451, 66954, 487, 13, 34, "Input"]
+Cell[CellGroupData[{
+Cell[3053412, 68026, 487, 13, 34, "Input"],
+Cell[3053902, 68041, 695, 17, 48, "Output"]
+}, Open  ]],
+Cell[3054612, 68061, 487, 13, 34, "Input"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]

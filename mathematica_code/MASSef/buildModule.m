@@ -293,7 +293,7 @@ Print["km rev"];
 ];
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*Get rate and met substitutions *)
 
 
@@ -333,7 +333,7 @@ getMetRatesSubs[enzymeModel_, haldaneRatiosList_, absoluteRateForward_, absolute
 	finalMets = Join[metsFull,{Toolbox`parameter[getID@KeqVal<>"_total"],parameter["pH"],parameter["Temp"]}];
 	(*finalMets = Prepend[finalMets, KeqVal];*)
 	metsSub = Thread[finalMets -> Table["d<"<>ToString[i]<>">", {i,0,Length[finalMets]-1}] ];
-
+	
 	Return[{finalRateConsts, metsFull, metsSub, rateConstsSub}];
 ];
 
@@ -470,7 +470,7 @@ setUpFluxEquations[enzymeModel_, rxn_, rxnName_, inputPath_, inhibitionListFull_
 
 	(*Assemble Rate Constant And Metabolite Substitutions for Export*)
 	{finalRateConsts,metsFull, metsSub, rateConstsSub} = 
-			getMetRatesSubs[enzymeModel, haldaneRatiosList, absoluteRateForward, absoluteRateReverse, relativeRateForward, 
+			getMetRatesSubs[enzymeModelLocal, haldaneRatiosList, absoluteRateForward, absoluteRateReverse, relativeRateForward, 
 							relativeRateReverse,KeqVal,otherAbsoluteRatesForward, otherAbsoluteRatesReverse];
 
 	(*Export Equations*)
