@@ -237,43 +237,6 @@ getOtherParamsValue[param_, otherParamsList_] :=
 ];
 
 
-(* ::Subsection:: *)
-(*Print enzyme data*)
-
-
-printEnzymeData[rxn_, mechanism_, structure_, nActiveSites_, KeqList_, kmList_, s05List_, kcatList_, inhibitionList_, activationList_, otherParmsList_] := Block[{},
-
-	Print[rxn];
-	Print[mechanism];
-	Print["Structure: " <> ToString@structure];
-	Print["Active sites: " <> ToString@nActiveSites];
-
-	(*Print Available Kinetic Data*)
-	Print[""];
-	Print["Keq Values:"];
-	Print[{{"Substrate","Keq_Value","Uncertainty","CoSubstrate","Units","pH","Temperature_C","Buffer_Concentrations","Salt_Concentrations"}}~Join~KeqList//TableForm];
-	Print[""];
-	Print["Km Values:"];
-	Print[{{"Substrate","Km_Value","Uncertainty","CoSubstrate","Units","pH","Temperature_C","Buffer_Concentrations","Salt_Concentrations"}}~Join~kmList//TableForm];
-	Print[""];
-	Print["S0.5 Values:"];
-	Print[{{"Substrate","S0.5_Value","Uncertainty","CoSubstrate","Units","pH","Temperature_C","Buffer_Concentrations","Salt_Concentrations"}}~Join~s05List//TableForm];
-	Print[""];
-	Print["kcat Values:"];
-	Print[{{"Metabolite(s)","Value","Uncertainty","Units","pH","Temperature_C","Buffer_Concentrations","Salt_Concentrations"}}~Join~kcatList//TableForm];
-	Print[""];
-	Print["Inhibition Values:"];
-	Print[{{"Parameter_Type","Inhibitor","Value","Uncertainty","Cosubstrates", "Inhibition Type","Units","pH","Temperature_C","Buffer_Concentrations","Salt_Concentrations"}}~Join~inhibitionList//TableForm];
-	Print[""];
-	Print["Activation Values:"];
-	Print[{{"Parameter_Type","Activator","Value","Uncertainty","Cosubstrates", "Activation Type","Units","pH","Temperature_C","Buffer_Concentrations","Salt_Concentrations"}}~Join~activationList//TableForm];
-	Print[""];
-	Print["Other Parameters:"];
-	Print[{{"Parameter_Type","Metabolite","Value","Uncertainty","Units","pH","Temperature_C","Buffer_Concentrations","Salt_Concentrations"}}~Join~otherParmsList//TableForm];
-
-];
-
-
 (* ::Subsection::Closed:: *)
 (*Get  haldane*)
 

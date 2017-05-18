@@ -80,18 +80,23 @@ handleUncertainty[paramValue_, uncertainty_, defaultUncertaintyFraction_] :=
 	Return[uncertaintyLocal];
 ];
 
-parseKeqEntry[line_, uncertaintyFraction_] := Block[{entry, substrate, value, uncertainty, coSubstrates, units, ph, temperature, buffer, salts},
+parseKeqEntry[line_, uncertaintyFraction_] := 
+	Block[{entry, substrate, value, uncertainty, coSubstrates, units, ph, 
+			temperature, buffer, salts, priority=1},
 	substrate = line[[1]];
 	value = line[[2]];
 	uncertainty = line[[3]];
 	uncertainty = handleUncertainty[value, uncertainty, uncertaintyFraction];
 	ph = line[[6]];
 
-	entry = {substrate, value, uncertainty, Null, Null, ph, Null, Null, Null};
+	entry = {priority, substrate, value, uncertainty, Null, Null, ph, Null, Null, Null};
 	Return[entry];
 ];
 
-parseKmS05Entry[line_, uncertaintyFraction_] := Block[{entry, substrate, value, uncertainty, coSubstrates, units, ph, temperature, buffer, salts},
+parseKmS05Entry[line_, uncertaintyFraction_] := 
+	Block[{entry, substrate, value, uncertainty, coSubstrates, units, ph, 
+			temperature, buffer, salts, priority=1},
+			
 	substrate = line[[1]];
 	value = line[[2]];
 	uncertainty = line[[3]];
@@ -107,11 +112,14 @@ parseKmS05Entry[line_, uncertaintyFraction_] := Block[{entry, substrate, value, 
 	salts = Map[{#}&, StringSplit[line[[9]], ";"]];
 	salts = parseSubMetLists[salts];
 	
-	entry = {substrate, value, uncertainty, coSubstrates, units, ph, temperature, buffer, salts};
+	entry = {priority, substrate, value, uncertainty, coSubstrates, units, ph, temperature, buffer, salts};
 	Return[entry];
 ];
 
-parseKcatEntry[line_, uncertaintyFraction_] := Block[{kcatEntry, kcatValue, uncertainty, substrates, units, ph, temperature, buffer, salts},
+parseKcatEntry[line_, uncertaintyFraction_] := 
+	Block[{kcatEntry, kcatValue, uncertainty, substrates, units, ph, 
+			temperature, buffer, salts, priority=1},
+			
 	substrates = Map[{#}&, StringSplit[line[[1]], ";"]];
 	substrates = parseSubMetLists[substrates];
 	kcatValue = line[[2]];
@@ -126,12 +134,14 @@ parseKcatEntry[line_, uncertaintyFraction_] := Block[{kcatEntry, kcatValue, unce
 	salts = Map[{#}&, StringSplit[line[[9]], ";"]];
 	salts = parseSubMetLists[salts];
 
-	kcatEntry = {substrates, kcatValue, uncertainty, units, ph, temperature, buffer, salts};
+	kcatEntry = {priority, substrates, kcatValue, uncertainty, units, ph, temperature, buffer, salts};
 	Return[kcatEntry];
 ];
 
 parseInhibKaEntry[line_, uncertaintyFraction_] := 
-	Block[{entry, paramType, substrate, paramValue, uncertainty, coSubstrates, actionType, units, ph, temperature, buffer, salts},
+	Block[{entry, paramType, substrate, paramValue, uncertainty, coSubstrates, 
+			actionType, units, ph, temperature, buffer, salts, priority=1},
+			
 	paramType = line[[1]];
 	substrate =  line[[2]];
 	paramValue = line[[3]];
@@ -151,12 +161,15 @@ parseInhibKaEntry[line_, uncertaintyFraction_] :=
 	actionType = Map[{#}&, StringSplit[line[[11]], ";"]];
 	actionType = Flatten[ Map[StringSplit[#, ","]&, actionType], 1];
 	actionType[[All,3]] = ToExpression[actionType[[All,3]]];
-
-	entry = {paramType, substrate, paramValue, uncertainty, coSubstrates, actionType, units, ph, temperature, buffer, salts};
+	
+	entry = {priority, paramType, substrate, paramValue, uncertainty, coSubstrates, actionType, units, ph, temperature, buffer, salts};
 	Return[entry];
 ];
 
-parseOtherEntry[line_, uncertaintyFraction_] := Block[{paramType,entry, substrate, value, uncertainty, coSubstrates, units, ph, temperature, buffer, salts},
+parseOtherEntry[line_, uncertaintyFraction_] := 
+	Block[{paramType,entry, substrate, value, uncertainty, coSubstrates, units, ph, 
+			temperature, buffer, salts, priority=1},
+			
 	paramType= line[[1]];
 	substrate = line[[2]];
 	value = line[[3]];
@@ -172,8 +185,8 @@ parseOtherEntry[line_, uncertaintyFraction_] := Block[{paramType,entry, substrat
 	buffer = parseSubMetLists[buffer];
 	salts = Map[{#}&, StringSplit[line[[10]], ";"]];
 	salts = parseSubMetLists[salts];
-	
-	entry = {paramType, substrate, value, uncertainty, units, ph, temperature, buffer, salts};
+
+	entry = {priority, paramType, substrate, value, uncertainty, units, ph, temperature, buffer, salts};
 	Return[entry];
 ];
 
@@ -226,6 +239,119 @@ getEnzymeData[enzName_, dataPath_, assumedUncertaintyFraction_] :=
 	{i, 10, Length@curEnzymeData}];
 	
 	Return[{rxn, mechanism, structure, nActiveSites, nAllostericSites, KeqList, kmList, s05List, kcatList, inhibitionList, activationList, otherParmsList}];
+];
+
+
+
+(* ::Subsection:: *)
+(*Print enzyme data*)
+
+
+printEnzymeData[rxn_, mechanism_, structure_, nActiveSites_, KeqList_, kmList_, s05List_, kcatList_, inhibitionList_, activationList_, otherParmsList_] := Block[{},
+
+	Print[rxn];
+	Print[mechanism];
+	Print["Structure: " <> ToString@structure];
+	Print["Active sites: " <> ToString@nActiveSites];
+
+	(*Print Available Kinetic Data*)
+	Print[""];
+	Print["Keq Values:"];
+	Print[{{"Priority", "Substrate","Keq_Value","Uncertainty","CoSubstrate","Units","pH","Temperature_C","Buffer_Concentrations","Salt_Concentrations"}}~Join~KeqList//TableForm];
+	Print[""];
+	Print["Km Values:"];
+	Print[{{"Priority", "Substrate","Km_Value","Uncertainty","CoSubstrate","Units","pH","Temperature_C","Buffer_Concentrations","Salt_Concentrations"}}~Join~kmList//TableForm];
+	Print[""];
+	Print["S0.5 Values:"];
+	Print[{{"Priority", "Substrate","S0.5_Value","Uncertainty","CoSubstrate","Units","pH","Temperature_C","Buffer_Concentrations","Salt_Concentrations"}}~Join~s05List//TableForm];
+	Print[""];
+	Print["kcat Values:"];
+	Print[{{"Priority", "Metabolite(s)","Value","Uncertainty","Units","pH","Temperature_C","Buffer_Concentrations","Salt_Concentrations"}}~Join~kcatList//TableForm];
+	Print[""];
+	Print["Inhibition Values:"];
+	Print[{{"Priority", "Parameter_Type","Inhibitor","Value","Uncertainty","Cosubstrates", "Inhibition Type","Units","pH","Temperature_C","Buffer_Concentrations","Salt_Concentrations"}}~Join~inhibitionList//TableForm];
+	Print[""];
+	Print["Activation Values:"];
+	Print[{{"Priority", "Parameter_Type","Activator","Value","Uncertainty","Cosubstrates", "Activation Type","Units","pH","Temperature_C","Buffer_Concentrations","Salt_Concentrations"}}~Join~activationList//TableForm];
+	Print[""];
+	Print["Other Parameters:"];
+	Print[{{"Priority", "Parameter_Type","Metabolite","Value","Uncertainty","Units","pH","Temperature_C","Buffer_Concentrations","Salt_Concentrations"}}~Join~otherParmsList//TableForm];
+
+];
+
+
+(* ::Subsection:: *)
+(*Import all data*)
+
+
+importAllData [rxnName_, pathData_, kineticDataFileName_, assumedUncertaintyFraction_]:=
+	Block[{rxn, mechanism, structure, nActiveSites, nAllostericSites, KeqList,kmList, s05List, 
+			kcatList, inhibitionList, activationList, otherParmsList, bufferInfo, ionCharge,
+			enzymeDataPath, bufferInfoDataPath, ionChargeDataPath},
+
+	enzymeDataPath = FileNameJoin[{pathData, kineticDataFileName}, OperatingSystem->$OperatingSystem];
+	bufferInfoDataPath = FileNameJoin[{pathData, "buffer_info.csv"}, OperatingSystem->$OperatingSystem];
+	ionChargeDataPath = FileNameJoin[{pathData, "ion_charge.csv"}, OperatingSystem->$OperatingSystem];
+
+	{rxn, mechanism, structure, nActiveSites, nAllostericSites, KeqList,kmList, s05List, kcatList, inhibitionList, activationList, otherParmsList} = 
+		getEnzymeData[rxnName, enzymeDataPath, assumedUncertaintyFraction];
+
+	bufferInfo = getBufferInfoData[bufferInfoDataPath];
+	ionCharge = getIonData[ionChargeDataPath];
+
+	printEnzymeData[rxn, mechanism, structure, nActiveSites,  KeqList, kmList, s05List, kcatList, inhibitionList, activationList, otherParmsList];
+
+	Return[{rxn, mechanism, structure, nActiveSites, nAllostericSites, KeqList,kmList, s05List, 
+			kcatList, inhibitionList, activationList, otherParmsList, bufferInfo, ionCharge}];
+];
+
+
+(* ::Subsection:: *)
+(*Update data point priorities*)
+
+
+updateDataList[dataList_, priorityList_] := Block[{dataListLocal=dataList},
+
+	If[!SameQ[priorityList, Null] && !SameQ[priorityList,{}],
+	
+		If[Length @ dataList == Length @ priorityList,
+
+			dataListLocal[[All,1]] = priorityList;,
+		
+			Print["Priorities list has a different number of entries than the data list"];
+			Print["Number of entries in priority list: " <> ToString[Length @ priorityList]];
+			Print["Number of entries in data  list: " <> ToString[Length @ dataListLocal]];
+			Print["Data list:"];
+			Print[dataListLocal//TableForm];
+			Return[Null];
+		];
+	];
+	
+	Return[dataListLocal];
+];
+
+
+updateDataPriorities[KeqPriorities_, kmPriorities_, s05Priorities_, kcatPriorities_, inhibitionPriorities_, activationPriorities_, otherParamsPriorities_,
+					KeqList_, kmList_, s05List_, kcatList_, inhibitionList_, activationList_, otherParmsList_]:=
+	Block[{KeqListLocal, kmListLocal, s05ListLocal, kcatListLocal, 
+			inhibitionListLocal, activationListLocal, otherParmsListLocal,
+			dataSets},
+	
+	KeqListLocal = updateDataList[KeqList, KeqPriorities];
+	kmListLocal = updateDataList[kmList, kmPriorities];
+	s05ListLocal = updateDataList[s05List, s05Priorities];
+	kcatListLocal = updateDataList[kcatList, kcatPriorities];
+	inhibitionListLocal = updateDataList[inhibitionList, inhibitionPriorities];
+	activationListLocal = updateDataList[activationList, activationPriorities];
+	otherParmsListLocal = updateDataList[otherParmsList, otherParamsPriorities];
+	
+	dataSets = {KeqListLocal, kmListLocal, s05ListLocal, kcatListLocal, 
+				inhibitionListLocal, activationListLocal, otherParmsListLocal};
+	
+	If[AnyTrue[dataSets, SameQ[#,Null]&],
+		Return[Null];,
+		Return[dataSets];
+	];			
 ];
 
 

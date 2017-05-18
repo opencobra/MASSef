@@ -17,6 +17,16 @@ getBufferInfoData::usage="getBufferInfoData[dataPath] imports the info on buffer
 getEnzymeData::usage="getEnzymeData[enzName, dataPath] imports all the kinetic data available for a given enzyme, specified by enzName, given the path to the respective \"XLS\" file, dataPath";
 
 
+importAllData::usage="importAllData[rxnName, pathData, kineticDataFileName, assumedUncertaintyFraction]";
+
+
+printEnzymeData::usage="printEnzymeData[rxn, mechanism, structure, nActiveSites, kmList, s05List, kcatList, inhibitionList, activationList, otherParmsList]";
+
+
+updateDataPriorities::usage="updateDataPriorities[KeqPriorities, kmPriorities, s05Priorities, kcatPriorities, inhibitionPriorities, activationPriorities, otherParamsPriorities,
+												  KeqList, kmList, s05List, kcatList, inhibitionList, activationList, otherParmsList]";
+
+
 (* ::Subsection:: *)
 (*buildModule*)
 
@@ -173,6 +183,3 @@ getRatio::usage="getInhibRatio[enzymeModel, metabolite]";
 
 
 getOtherParamsValue::usage="getOtherParamsValue[param, otherParamsList]";
-
-
-printEnzymeData::usage="printEnzymeData[rxn, mechanism, structure, nActiveSites, kmList, s05List, kcatList, inhibitionList, activationList, otherParmsList]";

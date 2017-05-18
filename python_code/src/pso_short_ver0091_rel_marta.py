@@ -6,29 +6,19 @@ Created by Nikolaus Sonnenschein, James de Bree and Daniel Zielinski.
 Copyright (c) 2012 . All rights reserved.
 """
 
-import platform
-import sys
-import os
-import numpy
-import math
-import logging
-import random
-import pickle
-import time
 import copy
 import itertools
-import multiprocessing
-import swarm
-import operator
-from math import sqrt
-from time import time, sleep
-from ecspy import terminators
+import logging
+import pickle
+import platform
+import random
+
+import numpy
 from ecspy import topologies
-#from ecspy import swarm
-from ecspy import ec
-from ecspy import benchmarks
+
+import swarm
+# from ecspy import swarm
 from ecspy import observers
-from ecspy.benchmarks import Benchmark
 
 
 def load_enzyme_data(path):
@@ -49,32 +39,32 @@ def load_enzyme_data(path):
 
 def _evaluator(candidate):
     """Lower level wrapper function for fitness evaluation"""
-    #print "evaluating..."
+    # print "evaluating..."
     if (temperature_correction is False):
         # Log space --> Euclidean space
-        newC = numpy.power(10,candidate)
+        newC = numpy.power(10, candidate)
     else:
         newC = list()
-        for index,value in enumerate(candidate):
+        for index, value in enumerate(candidate):
             # ADD DESCRIPTION
-            if (index % 2 == 0):    # delta_H value (KJoules) FIX AT END!!!
-                newC.insert(index, value*1000)
-                #newC.insert(index, value)
-            else:                   # delta_S value (Joules)
+            if (index % 2 == 0):  # delta_H value (KJoules) FIX AT END!!!
+                newC.insert(index, value * 1000)
+                # newC.insert(index, value)
+            else:  # delta_S value (Joules)
                 newC.insert(index, value)
         newC = numpy.array(newC)
 
     # Actual fitness evalutation
-    data_value = list()         # Data to fit to
-    predicted_value = list()    # Predicted value based off of the fitted function
+    data_value = list()  # Data to fit to
+    predicted_value = list()  # Predicted value based off of the fitted function
 
     # Evaluate the Rate Values
     for row in data:
         data_value.append(row[value_row])
-        predicted_value.append(functionDict[row[function_row]](newC,row[0:data_row_high]))
+        predicted_value.append(functionDict[row[function_row]](newC, row[0:data_row_high])) # for weights: substitute here 0 for 1
 
-    #print("predicted_value")
-    #print(predicted_value)
+    # print("predicted_value")
+    # print(predicted_value)
 
     # Convert to log space
     data_value = numpy.log10(data_value)
@@ -83,7 +73,7 @@ def _evaluator(candidate):
     # Calculate the Residuals and SSE
     # NOTE: THIS WAS CHANGED AS A TEST TO THE OPERATOR.SUB NOTATION BECAUSE THE LISTS WERE NO LONGER NUMPY OBJECTS AND SUBTRACTING THEM THREW AN ERROR - DZ 9/7/2016
 
-    residuals = data_value - predicted_value
+    residuals = data_value - predicted_value  # multiply weight here
     sqrd_errors = numpy.power(residuals, 2)
     sse = sum(sqrd_errors)
 
@@ -91,7 +81,7 @@ def _evaluator(candidate):
         return sse
     else:
         return [sse]
-		
+
 
 def parallel_evaluation_mp(candidates, args):
     """Function to implement multiprocess evaluations ...FIX DOCUMENTATION..."""
@@ -110,7 +100,7 @@ def parallel_evaluation_mp(candidates, args):
     except KeyError:
         logger.error('\'mp_evaluator\' is not in the keyword arguments list')
         raise
-    try:    # ADD A Logic Switch to Make cpu_count() maximum
+    try:  # ADD A Logic Switch to Make cpu_count() maximum
         nprocs = args['mp_num_cpus']
         if nprocs > multiprocessing.cpu_count():
             nprocs = multiprocessing.cpu_count()
@@ -137,6 +127,7 @@ def parallel_evaluation_mp(candidates, args):
         end = time.time()
         logger.debug('completed parallel evaluation in %f seconds' % (end - start))
 
+
 class Enzyme(object):
     """Represents the internal functions for evolutionary computing
     This class is a wrapper that provides a method for passing dependencies without rewriting much of the
@@ -145,7 +136,7 @@ class Enzyme(object):
 
     def __init__(self):
         self.num_Cpus = 1
-        #self.sum_squared_errors = None
+        # self.sum_squared_errors = None
         self.functionDict = None
         self.data = None
 
@@ -155,24 +146,27 @@ class Enzyme(object):
     def evaluator(self, candidates, args):
         """Highest level wrapper function for fitness evaluation"""
 
-        #sum_squared_errors = self.sum_squared_errors
-        functionDict = self.functionDict
+        # sum_squared_errors = self.sum_squared_errors
+        functionDict = self.functionDict  # variable not used - delete?
 
         """Create a fake class to log errors"""
+
         class fake_ec(object):
             def __init__(self):
                 self.logger = logging.getLogger('/dev/stdout')
+
         """"""
-		
+
         if platform.system() == "Windows":
             results = []
             for c in candidates:
                 results.append(_evaluator(c))
             return results
         else:
-		    return parallel_evaluation_mp(candidates, {'_ec':fake_ec(), 'mp_evaluator':_evaluator,'mp_num_cpus':num_Cpus})
+            return parallel_evaluation_mp(candidates,
+                                          {'_ec': fake_ec(), 'mp_evaluator': _evaluator, 'mp_num_cpus': num_Cpus})
 
-			
+
 class Bounder(object):
     """Defines a basic bounding function for numeric lists.
     This callable class acts as a function that bounds a
@@ -198,14 +192,16 @@ class Bounder(object):
     - *indices_for_kr* -- the indices of the candidate that represent
                         the reverse rate constants of the dissociation constants
     """
-    def __init__(self, lower_bound=None, upper_bound=None, temperature_correction=False):#indices_for_kf=None, indices_for_kr=None, Kd_lower_bound=-12, Kd_upper_bound=2):
+
+    def __init__(self, lower_bound=None, upper_bound=None,
+                 temperature_correction=False):  # indices_for_kf=None, indices_for_kr=None, Kd_lower_bound=-12, Kd_upper_bound=2):
         self.lower_bound = lower_bound
         self.upper_bound = upper_bound
         self.temperature_correction = temperature_correction
-        #self.indices_for_kr = indices_for_kr
-        #self.indices_for_kf = indices_for_kf
-        #self.Kd_lower_bound = Kd_lower_bound
-        #self.Kd_upper_bound = Kd_upper_bound
+        # self.indices_for_kr = indices_for_kr
+        # self.indices_for_kf = indices_for_kf
+        # self.Kd_lower_bound = Kd_lower_bound
+        # self.Kd_upper_bound = Kd_upper_bound
         if self.lower_bound is not None and self.upper_bound is not None:
             try:
                 iter(self.lower_bound)
@@ -215,7 +211,6 @@ class Bounder(object):
                 iter(self.upper_bound)
             except TypeError:
                 self.upper_bound = itertools.repeat(self.upper_bound)
-
 
     def __call__(self, candidate, args):
         # The default would be to leave the candidate alone
@@ -236,11 +231,11 @@ class Bounder(object):
                 for i, (c, lo, hi) in enumerate(zip(candidate, self.lower_bound, self.upper_bound)):
                     bounded_candidate[i] = max(min(c, hi), lo)
                 return bounded_candidate
-            else:                                       # Thermodynamic Parameters are Linearly Constrained
-            #------------------------------------------------------------------
-            #   Linear Constraints
-            #------------------------------------------------------------------
-                #--------------------Comments---------------------------------- #FIX DOCUMENTATION
+            else:  # Thermodynamic Parameters are Linearly Constrained
+                # ------------------------------------------------------------------
+                #   Linear Constraints
+                # ------------------------------------------------------------------
+                # --------------------Comments---------------------------------- #FIX DOCUMENTATION
                 # This secetion of code first check to see if the parameters
                 # are within a set of linear constraints for the gibbs free energy
                 # value (i.e. delta_G = delta_H - 310*delta_S). If they are outside
@@ -257,28 +252,28 @@ class Bounder(object):
                 #
                 # Candidate values are then replaced with the a0_mapped values.
                 # Also, all of these valuse are in log10 space.
-                #--------------------End-Comments------------------------------
+                # --------------------End-Comments------------------------------
 
                 constrained_candidate = copy.copy(candidate)
-                for index in range(0,len(candidate)/2):
-                    delta_H_value = constrained_candidate[index*2]*1000
-                    delta_S_value = constrained_candidate[index*2 + 1]
-                    delta_G_value = delta_H_value - 310*delta_S_value
-                    if (delta_G_value < self.lower_bound[index]):      # Below Lower Constraint
+                for index in range(0, len(candidate) / 2):
+                    delta_H_value = constrained_candidate[index * 2] * 1000
+                    delta_S_value = constrained_candidate[index * 2 + 1]
+                    delta_G_value = delta_H_value - 310 * delta_S_value
+                    if (delta_G_value < self.lower_bound[index]):  # Below Lower Constraint
                         temp_delta_H_val = delta_H_value - self.lower_bound[index]
-                        dot_product = delta_S_value + temp_delta_H_val*310
-                        delta_S_value_c = dot_product*1/96101
-                        delta_H_value_c = dot_product*310/96101 + self.lower_bound[index]
-                    elif (delta_G_value > self.upper_bound[index]):    # Above Upper Constraint
+                        dot_product = delta_S_value + temp_delta_H_val * 310
+                        delta_S_value_c = dot_product * 1 / 96101
+                        delta_H_value_c = dot_product * 310 / 96101 + self.lower_bound[index]
+                    elif (delta_G_value > self.upper_bound[index]):  # Above Upper Constraint
                         temp_delta_H_val = delta_H_value - self.upper_bound[index]
-                        dot_product = delta_S_value + temp_delta_H_val*310
-                        delta_S_value_c = dot_product*1/96101
-                        delta_H_value_c = dot_product*310/96101 + self.upper_bound[index]
-                    else:                                       # Within Constraints
+                        dot_product = delta_S_value + temp_delta_H_val * 310
+                        delta_S_value_c = dot_product * 1 / 96101
+                        delta_H_value_c = dot_product * 310 / 96101 + self.upper_bound[index]
+                    else:  # Within Constraints
                         delta_H_value_c = delta_H_value
                         delta_S_value_c = delta_S_value
-                    constrained_candidate[index*2] = delta_H_value_c/1000
-                    constrained_candidate[index*2 + 1] = delta_S_value_c
+                    constrained_candidate[index * 2] = delta_H_value_c / 1000
+                    constrained_candidate[index * 2 + 1] = delta_S_value_c
 
                 '''for kr, kf in zip(self.indices_for_kr, self.indices_for_kf):
                     kr_value = bounded_candidate[kr]
@@ -302,9 +297,9 @@ class Bounder(object):
                     constrained_candidate[kr] = kr_value_c'''
 
                 return constrained_candidate
-            #------------------------------------------------------------------
-            #   End Linear Constraints
-            #------------------------------------------------------------------
+                # ------------------------------------------------------------------
+                #   End Linear Constraints
+                # ------------------------------------------------------------------
 
 
 def best_fitness_termination(population, num_generations, num_evaluations, args):
@@ -323,13 +318,14 @@ def best_fitness_termination(population, num_generations, num_evaluations, args)
     """
 
     # Exit if best_fitness criteria is met
-    best_fitness_cutoff = args.setdefault('best_fitness_cutoff', 999999999999999)   # Exit if not specified
+    best_fitness_cutoff = args.setdefault('best_fitness_cutoff', 999999999999999)  # Exit if not specified
     best_fit = min([x.fitness for x in population])
     if best_fit < best_fitness_cutoff:
         return True
 
     # Exit if the number maximum number of generations is reached
-    max_generations = args.setdefault('max_generations', 999999999999999)   # Set high to avoid early termination if variable is not specified
+    max_generations = args.setdefault('max_generations',
+                                      999999999999999)  # Set high to avoid early termination if variable is not specified
     if num_generations >= max_generations:
         return True
 
@@ -337,9 +333,7 @@ def best_fitness_termination(population, num_generations, num_evaluations, args)
     return False
 
 
-
 def run_pso(parameter, data_file_name, summary_file_name, ultimate_result_name):
-
     global num_Cpus
     global temperature_correction
     global data
@@ -348,14 +342,12 @@ def run_pso(parameter, data_file_name, summary_file_name, ultimate_result_name):
     global function_row
     global data_row_high
 
-
-
     """"""
 
     ## General Python Namespace parameters
 
     """Objective Function"""
-    #sse_name = parameter['sse_name']    # File path for SSE (true evalution) equation
+    # sse_name = parameter['sse_name']    # File path for SSE (true evalution) equation
     """"""
 
     """Multiprocessing Dependency"""
@@ -363,8 +355,9 @@ def run_pso(parameter, data_file_name, summary_file_name, ultimate_result_name):
     """"""
 
     """Candidate Evaluation Dependencies"""
-    filesWithFunctions = parameter['filesWithFunctions'].strip('[]').split(',')     # Variable is read as a string instead of a list
-    #data_file_name = parameter['data_file_name'] now comes from the shell
+    filesWithFunctions = parameter['filesWithFunctions'].strip('[]').split(
+        ',')  # Variable is read as a string instead of a list
+    # data_file_name = parameter['data_file_name'] now comes from the shell
     value_row = int(parameter['value_row'])
     function_row = int(parameter['function_row'])
     data_row_high = int(parameter['data_row_high'])
@@ -376,18 +369,17 @@ def run_pso(parameter, data_file_name, summary_file_name, ultimate_result_name):
     num_func_var = int(parameter['num_func_var'])
     temperature_correction = parameter['temperature_correction']
 
-    if (temperature_correction == False):   # Fitting to kinetic parameters (i.e. elementary reaction rate constants)
+    if (temperature_correction == False):  # Fitting to kinetic parameters (i.e. elementary reaction rate constants)
         lb = parameter['lower_bound']
         lower_bound = [(lb) for i in range(num_func_var)]
         ub = parameter['upper_bound']
         upper_bound = [(ub) for i in range(num_func_var)]
-    else:                                   # Fitting to thermodynamic parameters (i.e. delta_H and delta_S)
+    else:  # Fitting to thermodynamic parameters (i.e. delta_H and delta_S)
         lb = parameter['lower_bound']
         lower_bound = [(lb) for i in range(num_func_var)]
         ub = parameter['upper_bound']
         upper_bound = [(ub) for i in range(num_func_var)]
     """"""
-
 
     """Explicitly Hold Onto the Best Overall Candidate for Each Generation"""
     use_Keep_Best = parameter['use_Keep_Best']
@@ -396,7 +388,7 @@ def run_pso(parameter, data_file_name, summary_file_name, ultimate_result_name):
     """Replace a Percentage of the Swarm Candidates with Random Values"""
     use_Random_Replace = parameter['use_Random_Replace']
     if (use_Random_Replace == True):
-        percent_Rand = parameter['percent_Rand']                  # Passed to ecspy.swarm
+        percent_Rand = parameter['percent_Rand']  # Passed to ecspy.swarm
     else:
         percent_Rand = 0.0
     """"""
@@ -429,24 +421,22 @@ def run_pso(parameter, data_file_name, summary_file_name, ultimate_result_name):
         indices_for_kr = list()
         for index in tmp_indices_for_kr.strip('[]').split(','):
             indices_for_kr.append(int(index))
-        #------------------------------------
+            # ------------------------------------
     except:
         indices_for_kf = None
         indices_for_kr = None
 
     Kd_lower_bound = -12
-    Kd_upper_bound = 2      #
+    Kd_upper_bound = 2  #
     """"""
 
-
-
-    #-----------------------------------------------------------------------
+    # -----------------------------------------------------------------------
     #       End Inputs
-    #-----------------------------------------------------------------------
+    # -----------------------------------------------------------------------
 
-    #-----------------------------------------------------------------------
+    # -----------------------------------------------------------------------
     #       Begin Initialization of Files, Functions and Modules
-    #-----------------------------------------------------------------------
+    # -----------------------------------------------------------------------
 
     """Initialize output files"""
     sum_file = open(summary_file_name, 'a')
@@ -476,43 +466,43 @@ def run_pso(parameter, data_file_name, summary_file_name, ultimate_result_name):
     """Import the Rate Functions"""
     functionDict = dict()
     for index, path in enumerate(filesWithFunctions):
-        funcName = 'f' + str(index+1)
+        funcName = 'f' + str(index + 1)
         path = path.replace("\"", "").strip()
         func_template = open(path).read()
-        mkFuncCommand = 'def %s(x,d): return %s' % (funcName,func_template)
-        exec(mkFuncCommand)
+        mkFuncCommand = 'def %s(x,d): return %s' % (funcName, func_template)
+        exec (mkFuncCommand)
         functionDict[path.replace('\\\\', '\\')] = eval(funcName)
     """"""
 
     """Set the parameter ranges"""
-    if (temperature_correction == False):   # Individual kinetic Parameters are constrained
+    if (temperature_correction == False):  # Individual kinetic Parameters are constrained
         param_ranges = [(lower_bound[i], upper_bound[i]) for i in range(num_func_var)]
-    else:                                   # Individual Thermodynamic Parameters are not constrained
+    else:  # Individual Thermodynamic Parameters are not constrained
         param_ranges = [(-1e7, 1e7) for i in range(num_func_var)]
     """"""
 
     """Pass general wrapper function dependencies"""
     enz = Enzyme()
     enz.param_ranges = param_ranges
-    enz.num_Cpus = num_Cpus         # Multiprocessing dependency
-    #enz.sum_squared_errors = sum_squared_errors
+    enz.num_Cpus = num_Cpus  # Multiprocessing dependency
+    # enz.sum_squared_errors = sum_squared_errors
     enz.functionDict = functionDict
     enz.data = data
     """"""
 
-    #-----------------------------------------------------------------------
+    # -----------------------------------------------------------------------
     #       End Initialization of Files, Functions and Modules
-    #-----------------------------------------------------------------------
+    # -----------------------------------------------------------------------
 
-    #-----------------------------------------------------------------------
+    # -----------------------------------------------------------------------
     #       Begin Fitting Using the Particle Swarm Optimization
-    #-----------------------------------------------------------------------
+    # -----------------------------------------------------------------------
 
     """Initialize the Trial Run(s)"""
     final_stats = []
     """"""
 
-    #start_timer = time()
+    # start_timer = time()
 
     """Assign PSO dependencies"""
     neigh_size_var = val_neigh_size
@@ -538,30 +528,31 @@ def run_pso(parameter, data_file_name, summary_file_name, ultimate_result_name):
     ea.upper_bound = upper_bound
     ea.num_func_var = num_func_var
     """"""
-    #print "before evolve"
+    # print "before evolve"
     """Actual PSO Algorithm"""
-    final_pop = ea.evolve(generator = enz.generator,
-                            evaluator = enz.evaluator,
-                            pop_size = val_pop_size,
-                            bounder = Bounder(lower_bound, upper_bound, temperature_correction),#, indices_for_kr, indices_for_kf, Kd_lower_bound, Kd_upper_bound),
-                            maximize = False,
-                            max_generations = num_generations,
-                            neighborhood_size = neigh_size_var,
-                            inertia = inertia_var,
-                            cognitive_rate = cogn_rate_var,
-                            social_rate = soc_rate_var,
-                            best_fitness_cutoff = best_fitness_cutoff_value)
+    final_pop = ea.evolve(generator=enz.generator,
+                          evaluator=enz.evaluator,
+                          pop_size=val_pop_size,
+                          bounder=Bounder(lower_bound, upper_bound, temperature_correction),
+                          # , indices_for_kr, indices_for_kf, Kd_lower_bound, Kd_upper_bound),
+                          maximize=False,
+                          max_generations=num_generations,
+                          neighborhood_size=neigh_size_var,
+                          inertia=inertia_var,
+                          cognitive_rate=cogn_rate_var,
+                          social_rate=soc_rate_var,
+                          best_fitness_cutoff=best_fitness_cutoff_value)
     """"""
-    #print "after evolve"
-    #-----------------------------------------------------------------------
+    # print "after evolve"
+    # -----------------------------------------------------------------------
     #       End Fitting Using the Particle Swarm Optimization
-    #-----------------------------------------------------------------------
+    # -----------------------------------------------------------------------
 
-    #-----------------------------------------------------------------------
+    # -----------------------------------------------------------------------
     #       Begin Storing the Results
-    #-----------------------------------------------------------------------
+    # -----------------------------------------------------------------------
 
-    #print final_pop
+    # print final_pop
     """Store the Best Candidate"""
     best = max(final_pop)
     final_candidate = best.candidate
@@ -569,17 +560,17 @@ def run_pso(parameter, data_file_name, summary_file_name, ultimate_result_name):
     """"""
 
     """Documenting the PSO Statistics"""
-    #end_timer = time()
-    #elapsed_time = (end_timer-start_timer)
+    # end_timer = time()
+    # elapsed_time = (end_timer-start_timer)
     # elapsed_time = round(elapsed_time, 3)
     pop_len = len(final_pop)
     num_generations = ea.num_generations
     sum_file = open(summary_file_name, 'a')
-    sum_file.write('%s, %d, %d, %d, %s, %s, %s\n' % (best.fitness, num_generations, val_pop_size, neigh_size_var, inertia_var, cogn_rate_var, soc_rate_var))
+    sum_file.write('%s, %d, %d, %d, %s, %s, %s\n' % (
+    best.fitness, num_generations, val_pop_size, neigh_size_var, inertia_var, cogn_rate_var, soc_rate_var))
     sum_file.close()
     print('best_fit: %s' % (best.fitness))
     """"""
-
 
     """Storing the best Candidate in a file"""
     ultimate_result_file = open(ultimate_result_name, 'a')
@@ -587,11 +578,10 @@ def run_pso(parameter, data_file_name, summary_file_name, ultimate_result_name):
         ultimate_result_file.write('%s\t' % (data_pt))
     ultimate_result_file.write('\n')
 
-
     """Close files"""
     ultimate_result_file.close()
     """"""
 
-    #-----------------------------------------------------------------------
+    # -----------------------------------------------------------------------
     #       End Storing the Results
-    #-----------------------------------------------------------------------
+    # -----------------------------------------------------------------------
