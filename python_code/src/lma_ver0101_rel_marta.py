@@ -142,6 +142,7 @@ def residual_func_euclid(params, data, functionDict):
     # Convert to numpy arrays for scipy
     data_value = numpy.array(data_value)
     predicted_value = numpy.array(predicted_value)
+
     priority_list = numpy.array([row[0] for row in data])
     residuals = (data_value - predicted_value) * priority_list
 

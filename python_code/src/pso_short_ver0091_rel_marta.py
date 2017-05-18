@@ -39,7 +39,7 @@ def load_enzyme_data(path):
 
 def _evaluator(candidate):
     """Lower level wrapper function for fitness evaluation"""
-    print "evaluating..."
+    # print "evaluating..."
     if (temperature_correction is False):
         # Log space --> Euclidean space
         newC = numpy.power(10, candidate)
