@@ -93,7 +93,8 @@ def residual_func_log(params, data, functionDict):
     data_value = numpy.log10(data_value)
     predicted_value = numpy.log10(predicted_value)
 
-    residuals = (data_value - predicted_value)
+    priority_list = numpy.array([row[0] for row in data])
+    residuals = (data_value - predicted_value) * priority_list
 
     # Return residuals
     return residuals
@@ -136,13 +137,13 @@ def residual_func_euclid(params, data, functionDict):
     # Evaluate the Rate Values
     for row in data:
         data_value.append(row[value_row])
-        predicted_value.append(functionDict[row[function_row]](newC, row[0:data_row_high]))
+        predicted_value.append(functionDict[row[function_row]](newC, row[1:data_row_high]))
 
     # Convert to numpy arrays for scipy
     data_value = numpy.array(data_value)
     predicted_value = numpy.array(predicted_value)
-
-    residuals = data_value - predicted_value
+    priority_list = numpy.array([row[0] for row in data])
+    residuals = (data_value - predicted_value) * priority_list
 
     # Return residuals
     return residuals
@@ -155,11 +156,11 @@ def residual_func_euclid(params, data, functionDict):
 def _minimizer(candidate):
     """
     Lower level wrapper function for running 'lmfit.minimize()'. This function
-    accepts a candidate set and returns the minimized candidate set. A corse to 
+    accepts a candidate set and returns the minimized candidate set. A corse to
     fine approach is used to set the suitable step length for the forward-difference
     approximation of the Jacobian (epsfcn). Additionally, the initial residual
     function used for the minimization calculates the residuals in log space to
-    handle scaling issues, while the final residual function used for the 
+    handle scaling issues, while the final residual function used for the
     minimization calculates the residuals in real space to achieve a better overall
     fitness.
 
@@ -173,7 +174,7 @@ def _minimizer(candidate):
             params.add(paramName, value=candidate[index], min=minCandidates[index], max=maxCandidates[index])
     else:
         for index in range(0, len(candidate) / 2):
-            # 
+            #
             delta_G_value = candidate[index * 2]
             param_delta_G_name = 'c%s' % (index * 3)
             params.add(param_delta_G_name, value=delta_G_value, min=lower_bound, max=upper_bound)
@@ -209,7 +210,7 @@ def _minimizer(candidate):
                           gtol=gtol_value, epsfcn=e_value, maxfev=maxfev_value)
     """"""
 
-    # Process the Output 
+    # Process the Output
     minimized_candidate = list()
     for name in result.params:
         minimized_candidate.append(result.params[name].value)

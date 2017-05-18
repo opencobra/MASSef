@@ -53,7 +53,7 @@ getBufferInfoData[dataPath_] :=
 
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Get enzyme data*)
 
 
@@ -243,7 +243,7 @@ getEnzymeData[enzName_, dataPath_, assumedUncertaintyFraction_] :=
 
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Print enzyme data*)
 
 
@@ -280,11 +280,11 @@ printEnzymeData[rxn_, mechanism_, structure_, nActiveSites_, KeqList_, kmList_, 
 ];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Import all data*)
 
 
-importAllData [rxnName_, pathData_, kineticDataFileName_, assumedUncertaintyFraction_]:=
+importAllData[rxnName_, pathData_, kineticDataFileName_, assumedUncertaintyFraction_]:=
 	Block[{rxn, mechanism, structure, nActiveSites, nAllostericSites, KeqList,kmList, s05List, 
 			kcatList, inhibitionList, activationList, otherParmsList, bufferInfo, ionCharge,
 			enzymeDataPath, bufferInfoDataPath, ionChargeDataPath},
@@ -310,13 +310,17 @@ importAllData [rxnName_, pathData_, kineticDataFileName_, assumedUncertaintyFrac
 (*Update data point priorities*)
 
 
-updateDataList[dataList_, priorityList_] := Block[{dataListLocal=dataList},
+updateDataList[dataList_, priorityList_] := Block[{dataListLocal=dataList, indList},
 
 	If[!SameQ[priorityList, Null] && !SameQ[priorityList,{}],
 	
 		If[Length @ dataList == Length @ priorityList,
 
-			dataListLocal[[All,1]] = priorityList;,
+			dataListLocal[[All,1]] = priorityList;
+			If[AnyTrue[priorityList, #==0 || #==0. &],
+				indList = Flatten[{Position[priorityList, 0.],Position[priorityList, 0]}, 1];
+				dataListLocal = Delete[dataListLocal, indList];				
+			];,
 		
 			Print["Priorities list has a different number of entries than the data list"];
 			Print["Number of entries in priority list: " <> ToString[Length @ priorityList]];

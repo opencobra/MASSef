@@ -39,7 +39,7 @@ def load_enzyme_data(path):
 
 def _evaluator(candidate):
     """Lower level wrapper function for fitness evaluation"""
-    # print "evaluating..."
+    print "evaluating..."
     if (temperature_correction is False):
         # Log space --> Euclidean space
         newC = numpy.power(10, candidate)
@@ -61,7 +61,7 @@ def _evaluator(candidate):
     # Evaluate the Rate Values
     for row in data:
         data_value.append(row[value_row])
-        predicted_value.append(functionDict[row[function_row]](newC, row[0:data_row_high])) # for weights: substitute here 0 for 1
+        predicted_value.append(functionDict[row[function_row]](newC, row[1:data_row_high])) # for weights: substitute here 0 for 1
 
     # print("predicted_value")
     # print(predicted_value)
@@ -73,7 +73,9 @@ def _evaluator(candidate):
     # Calculate the Residuals and SSE
     # NOTE: THIS WAS CHANGED AS A TEST TO THE OPERATOR.SUB NOTATION BECAUSE THE LISTS WERE NO LONGER NUMPY OBJECTS AND SUBTRACTING THEM THREW AN ERROR - DZ 9/7/2016
 
-    residuals = data_value - predicted_value  # multiply weight here
+    priority_list = numpy.array([row[0] for row in data])
+    residuals = (data_value - predicted_value) * priority_list
+
     sqrd_errors = numpy.power(residuals, 2)
     sse = sum(sqrd_errors)
 

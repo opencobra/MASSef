@@ -125,6 +125,10 @@ defineLMAparameters::usage="defineLMAparameters[inputPath, outputPath, dataPath,
 					lowerParamBound, upperParamBound, numCpus:1]";
 
 
+runFit::usage="runFit[pathMASSef, inputPath, psoParameterPath ,lmaParameterPath,psoTrialSummaryFileName, 
+						psoResultsFileName, lmaResultsFileName, numTrials, dataPath]";
+
+
 (* ::Subsection:: *)
 (*analyzeFitResults*)
 
