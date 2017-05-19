@@ -131,7 +131,7 @@ getFluxEquation[inputDir_, rxnName_, enzymeModel_, unifiedRateConstList_, transi
 
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*Add inhibition*)
 
 
@@ -167,9 +167,9 @@ addInhibitionReactions[enzymeModel_, enzName_, inhibitionList_,  allCatalyticRea
 			inhibitedRxns={}, affectedMetsListLocal, paramType, paramTypeList, enzymeModelLocal = enzymeModel, 
 			nonCatalyticReactionsLocal, temp, posDuplicates,entriesToDelete},
 
-	inhibitorMetsList = inhibitionList[[All, 2]];
+	inhibitorMetsList = inhibitionList[[All, 3]];
 	inhibitorMetsList = inhibitorMetsList /. getConversionChar2Met[inhibitorMetsList];
-	paramTypeList = inhibitionList[[All, 1]];
+	paramTypeList = inhibitionList[[All, 2]];
 	(*
 	affectedMetsListLocal = 
 		If[affectedMetsList == {},
@@ -184,7 +184,7 @@ addInhibitionReactions[enzymeModel_, enzName_, inhibitionList_,  allCatalyticRea
 			inhibitorMet = inhibitorMetsList[[i]];
 			paramType = paramTypeList[[i]];
 
-			temp = inhibitionList[[i,6]][[All,2]];
+			temp = inhibitionList[[i,7]][[All,2]];
 			affectedMets = temp /. getConversionChar2Met[temp];
 		
 			affectedRxns =

@@ -183,7 +183,7 @@ getAllostericTransitionRatio[enzymeModel_, nonCatalyticReactions_] :=
 
 
 (* ::Subsection:: *)
-(*Print ratios (dissociation constants in particular)*)
+(*Get ratios (dissociation constants in particular)*)
 
 
 getRatio[enzymeModel_, metabolite_, rxnIDpattern_:Null] := 
@@ -220,17 +220,17 @@ getRatio[enzymeModel_, metabolite_, rxnIDpattern_:Null] :=
 ];
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*Get other params value*)
 
 
 getOtherParamsValue[param_, otherParamsList_] := 
 	Block[{otherData, paramValue},
 
-	otherData = Select[otherParamsList,#[[1]]==param&][[1]];
+	otherData = Select[otherParamsList,#[[2]]==param&][[1]];
 	paramValue = If[Dimensions[Dimensions[otherData]][[1]] == 1,
-					otherData[[3]],
-					otherData[[All, 3]]
+					otherData[[4]],
+					otherData[[All, 4]]
 				];
 	
 	Return[paramValue];

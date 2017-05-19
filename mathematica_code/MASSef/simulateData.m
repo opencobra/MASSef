@@ -315,7 +315,7 @@ correctChemicalActivities[dataListFull_, metsFull_, activeIsoSub_, ionicStrength
 ];*)
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*Simulate Km data*)
 
 
@@ -415,7 +415,7 @@ simulateKmData[rxn_, metsFull_, metSatForSub_, metSatRevSub_, kmList_, otherParm
 ];
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*Simulate S05 data*)
 
 
@@ -434,7 +434,8 @@ simulateS05Data[rxn_, metsFull_, metSatForSub_, metSatRevSub_, s05List_, otherPa
 
 	(*Incorporate Hill Values*)
 	s05ListFull=s05ListLocal;
-	hillList = Select[otherParmsList,#[[1]]=="n"&];
+	hillList = Select[otherParmsList,#[[2]]=="n"&];
+	hillList = hillList[[All,2;;]]; (* get rid of priority *)
 
 	Which[Length[hillList] == 0,
 		(*If there's no data for n, just consider it to be 1*)
@@ -672,7 +673,7 @@ simulateKcatData[rxn_, metsFull_, metSatForSub_, metSatRevSub_, kcatList_, other
 ];
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*Simulate inhibition data*)
 
 
@@ -703,15 +704,15 @@ preProcessInhibData[inhibList_]:=Block[{entriesToRemoveInd, newEntry, inhibListL
 	
 	entriesToRemoveInd= {};
 	Do[
-		If[Length@inhibListLocal[[inhibI]][[6]] > 1,
+		If[Length@inhibListLocal[[inhibI]][[7]] > 1,
 			AppendTo[entriesToRemoveInd, inhibI];
 			Do[
 
 				newEntry = inhibListLocal[[inhibI]];
-				newEntry[[6]]= {newEntry[[6]][[affectedMetI]]};
+				newEntry[[7]]= {newEntry[[7]][[affectedMetI]]};
 				AppendTo[inhibListLocal,newEntry];,
 
-			{affectedMetI, 1, Length@inhibListLocal[[inhibI]][[6]]}];
+			{affectedMetI, 1, Length@inhibListLocal[[inhibI]][[7]]}];
 		];,
 	{inhibI, 1, Length@inhibListLocal}];
 	
@@ -748,13 +749,13 @@ simulateInhibData[rxn_, metsFull_, metSatForSub_, metSatRevSub_, inhibList_, ass
 	(*Change Character Metabolite Names Into MASS toolbox Metabolite Notation. 
 	NOTE: You may have to add some metabolites in for unusual assay conditions*)
 	
-	(* send priorities to the last position in each entry*)
-	inhibListLocal = inhibList[[All, 2;;-1]];
-	priorityList = inhibList[[All,1]];
-	
 	(*if several metabolites are affected by a single inhibitor, separate them into different entries*)
-	inhibListLocal = preProcessInhibData[inhibListLocal];
+	inhibListLocal = preProcessInhibData[inhibList];
 	
+	(* send priorities to the last position in each entry*)	
+	priorityList = inhibListLocal[[All,1]];
+	inhibListLocal = inhibListLocal[[All, 2;;-1]];
+
 	(*check if all affected mets have a Km or S05*)
 	inhibListLocal = checkAffectedMetsKmS05[inhibListLocal];
 	If[Length @ inhibListLocal == 0,
@@ -1014,10 +1015,11 @@ simulateInhibData[rxn_, metsFull_, metSatForSub_, metSatRevSub_, inhibList_, ass
 	assayCond = Flatten[assayCond,1];
 
 	fileFlagList = Flatten[ Table[inhibListFull[[inhib, -1]], {inhib, Length @ inhibListFull}, {Length @ substrateDataRange[[inhib]]}]];
+	priorityList = Flatten[ Table[priorityList[[inhib]], {inhib, Length @ inhibListFull}, {Length @ substrateDataRange[[inhib]]}]];
 	vList = Flatten[inhibListFull[[All,-2]],1];(*Target Data*)
 	
 	assayCond = Table[
-					Transpose@ConstantArray[assayCond[[i]],Length @ vList[[i]]],
+					Transpose@ConstantArray[assayCond[[i]], Length @ vList[[i]]],
 				{i, Length@assayCond}];
 
 	(*End Correct Chemical Activites*)
@@ -1030,9 +1032,7 @@ simulateInhibData[rxn_, metsFull_, metSatForSub_, metSatRevSub_, inhibList_, ass
 
 	inhibFittingData=
 		Table[
-			
-			Join[inhibFittingData[[pt]], {ConstantArray[fileFlagList[[pt]], Length@vList[[pt]]], vList[[pt]]}],
-
+			Join[{ConstantArray[priorityList[[pt]], Length@vList[[pt]]]}, inhibFittingData[[pt]], {ConstantArray[fileFlagList[[pt]], Length@vList[[pt]]], vList[[pt]]}],
 		{pt, Length @ inhibFittingData}];
 
 	(*inhibFittingData = 
@@ -1044,7 +1044,6 @@ simulateInhibData[rxn_, metsFull_, metSatForSub_, metSatRevSub_, inhibList_, ass
 							Table[
 								MapThread[{##}&, inhibFittingData[[i]]], 
 							{i, Length[inhibFittingData]}], 1];
-	
 
 	Return[inhibFittingData];
 ];
@@ -1060,7 +1059,6 @@ simulateRateConstRatiosData[ratio_, ratioVal_, priority_, metsFull_, rateConstsS
 			fileListLocal=fileList, fileListSubLocal=fileListSub, 
 			eqnNameListLocal=eqnNameList, eqnValListLocal=eqnValList, eqnValListPyLocal=eqnValListPy, 
 			fitPt, header, fittingData={}},
-			
 			
 	(*Transform Equation for Python and Extract the Data from the Database*)
 	ratioPy = ToPython[ratio /. rateConstsSub /. metsSub];
@@ -1148,8 +1146,8 @@ simulateData[enzymeModel_,dataFileName_, haldaneRatiosList_, KeqList_, KmList_, 
 		
 	pHandT= {KeqList[[1,7]], 25};
 	If[ !SameQ[haldaneRatiosList, {}],
-		Do[
 
+		Do[
 			{KeqFittingData, fileListLocal, fileListSubLocal, eqnNameListLocal, eqnValListLocal, eqnValListPyLocal} = 
 					simulateRateConstRatiosData[haldaneRatiosList[[haldaneI]], KeqList[[1,3]], KeqList[[1,1]], metsFull, rateConstsSub, 
 												metsSub, eTotal, nonKmParamWeight, inputPath, fileListLocal, fileListSubLocal, 
@@ -1184,12 +1182,14 @@ simulateData[enzymeModel_,dataFileName_, haldaneRatiosList_, KeqList_, KmList_, 
 		logStepSize = 0.5;
 		inhibFittingData = simulateInhibData[rxn, metsFull, metSatForSub, metSatRevSub, inhibList, assumedSaturatingConc, eTotal, logStepSize, 
 											activeIsoSub, bufferInfo, ionCharge, inputPath, fileListLocal];
+
 		If[!SameQ[inhibFittingData, Null],
 			allFittingData = Join[allFittingData,inhibFittingData];
 		];
 
 		Do[
 			inhibitor = m[inhibEntry[[3]],"c"];
+			
 			affectedRxnList = Select[enzymeModel["Reactions"],MemberQ[getSubstrates[#], inhibitor]&];
 			affectedRxnProductsList = Map[getProducts[#]&,affectedRxnList];
 			reactionOverlap = Table[
@@ -1207,7 +1207,7 @@ simulateData[enzymeModel_,dataFileName_, haldaneRatiosList_, KeqList_, KmList_, 
 					{inhibRatioFittingData, fileListLocal, fileListSubLocal, eqnNameListLocal, eqnValListLocal, eqnValListPyLocal} = 
 							simulateRateConstRatiosData[ratio, val, priority, metsFull, rateConstsSub, metsSub, eTotal, nonKmParamWeight, 
 														inputPath, fileListLocal, fileListSubLocal, eqnNameListLocal, eqnValListLocal, eqnValListPyLocal, pHandT, 
-														"inhibRatio_" <> inhibEntry[[2]]];
+														"inhibRatio_" <> inhibEntry[[3]]];
 				
 					(* make sure the data isn't repeated *)
 					If[ Length[allFittingData] <=  11 || !SameQ[inhibRatioFittingData, allFittingData[[-nonKmParamWeight;;-1,All]]],
@@ -1241,7 +1241,7 @@ simulateData[enzymeModel_,dataFileName_, haldaneRatiosList_, KeqList_, KmList_, 
 					{activationRatioFittingData, fileListLocal, fileListSubLocal, eqnNameListLocal, eqnValListLocal, eqnValListPyLocal} = 
 							simulateRateConstRatiosData[ratio, val, priority, metsFull, rateConstsSub, metsSub, eTotal, nonKmParamWeight, 
 														inputPath, fileListLocal, fileListSubLocal, eqnNameListLocal, eqnValListLocal, 
-														eqnValListPyLocal, pHandT, "activationRatio_" <> activationEntry[[2]]];
+														eqnValListPyLocal, pHandT, "activationRatio_" <> activationEntry[[3]]];
 														
 					(* make sure the data isn't repeated *)
 						If[ Length[allFittingData] <=  11 || !SameQ[activationRatioFittingData, allFittingData[[-nonKmParamWeight;;-1,All]]],
@@ -1269,7 +1269,7 @@ simulateData[enzymeModel_,dataFileName_, haldaneRatiosList_, KeqList_, KmList_, 
 				{KdFittingData, fileListLocal, fileListSubLocal, eqnNameListLocal, eqnValListLocal, eqnValListPyLocal} = 
 					simulateRateConstRatiosData[ratio,val, priority, metsFull, rateConstsSub, metsSub, eTotal, nonKmParamWeight, inputPath,
 												 fileListLocal, fileListSubLocal, eqnNameListLocal, eqnValListLocal, eqnValListPyLocal, 
-												 pHandT, "KdRatio_" <> paramEntry[[2]]];
+												 pHandT, "KdRatio_" <> paramEntry[[3]]];
 
 				allFittingData = Join[allFittingData, KdFittingData];,
 
@@ -1335,8 +1335,8 @@ simulateDataWithUncertainty[nSamples_,enzymeModel_,dataFileBaseName_, haldaneRat
 	
 		If[ !SameQ[haldaneRatiosList, {}],
 			uncertainty = Abs[KeqList[[1,4]][[2]]- KeqList[[1,4]][[1]]]/2.;
-			newValue = RandomVariate[NormalDistribution[ KeqList[[1,3]], uncertainty]];
-			KeqListLocal[[1,2]] = newValue;
+			newValue = RandomVariate[NormalDistribution[KeqList[[1,3]], uncertainty]];
+			KeqListLocal[[1,3]] = newValue;
 		];
 				
 		If[ !SameQ[KmList, {}],
@@ -1461,7 +1461,7 @@ simulateParameterScanData[paramScanList_, enzymeModel_, dataFileName_, haldaneRa
 				kcatListLocal[[paramScannedEntry[[2]],3]] = N@val;,
 							
 				StringMatchQ[ToLowerCase@paramScannedEntry[[1]], {"inhib"}],
-				inhibListLocal[[paramScannedEntry[[2]],3]] = N@val;,
+				inhibListLocal[[paramScannedEntry[[2]],4]] = N@val;,
 			
 				StringMatchQ[ToLowerCase@paramScannedEntry[[1]], {"activation"}],
 				activationListLocal[[paramScannedEntry[[2]],4]] = N@val;,
