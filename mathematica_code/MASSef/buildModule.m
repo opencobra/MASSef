@@ -238,15 +238,14 @@ getRateEqs[absoluteFlux_, unifiedRateConstList_, reverseZeroSub_,
 	Block[{absoluteFluxEqn, absoluteRateForward, absoluteRateReverse, relativeRateForward, relativeRateReverse,
 			absoluteFluxEqnRelRateFor, absoluteFluxEqnRelRateRev, otherAbsoluteRatesForward={}, otherAbsoluteRatesReverse={}},
 			
-	
-	absoluteFluxEqn = absoluteFlux[[2]]/.unifiedRateConstList;(*Equivalent Rate Constants*)
+	absoluteFluxEqn = absoluteFlux[[2]]/.unifiedRateConstList;(* Equivalent Rate Constants *)
 
-	absoluteFluxEqnRelRateFor = If[absoluteFluxRelRateFor=== Null,
+	absoluteFluxEqnRelRateFor = If[absoluteFluxRelRateFor === Null,
 		absoluteFluxEqn,
 		absoluteFluxRelRateFor[[2]]/.unifiedRateConstList
 	];
 	
-	absoluteFluxEqnRelRateRev = If[absoluteFluxRelRateRev=== Null, 
+	absoluteFluxEqnRelRateRev = If[absoluteFluxRelRateRev === Null, 
 		absoluteFluxEqn,
 		absoluteFluxRelRateRev[[2]]/.unifiedRateConstList
 	];		
@@ -293,7 +292,7 @@ Print["km rev"];
 ];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Get rate and met substitutions *)
 
 
@@ -419,7 +418,7 @@ setUpFluxEquations[enzymeModel_, rxn_, rxnName_, inputPath_, inhibitionListFull_
 
 	rxnMets =  Map[getID[#]&, Flatten[{getSubstrates[rxn], getProducts[rxn]}]];
 	If[ !SameQ[inhibitionListFull, {}],
-		inhibitors = inhibitionListFull[[All,2]];
+		inhibitors = inhibitionListFull[[All,3]];
 		prodInhibBool = MemberQ[Map[MemberQ[rxnMets, #]&, inhibitors], True];,
 		prodInhibBool = False;
 	];

@@ -39,7 +39,7 @@ def load_enzyme_data(path):
 
 def _evaluator(candidate):
     """Lower level wrapper function for fitness evaluation"""
-    # print "evaluating..."
+
     if (temperature_correction is False):
         # Log space --> Euclidean space
         newC = numpy.power(10, candidate)
@@ -63,12 +63,10 @@ def _evaluator(candidate):
         data_value.append(row[value_row])
         predicted_value.append(functionDict[row[function_row]](newC, row[1:data_row_high])) # for weights: substitute here 0 for 1
 
-    # print("predicted_value")
-    # print(predicted_value)
-
     # Convert to log space
     data_value = numpy.log10(data_value)
     predicted_value = numpy.log10(predicted_value)
+
 
     # Calculate the Residuals and SSE
     # NOTE: THIS WAS CHANGED AS A TEST TO THE OPERATOR.SUB NOTATION BECAUSE THE LISTS WERE NO LONGER NUMPY OBJECTS AND SUBTRACTING THEM THREW AN ERROR - DZ 9/7/2016
@@ -158,13 +156,13 @@ class Enzyme(object):
                 self.logger = logging.getLogger('/dev/stdout')
 
         """"""
-
         if platform.system() == "Windows":
             results = []
             for c in candidates:
                 results.append(_evaluator(c))
             return results
         else:
+
             return parallel_evaluation_mp(candidates,
                                           {'_ec': fake_ec(), 'mp_evaluator': _evaluator, 'mp_num_cpus': num_Cpus})
 

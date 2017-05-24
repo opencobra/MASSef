@@ -1124,7 +1124,7 @@ simulateData[enzymeModel_,dataFileName_, haldaneRatiosList_, KeqList_, KmList_, 
 			effectiveIonDiameter, activityCoefficient, activeIsoSub, pHandT, paramType,ratio,  val, inhibitor, activator, 
 			fileListLocal=fileList, fileListSubLocal=fileListSub, eqnNameListLocal=eqnNameList, eqnValListLocal=eqnValList,
 			eqnValListPyLocal=eqnValListPy, affectedRxnList, affectedRxnProductsList, reactionOverlap, count, allFittingData={},
-			dataPath, priority},
+			dataPath, priority, ratioList, tempInhibFittingData, tempActivationFittingData},
 	
 	(* define key parameters *)
 	logStepSize=0.2;
@@ -1195,26 +1195,29 @@ simulateData[enzymeModel_,dataFileName_, haldaneRatiosList_, KeqList_, KmList_, 
 			reactionOverlap = Table[
 						Map[MemberQ[Flatten@{getSubstrates[#], getProducts[#]},affectedRxnProducts[[1]]]&,enzymeModel["Reactions"]],
 					{affectedRxnProducts, affectedRxnProductsList}];
-
+			
 			(* check if it's a dead-end reaction - if so, define ratio=Ki *)
 			If[AnyTrue [Map[Count[#, True]&, reactionOverlap], #<= 1&],  
-				ratio = getRatio[enzymeModel, inhibitor, {"Inhibition", "Ki"}];
+				ratioList = getRatio[enzymeModel, inhibitor, {"Inhibition", "Ki"}];
+				ratioList = DeleteDuplicates[ratioList];
 				
 				If[!SameQ[ratio, Null],
 					priority = inhibEntry[[1]];
 					val = inhibEntry[[4]];
-
-					{inhibRatioFittingData, fileListLocal, fileListSubLocal, eqnNameListLocal, eqnValListLocal, eqnValListPyLocal} = 
-							simulateRateConstRatiosData[ratio, val, priority, metsFull, rateConstsSub, metsSub, eTotal, nonKmParamWeight, 
-														inputPath, fileListLocal, fileListSubLocal, eqnNameListLocal, eqnValListLocal, eqnValListPyLocal, pHandT, 
-														"inhibRatio_" <> inhibEntry[[3]]];
-				
-					(* make sure the data isn't repeated *)
-					If[ Length[allFittingData] <=  11 || !SameQ[inhibRatioFittingData, allFittingData[[-nonKmParamWeight;;-1,All]]],
-						allFittingData = Join[allFittingData,inhibRatioFittingData];
-					];
+					tempInhibFittingData = {};
+					Do[
+						{inhibRatioFittingData, fileListLocal, fileListSubLocal, eqnNameListLocal, eqnValListLocal, eqnValListPyLocal} = 
+								simulateRateConstRatiosData[ratioList[[ratioI]], val, priority, metsFull, rateConstsSub, metsSub, eTotal, nonKmParamWeight, 
+															inputPath, fileListLocal, fileListSubLocal, eqnNameListLocal, eqnValListLocal, eqnValListPyLocal, pHandT, 
+															"inhibRatio_" <> inhibEntry[[3]] <> "_" <> ToString@ratioI];
+							tempInhibFittingData = Join[tempInhibFittingData, inhibRatioFittingData];,
+					{ratioI, 1, Length@ratioList}];	
+					
+					(* make sure the data isn't repeated *)					
+					If[ Length[allFittingData] <=  11 || !SameQ[tempInhibFittingData, allFittingData[[-Length[tempInhibFittingData];;-1,All]]],
+							allFittingData = Join[allFittingData,tempInhibFittingData];
+					];				
 				];
-
 			];,
 		{inhibEntry, inhibList}];
 	];
@@ -1222,7 +1225,7 @@ simulateData[enzymeModel_,dataFileName_, haldaneRatiosList_, KeqList_, KmList_, 
 	If[ !SameQ[activationList, {}],
 
 		Do[
-			activator=m[activationEntry[[3]],"c"];
+			activator=m[activationEntry[[3]], "c"];
 			
 			affectedRxnList = Select[enzymeModel["Reactions"], MemberQ[getSubstrates[#], activator]&];
 			affectedRxnProductsList = Map[getProducts[#]&,affectedRxnList];
@@ -1232,27 +1235,29 @@ simulateData[enzymeModel_,dataFileName_, haldaneRatiosList_, KeqList_, KmList_, 
 
 			(* check if it's a dead-end reaction - if so, define ratio=Ki *)
 			If[AllTrue [Map[Count[#, True]&, reactionOverlap], #<= 1&],  
-				ratio = getRatio[enzymeModel, activator, {"Activation", "Ka"}];
+				
+				ratioList = getRatio[enzymeModel, activator, {"Activation", "Ka"}];
+				ratioList = DeleteDuplicates[ratioList];
 				
 				If[!SameQ[ratio, Null],
 					priority = activationEntry[[1]];
 					val = activationEntry[[4]];
-
-					{activationRatioFittingData, fileListLocal, fileListSubLocal, eqnNameListLocal, eqnValListLocal, eqnValListPyLocal} = 
-							simulateRateConstRatiosData[ratio, val, priority, metsFull, rateConstsSub, metsSub, eTotal, nonKmParamWeight, 
-														inputPath, fileListLocal, fileListSubLocal, eqnNameListLocal, eqnValListLocal, 
-														eqnValListPyLocal, pHandT, "activationRatio_" <> activationEntry[[3]]];
-														
-					(* make sure the data isn't repeated *)
-						If[ Length[allFittingData] <=  11 || !SameQ[activationRatioFittingData, allFittingData[[-nonKmParamWeight;;-1,All]]],
-							allFittingData = Join[allFittingData,activationRatioFittingData];
-						];								
-				
+					tempActivationFittingData = {};
+					Do[
+						{activationRatioFittingData, fileListLocal, fileListSubLocal, eqnNameListLocal, eqnValListLocal, eqnValListPyLocal} = 
+								simulateRateConstRatiosData[ratioList[[ratioI]], val, priority, metsFull, rateConstsSub, metsSub, eTotal, nonKmParamWeight, 
+															inputPath, fileListLocal, fileListSubLocal, eqnNameListLocal, eqnValListLocal, eqnValListPyLocal, pHandT, 
+															"activationRatio_" <> activationEntry[[3]] <> "_" <> ToString@ratioI];
+							tempActivationFittingData = Join[tempActivationFittingData, activationRatioFittingData];,
+					{ratioI, 1, Length@ratioList}];	
+					
+					(* make sure the data isn't repeated *)					
+					If[ Length[allFittingData] <=  11 || !SameQ[tempActivationFittingData, allFittingData[[-Length[tempActivationFittingData];;-1,All]]],
+							allFittingData = Join[allFittingData,tempActivationFittingData];
+					];				
 				];
 			];,
-
 		{activationEntry, activationList}];
-
 	];
 
 	If[ !SameQ[otherParmsList, {}],
@@ -1263,7 +1268,7 @@ simulateData[enzymeModel_,dataFileName_, haldaneRatiosList_, KeqList_, KmList_, 
 			Which[
 				StringStartsQ[paramType, "Kd"],
 				priority = paramEntry[[1]];
-				ratio = getRatio[enzymeModel, m[paramEntry[[3]], "c"]];
+				ratio = getRatio[enzymeModel, m[paramEntry[[3]], "c"]][[1]];
 				val = paramEntry[[4]];
 
 				{KdFittingData, fileListLocal, fileListSubLocal, eqnNameListLocal, eqnValListLocal, eqnValListPyLocal} = 

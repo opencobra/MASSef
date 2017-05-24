@@ -189,7 +189,7 @@ getAllostericTransitionRatio[enzymeModel_, nonCatalyticReactions_] :=
 getRatio[enzymeModel_, metabolite_, rxnIDpattern_:Null] := 
 	Block[{affectedRxn, affectedRxnID, forAffectedRateConsts, revAffectedRateConsts,
 			forAffectedConst, revAffectedConst, relevantEntries, entriesIndices},
-
+	
 	(*Get Reactions with the 'inhibitor' or 'activator' as a Reactant*)
 	affectedRxn=Select[enzymeModel["Reactions"],MemberQ[getSubstrates[#], metabolite]&];
 	affectedRxnID=getID[#]&/@affectedRxn;
@@ -197,7 +197,7 @@ getRatio[enzymeModel_, metabolite_, rxnIDpattern_:Null] :=
 	If[!SameQ[rxnIDpattern, Null],
 		relevantEntries = StringCases[affectedRxnID, rxnIDpattern];
 		entriesIndices =  Flatten@Position[relevantEntries,{_}];
-		affectedRxnID =affectedRxnID[[entriesIndices]];
+		affectedRxnID = affectedRxnID[[entriesIndices]];
 	];
 		
 	(*Get the Rate Constants from the Reactions with the 'inhibitor' or 'activator'  as a Reactant*)
@@ -209,13 +209,13 @@ getRatio[enzymeModel_, metabolite_, rxnIDpattern_:Null] :=
 	revAffectedConst=Union[unifyRateConstants[revAffectedRateConsts]];
 	
 	If[Length[forAffectedConst] == 1 && Length[revAffectedConst] == 1,
-		Return[revAffectedConst[[1]]/forAffectedConst[[1]]];,
+		Return[{revAffectedConst[[1]]/forAffectedConst[[1]]}];,
 		
-		(*Print["Possibly there are more than one transition equation and the more than one ratio"];
+		Print["Possibly there are more than one transition equation and the more than one ratio"];
 		Print[affectedRxn];
 		Print[forAffectedRateConsts];
-		Print[revAffectedRateConsts];*)
-		Return[Null];
+		Print[revAffectedRateConsts];
+		Return[revAffectedConst/forAffectedConst];
 	];
 ];
 

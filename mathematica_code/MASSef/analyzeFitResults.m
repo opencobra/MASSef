@@ -15,10 +15,10 @@ Begin["`Private`"];
 (*getRatesWithSSD*)
 
 
-calculateFitSSD[resultsFile_, enzName_, fittingData_, inputPath_, outputPath_, fileListSub_, rateConstsSub_, metsSub_, flagFitType_, exportData_, fitID_:"", fitResultLine_:Null] :=
-	Module[{flagFit=1, msg="", resultsFilePath, paramFit, paramFitProcessed, vRelData, vRelFit, vRelSSD, dataArrayWithSSD={}, bestFit, bestFitDetails={}},
-
-	resultsFilePath = FileNameJoin[{outputPath, resultsFile}, OperatingSystem->$OperatingSystem];
+calculateFitSSD[resultsFilePath_, enzName_, fittingData_, inputPath_, outputPath_, fileListSub_, 
+				rateConstsSub_, metsSub_, flagFitType_, exportData_, fitID_:"", fitResultLine_:Null] :=
+	Module[{flagFit=1, msg="",  paramFit, paramFitProcessed, vRelData, vRelFit, 
+			vRelSSD, dataArrayWithSSD={}, bestFit, bestFitDetails={}},
 
 	If[FileExistsQ[resultsFilePath],
 		(*Fix the fileListSub. This should always run silently*)
@@ -97,19 +97,15 @@ calculateFitSSD[resultsFile_, enzName_, fittingData_, inputPath_, outputPath_, f
 
 
 
-getRatesWithSSD[enzName_, lmaResultsFileName_, dataFilePath_, inputPath_, outputPath_,  fileListSub_, 
+getRatesWithSSD[enzName_, resultsFile_, dataFilePath_, inputPath_, outputPath_,  fileListSub_, 
 				rateConstsSub_, metsSub_, flagFitType_, cutOffVal_:Null, exportData_:False, fitID_:"", 
 				fitResultLine_:Null] :=
 	Module[{errorList={}, flagFit, flagFitLocal=1, msg, msgLocal="", resultsFileName, 
-			resultsFile, splitChar, dataArrayWithSSD, bestFitDetails={}, filteredDataList, 
+			splitChar, dataArrayWithSSD, bestFitDetails={}, filteredDataList, 
 			ratesWithFit, fittingData},
 	
-	splitChar = If[$OperatingSystem == "Windows", "\\", "/"];
-	resultsFileName = StringSplit[lmaResultsFileName, splitChar][[-1]];
-
-	fittingData=Import[dataFilePath];
+	fittingData = Import[dataFilePath];
 	fittingData = fittingData[[2;;,All]];
-	resultsFile = FileNameJoin[{"raw", resultsFileName}, OperatingSystem->$OperatingSystem];
 	
 	{flagFit, msg, dataArrayWithSSD, bestFitDetails} = calculateFitSSD[resultsFile, enzName, fittingData, inputPath, outputPath, fileListSub, rateConstsSub, metsSub, flagFitType, exportData, fitID, fitResultLine];
 	flagFitLocal = flagFit;

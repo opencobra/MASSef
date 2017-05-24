@@ -256,7 +256,7 @@ executeFit[inputPath_, runPythonCmd_]:=Block[{runBothCmd, runBothExe},
 
 
 runFit[inputPath_, pathMASSef_, psoParameterPath_ ,lmaParameterPath_,psoTrialSummaryFileName_, 
-		psoResultsFileName_, lmaResultsFileName_, numTrials_, dataPath_] := 
+		psoResultsFileName_, lmaResultsFileName_, numTrials_, dataPath_, pythonCommand_:"python"] := 
 		Block[{runFitScriptPath, runPythonCmd, runBothCmd, runBothExe},
 
 	runFitScriptPath= FileNameJoin[{pathMASSef <> "python_code", "src", "run_fit_rel.py"}, OperatingSystem->$OperatingSystem];
@@ -265,7 +265,7 @@ runFit[inputPath_, pathMASSef_, psoParameterPath_ ,lmaParameterPath_,psoTrialSum
 
 		Do[
 			Print[datasetI];
-			runPythonCmd =StringRiffle[{"python",
+			runPythonCmd =StringRiffle[{pythonCommand,
 										"\""<>runFitScriptPath <>"\"",
 										"\""<>psoParameterPath <>"\"",
 										"\""<>lmaParameterPath <>"\"", 
@@ -279,9 +279,9 @@ runFit[inputPath_, pathMASSef_, psoParameterPath_ ,lmaParameterPath_,psoTrialSum
 		{datasetI, 1, Length@dataPath}],
 
 
-	runPythonCmd =StringRiffle[{"python","\""<>runFitScriptPath <>"\"", "\""<>psoParameterPath <>"\"", "\""<>lmaParameterPath <>"\"",
-								 "\""<>psoTrialSummaryFileName <>"\"","\""<> psoResultsFileName <>"\"", "\""<>lmaResultsFileName <>"\"", 
-								 ToString @numTrials, "\""<>dataPath <>"\""}, " "];
+	runPythonCmd =StringRiffle[{pythonCommand, "\"" <> runFitScriptPath <> "\"", "\""<>psoParameterPath <> "\"", "\""<>lmaParameterPath <> "\"",
+								 "\"" <> psoTrialSummaryFileName <> "\"", "\"" <> psoResultsFileName <> "\"", "\"" <> lmaResultsFileName <> "\"", 
+								 ToString @numTrials, "\"" <> dataPath <> "\""}, " "];
 	executeFit[inputPath, runPythonCmd]
 
 	]
