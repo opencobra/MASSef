@@ -300,7 +300,7 @@ correctChemicalActivities[dataListFull_, metsFull_, activeIsoSub_, ionicStrength
 ];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Assemble final data table*)
 
 
@@ -315,7 +315,7 @@ correctChemicalActivities[dataListFull_, metsFull_, activeIsoSub_, ionicStrength
 ];*)
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Simulate Km data*)
 
 
@@ -415,7 +415,7 @@ simulateKmData[rxn_, metsFull_, metSatForSub_, metSatRevSub_, kmList_, otherParm
 ];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Simulate S05 data*)
 
 
@@ -531,7 +531,7 @@ simulateS05Data[rxn_, metsFull_, metSatForSub_, metSatRevSub_, s05List_, otherPa
 ];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Simulate kcat data*)
 
 
@@ -748,10 +748,10 @@ simulateInhibData[rxn_, metsFull_, metSatForSub_, metSatRevSub_, inhibList_, ass
 	
 	(*Change Character Metabolite Names Into MASS toolbox Metabolite Notation. 
 	NOTE: You may have to add some metabolites in for unusual assay conditions*)
-	
+
 	(*if several metabolites are affected by a single inhibitor, separate them into different entries*)
 	inhibListLocal = preProcessInhibData[inhibList];
-	
+
 	(* send priorities to the last position in each entry*)	
 	priorityList = inhibListLocal[[All,1]];
 	inhibListLocal = inhibListLocal[[All, 2;;-1]];
@@ -844,8 +844,13 @@ simulateInhibData[rxn_, metsFull_, metSatForSub_, metSatRevSub_, inhibList_, ass
 	(*Match to Comparision Equations*)	
 	Do[
 		If[MemberQ[Flatten[{getSubstrates[rxn], getProducts[rxn]}], inhibListFull[[inhib]][[2]]],
-			AppendTo[inhibListFull[[inhib]], "\""<>Flatten[DeleteCases[StringCases[fileList, RegularExpression[".*inhib.*" <> getID@inhibListFull[[inhib]][[2]] <> ".txt"]], {}]][[1]] <>"\""],			
 			
+			If[SameQ[DeleteCases[StringCases[fileList, RegularExpression[".*inhib.*" <> getID@inhibListFull[[inhib]][[2]] <> ".txt"]], {}], {}],
+				Print["You might have forgotten to set up otherMetsReverseZeroSub and/or otherMetsForwardZeroSub properly."];
+				Return[Null];
+			];
+			AppendTo[inhibListFull[[inhib]], "\""<>Flatten[DeleteCases[StringCases[fileList, RegularExpression[".*inhib.*" <> getID@inhibListFull[[inhib]][[2]] <> ".txt"]], {}]][[1]] <>"\""],			
+
 			If[MemberQ[getSubstrates[rxn], inhibListFull[[inhib]][[5, 1, 2]]],
 				AppendTo[inhibListFull[[inhib]], FileNameJoin[{"\""<>inputPath, "absRateFor.txt"<>"\""}, OperatingSystem->$OperatingSystem]],
 				AppendTo[inhibListFull[[inhib]], FileNameJoin[{"\""<>inputPath, "absRateRev.txt"<>"\""}, OperatingSystem->$OperatingSystem]]
@@ -1017,7 +1022,7 @@ simulateInhibData[rxn_, metsFull_, metSatForSub_, metSatRevSub_, inhibList_, ass
 	fileFlagList = Flatten[ Table[inhibListFull[[inhib, -1]], {inhib, Length @ inhibListFull}, {Length @ substrateDataRange[[inhib]]}]];
 	priorityList = Flatten[ Table[priorityList[[inhib]], {inhib, Length @ inhibListFull}, {Length @ substrateDataRange[[inhib]]}]];
 	vList = Flatten[inhibListFull[[All,-2]],1];(*Target Data*)
-	
+
 	assayCond = Table[
 					Transpose@ConstantArray[assayCond[[i]], Length @ vList[[i]]],
 				{i, Length@assayCond}];

@@ -53,7 +53,7 @@ getBufferInfoData[dataPath_] :=
 
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*Get enzyme data*)
 
 
@@ -201,7 +201,12 @@ getEnzymeData[enzName_, dataPath_, assumedUncertaintyFraction_] :=
 	data = Import[dataPath, "CSV"];
 										  
 	enzymesInd = Flatten@Position[Map[StringLength[#] > 1&, data[[All,1]]], True];
-	curEnzymeInd = Flatten[Position[data[[All,1]], enzName]][[1]];
+	curEnzymeInd = Flatten[Position[data[[All,1]], enzName]];
+	If[SameQ[curEnzymeInd, {}],
+		Print["Couldn't find enzyme data for enzyme name: " <> enzName];
+		Return[Null];
+	];
+	curEnzymeInd = curEnzymeInd[[1]];
 	nextEnzymeInd = enzymesInd[[Flatten[Position[enzymesInd, curEnzymeInd]][[1]]+1]];
 	curEnzymeData = data[[curEnzymeInd;;(nextEnzymeInd-1)]];
 
@@ -280,7 +285,7 @@ printEnzymeData[rxn_, mechanism_, structure_, nActiveSites_, KeqList_, kmList_, 
 ];
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*Import all data*)
 
 
