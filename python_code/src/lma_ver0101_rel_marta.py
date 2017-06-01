@@ -87,7 +87,7 @@ def residual_func_log(params, data, functionDict):
     # Evaluate the Rate Values
     for row in data:
         data_value.append(row[value_row])
-        predicted_value.append(functionDict[row[function_row]](newC, row[0:data_row_high]))
+        predicted_value.append(functionDict[row[function_row]](newC, row[1:data_row_high]))
 
     # Convert to log space
     data_value = numpy.log10(data_value)
