@@ -11,11 +11,18 @@
 Begin["`Private`"];
 
 
-createDirectories[dataFolder_, removeInputFiles_, removeOutputFiles_] := Module[{workingDir, dataPath, inputPath, outputPath, mkDirCmd},
+(* ::Subsection:: *)
+(*Initialize notebook*)
+
+
+createDirectories[dataFolder_, removeInputFiles_, removeOutputFiles_, workingDir_] := Module[{workingDirLocal, dataPath, inputPath, outputPath, mkDirCmd},
 	
-	workingDir = NotebookDirectory[];
-	Print["Working dir:" <> workingDir];
-	dataPath = workingDir <> dataFolder;
+	If[SameQ[workingDir, Null],
+		workingDirLocal = NotebookDirectory[];
+	];
+
+	Print["Working dir:" <> workingDirLocal];
+	dataPath = workingDirLocal <> dataFolder;
 	
 	inputPath= FileNameJoin[{dataPath, "input"}, OperatingSystem -> $OperatingSystem];
 	outputPath= FileNameJoin[{dataPath, "output"}, OperatingSystem -> $OperatingSystem];
@@ -39,39 +46,50 @@ createDirectories[dataFolder_, removeInputFiles_, removeOutputFiles_] := Module[
 		CreateDirectory[FileNameJoin[{outputPath, "treated_data"}, OperatingSystem -> $OperatingSystem]];
 	];
 	
-	Return[{workingDir, inputPath, outputPath}];
+	Return[{inputPath, outputPath}];
 ];
 
 
-initializeNotebook[pathMASSFittingPath_, dataFolder_, removeInputFiles_:False, removeOutputFiles_:False] := 
+initializeNotebook[pathMASSFittingPath_, dataFolder_, removeInputFiles_:False, removeOutputFiles_:False,
+					workingDir_:Null] := 
 	Module[{pathModel, pathBigg, pathData, pathMASSCode, runFitScriptPath, 
-	iJO, bigg2equilibrator, workingDir, inputPath, outputPath},
+	iJO, bigg2equilibrator, inputPath, outputPath},
 	
 	pathData = FileNameJoin[{pathMASSFittingPath, "data"}, OperatingSystem -> $OperatingSystem];
 	pathModel = FileNameJoin[{pathData, "iJO1366.m.gz"}, OperatingSystem -> $OperatingSystem];
 	pathBigg = FileNameJoin[{pathData, "bigg2equilibratorViaKEGG.m.gz"}, OperatingSystem -> $OperatingSystem];	
-	runFitScriptPath = FileNameJoin[{pathData, "python_code", "src", "run_fit_rel.py"}, OperatingSystem -> $OperatingSystem];
-    (*iJO=Import[pathModel];*)
-	bigg2equilibrator=Import[pathBigg];
+	(*runFitScriptPath = FileNameJoin[{pathData, "python_code", "src", "run_fit_rel.py"}, OperatingSystem -> $OperatingSystem];
+    iJO=Import[pathModel];
+	bigg2equilibrator=Import[pathBigg];*)
 	
-	{workingDir, inputPath, outputPath} = createDirectories[dataFolder, removeInputFiles, removeOutputFiles];
+	{inputPath, outputPath} = createDirectories[dataFolder, removeInputFiles, removeOutputFiles, workingDir];
 	
-	Return[{workingDir, pathData, runFitScriptPath, inputPath, outputPath, bigg2equilibrator}];
+	Return[{pathData, inputPath, outputPath}];
 ];
 
 
 
+(* ::Subsection::Closed:: *)
+(*Convert stuff to python format*)
+
+
 ToPython[x_] := StringReplace[ToString[x,InputForm], {
 				"\""->"","["->"(","]"->")","<"->"[",">"->"]",(*" "\[Rule]"",*)"Sqrt"->"sqrt","Log"->"log","List"->"list","^"->"**", "{"-> "[", "}"-> "]"}];
-				
-
 
 (*listToPython[x_] := x~ToString~InputForm~StringReplace~{"\""->"","*^"->"*10**","^"->"**","{"->"[","}"->"]"," "->""};*)
-listToPython[x_] := x~ToString~InputForm~StringReplace~{"\""->"","*^"->"*10**","^"->"**","{"->"[","}"->"]"};
+listToPython[x_] := x~ToString~InputForm~StringReplace~{"\""->"","*^"->"*10**","^"->"**","{"->"[","}"->"]"};	
+
+
+(* ::Subsection::Closed:: *)
+(*Convert Keqs to rate constants*)
 
 
 keq2kHT = #/.keq_Keq:>rateconst[getID[keq],True]/rateconst[getID[keq],False]&;(*High-Throughput version of keq2k[]*)
 
+
+
+(* ::Subsection::Closed:: *)
+(*Stuff*)
 
 
 reverseConsts[model_] := Select[Variables[keq2kHT[model["EquilibriumConstants"]]], #[[2]]==False&];
@@ -82,9 +100,13 @@ rNonModelMets[metList_] := Delete[Delete[metList,Position[metList,MASSToolbox`me
 
 
 
+(* ::Subsection:: *)
+(*Get metabolite substitutions for rate constants*)
+
+
 getMetsSub[rxn_] := Module[{reverseZeroSub, forwardZeroSub, metSatForSub, metSatRevSub},
-	reverseZeroSub=#->0&/@rNonModelMets[getProducts[rxn]];
-	forwardZeroSub=#->0&/@rNonModelMets[getSubstrates[rxn]];
+	reverseZeroSub=#->10^-10&/@rNonModelMets[getProducts[rxn]];
+	forwardZeroSub=#->10^-10&/@rNonModelMets[getSubstrates[rxn]];
 	metSatForSub=#->\[Infinity]&/@rNonModelMets[getSubstrates[rxn]];
 	metSatRevSub=#->\[Infinity]&/@rNonModelMets[getProducts[rxn]];
 	
@@ -93,10 +115,18 @@ getMetsSub[rxn_] := Module[{reverseZeroSub, forwardZeroSub, metSatForSub, metSat
 
 
 
+(* ::Subsection:: *)
+(*Get enzyme rates*)
+
+
 getEnzymeRates[enzymeModel_] := Module[{rates},
 	rates=enzymeModel["Rates"]/.elem_[t]:>elem;
 	Return[rates];
 ];
+
+
+(* ::Subsection:: *)
+(*Get misc*)
 
 
 getMisc[enzymeModel_, rxnName_] := Module[{KeqName, KeqVal, volumeSub},
@@ -111,6 +141,10 @@ getMisc[enzymeModel_, rxnName_] := Module[{KeqName, KeqVal, volumeSub},
 
 
 
+(* ::Subsection::Closed:: *)
+(*Get conversion string to metabolite*)
+
+
 getConversionChar2Met[mets_] := Module[{char2met},
 
 	char2met = 
@@ -122,6 +156,10 @@ getConversionChar2Met[mets_] := Module[{char2met},
 	
 	Return[char2met];
 ];
+
+
+(* ::Subsection::Closed:: *)
+(*Get allosteric transition ratio*)
 
 
 getAllostericTransitionRatio[enzymeModel_, nonCatalyticReactions_] := 
@@ -143,80 +181,67 @@ getAllostericTransitionRatio[enzymeModel_, nonCatalyticReactions_] :=
 		Print[transStepRxn];
 		Print[forTransConst];
 		Print[revTransConst];
+		Return[Null];
 	];
 ];
 
 
-getRatio[enzymeModel_, metabolite_] := 
-	Block[{inhibitorRxn, inhibitorRxnID, forInhibitorRateConsts, revInhibitorRateConsts,
-			forInhibConst, revInhibConst},
+(* ::Subsection:: *)
+(*Get ratios (dissociation constants in particular)*)
+
+
+getRatio[enzymeModel_, metabolite_, rxnIDpattern_:Null] := 
+	Block[{affectedRxn, affectedRxnID, forAffectedRateConsts, revAffectedRateConsts,
+			forAffectedConst, revAffectedConst, relevantEntries, entriesIndices},
 	
-	(*Get Reactions with the 'inhibitor' as a Reactant*)
-	inhibitorRxn=Select[enzymeModel["Reactions"],MemberQ[Union[getSubstrates[#],getProducts[#]], metabolite]&];
-	inhibitorRxnID=getID[#]&/@inhibitorRxn;
-	
-	(*Get the Rate Constants from the Reactions with the 'inhibitor' as a Reactant*)
-	forInhibitorRateConsts=Select[getForwardRateConstants[enzymeModel],MemberQ[inhibitorRxnID,getID[#]]&];
-	revInhibitorRateConsts=Select[reverseConsts[enzymeModel],MemberQ[inhibitorRxnID,getID[#]]&];
+	(*Get Reactions with the 'inhibitor' or 'activator' as a Reactant*)
+	affectedRxn=Select[enzymeModel["Reactions"],MemberQ[getSubstrates[#], metabolite]&];
+	affectedRxnID=getID[#]&/@affectedRxn;
+
+	If[!SameQ[rxnIDpattern, Null],
+		relevantEntries = StringCases[affectedRxnID, rxnIDpattern];
+		entriesIndices =  Flatten@Position[relevantEntries,{_}];
+		affectedRxnID = affectedRxnID[[entriesIndices]];
+	];
+		
+	(*Get the Rate Constants from the Reactions with the 'inhibitor' or 'activator'  as a Reactant*)
+	forAffectedRateConsts=Select[getForwardRateConstants[enzymeModel], MemberQ[affectedRxnID,getID[#]]&];
+	revAffectedRateConsts=Select[reverseConsts[enzymeModel], MemberQ[affectedRxnID,getID[#]]&];
 	
 	(*Unify the Rate Constants (i.e. Extract the Rate Constants for Repetitive Reactions)*)
-	forInhibConst=Union[unifyRateConstants[forInhibitorRateConsts]];
-	revInhibConst=Union[unifyRateConstants[revInhibitorRateConsts]];
+	forAffectedConst=Union[unifyRateConstants[forAffectedRateConsts]];
+	revAffectedConst=Union[unifyRateConstants[revAffectedRateConsts]];
 	
-	If[Length[forInhibConst] == 1 && Length[revInhibConst] == 1,
-		Return[revInhibConst[[1]]/forInhibConst[[1]]];,
+	If[Length[forAffectedConst] == 1 && Length[revAffectedConst] == 1,
+		Return[{revAffectedConst[[1]]/forAffectedConst[[1]]}];,
+		
 		Print["Possibly there are more than one transition equation and the more than one ratio"];
-		Print[inhibitorRxn];
-		Print[forInhibitorRateConsts];
-		Print[revInhibitorRateConsts];
+		Print[affectedRxn];
+		Print[forAffectedRateConsts];
+		Print[revAffectedRateConsts];
+		Return[revAffectedConst/forAffectedConst];
 	];
 ];
+
+
+(* ::Subsection:: *)
+(*Get other params value*)
 
 
 getOtherParamsValue[param_, otherParamsList_] := 
 	Block[{otherData, paramValue},
 
-	otherData = Select[otherParamsList,#[[1]]==param&][[1]];
+	otherData = Select[otherParamsList,#[[2]]==param&][[1]];
 	paramValue = If[Dimensions[Dimensions[otherData]][[1]] == 1,
-					otherData[[3]],
-					otherData[[All, 3]]
+					otherData[[4]],
+					otherData[[All, 4]]
 				];
 	
 	Return[paramValue];
 ];
 
 
-printEnzymeData[rxn_, mechanism_, structure_, nActiveSites_, kmList_, s05List_, kcatList_, inhibitionList_, activationList_, otherParmsList_] := Block[{},
-
-	Print[rxn];
-	Print[mechanism];
-	Print["Structure: " <> ToString@structure];
-	Print["Active sites: " <> ToString@nActiveSites];
-
-	(*Print Available Kinetic Data*)
-	Print[""];
-	Print["Km Values:"];
-	Print[{{"Substrate","Km_Value","Uncertainty","CoSubstrate","Units","pH","Temperature_C","Buffer_Concentrations","Salt_Concentrations"}}~Join~kmList//TableForm];
-	Print[""];
-	Print["S0.5 Values:"];
-	Print[{{"Substrate","S0.5_Value","Uncertainty","CoSubstrate","Units","pH","Temperature_C","Buffer_Concentrations","Salt_Concentrations"}}~Join~s05List//TableForm];
-	Print[""];
-	Print["kcat Values:"];
-	Print[{{"Metabolite(s)","Value","Uncertainty","Units","pH","Temperature_C","Buffer_Concentrations","Salt_Concentrations"}}~Join~kcatList//TableForm];
-	Print[""];
-	Print["Inhibition Values:"];
-	Print[{{"Parameter_Type","Inhibitor","Value","Uncertainty","Cosubstrates", "Inhibition Type","Units","pH","Temperature_C","Buffer_Concentrations","Salt_Concentrations"}}~Join~inhibitionList//TableForm];
-	Print[""];
-	Print["Activation Values:"];
-	Print[{{"Parameter_Type","Activator","Value","Uncertainty","Cosubstrates", "Activation Type","Units","pH","Temperature_C","Buffer_Concentrations","Salt_Concentrations"}}~Join~activationList//TableForm];
-	Print[""];
-	Print["Other Parameters:"];
-	Print[{{"Parameter_Type","Metabolite","Value","Uncertainty","Units","pH","Temperature_C","Buffer_Concentrations","Salt_Concentrations"}}~Join~otherParmsList//TableForm];
-
-];
-
-
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Get  haldane*)
 
 
