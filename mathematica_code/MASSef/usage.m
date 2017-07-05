@@ -17,6 +17,16 @@ getBufferInfoData::usage="getBufferInfoData[dataPath] imports the info on buffer
 getEnzymeData::usage="getEnzymeData[enzName, dataPath] imports all the kinetic data available for a given enzyme, specified by enzName, given the path to the respective \"XLS\" file, dataPath";
 
 
+importAllData::usage="importAllData[rxnName, pathData, kineticDataFileName, assumedUncertaintyFraction, q10KcatCorrectionFlag, TPhysiological]";
+
+
+printEnzymeData::usage="printEnzymeData[rxn, mechanism, structure, nActiveSites, kmList, s05List, kcatList, inhibitionList, activationList, otherParmsList]";
+
+
+updateDataPriorities::usage="updateDataPriorities[KeqPriorities, kmPriorities, s05Priorities, kcatPriorities, inhibitionPriorities, activationPriorities, otherParamsPriorities,
+												  KeqList, kmList, s05List, kcatList, inhibitionList, activationList, otherParmsList]";
+
+
 (* ::Subsection:: *)
 (*buildModule*)
 
@@ -42,9 +52,6 @@ addInhibitionReactions::usage="addInhibitionReactions[enzName, inhibitorMets, af
 getFluxEquation::usage="getFluxEquation[workingDir, rxnName, enzymeModel, unifiedRateConstList, transitionRateEqs]";
 
 
-getEquivRateConsts::usage="getEquivRateConsts[enzymeModel, eqRateConstSubTemp, nonCatalyticReactions, competitiveRxns:{{}}]";
-
-
 getRateEqs::usage="getRateEqs[absoluteFlux, unifiedRateConstList, eqRateConstSub, reverseZeroSub, forwardZeroSub, volumeSub, metSatForSub, metSatRevSub]";
 
 
@@ -55,6 +62,10 @@ getMetRatesSubs::usage="getMetRatesSubs[enzymeModel, absoluteRateForward, absolu
 
 
 exportRateEqs::usage="exportRateEqs[outputPath, absoluteRateForward, absoluteRateReverse, relativeRateForward, relativeRateReverse, metsSub, metSatForSub, metSatRevSub, rateConstsSub]";
+
+
+setUpFluxEquations::usage="setUpFluxEquations[enzymeModel, rxn, rxnName, inputPath,inhibitionList, catalyticReactionsSetsList, otherMetsReverseZeroSub, 
+					otherMetsForwardZeroSub, simplifyMaxTime, nActiveSites]";
 
 
 (* ::Subsection:: *)
@@ -89,6 +100,18 @@ simulateParameterScanData::usage="generateParameterScanData[inputPath, dataType,
 getMinMaxPsDataVal::usage="getMinMaxPsDataVal[val]";
 
 
+simulateData::usage="simulateData[enzymeModel,dataFileName,KmList, s05List, kcatList, inhibList, activationList, otherParmsList, rxn, metsFull,  
+					metSatForSub, metSatRevSub,   bufferInfo, ionCharge, inputPath,  fileList, fileListSub, 
+					eqnNameList,eqnValList, eqnValListPy, eqnNameList, rateConstsSub, \[IndentingNewLine]					metsSub, KeqEquilibrator, KeqName, allCatalyticReactions, unifiedRateConstList, customRatiosList]";
+
+
+
+simulateDataWithUncertainty::usage="simulateDataWithUncertainty[nSamples,enzymeModel,dataFileBaseName,KmList, s05List, kcatList, inhibList, activationList, othersList, 
+									rxn, metsFull,  metSatForSub, metSatRevSub, otherParmsList,  bufferInfo, ionCharge, inputPath,  fileList, 
+									fileListSub, eqnNameList,eqnValList, eqnValListPy, eqnNameList, rateConstsSub, 
+									metsSub,KeqEquilibrator, KeqName,allCatalyticReactions, unifiedRateConstList, customRatiosList]";
+
+
 (* ::Subsection:: *)
 (*configureFit*)
 
@@ -100,6 +123,10 @@ definePSOparameters::usage="definePSOparameters[inputPath, outputPath, dataPath,
 
 defineLMAparameters::usage="defineLMAparameters[inputPath, outputPath, dataPath, finalRateConsts, fileList, 
 					lowerParamBound, upperParamBound, numCpus:1]";
+
+
+runFit::usage="runFit[pathMASSef, inputPath, psoParameterPath ,lmaParameterPath,psoTrialSummaryFileName, 
+						psoResultsFileName, lmaResultsFileName, numTrials, dataPath]";
 
 
 (* ::Subsection:: *)
@@ -160,6 +187,3 @@ getRatio::usage="getInhibRatio[enzymeModel, metabolite]";
 
 
 getOtherParamsValue::usage="getOtherParamsValue[param, otherParamsList]";
-
-
-printEnzymeData::usage="printEnzymeData[rxn, mechanism, structure, nActiveSites, kmList, s05List, kcatList, inhibitionList, activationList, otherParmsList]";
