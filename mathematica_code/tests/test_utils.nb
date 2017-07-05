@@ -10,14 +10,18 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     10827,        297]
-NotebookOptionsPosition[     10397,        277]
-NotebookOutlinePosition[     10736,        292]
-CellTagsIndexPosition[     10693,        289]
+NotebookDataLength[      7081,        190]
+NotebookOptionsPosition[      6577,        168]
+NotebookOutlinePosition[      6919,        183]
+CellTagsIndexPosition[      6876,        180]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.7033343123022127`*^9, 3.703334313097638*^9}, 
+   3.703771678937325*^9}],
+
 Cell[BoxData[{
  RowBox[{
   RowBox[{"SetDirectory", "[", 
@@ -28,23 +32,7 @@ Cell[BoxData[{
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
-   RowBox[{"Get", "[", "\"\<MASSef`\>\"", "]"}], ";"}], 
-  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{
-  "kineticDataPath", " ", "=", " ", 
-   "\"\<test_files/test_db_kinetic_data.xls\>\""}], 
-  ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{
-  "ionChargeDataPath", " ", "=", " ", 
-   "\"\<test_files/test_db_ion_charge.xls\>\""}], 
-  ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{
-   RowBox[{
-   "bufferInfoDataPath", " ", "=", " ", 
-    "\"\<test_files/test_db_buffer_info.xls\>\""}], ";"}], 
+   RowBox[{"<<", "MASSef`"}], ";"}], 
   "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"testResults", "=", 
@@ -55,16 +43,15 @@ Cell[BoxData[{
    3.688379610834086*^9, 3.688379615162458*^9}, {3.6883796704649563`*^9, 
    3.6883796795516977`*^9}, {3.68838057838741*^9, 3.688380615452154*^9}, {
    3.688463975330852*^9, 3.688464039417232*^9}, 3.68933879159813*^9, 
-   3.689338918644104*^9, 3.698489410747109*^9}],
+   3.689338918644104*^9, 3.698489410747109*^9, {3.703334283293209*^9, 
+   3.7033342895817842`*^9}, {3.703771670721521*^9, 3.703771674992785*^9}}],
 
 Cell[CellGroupData[{
 
-Cell["test getBufferInfoData", "Subsubsection",
+Cell["test getRatio", "Subsubsection",
  CellChangeTimes->{{3.688379404633004*^9, 3.688379429043716*^9}, {
   3.688464189533341*^9, 3.688464194468556*^9}, {3.688464387337203*^9, 
-  3.688464392473873*^9}}],
-
-Cell[CellGroupData[{
+  3.688464392473873*^9}, {3.703334254478683*^9, 3.703334255010065*^9}}],
 
 Cell[BoxData[
  RowBox[{"\[IndentingNewLine]", 
@@ -73,180 +60,79 @@ Cell[BoxData[
     RowBox[{"expectedResult", "=", 
      RowBox[{"{", 
       RowBox[{
-       RowBox[{"{", 
-        RowBox[{
-         RowBox[{"{", 
-          RowBox[{"\"\<trishcl\>\"", ",", "\"\<Tris-HCl\>\""}], "}"}], ",", 
-         "8.14`", ",", "1.`", ",", "0.`"}], "}"}], ",", 
-       RowBox[{"{", 
-        RowBox[{
-         RowBox[{"{", 
-          RowBox[{"\"\<tris\>\"", ",", "\"\<Tris\>\""}], "}"}], ",", "8.14`", 
-         ",", "1.`", ",", "0.`"}], "}"}], ",", 
-       RowBox[{"{", 
-        RowBox[{
-         RowBox[{"{", 
-          RowBox[{"\"\<trisac\>\"", ",", "\"\<Tris-acetate\>\""}], "}"}], ",",
-          "8.14`", ",", "1.`", ",", "0.`"}], "}"}], ",", 
-       RowBox[{"{", 
-        RowBox[{
-         RowBox[{"{", 
-          RowBox[{"\"\<edta\>\"", ",", "\"\<EDTA\>\""}], "}"}], ",", "Null", 
-         ",", "Null", ",", "Null"}], "}"}], ",", 
-       RowBox[{"{", 
-        RowBox[{
-         RowBox[{"{", 
-          RowBox[{"\"\<tric\>\"", ",", "\"\<Tricine\>\""}], "}"}], ",", 
-         "8.07`", ",", "0.`", ",", 
-         RowBox[{"-", "1.`"}]}], "}"}], ",", 
-       RowBox[{"{", 
-        RowBox[{
-         RowBox[{"{", 
-          RowBox[{"\"\<tricna\>\"", ",", "\"\<Tricine-Na\>\""}], "}"}], ",", 
-         "8.07`", ",", "0.`", ",", 
-         RowBox[{"-", "1.`"}]}], "}"}], ",", 
-       RowBox[{"{", 
-        RowBox[{
-         RowBox[{"{", 
-          RowBox[{"\"\<hepesnaoh\>\"", ",", "\"\<Hepes-NaOH\>\""}], "}"}], 
-         ",", "7.5`", ",", "0.`", ",", 
-         RowBox[{"-", "1.`"}]}], "}"}], ",", 
-       RowBox[{"{", 
-        RowBox[{
-         RowBox[{"{", 
-          RowBox[{"\"\<pipeskoh\>\"", ",", "\"\<PIPES-KOH\>\""}], "}"}], ",", 
-         "6.64`", ",", 
-         RowBox[{"-", "1.`"}], ",", 
-         RowBox[{"-", "2.`"}]}], "}"}], ",", 
-       RowBox[{"{", 
-        RowBox[{
-         RowBox[{"{", 
-          RowBox[{"\"\<kpi\>\"", ",", "\"\<KPO4\>\""}], "}"}], ",", "6.88`", 
-         ",", 
-         RowBox[{"-", "1.`"}], ",", 
-         RowBox[{"-", "2.`"}]}], "}"}], ",", 
-       RowBox[{"{", 
-        RowBox[{
-         RowBox[{"{", 
-          RowBox[{"\"\<napi\>\"", ",", "\"\<sodium phosphate\>\""}], "}"}], 
-         ",", "6.88`", ",", 
-         RowBox[{"-", "1.`"}], ",", 
-         RowBox[{"-", "2.`"}]}], "}"}], ",", 
-       RowBox[{"{", 
-        RowBox[{
-         RowBox[{"{", 
-          RowBox[{"\"\<nakpi\>\"", ",", "\"\<Na+/K+ phosphate\>\""}], "}"}], 
-         ",", "6.88`", ",", 
-         RowBox[{"-", "1.`"}], ",", 
-         RowBox[{"-", "2.`"}]}], "}"}], ",", 
-       RowBox[{"{", 
-        RowBox[{
-         RowBox[{"{", 
-          RowBox[{"\"\<chesk\>\"", ",", "\"\<CHES-K\>\""}], "}"}], ",", 
-         "9.37`", ",", "0.`", ",", 
-         RowBox[{"-", "1.`"}]}], "}"}], ",", 
-       RowBox[{"{", 
-        RowBox[{
-         RowBox[{"{", 
-          RowBox[{"\"\<hepes\>\"", ",", "\"\<Hepes\>\""}], "}"}], ",", "7.5`",
-          ",", "0.`", ",", 
-         RowBox[{"-", "1.`"}]}], "}"}], ",", 
-       RowBox[{"{", 
-        RowBox[{
-         RowBox[{"{", 
-          RowBox[{"\"\<hepesbtp\>\"", ",", "\"\<HEPES\[Dash]BTP\>\""}], "}"}],
-          ",", "Null", ",", "Null", ",", "Null"}], "}"}], ",", 
-       RowBox[{"{", 
-        RowBox[{
-         RowBox[{"{", 
-          RowBox[{"\"\<pipes\>\"", ",", "\"\<Pipes\>\""}], "}"}], ",", 
-         "6.64`", ",", 
-         RowBox[{"-", "1.`"}], ",", 
-         RowBox[{"-", "2.`"}]}], "}"}], ",", 
-       RowBox[{"{", 
-        RowBox[{
-         RowBox[{"{", 
-          RowBox[{"\"\<mops\>\"", ",", "\"\<MOPS\>\""}], "}"}], ",", "7.12`", 
-         ",", "0.`", ",", 
-         RowBox[{"-", "1.`"}]}], "}"}], ",", 
-       RowBox[{"{", 
-        RowBox[{
-         RowBox[{"{", 
-          RowBox[{"\"\<mopsnaoh\>\"", ",", "\"\<MOPS/NaOH\>\""}], "}"}], ",", 
-         "7.12`", ",", "0.`", ",", 
-         RowBox[{"-", "1.`"}]}], "}"}], ",", 
-       RowBox[{"{", 
-        RowBox[{
-         RowBox[{"{", 
-          RowBox[{"\"\<mopskoh\>\"", ",", "\"\<MOPS-KOH\>\""}], "}"}], ",", 
-         "7.12`", ",", "0.`", ",", 
-         RowBox[{"-", "1.`"}]}], "}"}], ",", 
-       RowBox[{"{", 
-        RowBox[{
-         RowBox[{"{", 
-          RowBox[{"\"\<mes\>\"", ",", "\"\<MES\>\""}], "}"}], ",", "6.14`", 
-         ",", "0.`", ",", 
-         RowBox[{"-", "1.`"}]}], "}"}], ",", 
-       RowBox[{"{", 
-        RowBox[{
-         RowBox[{"{", 
-          RowBox[{"\"\<netmphn\>\"", ",", "\"\<N-ethylmorpholine\>\""}], 
-          "}"}], ",", "7.83`", ",", "1.`", ",", "0.`"}], "}"}], ",", 
-       RowBox[{"{", 
-        RowBox[{
-         RowBox[{"{", 
-          RowBox[{"\"\<detam\>\"", ",", "\"\<diethanolamine\>\""}], "}"}], 
-         ",", "8.95`", ",", "1.`", ",", "0.`"}], "}"}], ",", 
-       RowBox[{"{", 
-        RowBox[{
-         RowBox[{"{", 
-          RowBox[{"\"\<glygly\>\"", ",", "\"\<glycylglycine\>\""}], "}"}], 
-         ",", "8.2`", ",", "0.`", ",", 
-         RowBox[{"-", "1.`"}]}], "}"}], ",", 
-       RowBox[{"{", 
-        RowBox[{
-         RowBox[{"{", 
-          RowBox[{"\"\<imdzcl\>\"", ",", "\"\<imidazole-Cl\>\""}], "}"}], ",",
-          "7.06`", ",", "1.`", ",", "0.`"}], "}"}], ",", 
-       RowBox[{"{", 
-        RowBox[{
-         RowBox[{"{", 
-          RowBox[{"\"\<imdz_MIXED\>\"", ",", "\"\<mixed imidazoles\>\""}], 
-          "}"}], ",", "Null", ",", "Null", ",", "Null"}], "}"}], ",", 
-       RowBox[{"{", 
-        RowBox[{
-         RowBox[{"{", 
-          RowBox[{"\"\<24dmid\>\"", ",", "\"\<2,4-dimethylimidazole\>\""}], 
-          "}"}], ",", "Null", ",", "Null", ",", "Null"}], "}"}], ",", 
-       RowBox[{"{", 
-        RowBox[{
-         RowBox[{"{", 
-          RowBox[{"\"\<teoa\>\"", ",", "\"\<triethanolamine\>\""}], "}"}], 
-         ",", "7.83`", ",", "1.`", ",", "0.`"}], "}"}], ",", 
-       RowBox[{"{", 
-        RowBox[{
-         RowBox[{"{", 
-          RowBox[{"\"\<teoahcl\>\"", ",", "\"\<triethanolamine-HCl\>\""}], 
-          "}"}], ",", "7.83`", ",", "1.`", ",", "0.`"}], "}"}], ",", 
-       RowBox[{"{", 
-        RowBox[{
-         RowBox[{"{", 
-          RowBox[{"\"\<pi_buffer\>\"", ",", "\"\<Phosphoric acid\>\""}], 
-          "}"}], ",", "7.198`", ",", 
-         RowBox[{"-", "1.`"}], ",", 
-         RowBox[{"-", "2.`"}]}], "}"}]}], "}"}]}], ";"}], 
+       InterpretationBox[
+        SubsuperscriptBox["k", 
+         StyleBox["GAPD1",
+          StripOnInput->False,
+          ShowSyntaxStyles->False,
+          AutoSpacing->False,
+          ZeroWidthTimes->True,
+          LineColor->RGBColor[0, 0, 0],
+          FrontFaceColor->RGBColor[0, 0, 0],
+          BackFaceColor->RGBColor[0, 0, 0],
+          GraphicsColor->RGBColor[0, 0, 0],
+          FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
+        Toolbox`rateconst["GAPD1", False],
+        Editable->False,
+        Selectable->False], "/", 
+       InterpretationBox[
+        SubsuperscriptBox["k", 
+         StyleBox["GAPD1",
+          StripOnInput->False,
+          ShowSyntaxStyles->False,
+          AutoSpacing->False,
+          ZeroWidthTimes->True,
+          LineColor->RGBColor[0, 0, 0],
+          FrontFaceColor->RGBColor[0, 0, 0],
+          BackFaceColor->RGBColor[0, 0, 0],
+          GraphicsColor->RGBColor[0, 0, 0],
+          FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+        Toolbox`rateconst["GAPD1", True],
+        Editable->False,
+        Selectable->False]}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"catalyticBranch", "=", 
+     RowBox[{"{", 
+      RowBox[{
+      "\"\<E_GAPD[c] + nad[c] <=> E_GAPD[c]&nad\>\"", ",", 
+       "\[IndentingNewLine]", "\t\t\t\t", 
+       "\"\<E_GAPD[c]&nad + g3p[c] <=> E_GAPD[c]&nad&g3p\>\"", ",", 
+       "\[IndentingNewLine]", "\t\t\t\t", 
+       "\"\<E_GAPD[c]&nad&g3p + pi[c] <=> E_GAPD[c]&nad&g3p&pi\>\"", ",", 
+       "\[IndentingNewLine]", "\t\t\t\t", 
+       "\"\<E_GAPD[c]&nad&g3p&pi <=> E_GAPD[c]&nadh&13dpg\>\"", ",", 
+       "\[IndentingNewLine]", "\t\t\t\t", 
+       "\"\<E_GAPD[c]&nadh&13dpg <=> E_GAPD[c]&nadh + 13dpg[c]\>\"", ",", 
+       "\[IndentingNewLine]", "\t\t\t\t", 
+       "\"\<E_GAPD[c]&nadh<=> E_GAPD[c] + nadh[c]\>\""}], "}"}]}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"enzymeModel", "=", 
+     RowBox[{"constructEnzymeModule", "[", 
+      RowBox[{
+       RowBox[{"Mechanism", "\[Rule]", "catalyticBranch"}], ",", 
+       RowBox[{"Activators", "\[Rule]", 
+        RowBox[{"{", "}"}]}], ",", 
+       RowBox[{"ActivationSites", "\[Rule]", "0"}], ",", 
+       RowBox[{"Inhibitors", "\[Rule]", 
+        RowBox[{"{", "}"}]}], ",", 
+       RowBox[{"InhibitionSites", "\[Rule]", "0"}]}], "]"}]}], ";"}], 
    "\[IndentingNewLine]", "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"result", "=", 
-     RowBox[{"getBufferInfoData", "[", "bufferInfoDataPath", "]"}]}], " ", 
+     RowBox[{"getRatio", "[", 
+      RowBox[{"enzymeModel", ",", " ", 
+       RowBox[{"m", "[", 
+        RowBox[{"\"\<nad\>\"", ",", " ", "\"\<c\>\""}], "]"}]}], "]"}]}], 
     ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"AppendTo", "[", 
      RowBox[{"testResults", ",", "\[IndentingNewLine]", 
       RowBox[{"VerificationTest", "[", 
        RowBox[{"result", ",", "expectedResult", " ", ",", " ", 
-        RowBox[{"TestID", "\[Rule]", "\"\<getBufferInfoData\>\""}]}], "]"}]}],
-      "\[IndentingNewLine]", "]"}], ";"}], "\[IndentingNewLine]"}]}]], "Input",\
+        RowBox[{"TestID", "\[Rule]", "\"\<getRatio\>\""}]}], "]"}]}], 
+     "\[IndentingNewLine]", "]"}], ";"}], "\[IndentingNewLine]"}]}]], "Input",\
 
  CellChangeTimes->{{3.68837680299233*^9, 3.688376809170438*^9}, {
    3.688377062946416*^9, 3.688377063582418*^9}, 3.6883771745770893`*^9, {
@@ -258,25 +144,30 @@ Cell[BoxData[
    3.6884642364977417`*^9}, {3.6884643258423147`*^9, 3.688464365250352*^9}, {
    3.688464397683638*^9, 3.6884644968457127`*^9}, {3.688464526872285*^9, 
    3.688464540787015*^9}, {3.688464944308197*^9, 3.688464946368619*^9}, 
-   3.6884658531585283`*^9}],
+   3.6884658531585283`*^9, {3.703334259839992*^9, 3.7033343078262463`*^9}, {
+   3.7046165766221733`*^9, 3.704616578151162*^9}}],
+
+Cell[CellGroupData[{
 
 Cell[BoxData[
- TemplateBox[{
-  "res$","shdw",
-   "\"Symbol \\!\\(\\*RowBox[{\\\"\\\\\\\"res$\\\\\\\"\\\"}]\\) appears in \
-multiple contexts \\!\\(\\*RowBox[{\\\"{\\\", \
-RowBox[{\\\"\\\\\\\"BoxForm`\\\\\\\"\\\", \\\",\\\", \
-\\\"\\\\\\\"Global`\\\\\\\"\\\"}], \\\"}\\\"}]\\); definitions in context \\!\
-\\(\\*RowBox[{\\\"\\\\\\\"BoxForm`\\\\\\\"\\\"}]\\) may shadow or be shadowed \
-by other definitions.\"",2,9,1,22746064636932349452,"Local"},
-  "MessageTemplate"]], "Message", "MSG",
- CellChangeTimes->{{3.6888156804214773`*^9, 3.688815706534903*^9}, 
-   3.688816260039002*^9}]
+ RowBox[{
+  RowBox[{"Map", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"#", "[", "\"\<Outcome\>\"", "]"}], "&"}], ",", "testResults"}], 
+   "]"}], "\[IndentingNewLine]"}]], "Input",
+ CellChangeTimes->{{3.703334317986939*^9, 3.7033343206625843`*^9}, 
+   3.704540501919217*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", "\<\"Success\"\>", "}"}]], "Output",
+ CellChangeTimes->{3.7033343218689127`*^9, 3.703771686526661*^9, 
+  3.703782215652769*^9, 3.704616584827013*^9}]
 }, Open  ]]
 }, Open  ]]
 },
 WindowSize->{1440, 876},
-WindowMargins->{{Automatic, 3}, {Automatic, 48}},
+WindowMargins->{{Automatic, 150}, {-45, Automatic}},
 FrontEndVersion->"11.0 for Linux x86 (64-bit) (September 21, 2016)",
 StyleDefinitions->"Default.nb"
 ]
@@ -291,12 +182,14 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[558, 20, 1429, 37, 238, "Input"],
+Cell[558, 20, 120, 2, 32, "Input"],
+Cell[681, 24, 1035, 22, 147, "Input"],
 Cell[CellGroupData[{
-Cell[2012, 61, 211, 3, 35, "Subsubsection"],
+Cell[1741, 50, 248, 3, 35, "Subsubsection"],
+Cell[1992, 55, 4063, 92, 443, "Input"],
 Cell[CellGroupData[{
-Cell[2248, 68, 7537, 192, 421, "Input"],
-Cell[9788, 262, 581, 11, 23, "Message"]
+Cell[6080, 151, 289, 8, 56, "Input"],
+Cell[6372, 161, 177, 3, 65, "Output"]
 }, Open  ]]
 }, Open  ]]
 }
