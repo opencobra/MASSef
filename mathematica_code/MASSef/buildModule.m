@@ -11,7 +11,7 @@
 Begin["`Private`"];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Separate catalytic and non-catalytic reactions*)
 
 
@@ -56,10 +56,10 @@ getTransitionIDs[allCatalyticReactions_]:=Block[{transitionID={}, sumReactionSto
 
 getTransitionRateEqs[transitionID_, rates_]:=Block[{transitionRateEqs={}},
 
-	If[
-		MemberQ[transitionID,getID[Cases[#,_Keq,\[Infinity]][[1]]]],
-		AppendTo[transitionRateEqs,#]
-	]&/@rates;
+	Map[ If[
+			Length[Cases[#,_Keq,\[Infinity]]] > 0 && MemberQ[transitionID, getID[Cases[#,_Keq,\[Infinity]][[1]]]],
+			AppendTo[transitionRateEqs,#]
+		]&, rates];
 	
 	Return[transitionRateEqs];
 ];
@@ -85,45 +85,109 @@ getUnifiedRateConstList[allCatalyticReactions_, nonCatalyticReactions_]:=Block[{
 
 
 (* ::Subsection:: *)
+(*Get half haldane substitution*)
+
+
+getHalfHaldaneSub[equivalentReactionsSetsList_]:=
+	Block[{solvedRateConstantSet = {}, solvedRelations= {}, curEquivReactionsSet, curEquivRelation,
+			curVariables, foundAlready, curVariable, curSol},
+
+	Do[
+		curEquivReactionsSet = equivalentReactionsSetsList[[i]];
+		curEquivRelation = Times@@(rateconst[getID[#1],True]&)/@curEquivReactionsSet[[1]]/Times@@(rateconst[getID[#1],False]&)/@curEquivReactionsSet[[1]]== Times@@(rateconst[getID[#1],True]&)/@curEquivReactionsSet[[2]]/Times@@(rateconst[getID[#1],False]&)/@curEquivReactionsSet[[2]];
+		curVariables = Variables[Cases[curEquivRelation,_rateconst,\[Infinity]]];
+		foundAlready = 0;
+		Do[
+			If[foundAlready==0,
+				curVariable = curVariables[[j]];
+				If[Not[MemberQ[solvedRateConstantSet,curVariable]],
+					curSol = Solve[curEquivRelation,curVariable];
+					solvedRelations = Flatten[Append[solvedRelations,curSol]];
+					solvedRateConstantSet = Flatten[Append[solvedRateConstantSet,curVariable]];
+					foundAlready = 1;
+					];
+			];,
+			{j, 1, Length[curVariables]}];,
+	{i, 1, Length[equivalentReactionsSetsList]}];
+	
+	Return[solvedRelations];
+	
+];
+
+
+(* ::Subsection:: *)
 (*Get flux equation*)
 
 
 dummyF[absoluteFlux_]:=Block[{}, Return[absoluteFlux]];
 
-getFluxEquation[inputDir_, rxnName_, enzymeModel_, unifiedRateConstList_, transitionRateEqs_, simplifyMaxTime_:300, nActiveSites_:1, outFileLabel_:""]:=
-	Block[{enzSol, absoluteFlux, fluxEq, enzForms, enzConservationEq, enzPos, ssEq},
+getFluxEquation[inputDir_, rxnName_, enzymeModel_, rateConstSubstitutionList_, transitionRateEqs_, simplifyFlag_:True, simplifyMaxTime_:300, 
+				nActiveSites_:1, outFileLabel_:""]:=
+	Block[{enSolFilePath, absFluxFilePath, enzSol, absoluteFlux, fluxEq, enzForms, enzConservationEq, enzPos, ssEq,
+			posConcentractionAssumption, s, e},
 
 	enSolFilePath = FileNameJoin[{inputDir, "enzSol_" <> rxnName<> "_" <> outFileLabel<> ".m"}, OperatingSystem->$OperatingSystem];
 	absFluxFilePath = FileNameJoin[{inputDir, "absoluteFlux_" <> rxnName<> "_" <> outFileLabel<> ".m"}, OperatingSystem->$OperatingSystem];
-	
+
 	If[ FileExistsQ[enSolFilePath] && FileExistsQ[absFluxFilePath],
 		(*True: 'enzSol.m' and 'absoluteFlux.m' Exists*) 
-
 		enzSol = Import[enSolFilePath];
 		absoluteFlux = Import[absFluxFilePath];,
-		
+
 		(*False: 'enzSol.m' and 'absoluteFlux.m'  Do Not Exist*)
 		(*Generate a System of Equations *)
-		fluxEq = (*unifyRateConstants[*)Total[transitionRateEqs]/.unifiedRateConstList(*]*);(*Flux Will Always Go through the Transition Step*)
-		enzForms = Cases[enzymeModel["Species"],_enzyme]//Union;
+
+
+		fluxEq = (*unifyRateConstants[*)Total[keq2kHT@transitionRateEqs]/.rateConstSubstitutionList(*]*);(*Flux Will Always Go through the Transition Step*)
+
+		fluxEq = Simplify[fluxEq];
+		(*Print["---"];*)
+		enzForms = Cases[enzymeModel["Species"], _enzyme]//Union;
 		enzConservationEq = parameter[rxnName <> "_total"]==Total[enzForms];(*Enzyme Conservation Equation*)
+		Print["1"];
 
 		enzPos = Flatten[Position[enzymeModel["Species"],_enzyme]];
 		ssEq = stripTime[enzymeModel["ODE"][[enzPos]]/._'[t]->0];(*Steady State Equations*)
-		ssEq = (*unifyRateConstants*)keq2kHT[ssEq]/.unifiedRateConstList;
-		
+		ssEq = (*unifyRateConstants*)keq2kHT[ssEq]/.rateConstSubstitutionList;
+		Print["2"];
+		(*Print[ssEq];
+		Print[Length@ssEq];*)
+		ssEq = Map[Simplify[#] &, ssEq];
+
+		s = AbsoluteTime[];
 		(*Solve the System for Each Enzyme Form (This May Take Some Time)*)
 		enzSol = anonymize[Solve[Join[ssEq,{enzConservationEq}],enzForms]];
-		enzSol = keq2kHT[enzSol[[1]]];
+		e = AbsoluteTime[];
+		Print["3"];
+		Print[e-s];
+
 		
+		s = AbsoluteTime[];
+		enzSol = keq2kHT[enzSol[[1]]];
+		e = AbsoluteTime[];
+		(*Print[enzSol];*)
+		Print["4"];
+		Print[e-s];
+		
+		s = AbsoluteTime[];
 		(*Apply the Solution to the Flux Equation*)
 		absoluteFlux=fluxEq/.enzSol;(*In terms of E_total*)
-		Print["before simplify"];
-		absoluteFlux =  parameter["v", rxnName] -> nActiveSites * keq2kHT[anonymize[Simplify[absoluteFlux, TimeConstraint -> simplifyMaxTime]]];
 		
+		e = AbsoluteTime[];
+		Print["5"];
+		Print[e-s];
 		
-		(*absoluteFlux = MemoryConstrained[Simplify[absoluteFlux, TimeConstraint->3600], 8000000000];*)
-		Print["post simplify"];
+		s = AbsoluteTime[];
+		absoluteFlux = If[ TrueQ[simplifyFlag],
+
+			posConcentractionAssumption = Map[# >= 0. &, enzymeModel["Species"]];
+			Print["Simplifying..."];
+			parameter["v", rxnName] -> nActiveSites * keq2kHT[anonymize[Simplify[absoluteFlux, TimeConstraint -> simplifyMaxTime, Trig->False, Assumptions->posConcentractionAssumption]]],
+			parameter["v", rxnName] -> nActiveSites * keq2kHT[absoluteFlux]
+		];
+		e = AbsoluteTime[];
+		Print["6"];
+		Print[e-s];
 		
 		(*Cache the Results*)
 		Export[enSolFilePath,  enzSol]; 
@@ -136,7 +200,10 @@ getFluxEquation[inputDir_, rxnName_, enzymeModel_, unifiedRateConstList_, transi
 
 
 
-(* ::Subsection:: *)
+
+
+
+(* ::Subsection::Closed:: *)
 (*Add inhibition*)
 
 
@@ -164,33 +231,49 @@ getAffectedEnzForms[paramType_, affectedMets_, affectedRxns_] := Block[{affected
 ];
 
 
-addInhibitionReactions[enzymeModel_, enzName_, inhibitionList_,  allCatalyticReactions_, nonCatalyticReactions_, affectedMetsList_:{}] := 
+positionDuplicates[list_]:=GatherBy[Range@Length[list],list[[#]]&];
+
+
+addInhibitionReactions[enzymeModel_, enzName_, inhibitionList_,  allCatalyticReactions_, nonCatalyticReactions_] := 
 	Block[{char2met, inhibitorMetsList, inhibitorMet, affectedMets, affectedRxns, affectedEnzForms, 
 			inhibitedRxns={}, affectedMetsListLocal, paramType, paramTypeList, enzymeModelLocal = enzymeModel, 
-			nonCatalyticReactionsLocal, temp},
+			nonCatalyticReactionsLocal, temp, posDuplicates,entriesToDelete},
 
-	inhibitorMetsList = inhibitionList[[All, 2]];
+	inhibitorMetsList = inhibitionList[[All, 3]];
 	inhibitorMetsList = inhibitorMetsList /. getConversionChar2Met[inhibitorMetsList];
-	paramTypeList = inhibitionList[[All, 1]];
-	
+	paramTypeList = inhibitionList[[All, 2]];
+	(*
 	affectedMetsListLocal = 
 		If[affectedMetsList == {},
-			temp = Flatten[inhibitionList[[All,6]], 1][[All,4]];
+			temp = Flatten[inhibitionList[[All,6]], 1][[All,2]];
 			affectedMetsListLocal = temp /. getConversionChar2Met[temp],
 			affectedMetsList
-		];
-	
+		];*)
+		
 	AppendTo[inhibitedRxns, 
-		Table[			
+		Table[	
+				
 			inhibitorMet = inhibitorMetsList[[i]];
 			paramType = paramTypeList[[i]];
-			affectedMets = If[ListQ[affectedMetsListLocal[[i]]], affectedMetsListLocal[[i]], {affectedMetsListLocal[[i]]}];
+
+			temp = inhibitionList[[i,7]][[All,2]];
+			affectedMets = temp /. getConversionChar2Met[temp];
 		
 			affectedRxns =
 				Table[
 					Select[allCatalyticReactions, MemberQ[Union[{getSubstrates[#], getProducts[#]}]~Flatten~1, met] &],
 				{met, affectedMets}];
 			affectedEnzForms = getAffectedEnzForms[paramType, affectedMets, affectedRxns];
+
+			posDuplicates = positionDuplicates[affectedEnzForms];
+
+			If[AnyTrue[posDuplicates, Length@# > 1&],
+				entriesToDelete = Map[If[Length@#>1, Rest[#]] &, posDuplicates];
+				entriesToDelete = DeleteCases[entriesToDelete, Null];
+				entriesToDelete = Map[{#}&, Flatten@entriesToDelete];
+				affectedEnzForms = Delete[affectedEnzForms,entriesToDelete];
+				affectedRxns = Delete[affectedRxns,entriesToDelete];
+			];
 
 			DeleteCases[
 				{Table[
@@ -213,125 +296,8 @@ addInhibitionReactions[enzymeModel_, enzName_, inhibitionList_,  allCatalyticRea
 
 	enzymeModelLocal = addReactions[enzymeModel, Flatten @ inhibitedRxns];
 	nonCatalyticReactionsLocal = Flatten @ Join[nonCatalyticReactions, inhibitedRxns];
+	Print[nonCatalyticReactionsLocal];
 	Return[{enzymeModelLocal, nonCatalyticReactionsLocal}];
-];
-
-
-(* ::Subsection:: *)
-(*Get equivalent rate constant substitutions for random ordered mechanisms*)
-
-
-getEquivRateConsts[enzymeModel_, eqRateConstSubTemp_, nonCatalyticReactions_] := 
-	Block[{enzName, eqIDSub, eqRateConstSub, freeMetRxns, allSubstrates, equivalentRxns, equivalentRxnIDs, eqRateConst, indvRateConst},
-
-	enzName=enzymeModel["Enzymes"][[1]]//getID//ToString;
-
-	eqRateConstSub=eqRateConstSubTemp;
-
-
-	(*Work Around for Added Competitive Reaction ID's*)
-	eqIDSub=Union[getID[#[[1]]]->getID[#[[2]]]&/@eqRateConstSub];
-
-(*
-	(*Catalytic Reactions*)
-	
-	freeMetRxns=Cases[getSpecies[#],_metabolite,\[Infinity]]&/@allCatalyticReactions;
-	allSubstrates=Cases[getSpecies[enzymeModel],_metabolite,\[Infinity]];
-	equivalentRxns={};
-	Do[
-		AppendTo[equivalentRxns,{}],
-		{Length[allSubstrates]}];
-		(*Extract Equivalent Reactions*)
-		Table[
-			If[
-			SameQ[freeMetRxns[[rxn,1]],allSubstrates[[met]]],
-			AppendTo[equivalentRxns[[met]],rxn]];
-			freeMetRxns[[rxn,1]],
-			{met,Length[allSubstrates]},{rxn,Length[freeMetRxns]}]~Quiet~{Part::partw};
-		(*Parallel Catalytic Reactions Are Not Dealt with Using this Rule List*)
-		equivalentRxns=Table[{unifyRateConstants[getID[allCatalyticReactions[[#]]]],#}&/@rxnSet,{rxnSet,equivalentRxns}];
-		equivalentRxns=Table[
-		If[Length[DeleteDuplicates[rxnSet,#1[[1]]==#2[[1]]&]]>1,
-			DeleteDuplicates[rxnSet,#1[[1]]==#2[[1]]&][[All,2]],
-			{}
-		],
-		{rxnSet,equivalentRxns}];
-
-	(*Assemble Rule List and New 'rateconst' Names*)
-	equivalentRxnIDs=Table[
-		ToString[enzName]<>ToString[equivalentRxns[[eqSet,react]]],
-	{eqSet,Length[equivalentRxns]},{react,Length[equivalentRxns[[eqSet]]]}];
-
-	eqRateConst=Table[
-		StringJoin[Riffle[Map[ToString,Join[{enzName},equivalentRxns[[eqRxn]]]],"_"]],
-	{eqRxn,Length[equivalentRxns]}];
-
-	eqRateConst=Table[
-		rateconst[rate,If[boole==1,False,True]],
-	{rate,eqRateConst},{boole,2}];
-
-	indvRateConst=Table[
-		rateconst[equivalentRxnIDs[[eqSet,reactID]],If[boole==1,False,True]],
-	{eqSet,Length[equivalentRxnIDs]},{boole,2},{reactID,Length[equivalentRxnIDs[[eqSet]]]}];
-
-	eqRateConstSub=Join[eqRateConstSub,Flatten[
-		Table[
-			#->eqRateConst[[eqRate,direction]]&/@indvRateConst[[eqRate,direction]],
-		{eqRate,Length[eqRateConst]},{direction,Length[eqRateConst[[eqRate]]]}]
-	]];
-*)
-
-	(*Non-Catalytic Reactions*)
-	freeMetRxns=Cases[getSpecies[#],_metabolite,\[Infinity]]&/@nonCatalyticReactions;
-	allSubstrates=Cases[getSpecies[enzymeModel],_metabolite,\[Infinity]];
-	equivalentRxns={};
-	Do[
-		AppendTo[equivalentRxns,{}],
-	{Length[allSubstrates]}];
-
-	(*Extract Equivalent Reactions*)
-	Table[
-		If[
-			SameQ[freeMetRxns[[rxn,1]],allSubstrates[[met]]],
-			AppendTo[equivalentRxns[[met]],rxn]];
-			freeMetRxns[[rxn,1]],
-	{met,Length[allSubstrates]},{rxn,Length[freeMetRxns]}]~Quiet~{Part::partw};
-
-	(*Parallel Catalytic Reactions Are Not Dealt with Using this Rule List*)
-	equivalentRxns=Table[{unifyRateConstants[getID[nonCatalyticReactions[[#]]]],#}&/@rxnSet,{rxnSet,equivalentRxns}]/.eqIDSub;
-
-	equivalentRxns=Table[
-		If[Length[DeleteDuplicates[rxnSet,#1[[1]]==#2[[1]]&]]>1,
-			DeleteDuplicates[rxnSet,#1[[1]]==#2[[1]]&][[All,1]], (* changed to fix issue on TALA2, hopefully it's general enough *)
-			{}
-		],
-	{rxnSet,equivalentRxns}];
-
-	(*Assemble Rule List and New 'rateconst' Names*)
-	equivalentRxnIDs=Table[
-		(*ToString[enzName]<>*)ToString[equivalentRxns[[eqSet,react]]],
-	{eqSet,Length[equivalentRxns]},{react,Length[equivalentRxns[[eqSet]]]}];
-	
-	eqRateConst=Table[
-		(*StringJoin[Riffle[Map[ToString,Join[{enzName},equivalentRxns[[eqRxn]]]],"_"]],*)
-		StringJoin[Riffle[Map[ToString,equivalentRxns[[eqRxn]]],"_"]],
-	{eqRxn,Length[equivalentRxns]}];
-
-	eqRateConst=Table[
-		rateconst[rate,If[boole==1,False,True]],
-	{rate,eqRateConst},{boole,2}];
-	
-	indvRateConst=Table[
-		rateconst[equivalentRxnIDs[[eqSet,reactID]],If[boole==1,False,True]],
-	{eqSet,Length[equivalentRxnIDs]},{boole,2},{reactID,Length[equivalentRxnIDs[[eqSet]]]}];
-		
-	eqRateConstSub=Join[eqRateConstSub,Flatten[
-		Table[
-			Map[#->eqRateConst[[eqRate,direction]]&, indvRateConst[[eqRate,direction]]],
-		{eqRate,Length[eqRateConst]},{direction,Length[eqRateConst[[eqRate]]]}]
-	]]//Union;
-
-	Return[eqRateConstSub];
 ];
 
 
@@ -339,89 +305,143 @@ getEquivRateConsts[enzymeModel_, eqRateConstSubTemp_, nonCatalyticReactions_] :=
 (*Get  rate  equations*)
 
 
-getRateEqs[absoluteFlux_, unifiedRateConstList_, eqRateConstSub_, reverseZeroSub_, 
+f[x_] := (Print[x];
+  LeafCount[x])
+
+
+
+getRateEqs[enzymeModel_, absoluteFlux_, rateConstSubstitutionList_, reverseZeroSub_, 
 		   forwardZeroSub_, volumeSub_, metSatForSub_, metSatRevSub_,
-		   absoluteFluxRelRateFor_:Null, absoluteFluxRelRateRev_:Null, otherMetsForwardZeroSub_:Null, otherMetsReverseZeroSub_:Null]:= 
+		   absoluteFluxRelRateFor_:Null, absoluteFluxRelRateRev_:Null, 
+		   otherMetsForwardZeroSub_:Null, otherMetsReverseZeroSub_:Null,
+		   simplifyFlag_:True, simplifyMaxTime_:300]:= 
 	Block[{absoluteFluxEqn, absoluteRateForward, absoluteRateReverse, relativeRateForward, relativeRateReverse,
-			absoluteFluxEqnRelRateFor, absoluteFluxEqnRelRateRev, otherAbsoluteRatesForward={}, otherAbsoluteRatesReverse={}},
+			absoluteFluxEqnRelRateFor, absoluteFluxEqnRelRateRev, otherAbsoluteRatesForward={}, otherAbsoluteRatesReverse={},
+			posConcentractionAssumption},
 			
-	
-	absoluteFluxEqn = absoluteFlux[[2]]/.unifiedRateConstList/.eqRateConstSub;(*Equivalent Rate Constants*)
+	absoluteFluxEqn = absoluteFlux[[2]]/.rateConstSubstitutionList;(* Equivalent Rate Constants *)
 
-	absoluteFluxEqnRelRateFor = If[absoluteFluxRelRateFor=== Null,
+	absoluteFluxEqnRelRateFor = If[absoluteFluxRelRateFor === Null,
 		absoluteFluxEqn,
-		absoluteFluxRelRateFor[[2]]/.unifiedRateConstList/.eqRateConstSub
+		absoluteFluxRelRateFor[[2]]/.rateConstSubstitutionList
 	];
 	
-	absoluteFluxEqnRelRateRev = If[absoluteFluxRelRateRev=== Null, 
+	absoluteFluxEqnRelRateRev = If[absoluteFluxRelRateRev === Null, 
 		absoluteFluxEqn,
-		absoluteFluxRelRateRev[[2]]/.unifiedRateConstList/.eqRateConstSub
+		absoluteFluxRelRateRev[[2]]/.rateConstSubstitutionList
 	];		
-
-			
+	posConcentractionAssumption = Map[# >= 0. &, enzymeModel["Species"]];
+	Print[posConcentractionAssumption];
+	
 	(*kcat Forward*)
-	absoluteRateForward = Simplify[(absoluteFluxEqn/.reverseZeroSub/.volumeSub)];
-
+	Print["kcat for"];
+	absoluteRateForward = 
+		If[TrueQ[simplifyFlag],
+			Print["Simplifying..."];
+			anonymize[Simplify[(absoluteFluxEqn/.reverseZeroSub/.volumeSub), TimeConstraint->simplifyMaxTime, Trig->False, Assumptions->posConcentractionAssumption]],
+			anonymize[Simplify[(absoluteFluxEqn/.reverseZeroSub/.volumeSub), TimeConstraint->5, Trig->False, Assumptions->posConcentractionAssumption]]
+		];
+		
+	Print["kcat rev"];
 	(*kcat Reverse*)
-	absoluteRateReverse = Simplify[(-absoluteFluxEqn/.forwardZeroSub/.volumeSub)];
-
+	absoluteRateReverse = 
+		If[TrueQ[simplifyFlag],
+			Print["Simplifying..."];
+			anonymize[Simplify[(-absoluteFluxEqn/.forwardZeroSub/.volumeSub), TimeConstraint->simplifyMaxTime, Trig->False, Assumptions->posConcentractionAssumption]],
+			anonymize[Simplify[(-absoluteFluxEqn/.forwardZeroSub/.volumeSub), TimeConstraint->5, Trig->False, Assumptions->posConcentractionAssumption]]
+		];	
+		
+	Print["km for"];
 	(*Forward Km(s)*)
-	relativeRateForward = Map[ Simplify[absoluteRateForward/(Limit[absoluteFluxEqnRelRateFor/.reverseZeroSub/.volumeSub,#])]&, metSatForSub];
-
+	relativeRateForward = 
+		If[TrueQ[simplifyFlag],
+			Print["Simplifying..."];
+			Map[anonymize[Simplify[absoluteRateForward/(Limit[absoluteFluxEqnRelRateFor/.reverseZeroSub/.volumeSub, #]), TimeConstraint->simplifyMaxTime, Trig->False, Assumptions->posConcentractionAssumption]]&, metSatForSub],
+			Map[anonymize[Simplify[absoluteRateForward/(Limit[absoluteFluxEqnRelRateFor/.reverseZeroSub/.volumeSub, #]), TimeConstraint->5, Trig->False, Assumptions->posConcentractionAssumption]]&, metSatForSub]
+		];	
+	(*relativeRateForward = Map[Simplify[(Limit[absoluteFluxEqnRelRateFor/.reverseZeroSub/.volumeSub, #])/absoluteRateForward, TimeConstraint->simplifyMaxTime, Trig->False, Assumptions->posConcentractionAssumption]&, metSatForSub];
+	*)
+	Print["km rev"];
 	(*Reverse Km(s)*)
-	relativeRateReverse = Map[Simplify[-absoluteRateReverse/(Limit[absoluteFluxEqnRelRateRev/.forwardZeroSub/.volumeSub,#])]&, metSatRevSub];
+	relativeRateReverse = 
+		If[TrueQ[simplifyFlag],
+			Print["Simplifying..."];
+			Map[anonymize[Simplify[-absoluteRateReverse/(Limit[absoluteFluxEqnRelRateRev/.forwardZeroSub/.volumeSub, #]), TimeConstraint->simplifyMaxTime, Trig->False, Assumptions->posConcentractionAssumption]]&, metSatRevSub],
+			Map[anonymize[Simplify[-absoluteRateReverse/(Limit[absoluteFluxEqnRelRateRev/.forwardZeroSub/.volumeSub, #]), TimeConstraint->5, Trig->False, Assumptions->posConcentractionAssumption]]&, metSatRevSub]
+		];	
+	(*relativeRateReverse = Map[Simplify[-(Limit[absoluteFluxEqnRelRateRev/.forwardZeroSub/.volumeSub, #])/absoluteRateReverse, TimeConstraint->simplifyMaxTime, Trig->False, Assumptions->posConcentractionAssumption]&, metSatRevSub];
+	*)
+	Print["otherMetsReverseZeroSub"];
+	If[!(otherMetsReverseZeroSub === Null) && !(otherMetsReverseZeroSub === {}),
+		otherAbsoluteRatesForward = 
+			If[TrueQ[simplifyFlag],
+				Print["Simplifying..."];
+				Table[
+					Print[{metReverseZeroSub[[1]], Map[{#, Limit[absoluteFluxEqn/.metReverseZeroSub[[2]]/.volumeSub, #]}&, metSatForSub]}];
+					Print[{metReverseZeroSub[[1]], absoluteFluxEqn/.metReverseZeroSub[[2]]/.volumeSub}];
+					{metReverseZeroSub[[1]], Map[Simplify[(absoluteFluxEqn/.metReverseZeroSub[[2]]/.volumeSub)/(Limit[absoluteFluxEqn/.metReverseZeroSub[[2]]/.volumeSub, #]), TimeConstraint->simplifyMaxTime, Trig->False, Assumptions->posConcentractionAssumption]&, metSatForSub]},
+				{metReverseZeroSub, otherMetsReverseZeroSub}],
+				Table[
+					{metReverseZeroSub[[1]], Map[(absoluteFluxEqn/.metReverseZeroSub[[2]]/.volumeSub)/(Limit[absoluteFluxEqn/.metReverseZeroSub[[2]]/.volumeSub, #]) &, metSatForSub]},
+				{metReverseZeroSub, otherMetsReverseZeroSub}]
+			];
+	];
 
-	
-	If[!(otherMetsReverseZeroSub === Null),
-		otherAbsoluteRatesForward = Table[
-			{metReverseZeroSub[[1]], Simplify[(absoluteFluxEqn/.metReverseZeroSub[[2]]/.volumeSub)]},
-			{metReverseZeroSub, otherMetsReverseZeroSub}];
+	Print["otherMetsForwardZeroSub"];
+	If[!(otherMetsForwardZeroSub === Null) && !(otherMetsForwardZeroSub === {}),
+		otherAbsoluteRatesReverse = 
+			If[TrueQ[simplifyFlag], 
+				Print["Simplifying..."];
+				Table[
+					Print[{metForwardZeroSub[[1]], Map[{#, Limit[absoluteFluxEqn/.metForwardZeroSub[[2]]/.volumeSub, #]}&, metSatRevSub]}];
+					{metForwardZeroSub[[1]], Map[Simplify[-(absoluteFluxEqn/.metForwardZeroSub[[2]]/.volumeSub)/(Limit[absoluteFluxEqn/.metForwardZeroSub[[2]]/.volumeSub, #]), TimeConstraint->simplifyMaxTime, Trig->False, Assumptions->posConcentractionAssumption]&, metSatRevSub]},
+				{metForwardZeroSub, otherMetsForwardZeroSub}],
+				Table[
+					{metForwardZeroSub[[1]], Map[-(absoluteFluxEqn/.metForwardZeroSub[[2]]/.volumeSub)/(Limit[absoluteFluxEqn/.metForwardZeroSub[[2]]/.volumeSub, #]) &, metSatRevSub]},
+				{metForwardZeroSub, otherMetsForwardZeroSub}]
+			];
 	];
-	
-	If[!(otherMetsForwardZeroSub === Null),
-		otherAbsoluteRatesReverse = Table[
-			{metForwardZeroSub[[1]],  Simplify[(-absoluteFluxEqn/.metForwardZeroSub[[2]]/.volumeSub)]},
-			{metForwardZeroSub, otherMetsForwardZeroSub}];
-	];
-	
 	
 	Which[
-		(otherMetsForwardZeroSub === Null) && (otherMetsReverseZeroSub === Null),
-		Return[{absoluteRateForward, absoluteRateReverse, relativeRateForward, relativeRateReverse}],
+		(otherMetsForwardZeroSub === Null || otherMetsForwardZeroSub === {}) && (otherMetsReverseZeroSub === Null || otherMetsReverseZeroSub === {}),
+		Return[{absoluteRateForward, absoluteRateReverse, relativeRateForward, relativeRateReverse, Null, Null}],
 		
-		(otherMetsForwardZeroSub === Null) && !(otherMetsReverseZeroSub === Null),
-		Return[{absoluteRateForward, absoluteRateReverse, relativeRateForward, relativeRateReverse, otherAbsoluteRatesForward}],
+		(otherMetsForwardZeroSub === Null || otherMetsForwardZeroSub === {}) && !(otherMetsReverseZeroSub === Null || otherMetsReverseZeroSub === {}),
+		Return[{absoluteRateForward, absoluteRateReverse, relativeRateForward, relativeRateReverse, otherAbsoluteRatesForward, Null}],
 		
-		!(otherMetsForwardZeroSub === Null) && (otherMetsReverseZeroSub === Null),
-		Return[{absoluteRateForward, absoluteRateReverse, relativeRateForward, relativeRateReverse, otherAbsoluteRatesReverse}],
+		!(otherMetsForwardZeroSub === Null || otherMetsForwardZeroSub === {}) && (otherMetsReverseZeroSub === Null || otherMetsReverseZeroSub === {}),
+		Return[{absoluteRateForward, absoluteRateReverse, relativeRateForward, relativeRateReverse, Null, otherAbsoluteRatesReverse}],
 		
-		!(otherMetsForwardZeroSub === Null) && !(otherMetsReverseZeroSub === Null),
+		!(otherMetsForwardZeroSub === Null || otherMetsForwardZeroSub === {}) && !(otherMetsReverseZeroSub === Null || otherMetsReverseZeroSub === {}),
 		Return[{absoluteRateForward, absoluteRateReverse, relativeRateForward, relativeRateReverse, otherAbsoluteRatesForward, otherAbsoluteRatesReverse}]
 	];
 ];
 
 
-(* ::Subsection:: *)
+
+(* ::Subsection::Closed:: *)
 (*Get rate and met substitutions *)
 
 
-getMetRatesSubs[enzymeModel_, absoluteRateForward_, absoluteRateReverse_, relativeRateForward_, relativeRateReverse_, KeqVal_,
-				otherAbsoluteRatesForward_:{}, otherAbsoluteRatesReverse_:{}] := 
-	Block[{finalRateConsts, rateConstsSub, mets, char2met, metsFull, finalMets, metsSub, finalRateConstsTest},
+getMetRatesSubs[enzymeModel_, haldaneRatiosList_, absoluteRateForward_, absoluteRateReverse_, relativeRateForward_, 
+				relativeRateReverse_, KeqVal_, otherAbsoluteRatesForward_:Null, otherAbsoluteRatesReverse_:Null] := 
+	Block[{finalRateConsts, rateConstsSub, mets, char2met, metsFull, finalMets, metsSub, finalRateConstsTest,
+			otherAbsoluteRatesForwardLocal=otherAbsoluteRatesForward, otherAbsoluteRatesReverseLocal=otherAbsoluteRatesReverse},
+	
+	otherAbsoluteRatesForwardLocal = If[! SameQ[otherAbsoluteRatesForward, Null], 
+										otherAbsoluteRatesForward[[All,2]], 
+										otherAbsoluteRatesForward];
+									
+	otherAbsoluteRatesReverseLocal = If[! SameQ[otherAbsoluteRatesReverse, Null], 
+										otherAbsoluteRatesReverse[[All,2]], 
+										otherAbsoluteRatesReverse];
 	
 	finalRateConsts= Variables[Cases[
-		Flatten @ Join[{absoluteRateForward},{absoluteRateReverse},relativeRateForward,relativeRateReverse],
+		Flatten @ {absoluteRateForward, absoluteRateReverse ,relativeRateForward,relativeRateReverse, 
+					otherAbsoluteRatesForwardLocal, otherAbsoluteRatesReverseLocal, haldaneRatiosList},
 	_rateconst,\[Infinity]]];
 
-	If[otherAbsoluteRatesForward != {},
-		AppendTo[finalRateConsts, Variables[Cases[otherAbsoluteRatesForward[[All,2]], _rateconst,\[Infinity]]]];
-	];
-	
-	If[otherAbsoluteRatesReverse != {},
-		AppendTo[finalRateConsts, Variables[Cases[otherAbsoluteRatesReverse[[All,2]], _rateconst,\[Infinity]]]];
-	];
-
-	finalRateConsts = Union[Flatten[finalRateConsts]];
+	finalRateConsts = DeleteDuplicates @ Flatten[finalRateConsts];
 	
 	rateConstsSub=Thread[finalRateConsts -> Table["x<"<>ToString[i]<>">", {i,0,Length[finalRateConsts]-1}]];
 
@@ -437,15 +457,15 @@ getMetRatesSubs[enzymeModel_, absoluteRateForward_, absoluteRateReverse_, relati
 
 	(*Handle Metabolites for Export*)
 	finalMets = Join[metsFull,{Toolbox`parameter[getID@KeqVal<>"_total"],parameter["pH"],parameter["Temp"]}];
-	finalMets = Prepend[finalMets, KeqVal];
+	(*finalMets = Prepend[finalMets, KeqVal];*)
 	metsSub = Thread[finalMets -> Table["d<"<>ToString[i]<>">", {i,0,Length[finalMets]-1}] ];
-
+	
 	Return[{finalRateConsts, metsFull, metsSub, rateConstsSub}];
 ];
 
 
 (* ::Subsection:: *)
-(**)
+(*Export rate equations*)
 
 
 exportRateEqs[outputPath_, absoluteRateForward_, absoluteRateReverse_, relativeRateForward_, relativeRateReverse_, 
@@ -458,11 +478,11 @@ exportRateEqs[outputPath_, absoluteRateForward_, absoluteRateReverse_, relativeR
 				 Table["relRateFor_" <> ToString[satMet], {satMet, metSatForSub[[All,1,1]]}],
 				 Table["relRateRev_" <> ToString[satMet], {satMet, metSatRevSub[[All,1,1]]}]};
 
-	If[!(otherAbsoluteRatesForward === Null),
+	If[!(otherAbsoluteRatesForward === Null) && !(otherAbsoluteRatesForward === {}),
 		AppendTo[eqnNameList, otherAbsoluteRatesForward[[All,1]]];
 	];
 
-	If[!(otherAbsoluteRatesReverse === Null),
+	If[!(otherAbsoluteRatesReverse === Null) && !(otherAbsoluteRatesReverse === {}),
 		AppendTo[eqnNameList, otherAbsoluteRatesReverse[[All,1]]];
 	];	
 	
@@ -473,11 +493,11 @@ exportRateEqs[outputPath_, absoluteRateForward_, absoluteRateReverse_, relativeR
 				Table[eqn, {eqn, relativeRateForward}],
 				Table[eqn, {eqn, relativeRateReverse}]};
 			
-	If[!(otherAbsoluteRatesForward === Null),
+	If[!(otherAbsoluteRatesForward === Null) && !(otherAbsoluteRatesForward === {}),
 		AppendTo[eqnValList, otherAbsoluteRatesForward[[All,2]]];
 	];
 
-	If[!(otherAbsoluteRatesReverse === Null),
+	If[!(otherAbsoluteRatesReverse === Null) && !(otherAbsoluteRatesReverse === {}),
 		AppendTo[eqnValList, otherAbsoluteRatesReverse[[All,2]]];
 	];	
 	
@@ -505,6 +525,103 @@ getHaldane[allCatalyticReactions_, unifiedRateConstList_, KeqName_] := Block[{ha
 	
 	haldane = haldaneRelation[KeqName, allCatalyticReactions] /. unifiedRateConstList;
 	Return[haldane];
+];
+
+
+(* ::Subsection:: *)
+(*Set up all flux equations*)
+
+
+setUpFluxEquations[enzymeModel_, rxn_, rxnName_, inputPath_, inhibitionListFull_, inhibitionListSubset_, 
+					catalyticReactionsSetsList_, otherMetsReverseZeroSub_,  
+					otherMetsForwardZeroSub_,  MWCFlag_: False, simplifyFlag_:True, simplifyMaxTime_:300, 
+					nActiveSites_:1, equivalentReactionsSetsList_:{}] :=
+	Block[{enzymeModelLocal=enzymeModel, rxnMets, inhibitors,prodInhibBool,reverseZeroSub, forwardZeroSub, 
+		metSatForSub, metSatRevSub, rates, KeqName, KeqVal, volumeSub,
+		allCatalyticReactions, nonCatalyticReactions, transitionID, transitionRateEqs, rateConstSubstitutionList, 
+		absoluteFluxNoProdInhib, absoluteFlux, absoluteRateForward, absoluteRateReverse,
+		relativeRateForward, relativeRateReverse, otherAbsoluteRatesForward, otherAbsoluteRatesReverse,
+		haldaneRatiosList, haldane, finalRateConsts,metsFull, metsSub, rateConstsSub,
+		eqnNameList, eqnValList, eqnValListPy, fileList, fileListSub},
+
+	rxnMets =  Map[getID[#]&, Flatten[{getSubstrates[rxn], getProducts[rxn]}]];
+	If[ !SameQ[inhibitionListFull, {}],
+		inhibitors = inhibitionListFull[[All,3]];
+		prodInhibBool = MemberQ[Map[MemberQ[rxnMets, #]&, inhibitors], True];,
+		prodInhibBool = False;
+	];
+	
+	{reverseZeroSub, forwardZeroSub, metSatForSub, metSatRevSub} = getMetsSub[rxn];
+	rates = getEnzymeRates[enzymeModelLocal];
+	{KeqName, KeqVal, volumeSub} = getMisc[enzymeModelLocal, rxnName];
+	Print[forwardZeroSub];
+	Print[reverseZeroSub];
+	Print[metSatForSub];
+	Print[metSatRevSub];
+
+	{allCatalyticReactions, nonCatalyticReactions} = classifyReactions[enzymeModelLocal];
+	
+	rateConstSubstitutionList = 
+		If[TrueQ[MWCFlag],
+			getUnifiedRateConstList[allCatalyticReactions, nonCatalyticReactions],
+			{}
+		];
+	
+	If[ !SameQ[equivalentReactionsSetsList, {}] && !SameQ[equivalentReactionsSetsList, Null],
+			AppendTo[rateConstSubstitutionList, getHalfHaldaneSub[equivalentReactionsSetsList]];
+			rateConstSubstitutionList = Flatten @ rateConstSubstitutionList;
+	];
+
+	(*Identify Transition Rate Equations*)
+	transitionID = getTransitionIDs[allCatalyticReactions];
+
+	(*Extract Transition Rate Equations*)
+	transitionRateEqs = getTransitionRateEqs[transitionID, rates];
+
+	(*King-Altman Workaround UsingMathematicaSolve*)
+	(*This section of code will check to see if there is a 'absoluteFlux.m' file in the notebook directory from a previous cell evalution, and it will either derive a generalized flux equation (may take a long time) or import the previously derived flux equation. Note: If you modify the binding mechanism used in the constructEnzymeModule or manually add additional reactions to the model, you should delete the 'absoluteFlux.m' file in this notebook's current directory.*)
+	absoluteFluxNoProdInhib=
+		If[prodInhibBool,
+			Print["prod inhib"];
+			getFluxEquation[inputPath, rxnName, enzymeModelLocal, rateConstSubstitutionList, transitionRateEqs, simplifyFlag, simplifyMaxTime,nActiveSites, "NoProdInhibRefactor"],
+			Null
+		];
+
+	If[!SameQ[inhibitionListSubset,{}],
+		{enzymeModelLocal,nonCatalyticReactions} = addInhibitionReactions[enzymeModelLocal,rxnName,inhibitionListSubset,allCatalyticReactions,nonCatalyticReactions];
+	];
+	(*Print[enzymeModelLocal["Reactions"]];*)
+	(* get flux equation including inhibitions*)
+	absoluteFlux = getFluxEquation[inputPath, rxnName, enzymeModelLocal, rateConstSubstitutionList, transitionRateEqs, simplifyFlag, simplifyMaxTime, nActiveSites, ""];
+
+	{absoluteRateForward, absoluteRateReverse, relativeRateForward, relativeRateReverse, otherAbsoluteRatesForward, otherAbsoluteRatesReverse} = 
+		getRateEqs[enzymeModelLocal, absoluteFlux, rateConstSubstitutionList, reverseZeroSub, forwardZeroSub, volumeSub, metSatForSub, metSatRevSub, 
+					absoluteFluxNoProdInhib, absoluteFluxNoProdInhib,otherMetsForwardZeroSub, otherMetsReverseZeroSub, simplifyFlag, simplifyMaxTime];
+
+	(* set up haldane relations *)
+	haldaneRatiosList  = Table[
+				haldane = haldaneRelation[KeqName,catalyticReactionsSet]/.rateConstSubstitutionList;
+				haldane[[2]],
+		{catalyticReactionsSet, catalyticReactionsSetsList}] // DeleteDuplicates;
+
+
+	(*Assemble Rate Constant And Metabolite Substitutions for Export*)
+	{finalRateConsts,metsFull, metsSub, rateConstsSub} = 
+			getMetRatesSubs[enzymeModelLocal, haldaneRatiosList, absoluteRateForward, absoluteRateReverse, relativeRateForward, 
+							relativeRateReverse,KeqVal,otherAbsoluteRatesForward, otherAbsoluteRatesReverse];
+
+	(*Export Equations*)
+	{eqnNameList, eqnValList, eqnValListPy, fileList, fileListSub} = 
+			exportRateEqs[inputPath, absoluteRateForward, absoluteRateReverse, relativeRateForward, 
+							relativeRateReverse, metsSub, metSatForSub, metSatRevSub, rateConstsSub,
+							otherAbsoluteRatesForward, otherAbsoluteRatesReverse];
+	
+	Return[{enzymeModelLocal, haldaneRatiosList,  metSatForSub, metSatRevSub,  finalRateConsts, metsFull, 
+			metsSub, rateConstsSub, fileList, fileListSub, eqnNameList,eqnValList, eqnValListPy, 
+			allCatalyticReactions,nonCatalyticReactions, rateConstSubstitutionList,
+			absoluteFlux, absoluteRateForward, absoluteRateReverse, relativeRateForward, relativeRateReverse, 
+			otherAbsoluteRatesForward, otherAbsoluteRatesReverse}];
+
 ];
 
 
