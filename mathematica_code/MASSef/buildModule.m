@@ -203,7 +203,7 @@ getFluxEquation[inputDir_, rxnName_, enzymeModel_, rateConstSubstitutionList_, t
 
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*Add inhibition*)
 
 
@@ -311,13 +311,13 @@ f[x_] := (Print[x];
 
 
 getRateEqs[enzymeModel_, absoluteFlux_, rateConstSubstitutionList_, reverseZeroSub_, 
-		   forwardZeroSub_, volumeSub_, metSatForSub_, metSatRevSub_,
-		   absoluteFluxRelRateFor_:Null, absoluteFluxRelRateRev_:Null, 
+		   forwardZeroSub_, volumeSub_, metSatForSubList_, metSatRevSubList_,
+		   outputPath_, absoluteFluxRelRateFor_:Null, absoluteFluxRelRateRev_:Null, 
 		   otherMetsForwardZeroSub_:Null, otherMetsReverseZeroSub_:Null,
 		   simplifyFlag_:True, simplifyMaxTime_:300]:= 
 	Block[{absoluteFluxEqn, absoluteRateForward, absoluteRateReverse, relativeRateForward, relativeRateReverse,
 			absoluteFluxEqnRelRateFor, absoluteFluxEqnRelRateRev, otherAbsoluteRatesForward={}, otherAbsoluteRatesReverse={},
-			posConcentractionAssumption},
+			posConcentractionAssumption, rateFileName, rateEq},
 			
 	absoluteFluxEqn = absoluteFlux[[2]]/.rateConstSubstitutionList;(* Equivalent Rate Constants *)
 
@@ -335,54 +335,89 @@ getRateEqs[enzymeModel_, absoluteFlux_, rateConstSubstitutionList_, reverseZeroS
 	
 	(*kcat Forward*)
 	Print["kcat for"];
+	rateFileName = FileNameJoin[{outputPath, "absRateFor.m"}, OperatingSystem->$OperatingSystem];
 	absoluteRateForward = 
-		If[TrueQ[simplifyFlag],
-			Print["Simplifying..."];
-			anonymize[Simplify[(absoluteFluxEqn/.reverseZeroSub/.volumeSub), TimeConstraint->simplifyMaxTime, Trig->False, Assumptions->posConcentractionAssumption]],
-			anonymize[Simplify[(absoluteFluxEqn/.reverseZeroSub/.volumeSub), TimeConstraint->5, Trig->False, Assumptions->posConcentractionAssumption]]
+		If[! FileExistsQ[rateFileName],
+		
+			If[TrueQ[simplifyFlag],
+				Print["Simplifying..."];
+				rateEq = anonymize[Simplify[(absoluteFluxEqn/.reverseZeroSub/.volumeSub), TimeConstraint->simplifyMaxTime, Trig->False, Assumptions->posConcentractionAssumption]];,
+				rateEq = (absoluteFluxEqn/.reverseZeroSub/.volumeSub);	
+			];
+			Export[rateFileName, rateEq];
+			rateEq,
+			
+			Import[rateFileName]
 		];
 		
 	Print["kcat rev"];
 	(*kcat Reverse*)
+	rateFileName = FileNameJoin[{outputPath, "absRateRev.m"}, OperatingSystem->$OperatingSystem];
 	absoluteRateReverse = 
-		If[TrueQ[simplifyFlag],
-			Print["Simplifying..."];
-			anonymize[Simplify[(-absoluteFluxEqn/.forwardZeroSub/.volumeSub), TimeConstraint->simplifyMaxTime, Trig->False, Assumptions->posConcentractionAssumption]],
-			anonymize[Simplify[(-absoluteFluxEqn/.forwardZeroSub/.volumeSub), TimeConstraint->5, Trig->False, Assumptions->posConcentractionAssumption]]
-		];	
+		If[! FileExistsQ[rateFileName],
+			If[TrueQ[simplifyFlag],
+				Print["Simplifying..."];
+				rateEq = anonymize[Simplify[(-absoluteFluxEqn/.forwardZeroSub/.volumeSub), TimeConstraint->simplifyMaxTime, Trig->False, Assumptions->posConcentractionAssumption]];,
+				rateEq = (-absoluteFluxEqn/.forwardZeroSub/.volumeSub);	
+			];
+			Export[rateFileName, rateEq];
+			rateEq,
+		
+			Import[rateFileName]	
+		];
 		
 	Print["km for"];
 	(*Forward Km(s)*)
 	relativeRateForward = 
-		If[TrueQ[simplifyFlag],
-			Print["Simplifying..."];
-			Map[anonymize[Simplify[absoluteRateForward/(Limit[absoluteFluxEqnRelRateFor/.reverseZeroSub/.volumeSub, #]), TimeConstraint->simplifyMaxTime, Trig->False, Assumptions->posConcentractionAssumption]]&, metSatForSub],
-			Map[anonymize[Simplify[absoluteRateForward/(Limit[absoluteFluxEqnRelRateFor/.reverseZeroSub/.volumeSub, #]), TimeConstraint->5, Trig->False, Assumptions->posConcentractionAssumption]]&, metSatForSub]
-		];	
+		Table[
+			rateFileName = FileNameJoin[{outputPath, "relRateFor_"<> getID[Keys@metSatForSub] <>".m"}, OperatingSystem->$OperatingSystem]; 
+			If[! FileExistsQ[rateFileName],
+				If[TrueQ[simplifyFlag],
+					Print["Simplifying..."];
+					rateEq = anonymize[Simplify[absoluteRateForward/(Limit[absoluteFluxEqnRelRateFor/.reverseZeroSub/.volumeSub, metSatForSub]), TimeConstraint->simplifyMaxTime, Trig->False, Assumptions->posConcentractionAssumption]];,
+					rateEq = absoluteRateForward/(Limit[absoluteFluxEqnRelRateFor/.reverseZeroSub/.volumeSub, metSatForSub]);
+				];
+				Export[rateFileName, rateEq];
+				rateEq,
+					
+				Import[rateFileName]
+			],
+		{metSatForSub, metSatForSubList}];
+		
+		
 	(*relativeRateForward = Map[Simplify[(Limit[absoluteFluxEqnRelRateFor/.reverseZeroSub/.volumeSub, #])/absoluteRateForward, TimeConstraint->simplifyMaxTime, Trig->False, Assumptions->posConcentractionAssumption]&, metSatForSub];
 	*)
 	Print["km rev"];
 	(*Reverse Km(s)*)
 	relativeRateReverse = 
-		If[TrueQ[simplifyFlag],
-			Print["Simplifying..."];
-			Map[anonymize[Simplify[-absoluteRateReverse/(Limit[absoluteFluxEqnRelRateRev/.forwardZeroSub/.volumeSub, #]), TimeConstraint->simplifyMaxTime, Trig->False, Assumptions->posConcentractionAssumption]]&, metSatRevSub],
-			Map[anonymize[Simplify[-absoluteRateReverse/(Limit[absoluteFluxEqnRelRateRev/.forwardZeroSub/.volumeSub, #]), TimeConstraint->5, Trig->False, Assumptions->posConcentractionAssumption]]&, metSatRevSub]
-		];	
-	(*relativeRateReverse = Map[Simplify[-(Limit[absoluteFluxEqnRelRateRev/.forwardZeroSub/.volumeSub, #])/absoluteRateReverse, TimeConstraint->simplifyMaxTime, Trig->False, Assumptions->posConcentractionAssumption]&, metSatRevSub];
-	*)
+		Table[
+			rateFileName = FileNameJoin[{outputPath, "relRateRev_"<> getID[Keys@metSatRevSub] <>".m"}, OperatingSystem->$OperatingSystem];
+			If[! FileExistsQ[rateFileName],
+				If[TrueQ[simplifyFlag],
+					Print["Simplifying..."];
+					rateEq = anonymize[Simplify[-absoluteRateReverse/(Limit[absoluteFluxEqnRelRateRev/.forwardZeroSub/.volumeSub, metSatRevSub]), TimeConstraint->simplifyMaxTime, Trig->False, Assumptions->posConcentractionAssumption]];,
+					rateEq = -absoluteRateReverse/(Limit[absoluteFluxEqnRelRateRev/.forwardZeroSub/.volumeSub, metSatRevSub]);
+				];
+				Export[rateFileName, rateEq];
+				rateEq,
+				
+				Import[rateFileName]
+			],
+		{metSatRevSub, metSatRevSubList}];
+		
+	(*relativeRateReverse = Map[Simplify[-(Limit[absoluteFluxEqnRelRateRev/.forwardZeroSub/.volumeSub, #])/absoluteRateReverse, TimeConstraint->simplifyMaxTime, Trig->False, Assumptions->posConcentractionAssumption]&, metSatRevSub];*)
+	
 	Print["otherMetsReverseZeroSub"];
 	If[!(otherMetsReverseZeroSub === Null) && !(otherMetsReverseZeroSub === {}),
 		otherAbsoluteRatesForward = 
 			If[TrueQ[simplifyFlag],
 				Print["Simplifying..."];
 				Table[
-					Print[{metReverseZeroSub[[1]], Map[{#, Limit[absoluteFluxEqn/.metReverseZeroSub[[2]]/.volumeSub, #]}&, metSatForSub]}];
-					Print[{metReverseZeroSub[[1]], absoluteFluxEqn/.metReverseZeroSub[[2]]/.volumeSub}];
+					Print[{metReverseZeroSub[[1]], Map[{#, Limit[absoluteFluxEqn/.metReverseZeroSub[[2]]/.volumeSub, #]}&, metSatForSubList]}];
 					{metReverseZeroSub[[1]], Map[Simplify[(absoluteFluxEqn/.metReverseZeroSub[[2]]/.volumeSub)/(Limit[absoluteFluxEqn/.metReverseZeroSub[[2]]/.volumeSub, #]), TimeConstraint->simplifyMaxTime, Trig->False, Assumptions->posConcentractionAssumption]&, metSatForSub]},
 				{metReverseZeroSub, otherMetsReverseZeroSub}],
 				Table[
-					{metReverseZeroSub[[1]], Map[(absoluteFluxEqn/.metReverseZeroSub[[2]]/.volumeSub)/(Limit[absoluteFluxEqn/.metReverseZeroSub[[2]]/.volumeSub, #]) &, metSatForSub]},
+					{metReverseZeroSub[[1]], Map[(absoluteFluxEqn/.metReverseZeroSub[[2]]/.volumeSub)/(Limit[absoluteFluxEqn/.metReverseZeroSub[[2]]/.volumeSub, #]) &, metSatForSubList]},
 				{metReverseZeroSub, otherMetsReverseZeroSub}]
 			];
 	];
@@ -393,11 +428,11 @@ getRateEqs[enzymeModel_, absoluteFlux_, rateConstSubstitutionList_, reverseZeroS
 			If[TrueQ[simplifyFlag], 
 				Print["Simplifying..."];
 				Table[
-					Print[{metForwardZeroSub[[1]], Map[{#, Limit[absoluteFluxEqn/.metForwardZeroSub[[2]]/.volumeSub, #]}&, metSatRevSub]}];
+					Print[{metForwardZeroSub[[1]], Map[{#, Limit[absoluteFluxEqn/.metForwardZeroSub[[2]]/.volumeSub, #]}&, metSatRevSubList]}];
 					{metForwardZeroSub[[1]], Map[Simplify[-(absoluteFluxEqn/.metForwardZeroSub[[2]]/.volumeSub)/(Limit[absoluteFluxEqn/.metForwardZeroSub[[2]]/.volumeSub, #]), TimeConstraint->simplifyMaxTime, Trig->False, Assumptions->posConcentractionAssumption]&, metSatRevSub]},
 				{metForwardZeroSub, otherMetsForwardZeroSub}],
 				Table[
-					{metForwardZeroSub[[1]], Map[-(absoluteFluxEqn/.metForwardZeroSub[[2]]/.volumeSub)/(Limit[absoluteFluxEqn/.metForwardZeroSub[[2]]/.volumeSub, #]) &, metSatRevSub]},
+					{metForwardZeroSub[[1]], Map[-(absoluteFluxEqn/.metForwardZeroSub[[2]]/.volumeSub)/(Limit[absoluteFluxEqn/.metForwardZeroSub[[2]]/.volumeSub, #]) &, metSatRevSubList]},
 				{metForwardZeroSub, otherMetsForwardZeroSub}]
 			];
 	];
@@ -596,8 +631,8 @@ setUpFluxEquations[enzymeModel_, rxn_, rxnName_, inputPath_, inhibitionListFull_
 
 	{absoluteRateForward, absoluteRateReverse, relativeRateForward, relativeRateReverse, otherAbsoluteRatesForward, otherAbsoluteRatesReverse} = 
 		getRateEqs[enzymeModelLocal, absoluteFlux, rateConstSubstitutionList, reverseZeroSub, forwardZeroSub, volumeSub, metSatForSub, metSatRevSub, 
-					absoluteFluxNoProdInhib, absoluteFluxNoProdInhib,otherMetsForwardZeroSub, otherMetsReverseZeroSub, simplifyFlag, simplifyMaxTime];
-
+					inputPath, absoluteFluxNoProdInhib, absoluteFluxNoProdInhib,otherMetsForwardZeroSub, otherMetsReverseZeroSub, simplifyFlag, simplifyMaxTime];
+					
 	(* set up haldane relations *)
 	haldaneRatiosList  = Table[
 				haldane = haldaneRelation[KeqName,catalyticReactionsSet]/.rateConstSubstitutionList;
