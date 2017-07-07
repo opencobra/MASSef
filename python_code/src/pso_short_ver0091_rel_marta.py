@@ -570,6 +570,7 @@ def run_pso(parameter, data_file_name, summary_file_name, ultimate_result_name):
     best.fitness, num_generations, val_pop_size, neigh_size_var, inertia_var, cogn_rate_var, soc_rate_var))
     sum_file.close()
     print('best_fit: %s' % (best.fitness))
+
     """"""
 
     """Storing the best Candidate in a file"""

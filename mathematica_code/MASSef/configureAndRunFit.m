@@ -247,8 +247,8 @@ createCombinedFitShellScript[runFitScriptPath_, psoParameterPath_, lmaParameterP
 
 executeFit[inputPath_, runPythonCmd_]:=Block[{runBothCmd, runBothExe},
 
-	runBothCmd="cd \""<>inputPath<>"\" && "<>runPythonCmd;
-	runBothExe="!"<>runBothCmd <>" 2>&1";
+	runBothCmd = "cd \""<>inputPath<>"\" && "<>runPythonCmd;
+	runBothExe = "!"<>runBothCmd <>" 2>&1";
 
 	Import[runBothExe<>" 2>&1","Text"] 
 
