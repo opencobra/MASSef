@@ -18,7 +18,8 @@ Begin["`Private`"];
 createDirectories[dataFolder_, removeInputFiles_, removeOutputFiles_, workingDir_] := Module[{workingDirLocal, dataPath, inputPath, outputPath, mkDirCmd},
 	
 	If[SameQ[workingDir, Null],
-		workingDirLocal = NotebookDirectory[];
+		workingDirLocal = NotebookDirectory[];,
+		workingDirLocal = workingDir;
 	];
 
 	Print["Working dir:" <> workingDirLocal];
