@@ -413,7 +413,7 @@ getRateEqs[enzymeModel_, absoluteFlux_, rateConstSubstitutionList_, reverseZeroS
 			If[TrueQ[simplifyFlag],
 				Print["Simplifying..."];
 				Table[
-					Print[{metReverseZeroSub[[1]], Map[{#, Limit[absoluteFluxEqn/.metReverseZeroSub[[2]]/.volumeSub, #]}&, metSatForSubList]}];
+					Print[{metReverseZeroSub[[1]], metReverseZeroSub[[2]], Map[{#, Limit[absoluteFluxEqn/.metReverseZeroSub[[2]]/.volumeSub, #]}&, metSatForSubList]}];
 					{metReverseZeroSub[[1]], Map[Simplify[(absoluteFluxEqn/.metReverseZeroSub[[2]]/.volumeSub)/(Limit[absoluteFluxEqn/.metReverseZeroSub[[2]]/.volumeSub, #]), TimeConstraint->simplifyMaxTime, Trig->False, Assumptions->posConcentractionAssumption]&, metSatForSub]},
 				{metReverseZeroSub, otherMetsReverseZeroSub}],
 				Table[
@@ -428,7 +428,7 @@ getRateEqs[enzymeModel_, absoluteFlux_, rateConstSubstitutionList_, reverseZeroS
 			If[TrueQ[simplifyFlag], 
 				Print["Simplifying..."];
 				Table[
-					Print[{metForwardZeroSub[[1]], Map[{#, Limit[absoluteFluxEqn/.metForwardZeroSub[[2]]/.volumeSub, #]}&, metSatRevSubList]}];
+					Print[{metForwardZeroSub[[1]], metForwardZeroSub[[2]], Map[{#, Limit[absoluteFluxEqn/.metForwardZeroSub[[2]]/.volumeSub, #]}&, metSatRevSubList]}];
 					{metForwardZeroSub[[1]], Map[Simplify[-(absoluteFluxEqn/.metForwardZeroSub[[2]]/.volumeSub)/(Limit[absoluteFluxEqn/.metForwardZeroSub[[2]]/.volumeSub, #]), TimeConstraint->simplifyMaxTime, Trig->False, Assumptions->posConcentractionAssumption]&, metSatRevSub]},
 				{metForwardZeroSub, otherMetsForwardZeroSub}],
 				Table[
