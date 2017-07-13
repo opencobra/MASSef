@@ -542,7 +542,7 @@ simulateS05Data[rxn_, metsFull_, metSatForSub_, metSatRevSub_, s05List_, otherPa
 ];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Simulate kcat data*)
 
 
@@ -863,8 +863,8 @@ simulateInhibData[rxn_, metsFull_, metSatForSub_, metSatRevSub_, inhibList_, ass
 			AppendTo[inhibListFull[[inhib]], "\""<>Flatten[DeleteCases[StringCases[fileList, RegularExpression[".*inhib.*" <> getID@inhibListFull[[inhib]][[2]] <> ".txt"]], {}]][[1]] <>"\""],			
 
 			If[MemberQ[getSubstrates[rxn], inhibListFull[[inhib]][[5, 1, 2]]],
-				AppendTo[inhibListFull[[inhib]], FileNameJoin[{"\""<>inputPath, "absRateFor.txt"<>"\""}, OperatingSystem->$OperatingSystem]],
-				AppendTo[inhibListFull[[inhib]], FileNameJoin[{"\""<>inputPath, "absRateRev.txt"<>"\""}, OperatingSystem->$OperatingSystem]]
+				AppendTo[inhibListFull[[inhib]], FileNameJoin[{"\""<>inputPath, "relRateFor_" <> getID @ inhibListFull[[inhib]][[5, 1, 2]] <> ".txt"<>"\""}, OperatingSystem->$OperatingSystem]],
+				AppendTo[inhibListFull[[inhib]], FileNameJoin[{"\""<>inputPath, "relRateRev_" <> getID @ inhibListFull[[inhib]][[5, 1, 2]] <> ".txt"<>"\""}, OperatingSystem->$OperatingSystem]]
 			]
 		],
 	{inhib, Length @ inhibListFull}];
