@@ -106,8 +106,8 @@ rNonModelMets[metList_] := Delete[Delete[metList,Position[metList,MASSToolbox`me
 
 
 getMetsSub[rxn_] := Module[{reverseZeroSub, forwardZeroSub, metSatForSub, metSatRevSub},
-	reverseZeroSub=#->10^-10&/@rNonModelMets[getProducts[rxn]];
-	forwardZeroSub=#->10^-10&/@rNonModelMets[getSubstrates[rxn]];
+	reverseZeroSub=#->0&/@rNonModelMets[getProducts[rxn]];
+	forwardZeroSub=#->0&/@rNonModelMets[getSubstrates[rxn]];
 	metSatForSub=#->\[Infinity]&/@rNonModelMets[getSubstrates[rxn]];
 	metSatRevSub=#->\[Infinity]&/@rNonModelMets[getProducts[rxn]];
 	
