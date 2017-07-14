@@ -63,9 +63,14 @@ def _evaluator(candidate):
         data_value.append(row[value_row])
         predicted_value.append(functionDict[row[function_row]](newC, row[1:data_row_high])) # for weights: substitute here 0 for 1
 
+    print data_value
+    print predicted_value
+    print '-----'
     # Convert to log space
     data_value = numpy.log10(data_value)
     predicted_value = numpy.log10(predicted_value)
+    print data_value
+    print predicted_value
 
 
     # Calculate the Residuals and SSE

@@ -89,7 +89,7 @@ keq2kHT = #/.keq_Keq:>rateconst[getID[keq],True]/rateconst[getID[keq],False]&;(*
 
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*Stuff*)
 
 
@@ -105,11 +105,22 @@ rNonModelMets[metList_] := Delete[Delete[metList,Position[metList,MASSToolbox`me
 (*Get metabolite substitutions for rate constants*)
 
 
-getMetsSub[rxn_] := Module[{reverseZeroSub, forwardZeroSub, metSatForSub, metSatRevSub},
+getMetsSub[rxn_] := Module[{reverseZeroSub, forwardZeroSub, metSatForSub, metSatRevSub, subList, prodList, complementSubList, complementProdList},
 	reverseZeroSub=#->0&/@rNonModelMets[getProducts[rxn]];
 	forwardZeroSub=#->0&/@rNonModelMets[getSubstrates[rxn]];
+	
+	(*
 	metSatForSub=#->\[Infinity]&/@rNonModelMets[getSubstrates[rxn]];
 	metSatRevSub=#->\[Infinity]&/@rNonModelMets[getProducts[rxn]];
+	*)
+	subList = rNonModelMets[getSubstrates[rxn]];
+	prodList = rNonModelMets[getProducts[rxn]];
+	
+	complementSubList = Map[{getID@#,Complement[subList,{#}]}&, subList];
+	complementProdList = Map[{getID@#,Complement[prodList,{#}]}&, prodList];
+	
+	metSatForSub = Table[{complementSub[[1]], Map[#->\[Infinity]&, complementSub[[2]]]}, {complementSub, complementSubList}];
+	metSatRevSub = Table[{complementProd[[1]], Map[#->\[Infinity]&, complementProd[[2]]]}, {complementProd, complementProdList}];
 	
 	Return[{reverseZeroSub, forwardZeroSub, metSatForSub, metSatRevSub}];
 ];
