@@ -109,10 +109,10 @@ getMetsSub[rxn_] := Module[{reverseZeroSub, forwardZeroSub, metSatForSub, metSat
 	reverseZeroSub=#->0&/@rNonModelMets[getProducts[rxn]];
 	forwardZeroSub=#->0&/@rNonModelMets[getSubstrates[rxn]];
 	
-	(*
+	
 	metSatForSub=#->\[Infinity]&/@rNonModelMets[getSubstrates[rxn]];
 	metSatRevSub=#->\[Infinity]&/@rNonModelMets[getProducts[rxn]];
-	*)
+	(*
 	subList = rNonModelMets[getSubstrates[rxn]];
 	prodList = rNonModelMets[getProducts[rxn]];
 	
@@ -121,7 +121,7 @@ getMetsSub[rxn_] := Module[{reverseZeroSub, forwardZeroSub, metSatForSub, metSat
 	
 	metSatForSub = Table[{complementSub[[1]], Map[#->\[Infinity]&, complementSub[[2]]]}, {complementSub, complementSubList}];
 	metSatRevSub = Table[{complementProd[[1]], Map[#->\[Infinity]&, complementProd[[2]]]}, {complementProd, complementProdList}];
-	
+	*)
 	Return[{reverseZeroSub, forwardZeroSub, metSatForSub, metSatRevSub}];
 ];
 

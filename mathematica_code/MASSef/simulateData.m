@@ -17,8 +17,7 @@ Begin["`Private`"];
 
 calculateBufferIonicStrength[bufferInfo_, dataListFull_] := Block[{bufferData, localBuffInfo, localAcid, localBase, bufferIonStrength, ind1, ind2},
 	(*Calculate Buffer Ionic Strength*)
-	Print["buffer"];
-	Print[Dimensions[dataListFull][[2]] ];
+
 	Which[StringQ[dataListFull[[1]][[1]]] && StringMatchQ[dataListFull[[1]][[1]],  RegularExpression["Ki.*"]] && Dimensions[dataListFull][[2]] == 12, ind1=7; ind2=9,
 		  MemberQ[{11, 12}, Dimensions[dataListFull][[2]]], ind1=6; ind2=8, (* Km Data*)
 	  	Dimensions[dataListFull][[2]] == 8, ind1=5; ind2=7, (* kcat data *)
@@ -417,7 +416,7 @@ simulateKmData[rxn_, metsFull_, metSatForSub_, metSatRevSub_, kmList_, otherParm
 ];
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*Simulate S05 data*)
 
 
