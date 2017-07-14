@@ -305,31 +305,30 @@ f[x_] := (Print[x];
 
 
 
-checkDuplicateReactants[relRate_, metToCheck_, absoluteRate_, metsZeroSub_, volumeSub_, rxnReactants_]:=
-	Block[{relRateLocal=relRate, symbolicKm, countList, repeatedReactantCount,
-			repeatedReactantPosition, repeatedReactant},
+generateRelRateDuplicateReactants[absoluteRate_, metsZeroSub_, volumeSub_, metList_, metStoichList_, repeatedMetCount_]:=
+	Block[{relRate, symbolicKm, repeatedMetInd,
+			repeatedMet},
 
-	countList = Flatten[Map[Counts[getCatalytic@#]&, rxnReactants]][[1]];
-	Print[countList];
-	Print[countList[metToCheck]];
-	
-	If[countList[metToCheck] > 1,
-		symbolicKm=Solve[(absoluteRate/.metsZeroSub/.volumeSub)== Limit[absoluteRate/.metsZeroSub/.volumeSub, metToCheck-> \[Infinity]]/2, metToCheck];
-		relRateLocal[[1]]=Simplify[symbolicKm[[1,1,2]]];
-	];
+	repeatedMetInd = Flatten[Position[metStoichList, repeatedMetCount[[1]]]][[1]];
+	repeatedMet = metList[[repeatedMetInd]];
 
-	Return[relRateLocal];
+	Print["repeated met: " <> getID@repeatedMet];
+
+	symbolicKm = Solve[absoluteRate == (Limit[absoluteRate, repeatedMet -> \[Infinity]] / 2), repeatedMet];
+	relRate = Simplify[symbolicKm[[1,1,2]]];
+
+	Return[relRate];
 ];
 
 
-getRateEqs[enzymeModel_, absoluteFlux_, rateConstSubstitutionList_, reverseZeroSub_, 
+getRateEqs[rxn_, enzymeModel_, absoluteFlux_, rateConstSubstitutionList_, reverseZeroSub_, 
 		   forwardZeroSub_, volumeSub_, metSatForSubList_, metSatRevSubList_,
 		   outputPath_,  absoluteFluxRelRateFor_:Null, absoluteFluxRelRateRev_:Null, 
 		   otherMetsForwardZeroSub_:Null, otherMetsReverseZeroSub_:Null,
 		   simplifyFlag_:True, simplifyMaxTime_:300]:= 
 	Block[{absoluteFluxEqn, absoluteRateForward, absoluteRateReverse, relativeRateForward, relativeRateReverse,
 			absoluteFluxEqnRelRateFor, absoluteFluxEqnRelRateRev, otherAbsoluteRatesForward={}, otherAbsoluteRatesReverse={},
-			posConcentractionAssumption, rateFileName, rateEq},
+			posConcentractionAssumption, rateFileName, rateEq, repeatedMetCount},
 			
 	absoluteFluxEqn = absoluteFlux[[2]]/.rateConstSubstitutionList;(* Equivalent Rate Constants *)
 
@@ -342,14 +341,14 @@ getRateEqs[enzymeModel_, absoluteFlux_, rateConstSubstitutionList_, reverseZeroS
 		absoluteFluxEqn,
 		absoluteFluxRelRateRev[[2]]/.rateConstSubstitutionList
 	];		
+
 	posConcentractionAssumption = Map[# >= 0. &, enzymeModel["Species"]];
-	Print[posConcentractionAssumption];
 	
 	(*kcat Forward*)
 	Print["kcat for"];
 	rateFileName = FileNameJoin[{outputPath, "absRateFor.m"}, OperatingSystem->$OperatingSystem];
 	absoluteRateForward = 
-		If[! FileExistsQ[rateFileName],
+		If[! FileExistsQ[rateFileName], (* if file with absRateFor doesnt exist, create it *)
 		
 			If[TrueQ[simplifyFlag],
 				Print["Simplifying..."];
@@ -366,7 +365,8 @@ getRateEqs[enzymeModel_, absoluteFlux_, rateConstSubstitutionList_, reverseZeroS
 	(*kcat Reverse*)
 	rateFileName = FileNameJoin[{outputPath, "absRateRev.m"}, OperatingSystem->$OperatingSystem];
 	absoluteRateReverse = 
-		If[! FileExistsQ[rateFileName],
+		If[! FileExistsQ[rateFileName], (* if file with absRateRev doesnt exist, create it *)
+		
 			If[TrueQ[simplifyFlag],
 				Print["Simplifying..."];
 				rateEq = anonymize[Simplify[(-absoluteFluxEqn/.forwardZeroSub/.volumeSub), TimeConstraint->simplifyMaxTime, Trig->False, Assumptions->posConcentractionAssumption]];,
@@ -383,15 +383,22 @@ getRateEqs[enzymeModel_, absoluteFlux_, rateConstSubstitutionList_, reverseZeroS
 	(*Forward Km(s)*)
 	relativeRateForward = 
 		Table[
-			rateFileName = FileNameJoin[{outputPath, "relRateFor_"<> getID@Keys[metSatForSub] <>".m"}, OperatingSystem->$OperatingSystem]; 
-			If[! FileExistsQ[rateFileName],
-				If[TrueQ[simplifyFlag],
-					Print["Simplifying..."];
-					rateEq = anonymize[Simplify[absoluteRateForward/(Limit[absoluteFluxEqnRelRateFor/.reverseZeroSub/.volumeSub, metSatForSub]), TimeConstraint->simplifyMaxTime, Trig->False, Assumptions->posConcentractionAssumption]];,
-					rateEq = absoluteRateForward/(Limit[absoluteFluxEqnRelRateFor/.reverseZeroSub/.volumeSub, metSatForSub]);
-				];
+			rateFileName = FileNameJoin[{outputPath, "relRateFor_"<> getID@Keys[metSatForSub] <> ".m"}, OperatingSystem->$OperatingSystem]; 
+			
+			If[! FileExistsQ[rateFileName], (* if file with relRateFor doesnt exist, create it *)
+			
+				repeatedMetCount = Select[getSubstrStoich@rxn, #> 1&];	
+				If[ SameQ[repeatedMetCount, {}],
 				
-				(*rateEq = checkDuplicateReactants[rateEq, Keys@metSatForSub, absoluteRateForward, reverseZeroSub, volumeSub, getSubstrates[transitionRateEqs]];*)
+					If[TrueQ[simplifyFlag],
+						Print["Simplifying..."];
+						rateEq = anonymize[Simplify[absoluteRateForward/(Limit[absoluteFluxEqnRelRateFor/.reverseZeroSub/.volumeSub, metSatForSub]), TimeConstraint->simplifyMaxTime, Trig->False, Assumptions->posConcentractionAssumption]];,
+						rateEq = absoluteRateForward/(Limit[absoluteFluxEqnRelRateFor/.reverseZeroSub/.volumeSub, metSatForSub]);
+					];,
+					
+					rateEq = generateRelRateDuplicateReactants[absoluteRateForward, metSatForSub, volumeSub, getSubstrates@rxn, getSubstrStoich@rxn, repeatedMetCount];
+				];
+		
 				Export[rateFileName, rateEq];
 				rateEq,
 					
@@ -399,17 +406,27 @@ getRateEqs[enzymeModel_, absoluteFlux_, rateConstSubstitutionList_, reverseZeroS
 			],
 		{metSatForSub, metSatForSubList}];
 	
+	
 	Print["km rev"];
 	(*Reverse Km(s)*)
 	relativeRateReverse = 
 		Table[
 			rateFileName = FileNameJoin[{outputPath, "relRateRev_"<> getID@Keys[metSatRevSub] <>".m"}, OperatingSystem->$OperatingSystem];
-			If[! FileExistsQ[rateFileName],
-				If[TrueQ[simplifyFlag],
-					Print["Simplifying..."];
-					rateEq = anonymize[Simplify[-absoluteRateReverse/(Limit[absoluteFluxEqnRelRateRev/.forwardZeroSub/.volumeSub, metSatRevSub]), TimeConstraint->simplifyMaxTime, Trig->False, Assumptions->posConcentractionAssumption]];,
-					rateEq = -absoluteRateReverse/(Limit[absoluteFluxEqnRelRateRev/.forwardZeroSub/.volumeSub, metSatRevSub]);
+			
+			If[! FileExistsQ[rateFileName], (* if file with relRateRev doesnt exist, create it *)
+			
+				repeatedMetCount = Select[getProdStoich@rxn, #> 1&];	
+				If[ SameQ[repeatedMetCount, {}],
+				
+					If[TrueQ[simplifyFlag],
+						Print["Simplifying..."];
+						rateEq = anonymize[Simplify[-absoluteRateReverse/(Limit[absoluteFluxEqnRelRateRev/.forwardZeroSub/.volumeSub, metSatRevSub]), TimeConstraint->simplifyMaxTime, Trig->False, Assumptions->posConcentractionAssumption]];,
+						rateEq = -absoluteRateReverse/(Limit[absoluteFluxEqnRelRateRev/.forwardZeroSub/.volumeSub, metSatRevSub]);
+					];,
+					
+					rateEq = generateRelRateDuplicateReactants[-absoluteRateReverse, metSatRevSub, volumeSub, getProducts@rxn, getProdStoich@rxn, repeatedMetCount];
 				];
+		
 				Export[rateFileName, rateEq];
 				rateEq,
 				
@@ -646,10 +663,10 @@ setUpFluxEquations[enzymeModel_, rxn_, rxnName_, inputPath_, inhibitionListFull_
 	absoluteFlux = getFluxEquation[inputPath, rxnName, enzymeModelLocal, rateConstSubstitutionList, transitionRateEqs, simplifyFlag, simplifyMaxTime, nActiveSites, ""];
 
 	{absoluteRateForward, absoluteRateReverse, relativeRateForward, relativeRateReverse, otherAbsoluteRatesForward, otherAbsoluteRatesReverse} = 
-		getRateEqs[enzymeModelLocal, absoluteFlux, rateConstSubstitutionList, reverseZeroSub, forwardZeroSub, volumeSub, metSatForSub, metSatRevSub, 
+		getRateEqs[rxn, enzymeModelLocal, absoluteFlux, rateConstSubstitutionList, reverseZeroSub, forwardZeroSub, volumeSub, metSatForSub, metSatRevSub, 
 					inputPath, absoluteFluxNoProdInhib, absoluteFluxNoProdInhib,otherMetsForwardZeroSub, otherMetsReverseZeroSub, simplifyFlag, simplifyMaxTime];
 		
-					
+	
 	(* set up haldane relations *)
 	haldaneRatiosList  = Table[
 				haldane = haldaneRelation[KeqName,catalyticReactionsSet]/.rateConstSubstitutionList;

@@ -319,6 +319,51 @@ correctChemicalActivities[dataListFull_, metsFull_, activeIsoSub_, ionicStrength
 (*Simulate Km data*)
 
 
+substituteTargetValue[kmList_, kmFittingData_, metStoichList_, metList_, repeatedMetCount_]:=
+	Block[{kmFittingDataLocal=kmFittingData, repeatedMetInd, repeatedMetID, kmEntry,
+			kmVal},
+	repeatedMetInd = Flatten[Position[metStoichList, repeatedMetCount[[1]]]][[1]];
+	repeatedMetID = getID@metList[[repeatedMetInd]];
+	
+	kmEntry = Flatten[Position[kmList[[All,2]], Select[kmList[[All,2]], # == repeatedMetID &][[1]]]][[1]];
+	kmVal = kmList[[kmEntry, 3]];
+		
+	Do[
+		If[StringMatchQ[kmFittingDataLocal[[kmLineI, -2]], RegularExpression[".*relRate.*" <> repeatedMetID <>"\\.txt\""]],
+			kmFittingDataLocal[[kmLineI, -1]] = kmVal;
+		],
+	{kmLineI, 1, Length@kmFittingDataLocal}];
+	
+	Return[kmFittingDataLocal];
+];
+
+
+fixDuplicateMetKmFittingData[rxn_, kmList_, kmFittingData_]:=
+	Block[{repeatedMetCount, repeatedMetInd, repeatedMet,
+			metStoichList, metList, repeatedMetID,
+			kmEntry, kmVal, kmFittingDataLocal=kmFittingData},
+	
+	metStoichList = getSubstrStoich@rxn;
+	repeatedMetCount = Select[metStoichList, #> 1&];	
+
+	If[ ! SameQ[repeatedMetCount, {}],
+		metList = getSubstrates@rxn;
+		kmFittingDataLocal = substituteTargetValue[kmList, kmFittingDataLocal, metStoichList, metList, repeatedMetCount];
+	];
+	
+	
+	metStoichList = getProdStoich@rxn;
+	repeatedMetCount = Select[metStoichList, #> 1&];	
+
+	If[ ! SameQ[repeatedMetCount, {}],
+		metList = getProducts@rxn;
+		kmFittingDataLocal = substituteTargetValue[kmList, kmFittingDataLocal, metStoichList, metList, repeatedMetCount];
+	];
+	
+	Return[kmFittingDataLocal];
+];
+
+
 simulateKmData[rxn_, metsFull_, metSatForSub_, metSatRevSub_, kmList_, otherParmsList_, assumedSaturatingConc_, eTotal_,
 			   logStepSize_, activeIsoSub_, bufferInfo_, ionCharge_, inputPath_, fileList_] := 
 	Block[{kmListLocal=kmList, priorityList, kmEqn, kmListSub, char2met, kmListFull, dataRange, vValues,   
@@ -364,7 +409,6 @@ simulateKmData[rxn_, metsFull_, metSatForSub_, metSatRevSub_, kmList_, otherParm
 		{km, Length @ kmListFull}, {path,fileList}];
 
 	kmListFull = handleCosubstrateData[kmListFull, metsFull, metSatForSub, metSatRevSub, dataRange, assumedSaturatingConc, rxn];
-	Print[kmListFull];
 
 	ionicStrength = calculateIonicStrength[kmListFull, bufferInfo, ionCharge];
 	Print[ionicStrength];
@@ -407,7 +451,7 @@ simulateKmData[rxn_, metsFull_, metSatForSub_, metSatRevSub_, kmList_, otherParm
 		{pt, Length @ kmFittingData}];
 
 	
-	
+	kmFittingData = fixDuplicateMetKmFittingData[rxn, kmList, kmFittingData];
 	(*kmFittingData=Table[
 		Join[{adjustedKeqVal[[pt,2]]}, kmFittingData[[pt]]],
 	{pt, Length @ kmFittingData}];*)
@@ -416,7 +460,7 @@ simulateKmData[rxn_, metsFull_, metSatForSub_, metSatRevSub_, kmList_, otherParm
 ];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Simulate S05 data*)
 
 
