@@ -13,6 +13,7 @@ import warnings  # Python displays a warning that is safe to ignore
 
 import numpy
 from lmfit import minimize, Parameters
+from math import sqrt
 
 warnings.filterwarnings("ignore", category=RuntimeWarning)
 

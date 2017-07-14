@@ -19,6 +19,7 @@ from ecspy import topologies
 import swarm
 # from ecspy import swarm
 from ecspy import observers
+from math import sqrt
 
 
 def load_enzyme_data(path):
