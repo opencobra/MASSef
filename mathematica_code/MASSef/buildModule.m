@@ -139,6 +139,7 @@ getFluxEquation[inputDir_, rxnName_, enzymeModel_, rateConstSubstitutionList_, t
 		Print[transitionRateEqs];
 		fluxEq = (*unifyRateConstants[*)Total[keq2kHT@transitionRateEqs]/.rateConstSubstitutionList(*]*);(*Flux Will Always Go through the Transition Step*)
 		fluxEq = Simplify[fluxEq];
+		Print[fluxEq];
 		
 		(*Print["---"];*)
 		enzForms = Cases[enzymeModel["Species"], _enzyme]//Union;
@@ -328,7 +329,7 @@ getRateEqs[rxn_, enzymeModel_, absoluteFlux_, rateConstSubstitutionList_, revers
 		   simplifyFlag_:True, simplifyMaxTime_:300]:= 
 	Block[{absoluteFluxEqn, absoluteRateForward, absoluteRateReverse, relativeRateForward, relativeRateReverse,
 			absoluteFluxEqnRelRateFor, absoluteFluxEqnRelRateRev, otherAbsoluteRatesForward={}, otherAbsoluteRatesReverse={},
-			posConcentractionAssumption, rateFileName, rateEq, repeatedMetCount},
+			posConcentractionAssumption, rateFileName, rateEq, repeatedMetCount, n},
 			
 	absoluteFluxEqn = absoluteFlux[[2]]/.rateConstSubstitutionList;(* Equivalent Rate Constants *)
 
@@ -392,6 +393,8 @@ getRateEqs[rxn_, enzymeModel_, absoluteFlux_, rateConstSubstitutionList_, revers
 				
 					If[TrueQ[simplifyFlag],
 						Print["Simplifying..."];
+						(*rateEq = anonymize[Simplify[absoluteRateForward^n/(Limit[absoluteFluxEqnRelRateFor/.reverseZeroSub/.volumeSub, metSatForSub])^n, TimeConstraint->simplifyMaxTime, Trig->False, Assumptions->posConcentractionAssumption]];,
+						rateEq = absoluteRateForward^n/(Limit[absoluteFluxEqnRelRateFor/.reverseZeroSub/.volumeSub, metSatForSub])^n;*)
 						rateEq = anonymize[Simplify[absoluteRateForward/(Limit[absoluteFluxEqnRelRateFor/.reverseZeroSub/.volumeSub, metSatForSub]), TimeConstraint->simplifyMaxTime, Trig->False, Assumptions->posConcentractionAssumption]];,
 						rateEq = absoluteRateForward/(Limit[absoluteFluxEqnRelRateFor/.reverseZeroSub/.volumeSub, metSatForSub]);
 					];,
@@ -420,8 +423,10 @@ getRateEqs[rxn_, enzymeModel_, absoluteFlux_, rateConstSubstitutionList_, revers
 				
 					If[TrueQ[simplifyFlag],
 						Print["Simplifying..."];
-						rateEq = anonymize[Simplify[-absoluteRateReverse/(Limit[absoluteFluxEqnRelRateRev/.forwardZeroSub/.volumeSub, metSatRevSub]), TimeConstraint->simplifyMaxTime, Trig->False, Assumptions->posConcentractionAssumption]];,
-						rateEq = -absoluteRateReverse/(Limit[absoluteFluxEqnRelRateRev/.forwardZeroSub/.volumeSub, metSatRevSub]);
+						(*rateEq = anonymize[Simplify[(-absoluteRateReverse^n)/(Limit[absoluteFluxEqnRelRateRev/.forwardZeroSub/.volumeSub, metSatRevSub])^n, TimeConstraint->simplifyMaxTime, Trig->False, Assumptions->posConcentractionAssumption]];,
+						rateEq = (-absoluteRateReverse^n)/(Limit[absoluteFluxEqnRelRateRev/.forwardZeroSub/.volumeSub, metSatRevSub])^n;*)
+						rateEq = anonymize[Simplify[(-absoluteRateReverse)/(Limit[absoluteFluxEqnRelRateRev/.forwardZeroSub/.volumeSub, metSatRevSub]), TimeConstraint->simplifyMaxTime, Trig->False, Assumptions->posConcentractionAssumption]];,
+						rateEq = (-absoluteRateReverse)/(Limit[absoluteFluxEqnRelRateRev/.forwardZeroSub/.volumeSub, metSatRevSub]);
 					];,
 					
 					rateEq = generateRelRateDuplicateReactants[-absoluteRateReverse, metSatRevSub, volumeSub, getProducts@rxn, getProdStoich@rxn, repeatedMetCount];

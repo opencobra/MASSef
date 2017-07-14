@@ -1261,6 +1261,7 @@ simulateData[enzymeModel_,dataFileName_, haldaneRatiosList_, KeqList_, KmList_, 
 			If[AnyTrue [Map[Count[#, True]&, reactionOverlap], #<= 1&],  
 				ratioList = getRatio[enzymeModel, inhibitor, {"Inhibition", "Ki"}];
 				ratioList = DeleteDuplicates[ratioList];
+				Print[ratioList];
 				
 				If[!SameQ[ratio, Null],
 					priority = inhibEntry[[1]];

@@ -92,8 +92,8 @@ FBP2,ec_number,3.1.3.11,,,,,,,,,,,,,
 ,kcat,fdp,5.7,"5.6,5.8",,1/s,9,37,"chesk,0.5","mn2,0.002;cl,0.004",,Lineweaver-Burk,19073594,E. coli BL21 (DE3) Gold strain w/ modified pET15b vector containing GlpX open reading frame,
 ,s05,fdp,0.00007,"0.000068,0.000072",,M,9,37,"chesk,0.5","mn2,0.002;cl,0.004",,Lineweaver-Burk,19073594,E. coli BL21 (DE3) Gold strain w/ modified pET15b vector containing GlpX open reading frame,
 ,n,fdp,2.05,"2.00,2.1",,,,,,,,,19073594,,
-,Kic,f1p,0.001,,,M,7.7,25,"tric,0.02","mn2,0.001;cl,0.002","Competitive,Null",Lineweaver-Burk,10986273,E. coli JB108 w/ pJB300B,apparent value; fructose-1-phosphate
-,Kic,pi,0.00035,,,M,7.7,25,"tric,0.02","mn2,0.001;cl,0.002","Competitive,fdp",Lineweaver-Burk,10986273,E. coli JB108 w/ pJB300B,apparent value
+,Kic,f1p,0.001,,,M,7.7,25,"tric,0.02","mn2,0.001;cl,0.002","Competitive,fdp,0.00007",Lineweaver-Burk,10986273,E. coli JB108 w/ pJB300B,apparent value; fructose-1-phosphate
+,Kic,pi,0.00035,,,M,7.7,25,"tric,0.02","mn2,0.001;cl,0.002","Competitive,fdp,0.00007",Lineweaver-Burk,10986273,E. coli JB108 w/ pJB300B,apparent value
 G3PD2,ec_number,1.1.1.94,,,,,,,,,,,,,
 ,organism,E. coli,,,,,,,,,,,,,
 ,reaction,glyc3p[c] + nadp[c] <-> dhap[c] + h[c] + nadph[c],,,,,,,,,,,,,
