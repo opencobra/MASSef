@@ -896,17 +896,18 @@ simulateInhibData[rxn_, metsFull_, metSatForSub_, metSatRevSub_, inhibList_, ass
 		Table[
 			Append[inhibListFull[[inhib]], vValues[[inhib]]],
 		{inhib, Length @ inhibListFull}];
-
+	
 	(*Match to Comparision Equations*)	
 	Do[
+
 		If[MemberQ[Flatten[{getSubstrates[rxn], getProducts[rxn]}], inhibListFull[[inhib]][[2]]],
 			
-			If[SameQ[DeleteCases[StringCases[fileList, RegularExpression[".*inhib.*" <> getID@inhibListFull[[inhib]][[2]] <> ".txt"]], {}], {}],
+			If[SameQ[DeleteCases[StringCases[fileList, RegularExpression[".*otherRateRel.*" <> getID @ inhibListFull[[inhib]][[5, 1, 2]] <> ".*inhib.*" <> getID@inhibListFull[[inhib]][[2]] <> ".txt"]], {}], {}],
 				Print["You might have forgotten to set up otherMetsReverseZeroSub and/or otherMetsForwardZeroSub properly."];
 				Return[Null];
 			];
-			AppendTo[inhibListFull[[inhib]], "\""<>Flatten[DeleteCases[StringCases[fileList, RegularExpression[".*inhib.*" <> getID@inhibListFull[[inhib]][[2]] <> ".txt"]], {}]][[1]] <>"\""],			
-
+			AppendTo[inhibListFull[[inhib]], "\"" <> Flatten[DeleteCases[StringCases[fileList, RegularExpression[".*otherRateRel.*" <> getID @ inhibListFull[[inhib]][[5, 1, 2]] <> ".*inhib.*" <> getID@inhibListFull[[inhib]][[2]] <> ".txt"]], {}]][[1]] <>"\""],	
+					
 			If[MemberQ[getSubstrates[rxn], inhibListFull[[inhib]][[5, 1, 2]]],
 				AppendTo[inhibListFull[[inhib]], FileNameJoin[{"\""<>inputPath, "relRateFor_" <> getID @ inhibListFull[[inhib]][[5, 1, 2]] <> ".txt"<>"\""}, OperatingSystem->$OperatingSystem]],
 				AppendTo[inhibListFull[[inhib]], FileNameJoin[{"\""<>inputPath, "relRateRev_" <> getID @ inhibListFull[[inhib]][[5, 1, 2]] <> ".txt"<>"\""}, OperatingSystem->$OperatingSystem]]
@@ -1207,7 +1208,7 @@ simulateData[enzymeModel_,dataFileName_, haldaneRatiosList_, KeqList_, KmList_, 
 		
 	pHandT= {KeqList[[1,7]], 25};
 	If[ !SameQ[haldaneRatiosList, {}],
-
+		Print["Simulating Keq data..."];
 		Do[
 			{KeqFittingData, fileListLocal, fileListSubLocal, eqnNameListLocal, eqnValListLocal, eqnValListPyLocal} = 
 					simulateRateConstRatiosData[haldaneRatiosList[[haldaneI]], KeqList[[1,3]], KeqList[[1,1]], metsFull, rateConstsSub, 
@@ -1219,6 +1220,7 @@ simulateData[enzymeModel_,dataFileName_, haldaneRatiosList_, KeqList_, KmList_, 
 	];
 
 	If[ !SameQ[KmList, {}],
+		Print["Simulating Km data..."];
 		kmFittingData= simulateKmData[rxn, metsFull,  metSatForSub, metSatRevSub, KmList, otherParmsList, assumedSaturatingConc, eTotal,
 									logStepSize,activeIsoSub, bufferInfo, ionCharge, inputPath,  fileListLocal];
 
@@ -1226,6 +1228,7 @@ simulateData[enzymeModel_,dataFileName_, haldaneRatiosList_, KeqList_, KmList_, 
 	];
 
 	If[!SameQ[s05List,{}],
+		Print["Simulating S05 data..."];
 		s05FittingData = simulateS05Data[rxn, metsFull, metSatForSub, metSatRevSub, s05List, otherParmsList, assumedSaturatingConc, eTotal,
 										logStepSize, activeIsoSub, bufferInfo, ionCharge, inputPath,  fileListLocal];
 
@@ -1233,6 +1236,7 @@ simulateData[enzymeModel_,dataFileName_, haldaneRatiosList_, KeqList_, KmList_, 
 	];
 
 	If[ !SameQ[kcatList, {}],
+		Print["Simulating kcat data..."];
 		kcatFittingData=simulateKcatData[rxn, metsFull,  metSatForSub, metSatRevSub, kcatList, otherParmsList, assumedSaturatingConc, eTotal,
 										logStepSize, nonKmParamWeight, activeIsoSub, bufferInfo, ionCharge, inputPath,  fileListLocal];
 
@@ -1240,6 +1244,7 @@ simulateData[enzymeModel_,dataFileName_, haldaneRatiosList_, KeqList_, KmList_, 
 	];
 
 	If[ !SameQ[inhibList, {}],
+		Print["Simulating inhibition data..."];
 		logStepSize = 0.5;
 		inhibFittingData = simulateInhibData[rxn, metsFull, metSatForSub, metSatRevSub, inhibList, assumedSaturatingConc, eTotal, logStepSize, 
 											activeIsoSub, bufferInfo, ionCharge, inputPath, fileListLocal];
@@ -1285,6 +1290,7 @@ simulateData[enzymeModel_,dataFileName_, haldaneRatiosList_, KeqList_, KmList_, 
 	];
 
 	If[ !SameQ[activationList, {}],
+		Print["Simulating activation data..."];
 
 		Do[
 			activator=m[activationEntry[[3]], "c"];
@@ -1323,7 +1329,7 @@ simulateData[enzymeModel_,dataFileName_, haldaneRatiosList_, KeqList_, KmList_, 
 	];
 
 	If[ !SameQ[otherParmsList, {}],
-
+		Print["Simulating other data..."];
 		Do[
 			paramType = paramEntry[[2]];
 
@@ -1359,7 +1365,7 @@ simulateData[enzymeModel_,dataFileName_, haldaneRatiosList_, KeqList_, KmList_, 
 	];
 
 	If[!SameQ[customRatiosList, {}],
-
+		Print["Simulating custom ratios data..."];
 		count =1;
 		Do[
 			priority = customRatio[[1]];
