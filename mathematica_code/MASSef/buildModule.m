@@ -54,7 +54,7 @@ getTransitionIDs[allCatalyticReactions_]:=Block[{transitionID={}, sumReactionSto
 (*Get transition rate equations*)
 
 
-getTransitionRateEqs[transitionID_, rates_]:=Block[{transitionRateEqs={}},
+(*getTransitionRateEqs[transitionID_, rates_]:=Block[{transitionRateEqs={}},
 
 	Map[ If[
 			Length[Cases[#,_Keq,\[Infinity]]] > 0 && MemberQ[transitionID, getID[Cases[#,_Keq,\[Infinity]][[1]]]],
@@ -62,6 +62,16 @@ getTransitionRateEqs[transitionID_, rates_]:=Block[{transitionRateEqs={}},
 		]&, rates];
 	
 	Return[transitionRateEqs];
+];*)
+
+getTransitionRateEqs[transitionID_, rates_]:=Block[{transitionRateEqs={}},
+ 
+    Map[ If[
+            (Length[Cases[#, _Keq,\[Infinity]]] > 0  && MemberQ[transitionID, getID[Cases[#, _Keq,\[Infinity]][[1]]]]) ||  (Length[Cases[#, _rateconst,\[Infinity]]] > 0  && MemberQ[transitionID, getID[Cases[#, _rateconst,\[Infinity]][[1]]]]),
+            AppendTo[transitionRateEqs,#]
+        ]&, rates];
+     
+    Return[transitionRateEqs];
 ];
 
 
@@ -125,14 +135,17 @@ getFluxEquation[inputDir_, rxnName_, enzymeModel_, rateConstSubstitutionList_, t
 				nActiveSites_:1, outFileLabel_:""]:=
 	Block[{enSolFilePath, absFluxFilePath, enzSol, absoluteFlux, fluxEq, enzForms, enzConservationEq, enzPos, ssEq,
 			posConcentractionAssumption, s, e},
-
+			
 	enSolFilePath = FileNameJoin[{inputDir, "enzSol_" <> rxnName<> "_" <> outFileLabel<> ".m"}, OperatingSystem->$OperatingSystem];
 	absFluxFilePath = FileNameJoin[{inputDir, "absoluteFlux_" <> rxnName<> "_" <> outFileLabel<> ".m"}, OperatingSystem->$OperatingSystem];
 
 	If[ FileExistsQ[enSolFilePath] && FileExistsQ[absFluxFilePath],
 		(*True: 'enzSol.m' and 'absoluteFlux.m' Exists*) 
+		Print["Loading flux equation..."];
 		enzSol = Import[enSolFilePath];
 		absoluteFlux = Import[absFluxFilePath];,
+		
+		Print["Generating flux equation..."];
 
 		(*False: 'enzSol.m' and 'absoluteFlux.m'  Do Not Exist*)
 		(*Generate a System of Equations *)
@@ -439,6 +452,8 @@ getRateEqs[rxn_, enzymeModel_, absoluteFlux_, rateConstSubstitutionList_, revers
 			If[TrueQ[simplifyFlag],
 				Print["Simplifying..."];
 				Table[
+				Print[metReverseZeroSub];
+				Print[metSatForSubList];
 					Map[{"otherRateRelFor_" <> getID[Keys@#] <> "_" <> metReverseZeroSub[[1]], Simplify[(absoluteFluxEqn/.metReverseZeroSub[[2]]/.volumeSub)/(Limit[absoluteFluxEqnRelRateFor/.metReverseZeroSub[[2]]/.volumeSub, #]), TimeConstraint->simplifyMaxTime, Trig->False, Assumptions->posConcentrationAssumption]} &, metSatForSubList],
 				{metReverseZeroSub, otherMetsReverseZeroSub}],
 				Table[
@@ -652,11 +667,13 @@ setUpFluxEquations[enzymeModel_, rxn_, rxnName_, inputPath_, inhibitionListFull_
 	];
 	(*Print[enzymeModelLocal["Reactions"]];*)
 	(* get flux equation including inhibitions*)
+	Print[rateConstSubstitutionList];
+	Print[transitionRateEqs];
 	absoluteFlux = getFluxEquation[inputPath, rxnName, enzymeModelLocal, rateConstSubstitutionList, transitionRateEqs, simplifyFlag, simplifyMaxTime, nActiveSites, ""];
 
 	{absoluteRateForward, absoluteRateReverse, relativeRateForward, relativeRateReverse, otherAbsoluteRatesForward, otherAbsoluteRatesReverse} = 
 		getRateEqs[rxn, enzymeModelLocal, absoluteFlux, rateConstSubstitutionList, reverseZeroSub, forwardZeroSub, volumeSub, metSatForSub, metSatRevSub, 
-					inputPath, absoluteFluxNoProdInhib, absoluteFluxNoProdInhib,otherMetsForwardZeroSub, otherMetsReverseZeroSub, simplifyFlag, simplifyMaxTime];
+					inputPath, absoluteFluxNoProdInhib, absoluteFluxNoProdInhib, otherMetsForwardZeroSub, otherMetsReverseZeroSub, simplifyFlag, simplifyMaxTime];
 		
 	Print["Generating Haldane Relations..."];
 	
@@ -677,7 +694,7 @@ setUpFluxEquations[enzymeModel_, rxn_, rxnName_, inputPath_, inhibitionListFull_
 			exportRateEqs[inputPath, absoluteRateForward, absoluteRateReverse, relativeRateForward, 
 							relativeRateReverse, metsSub, metSatForSub, metSatRevSub, rateConstsSub,
 							otherAbsoluteRatesForward, otherAbsoluteRatesReverse];
-	
+							
 	Return[{enzymeModelLocal, haldaneRatiosList,  metSatForSub, metSatRevSub,  finalRateConsts, metsFull, 
 			metsSub, rateConstsSub, fileList, fileListSub, eqnNameList,eqnValList, eqnValListPy, 
 			allCatalyticReactions,nonCatalyticReactions, rateConstSubstitutionList,
