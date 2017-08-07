@@ -10,14 +10,18 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    192075,       4482]
-NotebookOptionsPosition[    191142,       4446]
-NotebookOutlinePosition[    191481,       4461]
-CellTagsIndexPosition[    191438,       4458]
+NotebookDataLength[    189583,       4439]
+NotebookOptionsPosition[    188613,       4402]
+NotebookOutlinePosition[    188953,       4417]
+CellTagsIndexPosition[    188910,       4414]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.711014890562398*^9, 3.711014892967368*^9}, {
+  3.711015740780116*^9, 3.711015742983513*^9}}],
+
 Cell[BoxData[{
  RowBox[{
   RowBox[{"SetDirectory", "[", 
@@ -74,41 +78,11 @@ Cell[BoxData[
  RowBox[{"\[IndentingNewLine]", 
   RowBox[{
    RowBox[{
-    RowBox[{"filteredDataListRes", " ", "=", " ", 
-     RowBox[{"Import", "[", 
-      RowBox[{
-       RowBox[{"FileNameJoin", "[", 
-        RowBox[{
-         RowBox[{"{", 
-          RowBox[{
-          "\"\<test_files\>\"", ",", " ", "\"\<analyze_fit_results\>\"", ",", 
-           " ", "\"\<rateconst_GAPD_log_ssd.csv\>\""}], "}"}], ",", " ", 
-         RowBox[{"OperatingSystem", "\[Rule]", "$OperatingSystem"}]}], "]"}], 
-       ",", " ", "\"\<TSV\>\""}], "]"}]}], ";"}], "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"filteredDataListRes", "=", 
-     RowBox[{"ToExpression", " ", "@", " ", "filteredDataListRes"}]}], ";"}], 
-   "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"bestFitDetails", " ", "=", "  ", 
-     RowBox[{"Import", "[", 
-      RowBox[{
-       RowBox[{"FileNameJoin", "[", 
-        RowBox[{
-         RowBox[{"{", 
-          RowBox[{
-          "\"\<test_files\>\"", ",", " ", "\"\<analyze_fit_results\>\"", ",", 
-           " ", "\"\<best_fit_GAPD_log_ssd.csv\>\""}], "}"}], ",", " ", 
-         RowBox[{"OperatingSystem", "\[Rule]", "$OperatingSystem"}]}], "]"}], 
-       ",", " ", "\"\<TSV\>\""}], "]"}]}], ";"}], "\[IndentingNewLine]", 
-   "\[IndentingNewLine]", 
-   RowBox[{
     RowBox[{"expectedResult", "=", " ", 
-     RowBox[{"{", 
-      RowBox[{
-      "1", ",", " ", "\"\<\>\"", ",", " ", "filteredDataListRes", ",", " ", 
-       "bestFitDetails"}], "}"}]}], ";"}], "\[IndentingNewLine]", 
-   "\[IndentingNewLine]", 
+     RowBox[{
+     "Import", "[", 
+      "\"\<test_files/analyze_fit_results/getRatesWithSSDLogSSDTrueRes.mx\>\"\
+", "]"}]}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"enzName", " ", "=", " ", "\"\<GAPD\>\""}], ";"}], 
    "\[IndentingNewLine]", 
@@ -628,7 +602,9 @@ Cell[BoxData[
    3.7046139173554783`*^9, {3.704613950121387*^9, 3.704613980504098*^9}, 
    3.704614127348979*^9, {3.704614252883499*^9, 3.704614312526252*^9}, {
    3.704615938257235*^9, 3.704615992124076*^9}, {3.704616062693582*^9, 
-   3.704616086639935*^9}, {3.704616118860044*^9, 3.704616129602323*^9}}]
+   3.704616086639935*^9}, {3.704616118860044*^9, 3.704616129602323*^9}, {
+   3.710821410507114*^9, 3.7108214145598*^9}, {3.711015088778561*^9, 
+   3.711015088851881*^9}, {3.7110154407101183`*^9, 3.711015462470031*^9}}]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -647,526 +623,502 @@ Cell[TextData[{
    3.688464392473873*^9}, 3.6890750785401487`*^9, {3.6890760297602797`*^9, 
    3.68907602976038*^9}, {3.698490206732337*^9, 3.698490216799786*^9}}],
 
-Cell[BoxData[
- RowBox[{"\[IndentingNewLine]", 
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"expectedResult", "=", " ", 
+    RowBox[{
+    "Import", "[", 
+     "\"\<test_files/analyze_fit_results/getRatesWithSSDAbsSSDTrueRes.mx\>\"",
+      "]"}]}], ";"}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"enzName", " ", "=", " ", "\"\<GAPD\>\""}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"dataFilePath", " ", "=", " ", "\[IndentingNewLine]", 
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{"$OperatingSystem", " ", "\[Equal]", " ", "\"\<Windows\>\""}], 
+      ",", "\[IndentingNewLine]", "\t", 
+      RowBox[{"FileNameJoin", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+         "\"\<test_files\>\"", ",", " ", "\"\<analyze_fit_results\>\"", ",", 
+          " ", "\"\<GAPD_win.dat\>\""}], "}"}], ",", " ", 
+        RowBox[{"OperatingSystem", "\[Rule]", "$OperatingSystem"}]}], "]"}], 
+      ",", "\[IndentingNewLine]", "\t", 
+      RowBox[{"FileNameJoin", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+         "\"\<test_files\>\"", ",", " ", "\"\<analyze_fit_results\>\"", ",", 
+          " ", "\"\<GAPD.dat\>\""}], "}"}], ",", " ", 
+        RowBox[{"OperatingSystem", "\[Rule]", "$OperatingSystem"}]}], "]"}]}],
+      "\[IndentingNewLine]", "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"lmaResultsFile", " ", "=", 
+    RowBox[{"FileNameJoin", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<test_files\>\"", 
+        ",", " ", "\"\<analyze_fit_results\>\"", ",", " ", 
+        "\"\<lmaResults.txt\>\""}], "}"}], ",", " ", 
+      RowBox[{"OperatingSystem", "\[Rule]", "$OperatingSystem"}]}], "]"}]}], 
+   ";"}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"inputPath", " ", "=", " ", 
+   RowBox[{"FileNameJoin", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\"\<test_files\>\"", ",", " ", "\"\<analyze_fit_results\>\""}],
+       "}"}], ",", " ", 
+     RowBox[{"OperatingSystem", "\[Rule]", "$OperatingSystem"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"outputPath", " ", "=", " ", "inputPath"}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"flagFitType", " ", "=", " ", "\"\<abs_ssd\>\""}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"metsSub", " ", "=", " ", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      InterpretationBox[
+       SuperscriptBox[
+        StyleBox[
+         RowBox[{"13", "dpg"}],
+         StripOnInput->False,
+         ShowSyntaxStyles->False,
+         AutoSpacing->False,
+         ZeroWidthTimes->True,
+         LineColor->RGBColor[0, 0, 0],
+         FrontFaceColor->RGBColor[0, 0, 0],
+         BackFaceColor->RGBColor[0, 0, 0],
+         GraphicsColor->RGBColor[0, 0, 0],
+         FontColor->RGBColor[0, 0, 0]], 
+        StyleBox["c",
+         StripOnInput->False,
+         ShowSyntaxStyles->False,
+         AutoSpacing->False,
+         ZeroWidthTimes->True,
+         LineColor->RGBColor[0, 0, 0],
+         FrontFaceColor->RGBColor[0, 0, 0],
+         BackFaceColor->RGBColor[0, 0, 0],
+         GraphicsColor->RGBColor[0, 0, 0],
+         FontColor->RGBColor[0, 0, 0]]],
+       Toolbox`metabolite["13dpg", "c"],
+       Editable->False,
+       Selectable->False], "\[Rule]", "\"\<d<0>\>\""}], ",", 
+     RowBox[{
+      InterpretationBox[
+       SuperscriptBox[
+        StyleBox["g3p",
+         StripOnInput->False,
+         ShowSyntaxStyles->False,
+         AutoSpacing->False,
+         ZeroWidthTimes->True,
+         LineColor->RGBColor[0, 0, 0],
+         FrontFaceColor->RGBColor[0, 0, 0],
+         BackFaceColor->RGBColor[0, 0, 0],
+         GraphicsColor->RGBColor[0, 0, 0],
+         FontColor->RGBColor[0, 0, 0]], 
+        StyleBox["c",
+         StripOnInput->False,
+         ShowSyntaxStyles->False,
+         AutoSpacing->False,
+         ZeroWidthTimes->True,
+         LineColor->RGBColor[0, 0, 0],
+         FrontFaceColor->RGBColor[0, 0, 0],
+         BackFaceColor->RGBColor[0, 0, 0],
+         GraphicsColor->RGBColor[0, 0, 0],
+         FontColor->RGBColor[0, 0, 0]]],
+       Toolbox`metabolite["g3p", "c"],
+       Editable->False,
+       Selectable->False], "\[Rule]", "\"\<d<1>\>\""}], ",", 
+     RowBox[{
+      InterpretationBox[
+       SuperscriptBox[
+        StyleBox["nad",
+         StripOnInput->False,
+         ShowSyntaxStyles->False,
+         AutoSpacing->False,
+         ZeroWidthTimes->True,
+         LineColor->RGBColor[0, 0, 0],
+         FrontFaceColor->RGBColor[0, 0, 0],
+         BackFaceColor->RGBColor[0, 0, 0],
+         GraphicsColor->RGBColor[0, 0, 0],
+         FontColor->RGBColor[0, 0, 0]], 
+        StyleBox["c",
+         StripOnInput->False,
+         ShowSyntaxStyles->False,
+         AutoSpacing->False,
+         ZeroWidthTimes->True,
+         LineColor->RGBColor[0, 0, 0],
+         FrontFaceColor->RGBColor[0, 0, 0],
+         BackFaceColor->RGBColor[0, 0, 0],
+         GraphicsColor->RGBColor[0, 0, 0],
+         FontColor->RGBColor[0, 0, 0]]],
+       Toolbox`metabolite["nad", "c"],
+       Editable->False,
+       Selectable->False], "\[Rule]", "\"\<d<2>\>\""}], ",", 
+     RowBox[{
+      InterpretationBox[
+       SuperscriptBox[
+        StyleBox["nadh",
+         StripOnInput->False,
+         ShowSyntaxStyles->False,
+         AutoSpacing->False,
+         ZeroWidthTimes->True,
+         LineColor->RGBColor[0, 0, 0],
+         FrontFaceColor->RGBColor[0, 0, 0],
+         BackFaceColor->RGBColor[0, 0, 0],
+         GraphicsColor->RGBColor[0, 0, 0],
+         FontColor->RGBColor[0, 0, 0]], 
+        StyleBox["c",
+         StripOnInput->False,
+         ShowSyntaxStyles->False,
+         AutoSpacing->False,
+         ZeroWidthTimes->True,
+         LineColor->RGBColor[0, 0, 0],
+         FrontFaceColor->RGBColor[0, 0, 0],
+         BackFaceColor->RGBColor[0, 0, 0],
+         GraphicsColor->RGBColor[0, 0, 0],
+         FontColor->RGBColor[0, 0, 0]]],
+       Toolbox`metabolite["nadh", "c"],
+       Editable->False,
+       Selectable->False], "\[Rule]", "\"\<d<3>\>\""}], ",", 
+     RowBox[{
+      InterpretationBox[
+       SuperscriptBox[
+        StyleBox["pi",
+         StripOnInput->False,
+         ShowSyntaxStyles->False,
+         AutoSpacing->False,
+         ZeroWidthTimes->True,
+         LineColor->RGBColor[0, 0, 0],
+         FrontFaceColor->RGBColor[0, 0, 0],
+         BackFaceColor->RGBColor[0, 0, 0],
+         GraphicsColor->RGBColor[0, 0, 0],
+         FontColor->RGBColor[0, 0, 0]], 
+        StyleBox["c",
+         StripOnInput->False,
+         ShowSyntaxStyles->False,
+         AutoSpacing->False,
+         ZeroWidthTimes->True,
+         LineColor->RGBColor[0, 0, 0],
+         FrontFaceColor->RGBColor[0, 0, 0],
+         BackFaceColor->RGBColor[0, 0, 0],
+         GraphicsColor->RGBColor[0, 0, 0],
+         FontColor->RGBColor[0, 0, 0]]],
+       Toolbox`metabolite["pi", "c"],
+       Editable->False,
+       Selectable->False], "\[Rule]", "\"\<d<4>\>\""}], ",", 
+     RowBox[{
+      RowBox[{"parameter", "[", "\"\<GAPD_total\>\"", "]"}], "\[Rule]", 
+      "\"\<d<5>\>\""}], ",", 
+     RowBox[{
+      InterpretationBox[
+       UnderscriptBox[
+        StyleBox["pH",
+         StripOnInput->False,
+         ShowSyntaxStyles->False,
+         AutoSpacing->False,
+         ZeroWidthTimes->True,
+         LineColor->RGBColor[0, 0, 0],
+         FrontFaceColor->RGBColor[0, 0, 0],
+         BackFaceColor->RGBColor[0, 0, 0],
+         GraphicsColor->RGBColor[0, 0, 0],
+         FontColor->RGBColor[0, 0, 0]], 
+        StyleBox["Global",
+         StripOnInput->False,
+         ShowSyntaxStyles->False,
+         AutoSpacing->False,
+         ZeroWidthTimes->True,
+         LineColor->RGBColor[0, 0, 0],
+         FrontFaceColor->RGBColor[0, 0, 0],
+         BackFaceColor->RGBColor[0, 0, 0],
+         GraphicsColor->RGBColor[0, 0, 0],
+         FontColor->RGBColor[0, 0, 0]]],
+       Toolbox`parameter["pH"],
+       Editable->False,
+       Selectable->False], "\[Rule]", "\"\<d<6>\>\""}], ",", 
+     RowBox[{
+      InterpretationBox[
+       UnderscriptBox[
+        StyleBox["Temp",
+         StripOnInput->False,
+         ShowSyntaxStyles->False,
+         AutoSpacing->False,
+         ZeroWidthTimes->True,
+         LineColor->RGBColor[0, 0, 0],
+         FrontFaceColor->RGBColor[0, 0, 0],
+         BackFaceColor->RGBColor[0, 0, 0],
+         GraphicsColor->RGBColor[0, 0, 0],
+         FontColor->RGBColor[0, 0, 0]], 
+        StyleBox["Global",
+         StripOnInput->False,
+         ShowSyntaxStyles->False,
+         AutoSpacing->False,
+         ZeroWidthTimes->True,
+         LineColor->RGBColor[0, 0, 0],
+         FrontFaceColor->RGBColor[0, 0, 0],
+         BackFaceColor->RGBColor[0, 0, 0],
+         GraphicsColor->RGBColor[0, 0, 0],
+         FontColor->RGBColor[0, 0, 0]]],
+       Toolbox`parameter["Temp"],
+       Editable->False,
+       Selectable->False], "\[Rule]", "\"\<d<7>\>\""}]}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"rateConstsSub", " ", "=", " ", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{
+       InterpretationBox[
+        SubsuperscriptBox["k", 
+         StyleBox["GAPD1",
+          StripOnInput->False,
+          ShowSyntaxStyles->False,
+          AutoSpacing->False,
+          ZeroWidthTimes->True,
+          LineColor->RGBColor[0, 0, 0],
+          FrontFaceColor->RGBColor[0, 0, 0],
+          BackFaceColor->RGBColor[0, 0, 0],
+          GraphicsColor->RGBColor[0, 0, 0],
+          FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
+        Toolbox`rateconst["GAPD1", False],
+        Editable->False,
+        Selectable->False], "\[Rule]", "\"\<x<0>\>\""}], ",", 
+      RowBox[{
+       InterpretationBox[
+        SubsuperscriptBox["k", 
+         StyleBox["GAPD1",
+          StripOnInput->False,
+          ShowSyntaxStyles->False,
+          AutoSpacing->False,
+          ZeroWidthTimes->True,
+          LineColor->RGBColor[0, 0, 0],
+          FrontFaceColor->RGBColor[0, 0, 0],
+          BackFaceColor->RGBColor[0, 0, 0],
+          GraphicsColor->RGBColor[0, 0, 0],
+          FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+        Toolbox`rateconst["GAPD1", True],
+        Editable->False,
+        Selectable->False], "\[Rule]", "\"\<x<1>\>\""}], ",", 
+      RowBox[{
+       InterpretationBox[
+        SubsuperscriptBox["k", 
+         StyleBox["GAPD2",
+          StripOnInput->False,
+          ShowSyntaxStyles->False,
+          AutoSpacing->False,
+          ZeroWidthTimes->True,
+          LineColor->RGBColor[0, 0, 0],
+          FrontFaceColor->RGBColor[0, 0, 0],
+          BackFaceColor->RGBColor[0, 0, 0],
+          GraphicsColor->RGBColor[0, 0, 0],
+          FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
+        Toolbox`rateconst["GAPD2", False],
+        Editable->False,
+        Selectable->False], "\[Rule]", "\"\<x<2>\>\""}], ",", 
+      RowBox[{
+       InterpretationBox[
+        SubsuperscriptBox["k", 
+         StyleBox["GAPD2",
+          StripOnInput->False,
+          ShowSyntaxStyles->False,
+          AutoSpacing->False,
+          ZeroWidthTimes->True,
+          LineColor->RGBColor[0, 0, 0],
+          FrontFaceColor->RGBColor[0, 0, 0],
+          BackFaceColor->RGBColor[0, 0, 0],
+          GraphicsColor->RGBColor[0, 0, 0],
+          FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+        Toolbox`rateconst["GAPD2", True],
+        Editable->False,
+        Selectable->False], "\[Rule]", "\"\<x<3>\>\""}], ",", 
+      RowBox[{
+       InterpretationBox[
+        SubsuperscriptBox["k", 
+         StyleBox["GAPD3",
+          StripOnInput->False,
+          ShowSyntaxStyles->False,
+          AutoSpacing->False,
+          ZeroWidthTimes->True,
+          LineColor->RGBColor[0, 0, 0],
+          FrontFaceColor->RGBColor[0, 0, 0],
+          BackFaceColor->RGBColor[0, 0, 0],
+          GraphicsColor->RGBColor[0, 0, 0],
+          FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
+        Toolbox`rateconst["GAPD3", False],
+        Editable->False,
+        Selectable->False], "\[Rule]", "\"\<x<4>\>\""}], ",", 
+      RowBox[{
+       InterpretationBox[
+        SubsuperscriptBox["k", 
+         StyleBox["GAPD3",
+          StripOnInput->False,
+          ShowSyntaxStyles->False,
+          AutoSpacing->False,
+          ZeroWidthTimes->True,
+          LineColor->RGBColor[0, 0, 0],
+          FrontFaceColor->RGBColor[0, 0, 0],
+          BackFaceColor->RGBColor[0, 0, 0],
+          GraphicsColor->RGBColor[0, 0, 0],
+          FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+        Toolbox`rateconst["GAPD3", True],
+        Editable->False,
+        Selectable->False], "\[Rule]", "\"\<x<5>\>\""}], ",", 
+      RowBox[{
+       InterpretationBox[
+        SubsuperscriptBox["k", 
+         StyleBox["GAPD4",
+          StripOnInput->False,
+          ShowSyntaxStyles->False,
+          AutoSpacing->False,
+          ZeroWidthTimes->True,
+          LineColor->RGBColor[0, 0, 0],
+          FrontFaceColor->RGBColor[0, 0, 0],
+          BackFaceColor->RGBColor[0, 0, 0],
+          GraphicsColor->RGBColor[0, 0, 0],
+          FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
+        Toolbox`rateconst["GAPD4", False],
+        Editable->False,
+        Selectable->False], "\[Rule]", "\"\<x<6>\>\""}], ",", 
+      RowBox[{
+       InterpretationBox[
+        SubsuperscriptBox["k", 
+         StyleBox["GAPD4",
+          StripOnInput->False,
+          ShowSyntaxStyles->False,
+          AutoSpacing->False,
+          ZeroWidthTimes->True,
+          LineColor->RGBColor[0, 0, 0],
+          FrontFaceColor->RGBColor[0, 0, 0],
+          BackFaceColor->RGBColor[0, 0, 0],
+          GraphicsColor->RGBColor[0, 0, 0],
+          FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+        Toolbox`rateconst["GAPD4", True],
+        Editable->False,
+        Selectable->False], "\[Rule]", "\"\<x<7>\>\""}], ",", 
+      RowBox[{
+       InterpretationBox[
+        SubsuperscriptBox["k", 
+         StyleBox["GAPD5",
+          StripOnInput->False,
+          ShowSyntaxStyles->False,
+          AutoSpacing->False,
+          ZeroWidthTimes->True,
+          LineColor->RGBColor[0, 0, 0],
+          FrontFaceColor->RGBColor[0, 0, 0],
+          BackFaceColor->RGBColor[0, 0, 0],
+          GraphicsColor->RGBColor[0, 0, 0],
+          FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
+        Toolbox`rateconst["GAPD5", False],
+        Editable->False,
+        Selectable->False], "\[Rule]", "\"\<x<8>\>\""}], ",", 
+      RowBox[{
+       InterpretationBox[
+        SubsuperscriptBox["k", 
+         StyleBox["GAPD5",
+          StripOnInput->False,
+          ShowSyntaxStyles->False,
+          AutoSpacing->False,
+          ZeroWidthTimes->True,
+          LineColor->RGBColor[0, 0, 0],
+          FrontFaceColor->RGBColor[0, 0, 0],
+          BackFaceColor->RGBColor[0, 0, 0],
+          GraphicsColor->RGBColor[0, 0, 0],
+          FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+        Toolbox`rateconst["GAPD5", True],
+        Editable->False,
+        Selectable->False], "\[Rule]", "\"\<x<9>\>\""}], ",", 
+      RowBox[{
+       InterpretationBox[
+        SubsuperscriptBox["k", 
+         StyleBox["GAPD6",
+          StripOnInput->False,
+          ShowSyntaxStyles->False,
+          AutoSpacing->False,
+          ZeroWidthTimes->True,
+          LineColor->RGBColor[0, 0, 0],
+          FrontFaceColor->RGBColor[0, 0, 0],
+          BackFaceColor->RGBColor[0, 0, 0],
+          GraphicsColor->RGBColor[0, 0, 0],
+          FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
+        Toolbox`rateconst["GAPD6", False],
+        Editable->False,
+        Selectable->False], "\[Rule]", "\"\<x<10>\>\""}], ",", 
+      RowBox[{
+       InterpretationBox[
+        SubsuperscriptBox["k", 
+         StyleBox["GAPD6",
+          StripOnInput->False,
+          ShowSyntaxStyles->False,
+          AutoSpacing->False,
+          ZeroWidthTimes->True,
+          LineColor->RGBColor[0, 0, 0],
+          FrontFaceColor->RGBColor[0, 0, 0],
+          BackFaceColor->RGBColor[0, 0, 0],
+          GraphicsColor->RGBColor[0, 0, 0],
+          FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+        Toolbox`rateconst["GAPD6", True],
+        Editable->False,
+        Selectable->False], "\[Rule]", "\"\<x<11>\>\""}]}], "}"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"fileListSub", " ", "=", " ", 
+    RowBox[{"getRatesWithSSDInput", "[", "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"result", "=", 
+    RowBox[{"getRatesWithSSD", "[", 
+     RowBox[{
+     "enzName", ",", " ", "lmaResultsFile", ",", " ", "dataFilePath", ",", 
+      " ", "inputPath", ",", " ", "outputPath", ",", "  ", "fileListSub", ",",
+       " ", "\n", "\t\t\t\t", "rateConstsSub", ",", " ", "metsSub", ",", " ", 
+      "flagFitType", ",", " ", "Null", ",", " ", "False", ",", " ", 
+      "\"\<\>\""}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"result", " ", "=", " ", 
+   RowBox[{"Delete", "[", 
+    RowBox[{"result", ",", "3"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
   RowBox[{
    RowBox[{
-    RowBox[{"filteredDataListRes", " ", "=", " ", 
-     RowBox[{"Import", "[", 
+    RowBox[{"result", "[", 
+     RowBox[{"[", "3", "]"}], "]"}], " ", "=", " ", 
+    RowBox[{"Map", "[", 
+     RowBox[{
       RowBox[{
-       RowBox[{"FileNameJoin", "[", 
-        RowBox[{
-         RowBox[{"{", 
-          RowBox[{
-          "\"\<test_files\>\"", ",", " ", "\"\<analyze_fit_results\>\"", ",", 
-           " ", "\"\<rateconst_GAPD_abs_ssd.csv\>\""}], "}"}], ",", " ", 
-         RowBox[{"OperatingSystem", "\[Rule]", "$OperatingSystem"}]}], "]"}], 
-       ",", " ", "\"\<TSV\>\""}], "]"}]}], ";"}], "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"filteredDataListRes", "=", 
-     RowBox[{"ToExpression", " ", "@", " ", "filteredDataListRes"}]}], ";"}], 
-   "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"bestFitDetails", " ", "=", "  ", 
-     RowBox[{"Import", "[", 
-      RowBox[{
-       RowBox[{"FileNameJoin", "[", 
-        RowBox[{
-         RowBox[{"{", 
-          RowBox[{
-          "\"\<test_files\>\"", ",", " ", "\"\<analyze_fit_results\>\"", ",", 
-           " ", "\"\<best_fit_GAPD_abs_ssd.csv\>\""}], "}"}], ",", " ", 
-         RowBox[{"OperatingSystem", "\[Rule]", "$OperatingSystem"}]}], "]"}], 
-       ",", " ", "\"\<TSV\>\""}], "]"}]}], ";"}], "\[IndentingNewLine]", 
-   "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"expectedResult", "=", " ", 
-     RowBox[{"{", 
-      RowBox[{
-      "1", ",", " ", "\"\<\>\"", ",", " ", "filteredDataListRes", ",", " ", 
-       "bestFitDetails"}], "}"}]}], ";"}], "\[IndentingNewLine]", 
-   "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"enzName", " ", "=", " ", "\"\<GAPD\>\""}], ";"}], 
-   "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"dataFilePath", " ", "=", " ", "\[IndentingNewLine]", 
-     RowBox[{"If", "[", 
-      RowBox[{
-       RowBox[{"$OperatingSystem", " ", "\[Equal]", " ", "\"\<Windows\>\""}], 
-       ",", "\[IndentingNewLine]", "\t", 
-       RowBox[{"FileNameJoin", "[", 
-        RowBox[{
-         RowBox[{"{", 
-          RowBox[{
-          "\"\<test_files\>\"", ",", " ", "\"\<analyze_fit_results\>\"", ",", 
-           " ", "\"\<GAPD_win.dat\>\""}], "}"}], ",", " ", 
-         RowBox[{"OperatingSystem", "\[Rule]", "$OperatingSystem"}]}], "]"}], 
-       ",", "\[IndentingNewLine]", "\t", 
-       RowBox[{"FileNameJoin", "[", 
-        RowBox[{
-         RowBox[{"{", 
-          RowBox[{
-          "\"\<test_files\>\"", ",", " ", "\"\<analyze_fit_results\>\"", ",", 
-           " ", "\"\<GAPD.dat\>\""}], "}"}], ",", " ", 
-         RowBox[{"OperatingSystem", "\[Rule]", "$OperatingSystem"}]}], 
-        "]"}]}], "\[IndentingNewLine]", "]"}]}], ";"}], "\[IndentingNewLine]",
-    "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"lmaResultsFile", " ", "=", 
-     RowBox[{"FileNameJoin", "[", 
-      RowBox[{
-       RowBox[{"{", 
-        RowBox[{
-         RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<test_files\>\"", 
-         ",", " ", "\"\<analyze_fit_results\>\"", ",", " ", 
-         "\"\<lmaResults.txt\>\""}], "}"}], ",", " ", 
-       RowBox[{"OperatingSystem", "\[Rule]", "$OperatingSystem"}]}], "]"}]}], 
-    ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"inputPath", " ", "=", " ", 
-     RowBox[{"FileNameJoin", "[", 
-      RowBox[{
-       RowBox[{"{", 
-        RowBox[{
-        "\"\<test_files\>\"", ",", " ", "\"\<analyze_fit_results\>\""}], 
-        "}"}], ",", " ", 
-       RowBox[{"OperatingSystem", "\[Rule]", "$OperatingSystem"}]}], "]"}]}], 
-    ";"}], "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"outputPath", " ", "=", " ", "inputPath"}], ";"}], 
-   "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"flagFitType", " ", "=", " ", "\"\<abs_ssd\>\""}], ";"}], 
-   "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"metsSub", " ", "=", " ", 
-     RowBox[{"{", 
-      RowBox[{
-       RowBox[{
-        InterpretationBox[
-         SuperscriptBox[
-          StyleBox[
-           RowBox[{"13", "dpg"}],
-           StripOnInput->False,
-           ShowSyntaxStyles->False,
-           AutoSpacing->False,
-           ZeroWidthTimes->True,
-           LineColor->RGBColor[0, 0, 0],
-           FrontFaceColor->RGBColor[0, 0, 0],
-           BackFaceColor->RGBColor[0, 0, 0],
-           GraphicsColor->RGBColor[0, 0, 0],
-           FontColor->RGBColor[0, 0, 0]], 
-          StyleBox["c",
-           StripOnInput->False,
-           ShowSyntaxStyles->False,
-           AutoSpacing->False,
-           ZeroWidthTimes->True,
-           LineColor->RGBColor[0, 0, 0],
-           FrontFaceColor->RGBColor[0, 0, 0],
-           BackFaceColor->RGBColor[0, 0, 0],
-           GraphicsColor->RGBColor[0, 0, 0],
-           FontColor->RGBColor[0, 0, 0]]],
-         Toolbox`metabolite["13dpg", "c"],
-         Editable->False,
-         Selectable->False], "\[Rule]", "\"\<d<0>\>\""}], ",", 
-       RowBox[{
-        InterpretationBox[
-         SuperscriptBox[
-          StyleBox["g3p",
-           StripOnInput->False,
-           ShowSyntaxStyles->False,
-           AutoSpacing->False,
-           ZeroWidthTimes->True,
-           LineColor->RGBColor[0, 0, 0],
-           FrontFaceColor->RGBColor[0, 0, 0],
-           BackFaceColor->RGBColor[0, 0, 0],
-           GraphicsColor->RGBColor[0, 0, 0],
-           FontColor->RGBColor[0, 0, 0]], 
-          StyleBox["c",
-           StripOnInput->False,
-           ShowSyntaxStyles->False,
-           AutoSpacing->False,
-           ZeroWidthTimes->True,
-           LineColor->RGBColor[0, 0, 0],
-           FrontFaceColor->RGBColor[0, 0, 0],
-           BackFaceColor->RGBColor[0, 0, 0],
-           GraphicsColor->RGBColor[0, 0, 0],
-           FontColor->RGBColor[0, 0, 0]]],
-         Toolbox`metabolite["g3p", "c"],
-         Editable->False,
-         Selectable->False], "\[Rule]", "\"\<d<1>\>\""}], ",", 
-       RowBox[{
-        InterpretationBox[
-         SuperscriptBox[
-          StyleBox["nad",
-           StripOnInput->False,
-           ShowSyntaxStyles->False,
-           AutoSpacing->False,
-           ZeroWidthTimes->True,
-           LineColor->RGBColor[0, 0, 0],
-           FrontFaceColor->RGBColor[0, 0, 0],
-           BackFaceColor->RGBColor[0, 0, 0],
-           GraphicsColor->RGBColor[0, 0, 0],
-           FontColor->RGBColor[0, 0, 0]], 
-          StyleBox["c",
-           StripOnInput->False,
-           ShowSyntaxStyles->False,
-           AutoSpacing->False,
-           ZeroWidthTimes->True,
-           LineColor->RGBColor[0, 0, 0],
-           FrontFaceColor->RGBColor[0, 0, 0],
-           BackFaceColor->RGBColor[0, 0, 0],
-           GraphicsColor->RGBColor[0, 0, 0],
-           FontColor->RGBColor[0, 0, 0]]],
-         Toolbox`metabolite["nad", "c"],
-         Editable->False,
-         Selectable->False], "\[Rule]", "\"\<d<2>\>\""}], ",", 
-       RowBox[{
-        InterpretationBox[
-         SuperscriptBox[
-          StyleBox["nadh",
-           StripOnInput->False,
-           ShowSyntaxStyles->False,
-           AutoSpacing->False,
-           ZeroWidthTimes->True,
-           LineColor->RGBColor[0, 0, 0],
-           FrontFaceColor->RGBColor[0, 0, 0],
-           BackFaceColor->RGBColor[0, 0, 0],
-           GraphicsColor->RGBColor[0, 0, 0],
-           FontColor->RGBColor[0, 0, 0]], 
-          StyleBox["c",
-           StripOnInput->False,
-           ShowSyntaxStyles->False,
-           AutoSpacing->False,
-           ZeroWidthTimes->True,
-           LineColor->RGBColor[0, 0, 0],
-           FrontFaceColor->RGBColor[0, 0, 0],
-           BackFaceColor->RGBColor[0, 0, 0],
-           GraphicsColor->RGBColor[0, 0, 0],
-           FontColor->RGBColor[0, 0, 0]]],
-         Toolbox`metabolite["nadh", "c"],
-         Editable->False,
-         Selectable->False], "\[Rule]", "\"\<d<3>\>\""}], ",", 
-       RowBox[{
-        InterpretationBox[
-         SuperscriptBox[
-          StyleBox["pi",
-           StripOnInput->False,
-           ShowSyntaxStyles->False,
-           AutoSpacing->False,
-           ZeroWidthTimes->True,
-           LineColor->RGBColor[0, 0, 0],
-           FrontFaceColor->RGBColor[0, 0, 0],
-           BackFaceColor->RGBColor[0, 0, 0],
-           GraphicsColor->RGBColor[0, 0, 0],
-           FontColor->RGBColor[0, 0, 0]], 
-          StyleBox["c",
-           StripOnInput->False,
-           ShowSyntaxStyles->False,
-           AutoSpacing->False,
-           ZeroWidthTimes->True,
-           LineColor->RGBColor[0, 0, 0],
-           FrontFaceColor->RGBColor[0, 0, 0],
-           BackFaceColor->RGBColor[0, 0, 0],
-           GraphicsColor->RGBColor[0, 0, 0],
-           FontColor->RGBColor[0, 0, 0]]],
-         Toolbox`metabolite["pi", "c"],
-         Editable->False,
-         Selectable->False], "\[Rule]", "\"\<d<4>\>\""}], ",", 
-       RowBox[{
-        RowBox[{"parameter", "[", "\"\<GAPD_total\>\"", "]"}], "\[Rule]", 
-        "\"\<d<5>\>\""}], ",", 
-       RowBox[{
-        InterpretationBox[
-         UnderscriptBox[
-          StyleBox["pH",
-           StripOnInput->False,
-           ShowSyntaxStyles->False,
-           AutoSpacing->False,
-           ZeroWidthTimes->True,
-           LineColor->RGBColor[0, 0, 0],
-           FrontFaceColor->RGBColor[0, 0, 0],
-           BackFaceColor->RGBColor[0, 0, 0],
-           GraphicsColor->RGBColor[0, 0, 0],
-           FontColor->RGBColor[0, 0, 0]], 
-          StyleBox["Global",
-           StripOnInput->False,
-           ShowSyntaxStyles->False,
-           AutoSpacing->False,
-           ZeroWidthTimes->True,
-           LineColor->RGBColor[0, 0, 0],
-           FrontFaceColor->RGBColor[0, 0, 0],
-           BackFaceColor->RGBColor[0, 0, 0],
-           GraphicsColor->RGBColor[0, 0, 0],
-           FontColor->RGBColor[0, 0, 0]]],
-         Toolbox`parameter["pH"],
-         Editable->False,
-         Selectable->False], "\[Rule]", "\"\<d<6>\>\""}], ",", 
-       RowBox[{
-        InterpretationBox[
-         UnderscriptBox[
-          StyleBox["Temp",
-           StripOnInput->False,
-           ShowSyntaxStyles->False,
-           AutoSpacing->False,
-           ZeroWidthTimes->True,
-           LineColor->RGBColor[0, 0, 0],
-           FrontFaceColor->RGBColor[0, 0, 0],
-           BackFaceColor->RGBColor[0, 0, 0],
-           GraphicsColor->RGBColor[0, 0, 0],
-           FontColor->RGBColor[0, 0, 0]], 
-          StyleBox["Global",
-           StripOnInput->False,
-           ShowSyntaxStyles->False,
-           AutoSpacing->False,
-           ZeroWidthTimes->True,
-           LineColor->RGBColor[0, 0, 0],
-           FrontFaceColor->RGBColor[0, 0, 0],
-           BackFaceColor->RGBColor[0, 0, 0],
-           GraphicsColor->RGBColor[0, 0, 0],
-           FontColor->RGBColor[0, 0, 0]]],
-         Toolbox`parameter["Temp"],
-         Editable->False,
-         Selectable->False], "\[Rule]", "\"\<d<7>\>\""}]}], "}"}]}], ";"}], 
-   "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"rateConstsSub", " ", "=", " ", 
-     RowBox[{"{", 
-      RowBox[{
-       RowBox[{
-        InterpretationBox[
-         SubsuperscriptBox["k", 
-          StyleBox["GAPD1",
-           StripOnInput->False,
-           ShowSyntaxStyles->False,
-           AutoSpacing->False,
-           ZeroWidthTimes->True,
-           LineColor->RGBColor[0, 0, 0],
-           FrontFaceColor->RGBColor[0, 0, 0],
-           BackFaceColor->RGBColor[0, 0, 0],
-           GraphicsColor->RGBColor[0, 0, 0],
-           FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
-         Toolbox`rateconst["GAPD1", False],
-         Editable->False,
-         Selectable->False], "\[Rule]", "\"\<x<0>\>\""}], ",", 
-       RowBox[{
-        InterpretationBox[
-         SubsuperscriptBox["k", 
-          StyleBox["GAPD1",
-           StripOnInput->False,
-           ShowSyntaxStyles->False,
-           AutoSpacing->False,
-           ZeroWidthTimes->True,
-           LineColor->RGBColor[0, 0, 0],
-           FrontFaceColor->RGBColor[0, 0, 0],
-           BackFaceColor->RGBColor[0, 0, 0],
-           GraphicsColor->RGBColor[0, 0, 0],
-           FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
-         Toolbox`rateconst["GAPD1", True],
-         Editable->False,
-         Selectable->False], "\[Rule]", "\"\<x<1>\>\""}], ",", 
-       RowBox[{
-        InterpretationBox[
-         SubsuperscriptBox["k", 
-          StyleBox["GAPD2",
-           StripOnInput->False,
-           ShowSyntaxStyles->False,
-           AutoSpacing->False,
-           ZeroWidthTimes->True,
-           LineColor->RGBColor[0, 0, 0],
-           FrontFaceColor->RGBColor[0, 0, 0],
-           BackFaceColor->RGBColor[0, 0, 0],
-           GraphicsColor->RGBColor[0, 0, 0],
-           FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
-         Toolbox`rateconst["GAPD2", False],
-         Editable->False,
-         Selectable->False], "\[Rule]", "\"\<x<2>\>\""}], ",", 
-       RowBox[{
-        InterpretationBox[
-         SubsuperscriptBox["k", 
-          StyleBox["GAPD2",
-           StripOnInput->False,
-           ShowSyntaxStyles->False,
-           AutoSpacing->False,
-           ZeroWidthTimes->True,
-           LineColor->RGBColor[0, 0, 0],
-           FrontFaceColor->RGBColor[0, 0, 0],
-           BackFaceColor->RGBColor[0, 0, 0],
-           GraphicsColor->RGBColor[0, 0, 0],
-           FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
-         Toolbox`rateconst["GAPD2", True],
-         Editable->False,
-         Selectable->False], "\[Rule]", "\"\<x<3>\>\""}], ",", 
-       RowBox[{
-        InterpretationBox[
-         SubsuperscriptBox["k", 
-          StyleBox["GAPD3",
-           StripOnInput->False,
-           ShowSyntaxStyles->False,
-           AutoSpacing->False,
-           ZeroWidthTimes->True,
-           LineColor->RGBColor[0, 0, 0],
-           FrontFaceColor->RGBColor[0, 0, 0],
-           BackFaceColor->RGBColor[0, 0, 0],
-           GraphicsColor->RGBColor[0, 0, 0],
-           FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
-         Toolbox`rateconst["GAPD3", False],
-         Editable->False,
-         Selectable->False], "\[Rule]", "\"\<x<4>\>\""}], ",", 
-       RowBox[{
-        InterpretationBox[
-         SubsuperscriptBox["k", 
-          StyleBox["GAPD3",
-           StripOnInput->False,
-           ShowSyntaxStyles->False,
-           AutoSpacing->False,
-           ZeroWidthTimes->True,
-           LineColor->RGBColor[0, 0, 0],
-           FrontFaceColor->RGBColor[0, 0, 0],
-           BackFaceColor->RGBColor[0, 0, 0],
-           GraphicsColor->RGBColor[0, 0, 0],
-           FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
-         Toolbox`rateconst["GAPD3", True],
-         Editable->False,
-         Selectable->False], "\[Rule]", "\"\<x<5>\>\""}], ",", 
-       RowBox[{
-        InterpretationBox[
-         SubsuperscriptBox["k", 
-          StyleBox["GAPD4",
-           StripOnInput->False,
-           ShowSyntaxStyles->False,
-           AutoSpacing->False,
-           ZeroWidthTimes->True,
-           LineColor->RGBColor[0, 0, 0],
-           FrontFaceColor->RGBColor[0, 0, 0],
-           BackFaceColor->RGBColor[0, 0, 0],
-           GraphicsColor->RGBColor[0, 0, 0],
-           FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
-         Toolbox`rateconst["GAPD4", False],
-         Editable->False,
-         Selectable->False], "\[Rule]", "\"\<x<6>\>\""}], ",", 
-       RowBox[{
-        InterpretationBox[
-         SubsuperscriptBox["k", 
-          StyleBox["GAPD4",
-           StripOnInput->False,
-           ShowSyntaxStyles->False,
-           AutoSpacing->False,
-           ZeroWidthTimes->True,
-           LineColor->RGBColor[0, 0, 0],
-           FrontFaceColor->RGBColor[0, 0, 0],
-           BackFaceColor->RGBColor[0, 0, 0],
-           GraphicsColor->RGBColor[0, 0, 0],
-           FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
-         Toolbox`rateconst["GAPD4", True],
-         Editable->False,
-         Selectable->False], "\[Rule]", "\"\<x<7>\>\""}], ",", 
-       RowBox[{
-        InterpretationBox[
-         SubsuperscriptBox["k", 
-          StyleBox["GAPD5",
-           StripOnInput->False,
-           ShowSyntaxStyles->False,
-           AutoSpacing->False,
-           ZeroWidthTimes->True,
-           LineColor->RGBColor[0, 0, 0],
-           FrontFaceColor->RGBColor[0, 0, 0],
-           BackFaceColor->RGBColor[0, 0, 0],
-           GraphicsColor->RGBColor[0, 0, 0],
-           FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
-         Toolbox`rateconst["GAPD5", False],
-         Editable->False,
-         Selectable->False], "\[Rule]", "\"\<x<8>\>\""}], ",", 
-       RowBox[{
-        InterpretationBox[
-         SubsuperscriptBox["k", 
-          StyleBox["GAPD5",
-           StripOnInput->False,
-           ShowSyntaxStyles->False,
-           AutoSpacing->False,
-           ZeroWidthTimes->True,
-           LineColor->RGBColor[0, 0, 0],
-           FrontFaceColor->RGBColor[0, 0, 0],
-           BackFaceColor->RGBColor[0, 0, 0],
-           GraphicsColor->RGBColor[0, 0, 0],
-           FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
-         Toolbox`rateconst["GAPD5", True],
-         Editable->False,
-         Selectable->False], "\[Rule]", "\"\<x<9>\>\""}], ",", 
-       RowBox[{
-        InterpretationBox[
-         SubsuperscriptBox["k", 
-          StyleBox["GAPD6",
-           StripOnInput->False,
-           ShowSyntaxStyles->False,
-           AutoSpacing->False,
-           ZeroWidthTimes->True,
-           LineColor->RGBColor[0, 0, 0],
-           FrontFaceColor->RGBColor[0, 0, 0],
-           BackFaceColor->RGBColor[0, 0, 0],
-           GraphicsColor->RGBColor[0, 0, 0],
-           FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
-         Toolbox`rateconst["GAPD6", False],
-         Editable->False,
-         Selectable->False], "\[Rule]", "\"\<x<10>\>\""}], ",", 
-       RowBox[{
-        InterpretationBox[
-         SubsuperscriptBox["k", 
-          StyleBox["GAPD6",
-           StripOnInput->False,
-           ShowSyntaxStyles->False,
-           AutoSpacing->False,
-           ZeroWidthTimes->True,
-           LineColor->RGBColor[0, 0, 0],
-           FrontFaceColor->RGBColor[0, 0, 0],
-           BackFaceColor->RGBColor[0, 0, 0],
-           GraphicsColor->RGBColor[0, 0, 0],
-           FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
-         Toolbox`rateconst["GAPD6", True],
-         Editable->False,
-         Selectable->False], "\[Rule]", "\"\<x<11>\>\""}]}], "}"}]}], ";"}], 
-   "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"fileListSub", " ", "=", " ", 
-     RowBox[{"getRatesWithSSDInput", "[", "]"}]}], ";"}], 
-   "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"result", "=", 
-     RowBox[{"getRatesWithSSD", "[", 
-      RowBox[{
-      "enzName", ",", " ", "lmaResultsFile", ",", " ", "dataFilePath", ",", 
-       " ", "inputPath", ",", " ", "outputPath", ",", "  ", "fileListSub", 
-       ",", " ", "\n", "\t\t\t\t", "rateConstsSub", ",", " ", "metsSub", ",", 
-       " ", "flagFitType", ",", " ", "Null", ",", " ", "False", ",", " ", 
-       "\"\<\>\""}], "]"}]}], ";"}], "\[IndentingNewLine]", 
-   "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"result", " ", "=", " ", 
-     RowBox[{"Delete", "[", 
-      RowBox[{"result", ",", "3"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{
-     RowBox[{"result", "[", 
-      RowBox[{"[", "3", "]"}], "]"}], " ", "=", " ", 
-     RowBox[{"Map", "[", 
-      RowBox[{
-       RowBox[{
-        RowBox[{"Flatten", "@", 
-         RowBox[{"#", "[", 
-          RowBox[{"[", 
-           RowBox[{"1", ";;", "2"}], "]"}], "]"}]}], "&"}], ",", " ", 
-       RowBox[{"result", "[", 
-        RowBox[{"[", "3", "]"}], "]"}]}], "]"}]}], ";"}], 
-   "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"AppendTo", "[", 
-     RowBox[{"testResults", ",", "\[IndentingNewLine]", 
-      RowBox[{"VerificationTest", "[", 
-       RowBox[{"result", ",", "expectedResult", " ", ",", " ", 
-        RowBox[{"TestID", "\[Rule]", "\"\<getRatesWithSSDAbsSSD\>\""}]}], 
-       "]"}]}], "\[IndentingNewLine]", "]"}], ";"}], 
-   "\[IndentingNewLine]"}]}]], "Input",
+       RowBox[{"Flatten", "@", 
+        RowBox[{"#", "[", 
+         RowBox[{"[", 
+          RowBox[{"1", ";;", "2"}], "]"}], "]"}]}], "&"}], ",", " ", 
+      RowBox[{"result", "[", 
+       RowBox[{"[", "3", "]"}], "]"}]}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"AppendTo", "[", 
+   RowBox[{"testResults", ",", "\[IndentingNewLine]", 
+    RowBox[{"VerificationTest", "[", 
+     RowBox[{"result", ",", "expectedResult", " ", ",", " ", 
+      RowBox[{"TestID", "\[Rule]", "\"\<getRatesWithSSDAbsSSD\>\""}]}], 
+     "]"}]}], "\[IndentingNewLine]", "]"}], 
+  ";"}], "\[IndentingNewLine]"}], "Input",
  CellChangeTimes->{{3.68837680299233*^9, 3.688376809170438*^9}, {
    3.688377062946416*^9, 3.688377063582418*^9}, 3.6883771745770893`*^9, {
    3.688377876439951*^9, 3.688377877362*^9}, {3.68837936496352*^9, 
@@ -1203,7 +1155,9 @@ Cell[BoxData[
    3.698489803450141*^9}, {3.704614052944428*^9, 3.704614117677754*^9}, 
    3.7046143924436083`*^9, 3.70461445439579*^9, {3.704614938795167*^9, 
    3.704614945461521*^9}, {3.704615257821615*^9, 3.7046152731846027`*^9}, 
-   3.704616135600933*^9, {3.704616174248179*^9, 3.704616179230647*^9}}]
+   3.704616135600933*^9, {3.704616174248179*^9, 3.704616179230647*^9}, {
+   3.711015621380865*^9, 3.7110156721243267`*^9}, {3.7110157291053677`*^9, 
+   3.711015730319463*^9}}]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -4413,7 +4367,8 @@ Cell[BoxData[
    3.698490255231908*^9}, 3.699091285591832*^9, 3.7037706361595182`*^9, {
    3.703770879933612*^9, 3.703770894148615*^9}, 3.703770932000784*^9, {
    3.703771042694317*^9, 3.703771059300668*^9}, 3.7046163040635757`*^9, {
-   3.704616351263502*^9, 3.70461637697829*^9}}]
+   3.704616351263502*^9, 3.70461637697829*^9}, 3.711014462395755*^9, 
+   3.711014901511672*^9, 3.7110157495763083`*^9, 3.711109906615015*^9}]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -4440,12 +4395,13 @@ Cell[BoxData[
    3.6984020619287643`*^9, 3.698402457806938*^9, {3.6984902262839823`*^9, 
    3.698490255859476*^9}, 3.699091286488661*^9, {3.703770905190608*^9, 
    3.703770932604985*^9}, 3.703771060100999*^9, {3.7046163546746683`*^9, 
-   3.70461637699789*^9}}]
+   3.70461637699789*^9}, 3.711014462616968*^9, 3.7110149015801897`*^9, 
+   3.7110157495958643`*^9, 3.711109906887561*^9}]
 }, Open  ]]
 }, Open  ]]
 },
-WindowSize->{1920, 1024},
-WindowMargins->{{0, Automatic}, {0, Automatic}},
+WindowSize->{1742, 1021},
+WindowMargins->{{39, Automatic}, {3, Automatic}},
 FrontEndVersion->"11.0 for Linux x86 (64-bit) (September 21, 2016)",
 StyleDefinitions->"Default.nb"
 ]
@@ -4460,28 +4416,29 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[558, 20, 1688, 34, 148, "Input"],
+Cell[558, 20, 141, 2, 32, "Input"],
+Cell[702, 24, 1688, 34, 148, "Input"],
 Cell[CellGroupData[{
-Cell[2271, 58, 685, 12, 36, "Subsubsection"],
-Cell[2959, 72, 22661, 558, 891, "Input"]
+Cell[2415, 62, 685, 12, 36, "Subsubsection"],
+Cell[3103, 76, 21583, 530, 800, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[25657, 635, 685, 12, 36, "Subsubsection"],
-Cell[26345, 649, 22504, 556, 891, "Input"]
+Cell[24723, 611, 685, 12, 36, "Subsubsection"],
+Cell[25411, 625, 20719, 534, 756, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[48886, 1210, 575, 10, 35, "Subsubsection"],
-Cell[49464, 1222, 27772, 533, 1662, "Input"]
+Cell[46167, 1164, 575, 10, 35, "Subsubsection"],
+Cell[46745, 1176, 27772, 533, 1802, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[77273, 1760, 624, 11, 35, "Subsubsection"],
+Cell[74554, 1714, 624, 11, 35, "Subsubsection"],
 Cell[CellGroupData[{
-Cell[77922, 1775, 111435, 2626, 528, "Input"],
-Cell[189360, 4403, 600, 12, 38, "Output"]
+Cell[75203, 1729, 111435, 2626, 528, "Input"],
+Cell[186641, 4357, 694, 13, 38, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[189997, 4420, 297, 7, 34, "Input"],
-Cell[190297, 4429, 817, 13, 34, "Output"]
+Cell[187372, 4375, 297, 7, 34, "Input"],
+Cell[187672, 4384, 913, 14, 34, "Output"]
 }, Open  ]]
 }, Open  ]]
 }

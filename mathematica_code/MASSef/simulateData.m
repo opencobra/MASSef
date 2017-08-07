@@ -154,7 +154,7 @@ removeMetsNotInReaction[rxn_, kmListFull_] := Block[{kmListFullLocal, entriesToD
 ];
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*Handle cosubstrate data*)
 
 
@@ -167,7 +167,6 @@ handleCosubstrateData[dataListFull_, metsFull_, metSatForSub_, metSatRevSub_, da
 
 	(*Extract CoSubstrates*)
 	Do[
-
 		Which[
 			(*Is a Reactant*)
 			MemberQ[metSatForSub[[All,1]], pt[[1]]],
@@ -184,7 +183,7 @@ handleCosubstrateData[dataListFull_, metsFull_, metSatForSub_, metSatRevSub_, da
 			AppendTo[coSubList, Delete[Flatten @ metsFull, indicies]];
 		],
 	{pt, dataListFullLocal}];
-	
+
 	(*
 	Do[
 	
@@ -211,7 +210,7 @@ handleCosubstrateData[dataListFull_, metsFull_, metSatForSub_, metSatRevSub_, da
 			dataListFullLocal[[pt,4,Position[dataListFullLocal[[pt,4]],dataListFullLocal[[pt,1]]][[1,1]]]], 
 			dataRange[[pt]]],
 	{pt, Length @ dataListFullLocal}];
-	
+
 	(*Handle CoSubstrate Data*)
 	dataCoSubFull=
 		Table[			
@@ -275,6 +274,10 @@ handleCosubstrateData[dataListFull_, metsFull_, metSatForSub_, metSatRevSub_, da
 ];
 
 
+(* ::Code:: *)
+(**)
+
+
 (* ::Subsection::Closed:: *)
 (*Correct chemical activities*)
 
@@ -322,13 +325,19 @@ correctChemicalActivities[dataListFull_, metsFull_, activeIsoSub_, ionicStrength
 substituteTargetValue[kmList_, kmFittingData_, metStoichList_, metList_, repeatedMetCount_]:=
 	Block[{kmFittingDataLocal=kmFittingData, repeatedMetInd, repeatedMetID, kmEntry,
 			kmVal},
+
 	repeatedMetInd = Flatten[Position[metStoichList, repeatedMetCount[[1]]]][[1]];
 	repeatedMetID = getID@metList[[repeatedMetInd]];
 	
+	If[!MemberQ[kmList[[All,2]], repeatedMetID],
+		Return[kmFittingDataLocal];
+	];
+
 	kmEntry = Flatten[Position[kmList[[All,2]], Select[kmList[[All,2]], # == repeatedMetID &][[1]]]][[1]];
-	kmVal = kmList[[kmEntry, 3]];
+	kmVal = kmList[[kmEntry, 3]];	
 		
 	Do[
+	Print[kmLineI];
 		If[StringMatchQ[kmFittingDataLocal[[kmLineI, -2]], RegularExpression[".*relRate.*" <> repeatedMetID <>"\\.txt\""]],
 			kmFittingDataLocal[[kmLineI, -1]] = kmVal;
 		],
@@ -351,7 +360,6 @@ fixDuplicateMetKmFittingData[rxn_, kmList_, kmFittingData_]:=
 		kmFittingDataLocal = substituteTargetValue[kmList, kmFittingDataLocal, metStoichList, metList, repeatedMetCount];
 	];
 	
-	
 	metStoichList = getProdStoich@rxn;
 	repeatedMetCount = Select[metStoichList, #> 1&];	
 
@@ -372,7 +380,7 @@ simulateKmData[rxn_, metsFull_, metSatForSub_, metSatRevSub_, kmList_, otherParm
 
 	(*Michaelis-Menten Equation*)
 	kmEqn[S_,Km_]:=S/(Km+S);
-	
+
 	(* send priorities to the last position in each entry*)
 	kmListLocal = kmList[[All, 2;;-1]];
 	priorityList = kmList[[All,1]];
@@ -411,7 +419,7 @@ simulateKmData[rxn_, metsFull_, metSatForSub_, metSatRevSub_, kmList_, otherParm
 	kmListFull = handleCosubstrateData[kmListFull, metsFull, metSatForSub, metSatRevSub, dataRange, assumedSaturatingConc, rxn];
 
 	ionicStrength = calculateIonicStrength[kmListFull, bufferInfo, ionCharge];
-	Print[ionicStrength];
+	
 	(*adjustedKeqVal= 
 		If[NumericQ[KeqVal],	
 			ConstantArray[{Keq[getID[rxn]]-> KeqVal}, Dimensions[kmListFull][[1]]],
@@ -444,13 +452,13 @@ simulateKmData[rxn_, metsFull_, metSatForSub_, metSatRevSub_, kmList_, otherParm
 			{pt, Length @ assayMet}];
 	
 	priorityValues = Flatten[Table[priorityList[[km]], {km, Length @ kmListFull}, {Length @ dataRange[[km]]}]];
-	
+
 	kmFittingData=
 		Table[
 			Join[{priorityValues[[pt]]}, kmFittingData[[pt]], {fileFlagList[[pt]],vList[[pt]]}],
 		{pt, Length @ kmFittingData}];
 
-	
+
 	kmFittingData = fixDuplicateMetKmFittingData[rxn, kmList, kmFittingData];
 	(*kmFittingData=Table[
 		Join[{adjustedKeqVal[[pt,2]]}, kmFittingData[[pt]]],
@@ -460,7 +468,7 @@ simulateKmData[rxn_, metsFull_, metSatForSub_, metSatRevSub_, kmList_, otherParm
 ];
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*Simulate S05 data*)
 
 
@@ -481,7 +489,6 @@ simulateS05Data[rxn_, metsFull_, metSatForSub_, metSatRevSub_, s05List_, otherPa
 	s05ListFull=s05ListLocal;
 	hillList = Select[otherParmsList,#[[2]]=="n"&];
 	hillList = hillList[[All,2;;]]; (* get rid of priority *)
-
 
 	If[Length[hillList] == 0,
 		(*If there's no data for n, print a warning and exit*)
@@ -523,7 +530,7 @@ simulateS05Data[rxn_, metsFull_, metSatForSub_, metSatRevSub_, s05List_, otherPa
 		Table[
 			{i, s05[[2]], s05[[9]]},
 		{s05,s05ListFull},{i, minPsDataValFunc[s05[[2]]], maxPsDataValFunc[s05[[2]]], logStepSize}];
-		
+
 	(*Generate Resultant Rates*)
 	vValues=
 		Table[
@@ -545,6 +552,7 @@ simulateS05Data[rxn_, metsFull_, metSatForSub_, metSatRevSub_, s05List_, otherPa
 	s05ListFull = handleCosubstrateData[s05ListFull, metsFull, metSatForSub, metSatRevSub, dataRange, assumedSaturatingConc, rxn];
 
 	ionicStrength = calculateIonicStrength[s05ListFull, bufferInfo, ionCharge];
+
 	(*
 	adjustedKeqVal= 
 		If[NumericQ[KeqVal],	
@@ -729,7 +737,7 @@ simulateKcatData[rxn_, metsFull_, metSatForSub_, metSatRevSub_, kcatList_, other
 ];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Simulate inhibition data*)
 
 
@@ -1111,7 +1119,7 @@ simulateInhibData[rxn_, metsFull_, metSatForSub_, metSatRevSub_, inhibList_, ass
 ];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Simulate rate constant ratios  data (e.g.  Keq, dKd, Kd)*)
 
 
@@ -1306,7 +1314,7 @@ simulateData[enzymeModel_,dataFileName_, haldaneRatiosList_, KeqList_, KmList_, 
 				
 				ratioList = getRatio[enzymeModel, activator, {"Activation", "Ka"}];
 				ratioList = DeleteDuplicates[ratioList];
-				
+
 				If[!SameQ[ratio, Null],
 					priority = activationEntry[[1]];
 					val = activationEntry[[4]];
@@ -1347,7 +1355,9 @@ simulateData[enzymeModel_,dataFileName_, haldaneRatiosList_, KeqList_, KmList_, 
 				allFittingData = Join[allFittingData, KdFittingData];,
 
 				StringStartsQ[paramType, "L0"],
+		
 				ratio = getAllostericTransitionRatio[enzymeModel, nonCatalyticReactions];
+		
 				If[!SameQ[ratio, Null],
 					priority = paramEntry[[1]];
 					val = getOtherParamsValue[paramType, otherParmsList];
