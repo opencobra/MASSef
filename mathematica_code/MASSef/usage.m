@@ -159,6 +159,9 @@ createDirectories::usage="createDirectories[dataFolder]";
 initializeNotebook::usage="initializeNotebook[pathMASSFittingPath, dataFolder]";
 
 
+deleteDirectoryContents::usage="deleteDirectoryContents[dir]";
+
+
 ToPython::usage="ToPython[x]";
 
 
@@ -187,3 +190,7 @@ getRatio::usage="getInhibRatio[enzymeModel, metabolite]";
 
 
 getOtherParamsValue::usage="getOtherParamsValue[param, otherParamsList]";
+
+
+generateOrderedMechanism::usage="generateOrderedMechanism[enzyme, substrateList, productList, nActiveSites, bindingReversibility, 
+															transitionReversibility, releaseReversibility]";

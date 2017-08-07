@@ -267,7 +267,7 @@ getOtherParamsValue[param_, otherParamsList_] :=
 ];
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*Get  haldane*)
 
 
@@ -275,6 +275,52 @@ getHaldane[allCatalyticReactions_, unifiedRateConstList_, KeqName_] := Block[{ha
 	
 	haldane = haldaneRelation[KeqName, allCatalyticReactions] /. unifiedRateConstList;
 	Return[haldane];
+];
+
+
+(* ::Subsection:: *)
+(*Generate catalytic mechanism*)
+
+
+generateOrderedMechanism[enzyme_, substrateList_, productList_, nActiveSites_, bindingReversibility_, 
+                        transitionReversibility_, releaseReversibility_] := 
+    Block[{comp, bindingRxnListSubstrates, substrateI, productI, bindingRxnListProducts, transitionReaction, 
+            bindingRxns, releaseRxns, catalyticBranch},
+     
+    comp = enzyme;
+    bindingRxnListSubstrates =
+        Table[
+         
+            substrateI = comp<>" + "<> substrate<> "[c]" ;
+            productI = comp<>"&"<> substrate;
+            comp = productI;
+            {substrateI, productI}, 
+ 
+        {substrate, substrateList}, {activeSiteI, 1, nActiveSites}];
+         
+    bindingRxnListSubstrates = Flatten[bindingRxnListSubstrates, 1];
+ 
+    comp = enzyme;
+    bindingRxnListProducts = 
+        Table[
+            substrateI = comp<>" + "<> product<> "[c]" ;
+            productI = comp<>"&"<> product;
+            comp = productI;
+            {productI, substrateI}, 
+ 
+        {product, productList},{activeSiteI, 1, nActiveSites}];
+ 
+ 
+    bindingRxnListProducts = Flatten[bindingRxnListProducts, 1];
+ 
+    transitionReaction = bindingRxnListSubstrates[[-1,2]] <> transitionReversibility <> bindingRxnListProducts[[-1,1]];
+    bindingRxns = Map[#[[1]] <> bindingReversibility <> #[[2]]&, bindingRxnListSubstrates];
+    releaseRxns= Reverse @ Map[#[[1]] <> releaseReversibility <> #[[2]]&, bindingRxnListProducts];
+     
+    catalyticBranch = Flatten[{bindingRxns, transitionReaction, releaseRxns}];
+     
+    Return[catalyticBranch];
+ 
 ];
 
 
