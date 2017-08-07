@@ -70,6 +70,20 @@ initializeNotebook[pathMASSFittingPath_, dataFolder_, removeInputFiles_:False, r
 
 
 
+(* ::Subsection:: *)
+(*Delete directory contents*)
+
+
+deleteDirectoryContents[dir_]:= Block[{},
+     
+    If[ DirectoryQ[dir],
+         DeleteDirectory[dir, DeleteContents->True];
+         CreateDirectory[dir];
+    ];
+     
+];
+
+
 (* ::Subsection::Closed:: *)
 (*Convert stuff to python format*)
 
@@ -170,7 +184,7 @@ getConversionChar2Met[mets_] := Module[{char2met},
 ];
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*Get allosteric transition ratio*)
 
 
@@ -186,7 +200,7 @@ getAllostericTransitionRatio[enzymeModel_, nonCatalyticReactions_] :=
 	(*Unify the Rate Constants (i.e. Extract the Rate Constants for Repetitive Reactions)*)
 	forTransConst = Union[unifyRateConstants[forTransRateConsts]];
 	revTransConst = Union[unifyRateConstants[revTransRateConsts]];
-	
+
 	If[Length[forTransConst] == 1 && Length[revTransConst] == 1,
 		Return[revTransConst[[1]]/forTransConst[[1]]];,
 		Print["Possibly there are more than one transition equation and the more than one ratio"];
