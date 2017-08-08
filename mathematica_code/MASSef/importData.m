@@ -11,7 +11,7 @@
 Begin["`Private`"];
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*Get ion data*)
 
 
@@ -22,7 +22,7 @@ getIonData[dataPath_] := Block[{data, ionChargeData},
 ];
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*Get buffer data*)
 
 
@@ -36,8 +36,8 @@ getBufferInfoData[dataPath_] :=
 	bufferInfoData = 
 		Table[
 			line = data[[i, All]];
-			bufferID = line[[1]];
-			bufferName = line[[2]];
+			bufferID = StringTrim[line[[1]]];
+			bufferName = StringTrim[line[[2]]];
 			pKa = line[[3]];
 			If[pKa == "", pKa=Null];
 			acidCharge = line[[4]];
@@ -83,7 +83,7 @@ handleUncertainty[paramValue_, uncertainty_, defaultUncertaintyFraction_] :=
 parseKeqEntry[line_, uncertaintyFraction_] := 
 	Block[{entry, substrate, value, uncertainty, coSubstrates, units, ph, 
 			temperature, buffer, salts, priority=1},
-	substrate = line[[1]];
+	substrate = StringReplace[line[[1]], " "-> ""];
 	value = line[[2]];
 	uncertainty = line[[3]];
 	uncertainty = handleUncertainty[value, uncertainty, uncertaintyFraction];
@@ -97,19 +97,19 @@ parseKmS05Entry[line_, uncertaintyFraction_] :=
 	Block[{entry, substrate, value, uncertainty, coSubstrates, units, ph, 
 			temperature, buffer, salts, priority=1},
 			
-	substrate = line[[1]];
+	substrate = StringReplace[line[[1]], " "-> ""];
 	value = line[[2]];
 	uncertainty = line[[3]];
 	uncertainty = handleUncertainty[value, uncertainty, uncertaintyFraction];
 	
-	coSubstrates = Map[{#}&, StringSplit[line[[4]], ";"]];
+	coSubstrates = Map[{#}&, StringSplit[StringReplace[line[[4]], " "-> ""], ";"]];
 	coSubstrates = parseSubMetLists[coSubstrates];
-	units = line[[5]];
+	units = StringReplace[line[[5]], " "-> ""];
 	ph = line[[6]];
 	temperature = line[[7]];
-	buffer = Map[{#}&, StringSplit[line[[8]], ";"]];
+	buffer = Map[{#}&, StringSplit[StringReplace[line[[8]], " "-> ""], ";"]];
 	buffer = parseSubMetLists[buffer];
-	salts = Map[{#}&, StringSplit[line[[9]], ";"]];
+	salts = Map[{#}&, StringSplit[StringReplace[line[[9]], " "-> ""], ";"]];
 	salts = parseSubMetLists[salts];
 	
 	entry = {priority, substrate, value, uncertainty, coSubstrates, units, ph, temperature, buffer, salts};
@@ -119,19 +119,19 @@ parseKmS05Entry[line_, uncertaintyFraction_] :=
 parseKcatEntry[line_, uncertaintyFraction_] := 
 	Block[{kcatEntry, kcatValue, uncertainty, substrates, units, ph, 
 			temperature, buffer, salts, priority=1},
-			
-	substrates = Map[{#}&, StringSplit[line[[1]], ";"]];
+
+	substrates = Map[{#}&, StringSplit[StringReplace[line[[1]], " "-> ""], ";"]];
 	substrates = parseSubMetLists[substrates];
 	kcatValue = line[[2]];
 	uncertainty = line[[3]];
 	uncertainty = handleUncertainty[kcatValue, uncertainty, uncertaintyFraction];
 	
-	units = line[[5]];
+	units = StringReplace[line[[5]], " "-> ""];
 	ph = line[[6]];
 	temperature = line[[7]];
-	buffer = Map[{#}&, StringSplit[line[[8]], ";"]];
+	buffer = Map[{#}&, StringSplit[StringReplace[line[[8]], " "-> ""], ";"]];
 	buffer = parseSubMetLists[buffer];
-	salts = Map[{#}&, StringSplit[line[[9]], ";"]];
+	salts = Map[{#}&, StringSplit[StringReplace[line[[9]], " "-> ""], ";"]];
 	salts = parseSubMetLists[salts];
 
 	kcatEntry = {priority, substrates, kcatValue, uncertainty, units, ph, temperature, buffer, salts};
@@ -142,23 +142,23 @@ parseInhibKaEntry[line_, uncertaintyFraction_] :=
 	Block[{entry, paramType, substrate, paramValue, uncertainty, coSubstrates, 
 			actionType, units, ph, temperature, buffer, salts, priority=1},
 			
-	paramType = line[[1]];
-	substrate =  line[[2]];
+	paramType = StringReplace[line[[1]], " "-> ""];
+	substrate =  StringReplace[line[[2]], " "-> ""];
 	paramValue = line[[3]];
 	uncertainty = line[[4]];
 	uncertainty = handleUncertainty[paramValue, uncertainty, uncertaintyFraction];
 	
-	coSubstrates =  Map[{#}&, StringSplit[line[[5]], ";"]];
+	coSubstrates =  Map[{#}&, StringSplit[StringReplace[line[[5]], " "-> ""], ";"]];
 	coSubstrates = parseSubMetLists[coSubstrates];
-	units = line[[6]];
+	units = StringReplace[line[[6]], " "-> ""];
 	ph = line[[7]];
 	temperature = line[[8]];
-	buffer = Map[{#}&, StringSplit[line[[9]], ";"]];
+	buffer = Map[{#}&, StringSplit[StringReplace[line[[9]], " "-> ""], ";"]];
 	buffer = parseSubMetLists[buffer];
-	salts = Map[{#}&, StringSplit[line[[10]], ";"]];
+	salts = Map[{#}&, StringSplit[StringReplace[line[[10]], " "-> ""], ";"]];
 	salts = parseSubMetLists[salts];
 	
-	actionType = Map[{#}&, StringSplit[line[[11]], ";"]];
+	actionType = Map[{#}&, StringSplit[StringReplace[line[[11]], " "-> ""], ";"]];
 	actionType = Flatten[ Map[StringSplit[#, ","]&, actionType], 1];
 	actionType[[All,3]] = ToExpression[actionType[[All,3]]];
 	
@@ -170,20 +170,20 @@ parseOtherEntry[line_, uncertaintyFraction_] :=
 	Block[{paramType,entry, substrate, value, uncertainty, coSubstrates, units, ph, 
 			temperature, buffer, salts, priority=1},
 			
-	paramType= line[[1]];
-	substrate = line[[2]];
+	paramType= StringReplace[line[[1]], " "-> ""];
+	substrate = StringReplace[line[[2]], " "-> ""];
 	value = line[[3]];
 	uncertainty = line[[4]];
 	uncertainty = handleUncertainty[value, uncertainty, uncertaintyFraction];
 
-	coSubstrates = Map[{#}&, StringSplit[line[[5]], ";"]];
+	coSubstrates = Map[{#}&, StringSplit[StringReplace[line[[5]], " "-> ""], ";"]];
 	coSubstrates = parseSubMetLists[coSubstrates];
-	units = line[[6]];
+	units = StringReplace[line[[6]], " "-> ""];
 	ph = line[[7]];
 	temperature = line[[8]];
-	buffer = Map[{#}&, StringSplit[line[[9]], ";"]];
+	buffer = Map[{#}&, StringSplit[StringReplace[line[[9]], " "-> ""], ";"]];
 	buffer = parseSubMetLists[buffer];
-	salts = Map[{#}&, StringSplit[line[[10]], ";"]];
+	salts = Map[{#}&, StringSplit[StringReplace[line[[10]], " "-> ""], ";"]];
 	salts = parseSubMetLists[salts];
 
 	entry = {priority, paramType, substrate, value, uncertainty, coSubstrates, units, ph, temperature, buffer, salts};
@@ -231,19 +231,19 @@ getEnzymeData[enzName_, dataPath_, assumedUncertaintyFraction_, q10KcatCorrectio
 	nextEnzymeInd = enzymesInd[[Flatten[Position[enzymesInd, curEnzymeInd]][[1]]+1]];
 	curEnzymeData = data[[curEnzymeInd;;(nextEnzymeInd-1)]];
 
-	Assert[StringMatchQ[curEnzymeData[[1,2]], "ec_number"]];
-	Assert[StringMatchQ[curEnzymeData[[2,2]], "organism"]];
-	Assert[StringMatchQ[curEnzymeData[[3,2]], "reaction"]];
-	Assert[StringMatchQ[curEnzymeData[[4,2]], ""]];
-	Assert[StringMatchQ[curEnzymeData[[5,2]], "mechanism"]];
-	Assert[StringMatchQ[curEnzymeData[[6,2]], "structure"]];
-	Assert[StringMatchQ[curEnzymeData[[7,2]], "active_sites"]];
-	Assert[StringMatchQ[curEnzymeData[[8,2]], "allosteric_sites"]];
-	Assert[StringMatchQ[curEnzymeData[[9,2]], "parameter type"]];
+	Assert[StringMatchQ[StringTrim[curEnzymeData[[1,2]]], "ec_number"]];
+	Assert[StringMatchQ[StringTrim[curEnzymeData[[2,2]]], "organism"]];
+	Assert[StringMatchQ[StringTrim[curEnzymeData[[3,2]]], "reaction"]];
+	Assert[StringMatchQ[StringTrim[curEnzymeData[[4,2]]], ""]];
+	Assert[StringMatchQ[StringTrim[curEnzymeData[[5,2]]], "mechanism"]];
+	Assert[StringMatchQ[StringTrim[curEnzymeData[[6,2]]], "structure"]];
+	Assert[StringMatchQ[StringTrim[curEnzymeData[[7,2]]], "active_sites"]];
+	Assert[StringMatchQ[StringTrim[curEnzymeData[[8,2]]], "allosteric_sites"]];
+	Assert[StringMatchQ[StringTrim[curEnzymeData[[9,2]]], "parameter type"]];
 
-	ecNumber = curEnzymeData[[1,3]];
+	ecNumber = StringReplace[curEnzymeData[[1,3]], " "-> ""];
 	rxn = str2mass[enzName <> ": " <> curEnzymeData[[3,3]]];
-	mechanism = curEnzymeData[[5,3]] <> "; " <> curEnzymeData[[5,4]];
+	mechanism = StringTrim[curEnzymeData[[5,3]]] <> "; " <> StringTrim[curEnzymeData[[5,4]]];
 	structure = curEnzymeData[[6,3]];
 	nActiveSites = curEnzymeData[[7,3]];
 	nAllostericSites = curEnzymeData[[8,3]];
@@ -254,12 +254,12 @@ getEnzymeData[enzName_, dataPath_, assumedUncertaintyFraction_, q10KcatCorrectio
 		line = curEnzymeData[[i]];
 	
 		Which[
-			StringMatchQ[ToLowerCase@dataType, "keq"], AppendTo[KeqList, parseKeqEntry[line[[3;;]], assumedUncertaintyFraction]],
-			StringMatchQ[ToLowerCase@dataType, "km"], AppendTo[kmList, parseKmS05Entry[line[[3;;]], assumedUncertaintyFraction]],
-			StringMatchQ[ToLowerCase@dataType, "s05"], AppendTo[s05List, parseKmS05Entry[line[[3;;]], assumedUncertaintyFraction]],
-			StringMatchQ[ToLowerCase@dataType, "kcat"], AppendTo[kcatList, parseKcatEntry[line[[3;;]], assumedUncertaintyFraction]],
-			StringMatchQ[ToLowerCase@dataType, {"ki", "kic", "kinc", "kincu", "kincc"}], AppendTo[inhibitionList, parseInhibKaEntry[line[[2;;]], assumedUncertaintyFraction]],
-			StringMatchQ[ToLowerCase@dataType, "ka"], AppendTo[activationList, parseInhibKaEntry[line[[2;;]], assumedUncertaintyFraction]],
+			StringMatchQ[StringTrim[ToLowerCase@dataType], "keq"], AppendTo[KeqList, parseKeqEntry[line[[3;;]], assumedUncertaintyFraction]],
+			StringMatchQ[StringTrim[ToLowerCase@dataType], "km"], AppendTo[kmList, parseKmS05Entry[line[[3;;]], assumedUncertaintyFraction]],
+			StringMatchQ[StringTrim[ToLowerCase@dataType], "s05"], AppendTo[s05List, parseKmS05Entry[line[[3;;]], assumedUncertaintyFraction]],
+			StringMatchQ[StringTrim[ToLowerCase@dataType], "kcat"], AppendTo[kcatList, parseKcatEntry[line[[3;;]], assumedUncertaintyFraction]],
+			StringMatchQ[StringTrim[ToLowerCase@dataType], {"ki", "kic", "kinc", "kincu", "kincc"}], AppendTo[inhibitionList, parseInhibKaEntry[line[[2;;]], assumedUncertaintyFraction]],
+			StringMatchQ[StringTrim[ToLowerCase@dataType], "ka"], AppendTo[activationList, parseInhibKaEntry[line[[2;;]], assumedUncertaintyFraction]],
 			True, AppendTo[otherParmsList, parseOtherEntry[line[[2;;]], assumedUncertaintyFraction]]
 		];,
 	{i, 10, Length@curEnzymeData}];
@@ -273,7 +273,7 @@ getEnzymeData[enzName_, dataPath_, assumedUncertaintyFraction_, q10KcatCorrectio
 
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Print enzyme data*)
 
 
