@@ -1197,7 +1197,7 @@ simulateData[enzymeModel_,dataFileName_, haldaneRatiosList_, KeqList_, KmList_, 
 			dataPath, priority, ratioList, tempInhibFittingData, tempActivationFittingData},
 	
 	(* define key parameters *)
-	logStepSize=0.1;
+	logStepSize=0.2;
 	(*nonKmParamWeight=3;*)
 	(*Weighting factor for non-Km data points. You can be specify this manually*)
 	{minPsDataVal, maxPsDataVal}= getMinMaxPsDataVal[1];
