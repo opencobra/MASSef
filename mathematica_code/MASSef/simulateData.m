@@ -1197,7 +1197,7 @@ simulateData[enzymeModel_,dataFileName_, haldaneRatiosList_, KeqList_, KmList_, 
 			dataPath, priority, ratioList, tempInhibFittingData, tempActivationFittingData},
 	
 	(* define key parameters *)
-	logStepSize=0.2;
+	logStepSize=0.1;
 	(*nonKmParamWeight=3;*)
 	(*Weighting factor for non-Km data points. You can be specify this manually*)
 	{minPsDataVal, maxPsDataVal}= getMinMaxPsDataVal[1];
@@ -1214,7 +1214,7 @@ simulateData[enzymeModel_,dataFileName_, haldaneRatiosList_, KeqList_, KmList_, 
 	activeIsoSub=Thread[metsFull->metsFull];(*[(S^z)] = [S] *)
 	activityCoefficient=Thread[metsFull->1];(* \[Gamma] = 1 *)
 		
-	pHandT= {KeqList[[1,7]], 25};
+	pHandT= {7.5, 25};
 	If[ !SameQ[haldaneRatiosList, {}],
 		Print["Simulating Keq data..."];
 		Do[
@@ -1357,7 +1357,7 @@ simulateData[enzymeModel_,dataFileName_, haldaneRatiosList_, KeqList_, KmList_, 
 				StringStartsQ[paramType, "L0"],
 		
 				ratio = getAllostericTransitionRatio[enzymeModel, nonCatalyticReactions];
-		
+
 				If[!SameQ[ratio, Null],
 					priority = paramEntry[[1]];
 					val = getOtherParamsValue[paramType, otherParmsList];
@@ -1518,8 +1518,9 @@ simulateParameterScanData[paramScanList_, enzymeModel_, dataFileName_, haldaneRa
 						  nonCatalyticReactions_, unifiedRateConstList_, customRatiosList_:{}]:= 
 	Block[{KeqListLocal=KeqList, KmListLocal=KmList, s05ListLocal=s05List, 
 			kcatListLocal= kcatList, inhibListLocal=inhibList, activationListLocal=activationList, 
-			otherParmsListLocal=otherParmsList, customRatiosListLocal=customRatiosList, allFittingData, dataPath, 
-			dataPathList={}, dataFileNameLocal, allFittingDataList={}, fileListLocal=fileList, fileListSubLocal=fileListSub},
+			otherParmsListLocal=otherParmsList, customRatiosListLocal=customRatiosList, haldaneRatiosListLocal=haldaneRatiosList,
+			allFittingData, dataPath, dataPathList={}, dataFileNameLocal, allFittingDataList={},
+			fileListLocal=fileList, fileListSubLocal=fileListSub},
 
 	Do[
 		haldaneRatiosListLocal=haldaneRatiosList;
