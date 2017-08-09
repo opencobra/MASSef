@@ -9,9 +9,10 @@ Unprotect["MASSef`*"];
 
 Get["MASSef`usage`"];
 Get["MASSef`analyzeFitResults`"];
-Get["MASSef`buildModule`"];
+Get["MASSef`buildFullModel`"];
 Get["MASSef`configureAndRunFit`"];
 Get["MASSef`importData`"];
+Get["MASSef`setUpFluxEquations`"];
 Get["MASSef`simulateData`"];
 Get["MASSef`utils`"];
 

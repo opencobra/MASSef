@@ -43,6 +43,9 @@ getTransitionRateEqs::usage="getTransitionRateEqs[transitionID, rates]";
 getUnifiedRateConstList::usage="getUnifiedRateConstList[allCatalyticReactions, nonCatalyticReactions]";
 
 
+getHalfHaldaneSub::usage="getHalfHaldaneSub[equivalentReactionsSetsList]";
+
+
 getFluxEquation::usage="getFluxEquation[workingDir, rxnName, enzymeModel, unifiedRateConstList, transitionRateEqs]";
 
 
@@ -66,6 +69,14 @@ exportRateEqs::usage="exportRateEqs[outputPath, absoluteRateForward, absoluteRat
 
 setUpFluxEquations::usage="setUpFluxEquations[enzymeModel, rxn, rxnName, inputPath,inhibitionList, catalyticReactionsSetsList, otherMetsReverseZeroSub, 
 					otherMetsForwardZeroSub, simplifyMaxTime, nActiveSites]";
+
+
+(* ::Subsection:: *)
+(*buildFullModel*)
+
+
+buildFullEnzymeModel::usage"buildFullEnzymeModel[enzymeModel, rxn, pathMASSef, inputPath, outputPath, dataFileName, inhibitionList,inhibitionList, KeqList, \[IndentingNewLine]					 kmList, s05List, kcatList, inhibitionList, activationList, otherParmsList,inhibitionListSubset, bufferInfo, ionCharge,
+					 catalyticReactionsSetsList, otherMetsReverseZeroSub, otherMetsForwardZeroSub, customRatiosDataList, MWCFlag,\[IndentingNewLine]					 simplifyFlag, simplifyMaxTime, nActiveSites, fitLabel, numTrials, simulateDataFlag, nSamples, paramScanList, \[IndentingNewLine]					 flagFitType]";
 
 
 (* ::Subsection:: *)
