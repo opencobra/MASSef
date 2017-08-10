@@ -10,303 +10,123 @@ The workflow to build each enzyme model consists of 5 main parts:
 * Analyze the fit results.
 
 Each enzyme model is built in a separate notebook.
-The user can then use three types of notebook, from a more detailed one where each step is executed individually to a more abstract one, where the steps 2 to 4 are executed by the same function. Step 1 and 5 are common to the three types of notebook though.
+The user can then use three types of notebook, from a more detailed one where each step is executed individually to a more abstract one, where the steps 2 to 4 are executed by the same function.
 
 
 
+, and
 
-Example work flow for notebook type 1 (from G3PD2)
---------------------------------------------------
+* Initialize noteboook - where the required packages are loaded, the enzyme name is defined, and necessary folders are created.
+* Import data - the enzyme data is imported, as well as the buffer and ion charge information.
+* Construct Module and set up comparison equations - here the enzyme mechanism is defined and the flux equations are created
+* Simulate enzyme data - the data to be fitted is simulated here based on the macroscopic parameters, kcat, Km, etc.
+* Configure particle swarm optimization - the PSO fitting method is configured, the most important parameter here is the numer of fits to be done.
+* Configure Levenberg-Marquardt algorithm - the LMA fitting method is configured, nothing much to change here
+* Run the fitting algorithms - where the enzyme module is fitted, unless you prefer to run it on a cluster.
+* Pull in parameters and check fit and enzyme statistics - check how well the data was fit and re-calculate the macroscopic parameters
+
+
+
+Example work flow (from TALA2)
+---------------------------------
 
 Initialize notebook
 ^^^^^^^^^^^^^^^^^^^^
 
-Load MASS toolbox and MASSef.
+Load MASS toolbox and MASSef (still named MASSFittingPackage).
 
 ::
 
 	<< Toolbox`';
-	<<"MASSef`;
+	Get["MASSFittingPackage`"];
+	Get["MASSFittingPackage`"];
 
 
-Set the directory as the notebook directory or, alternatively, define workingDir.
+Set the directory as the notebook directory, set the enzyme name, and the Keq value (optional).
 
 ::
 
 	SetDirectory[NotebookDirectory[]];
-	workingDir = "whatever/folder"
-	
-	
-Define whether the files on the input and/or output folders should be deleted or not.
-
-::
-	
-	removeInputFiles = True;
-	removeOutputFiles = False;
-	
-	
-Define: the reaction name, this should be the same as in the data file; the label for the file where the simulated data will be stored; the label for the files where the fit results will be stored.
-
-::
-	
-	rxnName = "G3PD2";
-	dataFileName = rxnName;
-	fitLabel = rxnName;
-	
-
-Define the default uncertainty associated with each parameter's value, from 0 to 1. This is used when no uncertainty is specified in the data file.
-
-::
-	
-	assumedUncertaintyFraction = 0.05;
+	rxnName = "TALA2";
+	KeqEquilibrator = 1/1.19;
 
 
-Specify if the kcat values should be corrected for temperature and, if so, what the temperature should be. 	
-	
-::
-
-	Q10KcatCorrectionFlag = False;
-	TPhysiological = 37; 
-
-
-Set the path for the MASSef package, so that it can find the enzyme data, which is assumed to be in the "data" folder. Also, define the name for the file that contains the data.
+Set the path for the MASSef package, so that it can find the enzyme data, and set the name for mainFolder, where all the data is stored: input contains the input data, and output the fitting results.
+These lines need to be changed by the user, especially the first.
 
 ::
 
-	pathMASSef = "/home/mrama/Dropbox/MASS_fitting_package/";
-	kineticDataFileName =  "kinetic_data.csv";
-	
+	pathMASSFittingPackage = "/home/mrama/Dropbox/MASS_fitting_package/";
+	mainFolder = "fit_TALA2";
 
-Set the name for mainFolder, where all the data is stored: input contains the input data, and output the fitting results.
 
-::
-
-	mainFolder = "fit_G3PD2_typeI";
-	
-
-Initialize the notebook, by deffining important paths, i.e., the path where the data files are stored, the path where input files for the fitting will stored, and the path where output files will be stored. `workingDir` is an optional argument.
+Initialize the notebook, by deffining important paths. 
 
 ::
 
-	{pathData, inputPath, outputPath} =  initializeNotebook[pathMASSef, mainFolder, removeInputFiles, removeOutputFiles, workingDir];
-
+	{workingDir, pathData, runFitScriptPath, inputPath, outputPath, bigg2equilibrator} 
+		= initializeNotebook[pathMASSFittingPackage, mainFolder];
 
 
 
 Import data
 ^^^^^^^^^^^^^^^^^^^^
 
-
-Import the enzyme data, buffer, and ion charge data.
-
-::
-
-	{rxn, mechanism, structure, nActiveSites, nAllostericSites, KeqList0, 
-		kmList0, s05List0, kcatList0, inhibitionList0, activationList0, 
-		otherParmsList0, bufferInfo, ionCharge} = 
-				importAllData [rxnName, pathData, kineticDataFileName, assumedUncertaintyFraction,
-								Q10KcatCorrectionFlag, TPhysiological];
-
-
-Update data points priority, these should be between 0 and 1. The priority lists should have the same length as the respective data point lists.
-
+Define the paths for the files that contain the enzyme kinetic data, the buffer and ion charge information.
 
 ::
 
-	KeqPriorities = {1};
-	kmPriorities = {1, 1, 1, 1};
-	s05Priorities = Null;
-	kcatPriorities = Null;
-	inhibitionPriorities = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
-	activationPriorities = Null;
-	otherParamsPriorities = Null;
+	enzymeDataPath = FileNameJoin[{pathData, "kinetic_data.xls"}, OperatingSystem -> $OperatingSystem];
+	bufferInfoDataPath = FileNameJoin[{pathData, "buffer_info.xls"}, OperatingSystem -> $OperatingSystem];
+	ionChargeDataPath = FileNameJoin[{pathData, "ion_charge.xls"}, OperatingSystem -> $OperatingSystem];
 
-	{KeqList, kmList, s05List, kcatList, inhibitionList, activationList, otherParmsList} =  
-		updateDataPriorities[KeqPriorities, kmPriorities, s05Priorities, kcatPriorities,
-							 inhibitionPriorities, activationPriorities, otherParamsPriorities,
-							 KeqList0, kmList0, s05List0, kcatList0, inhibitionList0, 
-							 activationList0, otherParmsList0];
 
-Print the enzyme data. 
+Import the enzyme data, buffer, and ion charge data
 
 ::
 
-	printEnzymeData[rxn, mechanism, structure, nActiveSites,  KeqList, 
-					kmList, s05List, kcatList, inhibitionList, activationList, 
-					otherParmsList];
+	{rxn, mechanism, structure, nActiveSites, nAllostericSites, kmList, s05List, kcatList, inhibitionList, activationList, otherParmsList} 
+		= getEnzymeData[rxnName, enzymeDataPath];
+		
+	bufferInfo = getBufferInfoData[bufferInfoDataPath];
+	ionCharge = getIonData[ionChargeDataPath];
 
+
+Define inhibitions manually, shouldn't be needed
+
+:: 
+
+	inhibitorMet = {};
+	affectedMets = {};(*There can be multiple metabolites*)
 	
 	
 
-Define enzyme mechanism and catalytic tracks
+Construct Module and Set Up Comparison Equations	
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Define the enzyme mechanism and build the enzyme model.
-	
-::
-
-	catalyticBranch = {"E_G3PD2[c] + nadp[c] <=> E_G3PD2[c]&nadp",
-						"E_G3PD2[c]&nadp + glyc3p[c] <=> E_G3PD2[c]&nadp&glyc3p",
-						"E_G3PD2[c]&nadp&glyc3p <=> E_G3PD2[c]&nadph&dhap",
-						"E_G3PD2[c]&nadph&dhap <=> E_G3PD2[c]&nadph + dhap[c]",
-						"E_G3PD2[c]&nadph <=> E_G3PD2[c] + nadph[c]"};
-
-
-	enzymeModel = constructEnzymeModule[Mechanism -> catalyticBranch, 
-					Activators -> {}, ActivationSites -> 0, Inhibitors -> {}, 
-					InhibitionSites -> 0];
-
-
-
-::
-	catalyticReactionsSet1 = {str2mass["G3PD21: E_G3PD2[c] + nadp[c] <=> E_G3PD2[c]&nadp"].
-								str2mass["G3PD22: E_G3PD2[c]&nadp + glyc3p[c] <=> E_G3PD2[c]&nadp&glyc3p"]
-								str2mass["G3PD23: E_G3PD2[c]&nadp&glyc3p <=> E_G3PD2[c]&nadph&dhap"]
-								str2mass["G3PD24: E_G3PD2[c]&nadph&dhap <=> E_G3PD2[c]&nadph + dhap[c]"]
-								str2mass["G3PD25: E_G3PD2[c]&nadph <=> E_G3PD2[c] + nadph[c]"]}
-								
-	catalyticReactionsSetsList = {catalyticReactionsSet1};
-	
-
-
-Build enzyme model
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Define the `MWCFlag`, which is only relevant for allosteric enzymes. When there are allosteric activators, and thus multiple catalytic tracks, the rate constants for the binding/release of each metabolite will be equivalent across the different tracks, and `MWCFlag` should be set to `True` in this case.
-
-::
-
-	MWCFlag = False;
-
-
-Define the number of active sites in the enzyme.
-	
-::
-
-	nActiveSites = 1;
-	
-	
-While setting up the rate equations we use the `Simplify[]`function from Mathematica, which can take a while to run, depending on the complexity of the enzyme mechanism. Thus, here we define if we want to simplify mathematical expressions, and if so, what is the maximum time allowed per mathematical manipulation (not the whole simplify operation). Note that when mathematical expressions are not simplified, we can get 1/0 results. 
-
-::
-
-	simplifyFlag = True; 
-	simplifyMaxTime = 30;
-	
-
-When we have data for product inhibition, we need to manually define metabolite substitutions to be used when setting up the relative rate equations. For instance, in G3PD2 all substrates/products are product inhibitors. Therefore, when, e.g., dhap is a product inhibitor, to set up the associated relative rate equation (which will be used to fit the inhibition data), only nadph has 0 concentration. 
-
-::
-
-	otherMetsReverseZeroSub = {{"prod_inhib_dhap", m["nadph", "c"] -> 0}, {"prod_inhib_nadph", m["dhap", "c"] -> 0}};
-	otherMetsForwardZeroSub = {{"prod_inhib_glyc3p", m["nadp", "c"] -> 0}, {"prod_inhib_nadp", m["glyc3p", "c"] -> 0}};
-	
-
-Define a subset of the inhibitionList. This is needed when we don't want to include all inhibition reactions associated with each inhibition data point, but only with some data points. For instance, in G3PD2, nadp is non competitive with dhap, therefore it can in principle bind to the enzyme forms with dhap bound and not bound, however, naph is bound to those enzyme forms and nadp wouldn't bind to an occupied binding site (as far as we know this enzyme has no allosteric sites). 
-
-::
-
-	inhibitionListSubset = inhibitionList[[{2, 3, 8, 9}]];
-	
-
-Build the actual enzyme model. This function will define the rate equations, simulate the data to be fit, and do the fitting. 
-To fit the enzyme data we use a combination of particle swarm optimization (PSO) and the Levenberg-Marquardt algorithm (LMA).
-::
-	
-	{fittingData, filteredDataList, bestFitDetails,
-		{enzymeModelLocal, haldaneRatiosList,  metSatForSub, metSatRevSub, rateConstsSub,
-    	 allCatalyticReactions, nonCatalyticReactions, absoluteFlux, absoluteRateForward,
-		absoluteRateReverse, relativeRateForward, relativeRateReverse, 
-    	otherAbsoluteRatesForward, otherAbsoluteRatesReverse}} =
-			buildFullEnzymeModel[enzymeModel, rxn, pathMASSef, inputPath, outputPath, dataFileName,
-								 inhibitionList, inhibitionList, KeqList, kmList, 
-								 s05List, kcatList, inhibitionList, activationList, 
-								 otherParmsList, inhibitionListSubset, bufferInfo, ionCharge,
-								 catalyticReactionsSetsList, otherMetsReverseZeroSub,  
-								 otherMetsForwardZeroSub, customRatiosDataList, MWCFlag,
-								 simplifyFlag, simplifyMaxTime, nActiveSites, fitLabel, 
-								 numTrials, simulateDataFlag, nSamples, paramScanList];
-
-
-
-Evaluate fit quality
-^^^^^^^^^^^^^^^^^^^^^^
-
-Check the details for the best fit result.
-
-::
-	bestFitDetails // TableForm
-	
-	
-
-Plot the best fit results.
-
-::
-
-	ListPlot[Log10[{fittingData[[All, -1]], filteredDataList[[1, 3]]}], AxesOrigin -> {0, -8}]
-	ListPlot[{fittingData[[All, -1]], filteredDataList[[1, 3]]}, AxesOrigin -> {0, -8}]
-	
-
-
-Check rate constants distribution.
-
-::
-
-	DistributionChart[Transpose[Log10[filteredDataList[[All, 2]]]], ChartElementFunction -> "HistogramDensity", "PlotRange" -> {-7, 10}, 
-						ChartLegends -> rateConstsSub[[All, 2]] /. Reverse /@ rateConstsSub, ChartStyle -> 24]
-
-						
-						
-Check elementary equilibrium constants distribution. Elementary equilibrium constants are the ratio of the forward and reverse rate constant for each elementary reaction. 
-
-::
-
-	{ratios, plotLegend} = getElementaryKeqs[filteredDataList, rateConstsSub];
-	DistributionChart[Log10[Transpose@ratios], ChartElementFunction -> "HistogramDensity", ChartLegends -> plotLegend, ChartStyle -> 24]
-	
-	
-	
-Select parameter set to be used to predict the data points used for fitting (Kms, Kcats, etc.).
+Print the enzyme data.
 
 ::
 	
-	enzymeSub = parameter[rxnName <> "_total"] -> 1;
-	assumedSaturatingConc = 0.01;
-	paramSet = 1;
-	paramFitSub = Thread[rateConstsSub[[All, 1]] -> filteredDataList[[paramSet, 2]]];
+	printEnzymeData[rxn, mechanism, structure, nActiveSites, kmList, s05List, 
+					kcatList, inhibitionList, activationList, otherParmsList];
 	
-	
-Back calculate Kms.
 
+Define the enzyme mechanism and build the model.
+	
 ::
 
-	backCalculateKms[rxn, kmList, absoluteRateForward, absoluteRateReverse, paramFitSub, assumedSaturatingConc, rxnName] // TableForm
-	
-
-Back calculate kcats.
-
-::
-	
-	 backCalculateKcats[rxn, kcatList, absoluteRateForward, absoluteRateReverse, paramFitSub, enzymeSub, assumedSaturatingConc] // TableForm
-	
-
-Back calculate ratios, such as a Keq.
-
-::
-	
-	backCalculateRatios[haldaneRatiosList[[1]], KeqList[[1]][[3]], paramFitSub] // TableForm
+	catalyticBranch = {"E_TALA2[c] + f6p[c] <=> E_TALA2[c]&f6p",
+                           "E_TALA2[c]&f6p <=> E_TALA2[c]&mod&g3p",
+                           "E_TALA2[c]&mod&g3p <=> E_TALA2[c]&mod + g3p[c]",
+                           "E_TALA2[c]&mod + e4p[c] <=> E_TALA2[c]&mod&e4p",
+                           "E_TALA2[c]&mod&e4p <=> E_TALA2[c]&s7p",
+                           "E_TALA2[c]&s7p <=> E_TALA2[c] + s7p[c]"};
 
 
-
-
-
-
-Example work flow for notebook type 2 (from G3PD2)
---------------------------------------------------
-
-
-Example work flow for notebook type 3 (from G3PD2)
---------------------------------------------------
+	enzymeModel = constructEnzymeModule[Mechanism -> catalyticBranch, Activators -> {}, 
+						                   ActivationSites -> 0, Inhibitors -> {}, 
+                                           InhibitionSites -> 0];
 
 
 Determine whether there is an inhibition constant for a product.

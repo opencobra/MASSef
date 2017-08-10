@@ -16,5 +16,6 @@ Contents:
    getting_started
    concept
    general_workflow
+   data_file_formatting
    function_description
    
