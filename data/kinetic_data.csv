@@ -113,16 +113,16 @@ PFK1,ec_number,2.7.1.11,,,,,,,,,,,,,,
 ,active_sites,4,,Crystallography,2975709,E.  coli  w/  pHE1001 or  pHE1007,,,,,,,,,,
 ,allosteric_sites,4,,Crystallography,2975709,E.  coli  w/  pHE1001 or  pHE1007,,,,,,,,,,
 ,parameter type,metabolite,value,uncertainty,"cosubstrate,concentration",unit,pH,temperature,"buffer,concentration","salts,concentration",inhib info,ionic strength,experiment,reference,strain,notes
-,Keq,"atp,Null;f6p,Null",1,,,,7,,,,,,,,,
+,Keq,"atp,Null;f6p,Null",2000,,,,7.5,,,,,,equilibrator,,Is=0.25,
 ,Km,atp,0.00009,"0.000054,0.000126","gdp,0.001;f6p,0.001",M,8.5,30,"detam,0.051;netmphn,0.051;mes,0.1",,,,GraFit (Michaelis-Menten Equation),1429704,E. coli strain DF1020 w/ wt-pfk1,Km is a K0.5
 ,Km,gdp,0.0042,"0.00293,0.00547","f6p,0.00004;atp,0.005",M,8.5,30,"detam,0.051;netmphn,0.051;mes,0.1",,,,GraFit (Hill Equation),1429704,E. coli strain DF1020 w/ wt-pfk1,Km is a K0.5
-,s05,f6p,0.00009,"0.000054,0.000126","gdp,0.001;atp,0.001",M,8.5,30,"detam,0.051;netmphn,0.051;mes,0.1",,,,GraFit (Hill Equation),1429704,E. coli strain DF1020 w/ wt-pfk1,Km is a K0.5
+,s05,f6p,0.00009,"0.000054,0.000126","atp,0.001",M,8.5,30,"detam,0.051;netmphn,0.051;mes,0.1",,,,GraFit (Hill Equation),1429704,E. coli strain DF1020 w/ wt-pfk1,Km is a K0.5
 ,kcat,"gdp,0.001;atp,Null;f6p,Null",110.7,"108.1,113.3",,1/s,8.5,30,"detam,0.051;netmphn,0.051;mes,0.1",,,,GraFit (Hill Equation),1429704,E. coli strain DF1020 w/ wt-pfk1,
 ,Kinc,pep,0.00075,"0.0007,0.0008",,M,8.5,28,"tris,0.05",,"NonCompetitive,atp,0.00009;NonCompetitive,f6p,0.00009",,Lineweaver-Burk,4229913,E.  coli  Hfr  3000,Mixed Assay (PFKI&II)
 ,Kic,adp,0.0002,,,M,8.5,28,"tris,0.05",,"Competitive,atp,0.00009",,Lineweaver-Burk,4229913,E.  coli  Hfr  3000,Mixed Assay (PFKI&II)
 ,Ka,adp,0.000025,,,M,8.5,28,"tris,0.05",,,,Lineweaver-Burk,4229913,E.  coli  Hfr  3000,Mixed Assay (PFKI&II)
 ,Ka,gdp,0.00004,"0.000035,0.000045",,M,8.5,28,"tris,0.05",,,,Lineweaver-Burk,4229913,E.  coli  Hfr  3000,Mixed Assay (PFKI&II)
-,n,f6p,2.11,"2.00,2.22","gdp,0.001;atp,0.001",,8.5,30,"detam,0.051;netmphn,0.051;mes,0.1",,,,GraFit (Hill Equation),1429704,E. coli strain DF1020 w/ wt-pfk1,
+,n,f6p,2.11,"2.00,2.22","atp,0.001",,8.5,30,"detam,0.051;netmphn,0.051;mes,0.1",,,,GraFit (Hill Equation),1429704,E. coli strain DF1020 w/ wt-pfk1,
 ,L0,,4000000,,,,8.5,28,"tris,0.05",,,,Lineweaver-Burk,4229913,E.  coli  Hfr  3000,Mixed Assay (PFKI&II)
 TALA2,ec_number,2.2.1.2,,,,,,,,,,,,,,
 ,organism,E. coli,,,,,,,,,,,,,,

@@ -12,7 +12,7 @@ Get["MASSef`analyzeFitResults`"];
 Get["MASSef`buildFullModel`"];
 Get["MASSef`configureAndRunFit`"];
 Get["MASSef`importData`"];
-Get["MASSef`setUpFluxEquations`"];
+Get["MASSef`setUpRateEquations`"];
 Get["MASSef`simulateData`"];
 Get["MASSef`utils`"];
 

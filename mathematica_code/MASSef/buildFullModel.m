@@ -36,7 +36,7 @@ buildFullEnzymeModel[enzymeModel_, rxn_, pathMASSef_, inputPath_, outputPath_, d
 	allCatalyticReactions,nonCatalyticReactions, unifiedRateConstList, 
 	absoluteFlux, absoluteRateForward, absoluteRateReverse, relativeRateForward, relativeRateReverse, 
 	otherAbsoluteRatesForward, otherAbsoluteRatesReverse}=
-		setUpFluxEquations[enzymeModel, rxn, getID@rxn, inputPath, inhibitionList,inhibitionListSubset, catalyticReactionsSetsList,   
+		setUpRateEquations[enzymeModel, rxn, getID@rxn, inputPath, inhibitionList,inhibitionListSubset, catalyticReactionsSetsList,   
 		  				 otherMetsReverseZeroSub, otherMetsForwardZeroSub,  MWCFlag, simplifyFlag, simplifyMaxTime, nActiveSites];
 
 	Which[StringMatchQ[StringTrim[ToLowerCase@simulateDataFlag], "normal"],

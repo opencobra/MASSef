@@ -305,7 +305,7 @@ addInhibitionReactions[enzymeModel_, enzName_, inhibitionList_,  allCatalyticRea
 
 	enzymeModelLocal = addReactions[enzymeModel, Flatten @ inhibitedRxns];
 	nonCatalyticReactionsLocal = Flatten @ Join[nonCatalyticReactions, inhibitedRxns];
-	Print[nonCatalyticReactionsLocal];
+
 	Return[{enzymeModelLocal, nonCatalyticReactionsLocal}];
 ];
 
@@ -607,7 +607,7 @@ getHaldane[allCatalyticReactions_, unifiedRateConstList_, KeqName_] := Block[{ha
 (*Set up all flux equations*)
 
 
-setUpFluxEquations[enzymeModel_, rxn_, rxnName_, inputPath_, inhibitionListFull_, inhibitionListSubset_, 
+setUpRateEquations[enzymeModel_, rxn_, rxnName_, inputPath_, inhibitionListFull_, inhibitionListSubset_, 
 					catalyticReactionsSetsList_, otherMetsReverseZeroSub_,  
 					otherMetsForwardZeroSub_,  MWCFlag_: False, simplifyFlag_:True, simplifyMaxTime_:300, 
 					nActiveSites_:1, equivalentReactionsSetsList_:{}] :=
@@ -665,10 +665,11 @@ setUpFluxEquations[enzymeModel_, rxn_, rxnName_, inputPath_, inhibitionListFull_
 	If[!SameQ[inhibitionListSubset,{}],
 		{enzymeModelLocal,nonCatalyticReactions} = addInhibitionReactions[enzymeModelLocal,rxnName,inhibitionListSubset,allCatalyticReactions,nonCatalyticReactions];
 	];
-	(*Print[enzymeModelLocal["Reactions"]];*)
+	
+	Print["Added inhibition reactions:"];
+	Print[nonCatalyticReactions];
+	
 	(* get flux equation including inhibitions*)
-	Print[rateConstSubstitutionList];
-	Print[transitionRateEqs];
 	absoluteFlux = getFluxEquation[inputPath, rxnName, enzymeModelLocal, rateConstSubstitutionList, transitionRateEqs, simplifyFlag, simplifyMaxTime, nActiveSites, ""];
 
 	{absoluteRateForward, absoluteRateReverse, relativeRateForward, relativeRateReverse, otherAbsoluteRatesForward, otherAbsoluteRatesReverse} = 
