@@ -1,0 +1,387 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Variable list &mdash; MASSef 0.1 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="MASSef 0.1 documentation" href="index.html"/>
+        <link rel="next" title="Function list" href="function_list.html"/>
+        <link rel="prev" title="Enzyme fitting - general workflow" href="general_workflow.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="index.html" class="fa fa-home"> MASSef</a>
+        
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concept.html">The concept</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_file_formatting.html">Data files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="general_workflow.html">Enzyme fitting - general workflow</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="general_workflow.html#example-work-flow-for-notebook-type-1-from-g3pd2">Example work flow for notebook type 1 (from G3PD2)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="general_workflow.html#example-work-flow-for-notebook-type-2-from-g3pd2">Example work flow for notebook type 2 (from G3PD2)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="general_workflow.html#example-work-flow-for-notebook-type-3-from-g3pd2">Example work flow for notebook type 3 (from G3PD2)</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Variable list</a></li>
+<li class="toctree-l1"><a class="reference internal" href="function_list.html">Function list</a></li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">MASSef</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Variable list</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="_sources/variable_list.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="variable-list">
+<h1>Variable list<a class="headerlink" href="#variable-list" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><strong>removeInputFiles</strong> - either True or False; specifies whether input files for enzyme fitting should be removed or not;</li>
+<li><strong>removeOutputFiles</strong> - either True or False; specifies whether output files for enzyme fitting should be removed or not;</li>
+<li><strong>rxnName</strong> - string; name of reaction to be modeled, it should match the name in the kinetic data file;</li>
+<li><strong>fitLabel</strong> - string; label for the fit result files;</li>
+<li><strong>dataFileName</strong>- string; name for the file that contains the fitting data;</li>
+<li><strong>assumedUncertaintyFraction</strong> - float between 0 and 1; if no uncertainty is specified for a given kinetic parameter, this fraction will be assumed;</li>
+<li><strong>Q10KcatCorrectionFlag</strong> - either True or False; if True the kcats will be corrected to TPhysiological temperature;</li>
+<li><strong>TPhysiological</strong> - float; temperature to which kcat should be corrected;</li>
+<li><strong>pathMASSef</strong> - string; path to MASSef&#8217;s folder;</li>
+<li><strong>kineticDataFileName</strong> - string; name of the file that contains the kinetic data;</li>
+<li><strong>mainFolder</strong> - string; folder where all input and output files will be kept;</li>
+<li><strong>pathData</strong> - string; path to and data file name;</li>
+<li><strong>inputPath</strong> - path to folder that will contain all input files;</li>
+<li><strong>outputPath</strong> - path to folder that will contain all output files;</li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<ul class="simple">
+<li><strong>rxn</strong> - a MASS toolbox reaction, as defined in the kinetic data file;</li>
+<li><strong>mechanism</strong> - string; reaction mechanism, i.e., substrate/product binding/release order;</li>
+<li><strong>structure</strong> - number of enzyme subunits;</li>
+<li><strong>nActiveSites</strong> - number of active sites in the enzyme;</li>
+<li><strong>nAllostericSites</strong> - number of allosteric sizes in the enzyme;</li>
+<li><strong>KeqList0</strong> - list with Keq data with default priorities set to 1;</li>
+<li><strong>kmList0</strong> - list with Km</li>
+<li><strong>s05List0</strong> - list with S05</li>
+<li><strong>kcatList0</strong> - list with kcat</li>
+<li><strong>inhibitionList0</strong> - list inhibition</li>
+<li><strong>activationList0</strong> - list with activation</li>
+<li><strong>otherParmsList0</strong> - list with other parameters</li>
+<li><strong>bufferInfo</strong> - buffer information, will be used to simulate data;</li>
+<li><strong>ionCharge</strong> - data on ion charge, will be used to simulate data;</li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>The following variables are lists with priorities for the respective data points. Each list should  have as many entries as the respective data list, i.e. one entry for each data point, if the respective data list is empty the priority list should also be empty or defined as Null.</p>
+<ul class="simple">
+<li><strong>KeqPriorities</strong> - list with priorities for the Keq values;</li>
+<li><strong>kmPriorities</strong> = list with priorities for the Km values;</li>
+<li><strong>s05Priorities</strong> = list with priorities for the S05 values;</li>
+<li><strong>kcatPriorities</strong> = list with priorities for the kcat values;</li>
+<li><strong>inhibitionPriorities</strong> = list with priorities for the inhibition constant values;</li>
+<li><strong>activationPriorities</strong> = list with priorities for the activation constant values;</li>
+<li><strong>otherParamsPriorities</strong> = list with priorities for other parameter values;</li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>The following are updated data point lists with priority values:</p>
+<ul class="simple">
+<li><strong>KeqList</strong> - updated list with Keq data with default priorities set to 1;</li>
+<li><strong>kmList</strong> - updated list with Km</li>
+<li><strong>s05List</strong> - updated list with S05</li>
+<li><strong>kcatList</strong> - updated list with kcat</li>
+<li><strong>inhibitionList</strong> - updated list inhibition</li>
+<li><strong>activationList</strong> - updated list with activation</li>
+<li><strong>otherParmsList</strong> - updated list with other parameters</li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<ul class="simple">
+<li><strong>catalyticBranch</strong> - list of strings, where each string is one elementary reaction of the enzyme mechanism;</li>
+<li><strong>enzymeModelOrig</strong> - MASS toolbox enzyme model, before any modification , e.g., addition fo inhibition constants;</li>
+<li><strong>catalyticReactionsSeti</strong> - list of MASS toolbox reactions that form the ith catalytic track;</li>
+<li><strong>catalyticReactionsSetsList</strong> - list of lists of MASS toolbox reactions, where each sublist contains all the reactions that form a given catalytic track. The haldane relations will be defined based on this variable, one relation for each catalytic track;</li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<ul class="simple">
+<li><strong>MWCFlag</strong> - boolean specifying whether the model is the Monod-Wyman-Changeux model or not;</li>
+<li><strong>equivalentReactionsSetsList</strong> - list with sets of reactions that are equivalent;</li>
+<li><strong>simplifyFlag</strong> - boolean specifying whether or not the equations for the absolute flux and rate equations should be simplified or not. This can be a very time consuming step, depending on how many reactions the enzyme mechanism includes;</li>
+<li><strong>simplifyMaxTime</strong> - in seconds, the maximum amount of time that Mathematica is allowed to spend on each mathematical transformation in the simplify step. Note that this doesn&#8217;t constrain the maximum amount of time the simplify step takes, but only the maximum amount of time spent on each mathematical transformation;</li>
+<li><strong>inhibitionListSubset</strong> - list of inihibition data points used to add inhibition reactions to the enzyme mechanism, by default this variable is the same as inhibitionList, but some data points lead to either repeated reactions or reactions that make no sense (e.g. 2 substrates in the same reaction that bind to the same active site);</li>
+<li><strong>otherMetsReverseZeroSub</strong> - list of lists that defines the substitutions for the metabolite concentrations in other relative rates forward (e.g., rate equations with product inhibition); each sublist has two entries: the first defines the equation name, and the second is a list defining the metabolite concentration substitutions;</li>
+<li><strong>otherMetsForwardZeroSub</strong> - list of lists that defines the substitutions for the metabolite concentrations in other relative rates reverse (e.g., rate equations with product inhibition); each sublist has two entries: the first defines the equation name, and the second is a list defining the metabolite concentration substitutions;</li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<ul class="simple">
+<li><strong>rxnMets</strong> - list of metabolties that are part of the reaction being modeled;</li>
+<li><strong>reverseZeroSub</strong> - list of metabolites whose concentrations are zero in the forward rate equations;</li>
+<li><strong>forwardZeroSub</strong> - list of metabolites whose concentrations are zero in the reverse rate equations;</li>
+<li><strong>metSatForSub</strong> - list of metabolites whose concentration tend to +infinity, in the relative forward rate equations;</li>
+<li><strong>metSatRevSub</strong> - list of metabolites whose concentration tend to +infinity, in the relative reverse rate equations;</li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<ul class="simple">
+<li><strong>rates</strong> - list with all reaction rate laws (mass action);</li>
+<li><strong>KeqName</strong> - string with reaction name;</li>
+<li><strong>KeqSymbol</strong> - Keq symbol;</li>
+<li><strong>volumeSub</strong> - rule for cell volume substitution;</li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<ul class="simple">
+<li><strong>allCatalyticReactions</strong> - list of all catalytic reactions;</li>
+<li><strong>nonCatalyticReactions</strong> - list of all non catalytic reactions;</li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<ul class="simple">
+<li><strong>rateConstSubstitutionList</strong> - list with all rate constant substitutions for equivalent ones, e.g. if the MWC model is being used all the rate constants for the binding of each substrate across different catalytic tracks are all the same;</li>
+<li><strong>transitionID</strong> - list with the IDs of the transition step reactions, e.g. : ENO&amp;2pg &lt;=&gt; ENO&amp;pep;</li>
+<li><strong>transitionRateEqs</strong> - list with the rate equations of the transition steps;</li>
+<li><strong>absoluteFluxNoProdInhib</strong> - absolute flux equation without taking into account product inhibition (if there is product inhibition). This equation is only defined if there is product inhibtion.</li>
+<li><strong>absoluteFlux</strong> - absolute flux equation; this equations is always defined;</li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<ul class="simple">
+<li><strong>absoluteRateForward</strong> - absolute forward rate equation; used to fit e.g. forward kcats; derived from absoluteFlux equation by substituting the reaction product concentrations by 0.</li>
+<li><strong>absoluteRateReverse</strong> - absolute reverse rate equation; used to fit e.g. reverse kcats; derived from absoluteFlux equation by substituting the reaction product concentrations by 0.</li>
+<li><strong>relativeRateForward</strong> - relative forward rate  equation; used to fit e.g. forward Kms; defined as the ratio of the absoluteRateForward and the limit of the absoluteRateForward when the metabolite tends to +inf; if the metabolite is a product inhibitor then the absoluteRateForward based on absoluteFluxNoProdInhib is used instead;</li>
+<li><strong>relativeRateReverse</strong> - relative reverse rate  equation; used to fit e.g. reverse Kms; defined as the ratio of the absoluteRateReverse and the limit of the absoluteRateForward when the metabolite tends to +inf; if the metabolite is a product inhibitor then the absoluteRateReverse based on absoluteFluxNoProdInhib is used instead;</li>
+<li><strong>otherAbsoluteRatesForward</strong> - other relative forward rate equations, used to fit e.g. data from product inhibition data; it is defined as the absoluteFlux by substituting the metabolite concentrations using otherMetsReverseZeroSub and the limit of the absoluteFluxNoProdInhib (after substituting the metabolite concentrations using reverseZeroSub) when the metabolite concentration tends to +inf;</li>
+<li><strong>otherAbsoluteRatesReverse</strong> - other relative reverse rate equations, used to fit e.g. data from product inhibition data; ; it is defined as the absoluteFlux by substituting the metabolite concentrations using otherMetsForwardZeroSub and the limit of the absoluteFluxNoProdInhib (after substituting the metabolite concentrations using reverseZeroSub) when the metabolite concentration tends to +inf;</li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<ul class="simple">
+<li><strong>haldaneRatiosList</strong> - a list with all Haldane relations;</li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<ul class="simple">
+<li><strong>finalRateConsts</strong> - list of all rate constants in the enzyme model;</li>
+<li><strong>metsFull</strong> - list of all metabolites in the enzyme model;</li>
+<li><strong>metsSub</strong> - list of rules with metabolite substitutions for python;</li>
+<li><strong>rateConstsSub</strong> - list of rules with rate constant substitutions for python;</li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<ul class="simple">
+<li><strong>eqnNameList</strong> - name of all equations  used  to fit the data;</li>
+<li><strong>eqnValList</strong> - list of all equations that are used to fit the data;</li>
+<li><strong>eqnValListPy</strong>  - list of all equations that are used to fit the data in a format compatible with python;</li>
+<li><strong>fileList</strong> - list of files where all the equations used to fit the data are stored;</li>
+<li><strong>fileListSub</strong> - list of rules where the key is the file name where the equation is stored and the value is the equation;</li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<ul class="simple">
+<li><strong>customRatiosDataList</strong> - list of custom equations to be fit plus repective value. Note that this equation cannot contain metabolite or enzyme concentrations, as these will not be taken into account when simulating the data. For instance, a ratio of rate constants, the first entry in the data point list should be its priority, between 0 and 1, the second entry the equation to use for fitting, the third entry should be the data point value, and the fourth a list with the data point value lower and upper bounds (i.e., the uncertainty associated).</li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<ul class="simple">
+<li><strong>allFittingData</strong> - all fitting data;</li>
+<li><strong>dataPathList</strong> - (list of) path(s) to fitting data file(s);</li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<ul class="simple">
+<li><strong>nSamples</strong> - integer; when simulating data with uncertainty, how many datasets should be generated;</li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<ul class="simple">
+<li><strong>paramScanList</strong> - list of lists; when simulating data for a parameter scan, each list contains: the parameter type (string), the parameter position in the respective data list (integer), and a list with the first value it should take, the last, and the interval between successive values.</li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<ul class="simple">
+<li><strong>numFits</strong> - integer; number of fits to be performed, i.e. models to be generated;</li>
+<li><strong>lowerParamBound</strong> - integer; lower limit (in order of magnitude) for the rate constants to be sampled;</li>
+<li><strong>upperParamBound</strong> - integer; upper limit (in order of magnitude) for the rate constants to be sampled;</li>
+<li><strong>psoParameterPath</strong> - string; path to file with parameters for PSO fitting;</li>
+<li><strong>psoResultsFile</strong> - string; path to file with results from PSO fit - rate constants for each model;</li>
+<li><strong>psoTrialSummaryFileName</strong> - string; path to file with a summary of the results from PSO fit: fitness, number of generations...</li>
+<li><strong>lmaParameterPath</strong> - string; path to file with parameter for LMA fitting;</li>
+<li><strong>lmaResultsFile</strong> - string; path to file with results from LMA fitting - rate constants for each model, these are the final ones;</li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<ul class="simple">
+<li><strong>lmaResultsFileNew</strong> - path to file with fitting results that will be used to evaluate the results;</li>
+<li><strong>dataFilePath</strong> - path to file with fitting data used for the fit to be evaluated;</li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<ul class="simple">
+<li><strong>flagFitType</strong> - string; defines how the fit will be evaluated, can take the values &#8220;abs_ssd&#8221;, &#8220;rel_ssd&#8221;, or &#8220;log_ssd&#8221;;</li>
+<li><strong>flagFitLocal</strong> - integer; 0 if fit failed, 1 if fit succeeded;</li>
+<li><strong>msgLocal</strong> - string specifying why the fit failed, it it failed;</li>
+<li><strong>fittingData</strong> - data used for the fit;</li>
+<li><strong>filteredDataList</strong> - list of lists with fit results ordered by fitness; the first entry is the fitness score, the second is the rate constants list, and the third the predicted data values;</li>
+<li><strong>bestFitDetails</strong> - details from the best fit, predicted values and respective erros</li>
+</ul>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="function_list.html" class="btn btn-neutral float-right" title="Function list">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="general_workflow.html" class="btn btn-neutral" title="Enzyme fitting - general workflow"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright .
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

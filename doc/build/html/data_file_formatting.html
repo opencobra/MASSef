@@ -1,0 +1,213 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Data files &mdash; MASSef 0.1 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="MASSef 0.1 documentation" href="index.html"/>
+        <link rel="next" title="Enzyme fitting - general workflow" href="general_workflow.html"/>
+        <link rel="prev" title="The concept" href="concept.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="index.html" class="fa fa-home"> MASSef</a>
+        
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concept.html">The concept</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Data files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="general_workflow.html">Enzyme fitting - general workflow</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="general_workflow.html#example-work-flow-for-notebook-type-1-from-g3pd2">Example work flow for notebook type 1 (from G3PD2)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="general_workflow.html#example-work-flow-for-notebook-type-2-from-g3pd2">Example work flow for notebook type 2 (from G3PD2)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="general_workflow.html#example-work-flow-for-notebook-type-3-from-g3pd2">Example work flow for notebook type 3 (from G3PD2)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="variable_list.html">Variable list</a></li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">MASSef</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Data files</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="_sources/data_file_formatting.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="data-files">
+<h1>Data files<a class="headerlink" href="#data-files" title="Permalink to this headline">¶</a></h1>
+<p>There are three data files that are needed to fit any enzyme: buffer_info, ion_charge, and kinetic_data. These files are kept in the folder &#8220;data&#8221;.</p>
+<p>ion_charge contains the charge of the ions that are part of the solution in which the enzyme kinetics is measured.
+buffer_info contains a list of buffers and respective pKa (at 25C, 50mM), acid and base charge.
+The user shouldn&#8217;t need to change these two files.</p>
+<p>kinetic_data contains all the information about each enzyme to be modeled, it has the following fields:</p>
+<ul class="simple">
+<li>ec_number - followed by the e.c. number</li>
+<li>organism - followed by the organism name, e.g., E- coli</li>
+<li>reaction - followed by the reaction which should look like: amp[c] + atp[c] &lt;-&gt; adp[c] + adp[c], where &#8216;[c]&#8217; is the compartment information, and &#8216;&lt;-&gt;&#8217; defines the reversibility.</li>
+</ul>
+<p>The following fields have different attributes: &#8220;type&#8221;, &#8220;order&#8221;, &#8220;experiment&#8221;, &#8220;reference (PMID)&#8221;, &#8220;strain&#8221;, &#8220;notes</p>
+<ul class="simple">
+<li>mechanism - the enzyme mechanism, the &#8220;type&#8221; should be e.g. random bi bi or ordered bi bi, followed by the &#8220;order&#8221;, &#8220;experiment&#8221; if available, the reference (PMID), and the strain used in the experiment.</li>
+<li>structure  - the &#8220;type&#8221; should be just the number of enzyme subunits, &#8220;order&#8221; should be empty, which should be followed by &#8220;experiment&#8221;, the &#8220;reference (PMID)&#8221;, and the strain used in the experiment.</li>
+<li>active_sites -  the &#8220;type&#8221; should be just the number of active sites, &#8220;order&#8221; should be empty, which should be followed by &#8220;experiment&#8221;, the &#8220;reference (PMID)&#8221;, and the strain used in the experiment.</li>
+<li>allosteric_sites -  the &#8220;type&#8221; should be just the number of allosteric sites, &#8220;order&#8221; should be empty, which should be followed by &#8220;experiment&#8221;, the &#8220;reference (PMID)&#8221;, and the strain used in the experiment.</li>
+</ul>
+<p>The remaining fields are the enzyme kinetic parameters obtained from literature. For each parameter the following fields should be filled in</p>
+<ul class="simple">
+<li>parameter type - should be one of the following: Keq, Km, s05, kcat, Ki, Ka, other</li>
+<li>metabolite - metabolite for which the parameter was measured. In case of kcats or Keqs, it should be the substrates/cosubstrates of the reaction followed by the concentration in mol, e.g.: g3p,0.01;nad,Null;pi,Null, note that the each metabolite and respective concentration are separated by a coma, while different metabolites and concentrations are separated by a semi colon.</li>
+<li>value - the parameter value</li>
+<li>uncertainty - if known, the lower and upper bounds for the parameter value, e.g. if the parameter value is 102 and the associated uncertainty is 10%, then the uncertainty field should be 91.8,112.2</li>
+<li>cosubstrate,concentration - the cosubstrates and respective concentration (in mol) present when the parameter was measured. each cosubstrate and concentration should be separated by a comma, and different cosubstrates and concentrations separated by a semi colon, e.g. nad,0.0045;pi,0.053.</li>
+<li>unit - the units of the parameter value</li>
+<li>pH - the pH at which the parameter was measured</li>
+<li>temperature - the temperature at which the parameter was measured in Celsius.</li>
+<li>buffer,concentration - the buffer(s) used in the experiment and respective concentration in mol, e.g.: detam,0.051;netmphn,0.051;mes,0.1</li>
+<li>salts,concentration - the salts used in the experiment and respective concentration in mol, e.g.: cl,0.1;k,0.1</li>
+<li>other info - this field only needs to be filled if the parameter type is an inhibition constant, its format should be &#8220;inibition type&#8221;,&#8221;affected metabolite&#8221;,&#8221;km for affected metabolite&#8221;, where the inihibition type should be &#8220;Competitive&#8221;, &#8220;NonCompetitive&#8221;, or &#8220;Uncompetitive&#8221;. e.g., Competitive,fdp,0.00017.</li>
+<li>ionic strength - mostly important for the Keq;</li>
+<li>experiment - experiment in which the parameter was measured;</li>
+<li>reference - PMID for the paper in which the parameter was reported;</li>
+<li>strain - strain used to measure the parameter;</li>
+<li>notes - any note the user may want to add.</li>
+</ul>
+<p>The file ends with &#8220;End&#8221; in every cell of the last line.</p>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="general_workflow.html" class="btn btn-neutral float-right" title="Enzyme fitting - general workflow">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="concept.html" class="btn btn-neutral" title="The concept"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright .
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
