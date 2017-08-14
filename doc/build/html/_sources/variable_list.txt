@@ -68,6 +68,7 @@ The following are updated data point lists with priority values:
 * **inhibitionListSubset** - list of inihibition data points used to add inhibition reactions to the enzyme mechanism, by default this variable is the same as inhibitionList, but some data points lead to either repeated reactions or reactions that make no sense (e.g. 2 substrates in the same reaction that bind to the same active site);
 * **otherMetsReverseZeroSub** - list of lists that defines the substitutions for the metabolite concentrations in other relative rates forward (e.g., rate equations with product inhibition); each sublist has two entries: the first defines the equation name, and the second is a list defining the metabolite concentration substitutions;
 * **otherMetsForwardZeroSub** - list of lists that defines the substitutions for the metabolite concentrations in other relative rates reverse (e.g., rate equations with product inhibition); each sublist has two entries: the first defines the equation name, and the second is a list defining the metabolite concentration substitutions;
+* **simulateDataFlag** - string; can take the following values: "normal" for simulated data without uncertainty associated, "uncertainty" to simulate the data with uncertainty associated, and "param_scan" to simulate data for a parameter scan;
 
 |  
 * **rxnMets** - list of metabolties that are part of the reaction being modeled;
