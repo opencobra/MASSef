@@ -57,6 +57,15 @@ getBufferInfoData[dataPath_] :=
 (*Get enzyme data*)
 
 
+checkEntry[entry_, entryType_]:=Block[{},
+Print[{entry, entryType}];
+	If[SameQ[entry, {}] || SameQ[entry, ""],
+		Print[Style[entryType <> " is empty - please fill it in", FontSize->14, FontColor->Red]];
+		Abort[];
+	];
+];
+
+
 parseSubMetLists[list_]:=Block[{parsedList, res},
 	parsedList = Table[
 		res = StringSplit[entry, ","][[1]];
@@ -84,7 +93,9 @@ parseKeqEntry[line_, uncertaintyFraction_] :=
 	Block[{entry, substrate, value, uncertainty, coSubstrates, units, ph, 
 			temperature, buffer, salts, priority=1},
 	substrate = StringReplace[line[[1]], " "-> ""];
+	checkEntry[substrate, "Keq substrate"];
 	value = line[[2]];
+	checkEntry[value, "Keq value"];
 	uncertainty = line[[3]];
 	uncertainty = handleUncertainty[value, uncertainty, uncertaintyFraction];
 	ph = line[[6]];
@@ -98,7 +109,9 @@ parseKmS05Entry[line_, uncertaintyFraction_] :=
 			temperature, buffer, salts, priority=1},
 			
 	substrate = StringReplace[line[[1]], " "-> ""];
+	checkEntry[substrate, "Km or S05 substrate"];
 	value = line[[2]];
+	checkEntry[value, "Km or S05 value"];
 	uncertainty = line[[3]];
 	uncertainty = handleUncertainty[value, uncertainty, uncertaintyFraction];
 	
@@ -122,7 +135,9 @@ parseKcatEntry[line_, uncertaintyFraction_] :=
 
 	substrates = Map[{#}&, StringSplit[StringReplace[line[[1]], " "-> ""], ";"]];
 	substrates = parseSubMetLists[substrates];
+	checkEntry[substrates, "kcat substrates"];
 	kcatValue = line[[2]];
+	checkEntry[kcatValue, "kcat value"];
 	uncertainty = line[[3]];
 	uncertainty = handleUncertainty[kcatValue, uncertainty, uncertaintyFraction];
 	
@@ -144,7 +159,9 @@ parseInhibKaEntry[line_, uncertaintyFraction_] :=
 			
 	paramType = StringReplace[line[[1]], " "-> ""];
 	substrate =  StringReplace[line[[2]], " "-> ""];
+	checkEntry[substrate, "Inhibition or activation constant substrate"];
 	paramValue = line[[3]];
+	checkEntry[paramValue, "Inhibition or activation constant value"];
 	uncertainty = line[[4]];
 	uncertainty = handleUncertainty[paramValue, uncertainty, uncertaintyFraction];
 	
@@ -172,7 +189,9 @@ parseOtherEntry[line_, uncertaintyFraction_] :=
 			
 	paramType= StringReplace[line[[1]], " "-> ""];
 	substrate = StringReplace[line[[2]], " "-> ""];
+	checkEntry[substrate, "Other parameter susbtrate"];
 	value = line[[3]];
+	checkEntry[value, "Other parameter value"];
 	uncertainty = line[[4]];
 	uncertainty = handleUncertainty[value, uncertainty, uncertaintyFraction];
 
