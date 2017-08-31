@@ -246,7 +246,7 @@ positionDuplicates[list_]:=GatherBy[Range@Length[list],list[[#]]&];
 addInhibitionReactions[enzymeModel_, enzName_, inhibitionList_,  allCatalyticReactions_, nonCatalyticReactions_] := 
 	Block[{char2met, inhibitorMetsList, inhibitorMet, affectedMets, affectedRxns, affectedEnzForms, 
 			inhibitedRxns={}, affectedMetsListLocal, paramType, paramTypeList, enzymeModelLocal = enzymeModel, 
-			nonCatalyticReactionsLocal, temp, posDuplicates,entriesToDelete},
+			nonCatalyticReactionsLocal=nonCatalyticReactions, temp, posDuplicates,entriesToDelete},
 
 	inhibitorMetsList = inhibitionList[[All, 3]];
 	inhibitorMetsList = inhibitorMetsList /. getConversionChar2Met[inhibitorMetsList];
@@ -258,16 +258,20 @@ addInhibitionReactions[enzymeModel_, enzName_, inhibitionList_,  allCatalyticRea
 			affectedMetsListLocal = temp /. getConversionChar2Met[temp],
 			affectedMetsList
 		];*)
-		
-	AppendTo[inhibitedRxns, 
-		Table[	
+
+
+		Do[	
 				
 			inhibitorMet = inhibitorMetsList[[i]];
 			paramType = paramTypeList[[i]];
 
 			temp = inhibitionList[[i,7]][[All,2]];
 			affectedMets = temp /. getConversionChar2Met[temp];
-		
+
+			If[SameQ[affectedMets, {}],
+				Continue[];
+			];
+					
 			affectedRxns =
 				Table[
 					Select[allCatalyticReactions, MemberQ[Union[{getSubstrates[#], getProducts[#]}]~Flatten~1, met] &],
@@ -284,7 +288,7 @@ addInhibitionReactions[enzymeModel_, enzName_, inhibitionList_,  allCatalyticRea
 				affectedRxns = Delete[affectedRxns,entriesToDelete];
 			];
 
-			DeleteCases[
+			AppendTo[inhibitedRxns, DeleteCases[
 				{Table[
 					r[enzName <> "_" <> paramType <> "_" <> getID @ inhibitorMet <> "_" <> ToString[enz] <>"_" <> getID @ affectedMets[[1]], (*Reaction Name*)
 					{affectedEnzForms[[enz]], inhibitorMet}, (*Substrates*)
@@ -298,13 +302,19 @@ addInhibitionReactions[enzymeModel_, enzName_, inhibitionList_,  allCatalyticRea
 					{bindCatalytic[affectedEnzForms[[1]], affectedMets[[1]], inhibitorMet]}, (*Products*)
 					{1,1,1}] (*Stoichiometry*)]
 
-			}, Null],
-			
-		{i, 1, Length @ inhibitorMetsList}]
-	];
+			}, Null]];,
+				
+		{i, 1, Length @ inhibitorMetsList}];
+		
 
-	enzymeModelLocal = addReactions[enzymeModel, Flatten @ inhibitedRxns];
-	nonCatalyticReactionsLocal = Flatten @ Join[nonCatalyticReactions, inhibitedRxns];
+	If[SameQ[inhibitedRxns, {}],
+		Print[Style["List of inhibition reactions to add is empty", FontColor-> Red]];
+		Print[Style["One possible reason is that the affected metabolite data was not specified", FontColor-> Red]];
+		Return[{enzymeModelLocal, nonCatalyticReactionsLocal}];
+	];
+		
+	enzymeModelLocal = addReactions[enzymeModelLocal, Flatten @ inhibitedRxns];
+	nonCatalyticReactionsLocal = Flatten @ Join[nonCatalyticReactionsLocal, inhibitedRxns];
 
 	Return[{enzymeModelLocal, nonCatalyticReactionsLocal}];
 ];
