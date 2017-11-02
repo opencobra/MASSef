@@ -30,7 +30,7 @@ FBA1,ec_number,4.1.2.13,,,,,,,,,,,,,,
 ,reaction,fdp[c] <-> dhap[c] + g3p[c],,,,,,,,,,,,,,
 ,,,,experiment,reference (PMID),strain,notes,,,,,,,,,
 ,mechanism,Ordered Sequential Uni Bi,"[fdp,g3p,dhap]",,2649077,,Based off of a general class I aldolase mechanism,,,,,,,,,
-,structure,8-10,,SDS-PAGE,"348198, 9531482",E. coli (Crookes' strain),"High likelyhood of error in this number. Previous studies assumed that the E. coli enzyme was tetrameric, being structurally similar to other class I aldolases, but this study, although not precise, concluded that the enzyme was much larger",,,,,,,,,
+,structure,10-Aug,,SDS-PAGE,"348198, 9531482",E. coli (Crookes' strain),"High likelyhood of error in this number. Previous studies assumed that the E. coli enzyme was tetrameric, being structurally similar to other class I aldolases, but this study, although not precise, concluded that the enzyme was much larger",,,,,,,,,
 ,active_sites,,,,,,,,,,,,,,,
 ,allosteric_sites,,,,,,,,,,,,,,,
 ,parameter type,metabolite,value,uncertainty,"cosubstrate,concentration",unit,pH,temperature,"buffer,concentration","salts,concentration",other info,ionic strength,experiment,reference,strain,notes
@@ -133,7 +133,7 @@ TALA2,ec_number,2.2.1.2,,,,,,,,,,,,,,
 ,active_sites,2,,Crystallography,8805555,E. coli K-12 cells (strain DH5/pGSJ451),,,,,,,,,,
 ,allosteric_sites,0,,,,,,,,,,,,,,
 ,parameter type,metabolite,value,uncertainty,"cosubstrate,concentration",unit,pH,temperature,"buffer,concentration","salts,concentration",other info,ionic strength,experiment,reference,strain,notes
-,Keq,"e4p,Null;f6p,Null",0.8403361345,,,,7,,,,,,,,,
+,Keq,"e4p,Null;f6p,Null",0.840336135,,,,7,,,,,,,,,
 ,Km,g3p,0.000038,,,M,8.5,30,"glygly,0.05",,,,Lineweaver-Burk,7592346,E. coli K-12 cells (strain DH5/pGSJ451),"'Cosubtrates at ''excess'' concentrations, assuming x100 Km'; MM: removed co-substrates concentrations as I couldn't find evidence in the reference "
 ,Km,e4p,0.00009,,,M,8.5,30,"glygly,0.05",,,,Lineweaver-Burk,7592346,E. coli K-12 cells (strain DH5/pGSJ451),"'Cosubtrates at ''excess'' concentrations, assuming x100 Km'; MM: removed co-substrates concentrations as I couldn't find evidence in the reference "
 ,Km,r5p,0.031,,,M,8.5,30,"glygly,0.05",,,,Lineweaver-Burk,7592346,E. coli K-12 cells (strain DH5/pGSJ451),"'Cosubtrates at ''excess'' concentrations, assuming x100 Km'; MM: removed co-substrates concentrations as I couldn't find evidence in the reference "
@@ -151,9 +151,9 @@ TPI,ec_number,5.3.1.1,,,,,,,,,,,,,,
 ,active_sites,2,,Crystallography,15299515,E. coli over-expressing  strain (Unspecified),,,,,,,,,,
 ,allosteric_sites,,,,,,,,,,,,,,,
 ,parameter type,metabolite,value,uncertainty,"cosubstrate,concentration",unit,pH,temperature,"buffer,concentration","salts,concentration",other info,ionic strength,experiment,reference,strain,notes
-,Keq,"g3p,Null",0.1074113856,,,,7,,,,,,,,,
+,Keq,"g3p,Null",0.107411386,,,,7,,,,,,,,,
 ,Km,g3p,0.00103,"0.00093,0.00113",,M,7.6,25,"teoahcl,0.1",,,,Enzfitter program (Unspecified),9442062,E. coli over-expressing  strain (Unspecified),
-,kcat,"g3p,Null",9000,"8833,9167",,1/s,7.6,25,"teoahcl,0.1",,,,Enzfitter program (Unspecified),9442062,E. coli over-expressing  strain (Unspecified),
+,kcat,"g3p,Null",9000,"88,339,167",,1/s,7.6,25,"teoahcl,0.1",,,,Enzfitter program (Unspecified),9442062,E. coli over-expressing  strain (Unspecified),
 ,Ki,2-phosphoglycolate,0.006,,,M,7.6,25,"teoahcl,0.1",,"Competitive,dhap,Null",,Enzfitter program (Unspecified),9442062,E. coli over-expressing  strain (Unspecified),
 dPGM,ec_number,5.4.2.1,,,,,,,,,,,,,,
 ,organism,E. coli,,,,,,,,,,,,,,
@@ -164,7 +164,7 @@ dPGM,ec_number,5.4.2.1,,,,,,,,,,,,,,
 ,active_sites,2,,,,,,,,,,,,,,
 ,allosteric_sites,0,,,,,,,,,,,,,,
 ,parameter type,metabolite,value,uncertainty,"cosubstrate,concentration",unit,pH,temperature,"buffer,concentration","salts,concentration",other info,ionic strength,experiment,reference,strain,notes
-,Keq,"2pg,Null",0.7,,,,7,,,,,,,,,
+,Keq,"2pg,Null",5.3,,,,7.5,,,,,,,,,IS=0.25M
 ,Km,3pg,0.0002,,,M,7,30,"trishcl,0.03","k,0.02;cl,0.02;mg2,0.005;so4,0.005",,,,,,
 ,Km,2pg,0.00019,,,M,7,30,"trishcl,0.03","k,0.02;cl,0.02;mg2,0.005;so4,0.005",,,,,,
 ,kcat,"3pg,Null",330,,,1/s,7,30,"trishcl,0.03","k,0.02;cl,0.02;mg2,0.005;so4,0.005",,,,,,
