@@ -1,16 +1,10 @@
-## This repository will contain all the code for the paper on the fitting package.
+# MASSef
 
-To access the documentation you need to go to /doc and open documentation.html or documentation_windows.html. 
-This is temporary, in the future the documentation will be hosted in readthedocs.
+This repository contains all the code to build enzyme-level kinetic models following the eMASS approach (soon to be published).
 
-Note that not all example notebooks are updated to match the documentation yet.
+To use this package you need:
+- Mathematica, it has been tested on version 10 and 11.
+- [MASS-Toolbox v1.1.8](https://github.com/opencobra/MASS-Toolbox)
+- Python packages listed in requirements.txt
 
-Notes 21/3/2017:
- - removed the argument dataPath from the configure fit functions arguments.
- - dataFileName variable added to customize the name of the data file.
- - fitLabel variable added to customize the name of the fit results file.
- - path for pso and lma results no longer in the pso/lma parameters file, now passed directly through the python call
- - paths with spaces issue fixed
-
-Only the example notebooks GAPD and GAPD_parameter_scan are updated.
-
+The documentation will be available at readthedocs.org soon.
