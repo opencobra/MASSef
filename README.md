@@ -7,4 +7,4 @@ To use this package you need:
 - [MASS-Toolbox v1.1.8](https://github.com/opencobra/MASS-Toolbox)
 - Python packages listed in requirements.txt
 
-The documentation will be available at readthedocs.org soon.
+The documentation is available [here](massef.readthedocs.io).
