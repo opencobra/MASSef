@@ -154,10 +154,19 @@ getElementaryKeqs::usage="getElementaryKeqs[filteredDataList, rateConstsSub]";
 backCalculateKms::usage="backCalculateKms[rxn, absoluteRate, paramFitSub]";
 
 
+backCalculateHillCoef::usage="backCalculateHillCoef[fittingData, S05, nList]";
+
+
 backCalculateKcats::usage="backCalculateKms[rxn, absoluteRate, paramFitSub]";
 
 
 backCalculateRatios::usage="backCalculateRatios[ratio, ratioValData, paramFitSub]";
+
+
+backCalculateKic::usage="backCalculateKic[fittingData, filteredDataList, inhibConcentrations, KicDataValue]";
+
+
+backCalculateKiu::usage="backCalculateKiu[fittingData, filteredDataList, inhibConcentrations, KiuDataValue]";
 
 
 (* ::Subsection:: *)

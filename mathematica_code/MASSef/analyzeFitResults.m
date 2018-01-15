@@ -165,16 +165,14 @@ getCosubDataKm[rxn_, kmList_, kmMet_, assumedSaturatingConc_, char2met_] := Modu
 	cosubs = If[MemberQ[getSubstrates[rxn], kmMet], 
 				{"sub", DeleteCases[getSubstrates[rxn], kmMet]}, 
 				{"prod", DeleteCases[getProducts[rxn], kmMet]}];
-
-	dataCosubKm=
-		Table[
-			met = km[[2]]/.char2met;
-			If[SameQ[met, kmMet], cosub[[1]] -> cosub[[2]]], 
-		{km, kmList}, {cosub, km[[5]]}];
 	
+	dataCosubKm = Table[
+				cosub[[1]] -> cosub[[2]], 
+			{cosub, kmList[[1]][[5]]}];
+
 	dataCosubKm = DeleteCases[Flatten@dataCosubKm, Null]/.char2met;
 	dataCosubKm = If[!ListQ[dataCosubKm], {dataCosubKm}, dataCosubKm];
-	
+
 	cosubsWithoutConc = Complement[cosubs[[2]], Keys @ dataCosubKm];
 	allCosubData = Flatten @ Append[{dataCosubKm}, Map[#-> assumedSaturatingConc &, cosubsWithoutConc]];
 
@@ -183,33 +181,74 @@ getCosubDataKm[rxn_, kmList_, kmMet_, assumedSaturatingConc_, char2met_] := Modu
 
 
 
-backCalculateKms[rxn_, kmList_, absoluteRateFor_, absoluteRateRev_, paramFitSub_, assumedSaturatingConc_, KeqName_] := 
-	Module[{char2met, kmMets, kmMet, kmDataVal, subProdFlag, cosubData, absoluteRate, vVal, 
-			 vMax, vKm, kmValPredicted, predictedKmList, relError, header, bla},
+backCalculateKms[rxn_, kmList_, relativeRateForward_, relativeRateReverse_, metSatForSub_, metSatRevSub_, paramFitSub_, assumedSaturatingConc_, KeqName_] := 
+	Module[{char2met, kmMets, kmMet, kmDataVal, subProdFlag, cosubData, relativeRate, vVal, metSatSub, 
+			 vMax, vKm, kmValPredicted, predictedKmList, relError, header, bla, cosubs, subZeroMets, pos},
 	
 	char2met = getConversionChar2Met[rxn];
+	cosubs = Select[Flatten@kmList[[All,5]], StringQ];
+	char2met = Flatten @ Append[char2met, getConversionChar2Met[cosubs]];
 	kmMets = kmList[[All, 2]] /. char2met;
+	
 
 	predictedKmList = 
 		Table[
 			kmMet = kmMets[[i]];
 			kmDataVal = kmList[[i, 3]];
-			{subProdFlag, cosubData}= getCosubDataKm[rxn, kmList, kmMet, assumedSaturatingConc, char2met];
+			{subProdFlag, cosubData}= getCosubDataKm[rxn, {kmList[[i]]}, kmMet, assumedSaturatingConc, char2met];
 		
-			absoluteRate = If[StringMatchQ[subProdFlag, "sub"], absoluteRateFor, absoluteRateRev];	
-			vVal = Simplify[absoluteRate /. paramFitSub /. cosubData];
-			vMax = Limit[vVal, kmMet ->\[Infinity]];
-			vKm = Simplify[vVal /. met: kmMet :> Km[met, KeqName]];			
-			kmValPredicted = Quiet[Solve[vKm/vMax == 1/2, Km[kmMet, KeqName]],{Solve::ratnz}];
+			relativeRate = If[StringMatchQ[subProdFlag, "sub"], relativeRateForward, relativeRateReverse];	
+			metSatSub = If[StringMatchQ[subProdFlag, "sub"], metSatForSub, metSatRevSub];	
+			pos = Flatten @ Position[metSatSub, kmMet];
+			Print[pos];
+			Print[metSatSub];
+			relativeRate = relativeRate[[pos[[1]]]];
+			metSatSub = Keys@metSatSub[[pos[[1]]]];
+			Print[metSatSub];
+			
+			kmValPredicted = Solve[(relativeRate/.paramFitSub/. cosubData)==0.5, metSatSub];
+			Print[kmValPredicted];
 
-			relError = Abs[kmDataVal - Values @ kmValPredicted] / kmDataVal * 100;
-			{kmDataVal, Values @ kmValPredicted, relError},
+			kmValPredicted = Flatten[Values @ kmValPredicted];
+			subZeroMets = Map[# -> 0&, Variables[kmValPredicted]];
+			kmValPredicted = kmValPredicted /. subZeroMets;
+			
+			kmValPredicted = If[Length[kmValPredicted] > 1,
+								If[kmValPredicted[[1]] > 0,
+									kmValPredicted[[1]],
+									kmValPredicted[[2]]
+								],
+								kmValPredicted
+							];
+							
+												
+			relError = Abs[kmDataVal - kmValPredicted] / kmDataVal * 100;
+			
+			{kmDataVal, kmValPredicted, relError},
 		{i, 1, Length[kmMets]}];
 	
 	header = {"data value", "predicted value", "error in %"};
 	predictedKmList= Join[{header}, predictedKmList];
 
 	Return[predictedKmList];	
+];
+
+
+backCalculateHillCoef[fittingData_, S05List_, nList_] := 
+	Module[{nHpred, nHPredList, nHDataVal, n, header, relError},
+	
+	nHPredList = Table[
+		nHpred = Values[FindFit[fittingData[[i]], (x^n)/(x^n + S05List[[i]]^n), n, x]][[1]];
+		nHDataVal = nList[[i, 4]];
+		relError = Abs[nHDataVal - nHpred] / nHDataVal * 100;
+		{nHDataVal, nHpred, relError},
+	
+	{i, 1, Length@S05List}];
+	
+	header = {"data value", "predicted value", "error in %"};
+	nHPredList= Join[{header}, nHPredList];
+	
+	Return[nHPredList];
 ];
 
 
@@ -237,17 +276,22 @@ getCosubDataKcat[rxn_, kcatList_, kcatMets_, assumedSaturatingConc_, char2met_] 
 
 backCalculateKcats[rxn_, kcatList_, absoluteRateFor_, absoluteRateRev_, paramFitSub_, enzymeSub_, assumedSaturatingConc_] := 
 	Module[{char2met, kcatMets, kcatDataVal, subProdFlag, dataCoSubKcat, kcatValPredicted, 
-			absoluteRate, predictedKcatList, relError, header},
+			absoluteRate, predictedKcatList, relError, header, subZeroMets, cosubs},
 	
 	char2met = getConversionChar2Met[rxn];
+	cosubs = DeleteDuplicates@Select[Flatten@kcatList[[All,2]], StringQ];
+	char2met = Flatten @ Append[char2met, getConversionChar2Met[cosubs]];
 	
 	predictedKcatList = 
 		Table[
 			kcatMets = kcatList[[i, 2]][[All, 1]];
 			kcatDataVal = kcatList[[i]][[3]];		
-			{subProdFlag, dataCoSubKcat} = getCosubDataKcat[rxn, kcatList, kcatMets, assumedSaturatingConc, char2met];
+			{subProdFlag, dataCoSubKcat} = getCosubDataKcat[rxn, {kcatList[[i]]}, kcatMets, assumedSaturatingConc, char2met];
 			absoluteRate = If[StringMatchQ[subProdFlag, "sub"], absoluteRateFor, absoluteRateRev];
 			kcatValPredicted = absoluteRate /. paramFitSub /. dataCoSubKcat /. enzymeSub;
+
+			subZeroMets = Map[# -> 0&, Variables[kcatValPredicted]];
+			kcatValPredicted = kcatValPredicted /. subZeroMets;
 
 			relError = Abs[kcatDataVal - kcatValPredicted] / kcatDataVal * 100;
 			{kcatDataVal, kcatValPredicted, relError},
@@ -268,6 +312,46 @@ backCalculateRatios[ratio_, ratioValData_, paramFitSub_] :=
 	
 	header = {"data value", "predicted value", "error in %"};
 	predictedList= Join[{header}, {{ratioValData, ratioValPredicted, relError}}];
+	
+	Return[predictedList];
+];
+
+
+backCalculateKic[fittingData_, filteredDataList_, inhibConcentrations_, KicDataValue_] := 
+	Module[{slopeList, relError, header, predictedList, lm, KicPred, x},
+	
+	slopeList={};
+	AppendTo[slopeList, LinearModelFit[MapThread[{1/#1,1/#2}&,{fittingData[[1;;5]],filteredDataList[[1;;5]]}],x,x]["ParameterTableEntries"][[All,1]][[2]]];
+	AppendTo[slopeList, LinearModelFit[MapThread[{1/#1,1/#2}&,{fittingData[[6;;10]],filteredDataList[[6;;10]]}],x,x]["ParameterTableEntries"][[All,1]][[2]]];
+	AppendTo[slopeList, LinearModelFit[MapThread[{1/#1,1/#2}&,{fittingData[[11;;15]],filteredDataList[[11;;15]]}],x,x]["ParameterTableEntries"][[All,1]][[2]]];
+
+	lm = LinearModelFit[MapThread[{#1,#2}&,{inhibConcentrations, slopeList}],x,x];
+	KicPred = Abs[Values @ Flatten @ Solve[lm[x]==0,x]];
+
+	relError = Abs[KicDataValue - KicPred] / KicDataValue * 100;
+	
+	header = {"data value", "predicted value", "error in %"};
+	predictedList= Join[{header}, {{KicDataValue, KicPred, relError}}];
+	
+	Return[predictedList];
+];
+
+
+backCalculateKiu[fittingData_, filteredDataList_, inhibConcentrations_, KiuDataValue_] := 
+	Module[{interceptList, relError, header, predictedList, lm, KiuPred, x},
+	
+	interceptList={};
+	AppendTo[interceptList, LinearModelFit[MapThread[{1/#1,1/#2}&,{fittingData[[1;;5]],filteredDataList[[1;;5]]}],x,x]["ParameterTableEntries"][[All,1]][[1]]];
+	AppendTo[interceptList, LinearModelFit[MapThread[{1/#1,1/#2}&,{fittingData[[6;;10]],filteredDataList[[6;;10]]}],x,x]["ParameterTableEntries"][[All,1]][[1]]];
+	AppendTo[interceptList, LinearModelFit[MapThread[{1/#1,1/#2}&,{fittingData[[11;;15]],filteredDataList[[11;;15]]}],x,x]["ParameterTableEntries"][[All,1]][[1]]];
+
+	lm = LinearModelFit[MapThread[{#1,#2}&,{inhibConcentrations, interceptList}],x,x];
+	KiuPred = Abs[Values @ Flatten @ Solve[lm[x]==0,x]];
+
+	relError = Abs[KiuDataValue - KiuPred] / KiuDataValue * 100;
+	
+	header = {"data value", "predicted value", "error in %"};
+	predictedList= Join[{header}, {{KiuDataValue, KiuPred, relError}}];
 	
 	Return[predictedList];
 ];
