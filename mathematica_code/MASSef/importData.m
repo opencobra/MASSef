@@ -189,7 +189,9 @@ parseOtherEntry[line_, uncertaintyFraction_] :=
 			
 	paramType= StringReplace[line[[1]], " "-> ""];
 	substrate = StringReplace[line[[2]], " "-> ""];
-	checkEntry[substrate, "Other parameter susbtrate"];
+	If[!StringMatchQ[paramType, "L0"],
+		checkEntry[substrate, "Other parameter susbtrate"];
+	];
 	value = line[[3]];
 	checkEntry[value, "Other parameter value"];
 	uncertainty = line[[4]];
