@@ -104,20 +104,24 @@ simulateInhibData::usage="simulateInhibData[rxn, metsFull, metsSub, metSatForSub
 			   logStepSize, activeIsoSub, bufferInfo, ionCharge, inputPath, outputPath, fileList, KeqVal]"
 
 
-simulateParameterScanData::usage="generateParameterScanData[inputPath, dataType, dataList, dataEntry, newValuesList, remainingFittingDataset, dataFileName, 
-								metsSub, simulateDataFunctionArguments]";
+simulateParameterScanData::usage="simulateParameterScanData[paramScanList, enzymeModel, dataFileName, fitLabel, haldaneRatiosList, 
+						  KeqList, KmList, s05List, kcatList, inhibList, activationList, 
+						  otherParmsList, rxn, metsFull, metSatForSub, metSatRevSub,  bufferInfo, 
+						  ionCharge, inputPath, fileList, fileListSub, eqnNameList, 
+						  eqnValList, eqnValListPy, eqnNameList, rateConstsSub, metsSub, allCatalyticReactions,
+						  nonCatalyticReactions, unifiedRateConstList, customRatiosList]";
 
 
 getMinMaxPsDataVal::usage="getMinMaxPsDataVal[val]";
 
 
-simulateData::usage="simulateData[enzymeModel,dataFileName,KmList, s05List, kcatList, inhibList, activationList, otherParmsList, rxn, metsFull,  
+simulateData::usage="simulateData[enzymeModel,dataFileName, fitLabel, KmList, s05List, kcatList, inhibList, activationList, otherParmsList, rxn, metsFull,  
 					metSatForSub, metSatRevSub,   bufferInfo, ionCharge, inputPath,  fileList, fileListSub, 
 					eqnNameList,eqnValList, eqnValListPy, eqnNameList, rateConstsSub, \[IndentingNewLine]					metsSub, KeqEquilibrator, KeqName, allCatalyticReactions, unifiedRateConstList, customRatiosList]";
 
 
 
-simulateDataWithUncertainty::usage="simulateDataWithUncertainty[nSamples,enzymeModel,dataFileBaseName,KmList, s05List, kcatList, inhibList, activationList, othersList, 
+simulateDataWithUncertainty::usage="simulateDataWithUncertainty[nSamples,enzymeModel,dataFileBaseName,fitLabel, KmList, s05List, kcatList, inhibList, activationList, othersList, 
 									rxn, metsFull,  metSatForSub, metSatRevSub, otherParmsList,  bufferInfo, ionCharge, inputPath,  fileList, 
 									fileListSub, eqnNameList,eqnValList, eqnValListPy, eqnNameList, rateConstsSub, 
 									metsSub,KeqEquilibrator, KeqName,allCatalyticReactions, unifiedRateConstList, customRatiosList]";
