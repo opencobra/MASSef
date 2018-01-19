@@ -200,28 +200,20 @@ backCalculateKms[rxn_, kmList_, relativeRateForward_, relativeRateReverse_, metS
 			relativeRate = If[StringMatchQ[subProdFlag, "sub"], relativeRateForward, relativeRateReverse];	
 			metSatSub = If[StringMatchQ[subProdFlag, "sub"], metSatForSub, metSatRevSub];	
 			pos = Flatten @ Position[metSatSub, kmMet];
-			Print[pos];
-			Print[metSatSub];
+
 			relativeRate = relativeRate[[pos[[1]]]];
 			metSatSub = Keys@metSatSub[[pos[[1]]]];
-			Print[metSatSub];
 			
 			kmValPredicted = Solve[(relativeRate/.paramFitSub/. cosubData)==0.5, metSatSub];
-			Print[kmValPredicted];
-
 			kmValPredicted = Flatten[Values @ kmValPredicted];
 			subZeroMets = Map[# -> 0&, Variables[kmValPredicted]];
 			kmValPredicted = kmValPredicted /. subZeroMets;
-			
+
 			kmValPredicted = If[Length[kmValPredicted] > 1,
-								If[kmValPredicted[[1]] > 0,
-									kmValPredicted[[1]],
-									kmValPredicted[[2]]
-								],
+								Flatten[Select[kmValPredicted, Head[#] === Real && #> 0  &]][[1]],
 								kmValPredicted
 							];
-							
-												
+									
 			relError = Abs[kmDataVal - kmValPredicted] / kmDataVal * 100;
 			
 			{kmDataVal, kmValPredicted, relError},
