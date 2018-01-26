@@ -1,0 +1,97 @@
+FBA1,ec_number,4.1.2.13,,,,,,,,,,,,,
+,organism,E. coli,,,,,,,,,,,,,
+,reaction,fdp[c] <-> dhap[c] + g3p[c],,,,,,,,,,,,,
+,,,,experiment,reference (PMID),strain,notes,,,,,,,,
+,mechanism,Ordered Sequential Uni Bi,"[fdp,g3p,dhap]",,2649077,,Based off of a general class I aldolase mechanism,,,,,,,,
+,structure,8-10,,SDS-PAGE,"348198, 9531482",E. coli (Crookes' strain),"High likelyhood of error in this number. Previous studies assumed that the E. coli enzyme was tetrameric, being structurally similar to other class I aldolases, but this study, although not precise, concluded that the enzyme was much larger",,,,,,,,
+,active_sites,,,,,,,,,,,,,,
+,allosteric_sites,,,,,,,,,,,,,,
+,parameter type,metabolite,value,uncertainty,"cosubstrate,concentration",unit,pH,temperature,"buffer,concentration","salts,concentration",other info,experiment,reference,strain,notes
+,Keq,"fdp,Null",0.00016,,,,7.5,,,,,,equilibrator,,Is=0.25
+,Km,fdp,0.00002,,,M,7.5,30,"trishcl,0.05",,,Lineweaver-Burk,4198624,E. coli (Crookes' strain),"Stribling et al; Apparent value and estimated off of a linear portion of a curve; It is conceivable that some proteolysis may have occurred during the purification of aldolase 1 that has produced a mixture of native enzyme and a partially digested form, with altered affinity for substrate and decreased specific activity"
+,kcat,"fdp,Null",0.217,"0.21,0.223",,1/s,8,30,"trishcl,0.05",,,Kinetic parameters were measured by non-linear re-gression analysis [26],9531482,E. coli strain KM3,Thomson et al; Not 100% sure on strain; 
+,Km,fdp,0.00002,"0.000018,0.000022",,M,8,30,"trishcl,0.05",,,Kinetic parameters were measured by non-linear re-gression analysis [26],9531482,E. coli strain KM3,Not 100% sure on strain
+,kcat,"fdp,Null;cit,0.011",3.17,"3.01,3.33","cit,0.011",1/s,8,30,"trishcl,0.05",,,Kinetic parameters were measured by non-linear re-gression analysis [26],9531482,E. coli strain KM3,Not 100% sure on strain
+,Km,fdp,0.00007,"0.000058,0.000082","cit,0.011",M,8,30,"trishcl,0.05",,,Kinetic parameters were measured by non-linear re-gression analysis [26],9531482,E. coli strain KM3,Not 100% sure on strain
+FBA2,ec_number,4.1.2.13,,,,,,,,,,,,,Baldwin et al; commercial fdp yields non-linear linewaver-burke plot; purified fdp yields linear plot
+,organism,E. coli,,,,,,,,,,,,,
+,reaction,fdp[c] <-> dhap[c] + g3p[c],,,,,,,,,,,,,
+,,,,experiment,reference (PMID),strain,notes,,,,,,,,
+,mechanism,Ordered Sequential Uni Bi,"[fdp,g3p,dhap]",,10712619,E. coli strain KM3 w/ pKagaY,Implied from the mechanism,,,,,,,,
+,structure,2,,Crystallography,10080900,E. coli strain JM101 w/pLC33-5 w/pKK223-3,Strain was inferred through cited methods (PMID: 2649077),,,,,,,,
+,active_sites,2,,Crystallography,10080900,E. coli strain JM101 w/pLC33-5 w/pKK223-3,Strain was inferred through cited methods (PMID: 2649077),,,,,,,,
+,allosteric_sites,,,,,,,,,,,,,,
+,parameter type,metabolite,value,uncertainty,"cosubstrate,concentration",unit,pH,temperature,"buffer,concentration","salts,concentration",other info,experiment,reference,strain,notes
+,Keq,"fdp,Null",0.00016,,,,7.5,,,,,,equilibrator,,Is=0.25
+,Km,fdp,0.00017,"0.000167,0.000173",,M,8,30,"trishcl,0.05",,,"Kaleidagraph (Unspecified, but nonlinear regression analysis in referenced methods)",10712619,E. coli strain KM3 w/ pKagaY,
+,kcat,"fdp,Null",10.5,"9.83,11.2",,1/s,8,30,"trishcl,0.05",,,"Kaleidagraph (Unspecified, but nonlinear regression analysis in referenced methods)",10712619,E. coli strain KM3 w/ pKagaY,
+,Kic,dhap,0.00013,"0.000119,0.000141",,M,8,30,"trishcl,0.05",,"Competitive,fdp,0.00017","Kaleidagraph (Unspecified, but nonlinear regression analysis in referenced methods)",10712619,E. coli strain KM3 w/ pKagaY,
+,Kincc,g3p,0.00003,"0.000025,0.000035",,M,8,30,"trishcl,0.05",,"NonCompetitive,fdp,0.00017","Kaleidagraph (Unspecified, but nonlinear regression analysis in referenced methods)",10712619,E. coli strain KM3 w/ pKagaY,
+,Kincu,g3p,0.00023,"0.000188,0.000272",,M,8,30,"trishcl,0.05",,"NonCompetitive,fdp,0.00017","Kaleidagraph (Unspecified, but nonlinear regression analysis in referenced methods)",10712619,E. coli strain KM3 w/ pKagaY,
+,kcat,"fdp,Null",8.17,"7.73,8.6",,1/s,8,30,"trishcl,0.05",,,data were fitted to the appropriate rate equations using either the computer program Kaleidagraph (Abelbeck Software) or the suite of program described by Cleland (1979),8771208,E. coli strain KM3,"Qamar, 1996"
+,Km,fdp,0.00019,"0.00016,0.00022",,M,8,30,"trishcl,0.05",,,data were fitted to the appropriate rate equations using either the computer program Kaleidagraph (Abelbeck Software) or the suite of program described by Cleland (1979),8771208,E. coli strain KM3,"Qamar, 1996"
+,Kic,dhap,0.000009,"0.0000078,0.0000102",,M,8,30,"trishcl,0.05",,"Competitive,fdp,0.00019",data were fitted to the appropriate rate equations using either the computer program Kaleidagraph (Abelbeck Software) or the suite of program described by Cleland (1979),8771208,E. coli strain KM3,"Qamar, 1996"
+,Kincc,g3p,0.000118,"0.000095,0.000141",,M,8,30,"trishcl,0.05",,"NonCompetitive,fdp,0.00019",data were fitted to the appropriate rate equations using either the computer program Kaleidagraph (Abelbeck Software) or the suite of program described by Cleland (1979),8771208,E. coli strain KM3,"Qamar, 1996"
+,Kincu,g3p,0.000221,"0.000194,0.000248",,M,8,30,"trishcl,0.05",,"NonCompetitive,fdp,0.00019",data were fitted to the appropriate rate equations using either the computer program Kaleidagraph (Abelbeck Software) or the suite of program described by Cleland (1979),8771208,E. coli strain KM3,"Qamar, 1996"
+,kcat,"fdp,Null",10.33,"10.03,10.63",,1/s,8,30,"trishcl,0.05",,,Kinetic parameters were estimated by non-linear regression analysis [22],8436219,E. coli strain KM3,"Berry, 1993"
+,Km,fdp,0.00024,"0.00021,0.00027",,M,8,30,"trishcl,0.05",,,Kinetic parameters were estimated by non-linear regression analysis [22],8436219,E. coli strain KM3,"Berry, 1993"
+,Km,fdp,0.00085,,,M,7.5,30,"trishcl,0.05",,,Lineweaver-Burk,4198624,E. coli (Crookes' strain),
+FBP2,ec_number,3.1.3.11,,,,,,,,,,,,,
+,organism,E. coli,,,,,,,,,,,,,
+,reaction,fdp[c] + h2o[c] -> f6p[c] + pi[c],,,,,,,,,,,,,
+,,,,experiment,reference (PMID),strain,notes,,,,,,,,
+,mechanism,,,,,,,,,,,,,,
+,structure,2,,Crystallography,19073594,E. coli BL21 (DE3) Gold strain w/ modified pET15b vector containing GlpX open reading frame,,,,,,,,,
+,active_sites,2,,Crystallography,19073594,E. coli BL21 (DE3) Gold strain w/ modified pET15b vector containing GlpX open reading frame,,,,,,,,,
+,allosteric_sites,,,,,,,,,,,,,,
+,parameter type,metabolite,value,uncertainty,"cosubstrate,concentration",unit,pH,temperature,"buffer,concentration","salts,concentration",other info,experiment,reference,strain,notes
+,Keq,"fdp,Null",41.5,,,,7.5,,,,,,equilibrator,,Is=0.25
+,kcat,fdp,5.7,"5.6,5.8",,1/s,9,37,"chesk,0.5","mn2,0.002;cl,0.004",,Lineweaver-Burk,19073594,E. coli BL21 (DE3) Gold strain w/ modified pET15b vector containing GlpX open reading frame,
+,kcat,"fdp,0.00006;pep,0.001",3.22,,"pep,0.001",1/s,7.7,25,"tric,0.02","mn2,0.001;cl,0.002",,,,,
+,kcat,"fdp,0.00005;atp,0.00125",1.67,,"atp,0.00125",1/s,7.7,25,"tric,0.02","mn2,0.001",,,,,
+,kcat,"fdp,0.00005;adp,0.00125",0.949,,"adp,0.00125",1/s,7.7,25,"tric,0.02","mn2,0.001",,,,,
+,kcat,"fdp,0.00005;adp,0.0019",0.72,,"adp,0.0019",1/s,7.7,25,"tric,0.02","mn2,0.001",,,,,
+,s05,fdp,0.00007,"0.000068,0.000072",,M,9,37,"chesk,0.5","mn2,0.002;cl,0.004",,Lineweaver-Burk,19073594,E. coli BL21 (DE3) Gold strain w/ modified pET15b vector containing GlpX open reading frame,
+,n,fdp,2.05,"2.00,2.1",,,9,37,"chesk,0.5","mn2,0.002;cl,0.004",,,19073594,,
+,Kic,f1p,0.001,,,M,7.7,25,"tric,0.02","mn2,0.001;cl,0.002","Competitive,fdp,0.00007",Lineweaver-Burk,10986273,E. coli JB108 w/ pJB300B,apparent value; fructose-1-phosphate
+,Kic,pi,0.00035,,,M,7.7,25,"tric,0.02","mn2,0.001;cl,0.002","Competitive,fdp,0.00007",Lineweaver-Burk,10986273,E. coli JB108 w/ pJB300B,apparent value
+G3PD2,ec_number,1.1.1.94,,,,,,,,,,,,,
+,organism,E. coli,,,,,,,,,,,,,
+,reaction,glyc3p[c] + nadp[c] <-> dhap[c] + h[c] + nadph[c],,,,,,,,,,,,,
+,,,,experiment,reference (PMID),strain,notes,,,,,,,,
+,mechanism,ordered bi bi,"[nadp,glyc3p,dhap,nadph]",,28326,"E. coli (Unspecified, but cited methods used Strain 8 (PMID:355254))",,,,,,,,,
+,structure,,,,,,,,,,,,,,
+,active_sites,,,,,,,,,,,,,,
+,allosteric_sites,,,,,,,,,,,,,,
+,parameter type,metabolite,value,uncertainty,"cosubstrate,concentration",unit,pH,temperature,"buffer,concentration","salts,concentration",other info,experiment,reference,strain,notes
+,Keq,"nadp,Null;glyc3p,Null",0.000099,,,,7.5,,,,,,equilibrator,,Is=0.25
+,Km,nadph,0.0000034,,,M,7.4,23,"trishcl,0.1",,,secondary double reciprocal plots,28326,"E. coli (Unspecified, but cited methods used Strain 8 (PMID:355254))",
+,Km,dhap,0.00018,,,M,7.4,23,"trishcl,0.1",,,secondary double reciprocal plots,28326,"E. coli (Unspecified, but cited methods used Strain 8 (PMID:355254))",
+,Km,nadp,0.000165,,,M,7.4,23,"trishcl,0.1",,,secondary double reciprocal plots,28326,"E. coli (Unspecified, but cited methods used Strain 8 (PMID:355254))",
+,Km,glyc3p,0.00003,,,M,7.4,23,"trishcl,0.1",,,secondary double reciprocal plots,28326,"E. coli (Unspecified, but cited methods used Strain 8 (PMID:355254))",
+,Kic,glyc3p,0.0000042,,"nadph,0.0001",M,7.4,23,"trishcl,0.1",,"Competitive,dhap,0.00018",secondary double reciprocal plots,28326,"E. coli (Unspecified, but cited methods used Strain 8 (PMID:355254))",
+,Kincu,glyc3p,0.0000065,,"dhap,0.0001",M,7.4,23,"trishcl,0.1",,"NonCompetitive,nadph,0.0000034",secondary double reciprocal plots,28326,"E. coli (Unspecified, but cited methods used Strain 8 (PMID:355254))",
+,Kincc,glyc3p,0.0000025,,"dhap,0.0001",M,7.4,23,"trishcl,0.1",,"NonCompetitive,nadph,0.0000034",secondary double reciprocal plots,28326,"E. coli (Unspecified, but cited methods used Strain 8 (PMID:355254))",
+,Kincu,nadp,0.0013,,"nadph,0.00001",M,7.4,23,"trishcl,0.1",,"NonCompetitive,dhap,0.00018",secondary double reciprocal plots,28326,"E. coli (Unspecified, but cited methods used Strain 8 (PMID:355254))",
+,Kincc,nadp,0.0013,,"nadph,0.00001",M,7.4,23,"trishcl,0.1",,"NonCompetitive,dhap,0.00018",secondary double reciprocal plots,28326,"E. coli (Unspecified, but cited methods used Strain 8 (PMID:355254))",
+,Kic,nadp,0.000187,,"dhap,0.002",M,7.4,23,"trishcl,0.1",,"Competitive,nadph,0.0000034",secondary double reciprocal plots,28326,"E. coli (Unspecified, but cited methods used Strain 8 (PMID:355254))",
+,Kic,dhap,0.000038,,"nadp,0.002",M,7.4,23,"trishcl,0.1",,"Competitive,glyc3p,0.00003",secondary double reciprocal plots,28326,"E. coli (Unspecified, but cited methods used Strain 8 (PMID:355254))",
+,Kincu,dhap,0.00024,,"glyc3p,0.0001",M,7.4,23,"trishcl,0.1",,"NonCompetitive,nadp,0.000165",secondary double reciprocal plots,28326,"E. coli (Unspecified, but cited methods used Strain 8 (PMID:355254))",
+,Kincc,dhap,0.00012,,"glyc3p,0.0001",M,7.4,23,"trishcl,0.1",,"NonCompetitive,nadp,0.000165",secondary double reciprocal plots,28326,"E. coli (Unspecified, but cited methods used Strain 8 (PMID:355254))",
+,Kincu,nadph,0.0000008,,"nadp,0.0001",M,7.4,23,"trishcl,0.1",,"NonCompetitive,glyc3p,0.00003",secondary double reciprocal plots,28326,"E. coli (Unspecified, but cited methods used Strain 8 (PMID:355254))",
+,Kincc,nadph,0.0000006,,"nadp,0.0001",M,7.4,23,"trishcl,0.1",,"NonCompetitive,glyc3p,0.00003",secondary double reciprocal plots,28326,"E. coli (Unspecified, but cited methods used Strain 8 (PMID:355254))",
+,Kic,nadph,0.0000004,,"glyc3p,0.0002",M,7.4,23,"trishcl,0.1",,"Competitive,nadp,0.000165",secondary double reciprocal plots,28326,"E. coli (Unspecified, but cited methods used Strain 8 (PMID:355254))",
+TPI,ec_number,5.3.1.1,,,,,,,,,,,,,
+,organism,E. coli,,,,,,,,,,,,,
+,reaction,g3p[c] <-> dhap[c],,,,,,,,,,,,,
+,,type,order,experiment,reference,strain,notes,,,,,,,,
+,mechanism,,,,,,,,,,,,,,
+,structure,2,,Crystallography,15299515,E. coli over-expressing  strain (Unspecified),,,,,,,,,
+,active_sites,2,,Crystallography,15299515,E. coli over-expressing  strain (Unspecified),,,,,,,,,
+,allosteric_sites,,,,,,,,,,,,,,
+,parameter type,metabolite,value,uncertainty,"cosubstrate,concentration",unit,pH,temperature,"buffer,concentration","salts,concentration",other info,experiment,reference,strain,notes
+,Keq,"g3p,Null",9.35,,,,7.5,,,,,,equilibrator,,Is=0.25
+,Km,g3p,0.00103,"0.00093,0.00113",,M,7.6,25,"teoahcl,0.1",,,Enzfitter program (Unspecified),9442062,E. coli over-expressing  strain (Unspecified),
+,kcat,"g3p,Null",9000,"8833,9167",,1/s,7.6,25,"teoahcl,0.1",,,Enzfitter program (Unspecified),9442062,E. coli over-expressing  strain (Unspecified),
+,Ki,2-phosphoglycolate,0.006,,,M,7.6,25,"teoahcl,0.1",,"Competitive,dhap,Null",Enzfitter program (Unspecified),9442062,E. coli over-expressing  strain (Unspecified),
+End,End,End,End,,End,End,End,End,End,End,End,End,End,,
