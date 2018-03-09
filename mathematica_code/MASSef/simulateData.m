@@ -154,7 +154,7 @@ removeMetsNotInReaction[rxn_, kmListFull_] := Block[{kmListFullLocal, entriesToD
 ];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Handle cosubstrate data*)
 
 
@@ -1186,11 +1186,11 @@ simulateData[enzymeModel_, dataFileName_, fitLabel_, haldaneRatiosList_, KeqList
 			activationList_, otherParmsList_, rxn_, metsFull_, metSatForSub_, metSatRevSub_,  bufferInfo_, 
 			ionCharge_, inputPath_,  fileList_, fileListSub_, eqnNameList_, eqnValList_, eqnValListPy_, eqnNameList_, 
 			rateConstsSub_, metsSub_, allCatalyticReactions_, nonCatalyticReactions_, unifiedRateConstList_, 
-			customRatiosList_:{}]:=
+			customRatiosList_:{}, assumedSaturatingConc_:1]:=
 
 	Block[{kmFittingData, s05FittingData, kcatFittingData, inhibFittingData, activationData,  KeqFittingData, KdFittingData, 
 			L0FittingData, inhibRatioFittingData, customRatioFittingData, activationRatioFittingData, haldane, haldaneRatio,
-			logStepSize, minPsDataVal, maxPsDataVal,nonKmParamWeight, eTotal, assumedSaturatingConc, inVivoPH, inVivoIS, 
+			logStepSize, minPsDataVal, maxPsDataVal,nonKmParamWeight, eTotal, inVivoPH, inVivoIS, 
 			effectiveIonDiameter, activityCoefficient, activeIsoSub, pHandT, paramType,ratio,  val, inhibitor, activator, 
 			fileListLocal=fileList, fileListSubLocal=fileListSub, eqnNameListLocal=eqnNameList, eqnValListLocal=eqnValList,
 			eqnValListPyLocal=eqnValListPy, affectedRxnList, affectedRxnProductsList, reactionOverlap, count, allFittingData={},
@@ -1203,7 +1203,6 @@ simulateData[enzymeModel_, dataFileName_, fitLabel_, haldaneRatiosList_, KeqList
 	{minPsDataVal, maxPsDataVal}= getMinMaxPsDataVal[1];
 	nonKmParamWeight=Length[Table[1,{i,minPsDataVal, maxPsDataVal,logStepSize}]];
 	eTotal=1;(*Enzyme Total, Should Be 1 for Fitting*)
-	assumedSaturatingConc=0.01 ;(*in Molarity*)
 
 	(* chemical activity correction parameters *)
 	inVivoPH=7.5;(*Assumed in vivo pH*)
