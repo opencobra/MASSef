@@ -351,21 +351,12 @@ getRateEqs[rxn_, enzymeModel_, absoluteFlux_, rateConstSubstitutionList_, revers
 		   otherMetsForwardZeroSub_:Null, otherMetsReverseZeroSub_:Null,
 		   simplifyFlag_:True, simplifyMaxTime_:300]:= 
 	Block[{absoluteFluxEqn, absoluteRateForward, absoluteRateReverse, relativeRateForward, relativeRateReverse,
-			absoluteFluxEqnRelRateFor, absoluteFluxEqnRelRateRev, otherRelativeRatesForward={}, otherRelativeRatesReverse={},
+			otherRelativeRatesForward={}, otherRelativeRatesReverse={},
 			posConcentrationAssumption, rateFileName, rateEq, repeatedMetCount, n},
 			
 	absoluteFluxEqn = absoluteFlux[[2]]/.rateConstSubstitutionList;(* Equivalent Rate Constants *)
 
-	absoluteFluxEqnRelRateFor = If[absoluteFluxRelRateFor === Null,
-		absoluteFluxEqn,
-		absoluteFluxRelRateFor[[2]]/.rateConstSubstitutionList
-	];
 	
-	absoluteFluxEqnRelRateRev = If[absoluteFluxRelRateRev === Null, 
-		absoluteFluxEqn,
-		absoluteFluxRelRateRev[[2]]/.rateConstSubstitutionList
-	];		
-
 	posConcentrationAssumption = Map[# >= 0. &, enzymeModel["Species"]];
 	
 	(*kcat Forward, effective kcat definition *)
@@ -415,8 +406,8 @@ getRateEqs[rxn_, enzymeModel_, absoluteFlux_, rateConstSubstitutionList_, revers
 				
 					If[TrueQ[simplifyFlag],
 						Print["Simplifying..."];
-						rateEq = anonymize[Simplify[(absoluteRateForward/.reverseZeroSub/.volumeSub)/((absoluteFluxEqnRelRateFor/.reverseZeroSub/.volumeSub/.metSatForSub)), TimeConstraint -> {simplifyMaxTime, 300}, Trig->False, Assumptions->posConcentrationAssumption]];,
-						rateEq = (absoluteRateForward/.reverseZeroSub/.volumeSub)/(absoluteFluxEqnRelRateFor/.reverseZeroSub/.volumeSub/.metSatForSub);
+						rateEq = anonymize[Simplify[(absoluteRateForward/.reverseZeroSub/.volumeSub)/((absoluteRateForward/.reverseZeroSub/.volumeSub/.metSatForSub)), TimeConstraint -> {simplifyMaxTime, 300}, Trig->False, Assumptions->posConcentrationAssumption]];,
+						rateEq = (absoluteRateForward/.reverseZeroSub/.volumeSub)/(absoluteRateForward/.reverseZeroSub/.volumeSub/.metSatForSub);
 					];,
 					
 					rateEq = generateRelRateDuplicateReactants[absoluteRateForward, metSatForSub, volumeSub, getSubstrates@rxn, getSubstrStoich@rxn, repeatedMetCount];
@@ -442,11 +433,11 @@ getRateEqs[rxn_, enzymeModel_, absoluteFlux_, rateConstSubstitutionList_, revers
 				
 					If[TrueQ[simplifyFlag],
 						Print["Simplifying..."];
-						rateEq = anonymize[Simplify[(-absoluteRateReverse)/(absoluteFluxEqnRelRateRev/.forwardZeroSub/.volumeSub/.metSatRevSub), TimeConstraint -> {simplifyMaxTime, 300}, Trig->False, Assumptions->posConcentrationAssumption]];,
-						rateEq = (-absoluteRateReverse)/(absoluteFluxEqnRelRateRev/.forwardZeroSub/.volumeSub/.metSatRevSub);
+						rateEq = anonymize[Simplify[(absoluteRateReverse)/(absoluteRateReverse/.forwardZeroSub/.volumeSub/.metSatRevSub), TimeConstraint -> {simplifyMaxTime, 300}, Trig->False, Assumptions->posConcentrationAssumption]];,
+						rateEq = (absoluteRateReverse)/(absoluteRateReverse/.forwardZeroSub/.volumeSub/.metSatRevSub);
 					];,
 					
-					rateEq = generateRelRateDuplicateReactants[-absoluteRateReverse, metSatRevSub, volumeSub, getProducts@rxn, getProdStoich@rxn, repeatedMetCount];
+					rateEq = generateRelRateDuplicateReactants[absoluteRateReverse, metSatRevSub, volumeSub, getProducts@rxn, getProdStoich@rxn, repeatedMetCount];
 				];
 				Export[rateFileName, rateEq];
 				rateEq,
@@ -466,10 +457,10 @@ getRateEqs[rxn_, enzymeModel_, absoluteFlux_, rateConstSubstitutionList_, revers
 				Table[
 				Print[metReverseZeroSub];
 				Print[metSatForSubList];
-					Map[{"otherRateRelFor_" <> getID[Keys@#] <> "_" <> metReverseZeroSub[[1]], Simplify[(absoluteFluxEqn/.metReverseZeroSub[[2]]/.volumeSub)/(absoluteFluxEqnRelRateFor/.metReverseZeroSub[[2]]/.volumeSub/.#), TimeConstraint -> {simplifyMaxTime, 300}, Trig->False, Assumptions->posConcentrationAssumption]} &, metSatForSubList],
+					Map[{"otherRateRelFor_" <> getID[Keys@#] <> "_" <> metReverseZeroSub[[1]], Simplify[(absoluteFluxEqn/.metReverseZeroSub[[2]]/.volumeSub)/(absoluteFluxEqn/.metReverseZeroSub[[2]]/.volumeSub/.#), TimeConstraint -> {simplifyMaxTime, 300}, Trig->False, Assumptions->posConcentrationAssumption]} &, metSatForSubList],
 				{metReverseZeroSub, otherMetsReverseZeroSub}],
 				Table[
-					Map[{"otherRateRelFor_" <> getID[Keys@#] <> "_" <> metReverseZeroSub[[1]],(absoluteFluxEqn/.metReverseZeroSub[[2]]/.volumeSub)/(absoluteFluxEqnRelRateFor/.metReverseZeroSub[[2]]/.volumeSub/.#)} &, metSatForSubList],
+					Map[{"otherRateRelFor_" <> getID[Keys@#] <> "_" <> metReverseZeroSub[[1]],(absoluteFluxEqn/.metReverseZeroSub[[2]]/.volumeSub)/(absoluteFluxEqn/.metReverseZeroSub[[2]]/.volumeSub/.#)} &, metSatForSubList],
 				{metReverseZeroSub, otherMetsReverseZeroSub}]
 			];
 	];
@@ -480,10 +471,10 @@ getRateEqs[rxn_, enzymeModel_, absoluteFlux_, rateConstSubstitutionList_, revers
 			If[TrueQ[simplifyFlag], 
 				Print["Simplifying..."];
 				Table[
-					Map[{"otherRateRelRev_" <> getID[Keys@#] <> "_" <> metForwardZeroSub[[1]], Simplify[(absoluteFluxEqn/.metForwardZeroSub[[2]]/.volumeSub)/(absoluteFluxEqnRelRateRev/.metForwardZeroSub[[2]]/.volumeSub/.#), TimeConstraint -> {simplifyMaxTime, 300}, Trig->False, Assumptions->posConcentrationAssumption]} &, metSatRevSubList],
+					Map[{"otherRateRelRev_" <> getID[Keys@#] <> "_" <> metForwardZeroSub[[1]], Simplify[(-absoluteFluxEqn/.metForwardZeroSub[[2]]/.volumeSub)/(absoluteFluxEqn/.metForwardZeroSub[[2]]/.volumeSub/.#), TimeConstraint -> {simplifyMaxTime, 300}, Trig->False, Assumptions->posConcentrationAssumption]} &, metSatRevSubList],
 				{metForwardZeroSub, otherMetsForwardZeroSub}],
 				Table[
-					Map[{"otherRateRelRev_" <> getID[Keys@#] <> "_" <> metForwardZeroSub[[1]], (absoluteFluxEqn/.metForwardZeroSub[[2]]/.volumeSub)/(absoluteFluxEqnRelRateRev/.metForwardZeroSub[[2]]/.volumeSub/.#)} &, metSatRevSubList],
+					Map[{"otherRateRelRev_" <> getID[Keys@#] <> "_" <> metForwardZeroSub[[1]], (-absoluteFluxEqn/.metForwardZeroSub[[2]]/.volumeSub)/(absoluteFluxEqn/.metForwardZeroSub[[2]]/.volumeSub/.#)} &, metSatRevSubList],
 				{metForwardZeroSub, otherMetsForwardZeroSub}]
 			];
 	];
