@@ -1406,7 +1406,7 @@ simulateData[enzymeModel_, dataFileName_, fitLabel_, haldaneRatiosList_, KeqList
 simulateDataWithUncertainty[nSamples_,enzymeModel_,dataFileBaseName_, fitLabel_, haldaneRatiosList_, KeqList_, KmList_, s05List_, kcatList_, inhibList_, activationList_, 
 							othersList_, rxn_, metsFull_,  metSatForSub_, metSatRevSub_, otherParmsList_, bufferInfo_, ionCharge_, inputPath_,  fileList_, 
 							fileListSub_, eqnNameList_,eqnValList_, eqnValListPy_, eqnNameList_, rateConstsSub_, 
-							metsSub_, allCatalyticReactions_, nonCatalyticReactions_, unifiedRateConstList_, customRatiosList_:{}]:=
+							metsSub_, allCatalyticReactions_, nonCatalyticReactions_, unifiedRateConstList_, customRatiosList_:{}, assumedSaturatingConc_:1]:=
 	Block[{KeqListLocal=KeqList,KmListLocal=KmList, s05ListLocal=s05List,
 			kcatListLocal= kcatList, inhibListLocal=inhibList, activationListLocal=activationList, 
 			otherParmsListLocal=otherParmsList, customRatiosListLocal=customRatiosList, uncertainty, 
@@ -1492,7 +1492,7 @@ simulateDataWithUncertainty[nSamples_,enzymeModel_,dataFileBaseName_, fitLabel_,
 																					inhibListLocal, activationListLocal, otherParmsListLocal, rxn, metsFull,  metSatForSub, 
 																					metSatRevSub,  bufferInfo, ionCharge, inputPath,  fileListLocal, fileListSubLocal, eqnNameList, 
 																					eqnValList, eqnValListPy, eqnNameList, rateConstsSub, metsSub,  allCatalyticReactions, 
-																					nonCatalyticReactions, unifiedRateConstList, customRatiosList];
+																					nonCatalyticReactions, unifiedRateConstList, customRatiosList, assumedSaturatingConc];
 							
 
 		AppendTo[allFittingDataList, allFittingData];
@@ -1514,7 +1514,7 @@ simulateParameterScanData[paramScanList_, enzymeModel_, dataFileName_, fitLabel_
 						  otherParmsList_, rxn_, metsFull_, metSatForSub_, metSatRevSub_,  bufferInfo_, 
 						  ionCharge_, inputPath_, fileList_, fileListSub_, eqnNameList_, 
 						  eqnValList_, eqnValListPy_, eqnNameList_, rateConstsSub_, metsSub_, allCatalyticReactions_,
-						  nonCatalyticReactions_, unifiedRateConstList_, customRatiosList_:{}]:= 
+						  nonCatalyticReactions_, unifiedRateConstList_, customRatiosList_:{}, assumedSaturatingConc_:1]:= 
 	Block[{KeqListLocal=KeqList, KmListLocal=KmList, s05ListLocal=s05List, 
 			kcatListLocal= kcatList, inhibListLocal=inhibList, activationListLocal=activationList, 
 			otherParmsListLocal=otherParmsList, customRatiosListLocal=customRatiosList, haldaneRatiosListLocal=haldaneRatiosList,
@@ -1563,7 +1563,7 @@ simulateParameterScanData[paramScanList_, enzymeModel_, dataFileName_, fitLabel_
 																				inhibListLocal, activationListLocal, otherParmsListLocal, rxn, metsFull,  metSatForSub, 
 																				metSatRevSub,  bufferInfo, ionCharge, inputPath,  fileListLocal, fileListSubLocal, eqnNameList, 
 																				eqnValList, eqnValListPy, eqnNameList, rateConstsSub, metsSub,  allCatalyticReactions, 
-																				nonCatalyticReactions, unifiedRateConstList, customRatiosListLocal];
+																				nonCatalyticReactions, unifiedRateConstList, customRatiosListLocal, assumedSaturatingConc];
 		AppendTo[allFittingDataList, allFittingData];																			
 		AppendTo[dataPathList,dataPath];,
 																				
