@@ -471,10 +471,10 @@ getRateEqs[rxn_, enzymeModel_, absoluteFlux_, rateConstSubstitutionList_, revers
 			If[TrueQ[simplifyFlag], 
 				Print["Simplifying..."];
 				Table[
-					Map[{"otherRateRelRev_" <> getID[Keys@#] <> "_" <> metForwardZeroSub[[1]], Simplify[(-absoluteFluxEqn/.metForwardZeroSub[[2]]/.volumeSub)/(absoluteFluxEqn/.metForwardZeroSub[[2]]/.volumeSub/.#), TimeConstraint -> {simplifyMaxTime, 300}, Trig->False, Assumptions->posConcentrationAssumption]} &, metSatRevSubList],
+					Map[{"otherRateRelRev_" <> getID[Keys@#] <> "_" <> metForwardZeroSub[[1]], Simplify[(absoluteFluxEqn/.metForwardZeroSub[[2]]/.volumeSub)/(absoluteFluxEqn/.metForwardZeroSub[[2]]/.volumeSub/.#), TimeConstraint -> {simplifyMaxTime, 300}, Trig->False, Assumptions->posConcentrationAssumption]} &, metSatRevSubList],
 				{metForwardZeroSub, otherMetsForwardZeroSub}],
 				Table[
-					Map[{"otherRateRelRev_" <> getID[Keys@#] <> "_" <> metForwardZeroSub[[1]], (-absoluteFluxEqn/.metForwardZeroSub[[2]]/.volumeSub)/(absoluteFluxEqn/.metForwardZeroSub[[2]]/.volumeSub/.#)} &, metSatRevSubList],
+					Map[{"otherRateRelRev_" <> getID[Keys@#] <> "_" <> metForwardZeroSub[[1]], (absoluteFluxEqn/.metForwardZeroSub[[2]]/.volumeSub)/(absoluteFluxEqn/.metForwardZeroSub[[2]]/.volumeSub/.#)} &, metSatRevSubList],
 				{metForwardZeroSub, otherMetsForwardZeroSub}]
 			];
 	];
