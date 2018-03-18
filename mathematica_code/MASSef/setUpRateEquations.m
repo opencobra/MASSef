@@ -457,10 +457,12 @@ getRateEqs[rxn_, enzymeModel_, absoluteFlux_, rateConstSubstitutionList_, revers
 				Table[
 				Print[metReverseZeroSub];
 				Print[metSatForSubList];
-					Map[{"otherRateRelFor_" <> getID[Keys@#] <> "_" <> metReverseZeroSub[[1]], Simplify[(absoluteFluxEqn/.metReverseZeroSub[[2]]/.volumeSub)/(absoluteFluxEqn/.metReverseZeroSub[[2]]/.volumeSub/.#), TimeConstraint -> {simplifyMaxTime, 300}, Trig->False, Assumptions->posConcentrationAssumption]} &, metSatForSubList],
+					(*Map[{"otherRateRelFor_" <> getID[Keys@#] <> "_" <> metReverseZeroSub[[1]], Simplify[(absoluteFluxEqn/.metReverseZeroSub[[2]]/.volumeSub)/(absoluteFluxEqn/.metReverseZeroSub[[2]]/.volumeSub/.#), TimeConstraint -> {simplifyMaxTime, 300}, Trig->False, Assumptions->posConcentrationAssumption]} &, metSatForSubList]*)
+					Map[{"otherRateRelFor_" <> getID[Keys@#] <> "_" <> metReverseZeroSub[[1]], Simplify[(absoluteFluxEqn/.metReverseZeroSub[[2]]/.volumeSub)/(absoluteFluxEqn/.reverseZeroSub/.volumeSub/.#), TimeConstraint -> {simplifyMaxTime, 300}, Trig->False, Assumptions->posConcentrationAssumption]} &, metSatForSubList],
 				{metReverseZeroSub, otherMetsReverseZeroSub}],
 				Table[
-					Map[{"otherRateRelFor_" <> getID[Keys@#] <> "_" <> metReverseZeroSub[[1]],(absoluteFluxEqn/.metReverseZeroSub[[2]]/.volumeSub)/(absoluteFluxEqn/.metReverseZeroSub[[2]]/.volumeSub/.#)} &, metSatForSubList],
+					(*Map[{"otherRateRelFor_" <> getID[Keys@#] <> "_" <> metReverseZeroSub[[1]],(absoluteFluxEqn/.metReverseZeroSub[[2]]/.volumeSub)/(absoluteFluxEqn/.metReverseZeroSub[[2]]/.volumeSub/.#)} &, metSatForSubList]*)
+					Map[{"otherRateRelFor_" <> getID[Keys@#] <> "_" <> metReverseZeroSub[[1]],(absoluteFluxEqn/.metReverseZeroSub[[2]]/.volumeSub)/(absoluteFluxEqn/.reverseZeroSub/.volumeSub/.#)} &, metSatForSubList],
 				{metReverseZeroSub, otherMetsReverseZeroSub}]
 			];
 	];
@@ -471,10 +473,12 @@ getRateEqs[rxn_, enzymeModel_, absoluteFlux_, rateConstSubstitutionList_, revers
 			If[TrueQ[simplifyFlag], 
 				Print["Simplifying..."];
 				Table[
-					Map[{"otherRateRelRev_" <> getID[Keys@#] <> "_" <> metForwardZeroSub[[1]], Simplify[(absoluteFluxEqn/.metForwardZeroSub[[2]]/.volumeSub)/(absoluteFluxEqn/.metForwardZeroSub[[2]]/.volumeSub/.#), TimeConstraint -> {simplifyMaxTime, 300}, Trig->False, Assumptions->posConcentrationAssumption]} &, metSatRevSubList],
+					(*Map[{"otherRateRelRev_" <> getID[Keys@#] <> "_" <> metForwardZeroSub[[1]], Simplify[(absoluteFluxEqn/.metForwardZeroSub[[2]]/.volumeSub)/(absoluteFluxEqn/.metForwardZeroSub[[2]]/.volumeSub/.#), TimeConstraint -> {simplifyMaxTime, 300}, Trig->False, Assumptions->posConcentrationAssumption]} &, metSatRevSubList]*)
+					Map[{"otherRateRelRev_" <> getID[Keys@#] <> "_" <> metForwardZeroSub[[1]], Simplify[(absoluteFluxEqn/.metForwardZeroSub[[2]]/.volumeSub)/(absoluteFluxEqn/.forwardZeroSub/.volumeSub/.#), TimeConstraint -> {simplifyMaxTime, 300}, Trig->False, Assumptions->posConcentrationAssumption]} &, metSatRevSubList],
 				{metForwardZeroSub, otherMetsForwardZeroSub}],
 				Table[
-					Map[{"otherRateRelRev_" <> getID[Keys@#] <> "_" <> metForwardZeroSub[[1]], (absoluteFluxEqn/.metForwardZeroSub[[2]]/.volumeSub)/(absoluteFluxEqn/.metForwardZeroSub[[2]]/.volumeSub/.#)} &, metSatRevSubList],
+					(*Map[{"otherRateRelRev_" <> getID[Keys@#] <> "_" <> metForwardZeroSub[[1]], (absoluteFluxEqn/.metForwardZeroSub[[2]]/.volumeSub)/(absoluteFluxEqn/.metForwardZeroSub[[2]]/.volumeSub/.#)} &, metSatRevSubList]*)
+					Map[{"otherRateRelRev_" <> getID[Keys@#] <> "_" <> metForwardZeroSub[[1]], (absoluteFluxEqn/.metForwardZeroSub[[2]]/.volumeSub)/(absoluteFluxEqn/.forwardZeroSub/.volumeSub/.#)} &, metSatRevSubList],
 				{metForwardZeroSub, otherMetsForwardZeroSub}]
 			];
 	];
