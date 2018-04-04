@@ -202,7 +202,7 @@ def _minimizer(candidate):
                           gtol=gtol_value, epsfcn=e_value, maxfev=maxfev_value)
     """"""
 
-    """Minimize using a decreasing gradient approximation stepsize and an euclidean space objective function"""
+    """Minimize using a decreasing gradient approximation stepsize and an euclidean space objective function
     for i in range(0, epsfcn_min_value + 1):
         # Set 'epsfcn' Value Using Index
         e_value = 10.0 ** (-i)
@@ -210,7 +210,7 @@ def _minimizer(candidate):
         # Actual Minimization
         result = minimize(residual_func_euclid, params, args=(data, functionDict), xtol=xtol_value, ftol=ftol_value,
                           gtol=gtol_value, epsfcn=e_value, maxfev=maxfev_value)
-    """"""
+    """
 
     # Process the Output
     minimized_candidate = list()
