@@ -68,7 +68,7 @@ exportRateEqs::usage="exportRateEqs[outputPath, absoluteRateForward, absoluteRat
 
 
 setUpRateEquations::usage="setUpFluxEquations[enzymeModel, rxn, rxnName, inputPath,inhibitionList, catalyticReactionsSetsList, otherMetsReverseZeroSub, 
-					otherMetsForwardZeroSub, simplifyMaxTime, nActiveSites]";
+					otherMetsForwardZeroSub, simplifyMaxTime, nActiveSites, assumedSaturatingConc]";
 
 
 (* ::Subsection:: *)
@@ -198,7 +198,7 @@ reverseConsts::usage="reverseConsts[model]";
 rNonModelMets::usage="rNonModelMets[metList]";
 
 
-getMetsSub::usage="getMetsSub[rxn]";
+getMetsSub::usage="getMetsSub[rxn, assumedSaturatingConc]";
 
 
 getEnzymeRates::usage="getEnzymeRates[enzymeModel] ";

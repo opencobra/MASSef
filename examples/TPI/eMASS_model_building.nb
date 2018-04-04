@@ -1,0 +1,1550 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     55549,       1542]
+NotebookOptionsPosition[     54508,       1501]
+NotebookOutlinePosition[     54848,       1516]
+CellTagsIndexPosition[     54805,       1513]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Quit", "[", "]"}], ";"}]], "Input",
+ CellChangeTimes->{{3.639729139436756*^9, 3.639729140587323*^9}, {
+   3.640093333126033*^9, 3.640093334996044*^9}, {3.64032346627951*^9, 
+   3.640323466979537*^9}, 3.676967732906159*^9, {3.676969081297453*^9, 
+   3.6769691220993032`*^9}, {3.676969255452931*^9, 3.6769692574578323`*^9}, {
+   3.676970240113895*^9, 3.6769702447737637`*^9}, {3.682053449390788*^9, 
+   3.682053452353827*^9}, {3.682159217598268*^9, 3.682159221631666*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"<<", "Toolbox`"}], "\[IndentingNewLine]", 
+ RowBox[{"<<", "Toolbox`Style`"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"<<", "MASSef`"}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"SetDirectory", "[", 
+    RowBox[{"NotebookDirectory", "[", "]"}], "]"}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{"enzModelsDir", " ", "=", " ", 
+  "\"\</home/mrama/Dropbox/MASSef/examples/\>\""}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"mainDir", "=", 
+   RowBox[{"enzModelsDir", "<>", "\"\<code_data/\>\""}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"baseDir", "=", " ", 
+    RowBox[{"enzModelsDir", "<>", "\"\<TPI/fit_TPI/\>\""}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"dataDir", " ", "=", " ", 
+   RowBox[{"baseDir", "<>", "\"\<output/treated_data/\>\""}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"outputDir", "=", " ", 
+   RowBox[{"baseDir", "<>", "\"\<output/model_simulations/models/\>\""}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"If", "[", 
+    RowBox[{
+     RowBox[{"!", 
+      RowBox[{"DirectoryQ", "[", "outputDir", "]"}]}], ",", 
+     "\[IndentingNewLine]", "\t", 
+     RowBox[{"CreateDirectory", "[", 
+      RowBox[{"outputDir", ",", 
+       RowBox[{"CreateIntermediateDirectories", "\[Rule]", " ", "True"}]}], 
+      "]"}]}], "\[IndentingNewLine]", "]"}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Import", "[", 
+    RowBox[{"mainDir", "<>", "\"\<enzyme_model_building.m\>\""}], "]"}], 
+   ";"}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"metsData", "=", 
+   RowBox[{
+   "mainDir", "<>", "\"\<mets_concentrations_rabinowitz2016.xls\>\""}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"KeqData", "=", 
+    RowBox[{"mainDir", "<>", "\"\<reactions_keqs.xls\>\""}]}], ";"}], 
+  "\[IndentingNewLine]", "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"metsToIgnore", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     InterpretationBox[
+      SuperscriptBox[
+       StyleBox["h",
+        StripOnInput->False,
+        ShowSyntaxStyles->False,
+        AutoSpacing->False,
+        ZeroWidthTimes->True,
+        LineColor->RGBColor[0, 0, 0],
+        FrontFaceColor->RGBColor[0, 0, 0],
+        BackFaceColor->RGBColor[0, 0, 0],
+        GraphicsColor->RGBColor[0, 0, 0],
+        FontColor->RGBColor[0, 0, 0]], 
+       StyleBox["c",
+        StripOnInput->False,
+        ShowSyntaxStyles->False,
+        AutoSpacing->False,
+        ZeroWidthTimes->True,
+        LineColor->RGBColor[0, 0, 0],
+        FrontFaceColor->RGBColor[0, 0, 0],
+        BackFaceColor->RGBColor[0, 0, 0],
+        GraphicsColor->RGBColor[0, 0, 0],
+        FontColor->RGBColor[0, 0, 0]]],
+      Toolbox`metabolite["h", "c"],
+      Editable->False,
+      Selectable->False], ",", 
+     InterpretationBox[
+      SuperscriptBox[
+       StyleBox["h2o",
+        StripOnInput->False,
+        ShowSyntaxStyles->False,
+        AutoSpacing->False,
+        ZeroWidthTimes->True,
+        LineColor->RGBColor[0, 0, 0],
+        FrontFaceColor->RGBColor[0, 0, 0],
+        BackFaceColor->RGBColor[0, 0, 0],
+        GraphicsColor->RGBColor[0, 0, 0],
+        FontColor->RGBColor[0, 0, 0]], 
+       StyleBox["c",
+        StripOnInput->False,
+        ShowSyntaxStyles->False,
+        AutoSpacing->False,
+        ZeroWidthTimes->True,
+        LineColor->RGBColor[0, 0, 0],
+        FrontFaceColor->RGBColor[0, 0, 0],
+        BackFaceColor->RGBColor[0, 0, 0],
+        GraphicsColor->RGBColor[0, 0, 0],
+        FontColor->RGBColor[0, 0, 0]]],
+      Toolbox`metabolite["h2o", "c"],
+      Editable->False,
+      Selectable->False]}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"fitCutoff", "=", "0.1"}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"enzName", "=", "\"\<TPI\>\""}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"rxn", "=", 
+    RowBox[{"str2mass", "[", "\"\<TPI: g3p[c] <=> dhap[c]\>\"", "]"}]}], 
+   ";"}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"catalyticBranch", "=", 
+    RowBox[{"{", 
+     RowBox[{
+     "\"\<E_TPI[c] + g3p[c] <=> E_TPI[c]&g3p\>\"", ",", "\n", "\t\t\t\t", 
+      "\"\<E_TPI[c]&g3p <=> E_TPI[c]&dhap\>\"", ",", "\n", "\t\t\t\t", 
+      "\"\<E_TPI[c]&dhap <=> E_TPI[c] + dhap[c]\>\""}], "}"}]}], ";"}], 
+  "\n"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"activatorlist", "=", 
+   RowBox[{"{", "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"nActivationSites", " ", "=", " ", "0"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"inhibitorList", " ", "=", " ", 
+   RowBox[{"{", "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"nInhibitionSites", " ", "=", " ", "0"}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"inhibitorMet", "=", 
+   RowBox[{"{", "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"affectedMets", "=", 
+    RowBox[{"{", "}"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"eTotal", "=", 
+    RowBox[{"{", 
+     RowBox[{
+      TagBox[
+       StyleBox[
+        RowBox[{"parameter", "[", 
+         RowBox[{"enzName", "<>", "\"\<_total\>\""}], "]"}],
+        ShowSpecialCharacters->False,
+        ShowStringCharacters->True,
+        NumberMarks->True],
+       FullForm], "\[Rule]", " ", 
+      RowBox[{"3.86", "*", 
+       RowBox[{"10", "^", 
+        RowBox[{"-", "6"}]}]}]}], "}"}]}], ";"}], " ", 
+  RowBox[{"(*", 
+   RowBox[{"from", " ", "heinemann"}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"enzSolFile", "=", 
+   RowBox[{
+   "baseDir", "<>", "\"\<input/enzSol_\>\"", "<>", "enzName", "<>", 
+    "\"\<_.m\>\""}]}], ";"}], "\[IndentingNewLine]"}], "Input",
+ CellChangeTimes->{{3.676290397552228*^9, 3.676290450112253*^9}, {
+   3.676290495909384*^9, 3.67629050479047*^9}, {3.6762905399325523`*^9, 
+   3.676290540694272*^9}, {3.682156755273003*^9, 3.682156815777536*^9}, {
+   3.682157119815291*^9, 3.6821571247362823`*^9}, {3.682159360920402*^9, 
+   3.682159367944022*^9}, {3.6821595317430477`*^9, 3.682159562963408*^9}, {
+   3.682159681071164*^9, 3.682159708488242*^9}, {3.6930332822076063`*^9, 
+   3.693033292826644*^9}, 3.693033422780096*^9, {3.693034016443396*^9, 
+   3.6930340314175367`*^9}, {3.693561473555544*^9, 3.6935615054042377`*^9}, {
+   3.6935615441107473`*^9, 3.693561554590827*^9}, {3.693562109214583*^9, 
+   3.693562110810638*^9}, {3.6935624438333797`*^9, 3.6935624480466223`*^9}, {
+   3.693571272487793*^9, 3.693571328723299*^9}, {3.6936367536818743`*^9, 
+   3.69363676385737*^9}, {3.693732104277255*^9, 3.693732106323821*^9}, {
+   3.69418472152966*^9, 3.6941847310771723`*^9}, {3.695117101982223*^9, 
+   3.6951171264085817`*^9}, {3.69512953992806*^9, 3.695129552558981*^9}, {
+   3.695129763383546*^9, 3.695129764138936*^9}, {3.6955396516336937`*^9, 
+   3.695539655971801*^9}, {3.695543269271299*^9, 3.695543269774255*^9}, {
+   3.709438016026246*^9, 3.709438027484147*^9}, {3.709438075992269*^9, 
+   3.709438080176832*^9}, {3.709439382779067*^9, 3.709439391902315*^9}, {
+   3.709441121255672*^9, 3.709441133462165*^9}, {3.7096176135807133`*^9, 
+   3.709617636695094*^9}, 3.709617718646123*^9, {3.715107639658215*^9, 
+   3.7151076548977547`*^9}, 3.715107739784029*^9, {3.715157406193038*^9, 
+   3.715157427541288*^9}, {3.7151574925637827`*^9, 3.715157525783885*^9}, {
+   3.715157607255574*^9, 3.7151576495399427`*^9}, {3.715157959461068*^9, 
+   3.71515797576562*^9}, 3.715158072075428*^9, 3.715158146380452*^9, {
+   3.715158185261899*^9, 3.7151582367841463`*^9}, {3.7151585218225117`*^9, 
+   3.71515857235175*^9}, {3.715158739855955*^9, 3.715158787758264*^9}, {
+   3.715158861333419*^9, 3.715158895441905*^9}, {3.715158939883049*^9, 
+   3.71515897154734*^9}, {3.7151590398617353`*^9, 3.7151590999432583`*^9}, {
+   3.715159158777657*^9, 3.715159179116208*^9}, {3.715493336392346*^9, 
+   3.71549336792673*^9}, {3.719066331731967*^9, 3.719066333805745*^9}, {
+   3.728909591241499*^9, 3.728909618414709*^9}, {3.7289096678858633`*^9, 
+   3.728909674878536*^9}, {3.728909723252378*^9, 3.728909759806452*^9}, {
+   3.72890987319666*^9, 3.728909967580307*^9}, {3.728910091237344*^9, 
+   3.728910093088881*^9}}],
+
+Cell[BoxData["\<\"/home/mrama/Dropbox/MASSef/examples/\"\>"], "Output",
+ CellChangeTimes->{
+  3.7289098707518578`*^9, 3.728909913810499*^9, 3.7289099825136223`*^9, {
+   3.728910094299075*^9, 3.728910102531645*^9}, {3.729766133912572*^9, 
+   3.72976616131714*^9}, 3.729767042322144*^9, 3.729768811203583*^9, 
+   3.730042697225806*^9, 3.730043014096962*^9, 3.73004307998567*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Build base model", "Section",
+ CellChangeTimes->{{3.639732418939518*^9, 3.639732426478991*^9}, 
+   3.6399119286948357`*^9, 3.6755086697702827`*^9, {3.68215665443184*^9, 
+   3.682156655766983*^9}, {3.682158853618226*^9, 3.682158856618361*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"enzymeModel", "=", 
+    RowBox[{"constructEnzymeModule", "[", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"Mechanism", "\[Rule]", "catalyticBranch"}], ",", 
+      RowBox[{"Activators", "\[Rule]", "activatorlist"}], ",", 
+      RowBox[{"ActivationSites", "\[Rule]", "nActivationSites"}], ",", 
+      RowBox[{"Inhibitors", "\[Rule]", "inhibitorList"}], ",", 
+      RowBox[{"InhibitionSites", "\[Rule]", "nInhibitionSites"}]}], "]"}]}], 
+   ";"}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"model", "=", 
+    RowBox[{"defineInitialConditions", "[", 
+     RowBox[{"enzymeModel", ",", " ", "metsData", ",", " ", "KeqData"}], 
+     "]"}]}], ";"}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"updateIgnore", "[", 
+   RowBox[{"model", ",", " ", "metsToIgnore"}], "]"}], ";"}]}], "Input",
+ CellChangeTimes->{{3.693033864059559*^9, 3.6930338658393*^9}, {
+  3.6930347504711637`*^9, 3.693034750967729*^9}, {3.693571307279998*^9, 
+  3.6935713075406647`*^9}, {3.6935713420837917`*^9, 3.693571343005865*^9}, {
+  3.694184738084241*^9, 3.694184738703046*^9}, {3.7094402279016047`*^9, 
+  3.709440244736122*^9}, {3.709440423739497*^9, 3.709440424711669*^9}, {
+  3.7151583903658867`*^9, 3.7151583909723663`*^9}, {3.715789947106803*^9, 
+  3.715789960828414*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+    "allReactions", ",", " ", "allCatalyticReactions", ",", " ", 
+     "nonCatalyticReactions", ",", " ", "rateConstList"}], "}"}], "=", 
+   RowBox[{"getRateConstantsIDs", "[", "model", "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.693033864059559*^9, 3.6930338658393*^9}, {
+  3.6930347504711637`*^9, 3.693034750967729*^9}, {3.693571307279998*^9, 
+  3.6935713075406647`*^9}, {3.6935713420837917`*^9, 3.693571343005865*^9}, {
+  3.694184738084241*^9, 3.694184738703046*^9}, {3.7094402279016047`*^9, 
+  3.709440244736122*^9}, {3.709440423739497*^9, 3.709440424711669*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"newRateConstList", "=", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"Table", "[", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"rateConstList", "[", 
+          RowBox[{"[", 
+           RowBox[{"i", "+", "1"}], "]"}], "]"}], ",", 
+         RowBox[{"rateConstList", "[", 
+          RowBox[{"[", "i", "]"}], "]"}]}], "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"i", ",", "1", ",", " ", 
+         RowBox[{"Length", "@", "rateConstList"}], ",", " ", "2"}], "}"}]}], 
+      "]"}], " ", "//", "Flatten"}]}], ";"}], 
+  " "}], "\[IndentingNewLine]", "newRateConstList", "\[IndentingNewLine]"}], \
+"Input",
+ CellChangeTimes->{{3.6937750076062803`*^9, 3.6937750081579638`*^9}, {
+   3.694184742148093*^9, 3.6941847426280613`*^9}, {3.715789952966774*^9, 
+   3.7157899591308823`*^9}, 3.728909778217746*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   InterpretationBox[
+    SubsuperscriptBox["k", 
+     StyleBox["TPI1",
+      StripOnInput->False,
+      ShowSyntaxStyles->False,
+      AutoSpacing->False,
+      ZeroWidthTimes->True,
+      LineColor->RGBColor[0, 0, 0],
+      FrontFaceColor->RGBColor[0, 0, 0],
+      BackFaceColor->RGBColor[0, 0, 0],
+      GraphicsColor->RGBColor[0, 0, 0],
+      FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
+    Toolbox`rateconst["TPI1", False],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    SubsuperscriptBox["k", 
+     StyleBox["TPI1",
+      StripOnInput->False,
+      ShowSyntaxStyles->False,
+      AutoSpacing->False,
+      ZeroWidthTimes->True,
+      LineColor->RGBColor[0, 0, 0],
+      FrontFaceColor->RGBColor[0, 0, 0],
+      BackFaceColor->RGBColor[0, 0, 0],
+      GraphicsColor->RGBColor[0, 0, 0],
+      FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+    Toolbox`rateconst["TPI1", True],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    SubsuperscriptBox["k", 
+     StyleBox["TPI2",
+      StripOnInput->False,
+      ShowSyntaxStyles->False,
+      AutoSpacing->False,
+      ZeroWidthTimes->True,
+      LineColor->RGBColor[0, 0, 0],
+      FrontFaceColor->RGBColor[0, 0, 0],
+      BackFaceColor->RGBColor[0, 0, 0],
+      GraphicsColor->RGBColor[0, 0, 0],
+      FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
+    Toolbox`rateconst["TPI2", False],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    SubsuperscriptBox["k", 
+     StyleBox["TPI2",
+      StripOnInput->False,
+      ShowSyntaxStyles->False,
+      AutoSpacing->False,
+      ZeroWidthTimes->True,
+      LineColor->RGBColor[0, 0, 0],
+      FrontFaceColor->RGBColor[0, 0, 0],
+      BackFaceColor->RGBColor[0, 0, 0],
+      GraphicsColor->RGBColor[0, 0, 0],
+      FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+    Toolbox`rateconst["TPI2", True],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    SubsuperscriptBox["k", 
+     StyleBox["TPI3",
+      StripOnInput->False,
+      ShowSyntaxStyles->False,
+      AutoSpacing->False,
+      ZeroWidthTimes->True,
+      LineColor->RGBColor[0, 0, 0],
+      FrontFaceColor->RGBColor[0, 0, 0],
+      BackFaceColor->RGBColor[0, 0, 0],
+      GraphicsColor->RGBColor[0, 0, 0],
+      FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
+    Toolbox`rateconst["TPI3", False],
+    Editable->False,
+    Selectable->False], ",", 
+   InterpretationBox[
+    SubsuperscriptBox["k", 
+     StyleBox["TPI3",
+      StripOnInput->False,
+      ShowSyntaxStyles->False,
+      AutoSpacing->False,
+      ZeroWidthTimes->True,
+      LineColor->RGBColor[0, 0, 0],
+      FrontFaceColor->RGBColor[0, 0, 0],
+      BackFaceColor->RGBColor[0, 0, 0],
+      GraphicsColor->RGBColor[0, 0, 0],
+      FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
+    Toolbox`rateconst["TPI3", True],
+    Editable->False,
+    Selectable->False]}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.693775009617569*^9, 3.693821708863532*^9, 3.69418466454937*^9, 
+   3.694184743046384*^9, 3.694240656910512*^9, 3.694240706819111*^9, 
+   3.695109250197554*^9, 3.6951171637530203`*^9, 3.6951295634678698`*^9, 
+   3.695129625082253*^9, 3.6951297745219383`*^9, 3.695540520270774*^9, 
+   3.695540605985321*^9, 3.69554329063651*^9, 3.695543438353135*^9, 
+   3.709440452239759*^9, 3.709441148567769*^9, 3.709533093425695*^9, 
+   3.709533139181012*^9, 3.70953321497635*^9, 3.709545858023945*^9, 
+   3.709545888741804*^9, 3.709613184110984*^9, 3.709617658213376*^9, 
+   3.709617777975464*^9, 3.7096276028340178`*^9, 3.715107679489806*^9, 
+   3.7151077500642242`*^9, 3.7151086837929163`*^9, 3.71515788308906*^9, 
+   3.715158132381503*^9, 3.7151582453755817`*^9, 3.715158392986474*^9, 
+   3.71515858536948*^9, 3.715158827510199*^9, 3.7151589103260736`*^9, 
+   3.715159010595352*^9, 3.7151591288462133`*^9, 3.715159401069285*^9, 
+   3.715433225302134*^9, {3.715493406036981*^9, 3.71549343004632*^9}, {
+   3.71549346522364*^9, 3.715493484698852*^9}, 3.715789959962577*^9, 
+   3.728909922790625*^9, 3.728909987521563*^9, 3.7289101082769537`*^9, {
+   3.7297661351556673`*^9, 3.729766162655169*^9}, {3.7297670442948923`*^9, 
+   3.729767046468232*^9}, 3.729768813104087*^9, 3.730042704175289*^9, 
+   3.730043015413426*^9, 3.730043082752211*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "\[LineSeparator]Generate ",
+ StyleBox["n",
+  FontSlant->"Italic"],
+ " models from ",
+ StyleBox["n",
+  FontSlant->"Italic"],
+ " rate constant sets"
+}], "Section",
+ CellChangeTimes->{{3.639732418939518*^9, 3.639732426478991*^9}, 
+   3.6399119286948357`*^9, 3.6755086697702827`*^9, {3.68215665443184*^9, 
+   3.682156671319798*^9}, 3.730043010627274*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"dataTypeList", "=", 
+     RowBox[{"{", "\"\<all_10000\>\"", "}"}]}], ";"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"nEnsembles", " ", "=", "1"}], ";"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Do", "[", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"Do", "[", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"modelList", " ", "=", " ", 
+           RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"dataFile", "=", 
+           RowBox[{
+           "dataDir", "<>", "\"\<rateconst_TPI_p10_10000_\>\"", "<>", 
+            RowBox[{"ToString", "[", "i", "]"}], "<>", 
+            "\"\<_log_ssd.csv\>\""}]}], ";", "\[IndentingNewLine]", 
+          "\[IndentingNewLine]", 
+          RowBox[{"Print", "[", "dataFile", "]"}], ";", "\[IndentingNewLine]", 
+          RowBox[{"ratesFiltered", "=", 
+           RowBox[{"importRateConstants", "[", 
+            RowBox[{"dataFile", ",", " ", "fitCutoff"}], "]"}]}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"modelList", "=", 
+           RowBox[{"substituteRateValues", "[", 
+            RowBox[{
+            "model", ",", " ", "ratesFiltered", ",", " ", "newRateConstList", 
+             ",", " ", 
+             RowBox[{"{", "}"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+          "\[IndentingNewLine]", 
+          RowBox[{"modelList", "=", 
+           RowBox[{"calculateEnzymeConcentrations", "[", 
+            RowBox[{"modelList", ",", " ", "eTotal", ",", " ", "enzSolFile"}],
+             "]"}]}], ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+          RowBox[{"(*", 
+           RowBox[{
+            RowBox[{"modelList", "=", 
+             RowBox[{"addExchangeReactionsToModel", "[", 
+              RowBox[{"modelList", ",", " ", "rxn"}], "]"}]}], ";"}], "*)"}], 
+          "\[IndentingNewLine]", "\[IndentingNewLine]", 
+          RowBox[{"Export", "[", 
+           RowBox[{
+            RowBox[{
+            "outputDir", "<>", "\"\<model_\>\"", "<>", " ", "enzName", " ", 
+             "<>", "\"\<_\>\"", "<>", "dataType", "<>", "\"\<_\>\"", "<>", 
+             RowBox[{"ToString", "[", "i", "]"}], "<>", "\"\<.mx\>\""}], ",", 
+            "modelList", ",", " ", "\"\<MX\>\""}], "]"}], ";"}], ",", 
+         "\[IndentingNewLine]", "\[IndentingNewLine]", 
+         RowBox[{"{", 
+          RowBox[{"dataType", ",", " ", "dataTypeList"}], "}"}]}], "]"}], 
+       ";"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"{", 
+       RowBox[{"i", ",", "1", ",", " ", "nEnsembles"}], "}"}]}], "]"}], ";"}],
+    "\[IndentingNewLine]"}]}]], "Input",
+ CellChangeTimes->{{3.682156678699472*^9, 3.6821567075628643`*^9}, {
+   3.682157110915913*^9, 3.682157146804167*^9}, {3.682157182697796*^9, 
+   3.6821572054725227`*^9}, {3.682158591057746*^9, 3.682158591368857*^9}, {
+   3.682158689279951*^9, 3.68215880692085*^9}, {3.682159002141611*^9, 
+   3.682159008953348*^9}, {3.682159047299437*^9, 3.682159070644505*^9}, {
+   3.68215913411782*^9, 3.682159138020639*^9}, {3.682159656814909*^9, 
+   3.6821596769526043`*^9}, {3.682160023848654*^9, 3.6821600245776777`*^9}, {
+   3.693034808777965*^9, 3.693034808937348*^9}, {3.693034850375012*^9, 
+   3.693034901587558*^9}, {3.6930352702142477`*^9, 3.693035271964526*^9}, {
+   3.693128013195047*^9, 3.693128019121337*^9}, {3.693562038150343*^9, 
+   3.6935620602369204`*^9}, {3.693562090819395*^9, 3.693562094304595*^9}, 
+   3.693571316994828*^9, {3.693571358650281*^9, 3.693571358907096*^9}, 
+   3.6937321127225323`*^9, {3.693775012493807*^9, 3.6937750193813257`*^9}, {
+   3.693821713763001*^9, 3.6938217224402733`*^9}, {3.693822741296784*^9, 
+   3.6938227432746468`*^9}, {3.694184671668994*^9, 3.6941846814428368`*^9}, 
+   3.694184752576223*^9, {3.694240659753223*^9, 3.694240697489416*^9}, {
+   3.695117172082211*^9, 3.695117180377038*^9}, {3.695129583651617*^9, 
+   3.695129632667384*^9}, {3.695129716229373*^9, 3.695129720897642*^9}, {
+   3.6955405253682337`*^9, 3.695540549228199*^9}, {3.695540585309845*^9, 
+   3.695540594993105*^9}, {3.695543307760806*^9, 3.695543338131892*^9}, {
+   3.709440132180089*^9, 3.709440172259548*^9}, 3.709441140284436*^9, 
+   3.7095330957950573`*^9, {3.7095458629422894`*^9, 3.70954586307206*^9}, {
+   3.718430558393811*^9, 3.7184305634115*^9}, {3.718431042929562*^9, 
+   3.718431044965508*^9}, {3.7286298566151323`*^9, 3.7286298640189037`*^9}, {
+   3.7286299645060596`*^9, 3.728629991820891*^9}, {3.728638583173452*^9, 
+   3.728638586042704*^9}, 3.728641224117738*^9, {3.728909813906961*^9, 
+   3.728909848069434*^9}, 3.728909941384287*^9, {3.729766138404228*^9, 
+   3.729766139963628*^9}, {3.72976703267273*^9, 3.72976703327039*^9}, {
+   3.730042720140457*^9, 3.730042748374236*^9}, 3.73004284659914*^9, {
+   3.730043023555243*^9, 3.730043027420066*^9}}],
+
+Cell[BoxData["\<\"/home/mrama/Dropbox/MASSef/examples/TPI/fit_TPI/output/\
+treated_data/rateconst_TPI_p10_10000_1_log_ssd.csv\"\>"], "Print",
+ CellChangeTimes->{
+  3.728629904003646*^9, {3.728629976163056*^9, 3.728629994719187*^9}, 
+   3.728635889916582*^9, 3.7286385878802843`*^9, 3.728641279691621*^9, 
+   3.728648743145872*^9, 3.7289099285915194`*^9, 3.728909989334004*^9, 
+   3.728910112950474*^9, {3.7297661357108173`*^9, 3.7297661630938673`*^9}, 
+   3.729767048652815*^9, 3.729768816687696*^9, 3.730042752476931*^9, 
+   3.730043030853921*^9, 3.7300430845335627`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"modelList", "//", "Length"}]], "Input",
+ CellChangeTimes->{{3.72863083028573*^9, 3.728630831129202*^9}, {
+   3.729768824603552*^9, 3.729768826919866*^9}, 3.7297689619652853`*^9}],
+
+Cell[BoxData["6981"], "Output",
+ CellChangeTimes->{3.729768827235384*^9, 3.7297689632393913`*^9, 
+  3.730043001187796*^9, 3.730044162660348*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"modelList", "[", 
+   RowBox[{"[", "1", "]"}], "]"}], "[", "\"\<InitialConditions\>\"", 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.729768965105958*^9, 3.7297689709926558`*^9}, {
+  3.729769038108191*^9, 3.729769038262703*^9}, {3.7297690753079767`*^9, 
+  3.7297690754607363`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{
+    InterpretationBox[
+     SuperscriptBox[
+      StyleBox[
+       RowBox[{"13", "dpg"}],
+       StripOnInput->False,
+       ShowSyntaxStyles->False,
+       AutoSpacing->False,
+       ZeroWidthTimes->True,
+       LineColor->RGBColor[0, 0, 0],
+       FrontFaceColor->RGBColor[0, 0, 0],
+       BackFaceColor->RGBColor[0, 0, 0],
+       GraphicsColor->RGBColor[0, 0, 0],
+       FontColor->RGBColor[0, 0, 0]], 
+      StyleBox["c",
+       StripOnInput->False,
+       ShowSyntaxStyles->False,
+       AutoSpacing->False,
+       ZeroWidthTimes->True,
+       LineColor->RGBColor[0, 0, 0],
+       FrontFaceColor->RGBColor[0, 0, 0],
+       BackFaceColor->RGBColor[0, 0, 0],
+       GraphicsColor->RGBColor[0, 0, 0],
+       FontColor->RGBColor[0, 0, 0]]],
+     Toolbox`metabolite["13dpg", "c"],
+     Editable->False,
+     Selectable->False], "\[Rule]", 
+    InterpretationBox[
+     RowBox[{"0.0000165`", " ", 
+      RowBox[{"Mole", 
+       SuperscriptBox["Liter", 
+        RowBox[{"-", "1"}]]}]}],
+     AutomaticUnits`Unit[0.0000165, "Liter"^(-1) "Mole"],
+     AutoDelete->True]}], ",", 
+   RowBox[{
+    InterpretationBox[
+     SuperscriptBox[
+      StyleBox[
+       RowBox[{"23", "dpg"}],
+       StripOnInput->False,
+       ShowSyntaxStyles->False,
+       AutoSpacing->False,
+       ZeroWidthTimes->True,
+       LineColor->RGBColor[0, 0, 0],
+       FrontFaceColor->RGBColor[0, 0, 0],
+       BackFaceColor->RGBColor[0, 0, 0],
+       GraphicsColor->RGBColor[0, 0, 0],
+       FontColor->RGBColor[0, 0, 0]], 
+      StyleBox["c",
+       StripOnInput->False,
+       ShowSyntaxStyles->False,
+       AutoSpacing->False,
+       ZeroWidthTimes->True,
+       LineColor->RGBColor[0, 0, 0],
+       FrontFaceColor->RGBColor[0, 0, 0],
+       BackFaceColor->RGBColor[0, 0, 0],
+       GraphicsColor->RGBColor[0, 0, 0],
+       FontColor->RGBColor[0, 0, 0]]],
+     Toolbox`metabolite["23dpg", "c"],
+     Editable->False,
+     Selectable->False], "\[Rule]", 
+    InterpretationBox[
+     RowBox[{"0.0000829`", " ", 
+      RowBox[{"Mole", 
+       SuperscriptBox["Liter", 
+        RowBox[{"-", "1"}]]}]}],
+     AutomaticUnits`Unit[0.0000829, "Liter"^(-1) "Mole"],
+     AutoDelete->True]}], ",", 
+   RowBox[{
+    InterpretationBox[
+     SuperscriptBox[
+      StyleBox[
+       RowBox[{"2", "pg"}],
+       StripOnInput->False,
+       ShowSyntaxStyles->False,
+       AutoSpacing->False,
+       ZeroWidthTimes->True,
+       LineColor->RGBColor[0, 0, 0],
+       FrontFaceColor->RGBColor[0, 0, 0],
+       BackFaceColor->RGBColor[0, 0, 0],
+       GraphicsColor->RGBColor[0, 0, 0],
+       FontColor->RGBColor[0, 0, 0]], 
+      StyleBox["c",
+       StripOnInput->False,
+       ShowSyntaxStyles->False,
+       AutoSpacing->False,
+       ZeroWidthTimes->True,
+       LineColor->RGBColor[0, 0, 0],
+       FrontFaceColor->RGBColor[0, 0, 0],
+       BackFaceColor->RGBColor[0, 0, 0],
+       GraphicsColor->RGBColor[0, 0, 0],
+       FontColor->RGBColor[0, 0, 0]]],
+     Toolbox`metabolite["2pg", "c"],
+     Editable->False,
+     Selectable->False], "\[Rule]", 
+    InterpretationBox[
+     RowBox[{"0.00009180000000000001`", " ", 
+      RowBox[{"Mole", 
+       SuperscriptBox["Liter", 
+        RowBox[{"-", "1"}]]}]}],
+     AutomaticUnits`Unit[0.00009180000000000001, "Liter"^(-1) "Mole"],
+     AutoDelete->True]}], ",", 
+   RowBox[{
+    InterpretationBox[
+     SuperscriptBox[
+      StyleBox[
+       RowBox[{"3", "pg"}],
+       StripOnInput->False,
+       ShowSyntaxStyles->False,
+       AutoSpacing->False,
+       ZeroWidthTimes->True,
+       LineColor->RGBColor[0, 0, 0],
+       FrontFaceColor->RGBColor[0, 0, 0],
+       BackFaceColor->RGBColor[0, 0, 0],
+       GraphicsColor->RGBColor[0, 0, 0],
+       FontColor->RGBColor[0, 0, 0]], 
+      StyleBox["c",
+       StripOnInput->False,
+       ShowSyntaxStyles->False,
+       AutoSpacing->False,
+       ZeroWidthTimes->True,
+       LineColor->RGBColor[0, 0, 0],
+       FrontFaceColor->RGBColor[0, 0, 0],
+       BackFaceColor->RGBColor[0, 0, 0],
+       GraphicsColor->RGBColor[0, 0, 0],
+       FontColor->RGBColor[0, 0, 0]]],
+     Toolbox`metabolite["3pg", "c"],
+     Editable->False,
+     Selectable->False], "\[Rule]", 
+    InterpretationBox[
+     RowBox[{"0.0015400000000000001`", " ", 
+      RowBox[{"Mole", 
+       SuperscriptBox["Liter", 
+        RowBox[{"-", "1"}]]}]}],
+     AutomaticUnits`Unit[0.0015400000000000001`, "Liter"^(-1) "Mole"],
+     AutoDelete->True]}], ",", 
+   RowBox[{
+    InterpretationBox[
+     SuperscriptBox[
+      StyleBox["adp",
+       StripOnInput->False,
+       ShowSyntaxStyles->False,
+       AutoSpacing->False,
+       ZeroWidthTimes->True,
+       LineColor->RGBColor[0, 0, 0],
+       FrontFaceColor->RGBColor[0, 0, 0],
+       BackFaceColor->RGBColor[0, 0, 0],
+       GraphicsColor->RGBColor[0, 0, 0],
+       FontColor->RGBColor[0, 0, 0]], 
+      StyleBox["c",
+       StripOnInput->False,
+       ShowSyntaxStyles->False,
+       AutoSpacing->False,
+       ZeroWidthTimes->True,
+       LineColor->RGBColor[0, 0, 0],
+       FrontFaceColor->RGBColor[0, 0, 0],
+       BackFaceColor->RGBColor[0, 0, 0],
+       GraphicsColor->RGBColor[0, 0, 0],
+       FontColor->RGBColor[0, 0, 0]]],
+     Toolbox`metabolite["adp", "c"],
+     Editable->False,
+     Selectable->False], "\[Rule]", 
+    InterpretationBox[
+     RowBox[{"0.000555`", " ", 
+      RowBox[{"Mole", 
+       SuperscriptBox["Liter", 
+        RowBox[{"-", "1"}]]}]}],
+     AutomaticUnits`Unit[0.000555, "Liter"^(-1) "Mole"],
+     AutoDelete->True]}], ",", 
+   RowBox[{
+    InterpretationBox[
+     SuperscriptBox[
+      StyleBox["amp",
+       StripOnInput->False,
+       ShowSyntaxStyles->False,
+       AutoSpacing->False,
+       ZeroWidthTimes->True,
+       LineColor->RGBColor[0, 0, 0],
+       FrontFaceColor->RGBColor[0, 0, 0],
+       BackFaceColor->RGBColor[0, 0, 0],
+       GraphicsColor->RGBColor[0, 0, 0],
+       FontColor->RGBColor[0, 0, 0]], 
+      StyleBox["c",
+       StripOnInput->False,
+       ShowSyntaxStyles->False,
+       AutoSpacing->False,
+       ZeroWidthTimes->True,
+       LineColor->RGBColor[0, 0, 0],
+       FrontFaceColor->RGBColor[0, 0, 0],
+       BackFaceColor->RGBColor[0, 0, 0],
+       GraphicsColor->RGBColor[0, 0, 0],
+       FontColor->RGBColor[0, 0, 0]]],
+     Toolbox`metabolite["amp", "c"],
+     Editable->False,
+     Selectable->False], "\[Rule]", 
+    InterpretationBox[
+     RowBox[{"0.000281`", " ", 
+      RowBox[{"Mole", 
+       SuperscriptBox["Liter", 
+        RowBox[{"-", "1"}]]}]}],
+     AutomaticUnits`Unit[0.000281, "Liter"^(-1) "Mole"],
+     AutoDelete->True]}], ",", 
+   RowBox[{
+    InterpretationBox[
+     SuperscriptBox[
+      StyleBox["atp",
+       StripOnInput->False,
+       ShowSyntaxStyles->False,
+       AutoSpacing->False,
+       ZeroWidthTimes->True,
+       LineColor->RGBColor[0, 0, 0],
+       FrontFaceColor->RGBColor[0, 0, 0],
+       BackFaceColor->RGBColor[0, 0, 0],
+       GraphicsColor->RGBColor[0, 0, 0],
+       FontColor->RGBColor[0, 0, 0]], 
+      StyleBox["c",
+       StripOnInput->False,
+       ShowSyntaxStyles->False,
+       AutoSpacing->False,
+       ZeroWidthTimes->True,
+       LineColor->RGBColor[0, 0, 0],
+       FrontFaceColor->RGBColor[0, 0, 0],
+       BackFaceColor->RGBColor[0, 0, 0],
+       GraphicsColor->RGBColor[0, 0, 0],
+       FontColor->RGBColor[0, 0, 0]]],
+     Toolbox`metabolite["atp", "c"],
+     Editable->False,
+     Selectable->False], "\[Rule]", 
+    InterpretationBox[
+     RowBox[{"0.009630000000000001`", " ", 
+      RowBox[{"Mole", 
+       SuperscriptBox["Liter", 
+        RowBox[{"-", "1"}]]}]}],
+     AutomaticUnits`Unit[0.009630000000000001, "Liter"^(-1) "Mole"],
+     AutoDelete->True]}], ",", 
+   RowBox[{
+    InterpretationBox[
+     SuperscriptBox[
+      StyleBox["cit",
+       StripOnInput->False,
+       ShowSyntaxStyles->False,
+       AutoSpacing->False,
+       ZeroWidthTimes->True,
+       LineColor->RGBColor[0, 0, 0],
+       FrontFaceColor->RGBColor[0, 0, 0],
+       BackFaceColor->RGBColor[0, 0, 0],
+       GraphicsColor->RGBColor[0, 0, 0],
+       FontColor->RGBColor[0, 0, 0]], 
+      StyleBox["c",
+       StripOnInput->False,
+       ShowSyntaxStyles->False,
+       AutoSpacing->False,
+       ZeroWidthTimes->True,
+       LineColor->RGBColor[0, 0, 0],
+       FrontFaceColor->RGBColor[0, 0, 0],
+       BackFaceColor->RGBColor[0, 0, 0],
+       GraphicsColor->RGBColor[0, 0, 0],
+       FontColor->RGBColor[0, 0, 0]]],
+     Toolbox`metabolite["cit", "c"],
+     Editable->False,
+     Selectable->False], "\[Rule]", 
+    InterpretationBox[
+     RowBox[{"0.00196`", " ", 
+      RowBox[{"Mole", 
+       SuperscriptBox["Liter", 
+        RowBox[{"-", "1"}]]}]}],
+     AutomaticUnits`Unit[0.00196, "Liter"^(-1) "Mole"],
+     AutoDelete->True]}], ",", 
+   RowBox[{
+    InterpretationBox[
+     SuperscriptBox[
+      StyleBox["e4p",
+       StripOnInput->False,
+       ShowSyntaxStyles->False,
+       AutoSpacing->False,
+       ZeroWidthTimes->True,
+       LineColor->RGBColor[0, 0, 0],
+       FrontFaceColor->RGBColor[0, 0, 0],
+       BackFaceColor->RGBColor[0, 0, 0],
+       GraphicsColor->RGBColor[0, 0, 0],
+       FontColor->RGBColor[0, 0, 0]], 
+      StyleBox["c",
+       StripOnInput->False,
+       ShowSyntaxStyles->False,
+       AutoSpacing->False,
+       ZeroWidthTimes->True,
+       LineColor->RGBColor[0, 0, 0],
+       FrontFaceColor->RGBColor[0, 0, 0],
+       BackFaceColor->RGBColor[0, 0, 0],
+       GraphicsColor->RGBColor[0, 0, 0],
+       FontColor->RGBColor[0, 0, 0]]],
+     Toolbox`metabolite["e4p", "c"],
+     Editable->False,
+     Selectable->False], "\[Rule]", 
+    InterpretationBox[
+     RowBox[{"0.000049000000000000005`", " ", 
+      RowBox[{"Mole", 
+       SuperscriptBox["Liter", 
+        RowBox[{"-", "1"}]]}]}],
+     AutomaticUnits`Unit[0.000049000000000000005`, "Liter"^(-1) "Mole"],
+     AutoDelete->True]}], ",", 
+   RowBox[{
+    InterpretationBox[
+     SuperscriptBox[
+      StyleBox["f6p",
+       StripOnInput->False,
+       ShowSyntaxStyles->False,
+       AutoSpacing->False,
+       ZeroWidthTimes->True,
+       LineColor->RGBColor[0, 0, 0],
+       FrontFaceColor->RGBColor[0, 0, 0],
+       BackFaceColor->RGBColor[0, 0, 0],
+       GraphicsColor->RGBColor[0, 0, 0],
+       FontColor->RGBColor[0, 0, 0]], 
+      StyleBox["c",
+       StripOnInput->False,
+       ShowSyntaxStyles->False,
+       AutoSpacing->False,
+       ZeroWidthTimes->True,
+       LineColor->RGBColor[0, 0, 0],
+       FrontFaceColor->RGBColor[0, 0, 0],
+       BackFaceColor->RGBColor[0, 0, 0],
+       GraphicsColor->RGBColor[0, 0, 0],
+       FontColor->RGBColor[0, 0, 0]]],
+     Toolbox`metabolite["f6p", "c"],
+     Editable->False,
+     Selectable->False], "\[Rule]", 
+    InterpretationBox[
+     RowBox[{"0.00252`", " ", 
+      RowBox[{"Mole", 
+       SuperscriptBox["Liter", 
+        RowBox[{"-", "1"}]]}]}],
+     AutomaticUnits`Unit[0.00252, "Liter"^(-1) "Mole"],
+     AutoDelete->True]}], ",", 
+   RowBox[{
+    InterpretationBox[
+     SuperscriptBox[
+      StyleBox["fdp",
+       StripOnInput->False,
+       ShowSyntaxStyles->False,
+       AutoSpacing->False,
+       ZeroWidthTimes->True,
+       LineColor->RGBColor[0, 0, 0],
+       FrontFaceColor->RGBColor[0, 0, 0],
+       BackFaceColor->RGBColor[0, 0, 0],
+       GraphicsColor->RGBColor[0, 0, 0],
+       FontColor->RGBColor[0, 0, 0]], 
+      StyleBox["c",
+       StripOnInput->False,
+       ShowSyntaxStyles->False,
+       AutoSpacing->False,
+       ZeroWidthTimes->True,
+       LineColor->RGBColor[0, 0, 0],
+       FrontFaceColor->RGBColor[0, 0, 0],
+       BackFaceColor->RGBColor[0, 0, 0],
+       GraphicsColor->RGBColor[0, 0, 0],
+       FontColor->RGBColor[0, 0, 0]]],
+     Toolbox`metabolite["fdp", "c"],
+     Editable->False,
+     Selectable->False], "\[Rule]", 
+    InterpretationBox[
+     RowBox[{"0.0152`", " ", 
+      RowBox[{"Mole", 
+       SuperscriptBox["Liter", 
+        RowBox[{"-", "1"}]]}]}],
+     AutomaticUnits`Unit[0.0152, "Liter"^(-1) "Mole"],
+     AutoDelete->True]}], ",", 
+   RowBox[{
+    InterpretationBox[
+     SuperscriptBox[
+      StyleBox["g6p",
+       StripOnInput->False,
+       ShowSyntaxStyles->False,
+       AutoSpacing->False,
+       ZeroWidthTimes->True,
+       LineColor->RGBColor[0, 0, 0],
+       FrontFaceColor->RGBColor[0, 0, 0],
+       BackFaceColor->RGBColor[0, 0, 0],
+       GraphicsColor->RGBColor[0, 0, 0],
+       FontColor->RGBColor[0, 0, 0]], 
+      StyleBox["c",
+       StripOnInput->False,
+       ShowSyntaxStyles->False,
+       AutoSpacing->False,
+       ZeroWidthTimes->True,
+       LineColor->RGBColor[0, 0, 0],
+       FrontFaceColor->RGBColor[0, 0, 0],
+       BackFaceColor->RGBColor[0, 0, 0],
+       GraphicsColor->RGBColor[0, 0, 0],
+       FontColor->RGBColor[0, 0, 0]]],
+     Toolbox`metabolite["g6p", "c"],
+     Editable->False,
+     Selectable->False], "\[Rule]", 
+    InterpretationBox[
+     RowBox[{"0.00788`", " ", 
+      RowBox[{"Mole", 
+       SuperscriptBox["Liter", 
+        RowBox[{"-", "1"}]]}]}],
+     AutomaticUnits`Unit[0.00788, "Liter"^(-1) "Mole"],
+     AutoDelete->True]}], ",", 
+   RowBox[{
+    InterpretationBox[
+     SuperscriptBox[
+      StyleBox["mg2",
+       StripOnInput->False,
+       ShowSyntaxStyles->False,
+       AutoSpacing->False,
+       ZeroWidthTimes->True,
+       LineColor->RGBColor[0, 0, 0],
+       FrontFaceColor->RGBColor[0, 0, 0],
+       BackFaceColor->RGBColor[0, 0, 0],
+       GraphicsColor->RGBColor[0, 0, 0],
+       FontColor->RGBColor[0, 0, 0]], 
+      StyleBox["c",
+       StripOnInput->False,
+       ShowSyntaxStyles->False,
+       AutoSpacing->False,
+       ZeroWidthTimes->True,
+       LineColor->RGBColor[0, 0, 0],
+       FrontFaceColor->RGBColor[0, 0, 0],
+       BackFaceColor->RGBColor[0, 0, 0],
+       GraphicsColor->RGBColor[0, 0, 0],
+       FontColor->RGBColor[0, 0, 0]]],
+     Toolbox`metabolite["mg2", "c"],
+     Editable->False,
+     Selectable->False], "\[Rule]", 
+    InterpretationBox[
+     RowBox[{"0.0239`", " ", 
+      RowBox[{"Mole", 
+       SuperscriptBox["Liter", 
+        RowBox[{"-", "1"}]]}]}],
+     AutomaticUnits`Unit[0.0239, "Liter"^(-1) "Mole"],
+     AutoDelete->True]}], ",", 
+   RowBox[{
+    InterpretationBox[
+     SuperscriptBox[
+      StyleBox["nad",
+       StripOnInput->False,
+       ShowSyntaxStyles->False,
+       AutoSpacing->False,
+       ZeroWidthTimes->True,
+       LineColor->RGBColor[0, 0, 0],
+       FrontFaceColor->RGBColor[0, 0, 0],
+       BackFaceColor->RGBColor[0, 0, 0],
+       GraphicsColor->RGBColor[0, 0, 0],
+       FontColor->RGBColor[0, 0, 0]], 
+      StyleBox["c",
+       StripOnInput->False,
+       ShowSyntaxStyles->False,
+       AutoSpacing->False,
+       ZeroWidthTimes->True,
+       LineColor->RGBColor[0, 0, 0],
+       FrontFaceColor->RGBColor[0, 0, 0],
+       BackFaceColor->RGBColor[0, 0, 0],
+       GraphicsColor->RGBColor[0, 0, 0],
+       FontColor->RGBColor[0, 0, 0]]],
+     Toolbox`metabolite["nad", "c"],
+     Editable->False,
+     Selectable->False], "\[Rule]", 
+    InterpretationBox[
+     RowBox[{"0.0025499999999999997`", " ", 
+      RowBox[{"Mole", 
+       SuperscriptBox["Liter", 
+        RowBox[{"-", "1"}]]}]}],
+     AutomaticUnits`Unit[0.0025499999999999997`, "Liter"^(-1) "Mole"],
+     AutoDelete->True]}], ",", 
+   RowBox[{
+    InterpretationBox[
+     SuperscriptBox[
+      StyleBox["nadh",
+       StripOnInput->False,
+       ShowSyntaxStyles->False,
+       AutoSpacing->False,
+       ZeroWidthTimes->True,
+       LineColor->RGBColor[0, 0, 0],
+       FrontFaceColor->RGBColor[0, 0, 0],
+       BackFaceColor->RGBColor[0, 0, 0],
+       GraphicsColor->RGBColor[0, 0, 0],
+       FontColor->RGBColor[0, 0, 0]], 
+      StyleBox["c",
+       StripOnInput->False,
+       ShowSyntaxStyles->False,
+       AutoSpacing->False,
+       ZeroWidthTimes->True,
+       LineColor->RGBColor[0, 0, 0],
+       FrontFaceColor->RGBColor[0, 0, 0],
+       BackFaceColor->RGBColor[0, 0, 0],
+       GraphicsColor->RGBColor[0, 0, 0],
+       FontColor->RGBColor[0, 0, 0]]],
+     Toolbox`metabolite["nadh", "c"],
+     Editable->False,
+     Selectable->False], "\[Rule]", 
+    InterpretationBox[
+     RowBox[{"0.0000836`", " ", 
+      RowBox[{"Mole", 
+       SuperscriptBox["Liter", 
+        RowBox[{"-", "1"}]]}]}],
+     AutomaticUnits`Unit[0.0000836, "Liter"^(-1) "Mole"],
+     AutoDelete->True]}], ",", 
+   RowBox[{
+    InterpretationBox[
+     SuperscriptBox[
+      StyleBox["pep",
+       StripOnInput->False,
+       ShowSyntaxStyles->False,
+       AutoSpacing->False,
+       ZeroWidthTimes->True,
+       LineColor->RGBColor[0, 0, 0],
+       FrontFaceColor->RGBColor[0, 0, 0],
+       BackFaceColor->RGBColor[0, 0, 0],
+       GraphicsColor->RGBColor[0, 0, 0],
+       FontColor->RGBColor[0, 0, 0]], 
+      StyleBox["c",
+       StripOnInput->False,
+       ShowSyntaxStyles->False,
+       AutoSpacing->False,
+       ZeroWidthTimes->True,
+       LineColor->RGBColor[0, 0, 0],
+       FrontFaceColor->RGBColor[0, 0, 0],
+       BackFaceColor->RGBColor[0, 0, 0],
+       GraphicsColor->RGBColor[0, 0, 0],
+       FontColor->RGBColor[0, 0, 0]]],
+     Toolbox`metabolite["pep", "c"],
+     Editable->False,
+     Selectable->False], "\[Rule]", 
+    InterpretationBox[
+     RowBox[{"0.000184`", " ", 
+      RowBox[{"Mole", 
+       SuperscriptBox["Liter", 
+        RowBox[{"-", "1"}]]}]}],
+     AutomaticUnits`Unit[0.000184, "Liter"^(-1) "Mole"],
+     AutoDelete->True]}], ",", 
+   RowBox[{
+    InterpretationBox[
+     SuperscriptBox[
+      StyleBox["pi",
+       StripOnInput->False,
+       ShowSyntaxStyles->False,
+       AutoSpacing->False,
+       ZeroWidthTimes->True,
+       LineColor->RGBColor[0, 0, 0],
+       FrontFaceColor->RGBColor[0, 0, 0],
+       BackFaceColor->RGBColor[0, 0, 0],
+       GraphicsColor->RGBColor[0, 0, 0],
+       FontColor->RGBColor[0, 0, 0]], 
+      StyleBox["c",
+       StripOnInput->False,
+       ShowSyntaxStyles->False,
+       AutoSpacing->False,
+       ZeroWidthTimes->True,
+       LineColor->RGBColor[0, 0, 0],
+       FrontFaceColor->RGBColor[0, 0, 0],
+       BackFaceColor->RGBColor[0, 0, 0],
+       GraphicsColor->RGBColor[0, 0, 0],
+       FontColor->RGBColor[0, 0, 0]]],
+     Toolbox`metabolite["pi", "c"],
+     Editable->False,
+     Selectable->False], "\[Rule]", 
+    InterpretationBox[
+     RowBox[{"0.0239`", " ", 
+      RowBox[{"Mole", 
+       SuperscriptBox["Liter", 
+        RowBox[{"-", "1"}]]}]}],
+     AutomaticUnits`Unit[0.0239, "Liter"^(-1) "Mole"],
+     AutoDelete->True]}], ",", 
+   RowBox[{
+    InterpretationBox[
+     SuperscriptBox[
+      StyleBox["pyr",
+       StripOnInput->False,
+       ShowSyntaxStyles->False,
+       AutoSpacing->False,
+       ZeroWidthTimes->True,
+       LineColor->RGBColor[0, 0, 0],
+       FrontFaceColor->RGBColor[0, 0, 0],
+       BackFaceColor->RGBColor[0, 0, 0],
+       GraphicsColor->RGBColor[0, 0, 0],
+       FontColor->RGBColor[0, 0, 0]], 
+      StyleBox["c",
+       StripOnInput->False,
+       ShowSyntaxStyles->False,
+       AutoSpacing->False,
+       ZeroWidthTimes->True,
+       LineColor->RGBColor[0, 0, 0],
+       FrontFaceColor->RGBColor[0, 0, 0],
+       BackFaceColor->RGBColor[0, 0, 0],
+       GraphicsColor->RGBColor[0, 0, 0],
+       FontColor->RGBColor[0, 0, 0]]],
+     Toolbox`metabolite["pyr", "c"],
+     Editable->False,
+     Selectable->False], "\[Rule]", 
+    InterpretationBox[
+     RowBox[{"0.00366`", " ", 
+      RowBox[{"Mole", 
+       SuperscriptBox["Liter", 
+        RowBox[{"-", "1"}]]}]}],
+     AutomaticUnits`Unit[0.00366, "Liter"^(-1) "Mole"],
+     AutoDelete->True]}], ",", 
+   RowBox[{
+    InterpretationBox[
+     SuperscriptBox[
+      StyleBox["s7p",
+       StripOnInput->False,
+       ShowSyntaxStyles->False,
+       AutoSpacing->False,
+       ZeroWidthTimes->True,
+       LineColor->RGBColor[0, 0, 0],
+       FrontFaceColor->RGBColor[0, 0, 0],
+       BackFaceColor->RGBColor[0, 0, 0],
+       GraphicsColor->RGBColor[0, 0, 0],
+       FontColor->RGBColor[0, 0, 0]], 
+      StyleBox["c",
+       StripOnInput->False,
+       ShowSyntaxStyles->False,
+       AutoSpacing->False,
+       ZeroWidthTimes->True,
+       LineColor->RGBColor[0, 0, 0],
+       FrontFaceColor->RGBColor[0, 0, 0],
+       BackFaceColor->RGBColor[0, 0, 0],
+       GraphicsColor->RGBColor[0, 0, 0],
+       FontColor->RGBColor[0, 0, 0]]],
+     Toolbox`metabolite["s7p", "c"],
+     Editable->False,
+     Selectable->False], "\[Rule]", 
+    InterpretationBox[
+     RowBox[{"0.0008820000000000001`", " ", 
+      RowBox[{"Mole", 
+       SuperscriptBox["Liter", 
+        RowBox[{"-", "1"}]]}]}],
+     AutomaticUnits`Unit[0.0008820000000000001, "Liter"^(-1) "Mole"],
+     AutoDelete->True]}], ",", 
+   RowBox[{
+    InterpretationBox[
+     UnderoverscriptBox[
+      StyleBox[
+       SuperscriptBox[
+        StyleBox["TPI",
+         StripOnInput->False,
+         ShowSyntaxStyles->False,
+         AutoSpacing->False,
+         ZeroWidthTimes->True,
+         LineColor->RGBColor[0, 0, 0],
+         FrontFaceColor->RGBColor[0, 0, 0],
+         BackFaceColor->RGBColor[0, 0, 0],
+         GraphicsColor->RGBColor[0, 0, 0],
+         FontColor->RGBColor[0, 0, 0]], 
+        StyleBox["c",
+         StripOnInput->False,
+         ShowSyntaxStyles->False,
+         AutoSpacing->False,
+         ZeroWidthTimes->True,
+         LineColor->RGBColor[0, 0, 0],
+         FrontFaceColor->RGBColor[0, 0, 0],
+         BackFaceColor->RGBColor[0, 0, 0],
+         GraphicsColor->RGBColor[0, 0, 0],
+         FontColor->RGBColor[0, 0, 0]]],
+       Background->RGBColor[0.9, 0.9, 0.9]], "", ""],
+     Toolbox`enzyme[{
+      "ID" -> "TPI", "Compartment" -> "c", "BoundCatalytic" -> {}, 
+       "BoundActivators" -> {}, "BoundInhibitors" -> {}, "CatalyticSites" -> 
+       DirectedInfinity[1], "ActivationSites" -> 0, "InhibitionSites" -> 0}],
+     Editable->False,
+     Selectable->False], "\[Rule]", 
+    InterpretationBox[
+     RowBox[{"3.397133242225375`*^-8", " ", 
+      RowBox[{"Mole", 
+       SuperscriptBox["Liter", 
+        RowBox[{"-", "1"}]]}]}],
+     AutomaticUnits`Unit[3.397133242225375*^-8, "Liter"^(-1) "Mole"],
+     AutoDelete->True]}], ",", 
+   RowBox[{
+    InterpretationBox[
+     UnderoverscriptBox[
+      StyleBox[
+       RowBox[{
+        SuperscriptBox[
+         StyleBox["TPI",
+          StripOnInput->False,
+          ShowSyntaxStyles->False,
+          AutoSpacing->False,
+          ZeroWidthTimes->True,
+          LineColor->RGBColor[0, 0, 0],
+          FrontFaceColor->RGBColor[0, 0, 0],
+          BackFaceColor->RGBColor[0, 0, 0],
+          GraphicsColor->RGBColor[0, 0, 0],
+          FontColor->RGBColor[0, 0, 0]], 
+         StyleBox["c",
+          StripOnInput->False,
+          ShowSyntaxStyles->False,
+          AutoSpacing->False,
+          ZeroWidthTimes->True,
+          LineColor->RGBColor[0, 0, 0],
+          FrontFaceColor->RGBColor[0, 0, 0],
+          BackFaceColor->RGBColor[0, 0, 0],
+          GraphicsColor->RGBColor[0, 0, 0],
+          FontColor->RGBColor[0, 0, 0]]], "&", 
+        InterpretationBox[
+         SuperscriptBox[
+          StyleBox["dhap",
+           StripOnInput->False,
+           ShowSyntaxStyles->False,
+           AutoSpacing->False,
+           ZeroWidthTimes->True,
+           LineColor->RGBColor[0, 0, 0],
+           FrontFaceColor->RGBColor[0, 0, 0],
+           BackFaceColor->RGBColor[0, 0, 0],
+           GraphicsColor->RGBColor[0, 0, 0],
+           FontColor->RGBColor[0, 0, 0]], 
+          StyleBox["c",
+           StripOnInput->False,
+           ShowSyntaxStyles->False,
+           AutoSpacing->False,
+           ZeroWidthTimes->True,
+           LineColor->RGBColor[0, 0, 0],
+           FrontFaceColor->RGBColor[0, 0, 0],
+           BackFaceColor->RGBColor[0, 0, 0],
+           GraphicsColor->RGBColor[0, 0, 0],
+           FontColor->RGBColor[0, 0, 0]]],
+         Toolbox`metabolite["dhap", "c"],
+         Editable->False,
+         Selectable->False]}],
+       Background->RGBColor[0.9, 0.9, 0.9]], "", ""],
+     Toolbox`enzyme[{"ID" -> "TPI", "Compartment" -> "c", "BoundCatalytic" -> {
+         Toolbox`Private`wrap[Toolbox`metabolite]["dhap", "c"]}, 
+       "BoundActivators" -> {}, "BoundInhibitors" -> {}, "CatalyticSites" -> 
+       DirectedInfinity[1], "ActivationSites" -> 0, "InhibitionSites" -> 0}],
+     Editable->False,
+     Selectable->False], "\[Rule]", 
+    InterpretationBox[
+     RowBox[{"3.825955825532455`*^-6", " ", 
+      RowBox[{"Mole", 
+       SuperscriptBox["Liter", 
+        RowBox[{"-", "1"}]]}]}],
+     AutomaticUnits`Unit[3.825955825532455*^-6, "Liter"^(-1) "Mole"],
+     AutoDelete->True]}], ",", 
+   RowBox[{
+    InterpretationBox[
+     UnderoverscriptBox[
+      StyleBox[
+       RowBox[{
+        SuperscriptBox[
+         StyleBox["TPI",
+          StripOnInput->False,
+          ShowSyntaxStyles->False,
+          AutoSpacing->False,
+          ZeroWidthTimes->True,
+          LineColor->RGBColor[0, 0, 0],
+          FrontFaceColor->RGBColor[0, 0, 0],
+          BackFaceColor->RGBColor[0, 0, 0],
+          GraphicsColor->RGBColor[0, 0, 0],
+          FontColor->RGBColor[0, 0, 0]], 
+         StyleBox["c",
+          StripOnInput->False,
+          ShowSyntaxStyles->False,
+          AutoSpacing->False,
+          ZeroWidthTimes->True,
+          LineColor->RGBColor[0, 0, 0],
+          FrontFaceColor->RGBColor[0, 0, 0],
+          BackFaceColor->RGBColor[0, 0, 0],
+          GraphicsColor->RGBColor[0, 0, 0],
+          FontColor->RGBColor[0, 0, 0]]], "&", 
+        InterpretationBox[
+         SuperscriptBox[
+          StyleBox["g3p",
+           StripOnInput->False,
+           ShowSyntaxStyles->False,
+           AutoSpacing->False,
+           ZeroWidthTimes->True,
+           LineColor->RGBColor[0, 0, 0],
+           FrontFaceColor->RGBColor[0, 0, 0],
+           BackFaceColor->RGBColor[0, 0, 0],
+           GraphicsColor->RGBColor[0, 0, 0],
+           FontColor->RGBColor[0, 0, 0]], 
+          StyleBox["c",
+           StripOnInput->False,
+           ShowSyntaxStyles->False,
+           AutoSpacing->False,
+           ZeroWidthTimes->True,
+           LineColor->RGBColor[0, 0, 0],
+           FrontFaceColor->RGBColor[0, 0, 0],
+           BackFaceColor->RGBColor[0, 0, 0],
+           GraphicsColor->RGBColor[0, 0, 0],
+           FontColor->RGBColor[0, 0, 0]]],
+         Toolbox`metabolite["g3p", "c"],
+         Editable->False,
+         Selectable->False]}],
+       Background->RGBColor[0.9, 0.9, 0.9]], "", ""],
+     Toolbox`enzyme[{"ID" -> "TPI", "Compartment" -> "c", "BoundCatalytic" -> {
+         Toolbox`Private`wrap[Toolbox`metabolite]["g3p", "c"]}, 
+       "BoundActivators" -> {}, "BoundInhibitors" -> {}, "CatalyticSites" -> 
+       DirectedInfinity[1], "ActivationSites" -> 0, "InhibitionSites" -> 0}],
+     Editable->False,
+     Selectable->False], "\[Rule]", 
+    InterpretationBox[
+     RowBox[{"7.284204529092053`*^-11", " ", 
+      RowBox[{"Mole", 
+       SuperscriptBox["Liter", 
+        RowBox[{"-", "1"}]]}]}],
+     AutomaticUnits`Unit[7.284204529092053*^-11, "Liter"^(-1) "Mole"],
+     AutoDelete->True]}], ",", 
+   RowBox[{
+    InterpretationBox[
+     SuperscriptBox[
+      StyleBox["dhap",
+       StripOnInput->False,
+       ShowSyntaxStyles->False,
+       AutoSpacing->False,
+       ZeroWidthTimes->True,
+       LineColor->RGBColor[0, 0, 0],
+       FrontFaceColor->RGBColor[0, 0, 0],
+       BackFaceColor->RGBColor[0, 0, 0],
+       GraphicsColor->RGBColor[0, 0, 0],
+       FontColor->RGBColor[0, 0, 0]], 
+      StyleBox["c",
+       StripOnInput->False,
+       ShowSyntaxStyles->False,
+       AutoSpacing->False,
+       ZeroWidthTimes->True,
+       LineColor->RGBColor[0, 0, 0],
+       FrontFaceColor->RGBColor[0, 0, 0],
+       BackFaceColor->RGBColor[0, 0, 0],
+       GraphicsColor->RGBColor[0, 0, 0],
+       FontColor->RGBColor[0, 0, 0]]],
+     Toolbox`metabolite["dhap", "c"],
+     Editable->False,
+     Selectable->False], "\[Rule]", "0.003056174044174468`"}], ",", 
+   RowBox[{
+    InterpretationBox[
+     UnderscriptBox[
+      StyleBox["dhap_total",
+       StripOnInput->False,
+       ShowSyntaxStyles->False,
+       AutoSpacing->False,
+       ZeroWidthTimes->True,
+       LineColor->RGBColor[0, 0, 0],
+       FrontFaceColor->RGBColor[0, 0, 0],
+       BackFaceColor->RGBColor[0, 0, 0],
+       GraphicsColor->RGBColor[0, 0, 0],
+       FontColor->RGBColor[0, 0, 0]], 
+      StyleBox["Global",
+       StripOnInput->False,
+       ShowSyntaxStyles->False,
+       AutoSpacing->False,
+       ZeroWidthTimes->True,
+       LineColor->RGBColor[0, 0, 0],
+       FrontFaceColor->RGBColor[0, 0, 0],
+       BackFaceColor->RGBColor[0, 0, 0],
+       GraphicsColor->RGBColor[0, 0, 0],
+       FontColor->RGBColor[0, 0, 0]]],
+     Toolbox`parameter["dhap_total"],
+     Editable->False,
+     Selectable->False], "\[Rule]", "0.0030600000000000002`"}], ",", 
+   RowBox[{
+    InterpretationBox[
+     SuperscriptBox[
+      StyleBox["g3p",
+       StripOnInput->False,
+       ShowSyntaxStyles->False,
+       AutoSpacing->False,
+       ZeroWidthTimes->True,
+       LineColor->RGBColor[0, 0, 0],
+       FrontFaceColor->RGBColor[0, 0, 0],
+       BackFaceColor->RGBColor[0, 0, 0],
+       GraphicsColor->RGBColor[0, 0, 0],
+       FontColor->RGBColor[0, 0, 0]], 
+      StyleBox["c",
+       StripOnInput->False,
+       ShowSyntaxStyles->False,
+       AutoSpacing->False,
+       ZeroWidthTimes->True,
+       LineColor->RGBColor[0, 0, 0],
+       FrontFaceColor->RGBColor[0, 0, 0],
+       BackFaceColor->RGBColor[0, 0, 0],
+       GraphicsColor->RGBColor[0, 0, 0],
+       FontColor->RGBColor[0, 0, 0]]],
+     Toolbox`metabolite["g3p", "c"],
+     Editable->False,
+     Selectable->False], "\[Rule]", "0.00027099992715795475`"}], ",", 
+   RowBox[{
+    InterpretationBox[
+     UnderscriptBox[
+      StyleBox["g3p_total",
+       StripOnInput->False,
+       ShowSyntaxStyles->False,
+       AutoSpacing->False,
+       ZeroWidthTimes->True,
+       LineColor->RGBColor[0, 0, 0],
+       FrontFaceColor->RGBColor[0, 0, 0],
+       BackFaceColor->RGBColor[0, 0, 0],
+       GraphicsColor->RGBColor[0, 0, 0],
+       FontColor->RGBColor[0, 0, 0]], 
+      StyleBox["Global",
+       StripOnInput->False,
+       ShowSyntaxStyles->False,
+       AutoSpacing->False,
+       ZeroWidthTimes->True,
+       LineColor->RGBColor[0, 0, 0],
+       FrontFaceColor->RGBColor[0, 0, 0],
+       BackFaceColor->RGBColor[0, 0, 0],
+       GraphicsColor->RGBColor[0, 0, 0],
+       FontColor->RGBColor[0, 0, 0]]],
+     Toolbox`parameter["g3p_total"],
+     Editable->False,
+     Selectable->False], "\[Rule]", "0.00027100000000000003`"}]}], 
+  "}"}]], "Output",
+ CellChangeTimes->{3.729768971270919*^9, 3.7297690436865273`*^9, 
+  3.729769075744512*^9}]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1222, 959},
+WindowMargins->{{Automatic, 34}, {Automatic, 24}},
+FrontEndVersion->"11.0 for Linux x86 (64-bit) (September 21, 2016)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 505, 8, 34, "Input"],
+Cell[CellGroupData[{
+Cell[1088, 32, 8505, 211, 1051, "Input"],
+Cell[9596, 245, 376, 5, 32, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[10009, 255, 248, 3, 65, "Section"],
+Cell[10260, 260, 1362, 27, 169, "Input"],
+Cell[11625, 289, 636, 12, 34, "Input"],
+Cell[CellGroupData[{
+Cell[12286, 305, 924, 22, 145, "Input"],
+Cell[13213, 329, 4333, 112, 36, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[17595, 447, 368, 11, 101, "Section"],
+Cell[CellGroupData[{
+Cell[17988, 462, 4924, 90, 551, "Input"],
+Cell[22915, 554, 572, 8, 24, "Print"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[23524, 567, 202, 3, 32, "Input"],
+Cell[23729, 572, 144, 2, 32, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[23910, 579, 311, 7, 32, "Input"],
+Cell[24224, 588, 30256, 909, 220, "Output"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
