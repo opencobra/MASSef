@@ -1,0 +1,14 @@
+num_Cpus	1
+temperature_correction	False
+xtol_value	1.e-15
+ftol_value	1.e-7
+gtol_value	1.e-7
+epsfcn_min_value	7
+maxfev_value	1000
+lower_bound	-6
+upper_bound	9
+num_func_var	8
+filesWithFunctions	[/home/mrama/Dropbox/MASSef/examples/PGMd/fit_PGMd_Keq/input/absRateFor.txt, /home/mrama/Dropbox/MASSef/examples/PGMd/fit_PGMd_Keq/input/absRateRev.txt, /home/mrama/Dropbox/MASSef/examples/PGMd/fit_PGMd_Keq/input/relRateFor_3pg.txt, /home/mrama/Dropbox/MASSef/examples/PGMd/fit_PGMd_Keq/input/relRateRev_2pg.txt, /home/mrama/Dropbox/MASSef/examples/PGMd/fit_PGMd_Keq/input/haldaneRatio_1.txt]
+value_row	-1
+function_row	-2
+data_row_high	-2
