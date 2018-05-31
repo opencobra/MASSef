@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[      6400,        190]
-NotebookOptionsPosition[      5717,        160]
-NotebookOutlinePosition[      6178,        181]
-CellTagsIndexPosition[      6105,        176]
+NotebookDataLength[      6439,        190]
+NotebookOptionsPosition[      5755,        160]
+NotebookOutlinePosition[      6216,        181]
+CellTagsIndexPosition[      6143,        176]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -26,11 +26,11 @@ Cell["Run the following code to install MASSef", "Subsection",
 
 Cell["\<\
 The following code will install the MASSef package in \
-$UserBaseDirectory/Applications\
+$UserBaseDirectory/Applicat\[LineSeparator]ions\
 \>", "Text",
  CellChangeTimes->{
   3.68941397181522*^9, 3.689422775573428*^9, 3.689504403408526*^9, {
-   3.697049865029312*^9, 3.697049867551207*^9}}],
+   3.697049865029312*^9, 3.697049867551207*^9}, 3.729514837588553*^9}],
 
 Cell[BoxData[{
  RowBox[{
@@ -159,7 +159,7 @@ installation of the Toolbox. It will not be removed.\>\""}],
 }, Open  ]]
 },
 WindowSize->{954, 573},
-WindowMargins->{{Automatic, 156}, {-149, Automatic}},
+WindowMargins->{{Automatic, -82}, {-15, Automatic}},
 FrontEndVersion->"11.0 for Linux x86 (64-bit) (September 21, 2016)",
 StyleDefinitions->"Default.nb"
 ]
@@ -169,28 +169,28 @@ StyleDefinitions->"Default.nb"
 (*CellTagsOutline
 CellTagsIndex->{
  "InstallCode"->{
-  Cell[991, 34, 2050, 45, 204, "Input",
+  Cell[1029, 34, 2050, 45, 171, "Input",
    CellTags->"InstallCode"]}
  }
 *)
 (*CellTagsIndex
 CellTagsIndex->{
- {"InstallCode", 6012, 170}
+ {"InstallCode", 6049, 170}
  }
 *)
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
 Cell[580, 22, 156, 2, 45, "Subsection"],
-Cell[739, 26, 249, 6, 33, "Text"],
-Cell[991, 34, 2050, 45, 204, "Input",
+Cell[739, 26, 287, 6, 55, "Text"],
+Cell[1029, 34, 2050, 45, 171, "Input",
  CellTags->"InstallCode"],
-Cell[3044, 81, 127, 2, 32, "Input"]
+Cell[3082, 81, 127, 2, 32, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[3208, 88, 166, 5, 70, "Subsection"],
-Cell[3377, 95, 201, 4, 33, "Text"],
-Cell[3581, 101, 2120, 56, 328, "Input"]
+Cell[3246, 88, 166, 5, 70, "Subsection"],
+Cell[3415, 95, 201, 4, 33, "Text"],
+Cell[3619, 101, 2120, 56, 328, "Input"]
 }, Open  ]]
 }
 ]

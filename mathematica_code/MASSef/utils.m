@@ -119,23 +119,15 @@ rNonModelMets[metList_] := Delete[Delete[metList,Position[metList,MASSToolbox`me
 (*Get metabolite substitutions for rate constants*)
 
 
-getMetsSub[rxn_] := Module[{reverseZeroSub, forwardZeroSub, metSatForSub, metSatRevSub, subList, prodList, complementSubList, complementProdList},
+getMetsSub[rxn_, assumedSaturatingConc_] := Module[{reverseZeroSub, forwardZeroSub, metSatForSub, metSatRevSub, 
+													subList, prodList, complementSubList, complementProdList},
+
 	reverseZeroSub=#->0&/@rNonModelMets[getProducts[rxn]];
 	forwardZeroSub=#->0&/@rNonModelMets[getSubstrates[rxn]];
-	
-	
-	metSatForSub=#->\[Infinity]&/@rNonModelMets[getSubstrates[rxn]];
-	metSatRevSub=#->\[Infinity]&/@rNonModelMets[getProducts[rxn]];
-	(*
-	subList = rNonModelMets[getSubstrates[rxn]];
-	prodList = rNonModelMets[getProducts[rxn]];
-	
-	complementSubList = Map[{getID@#,Complement[subList,{#}]}&, subList];
-	complementProdList = Map[{getID@#,Complement[prodList,{#}]}&, prodList];
-	
-	metSatForSub = Table[{complementSub[[1]], Map[#->\[Infinity]&, complementSub[[2]]]}, {complementSub, complementSubList}];
-	metSatRevSub = Table[{complementProd[[1]], Map[#->\[Infinity]&, complementProd[[2]]]}, {complementProd, complementProdList}];
-	*)
+
+	metSatForSub = Map[#->assumedSaturatingConc &, rNonModelMets[getSubstrates[rxn]]];
+	metSatRevSub = Map[#->assumedSaturatingConc &, rNonModelMets[getProducts[rxn]]];
+
 	Return[{reverseZeroSub, forwardZeroSub, metSatForSub, metSatRevSub}];
 ];
 

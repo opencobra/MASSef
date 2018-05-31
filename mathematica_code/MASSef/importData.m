@@ -213,11 +213,10 @@ parseOtherEntry[line_, uncertaintyFraction_] :=
 
 
 
-correctKcatForTemperature[kcatList_, TPhysiological_] := 
+correctKcatForTemperature[kcatList_, TPhysiological_, Q10_:2.5] := 
 	Block[{kcatListLocal=kcatList, curKcat, curUncertainty, curTemperature, 
-			curTemperatureDiff, newKcat, newUncertainty, Q10},
+			curTemperatureDiff, newKcat, newUncertainty},
 		
-	Q10 = 2.5;
 	Do[
 		curKcat = kcatListLocal[[i,3]]; 
 		curUncertainty = kcatListLocal[[i,4]];
@@ -234,7 +233,7 @@ correctKcatForTemperature[kcatList_, TPhysiological_] :=
 ];
 
 
-getEnzymeData[enzName_, dataPath_, assumedUncertaintyFraction_, q10KcatCorrectionFlag_:False, TPhysiological_:37] := 
+getEnzymeData[enzName_, dataPath_, assumedUncertaintyFraction_, q10KcatCorrectionFlag_:False, TPhysiological_:37, Q10_:2.5] := 
 	Block[{data, enzymesInd, curEnzymeInd, nextEnzymeInd, curEnzymeData, 
 			ecNumber, organism, rxn, mechanism, structure, nActiveSites,  
 			nAllostericSites, line, dataType, kmList={}, kcatList={}, s05List={},  
@@ -286,7 +285,7 @@ getEnzymeData[enzName_, dataPath_, assumedUncertaintyFraction_, q10KcatCorrectio
 	{i, 10, Length@curEnzymeData}];
 	
 	If[TrueQ[q10KcatCorrectionFlag],
-		kcatList = correctKcatForTemperature[kcatList, TPhysiological];
+		kcatList = correctKcatForTemperature[kcatList, TPhysiological, Q10];
 	];
 
 	Return[{rxn, mechanism, structure, nActiveSites, nAllostericSites, KeqList, kmList, s05List, kcatList, inhibitionList, activationList, otherParmsList}];
