@@ -129,8 +129,6 @@ getHalfHaldaneSub[equivalentReactionsSetsList_]:=
 (*Get flux equation*)
 
 
-dummyF[absoluteFlux_]:=Block[{}, Return[absoluteFlux]];
-
 getFluxEquation[inputDir_, rxnName_, enzymeModel_, rateConstSubstitutionList_, transitionRateEqs_, simplifyFlag_:True, simplifyMaxTime_:300, 
 				nActiveSites_:1, outFileLabel_:""]:=
 	Block[{enSolFilePath, absFluxFilePath, enzSol, absoluteFlux, fluxEq, enzForms, enzConservationEq, enzPos, ssEq,
@@ -157,40 +155,24 @@ getFluxEquation[inputDir_, rxnName_, enzymeModel_, rateConstSubstitutionList_, t
 		(*Print["---"];*)
 		enzForms = Cases[enzymeModel["Species"], _enzyme]//Union;
 		enzConservationEq = parameter[rxnName <> "_total"]==Total[enzForms];(*Enzyme Conservation Equation*)
-		Print["1"];
+		
 
 		enzPos = Flatten[Position[enzymeModel["Species"],_enzyme]];
 		ssEq = stripTime[enzymeModel["ODE"][[enzPos]]/._'[t]->0];(*Steady State Equations*)
 		ssEq = (*unifyRateConstants*)keq2kHT[ssEq]/.rateConstSubstitutionList;
-		Print["2"];
+		
 		(*Print[ssEq];
 		Print[Length@ssEq];*)
 		ssEq = Map[Simplify[#] &, ssEq];
 
-		s = AbsoluteTime[];
 		(*Solve the System for Each Enzyme Form (This May Take Some Time)*)
 		enzSol = anonymize[Solve[Join[ssEq,{enzConservationEq}],enzForms]];
-		e = AbsoluteTime[];
-		Print["3"];
-		Print[e-s];
 
-		
-		s = AbsoluteTime[];
 		enzSol = keq2kHT[enzSol[[1]]];
-		e = AbsoluteTime[];
-		(*Print[enzSol];*)
-		Print["4"];
-		Print[e-s];
 		
-		s = AbsoluteTime[];
 		(*Apply the Solution to the Flux Equation*)
 		absoluteFlux=fluxEq/.enzSol;(*In terms of E_total*)
-		
-		e = AbsoluteTime[];
-		Print["5"];
-		Print[e-s];
-		
-		s = AbsoluteTime[];
+
 		absoluteFlux = If[ TrueQ[simplifyFlag],
 
 			posConcentractionAssumption = Map[# >= 0. &, enzymeModel["Species"]];
@@ -198,10 +180,7 @@ getFluxEquation[inputDir_, rxnName_, enzymeModel_, rateConstSubstitutionList_, t
 			parameter["v", rxnName] -> nActiveSites * keq2kHT[anonymize[Simplify[absoluteFlux, TimeConstraint -> {simplifyMaxTime, 300}, Trig->False, Assumptions->posConcentractionAssumption]]],
 			parameter["v", rxnName] -> nActiveSites * keq2kHT[absoluteFlux]
 		];
-		e = AbsoluteTime[];
-		Print["6"];
-		Print[e-s];
-		
+
 		(*Cache the Results*)
 		Export[enSolFilePath,  enzSol]; 
 		Export[absFluxFilePath, absoluteFlux];
@@ -455,8 +434,6 @@ getRateEqs[rxn_, enzymeModel_, absoluteFlux_, rateConstSubstitutionList_, revers
 			If[TrueQ[simplifyFlag],
 				Print["Simplifying..."];
 				Table[
-				Print[metReverseZeroSub];
-				Print[metSatForSubList];
 					(*Map[{"otherRateRelFor_" <> getID[Keys@#] <> "_" <> metReverseZeroSub[[1]], Simplify[(absoluteFluxEqn/.metReverseZeroSub[[2]]/.volumeSub)/(absoluteFluxEqn/.metReverseZeroSub[[2]]/.volumeSub/.#), TimeConstraint -> {simplifyMaxTime, 300}, Trig->False, Assumptions->posConcentrationAssumption]} &, metSatForSubList]*)
 					Map[{"otherRateRelFor_" <> getID[Keys@#] <> "_" <> metReverseZeroSub[[1]], Simplify[(absoluteFluxEqn/.metReverseZeroSub[[2]]/.volumeSub)/(absoluteFluxEqn/.reverseZeroSub/.volumeSub/.#), TimeConstraint -> {simplifyMaxTime, 300}, Trig->False, Assumptions->posConcentrationAssumption]} &, metSatForSubList],
 				{metReverseZeroSub, otherMetsReverseZeroSub}],
@@ -636,10 +613,6 @@ setUpRateEquations[enzymeModel_, rxn_, rxnName_, inputPath_, inhibitionListFull_
 	{reverseZeroSub, forwardZeroSub, metSatForSub, metSatRevSub} = getMetsSub[rxn, assumedSaturatingConc];
 	rates = getEnzymeRates[enzymeModelLocal];
 	{KeqName, KeqVal, volumeSub} = getMisc[enzymeModelLocal, rxnName];
-	Print[forwardZeroSub];
-	Print[reverseZeroSub];
-	Print[metSatForSub];
-	Print[metSatRevSub];
 
 	{allCatalyticReactions, nonCatalyticReactions} = classifyReactions[enzymeModelLocal];
 	
