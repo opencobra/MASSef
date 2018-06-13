@@ -226,16 +226,31 @@ backCalculateKms[rxn_, kmList_, relativeRateForward_, relativeRateReverse_, metS
 ];
 
 
-backCalculateHillCoef[fittingData_, S05List_, nList_] := 
-	Module[{nHpred, nHPredList, nHDataVal, n, header, relError},
+backCalculateHillCoef[fittingData_, filteredDataList_, dataHeader_, S05List_, otherParamList_] := 
+	Module[{nHList, nHmets, nHpred, nHPredList, nHDataVal, n, x, S05, header, relError, met, indList, concFluxData,
+			 fittingEquation, dataCol},
+	
+	fittingEquation[x_, S05_, n_]:= (x^n)/(x^n + S05^n);
+	nHList=Select[otherParamList, #[[2]]=="n" &];
+	nHmets = nHList[[All,3]];
 	
 	nHPredList = Table[
-		nHpred = Values[FindFit[fittingData[[i]], (x^n)/(x^n + S05List[[i]]^n), n, x]][[1]];
-		nHDataVal = nList[[i, 4]];
-		relError = Abs[nHDataVal - nHpred] / nHDataVal * 100;
-		{nHDataVal, nHpred, relError},
 	
-	{i, 1, Length@S05List}];
+		met = nHmets[[metI]];
+		dataCol = Flatten@Position[dataHeader,Select[dataHeader, StringMatchQ[met<>"[c]"]][[1]]];
+		S05 = Select[S05List, #[[2]]==met&][[All,3]];
+		Assert[Length[S05] == 1];
+		Assert[Length[dataCol] == 1];
+		indList = Flatten@Position[Map[StringMatchQ[#, "*/relRate*" <> met <> "*txt"]&, fittingData[[All, -2]]], True];
+		concFluxData = MapThread[{#1,#2}&,{fittingData[[indList, dataCol[[1]]]], filteredDataList[[3]][[indList]]}];
+		
+		nHpred = Values[FindFit[concFluxData, fittingEquation[x, S05, n], n, x]][[1]];
+		nHDataVal = nHList[[metI, 4]];
+		relError = Abs[nHDataVal - nHpred] / nHDataVal * 100;
+		{nHDataVal, nHpred, relError}
+		
+	,
+	{metI, 1, Length @ nHmets}];
 	
 	header = {"data value", "predicted value", "error in %"};
 	nHPredList= Join[{header}, nHPredList];
@@ -292,65 +307,201 @@ backCalculateKcats[rxn_, kcatList_, absoluteRateFor_, absoluteRateRev_, paramFit
 	header = {"data value", "predicted value", "error in %"};
 	predictedKcatList= Join[{header}, predictedKcatList];
 
+	header = {"data value", "predicted value", "error in %"};
+	predictedList= Join[{header}, {{KicDataValue, KicPred, relError}}];
+	
 	Return[predictedKcatList];	
 ];
 
 
-backCalculateRatios[ratio_, ratioValData_, paramFitSub_] := 
-	Module[{ratioValPredicted, relError, header, predictedList},
-	
-	ratioValPredicted = ratio /. paramFitSub;
-	relError = Abs[ratioValData - ratioValPredicted] / ratioValData * 100;
+backCalculateRatios[ratioList_, ratioValDataList_, paramFitSub_] := 
+	Module[{ratioValPredictedList, relErrorList, header, predictedList},
+		
+	ratioValPredictedList = ratioList /. paramFitSub;
+	relErrorList = Abs[ratioValDataList - ratioValPredictedList] / ratioValDataList * 100;
 	
 	header = {"data value", "predicted value", "error in %"};
-	predictedList= Join[{header}, {{ratioValData, ratioValPredicted, relError}}];
+	predictedList= Join[{header}, {{ratioValDataList, ratioValPredictedList, relErrorList}}];
 	
 	Return[predictedList];
 ];
 
 
-backCalculateKic[fittingData_, filteredDataList_, inhibConcentrations_, KicDataValue_] := 
-	Module[{slopeList, relError, header, predictedList, lm, KicPred, x},
+backCalculateKic[fittingData_, filteredDataList_, dataHeader_, inhibitionList_] := 
+	Module[{slopeList, relError, header, predictedList, lm, KicPred, x, KicDataValue, inhibConcentrations, KicPredList,
+		affectedMet, inhibMet, indList, affectedMetConcCol, inhibMetConcCol, fittingDataSubset, filteredDataListSubset,
+		kicList},
+
+	kicList = Select[inhibitionList, StringMatchQ[#[[2]], "Kic"] ||StringMatchQ[#[[2]], "Kincc"]&];
+
+	KicPredList = Table[
+
+		Assert[Length[kicList[[inhibI,7]][[All,2]]]==1];
+		affectedMet=kicList[[inhibI,7]][[All,2]][[1]];
+		inhibMet = kicList[[inhibI,3]];
+		indList=Flatten@Position[Map[StringMatchQ[#, "*/otherRateRel*" <>affectedMet<>"*"<>inhibMet<>"*txt"]&, fittingData[[All, -2]]], True];
+
+		affectedMetConcCol = Flatten@Position[dataHeader,Select[dataHeader, StringMatchQ[affectedMet<>"[c]"]][[1]]];
+		inhibMetConcCol = Flatten@Position[dataHeader,Select[dataHeader, StringMatchQ[inhibMet<>"[c]"]][[1]]];
+		fittingDataSubset = Flatten@fittingData[[indList, affectedMetConcCol]];
+		filteredDataListSubset = filteredDataList[[3,indList]];
+		inhibConcentrations =Flatten[DeleteDuplicates[fittingData[[indList, inhibMetConcCol]]]];
+
+		slopeList={};
+		AppendTo[slopeList, LinearModelFit[MapThread[{1/#1,1/#2}&,{fittingDataSubset[[1;;5]],filteredDataListSubset[[1;;5]]}],x,x]["ParameterTableEntries"][[All,1]][[2]]];
+		AppendTo[slopeList, LinearModelFit[MapThread[{1/#1,1/#2}&,{fittingDataSubset[[6;;10]],filteredDataListSubset[[6;;10]]}],x,x]["ParameterTableEntries"][[All,1]][[2]]];
+		AppendTo[slopeList, LinearModelFit[MapThread[{1/#1,1/#2}&,{fittingDataSubset[[11;;15]],filteredDataListSubset[[11;;15]]}],x,x]["ParameterTableEntries"][[All,1]][[2]]];
+
+		lm = LinearModelFit[MapThread[{#1,#2}&,{inhibConcentrations, slopeList}],x,x];
+		KicPred = Abs[Values @ Flatten @ Solve[lm[x]==0,x]];
+        KicDataValue =  kicList[[inhibI,4]];
+  	
+        relError = Abs[KicDataValue - KicPred] / KicDataValue * 100;
 	
-	slopeList={};
-	AppendTo[slopeList, LinearModelFit[MapThread[{1/#1,1/#2}&,{fittingData[[1;;5]],filteredDataList[[1;;5]]}],x,x]["ParameterTableEntries"][[All,1]][[2]]];
-	AppendTo[slopeList, LinearModelFit[MapThread[{1/#1,1/#2}&,{fittingData[[6;;10]],filteredDataList[[6;;10]]}],x,x]["ParameterTableEntries"][[All,1]][[2]]];
-	AppendTo[slopeList, LinearModelFit[MapThread[{1/#1,1/#2}&,{fittingData[[11;;15]],filteredDataList[[11;;15]]}],x,x]["ParameterTableEntries"][[All,1]][[2]]];
+	    {KicDataValue, KicPred, relError},
 
-	lm = LinearModelFit[MapThread[{#1,#2}&,{inhibConcentrations, slopeList}],x,x];
-	KicPred = Abs[Values @ Flatten @ Solve[lm[x]==0,x]];
-
-	relError = Abs[KicDataValue - KicPred] / KicDataValue * 100;
+	{inhibI,1, Length@kicList}];
 	
 	header = {"data value", "predicted value", "error in %"};
-	predictedList= Join[{header}, {{KicDataValue, KicPred, relError}}];
+	predictedList= Join[{header}, KicPredList];
 	
 	Return[predictedList];
 ];
 
 
-backCalculateKiu[fittingData_, filteredDataList_, inhibConcentrations_, KiuDataValue_] := 
-	Module[{interceptList, relError, header, predictedList, lm, KiuPred, x},
+backCalculateKiu[fittingData_, filteredDataList_, dataHeader_, inhibitionList_] := 
+	Module[{interceptList, relError, header, predictedList, lm, KiuPred, x, KiuDataValue, inhibConcentrations, KiuPredList,
+		affectedMet, inhibMet, indList, affectedMetConcCol, inhibMetConcCol, fittingDataSubset, filteredDataListSubset,
+		kiuList},
+
+	kiuList = Select[inhibitionList, StringMatchQ[#[[2]], "Kiu"] ||StringMatchQ[#[[2]], "Kincu"]&];
+
+	KiuPredList = Table[
+
+		Assert[Length[kiuList[[inhibI,7]][[All,2]]]==1];
+		affectedMet=kiuList[[inhibI,7]][[All,2]][[1]];
+		inhibMet = kiuList[[inhibI,3]];
+		indList=Flatten@Position[Map[StringMatchQ[#, "*/otherRateRel*" <>affectedMet<>"*"<>inhibMet<>"*txt"]&, fittingData[[All, -2]]], True];
+
+		affectedMetConcCol = Flatten@Position[dataHeader,Select[dataHeader, StringMatchQ[affectedMet<>"[c]"]][[1]]];
+		inhibMetConcCol = Flatten@Position[dataHeader,Select[dataHeader, StringMatchQ[inhibMet<>"[c]"]][[1]]];
+		fittingDataSubset = Flatten@fittingData[[indList, affectedMetConcCol]];
+		filteredDataListSubset = filteredDataList[[3,indList]];
+		inhibConcentrations =Flatten[DeleteDuplicates[fittingData[[indList, inhibMetConcCol]]]];
+
+		interceptList={};
+ 	   AppendTo[interceptList, LinearModelFit[MapThread[{1/#1,1/#2}&,{fittingDataSubset[[1;;5]],filteredDataListSubset[[1;;5]]}],x,x]["ParameterTableEntries"][[All,1]][[1]]];
+  	  AppendTo[interceptList, LinearModelFit[MapThread[{1/#1,1/#2}&,{fittingDataSubset[[6;;10]],filteredDataListSubset[[6;;10]]}],x,x]["ParameterTableEntries"][[All,1]][[1]]];
+  	  AppendTo[interceptList, LinearModelFit[MapThread[{1/#1,1/#2}&,{fittingDataSubset[[11;;15]],filteredDataListSubset[[11;;15]]}],x,x]["ParameterTableEntries"][[All,1]][[1]]];
+
+    	lm = LinearModelFit[MapThread[{#1,#2}&,{inhibConcentrations, interceptList}],x,x];
+    	KiuPred = Abs[Values @ Flatten @ Solve[lm[x]==0,x]];
+        KiuDataValue =  kiuList[[inhibI,4]];
+  	
+	    relError = Abs[KiuDataValue - KiuPred] / KiuDataValue * 100;
 	
-	interceptList={};
-	AppendTo[interceptList, LinearModelFit[MapThread[{1/#1,1/#2}&,{fittingData[[1;;5]],filteredDataList[[1;;5]]}],x,x]["ParameterTableEntries"][[All,1]][[1]]];
-	AppendTo[interceptList, LinearModelFit[MapThread[{1/#1,1/#2}&,{fittingData[[6;;10]],filteredDataList[[6;;10]]}],x,x]["ParameterTableEntries"][[All,1]][[1]]];
-	AppendTo[interceptList, LinearModelFit[MapThread[{1/#1,1/#2}&,{fittingData[[11;;15]],filteredDataList[[11;;15]]}],x,x]["ParameterTableEntries"][[All,1]][[1]]];
+		{KiuDataValue, KiuPred, relError},
 
-	lm = LinearModelFit[MapThread[{#1,#2}&,{inhibConcentrations, interceptList}],x,x];
-	KiuPred = Abs[Values @ Flatten @ Solve[lm[x]==0,x]];
-
-	relError = Abs[KiuDataValue - KiuPred] / KiuDataValue * 100;
+	{inhibI,1, Length@kiuList}];
 	
 	header = {"data value", "predicted value", "error in %"};
-	predictedList= Join[{header}, {{KiuDataValue, KiuPred, relError}}];
+	predictedList= Join[{header}, KiuPredList];
 	
 	Return[predictedList];
 ];
 
 
-(*backCalculateRatio[] := Module[{},
-];*)
+
+exportPredictedParametersAndErrors[rxn_, rxnName_, fitLabel_, flagFitType_, nRateSets_,KeqList_, kmList_,s05List_, kcatList_, inhibitionList_, otherParamsList_, absoluteRateForward_, absoluteRateReverse_, relativeRateForward_, relativeRateReverse_, haldaneRatiosList_,  metSatForSub_, metSatRevSub_, rateConstsSub_, assumedSaturatingConc_, fittingData_, filteredDataList_,
+ dataHeader_]:=
+	Block[{predictions, predictedParameters,predictedParameterErrors, parameterNames, parameterValues, paramFitSub, s05PredList, nHPredList, nHList,
+		trueValuesList, kicList, kiuList, enzymeSub, keqList},
+	
+	enzymeSub= parameter[rxnName<>"_total"]-> 1;
+	
+	kicList = Select[inhibitionList, StringMatchQ[#[[2]], "Kic"] ||StringMatchQ[#[[2]], "Kincc"]&];
+	kiuList = Select[inhibitionList, StringMatchQ[#[[2]], "Kiu"] ||StringMatchQ[#[[2]], "Kincu"]&];
+	
+	keqList = If[Length[haldaneRatiosList]>1 && Length[KeqList[[All,3]]]==1,
+					ConstantArray[KeqList[[1]], Length[haldaneRatiosList]],
+					KeqList
+				];
+		
+	predictions=Table[
+	
+		paramFitSub=Thread[rateConstsSub[[All,1]]->filteredDataList[[rateSetI,2]]];
+
+		{filteredDataList[[rateSetI,1]],
+
+		If[!SameQ[KeqList, {}],
+			backCalculateRatios[haldaneRatiosList, keqList[[All,3]],  paramFitSub][[2;;,2;;]]
+		],
+		If[!SameQ[kmList, {}],
+			backCalculateKms[rxn, kmList, relativeRateForward, relativeRateReverse, metSatForSub, metSatRevSub, paramFitSub, assumedSaturatingConc, rxnName][[2;;,2;;]]
+		],
+		If[!SameQ[s05List, {}],
+			s05PredList = backCalculateKms[rxn, s05List, relativeRateForward, relativeRateReverse, metSatForSub, metSatRevSub, paramFitSub, assumedSaturatingConc, rxnName][[2;;,2;;]];
+			nHPredList =backCalculateHillCoef[fittingData, filteredDataList[[rateSetI]], dataHeader, s05List, otherParamsList][[2;;,2;;]];
+			MapThread[{#1,#2}&,{s05PredList, nHPredList}]
+		],
+		If[!SameQ[kcatList, {}],
+			backCalculateKcats[rxn, kcatList, absoluteRateForward, absoluteRateReverse, paramFitSub, enzymeSub, assumedSaturatingConc][[2;;,2;;]]
+		],
+		If[!SameQ[kicList, {}],
+			backCalculateKic[fittingData, filteredDataList[[rateSetI]], dataHeader, inhibitionList][[2;;,2;;]]
+		],
+		If[!SameQ[kiuList, {}],
+			backCalculateKiu[fittingData, filteredDataList[[rateSetI]], dataHeader, inhibitionList][[2;;,2;;]]
+		]}//Flatten,
+
+	{rateSetI, 1, nRateSets}];
+
+	predictions = DeleteCases[predictions, Null, Infinity];
+
+	trueValuesList=Flatten[{
+ 
+		If[!SameQ[keqList, {}],
+			MapThread[{"Keq_"<>#1, #2}&,{keqList[[;;,2]][[All,1,1]], keqList[[;;,3]]}]
+		],
+
+		If[!SameQ[kmList, {}],
+			MapThread[{"Km_"<>#1, #2}&, {kmList[[;;,2]],kmList[[;;,3]]}]
+		],
+
+		If[!SameQ[s05List, {}],
+			nHList=Select[otherParamsList, #[[2]]=="n" &];
+			Flatten@MapThread[{"s05_"<>#1, #2, "n_"<>#3, #4}&, {s05List[[;;,2]],s05List[[;;,3]], nHList[[;;,3]], nHList[[;;,4]]}]
+		],
+	
+		If[!SameQ[kcatList, {}],
+			MapThread[{"kcat_"<>#1, #2}&, {kcatList[[;;,2]][[All,1,1]], kcatList[[;;,3]]}]
+		],
+
+		If[!SameQ[kicList, {}],
+			MapThread[{"kic_"<>#1<>"_"<>#2, #3}&, {kicList[[;;,3]],kicList[[;;,7]][[All,1,2]],kicList[[;;,4]]}]
+		],
+		If[!SameQ[kiuList, {}],
+			MapThread[{"kiu_"<>#1<>"_"<>#2, #3}&, {kiuList[[;;,3]],kiuList[[;;,7]][[All,1,2]],kiuList[[;;,4]]}]
+		]
+	}];
+
+	trueValuesList=DeleteCases[trueValuesList, Null, Infinity];
+	parameterNames = trueValuesList[[1;;-1;;2]];
+	parameterValues = trueValuesList[[2;;-1;;2]];
+
+	predictedParameters = MapThread[Flatten@{#1, #2}&,{predictions[[All,1]],predictions[[All,2;;-1;;2]]}];
+	predictedParameterErrors =  predictions[[All,1;;-1;;2]];
+	
+	predictedParameters=Insert[predictedParameters,Flatten@{"ssd",parameterNames} , 1];
+	predictedParameters=Insert[predictedParameters,Flatten@{0,parameterValues}  ,2];
+
+	predictedParameterErrors=Insert[predictedParameterErrors,Flatten@{"ssd",parameterNames} , 1];
+	predictedParameterErrors=Insert[predictedParameterErrors,Flatten@{0,parameterValues}  ,2];
+	(*Export[outputPath<>"/treated_data/predicted_params_error_distribution_"<>fitLabel<>"_"<>flagFitType<>".csv",predictedParamsErrorList,"CSV"];*)
+
+	Return[{predictedParameters, predictedParameterErrors}];
+];
+
 
 
 (* ::Subsection:: *)
