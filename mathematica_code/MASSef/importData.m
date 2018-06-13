@@ -92,7 +92,9 @@ handleUncertainty[paramValue_, uncertainty_, defaultUncertaintyFraction_] :=
 parseKeqEntry[line_, uncertaintyFraction_] := 
 	Block[{entry, substrate, value, uncertainty, coSubstrates, units, ph, 
 			temperature, buffer, salts, priority=1},
-	substrate = StringReplace[line[[1]], " "-> ""];
+	(*substrate = {StringReplace[line[[1]], " "-> ""]};*)
+	substrate = Map[{#}&, StringSplit[StringReplace[line[[1]], " "-> ""], ";"]];
+	substrate = parseSubMetLists[substrate];
 	checkEntry[substrate, "Keq substrate"];
 	value = line[[2]];
 	checkEntry[value, "Keq value"];

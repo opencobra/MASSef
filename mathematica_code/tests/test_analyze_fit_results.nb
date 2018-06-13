@@ -10,17 +10,20 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    189583,       4439]
-NotebookOptionsPosition[    188613,       4402]
-NotebookOutlinePosition[    188953,       4417]
-CellTagsIndexPosition[    188910,       4414]
+NotebookDataLength[    113495,       2699]
+NotebookOptionsPosition[    110545,       2601]
+NotebookOutlinePosition[    110884,       2616]
+CellTagsIndexPosition[    110841,       2613]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
 Cell[BoxData[""], "Input",
  CellChangeTimes->{{3.711014890562398*^9, 3.711014892967368*^9}, {
-  3.711015740780116*^9, 3.711015742983513*^9}}],
+  3.711015740780116*^9, 3.711015742983513*^9}, {3.737616332309733*^9, 
+  3.7376163347022657`*^9}, {3.737623628099225*^9, 3.737623630276875*^9}, {
+  3.73791093971799*^9, 3.737910942756341*^9}, {3.737911193479135*^9, 
+  3.73791119556012*^9}}],
 
 Cell[BoxData[{
  RowBox[{
@@ -1739,2589 +1742,28 @@ Cell[BoxData[GridBox[{
           "\"\<data value\>\"", ",", "\"\<predicted value\>\"", ",", 
            "\"\<error in %\>\""}], "}"}], ",", 
          RowBox[{"{", 
-          RowBox[{"0.00010499999999999999`", ",", 
-           RowBox[{"{", 
-            RowBox[{
-             RowBox[{"{", 
-              RowBox[{"-", "9.06319762833204`*^-6"}], "}"}], ",", 
-             RowBox[{"{", "0.00002769434354589068`", "}"}]}], "}"}], ",", 
-           RowBox[{"{", 
-            RowBox[{
-             RowBox[{"{", "108.63161678888765`", "}"}], ",", 
-             RowBox[{"{", "73.62443471819935`", "}"}]}], "}"}]}], "}"}], ",", 
-         
-         RowBox[{"{", 
-          RowBox[{"0.000046`", ",", 
-           RowBox[{"{", 
-            RowBox[{
-             RowBox[{"{", 
-              RowBox[{"-", "1.2706897846262828`"}], "}"}], ",", 
-             RowBox[{"{", "0.000046000422718300664`", "}"}]}], "}"}], ",", 
-           RowBox[{"{", 
-            RowBox[{
-             RowBox[{"{", "2.762469097013658`*^6", "}"}], ",", 
-             RowBox[{"{", "0.000918952827530763`", "}"}]}], "}"}]}], "}"}], 
-         ",", 
-         RowBox[{"{", 
-          RowBox[{"0.000044`", ",", 
-           RowBox[{"{", 
-            RowBox[{
-             RowBox[{"{", 
-              RowBox[{"-", "1.7243926523431132`"}], "}"}], ",", 
-             RowBox[{"{", "0.00004400032139229513`", "}"}]}], "}"}], ",", 
-           RowBox[{"{", 
-            RowBox[{
-             RowBox[{"{", "3.919174209870712`*^6", "}"}], ",", 
-             RowBox[{"{", "0.0007304370343832542`", "}"}]}], "}"}]}], "}"}]}],
-         "}"}]}], ";"}], "\[IndentingNewLine]", 
+          RowBox[{"0.00017`", ",", 
+           RowBox[{"{", "0.00016998556032244837`", "}"}], ",", 
+           RowBox[{"{", "0.008493927971553194`", "}"}]}], "}"}]}], "}"}]}], 
+      ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
      RowBox[{
-      RowBox[{"rxn", " ", "=", " ", 
-       InterpretationBox[
-        OverscriptBox[
-         RowBox[{
-          RowBox[{
-           InterpretationBox[
-            SuperscriptBox[
-             StyleBox["amp",
-              StripOnInput->False,
-              ShowSyntaxStyles->False,
-              AutoSpacing->False,
-              ZeroWidthTimes->True,
-              LineColor->RGBColor[0, 0, 0],
-              FrontFaceColor->RGBColor[0, 0, 0],
-              BackFaceColor->RGBColor[0, 0, 0],
-              GraphicsColor->RGBColor[0, 0, 0],
-              FontColor->RGBColor[0, 0, 0]], 
-             StyleBox["c",
-              StripOnInput->False,
-              ShowSyntaxStyles->False,
-              AutoSpacing->False,
-              ZeroWidthTimes->True,
-              LineColor->RGBColor[0, 0, 0],
-              FrontFaceColor->RGBColor[0, 0, 0],
-              BackFaceColor->RGBColor[0, 0, 0],
-              GraphicsColor->RGBColor[0, 0, 0],
-              FontColor->RGBColor[0, 0, 0]]],
-            Toolbox`metabolite["amp", "c"],
-            Editable->False,
-            Selectable->False], "+", 
-           InterpretationBox[
-            SuperscriptBox[
-             StyleBox["atp",
-              StripOnInput->False,
-              ShowSyntaxStyles->False,
-              AutoSpacing->False,
-              ZeroWidthTimes->True,
-              LineColor->RGBColor[0, 0, 0],
-              FrontFaceColor->RGBColor[0, 0, 0],
-              BackFaceColor->RGBColor[0, 0, 0],
-              GraphicsColor->RGBColor[0, 0, 0],
-              FontColor->RGBColor[0, 0, 0]], 
-             StyleBox["c",
-              StripOnInput->False,
-              ShowSyntaxStyles->False,
-              AutoSpacing->False,
-              ZeroWidthTimes->True,
-              LineColor->RGBColor[0, 0, 0],
-              FrontFaceColor->RGBColor[0, 0, 0],
-              BackFaceColor->RGBColor[0, 0, 0],
-              GraphicsColor->RGBColor[0, 0, 0],
-              FontColor->RGBColor[0, 0, 0]]],
-            Toolbox`metabolite["atp", "c"],
-            Editable->False,
-            Selectable->False]}], "\[Equilibrium]", 
-          RowBox[{"2", " ", 
-           InterpretationBox[
-            SuperscriptBox[
-             StyleBox["adp",
-              StripOnInput->False,
-              ShowSyntaxStyles->False,
-              AutoSpacing->False,
-              ZeroWidthTimes->True,
-              LineColor->RGBColor[0, 0, 0],
-              FrontFaceColor->RGBColor[0, 0, 0],
-              BackFaceColor->RGBColor[0, 0, 0],
-              GraphicsColor->RGBColor[0, 0, 0],
-              FontColor->RGBColor[0, 0, 0]], 
-             StyleBox["c",
-              StripOnInput->False,
-              ShowSyntaxStyles->False,
-              AutoSpacing->False,
-              ZeroWidthTimes->True,
-              LineColor->RGBColor[0, 0, 0],
-              FrontFaceColor->RGBColor[0, 0, 0],
-              BackFaceColor->RGBColor[0, 0, 0],
-              GraphicsColor->RGBColor[0, 0, 0],
-              FontColor->RGBColor[0, 0, 0]]],
-            Toolbox`metabolite["adp", "c"],
-            Editable->False,
-            Selectable->False]}]}], 
-         StyleBox["ADK1",
-          StripOnInput->False,
-          ShowSyntaxStyles->False,
-          AutoSpacing->False,
-          ZeroWidthTimes->True,
-          LineColor->RGBColor[0, 0, 0],
-          FrontFaceColor->RGBColor[0, 0, 0],
-          BackFaceColor->RGBColor[0, 0, 0],
-          GraphicsColor->RGBColor[0, 0, 0],
-          FontColor->RGBColor[0, 0, 0]]],
-        Toolbox`reaction["ADK1", {
-          Toolbox`metabolite["amp", "c"], 
-          Toolbox`metabolite["atp", "c"]}, {
-          Toolbox`metabolite["adp", "c"]}, {1, 1, 2}, True],
-        Editable->False,
-        Selectable->False]}], ";"}], "\[IndentingNewLine]", 
-     RowBox[{
-      RowBox[{"kmList", "  ", "=", " ", 
-       RowBox[{"{", 
+      RowBox[{"arguments", "=", 
+       RowBox[{"Import", "[", 
         RowBox[{
-         RowBox[{"{", 
-          RowBox[{"1", ",", " ", "\"\<adp\>\"", ",", "0.000105`", ",", 
-           RowBox[{"{", 
-            RowBox[{"0.00009975`", ",", "0.00011025000000000001`"}], "}"}], 
-           ",", 
-           RowBox[{"{", "}"}], ",", "\"\<M\>\"", ",", "7.4`", ",", "40", ",", 
-           
-           RowBox[{"{", 
-            RowBox[{"{", 
-             RowBox[{"\"\<trishcl\>\"", ",", "0.05`"}], "}"}], "}"}], ",", 
-           RowBox[{"{", 
-            RowBox[{
-             RowBox[{"{", 
-              RowBox[{"\"\<mg2\>\"", ",", "0.002`"}], "}"}], ",", 
-             RowBox[{"{", 
-              RowBox[{"\"\<cl\>\"", ",", "0.004`"}], "}"}], ",", 
-             RowBox[{"{", 
-              RowBox[{"\"\<cl\>\"", ",", "0.1`"}], "}"}], ",", 
-             RowBox[{"{", 
-              RowBox[{"\"\<k\>\"", ",", "0.1`"}], "}"}]}], "}"}]}], "}"}], 
-         ",", "\[IndentingNewLine]", "\t\t", 
-         RowBox[{"{", 
-          RowBox[{"1", ",", " ", "\"\<atp\>\"", ",", "0.000046`", ",", 
-           RowBox[{"{", 
-            RowBox[{"0.0000437`", ",", "0.0000483`"}], "}"}], ",", 
-           RowBox[{"{", 
-            RowBox[{"{", 
-             RowBox[{"\"\<amp\>\"", ",", "0.001`"}], "}"}], "}"}], ",", 
-           "\"\<M\>\"", ",", "7.4`", ",", "40", ",", 
-           RowBox[{"{", 
-            RowBox[{"{", 
-             RowBox[{"\"\<trishcl\>\"", ",", "0.05`"}], "}"}], "}"}], ",", 
-           RowBox[{"{", 
-            RowBox[{
-             RowBox[{"{", 
-              RowBox[{"\"\<mg2\>\"", ",", "0.002`"}], "}"}], ",", 
-             RowBox[{"{", 
-              RowBox[{"\"\<cl\>\"", ",", "0.004`"}], "}"}], ",", 
-             RowBox[{"{", 
-              RowBox[{"\"\<cl\>\"", ",", "0.1`"}], "}"}], ",", 
-             RowBox[{"{", 
-              RowBox[{"\"\<k\>\"", ",", "0.1`"}], "}"}]}], "}"}]}], "}"}], 
-         ",", "\[IndentingNewLine]", "\t\t", 
-         RowBox[{"{", 
-          RowBox[{"1", ",", " ", "\"\<amp\>\"", ",", "0.000044`", ",", 
-           RowBox[{"{", 
-            RowBox[{"0.0000418`", ",", "0.0000462`"}], "}"}], ",", 
-           RowBox[{"{", 
-            RowBox[{"{", 
-             RowBox[{"\"\<atp\>\"", ",", "0.001`"}], "}"}], "}"}], ",", 
-           "\"\<M\>\"", ",", "7.4`", ",", "40", ",", 
-           RowBox[{"{", 
-            RowBox[{"{", 
-             RowBox[{"\"\<trishcl\>\"", ",", "0.05`"}], "}"}], "}"}], ",", 
-           RowBox[{"{", 
-            RowBox[{
-             RowBox[{"{", 
-              RowBox[{"\"\<mg2\>\"", ",", "0.002`"}], "}"}], ",", 
-             RowBox[{"{", 
-              RowBox[{"\"\<cl\>\"", ",", "0.004`"}], "}"}], ",", 
-             RowBox[{"{", 
-              RowBox[{"\"\<cl\>\"", ",", "0.1`"}], "}"}], ",", 
-             RowBox[{"{", 
-              RowBox[{"\"\<k\>\"", ",", "0.1`"}], "}"}]}], "}"}]}], "}"}]}], 
-        "}"}]}], ";"}], "\[IndentingNewLine]", 
-     RowBox[{
-      RowBox[{"absoluteRateForward", " ", "=", " ", 
-       RowBox[{
-        RowBox[{"(", 
-         RowBox[{
-          InterpretationBox[
-           SuperscriptBox[
-            StyleBox["amp",
-             StripOnInput->False,
-             ShowSyntaxStyles->False,
-             AutoSpacing->False,
-             ZeroWidthTimes->True,
-             LineColor->RGBColor[0, 0, 0],
-             FrontFaceColor->RGBColor[0, 0, 0],
-             BackFaceColor->RGBColor[0, 0, 0],
-             GraphicsColor->RGBColor[0, 0, 0],
-             FontColor->RGBColor[0, 0, 0]], 
-            StyleBox["c",
-             StripOnInput->False,
-             ShowSyntaxStyles->False,
-             AutoSpacing->False,
-             ZeroWidthTimes->True,
-             LineColor->RGBColor[0, 0, 0],
-             FrontFaceColor->RGBColor[0, 0, 0],
-             BackFaceColor->RGBColor[0, 0, 0],
-             GraphicsColor->RGBColor[0, 0, 0],
-             FontColor->RGBColor[0, 0, 0]]],
-           Toolbox`metabolite["amp", "c"],
-           Editable->False,
-           Selectable->False], " ", 
-          InterpretationBox[
-           SuperscriptBox[
-            StyleBox["atp",
-             StripOnInput->False,
-             ShowSyntaxStyles->False,
-             AutoSpacing->False,
-             ZeroWidthTimes->True,
-             LineColor->RGBColor[0, 0, 0],
-             FrontFaceColor->RGBColor[0, 0, 0],
-             BackFaceColor->RGBColor[0, 0, 0],
-             GraphicsColor->RGBColor[0, 0, 0],
-             FontColor->RGBColor[0, 0, 0]], 
-            StyleBox["c",
-             StripOnInput->False,
-             ShowSyntaxStyles->False,
-             AutoSpacing->False,
-             ZeroWidthTimes->True,
-             LineColor->RGBColor[0, 0, 0],
-             FrontFaceColor->RGBColor[0, 0, 0],
-             BackFaceColor->RGBColor[0, 0, 0],
-             GraphicsColor->RGBColor[0, 0, 0],
-             FontColor->RGBColor[0, 0, 0]]],
-           Toolbox`metabolite["atp", "c"],
-           Editable->False,
-           Selectable->False], " ", 
-          InterpretationBox[
-           UnderscriptBox[
-            StyleBox["E_total",
-             StripOnInput->False,
-             ShowSyntaxStyles->False,
-             AutoSpacing->False,
-             ZeroWidthTimes->True,
-             LineColor->RGBColor[0, 0, 0],
-             FrontFaceColor->RGBColor[0, 0, 0],
-             BackFaceColor->RGBColor[0, 0, 0],
-             GraphicsColor->RGBColor[0, 0, 0],
-             FontColor->RGBColor[0, 0, 0]], 
-            StyleBox["Global",
-             StripOnInput->False,
-             ShowSyntaxStyles->False,
-             AutoSpacing->False,
-             ZeroWidthTimes->True,
-             LineColor->RGBColor[0, 0, 0],
-             FrontFaceColor->RGBColor[0, 0, 0],
-             BackFaceColor->RGBColor[0, 0, 0],
-             GraphicsColor->RGBColor[0, 0, 0],
-             FontColor->RGBColor[0, 0, 0]]],
-           Toolbox`parameter["E_total"],
-           Editable->False,
-           Selectable->False], " ", 
-          InterpretationBox[
-           SubsuperscriptBox["k", 
-            StyleBox[
-             RowBox[{"ADK1_", "1", "_", "4"}],
-             StripOnInput->False,
-             ShowSyntaxStyles->False,
-             AutoSpacing->False,
-             ZeroWidthTimes->True,
-             LineColor->RGBColor[0, 0, 0],
-             FrontFaceColor->RGBColor[0, 0, 0],
-             BackFaceColor->RGBColor[0, 0, 0],
-             GraphicsColor->RGBColor[0, 0, 0],
-             FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
-           Toolbox`rateconst["ADK1_1_4", True],
-           Editable->False,
-           Selectable->False], " ", 
-          InterpretationBox[
-           SubsuperscriptBox["k", 
-            StyleBox[
-             RowBox[{"ADK1_", "2", "_", "5"}],
-             StripOnInput->False,
-             ShowSyntaxStyles->False,
-             AutoSpacing->False,
-             ZeroWidthTimes->True,
-             LineColor->RGBColor[0, 0, 0],
-             FrontFaceColor->RGBColor[0, 0, 0],
-             BackFaceColor->RGBColor[0, 0, 0],
-             GraphicsColor->RGBColor[0, 0, 0],
-             FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
-           Toolbox`rateconst["ADK1_2_5", True],
-           Editable->False,
-           Selectable->False], " ", 
-          RowBox[{"(", 
-           RowBox[{
-            InterpretationBox[
-             SubsuperscriptBox["k", 
-              StyleBox[
-               RowBox[{"ADK1_", "1", "_", "4"}],
-               StripOnInput->False,
-               ShowSyntaxStyles->False,
-               AutoSpacing->False,
-               ZeroWidthTimes->True,
-               LineColor->RGBColor[0, 0, 0],
-               FrontFaceColor->RGBColor[0, 0, 0],
-               BackFaceColor->RGBColor[0, 0, 0],
-               GraphicsColor->RGBColor[0, 0, 0],
-               FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
-             Toolbox`rateconst["ADK1_1_4", False],
-             Editable->False,
-             Selectable->False], "+", 
-            RowBox[{
-             InterpretationBox[
-              SuperscriptBox[
-               StyleBox["atp",
-                StripOnInput->False,
-                ShowSyntaxStyles->False,
-                AutoSpacing->False,
-                ZeroWidthTimes->True,
-                LineColor->RGBColor[0, 0, 0],
-                FrontFaceColor->RGBColor[0, 0, 0],
-                BackFaceColor->RGBColor[0, 0, 0],
-                GraphicsColor->RGBColor[0, 0, 0],
-                FontColor->RGBColor[0, 0, 0]], 
-               StyleBox["c",
-                StripOnInput->False,
-                ShowSyntaxStyles->False,
-                AutoSpacing->False,
-                ZeroWidthTimes->True,
-                LineColor->RGBColor[0, 0, 0],
-                FrontFaceColor->RGBColor[0, 0, 0],
-                BackFaceColor->RGBColor[0, 0, 0],
-                GraphicsColor->RGBColor[0, 0, 0],
-                FontColor->RGBColor[0, 0, 0]]],
-              Toolbox`metabolite["atp", "c"],
-              Editable->False,
-              Selectable->False], " ", 
-             InterpretationBox[
-              SubsuperscriptBox["k", 
-               StyleBox[
-                RowBox[{"ADK1_", "1", "_", "4"}],
-                StripOnInput->False,
-                ShowSyntaxStyles->False,
-                AutoSpacing->False,
-                ZeroWidthTimes->True,
-                LineColor->RGBColor[0, 0, 0],
-                FrontFaceColor->RGBColor[0, 0, 0],
-                BackFaceColor->RGBColor[0, 0, 0],
-                GraphicsColor->RGBColor[0, 0, 0],
-                FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
-              Toolbox`rateconst["ADK1_1_4", True],
-              Editable->False,
-              Selectable->False]}], "+", 
-            InterpretationBox[
-             SubsuperscriptBox["k", 
-              StyleBox[
-               RowBox[{"ADK1_", "2", "_", "5"}],
-               StripOnInput->False,
-               ShowSyntaxStyles->False,
-               AutoSpacing->False,
-               ZeroWidthTimes->True,
-               LineColor->RGBColor[0, 0, 0],
-               FrontFaceColor->RGBColor[0, 0, 0],
-               BackFaceColor->RGBColor[0, 0, 0],
-               GraphicsColor->RGBColor[0, 0, 0],
-               FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
-             Toolbox`rateconst["ADK1_2_5", False],
-             Editable->False,
-             Selectable->False], "+", 
-            RowBox[{
-             InterpretationBox[
-              SuperscriptBox[
-               StyleBox["amp",
-                StripOnInput->False,
-                ShowSyntaxStyles->False,
-                AutoSpacing->False,
-                ZeroWidthTimes->True,
-                LineColor->RGBColor[0, 0, 0],
-                FrontFaceColor->RGBColor[0, 0, 0],
-                BackFaceColor->RGBColor[0, 0, 0],
-                GraphicsColor->RGBColor[0, 0, 0],
-                FontColor->RGBColor[0, 0, 0]], 
-               StyleBox["c",
-                StripOnInput->False,
-                ShowSyntaxStyles->False,
-                AutoSpacing->False,
-                ZeroWidthTimes->True,
-                LineColor->RGBColor[0, 0, 0],
-                FrontFaceColor->RGBColor[0, 0, 0],
-                BackFaceColor->RGBColor[0, 0, 0],
-                GraphicsColor->RGBColor[0, 0, 0],
-                FontColor->RGBColor[0, 0, 0]]],
-              Toolbox`metabolite["amp", "c"],
-              Editable->False,
-              Selectable->False], " ", 
-             InterpretationBox[
-              SubsuperscriptBox["k", 
-               StyleBox[
-                RowBox[{"ADK1_", "2", "_", "5"}],
-                StripOnInput->False,
-                ShowSyntaxStyles->False,
-                AutoSpacing->False,
-                ZeroWidthTimes->True,
-                LineColor->RGBColor[0, 0, 0],
-                FrontFaceColor->RGBColor[0, 0, 0],
-                BackFaceColor->RGBColor[0, 0, 0],
-                GraphicsColor->RGBColor[0, 0, 0],
-                FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
-              Toolbox`rateconst["ADK1_2_5", True],
-              Editable->False,
-              Selectable->False]}]}], ")"}], " ", 
-          InterpretationBox[
-           SubsuperscriptBox["k", 
-            StyleBox[
-             RowBox[{"ADK1_", "3", "_", "6"}],
-             StripOnInput->False,
-             ShowSyntaxStyles->False,
-             AutoSpacing->False,
-             ZeroWidthTimes->True,
-             LineColor->RGBColor[0, 0, 0],
-             FrontFaceColor->RGBColor[0, 0, 0],
-             BackFaceColor->RGBColor[0, 0, 0],
-             GraphicsColor->RGBColor[0, 0, 0],
-             FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
-           Toolbox`rateconst["ADK1_3_6", True],
-           Editable->False,
-           Selectable->False], " ", 
-          InterpretationBox[
-           SubsuperscriptBox["k", 
-            StyleBox["ADK17",
-             StripOnInput->False,
-             ShowSyntaxStyles->False,
-             AutoSpacing->False,
-             ZeroWidthTimes->True,
-             LineColor->RGBColor[0, 0, 0],
-             FrontFaceColor->RGBColor[0, 0, 0],
-             BackFaceColor->RGBColor[0, 0, 0],
-             GraphicsColor->RGBColor[0, 0, 0],
-             FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
-           Toolbox`rateconst["ADK17", True],
-           Editable->False,
-           Selectable->False]}], ")"}], "/", 
-        RowBox[{"(", 
-         RowBox[{
+         RowBox[{"FileNameJoin", "[", 
           RowBox[{
-           SuperscriptBox[
-            RowBox[{"(", 
-             InterpretationBox[
-              SubsuperscriptBox["k", 
-               StyleBox[
-                RowBox[{"ADK1_", "1", "_", "4"}],
-                StripOnInput->False,
-                ShowSyntaxStyles->False,
-                AutoSpacing->False,
-                ZeroWidthTimes->True,
-                LineColor->RGBColor[0, 0, 0],
-                FrontFaceColor->RGBColor[0, 0, 0],
-                BackFaceColor->RGBColor[0, 0, 0],
-                GraphicsColor->RGBColor[0, 0, 0],
-                FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
-              Toolbox`rateconst["ADK1_1_4", False],
-              Editable->False,
-              Selectable->False], ")"}], "2"], " ", 
-           RowBox[{"(", 
+           RowBox[{"{", 
             RowBox[{
-             InterpretationBox[
-              SubsuperscriptBox["k", 
-               StyleBox[
-                RowBox[{"ADK1_", "2", "_", "5"}],
-                StripOnInput->False,
-                ShowSyntaxStyles->False,
-                AutoSpacing->False,
-                ZeroWidthTimes->True,
-                LineColor->RGBColor[0, 0, 0],
-                FrontFaceColor->RGBColor[0, 0, 0],
-                BackFaceColor->RGBColor[0, 0, 0],
-                GraphicsColor->RGBColor[0, 0, 0],
-                FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
-              Toolbox`rateconst["ADK1_2_5", False],
-              Editable->False,
-              Selectable->False], "+", 
-             RowBox[{
-              InterpretationBox[
-               SuperscriptBox[
-                StyleBox["amp",
-                 StripOnInput->False,
-                 ShowSyntaxStyles->False,
-                 AutoSpacing->False,
-                 ZeroWidthTimes->True,
-                 LineColor->RGBColor[0, 0, 0],
-                 FrontFaceColor->RGBColor[0, 0, 0],
-                 BackFaceColor->RGBColor[0, 0, 0],
-                 GraphicsColor->RGBColor[0, 0, 0],
-                 FontColor->RGBColor[0, 0, 0]], 
-                StyleBox["c",
-                 StripOnInput->False,
-                 ShowSyntaxStyles->False,
-                 AutoSpacing->False,
-                 ZeroWidthTimes->True,
-                 LineColor->RGBColor[0, 0, 0],
-                 FrontFaceColor->RGBColor[0, 0, 0],
-                 BackFaceColor->RGBColor[0, 0, 0],
-                 GraphicsColor->RGBColor[0, 0, 0],
-                 FontColor->RGBColor[0, 0, 0]]],
-               Toolbox`metabolite["amp", "c"],
-               Editable->False,
-               Selectable->False], " ", 
-              InterpretationBox[
-               SubsuperscriptBox["k", 
-                StyleBox[
-                 RowBox[{"ADK1_", "2", "_", "5"}],
-                 StripOnInput->False,
-                 ShowSyntaxStyles->False,
-                 AutoSpacing->False,
-                 ZeroWidthTimes->True,
-                 LineColor->RGBColor[0, 0, 0],
-                 FrontFaceColor->RGBColor[0, 0, 0],
-                 BackFaceColor->RGBColor[0, 0, 0],
-                 GraphicsColor->RGBColor[0, 0, 0],
-                 FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
-               Toolbox`rateconst["ADK1_2_5", True],
-               Editable->False,
-               Selectable->False]}]}], ")"}], " ", 
-           RowBox[{"(", 
-            RowBox[{
-             InterpretationBox[
-              SubsuperscriptBox["k", 
-               StyleBox[
-                RowBox[{"ADK1_", "3", "_", "6"}],
-                StripOnInput->False,
-                ShowSyntaxStyles->False,
-                AutoSpacing->False,
-                ZeroWidthTimes->True,
-                LineColor->RGBColor[0, 0, 0],
-                FrontFaceColor->RGBColor[0, 0, 0],
-                BackFaceColor->RGBColor[0, 0, 0],
-                GraphicsColor->RGBColor[0, 0, 0],
-                FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
-              Toolbox`rateconst["ADK1_3_6", True],
-              Editable->False,
-              Selectable->False], "+", 
-             InterpretationBox[
-              SubsuperscriptBox["k", 
-               StyleBox["ADK17",
-                StripOnInput->False,
-                ShowSyntaxStyles->False,
-                AutoSpacing->False,
-                ZeroWidthTimes->True,
-                LineColor->RGBColor[0, 0, 0],
-                FrontFaceColor->RGBColor[0, 0, 0],
-                BackFaceColor->RGBColor[0, 0, 0],
-                GraphicsColor->RGBColor[0, 0, 0],
-                FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
-              Toolbox`rateconst["ADK17", False],
-              Editable->False,
-              Selectable->False]}], ")"}]}], "+", 
-          RowBox[{
-           InterpretationBox[
-            SuperscriptBox[
-             StyleBox["amp",
-              StripOnInput->False,
-              ShowSyntaxStyles->False,
-              AutoSpacing->False,
-              ZeroWidthTimes->True,
-              LineColor->RGBColor[0, 0, 0],
-              FrontFaceColor->RGBColor[0, 0, 0],
-              BackFaceColor->RGBColor[0, 0, 0],
-              GraphicsColor->RGBColor[0, 0, 0],
-              FontColor->RGBColor[0, 0, 0]], 
-             StyleBox["c",
-              StripOnInput->False,
-              ShowSyntaxStyles->False,
-              AutoSpacing->False,
-              ZeroWidthTimes->True,
-              LineColor->RGBColor[0, 0, 0],
-              FrontFaceColor->RGBColor[0, 0, 0],
-              BackFaceColor->RGBColor[0, 0, 0],
-              GraphicsColor->RGBColor[0, 0, 0],
-              FontColor->RGBColor[0, 0, 0]]],
-            Toolbox`metabolite["amp", "c"],
-            Editable->False,
-            Selectable->False], " ", 
-           InterpretationBox[
-            SubsuperscriptBox["k", 
-             StyleBox[
-              RowBox[{"ADK1_", "2", "_", "5"}],
-              StripOnInput->False,
-              ShowSyntaxStyles->False,
-              AutoSpacing->False,
-              ZeroWidthTimes->True,
-              LineColor->RGBColor[0, 0, 0],
-              FrontFaceColor->RGBColor[0, 0, 0],
-              BackFaceColor->RGBColor[0, 0, 0],
-              GraphicsColor->RGBColor[0, 0, 0],
-              FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
-            Toolbox`rateconst["ADK1_2_5", True],
-            Editable->False,
-            Selectable->False], " ", 
-           RowBox[{"(", 
-            RowBox[{
-             InterpretationBox[
-              SubsuperscriptBox["k", 
-               StyleBox[
-                RowBox[{"ADK1_", "2", "_", "5"}],
-                StripOnInput->False,
-                ShowSyntaxStyles->False,
-                AutoSpacing->False,
-                ZeroWidthTimes->True,
-                LineColor->RGBColor[0, 0, 0],
-                FrontFaceColor->RGBColor[0, 0, 0],
-                BackFaceColor->RGBColor[0, 0, 0],
-                GraphicsColor->RGBColor[0, 0, 0],
-                FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
-              Toolbox`rateconst["ADK1_2_5", False],
-              Editable->False,
-              Selectable->False], "+", 
-             RowBox[{
-              InterpretationBox[
-               SuperscriptBox[
-                StyleBox["amp",
-                 StripOnInput->False,
-                 ShowSyntaxStyles->False,
-                 AutoSpacing->False,
-                 ZeroWidthTimes->True,
-                 LineColor->RGBColor[0, 0, 0],
-                 FrontFaceColor->RGBColor[0, 0, 0],
-                 BackFaceColor->RGBColor[0, 0, 0],
-                 GraphicsColor->RGBColor[0, 0, 0],
-                 FontColor->RGBColor[0, 0, 0]], 
-                StyleBox["c",
-                 StripOnInput->False,
-                 ShowSyntaxStyles->False,
-                 AutoSpacing->False,
-                 ZeroWidthTimes->True,
-                 LineColor->RGBColor[0, 0, 0],
-                 FrontFaceColor->RGBColor[0, 0, 0],
-                 BackFaceColor->RGBColor[0, 0, 0],
-                 GraphicsColor->RGBColor[0, 0, 0],
-                 FontColor->RGBColor[0, 0, 0]]],
-               Toolbox`metabolite["amp", "c"],
-               Editable->False,
-               Selectable->False], " ", 
-              InterpretationBox[
-               SubsuperscriptBox["k", 
-                StyleBox[
-                 RowBox[{"ADK1_", "2", "_", "5"}],
-                 StripOnInput->False,
-                 ShowSyntaxStyles->False,
-                 AutoSpacing->False,
-                 ZeroWidthTimes->True,
-                 LineColor->RGBColor[0, 0, 0],
-                 FrontFaceColor->RGBColor[0, 0, 0],
-                 BackFaceColor->RGBColor[0, 0, 0],
-                 GraphicsColor->RGBColor[0, 0, 0],
-                 FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
-               Toolbox`rateconst["ADK1_2_5", True],
-               Editable->False,
-               Selectable->False]}]}], ")"}], " ", 
-           InterpretationBox[
-            SubsuperscriptBox["k", 
-             StyleBox[
-              RowBox[{"ADK1_", "3", "_", "6"}],
-              StripOnInput->False,
-              ShowSyntaxStyles->False,
-              AutoSpacing->False,
-              ZeroWidthTimes->True,
-              LineColor->RGBColor[0, 0, 0],
-              FrontFaceColor->RGBColor[0, 0, 0],
-              BackFaceColor->RGBColor[0, 0, 0],
-              GraphicsColor->RGBColor[0, 0, 0],
-              FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
-            Toolbox`rateconst["ADK1_3_6", True],
-            Editable->False,
-            Selectable->False], " ", 
-           InterpretationBox[
-            SubsuperscriptBox["k", 
-             StyleBox["ADK17",
-              StripOnInput->False,
-              ShowSyntaxStyles->False,
-              AutoSpacing->False,
-              ZeroWidthTimes->True,
-              LineColor->RGBColor[0, 0, 0],
-              FrontFaceColor->RGBColor[0, 0, 0],
-              BackFaceColor->RGBColor[0, 0, 0],
-              GraphicsColor->RGBColor[0, 0, 0],
-              FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
-            Toolbox`rateconst["ADK17", True],
-            Editable->False,
-            Selectable->False]}], "+", 
-          RowBox[{
-           SuperscriptBox[
-            RowBox[{"(", 
-             InterpretationBox[
-              SuperscriptBox[
-               StyleBox["atp",
-                StripOnInput->False,
-                ShowSyntaxStyles->False,
-                AutoSpacing->False,
-                ZeroWidthTimes->True,
-                LineColor->RGBColor[0, 0, 0],
-                FrontFaceColor->RGBColor[0, 0, 0],
-                BackFaceColor->RGBColor[0, 0, 0],
-                GraphicsColor->RGBColor[0, 0, 0],
-                FontColor->RGBColor[0, 0, 0]], 
-               StyleBox["c",
-                StripOnInput->False,
-                ShowSyntaxStyles->False,
-                AutoSpacing->False,
-                ZeroWidthTimes->True,
-                LineColor->RGBColor[0, 0, 0],
-                FrontFaceColor->RGBColor[0, 0, 0],
-                BackFaceColor->RGBColor[0, 0, 0],
-                GraphicsColor->RGBColor[0, 0, 0],
-                FontColor->RGBColor[0, 0, 0]]],
-              Toolbox`metabolite["atp", "c"],
-              Editable->False,
-              Selectable->False], ")"}], "2"], " ", 
-           SuperscriptBox[
-            RowBox[{"(", 
-             InterpretationBox[
-              SubsuperscriptBox["k", 
-               StyleBox[
-                RowBox[{"ADK1_", "1", "_", "4"}],
-                StripOnInput->False,
-                ShowSyntaxStyles->False,
-                AutoSpacing->False,
-                ZeroWidthTimes->True,
-                LineColor->RGBColor[0, 0, 0],
-                FrontFaceColor->RGBColor[0, 0, 0],
-                BackFaceColor->RGBColor[0, 0, 0],
-                GraphicsColor->RGBColor[0, 0, 0],
-                FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
-              Toolbox`rateconst["ADK1_1_4", True],
-              Editable->False,
-              Selectable->False], ")"}], "2"], " ", 
-           RowBox[{"(", 
-            RowBox[{
-             RowBox[{
-              InterpretationBox[
-               SubsuperscriptBox["k", 
-                StyleBox[
-                 RowBox[{"ADK1_", "2", "_", "5"}],
-                 StripOnInput->False,
-                 ShowSyntaxStyles->False,
-                 AutoSpacing->False,
-                 ZeroWidthTimes->True,
-                 LineColor->RGBColor[0, 0, 0],
-                 FrontFaceColor->RGBColor[0, 0, 0],
-                 BackFaceColor->RGBColor[0, 0, 0],
-                 GraphicsColor->RGBColor[0, 0, 0],
-                 FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
-               Toolbox`rateconst["ADK1_2_5", False],
-               Editable->False,
-               Selectable->False], " ", 
-              RowBox[{"(", 
-               RowBox[{
-                InterpretationBox[
-                 SubsuperscriptBox["k", 
-                  StyleBox[
-                   RowBox[{"ADK1_", "3", "_", "6"}],
-                   StripOnInput->False,
-                   ShowSyntaxStyles->False,
-                   AutoSpacing->False,
-                   ZeroWidthTimes->True,
-                   LineColor->RGBColor[0, 0, 0],
-                   FrontFaceColor->RGBColor[0, 0, 0],
-                   BackFaceColor->RGBColor[0, 0, 0],
-                   GraphicsColor->RGBColor[0, 0, 0],
-                   FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
-                 Toolbox`rateconst["ADK1_3_6", True],
-                 Editable->False,
-                 Selectable->False], "+", 
-                InterpretationBox[
-                 SubsuperscriptBox["k", 
-                  StyleBox["ADK17",
-                   StripOnInput->False,
-                   ShowSyntaxStyles->False,
-                   AutoSpacing->False,
-                   ZeroWidthTimes->True,
-                   LineColor->RGBColor[0, 0, 0],
-                   FrontFaceColor->RGBColor[0, 0, 0],
-                   BackFaceColor->RGBColor[0, 0, 0],
-                   GraphicsColor->RGBColor[0, 0, 0],
-                   FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
-                 Toolbox`rateconst["ADK17", False],
-                 Editable->False,
-                 Selectable->False]}], ")"}]}], "+", 
-             RowBox[{
-              InterpretationBox[
-               SubsuperscriptBox["k", 
-                StyleBox[
-                 RowBox[{"ADK1_", "3", "_", "6"}],
-                 StripOnInput->False,
-                 ShowSyntaxStyles->False,
-                 AutoSpacing->False,
-                 ZeroWidthTimes->True,
-                 LineColor->RGBColor[0, 0, 0],
-                 FrontFaceColor->RGBColor[0, 0, 0],
-                 BackFaceColor->RGBColor[0, 0, 0],
-                 GraphicsColor->RGBColor[0, 0, 0],
-                 FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
-               Toolbox`rateconst["ADK1_3_6", True],
-               Editable->False,
-               Selectable->False], " ", 
-              InterpretationBox[
-               SubsuperscriptBox["k", 
-                StyleBox["ADK17",
-                 StripOnInput->False,
-                 ShowSyntaxStyles->False,
-                 AutoSpacing->False,
-                 ZeroWidthTimes->True,
-                 LineColor->RGBColor[0, 0, 0],
-                 FrontFaceColor->RGBColor[0, 0, 0],
-                 BackFaceColor->RGBColor[0, 0, 0],
-                 GraphicsColor->RGBColor[0, 0, 0],
-                 FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
-               Toolbox`rateconst["ADK17", True],
-               Editable->False,
-               Selectable->False]}], "+", 
-             RowBox[{
-              InterpretationBox[
-               SuperscriptBox[
-                StyleBox["amp",
-                 StripOnInput->False,
-                 ShowSyntaxStyles->False,
-                 AutoSpacing->False,
-                 ZeroWidthTimes->True,
-                 LineColor->RGBColor[0, 0, 0],
-                 FrontFaceColor->RGBColor[0, 0, 0],
-                 BackFaceColor->RGBColor[0, 0, 0],
-                 GraphicsColor->RGBColor[0, 0, 0],
-                 FontColor->RGBColor[0, 0, 0]], 
-                StyleBox["c",
-                 StripOnInput->False,
-                 ShowSyntaxStyles->False,
-                 AutoSpacing->False,
-                 ZeroWidthTimes->True,
-                 LineColor->RGBColor[0, 0, 0],
-                 FrontFaceColor->RGBColor[0, 0, 0],
-                 BackFaceColor->RGBColor[0, 0, 0],
-                 GraphicsColor->RGBColor[0, 0, 0],
-                 FontColor->RGBColor[0, 0, 0]]],
-               Toolbox`metabolite["amp", "c"],
-               Editable->False,
-               Selectable->False], " ", 
-              InterpretationBox[
-               SubsuperscriptBox["k", 
-                StyleBox[
-                 RowBox[{"ADK1_", "2", "_", "5"}],
-                 StripOnInput->False,
-                 ShowSyntaxStyles->False,
-                 AutoSpacing->False,
-                 ZeroWidthTimes->True,
-                 LineColor->RGBColor[0, 0, 0],
-                 FrontFaceColor->RGBColor[0, 0, 0],
-                 BackFaceColor->RGBColor[0, 0, 0],
-                 GraphicsColor->RGBColor[0, 0, 0],
-                 FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
-               Toolbox`rateconst["ADK1_2_5", True],
-               Editable->False,
-               Selectable->False], " ", 
-              RowBox[{"(", 
-               RowBox[{
-                InterpretationBox[
-                 SubsuperscriptBox["k", 
-                  StyleBox[
-                   RowBox[{"ADK1_", "3", "_", "6"}],
-                   StripOnInput->False,
-                   ShowSyntaxStyles->False,
-                   AutoSpacing->False,
-                   ZeroWidthTimes->True,
-                   LineColor->RGBColor[0, 0, 0],
-                   FrontFaceColor->RGBColor[0, 0, 0],
-                   BackFaceColor->RGBColor[0, 0, 0],
-                   GraphicsColor->RGBColor[0, 0, 0],
-                   FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
-                 Toolbox`rateconst["ADK1_3_6", True],
-                 Editable->False,
-                 Selectable->False], "+", 
-                InterpretationBox[
-                 SubsuperscriptBox["k", 
-                  StyleBox["ADK17",
-                   StripOnInput->False,
-                   ShowSyntaxStyles->False,
-                   AutoSpacing->False,
-                   ZeroWidthTimes->True,
-                   LineColor->RGBColor[0, 0, 0],
-                   FrontFaceColor->RGBColor[0, 0, 0],
-                   BackFaceColor->RGBColor[0, 0, 0],
-                   GraphicsColor->RGBColor[0, 0, 0],
-                   FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
-                 Toolbox`rateconst["ADK17", False],
-                 Editable->False,
-                 Selectable->False], "+", 
-                RowBox[{"2", " ", 
-                 InterpretationBox[
-                  SubsuperscriptBox["k", 
-                   StyleBox["ADK17",
-                    StripOnInput->False,
-                    ShowSyntaxStyles->False,
-                    AutoSpacing->False,
-                    ZeroWidthTimes->True,
-                    LineColor->RGBColor[0, 0, 0],
-                    FrontFaceColor->RGBColor[0, 0, 0],
-                    BackFaceColor->RGBColor[0, 0, 0],
-                    GraphicsColor->RGBColor[0, 0, 0],
-                    FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
-                  Toolbox`rateconst["ADK17", True],
-                  Editable->False,
-                  Selectable->False]}]}], ")"}]}]}], ")"}]}], "+", 
-          RowBox[{
-           InterpretationBox[
-            SuperscriptBox[
-             StyleBox["atp",
-              StripOnInput->False,
-              ShowSyntaxStyles->False,
-              AutoSpacing->False,
-              ZeroWidthTimes->True,
-              LineColor->RGBColor[0, 0, 0],
-              FrontFaceColor->RGBColor[0, 0, 0],
-              BackFaceColor->RGBColor[0, 0, 0],
-              GraphicsColor->RGBColor[0, 0, 0],
-              FontColor->RGBColor[0, 0, 0]], 
-             StyleBox["c",
-              StripOnInput->False,
-              ShowSyntaxStyles->False,
-              AutoSpacing->False,
-              ZeroWidthTimes->True,
-              LineColor->RGBColor[0, 0, 0],
-              FrontFaceColor->RGBColor[0, 0, 0],
-              BackFaceColor->RGBColor[0, 0, 0],
-              GraphicsColor->RGBColor[0, 0, 0],
-              FontColor->RGBColor[0, 0, 0]]],
-            Toolbox`metabolite["atp", "c"],
-            Editable->False,
-            Selectable->False], " ", 
-           InterpretationBox[
-            SubsuperscriptBox["k", 
-             StyleBox[
-              RowBox[{"ADK1_", "1", "_", "4"}],
-              StripOnInput->False,
-              ShowSyntaxStyles->False,
-              AutoSpacing->False,
-              ZeroWidthTimes->True,
-              LineColor->RGBColor[0, 0, 0],
-              FrontFaceColor->RGBColor[0, 0, 0],
-              BackFaceColor->RGBColor[0, 0, 0],
-              GraphicsColor->RGBColor[0, 0, 0],
-              FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
-            Toolbox`rateconst["ADK1_1_4", True],
-            Editable->False,
-            Selectable->False], " ", 
-           RowBox[{"(", 
-            RowBox[{
-             InterpretationBox[
-              SubsuperscriptBox["k", 
-               StyleBox[
-                RowBox[{"ADK1_", "2", "_", "5"}],
-                StripOnInput->False,
-                ShowSyntaxStyles->False,
-                AutoSpacing->False,
-                ZeroWidthTimes->True,
-                LineColor->RGBColor[0, 0, 0],
-                FrontFaceColor->RGBColor[0, 0, 0],
-                BackFaceColor->RGBColor[0, 0, 0],
-                GraphicsColor->RGBColor[0, 0, 0],
-                FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
-              Toolbox`rateconst["ADK1_2_5", False],
-              Editable->False,
-              Selectable->False], "+", 
-             RowBox[{
-              InterpretationBox[
-               SuperscriptBox[
-                StyleBox["amp",
-                 StripOnInput->False,
-                 ShowSyntaxStyles->False,
-                 AutoSpacing->False,
-                 ZeroWidthTimes->True,
-                 LineColor->RGBColor[0, 0, 0],
-                 FrontFaceColor->RGBColor[0, 0, 0],
-                 BackFaceColor->RGBColor[0, 0, 0],
-                 GraphicsColor->RGBColor[0, 0, 0],
-                 FontColor->RGBColor[0, 0, 0]], 
-                StyleBox["c",
-                 StripOnInput->False,
-                 ShowSyntaxStyles->False,
-                 AutoSpacing->False,
-                 ZeroWidthTimes->True,
-                 LineColor->RGBColor[0, 0, 0],
-                 FrontFaceColor->RGBColor[0, 0, 0],
-                 BackFaceColor->RGBColor[0, 0, 0],
-                 GraphicsColor->RGBColor[0, 0, 0],
-                 FontColor->RGBColor[0, 0, 0]]],
-               Toolbox`metabolite["amp", "c"],
-               Editable->False,
-               Selectable->False], " ", 
-              InterpretationBox[
-               SubsuperscriptBox["k", 
-                StyleBox[
-                 RowBox[{"ADK1_", "2", "_", "5"}],
-                 StripOnInput->False,
-                 ShowSyntaxStyles->False,
-                 AutoSpacing->False,
-                 ZeroWidthTimes->True,
-                 LineColor->RGBColor[0, 0, 0],
-                 FrontFaceColor->RGBColor[0, 0, 0],
-                 BackFaceColor->RGBColor[0, 0, 0],
-                 GraphicsColor->RGBColor[0, 0, 0],
-                 FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
-               Toolbox`rateconst["ADK1_2_5", True],
-               Editable->False,
-               Selectable->False]}]}], ")"}], " ", 
-           RowBox[{"(", 
-            RowBox[{
-             RowBox[{
-              InterpretationBox[
-               SubsuperscriptBox["k", 
-                StyleBox[
-                 RowBox[{"ADK1_", "2", "_", "5"}],
-                 StripOnInput->False,
-                 ShowSyntaxStyles->False,
-                 AutoSpacing->False,
-                 ZeroWidthTimes->True,
-                 LineColor->RGBColor[0, 0, 0],
-                 FrontFaceColor->RGBColor[0, 0, 0],
-                 BackFaceColor->RGBColor[0, 0, 0],
-                 GraphicsColor->RGBColor[0, 0, 0],
-                 FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
-               Toolbox`rateconst["ADK1_2_5", False],
-               Editable->False,
-               Selectable->False], " ", 
-              RowBox[{"(", 
-               RowBox[{
-                InterpretationBox[
-                 SubsuperscriptBox["k", 
-                  StyleBox[
-                   RowBox[{"ADK1_", "3", "_", "6"}],
-                   StripOnInput->False,
-                   ShowSyntaxStyles->False,
-                   AutoSpacing->False,
-                   ZeroWidthTimes->True,
-                   LineColor->RGBColor[0, 0, 0],
-                   FrontFaceColor->RGBColor[0, 0, 0],
-                   BackFaceColor->RGBColor[0, 0, 0],
-                   GraphicsColor->RGBColor[0, 0, 0],
-                   FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
-                 Toolbox`rateconst["ADK1_3_6", True],
-                 Editable->False,
-                 Selectable->False], "+", 
-                InterpretationBox[
-                 SubsuperscriptBox["k", 
-                  StyleBox["ADK17",
-                   StripOnInput->False,
-                   ShowSyntaxStyles->False,
-                   AutoSpacing->False,
-                   ZeroWidthTimes->True,
-                   LineColor->RGBColor[0, 0, 0],
-                   FrontFaceColor->RGBColor[0, 0, 0],
-                   BackFaceColor->RGBColor[0, 0, 0],
-                   GraphicsColor->RGBColor[0, 0, 0],
-                   FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
-                 Toolbox`rateconst["ADK17", False],
-                 Editable->False,
-                 Selectable->False]}], ")"}]}], "+", 
-             RowBox[{
-              InterpretationBox[
-               SubsuperscriptBox["k", 
-                StyleBox[
-                 RowBox[{"ADK1_", "3", "_", "6"}],
-                 StripOnInput->False,
-                 ShowSyntaxStyles->False,
-                 AutoSpacing->False,
-                 ZeroWidthTimes->True,
-                 LineColor->RGBColor[0, 0, 0],
-                 FrontFaceColor->RGBColor[0, 0, 0],
-                 BackFaceColor->RGBColor[0, 0, 0],
-                 GraphicsColor->RGBColor[0, 0, 0],
-                 FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
-               Toolbox`rateconst["ADK1_3_6", True],
-               Editable->False,
-               Selectable->False], " ", 
-              InterpretationBox[
-               SubsuperscriptBox["k", 
-                StyleBox["ADK17",
-                 StripOnInput->False,
-                 ShowSyntaxStyles->False,
-                 AutoSpacing->False,
-                 ZeroWidthTimes->True,
-                 LineColor->RGBColor[0, 0, 0],
-                 FrontFaceColor->RGBColor[0, 0, 0],
-                 BackFaceColor->RGBColor[0, 0, 0],
-                 GraphicsColor->RGBColor[0, 0, 0],
-                 FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
-               Toolbox`rateconst["ADK17", True],
-               Editable->False,
-               Selectable->False]}], "+", 
-             RowBox[{
-              InterpretationBox[
-               SuperscriptBox[
-                StyleBox["amp",
-                 StripOnInput->False,
-                 ShowSyntaxStyles->False,
-                 AutoSpacing->False,
-                 ZeroWidthTimes->True,
-                 LineColor->RGBColor[0, 0, 0],
-                 FrontFaceColor->RGBColor[0, 0, 0],
-                 BackFaceColor->RGBColor[0, 0, 0],
-                 GraphicsColor->RGBColor[0, 0, 0],
-                 FontColor->RGBColor[0, 0, 0]], 
-                StyleBox["c",
-                 StripOnInput->False,
-                 ShowSyntaxStyles->False,
-                 AutoSpacing->False,
-                 ZeroWidthTimes->True,
-                 LineColor->RGBColor[0, 0, 0],
-                 FrontFaceColor->RGBColor[0, 0, 0],
-                 BackFaceColor->RGBColor[0, 0, 0],
-                 GraphicsColor->RGBColor[0, 0, 0],
-                 FontColor->RGBColor[0, 0, 0]]],
-               Toolbox`metabolite["amp", "c"],
-               Editable->False,
-               Selectable->False], " ", 
-              InterpretationBox[
-               SubsuperscriptBox["k", 
-                StyleBox[
-                 RowBox[{"ADK1_", "2", "_", "5"}],
-                 StripOnInput->False,
-                 ShowSyntaxStyles->False,
-                 AutoSpacing->False,
-                 ZeroWidthTimes->True,
-                 LineColor->RGBColor[0, 0, 0],
-                 FrontFaceColor->RGBColor[0, 0, 0],
-                 BackFaceColor->RGBColor[0, 0, 0],
-                 GraphicsColor->RGBColor[0, 0, 0],
-                 FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
-               Toolbox`rateconst["ADK1_2_5", True],
-               Editable->False,
-               Selectable->False], " ", 
-              RowBox[{"(", 
-               RowBox[{
-                InterpretationBox[
-                 SubsuperscriptBox["k", 
-                  StyleBox[
-                   RowBox[{"ADK1_", "3", "_", "6"}],
-                   StripOnInput->False,
-                   ShowSyntaxStyles->False,
-                   AutoSpacing->False,
-                   ZeroWidthTimes->True,
-                   LineColor->RGBColor[0, 0, 0],
-                   FrontFaceColor->RGBColor[0, 0, 0],
-                   BackFaceColor->RGBColor[0, 0, 0],
-                   GraphicsColor->RGBColor[0, 0, 0],
-                   FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
-                 Toolbox`rateconst["ADK1_3_6", True],
-                 Editable->False,
-                 Selectable->False], "+", 
-                InterpretationBox[
-                 SubsuperscriptBox["k", 
-                  StyleBox["ADK17",
-                   StripOnInput->False,
-                   ShowSyntaxStyles->False,
-                   AutoSpacing->False,
-                   ZeroWidthTimes->True,
-                   LineColor->RGBColor[0, 0, 0],
-                   FrontFaceColor->RGBColor[0, 0, 0],
-                   BackFaceColor->RGBColor[0, 0, 0],
-                   GraphicsColor->RGBColor[0, 0, 0],
-                   FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
-                 Toolbox`rateconst["ADK17", False],
-                 Editable->False,
-                 Selectable->False], "+", 
-                RowBox[{"2", " ", 
-                 InterpretationBox[
-                  SubsuperscriptBox["k", 
-                   StyleBox["ADK17",
-                    StripOnInput->False,
-                    ShowSyntaxStyles->False,
-                    AutoSpacing->False,
-                    ZeroWidthTimes->True,
-                    LineColor->RGBColor[0, 0, 0],
-                    FrontFaceColor->RGBColor[0, 0, 0],
-                    BackFaceColor->RGBColor[0, 0, 0],
-                    GraphicsColor->RGBColor[0, 0, 0],
-                    FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
-                  Toolbox`rateconst["ADK17", True],
-                  Editable->False,
-                  Selectable->False]}]}], ")"}]}]}], ")"}]}], "+", 
-          RowBox[{
-           InterpretationBox[
-            SubsuperscriptBox["k", 
-             StyleBox[
-              RowBox[{"ADK1_", "1", "_", "4"}],
-              StripOnInput->False,
-              ShowSyntaxStyles->False,
-              AutoSpacing->False,
-              ZeroWidthTimes->True,
-              LineColor->RGBColor[0, 0, 0],
-              FrontFaceColor->RGBColor[0, 0, 0],
-              BackFaceColor->RGBColor[0, 0, 0],
-              GraphicsColor->RGBColor[0, 0, 0],
-              FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
-            Toolbox`rateconst["ADK1_1_4", False],
-            Editable->False,
-            Selectable->False], " ", 
-           RowBox[{"(", 
-            RowBox[{
-             RowBox[{
-              RowBox[{"(", 
-               RowBox[{
-                InterpretationBox[
-                 SubsuperscriptBox["k", 
-                  StyleBox[
-                   RowBox[{"ADK1_", "2", "_", "5"}],
-                   StripOnInput->False,
-                   ShowSyntaxStyles->False,
-                   AutoSpacing->False,
-                   ZeroWidthTimes->True,
-                   LineColor->RGBColor[0, 0, 0],
-                   FrontFaceColor->RGBColor[0, 0, 0],
-                   BackFaceColor->RGBColor[0, 0, 0],
-                   GraphicsColor->RGBColor[0, 0, 0],
-                   FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
-                 Toolbox`rateconst["ADK1_2_5", False],
-                 Editable->False,
-                 Selectable->False], "+", 
-                RowBox[{
-                 InterpretationBox[
-                  SuperscriptBox[
-                   StyleBox["amp",
-                    StripOnInput->False,
-                    ShowSyntaxStyles->False,
-                    AutoSpacing->False,
-                    ZeroWidthTimes->True,
-                    LineColor->RGBColor[0, 0, 0],
-                    FrontFaceColor->RGBColor[0, 0, 0],
-                    BackFaceColor->RGBColor[0, 0, 0],
-                    GraphicsColor->RGBColor[0, 0, 0],
-                    FontColor->RGBColor[0, 0, 0]], 
-                   StyleBox["c",
-                    StripOnInput->False,
-                    ShowSyntaxStyles->False,
-                    AutoSpacing->False,
-                    ZeroWidthTimes->True,
-                    LineColor->RGBColor[0, 0, 0],
-                    FrontFaceColor->RGBColor[0, 0, 0],
-                    BackFaceColor->RGBColor[0, 0, 0],
-                    GraphicsColor->RGBColor[0, 0, 0],
-                    FontColor->RGBColor[0, 0, 0]]],
-                  Toolbox`metabolite["amp", "c"],
-                  Editable->False,
-                  Selectable->False], " ", 
-                 InterpretationBox[
-                  SubsuperscriptBox["k", 
-                   StyleBox[
-                    RowBox[{"ADK1_", "2", "_", "5"}],
-                    StripOnInput->False,
-                    ShowSyntaxStyles->False,
-                    AutoSpacing->False,
-                    ZeroWidthTimes->True,
-                    LineColor->RGBColor[0, 0, 0],
-                    FrontFaceColor->RGBColor[0, 0, 0],
-                    BackFaceColor->RGBColor[0, 0, 0],
-                    GraphicsColor->RGBColor[0, 0, 0],
-                    FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
-                  Toolbox`rateconst["ADK1_2_5", True],
-                  Editable->False,
-                  Selectable->False]}]}], ")"}], " ", 
-              RowBox[{"(", 
-               RowBox[{
-                RowBox[{
-                 InterpretationBox[
-                  SubsuperscriptBox["k", 
-                   StyleBox[
-                    RowBox[{"ADK1_", "2", "_", "5"}],
-                    StripOnInput->False,
-                    ShowSyntaxStyles->False,
-                    AutoSpacing->False,
-                    ZeroWidthTimes->True,
-                    LineColor->RGBColor[0, 0, 0],
-                    FrontFaceColor->RGBColor[0, 0, 0],
-                    BackFaceColor->RGBColor[0, 0, 0],
-                    GraphicsColor->RGBColor[0, 0, 0],
-                    FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
-                  Toolbox`rateconst["ADK1_2_5", False],
-                  Editable->False,
-                  Selectable->False], " ", 
-                 RowBox[{"(", 
-                  RowBox[{
-                   InterpretationBox[
-                    SubsuperscriptBox["k", 
-                    StyleBox[
-                    RowBox[{"ADK1_", "3", "_", "6"}],
-                    StripOnInput->False,
-                    ShowSyntaxStyles->False,
-                    AutoSpacing->False,
-                    ZeroWidthTimes->True,
-                    LineColor->RGBColor[0, 0, 0],
-                    FrontFaceColor->RGBColor[0, 0, 0],
-                    BackFaceColor->RGBColor[0, 0, 0],
-                    GraphicsColor->RGBColor[0, 0, 0],
-                    FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
-                    Toolbox`rateconst["ADK1_3_6", True],
-                    Editable->False,
-                    Selectable->False], "+", 
-                   InterpretationBox[
-                    SubsuperscriptBox["k", 
-                    StyleBox["ADK17",
-                    StripOnInput->False,
-                    ShowSyntaxStyles->False,
-                    AutoSpacing->False,
-                    ZeroWidthTimes->True,
-                    LineColor->RGBColor[0, 0, 0],
-                    FrontFaceColor->RGBColor[0, 0, 0],
-                    BackFaceColor->RGBColor[0, 0, 0],
-                    GraphicsColor->RGBColor[0, 0, 0],
-                    FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
-                    Toolbox`rateconst["ADK17", False],
-                    Editable->False,
-                    Selectable->False]}], ")"}]}], "+", 
-                RowBox[{
-                 InterpretationBox[
-                  SuperscriptBox[
-                   StyleBox["amp",
-                    StripOnInput->False,
-                    ShowSyntaxStyles->False,
-                    AutoSpacing->False,
-                    ZeroWidthTimes->True,
-                    LineColor->RGBColor[0, 0, 0],
-                    FrontFaceColor->RGBColor[0, 0, 0],
-                    BackFaceColor->RGBColor[0, 0, 0],
-                    GraphicsColor->RGBColor[0, 0, 0],
-                    FontColor->RGBColor[0, 0, 0]], 
-                   StyleBox["c",
-                    StripOnInput->False,
-                    ShowSyntaxStyles->False,
-                    AutoSpacing->False,
-                    ZeroWidthTimes->True,
-                    LineColor->RGBColor[0, 0, 0],
-                    FrontFaceColor->RGBColor[0, 0, 0],
-                    BackFaceColor->RGBColor[0, 0, 0],
-                    GraphicsColor->RGBColor[0, 0, 0],
-                    FontColor->RGBColor[0, 0, 0]]],
-                  Toolbox`metabolite["amp", "c"],
-                  Editable->False,
-                  Selectable->False], " ", 
-                 InterpretationBox[
-                  SubsuperscriptBox["k", 
-                   StyleBox[
-                    RowBox[{"ADK1_", "2", "_", "5"}],
-                    StripOnInput->False,
-                    ShowSyntaxStyles->False,
-                    AutoSpacing->False,
-                    ZeroWidthTimes->True,
-                    LineColor->RGBColor[0, 0, 0],
-                    FrontFaceColor->RGBColor[0, 0, 0],
-                    BackFaceColor->RGBColor[0, 0, 0],
-                    GraphicsColor->RGBColor[0, 0, 0],
-                    FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
-                  Toolbox`rateconst["ADK1_2_5", True],
-                  Editable->False,
-                  Selectable->False], " ", 
-                 RowBox[{"(", 
-                  RowBox[{
-                   InterpretationBox[
-                    SubsuperscriptBox["k", 
-                    StyleBox[
-                    RowBox[{"ADK1_", "3", "_", "6"}],
-                    StripOnInput->False,
-                    ShowSyntaxStyles->False,
-                    AutoSpacing->False,
-                    ZeroWidthTimes->True,
-                    LineColor->RGBColor[0, 0, 0],
-                    FrontFaceColor->RGBColor[0, 0, 0],
-                    BackFaceColor->RGBColor[0, 0, 0],
-                    GraphicsColor->RGBColor[0, 0, 0],
-                    FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
-                    Toolbox`rateconst["ADK1_3_6", True],
-                    Editable->False,
-                    Selectable->False], "+", 
-                   InterpretationBox[
-                    SubsuperscriptBox["k", 
-                    StyleBox["ADK17",
-                    StripOnInput->False,
-                    ShowSyntaxStyles->False,
-                    AutoSpacing->False,
-                    ZeroWidthTimes->True,
-                    LineColor->RGBColor[0, 0, 0],
-                    FrontFaceColor->RGBColor[0, 0, 0],
-                    BackFaceColor->RGBColor[0, 0, 0],
-                    GraphicsColor->RGBColor[0, 0, 0],
-                    FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
-                    Toolbox`rateconst["ADK17", False],
-                    Editable->False,
-                    Selectable->False]}], ")"}]}], "+", 
-                RowBox[{
-                 InterpretationBox[
-                  SubsuperscriptBox["k", 
-                   StyleBox[
-                    RowBox[{"ADK1_", "3", "_", "6"}],
-                    StripOnInput->False,
-                    ShowSyntaxStyles->False,
-                    AutoSpacing->False,
-                    ZeroWidthTimes->True,
-                    LineColor->RGBColor[0, 0, 0],
-                    FrontFaceColor->RGBColor[0, 0, 0],
-                    BackFaceColor->RGBColor[0, 0, 0],
-                    GraphicsColor->RGBColor[0, 0, 0],
-                    FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
-                  Toolbox`rateconst["ADK1_3_6", True],
-                  Editable->False,
-                  Selectable->False], " ", 
-                 InterpretationBox[
-                  SubsuperscriptBox["k", 
-                   StyleBox["ADK17",
-                    StripOnInput->False,
-                    ShowSyntaxStyles->False,
-                    AutoSpacing->False,
-                    ZeroWidthTimes->True,
-                    LineColor->RGBColor[0, 0, 0],
-                    FrontFaceColor->RGBColor[0, 0, 0],
-                    BackFaceColor->RGBColor[0, 0, 0],
-                    GraphicsColor->RGBColor[0, 0, 0],
-                    FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
-                  Toolbox`rateconst["ADK17", True],
-                  Editable->False,
-                  Selectable->False]}]}], ")"}]}], "+", 
-             RowBox[{
-              InterpretationBox[
-               SuperscriptBox[
-                StyleBox["atp",
-                 StripOnInput->False,
-                 ShowSyntaxStyles->False,
-                 AutoSpacing->False,
-                 ZeroWidthTimes->True,
-                 LineColor->RGBColor[0, 0, 0],
-                 FrontFaceColor->RGBColor[0, 0, 0],
-                 BackFaceColor->RGBColor[0, 0, 0],
-                 GraphicsColor->RGBColor[0, 0, 0],
-                 FontColor->RGBColor[0, 0, 0]], 
-                StyleBox["c",
-                 StripOnInput->False,
-                 ShowSyntaxStyles->False,
-                 AutoSpacing->False,
-                 ZeroWidthTimes->True,
-                 LineColor->RGBColor[0, 0, 0],
-                 FrontFaceColor->RGBColor[0, 0, 0],
-                 BackFaceColor->RGBColor[0, 0, 0],
-                 GraphicsColor->RGBColor[0, 0, 0],
-                 FontColor->RGBColor[0, 0, 0]]],
-               Toolbox`metabolite["atp", "c"],
-               Editable->False,
-               Selectable->False], " ", 
-              InterpretationBox[
-               SubsuperscriptBox["k", 
-                StyleBox[
-                 RowBox[{"ADK1_", "1", "_", "4"}],
-                 StripOnInput->False,
-                 ShowSyntaxStyles->False,
-                 AutoSpacing->False,
-                 ZeroWidthTimes->True,
-                 LineColor->RGBColor[0, 0, 0],
-                 FrontFaceColor->RGBColor[0, 0, 0],
-                 BackFaceColor->RGBColor[0, 0, 0],
-                 GraphicsColor->RGBColor[0, 0, 0],
-                 FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
-               Toolbox`rateconst["ADK1_1_4", True],
-               Editable->False,
-               Selectable->False], " ", 
-              RowBox[{"(", 
-               RowBox[{
-                RowBox[{"2", " ", 
-                 InterpretationBox[
-                  SubsuperscriptBox["k", 
-                   StyleBox[
-                    RowBox[{"ADK1_", "2", "_", "5"}],
-                    StripOnInput->False,
-                    ShowSyntaxStyles->False,
-                    AutoSpacing->False,
-                    ZeroWidthTimes->True,
-                    LineColor->RGBColor[0, 0, 0],
-                    FrontFaceColor->RGBColor[0, 0, 0],
-                    BackFaceColor->RGBColor[0, 0, 0],
-                    GraphicsColor->RGBColor[0, 0, 0],
-                    FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
-                  Toolbox`rateconst["ADK1_2_5", False],
-                  Editable->False,
-                  Selectable->False], " ", 
-                 RowBox[{"(", 
-                  RowBox[{
-                   InterpretationBox[
-                    SubsuperscriptBox["k", 
-                    StyleBox[
-                    RowBox[{"ADK1_", "3", "_", "6"}],
-                    StripOnInput->False,
-                    ShowSyntaxStyles->False,
-                    AutoSpacing->False,
-                    ZeroWidthTimes->True,
-                    LineColor->RGBColor[0, 0, 0],
-                    FrontFaceColor->RGBColor[0, 0, 0],
-                    BackFaceColor->RGBColor[0, 0, 0],
-                    GraphicsColor->RGBColor[0, 0, 0],
-                    FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
-                    Toolbox`rateconst["ADK1_3_6", True],
-                    Editable->False,
-                    Selectable->False], "+", 
-                   InterpretationBox[
-                    SubsuperscriptBox["k", 
-                    StyleBox["ADK17",
-                    StripOnInput->False,
-                    ShowSyntaxStyles->False,
-                    AutoSpacing->False,
-                    ZeroWidthTimes->True,
-                    LineColor->RGBColor[0, 0, 0],
-                    FrontFaceColor->RGBColor[0, 0, 0],
-                    BackFaceColor->RGBColor[0, 0, 0],
-                    GraphicsColor->RGBColor[0, 0, 0],
-                    FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
-                    Toolbox`rateconst["ADK17", False],
-                    Editable->False,
-                    Selectable->False]}], ")"}]}], "+", 
-                RowBox[{
-                 InterpretationBox[
-                  SubsuperscriptBox["k", 
-                   StyleBox[
-                    RowBox[{"ADK1_", "3", "_", "6"}],
-                    StripOnInput->False,
-                    ShowSyntaxStyles->False,
-                    AutoSpacing->False,
-                    ZeroWidthTimes->True,
-                    LineColor->RGBColor[0, 0, 0],
-                    FrontFaceColor->RGBColor[0, 0, 0],
-                    BackFaceColor->RGBColor[0, 0, 0],
-                    GraphicsColor->RGBColor[0, 0, 0],
-                    FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
-                  Toolbox`rateconst["ADK1_3_6", True],
-                  Editable->False,
-                  Selectable->False], " ", 
-                 InterpretationBox[
-                  SubsuperscriptBox["k", 
-                   StyleBox["ADK17",
-                    StripOnInput->False,
-                    ShowSyntaxStyles->False,
-                    AutoSpacing->False,
-                    ZeroWidthTimes->True,
-                    LineColor->RGBColor[0, 0, 0],
-                    FrontFaceColor->RGBColor[0, 0, 0],
-                    BackFaceColor->RGBColor[0, 0, 0],
-                    GraphicsColor->RGBColor[0, 0, 0],
-                    FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
-                  Toolbox`rateconst["ADK17", True],
-                  Editable->False,
-                  Selectable->False]}], "+", 
-                RowBox[{"2", " ", 
-                 InterpretationBox[
-                  SuperscriptBox[
-                   StyleBox["amp",
-                    StripOnInput->False,
-                    ShowSyntaxStyles->False,
-                    AutoSpacing->False,
-                    ZeroWidthTimes->True,
-                    LineColor->RGBColor[0, 0, 0],
-                    FrontFaceColor->RGBColor[0, 0, 0],
-                    BackFaceColor->RGBColor[0, 0, 0],
-                    GraphicsColor->RGBColor[0, 0, 0],
-                    FontColor->RGBColor[0, 0, 0]], 
-                   StyleBox["c",
-                    StripOnInput->False,
-                    ShowSyntaxStyles->False,
-                    AutoSpacing->False,
-                    ZeroWidthTimes->True,
-                    LineColor->RGBColor[0, 0, 0],
-                    FrontFaceColor->RGBColor[0, 0, 0],
-                    BackFaceColor->RGBColor[0, 0, 0],
-                    GraphicsColor->RGBColor[0, 0, 0],
-                    FontColor->RGBColor[0, 0, 0]]],
-                  Toolbox`metabolite["amp", "c"],
-                  Editable->False,
-                  Selectable->False], " ", 
-                 InterpretationBox[
-                  SubsuperscriptBox["k", 
-                   StyleBox[
-                    RowBox[{"ADK1_", "2", "_", "5"}],
-                    StripOnInput->False,
-                    ShowSyntaxStyles->False,
-                    AutoSpacing->False,
-                    ZeroWidthTimes->True,
-                    LineColor->RGBColor[0, 0, 0],
-                    FrontFaceColor->RGBColor[0, 0, 0],
-                    BackFaceColor->RGBColor[0, 0, 0],
-                    GraphicsColor->RGBColor[0, 0, 0],
-                    FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
-                  Toolbox`rateconst["ADK1_2_5", True],
-                  Editable->False,
-                  Selectable->False], " ", 
-                 RowBox[{"(", 
-                  RowBox[{
-                   InterpretationBox[
-                    SubsuperscriptBox["k", 
-                    StyleBox[
-                    RowBox[{"ADK1_", "3", "_", "6"}],
-                    StripOnInput->False,
-                    ShowSyntaxStyles->False,
-                    AutoSpacing->False,
-                    ZeroWidthTimes->True,
-                    LineColor->RGBColor[0, 0, 0],
-                    FrontFaceColor->RGBColor[0, 0, 0],
-                    BackFaceColor->RGBColor[0, 0, 0],
-                    GraphicsColor->RGBColor[0, 0, 0],
-                    FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
-                    Toolbox`rateconst["ADK1_3_6", True],
-                    Editable->False,
-                    Selectable->False], "+", 
-                   InterpretationBox[
-                    SubsuperscriptBox["k", 
-                    StyleBox["ADK17",
-                    StripOnInput->False,
-                    ShowSyntaxStyles->False,
-                    AutoSpacing->False,
-                    ZeroWidthTimes->True,
-                    LineColor->RGBColor[0, 0, 0],
-                    FrontFaceColor->RGBColor[0, 0, 0],
-                    BackFaceColor->RGBColor[0, 0, 0],
-                    GraphicsColor->RGBColor[0, 0, 0],
-                    FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
-                    Toolbox`rateconst["ADK17", False],
-                    Editable->False,
-                    Selectable->False], "+", 
-                   InterpretationBox[
-                    SubsuperscriptBox["k", 
-                    StyleBox["ADK17",
-                    StripOnInput->False,
-                    ShowSyntaxStyles->False,
-                    AutoSpacing->False,
-                    ZeroWidthTimes->True,
-                    LineColor->RGBColor[0, 0, 0],
-                    FrontFaceColor->RGBColor[0, 0, 0],
-                    BackFaceColor->RGBColor[0, 0, 0],
-                    GraphicsColor->RGBColor[0, 0, 0],
-                    FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
-                    Toolbox`rateconst["ADK17", True],
-                    Editable->False,
-                    Selectable->False]}], ")"}]}]}], ")"}]}]}], ")"}]}]}], 
-         ")"}]}]}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
-     RowBox[{
-      RowBox[{"absoluteRateReverse", " ", "=", " ", 
-       RowBox[{
-        RowBox[{"(", 
-         RowBox[{
-          SuperscriptBox[
-           RowBox[{"(", 
-            InterpretationBox[
-             SuperscriptBox[
-              StyleBox["adp",
-               StripOnInput->False,
-               ShowSyntaxStyles->False,
-               AutoSpacing->False,
-               ZeroWidthTimes->True,
-               LineColor->RGBColor[0, 0, 0],
-               FrontFaceColor->RGBColor[0, 0, 0],
-               BackFaceColor->RGBColor[0, 0, 0],
-               GraphicsColor->RGBColor[0, 0, 0],
-               FontColor->RGBColor[0, 0, 0]], 
-              StyleBox["c",
-               StripOnInput->False,
-               ShowSyntaxStyles->False,
-               AutoSpacing->False,
-               ZeroWidthTimes->True,
-               LineColor->RGBColor[0, 0, 0],
-               FrontFaceColor->RGBColor[0, 0, 0],
-               BackFaceColor->RGBColor[0, 0, 0],
-               GraphicsColor->RGBColor[0, 0, 0],
-               FontColor->RGBColor[0, 0, 0]]],
-             Toolbox`metabolite["adp", "c"],
-             Editable->False,
-             Selectable->False], ")"}], "2"], " ", 
-          InterpretationBox[
-           UnderscriptBox[
-            StyleBox["E_total",
-             StripOnInput->False,
-             ShowSyntaxStyles->False,
-             AutoSpacing->False,
-             ZeroWidthTimes->True,
-             LineColor->RGBColor[0, 0, 0],
-             FrontFaceColor->RGBColor[0, 0, 0],
-             BackFaceColor->RGBColor[0, 0, 0],
-             GraphicsColor->RGBColor[0, 0, 0],
-             FontColor->RGBColor[0, 0, 0]], 
-            StyleBox["Global",
-             StripOnInput->False,
-             ShowSyntaxStyles->False,
-             AutoSpacing->False,
-             ZeroWidthTimes->True,
-             LineColor->RGBColor[0, 0, 0],
-             FrontFaceColor->RGBColor[0, 0, 0],
-             BackFaceColor->RGBColor[0, 0, 0],
-             GraphicsColor->RGBColor[0, 0, 0],
-             FontColor->RGBColor[0, 0, 0]]],
-           Toolbox`parameter["E_total"],
-           Editable->False,
-           Selectable->False], " ", 
-          InterpretationBox[
-           SubsuperscriptBox["k", 
-            StyleBox[
-             RowBox[{"ADK1_", "1", "_", "4"}],
-             StripOnInput->False,
-             ShowSyntaxStyles->False,
-             AutoSpacing->False,
-             ZeroWidthTimes->True,
-             LineColor->RGBColor[0, 0, 0],
-             FrontFaceColor->RGBColor[0, 0, 0],
-             BackFaceColor->RGBColor[0, 0, 0],
-             GraphicsColor->RGBColor[0, 0, 0],
-             FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
-           Toolbox`rateconst["ADK1_1_4", False],
-           Editable->False,
-           Selectable->False], " ", 
-          InterpretationBox[
-           SubsuperscriptBox["k", 
-            StyleBox[
-             RowBox[{"ADK1_", "2", "_", "5"}],
-             StripOnInput->False,
-             ShowSyntaxStyles->False,
-             AutoSpacing->False,
-             ZeroWidthTimes->True,
-             LineColor->RGBColor[0, 0, 0],
-             FrontFaceColor->RGBColor[0, 0, 0],
-             BackFaceColor->RGBColor[0, 0, 0],
-             GraphicsColor->RGBColor[0, 0, 0],
-             FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
-           Toolbox`rateconst["ADK1_2_5", False],
-           Editable->False,
-           Selectable->False], " ", 
-          RowBox[{"(", 
-           RowBox[{
-            InterpretationBox[
-             SubsuperscriptBox["k", 
-              StyleBox[
-               RowBox[{"ADK1_", "1", "_", "4"}],
-               StripOnInput->False,
-               ShowSyntaxStyles->False,
-               AutoSpacing->False,
-               ZeroWidthTimes->True,
-               LineColor->RGBColor[0, 0, 0],
-               FrontFaceColor->RGBColor[0, 0, 0],
-               BackFaceColor->RGBColor[0, 0, 0],
-               GraphicsColor->RGBColor[0, 0, 0],
-               FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
-             Toolbox`rateconst["ADK1_1_4", False],
-             Editable->False,
-             Selectable->False], "+", 
-            InterpretationBox[
-             SubsuperscriptBox["k", 
-              StyleBox[
-               RowBox[{"ADK1_", "2", "_", "5"}],
-               StripOnInput->False,
-               ShowSyntaxStyles->False,
-               AutoSpacing->False,
-               ZeroWidthTimes->True,
-               LineColor->RGBColor[0, 0, 0],
-               FrontFaceColor->RGBColor[0, 0, 0],
-               BackFaceColor->RGBColor[0, 0, 0],
-               GraphicsColor->RGBColor[0, 0, 0],
-               FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
-             Toolbox`rateconst["ADK1_2_5", False],
-             Editable->False,
-             Selectable->False]}], ")"}], " ", 
-          SuperscriptBox[
-           RowBox[{"(", 
-            InterpretationBox[
-             SubsuperscriptBox["k", 
-              StyleBox[
-               RowBox[{"ADK1_", "3", "_", "6"}],
-               StripOnInput->False,
-               ShowSyntaxStyles->False,
-               AutoSpacing->False,
-               ZeroWidthTimes->True,
-               LineColor->RGBColor[0, 0, 0],
-               FrontFaceColor->RGBColor[0, 0, 0],
-               BackFaceColor->RGBColor[0, 0, 0],
-               GraphicsColor->RGBColor[0, 0, 0],
-               FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
-             Toolbox`rateconst["ADK1_3_6", False],
-             Editable->False,
-             Selectable->False], ")"}], "2"], " ", 
-          InterpretationBox[
-           SubsuperscriptBox["k", 
-            StyleBox["ADK17",
-             StripOnInput->False,
-             ShowSyntaxStyles->False,
-             AutoSpacing->False,
-             ZeroWidthTimes->True,
-             LineColor->RGBColor[0, 0, 0],
-             FrontFaceColor->RGBColor[0, 0, 0],
-             BackFaceColor->RGBColor[0, 0, 0],
-             GraphicsColor->RGBColor[0, 0, 0],
-             FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
-           Toolbox`rateconst["ADK17", False],
-           Editable->False,
-           Selectable->False]}], ")"}], "/", 
-        RowBox[{"(", 
-         RowBox[{
-          RowBox[{
-           InterpretationBox[
-            SubsuperscriptBox["k", 
-             StyleBox[
-              RowBox[{"ADK1_", "1", "_", "4"}],
-              StripOnInput->False,
-              ShowSyntaxStyles->False,
-              AutoSpacing->False,
-              ZeroWidthTimes->True,
-              LineColor->RGBColor[0, 0, 0],
-              FrontFaceColor->RGBColor[0, 0, 0],
-              BackFaceColor->RGBColor[0, 0, 0],
-              GraphicsColor->RGBColor[0, 0, 0],
-              FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
-            Toolbox`rateconst["ADK1_1_4", False],
-            Editable->False,
-            Selectable->False], " ", 
-           InterpretationBox[
-            SubsuperscriptBox["k", 
-             StyleBox[
-              RowBox[{"ADK1_", "2", "_", "5"}],
-              StripOnInput->False,
-              ShowSyntaxStyles->False,
-              AutoSpacing->False,
-              ZeroWidthTimes->True,
-              LineColor->RGBColor[0, 0, 0],
-              FrontFaceColor->RGBColor[0, 0, 0],
-              BackFaceColor->RGBColor[0, 0, 0],
-              GraphicsColor->RGBColor[0, 0, 0],
-              FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
-            Toolbox`rateconst["ADK1_2_5", False],
-            Editable->False,
-            Selectable->False], " ", 
-           InterpretationBox[
-            SubsuperscriptBox["k", 
-             StyleBox[
-              RowBox[{"ADK1_", "3", "_", "6"}],
-              StripOnInput->False,
-              ShowSyntaxStyles->False,
-              AutoSpacing->False,
-              ZeroWidthTimes->True,
-              LineColor->RGBColor[0, 0, 0],
-              FrontFaceColor->RGBColor[0, 0, 0],
-              BackFaceColor->RGBColor[0, 0, 0],
-              GraphicsColor->RGBColor[0, 0, 0],
-              FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
-            Toolbox`rateconst["ADK1_3_6", True],
-            Editable->False,
-            Selectable->False], " ", 
-           RowBox[{"(", 
-            RowBox[{
-             RowBox[{
-              InterpretationBox[
-               SubsuperscriptBox["k", 
-                StyleBox[
-                 RowBox[{"ADK1_", "1", "_", "4"}],
-                 StripOnInput->False,
-                 ShowSyntaxStyles->False,
-                 AutoSpacing->False,
-                 ZeroWidthTimes->True,
-                 LineColor->RGBColor[0, 0, 0],
-                 FrontFaceColor->RGBColor[0, 0, 0],
-                 BackFaceColor->RGBColor[0, 0, 0],
-                 GraphicsColor->RGBColor[0, 0, 0],
-                 FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
-               Toolbox`rateconst["ADK1_1_4", False],
-               Editable->False,
-               Selectable->False], " ", 
-              RowBox[{"(", 
-               RowBox[{
-                InterpretationBox[
-                 SubsuperscriptBox["k", 
-                  StyleBox[
-                   RowBox[{"ADK1_", "3", "_", "6"}],
-                   StripOnInput->False,
-                   ShowSyntaxStyles->False,
-                   AutoSpacing->False,
-                   ZeroWidthTimes->True,
-                   LineColor->RGBColor[0, 0, 0],
-                   FrontFaceColor->RGBColor[0, 0, 0],
-                   BackFaceColor->RGBColor[0, 0, 0],
-                   GraphicsColor->RGBColor[0, 0, 0],
-                   FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
-                 Toolbox`rateconst["ADK1_3_6", True],
-                 Editable->False,
-                 Selectable->False], "+", 
-                InterpretationBox[
-                 SubsuperscriptBox["k", 
-                  StyleBox["ADK17",
-                   StripOnInput->False,
-                   ShowSyntaxStyles->False,
-                   AutoSpacing->False,
-                   ZeroWidthTimes->True,
-                   LineColor->RGBColor[0, 0, 0],
-                   FrontFaceColor->RGBColor[0, 0, 0],
-                   BackFaceColor->RGBColor[0, 0, 0],
-                   GraphicsColor->RGBColor[0, 0, 0],
-                   FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
-                 Toolbox`rateconst["ADK17", False],
-                 Editable->False,
-                 Selectable->False]}], ")"}]}], "+", 
-             RowBox[{
-              InterpretationBox[
-               SubsuperscriptBox["k", 
-                StyleBox[
-                 RowBox[{"ADK1_", "2", "_", "5"}],
-                 StripOnInput->False,
-                 ShowSyntaxStyles->False,
-                 AutoSpacing->False,
-                 ZeroWidthTimes->True,
-                 LineColor->RGBColor[0, 0, 0],
-                 FrontFaceColor->RGBColor[0, 0, 0],
-                 BackFaceColor->RGBColor[0, 0, 0],
-                 GraphicsColor->RGBColor[0, 0, 0],
-                 FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
-               Toolbox`rateconst["ADK1_2_5", False],
-               Editable->False,
-               Selectable->False], " ", 
-              RowBox[{"(", 
-               RowBox[{
-                InterpretationBox[
-                 SubsuperscriptBox["k", 
-                  StyleBox[
-                   RowBox[{"ADK1_", "3", "_", "6"}],
-                   StripOnInput->False,
-                   ShowSyntaxStyles->False,
-                   AutoSpacing->False,
-                   ZeroWidthTimes->True,
-                   LineColor->RGBColor[0, 0, 0],
-                   FrontFaceColor->RGBColor[0, 0, 0],
-                   BackFaceColor->RGBColor[0, 0, 0],
-                   GraphicsColor->RGBColor[0, 0, 0],
-                   FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
-                 Toolbox`rateconst["ADK1_3_6", True],
-                 Editable->False,
-                 Selectable->False], "+", 
-                InterpretationBox[
-                 SubsuperscriptBox["k", 
-                  StyleBox["ADK17",
-                   StripOnInput->False,
-                   ShowSyntaxStyles->False,
-                   AutoSpacing->False,
-                   ZeroWidthTimes->True,
-                   LineColor->RGBColor[0, 0, 0],
-                   FrontFaceColor->RGBColor[0, 0, 0],
-                   BackFaceColor->RGBColor[0, 0, 0],
-                   GraphicsColor->RGBColor[0, 0, 0],
-                   FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
-                 Toolbox`rateconst["ADK17", False],
-                 Editable->False,
-                 Selectable->False]}], ")"}]}], "+", 
-             RowBox[{
-              InterpretationBox[
-               SubsuperscriptBox["k", 
-                StyleBox[
-                 RowBox[{"ADK1_", "3", "_", "6"}],
-                 StripOnInput->False,
-                 ShowSyntaxStyles->False,
-                 AutoSpacing->False,
-                 ZeroWidthTimes->True,
-                 LineColor->RGBColor[0, 0, 0],
-                 FrontFaceColor->RGBColor[0, 0, 0],
-                 BackFaceColor->RGBColor[0, 0, 0],
-                 GraphicsColor->RGBColor[0, 0, 0],
-                 FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
-               Toolbox`rateconst["ADK1_3_6", True],
-               Editable->False,
-               Selectable->False], " ", 
-              InterpretationBox[
-               SubsuperscriptBox["k", 
-                StyleBox["ADK17",
-                 StripOnInput->False,
-                 ShowSyntaxStyles->False,
-                 AutoSpacing->False,
-                 ZeroWidthTimes->True,
-                 LineColor->RGBColor[0, 0, 0],
-                 FrontFaceColor->RGBColor[0, 0, 0],
-                 BackFaceColor->RGBColor[0, 0, 0],
-                 GraphicsColor->RGBColor[0, 0, 0],
-                 FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
-               Toolbox`rateconst["ADK17", True],
-               Editable->False,
-               Selectable->False]}]}], ")"}]}], "+", 
-          RowBox[{
-           InterpretationBox[
-            SuperscriptBox[
-             StyleBox["adp",
-              StripOnInput->False,
-              ShowSyntaxStyles->False,
-              AutoSpacing->False,
-              ZeroWidthTimes->True,
-              LineColor->RGBColor[0, 0, 0],
-              FrontFaceColor->RGBColor[0, 0, 0],
-              BackFaceColor->RGBColor[0, 0, 0],
-              GraphicsColor->RGBColor[0, 0, 0],
-              FontColor->RGBColor[0, 0, 0]], 
-             StyleBox["c",
-              StripOnInput->False,
-              ShowSyntaxStyles->False,
-              AutoSpacing->False,
-              ZeroWidthTimes->True,
-              LineColor->RGBColor[0, 0, 0],
-              FrontFaceColor->RGBColor[0, 0, 0],
-              BackFaceColor->RGBColor[0, 0, 0],
-              GraphicsColor->RGBColor[0, 0, 0],
-              FontColor->RGBColor[0, 0, 0]]],
-            Toolbox`metabolite["adp", "c"],
-            Editable->False,
-            Selectable->False], " ", 
-           InterpretationBox[
-            SubsuperscriptBox["k", 
-             StyleBox[
-              RowBox[{"ADK1_", "1", "_", "4"}],
-              StripOnInput->False,
-              ShowSyntaxStyles->False,
-              AutoSpacing->False,
-              ZeroWidthTimes->True,
-              LineColor->RGBColor[0, 0, 0],
-              FrontFaceColor->RGBColor[0, 0, 0],
-              BackFaceColor->RGBColor[0, 0, 0],
-              GraphicsColor->RGBColor[0, 0, 0],
-              FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
-            Toolbox`rateconst["ADK1_1_4", False],
-            Editable->False,
-            Selectable->False], " ", 
-           InterpretationBox[
-            SubsuperscriptBox["k", 
-             StyleBox[
-              RowBox[{"ADK1_", "2", "_", "5"}],
-              StripOnInput->False,
-              ShowSyntaxStyles->False,
-              AutoSpacing->False,
-              ZeroWidthTimes->True,
-              LineColor->RGBColor[0, 0, 0],
-              FrontFaceColor->RGBColor[0, 0, 0],
-              BackFaceColor->RGBColor[0, 0, 0],
-              GraphicsColor->RGBColor[0, 0, 0],
-              FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
-            Toolbox`rateconst["ADK1_2_5", False],
-            Editable->False,
-            Selectable->False], " ", 
-           InterpretationBox[
-            SubsuperscriptBox["k", 
-             StyleBox[
-              RowBox[{"ADK1_", "3", "_", "6"}],
-              StripOnInput->False,
-              ShowSyntaxStyles->False,
-              AutoSpacing->False,
-              ZeroWidthTimes->True,
-              LineColor->RGBColor[0, 0, 0],
-              FrontFaceColor->RGBColor[0, 0, 0],
-              BackFaceColor->RGBColor[0, 0, 0],
-              GraphicsColor->RGBColor[0, 0, 0],
-              FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
-            Toolbox`rateconst["ADK1_3_6", False],
-            Editable->False,
-            Selectable->False], " ", 
-           RowBox[{"(", 
-            RowBox[{
-             RowBox[{
-              InterpretationBox[
-               SubsuperscriptBox["k", 
-                StyleBox[
-                 RowBox[{"ADK1_", "1", "_", "4"}],
-                 StripOnInput->False,
-                 ShowSyntaxStyles->False,
-                 AutoSpacing->False,
-                 ZeroWidthTimes->True,
-                 LineColor->RGBColor[0, 0, 0],
-                 FrontFaceColor->RGBColor[0, 0, 0],
-                 BackFaceColor->RGBColor[0, 0, 0],
-                 GraphicsColor->RGBColor[0, 0, 0],
-                 FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
-               Toolbox`rateconst["ADK1_1_4", False],
-               Editable->False,
-               Selectable->False], " ", 
-              RowBox[{"(", 
-               RowBox[{
-                InterpretationBox[
-                 SubsuperscriptBox["k", 
-                  StyleBox[
-                   RowBox[{"ADK1_", "3", "_", "6"}],
-                   StripOnInput->False,
-                   ShowSyntaxStyles->False,
-                   AutoSpacing->False,
-                   ZeroWidthTimes->True,
-                   LineColor->RGBColor[0, 0, 0],
-                   FrontFaceColor->RGBColor[0, 0, 0],
-                   BackFaceColor->RGBColor[0, 0, 0],
-                   GraphicsColor->RGBColor[0, 0, 0],
-                   FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
-                 Toolbox`rateconst["ADK1_3_6", True],
-                 Editable->False,
-                 Selectable->False], "+", 
-                RowBox[{"2", " ", 
-                 InterpretationBox[
-                  SubsuperscriptBox["k", 
-                   StyleBox["ADK17",
-                    StripOnInput->False,
-                    ShowSyntaxStyles->False,
-                    AutoSpacing->False,
-                    ZeroWidthTimes->True,
-                    LineColor->RGBColor[0, 0, 0],
-                    FrontFaceColor->RGBColor[0, 0, 0],
-                    BackFaceColor->RGBColor[0, 0, 0],
-                    GraphicsColor->RGBColor[0, 0, 0],
-                    FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
-                  Toolbox`rateconst["ADK17", False],
-                  Editable->False,
-                  Selectable->False]}]}], ")"}]}], "+", 
-             RowBox[{
-              InterpretationBox[
-               SubsuperscriptBox["k", 
-                StyleBox[
-                 RowBox[{"ADK1_", "2", "_", "5"}],
-                 StripOnInput->False,
-                 ShowSyntaxStyles->False,
-                 AutoSpacing->False,
-                 ZeroWidthTimes->True,
-                 LineColor->RGBColor[0, 0, 0],
-                 FrontFaceColor->RGBColor[0, 0, 0],
-                 BackFaceColor->RGBColor[0, 0, 0],
-                 GraphicsColor->RGBColor[0, 0, 0],
-                 FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
-               Toolbox`rateconst["ADK1_2_5", False],
-               Editable->False,
-               Selectable->False], " ", 
-              RowBox[{"(", 
-               RowBox[{
-                InterpretationBox[
-                 SubsuperscriptBox["k", 
-                  StyleBox[
-                   RowBox[{"ADK1_", "3", "_", "6"}],
-                   StripOnInput->False,
-                   ShowSyntaxStyles->False,
-                   AutoSpacing->False,
-                   ZeroWidthTimes->True,
-                   LineColor->RGBColor[0, 0, 0],
-                   FrontFaceColor->RGBColor[0, 0, 0],
-                   BackFaceColor->RGBColor[0, 0, 0],
-                   GraphicsColor->RGBColor[0, 0, 0],
-                   FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
-                 Toolbox`rateconst["ADK1_3_6", True],
-                 Editable->False,
-                 Selectable->False], "+", 
-                RowBox[{"2", " ", 
-                 InterpretationBox[
-                  SubsuperscriptBox["k", 
-                   StyleBox["ADK17",
-                    StripOnInput->False,
-                    ShowSyntaxStyles->False,
-                    AutoSpacing->False,
-                    ZeroWidthTimes->True,
-                    LineColor->RGBColor[0, 0, 0],
-                    FrontFaceColor->RGBColor[0, 0, 0],
-                    BackFaceColor->RGBColor[0, 0, 0],
-                    GraphicsColor->RGBColor[0, 0, 0],
-                    FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
-                  Toolbox`rateconst["ADK17", False],
-                  Editable->False,
-                  Selectable->False]}]}], ")"}]}], "+", 
-             RowBox[{
-              InterpretationBox[
-               SubsuperscriptBox["k", 
-                StyleBox[
-                 RowBox[{"ADK1_", "3", "_", "6"}],
-                 StripOnInput->False,
-                 ShowSyntaxStyles->False,
-                 AutoSpacing->False,
-                 ZeroWidthTimes->True,
-                 LineColor->RGBColor[0, 0, 0],
-                 FrontFaceColor->RGBColor[0, 0, 0],
-                 BackFaceColor->RGBColor[0, 0, 0],
-                 GraphicsColor->RGBColor[0, 0, 0],
-                 FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
-               Toolbox`rateconst["ADK1_3_6", True],
-               Editable->False,
-               Selectable->False], " ", 
-              InterpretationBox[
-               SubsuperscriptBox["k", 
-                StyleBox["ADK17",
-                 StripOnInput->False,
-                 ShowSyntaxStyles->False,
-                 AutoSpacing->False,
-                 ZeroWidthTimes->True,
-                 LineColor->RGBColor[0, 0, 0],
-                 FrontFaceColor->RGBColor[0, 0, 0],
-                 BackFaceColor->RGBColor[0, 0, 0],
-                 GraphicsColor->RGBColor[0, 0, 0],
-                 FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
-               Toolbox`rateconst["ADK17", True],
-               Editable->False,
-               Selectable->False]}]}], ")"}]}], "+", 
-          RowBox[{
-           SuperscriptBox[
-            RowBox[{"(", 
-             InterpretationBox[
-              SuperscriptBox[
-               StyleBox["adp",
-                StripOnInput->False,
-                ShowSyntaxStyles->False,
-                AutoSpacing->False,
-                ZeroWidthTimes->True,
-                LineColor->RGBColor[0, 0, 0],
-                FrontFaceColor->RGBColor[0, 0, 0],
-                BackFaceColor->RGBColor[0, 0, 0],
-                GraphicsColor->RGBColor[0, 0, 0],
-                FontColor->RGBColor[0, 0, 0]], 
-               StyleBox["c",
-                StripOnInput->False,
-                ShowSyntaxStyles->False,
-                AutoSpacing->False,
-                ZeroWidthTimes->True,
-                LineColor->RGBColor[0, 0, 0],
-                FrontFaceColor->RGBColor[0, 0, 0],
-                BackFaceColor->RGBColor[0, 0, 0],
-                GraphicsColor->RGBColor[0, 0, 0],
-                FontColor->RGBColor[0, 0, 0]]],
-              Toolbox`metabolite["adp", "c"],
-              Editable->False,
-              Selectable->False], ")"}], "2"], " ", 
-           SuperscriptBox[
-            RowBox[{"(", 
-             InterpretationBox[
-              SubsuperscriptBox["k", 
-               StyleBox[
-                RowBox[{"ADK1_", "3", "_", "6"}],
-                StripOnInput->False,
-                ShowSyntaxStyles->False,
-                AutoSpacing->False,
-                ZeroWidthTimes->True,
-                LineColor->RGBColor[0, 0, 0],
-                FrontFaceColor->RGBColor[0, 0, 0],
-                BackFaceColor->RGBColor[0, 0, 0],
-                GraphicsColor->RGBColor[0, 0, 0],
-                FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
-              Toolbox`rateconst["ADK1_3_6", False],
-              Editable->False,
-              Selectable->False], ")"}], "2"], " ", 
-           RowBox[{"(", 
-            RowBox[{
-             RowBox[{
-              SuperscriptBox[
-               RowBox[{"(", 
-                InterpretationBox[
-                 SubsuperscriptBox["k", 
-                  StyleBox[
-                   RowBox[{"ADK1_", "2", "_", "5"}],
-                   StripOnInput->False,
-                   ShowSyntaxStyles->False,
-                   AutoSpacing->False,
-                   ZeroWidthTimes->True,
-                   LineColor->RGBColor[0, 0, 0],
-                   FrontFaceColor->RGBColor[0, 0, 0],
-                   BackFaceColor->RGBColor[0, 0, 0],
-                   GraphicsColor->RGBColor[0, 0, 0],
-                   FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
-                 Toolbox`rateconst["ADK1_2_5", False],
-                 Editable->False,
-                 Selectable->False], ")"}], "2"], " ", 
-              InterpretationBox[
-               SubsuperscriptBox["k", 
-                StyleBox["ADK17",
-                 StripOnInput->False,
-                 ShowSyntaxStyles->False,
-                 AutoSpacing->False,
-                 ZeroWidthTimes->True,
-                 LineColor->RGBColor[0, 0, 0],
-                 FrontFaceColor->RGBColor[0, 0, 0],
-                 BackFaceColor->RGBColor[0, 0, 0],
-                 GraphicsColor->RGBColor[0, 0, 0],
-                 FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
-               Toolbox`rateconst["ADK17", False],
-               Editable->False,
-               Selectable->False]}], "+", 
-             RowBox[{
-              SuperscriptBox[
-               RowBox[{"(", 
-                InterpretationBox[
-                 SubsuperscriptBox["k", 
-                  StyleBox[
-                   RowBox[{"ADK1_", "1", "_", "4"}],
-                   StripOnInput->False,
-                   ShowSyntaxStyles->False,
-                   AutoSpacing->False,
-                   ZeroWidthTimes->True,
-                   LineColor->RGBColor[0, 0, 0],
-                   FrontFaceColor->RGBColor[0, 0, 0],
-                   BackFaceColor->RGBColor[0, 0, 0],
-                   GraphicsColor->RGBColor[0, 0, 0],
-                   FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
-                 Toolbox`rateconst["ADK1_1_4", False],
-                 Editable->False,
-                 Selectable->False], ")"}], "2"], " ", 
-              RowBox[{"(", 
-               RowBox[{
-                InterpretationBox[
-                 SubsuperscriptBox["k", 
-                  StyleBox[
-                   RowBox[{"ADK1_", "2", "_", "5"}],
-                   StripOnInput->False,
-                   ShowSyntaxStyles->False,
-                   AutoSpacing->False,
-                   ZeroWidthTimes->True,
-                   LineColor->RGBColor[0, 0, 0],
-                   FrontFaceColor->RGBColor[0, 0, 0],
-                   BackFaceColor->RGBColor[0, 0, 0],
-                   GraphicsColor->RGBColor[0, 0, 0],
-                   FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
-                 Toolbox`rateconst["ADK1_2_5", False],
-                 Editable->False,
-                 Selectable->False], "+", 
-                InterpretationBox[
-                 SubsuperscriptBox["k", 
-                  StyleBox["ADK17",
-                   StripOnInput->False,
-                   ShowSyntaxStyles->False,
-                   AutoSpacing->False,
-                   ZeroWidthTimes->True,
-                   LineColor->RGBColor[0, 0, 0],
-                   FrontFaceColor->RGBColor[0, 0, 0],
-                   BackFaceColor->RGBColor[0, 0, 0],
-                   GraphicsColor->RGBColor[0, 0, 0],
-                   FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
-                 Toolbox`rateconst["ADK17", False],
-                 Editable->False,
-                 Selectable->False]}], ")"}]}], "+", 
-             RowBox[{
-              InterpretationBox[
-               SubsuperscriptBox["k", 
-                StyleBox[
-                 RowBox[{"ADK1_", "1", "_", "4"}],
-                 StripOnInput->False,
-                 ShowSyntaxStyles->False,
-                 AutoSpacing->False,
-                 ZeroWidthTimes->True,
-                 LineColor->RGBColor[0, 0, 0],
-                 FrontFaceColor->RGBColor[0, 0, 0],
-                 BackFaceColor->RGBColor[0, 0, 0],
-                 GraphicsColor->RGBColor[0, 0, 0],
-                 FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
-               Toolbox`rateconst["ADK1_1_4", False],
-               Editable->False,
-               Selectable->False], " ", 
-              InterpretationBox[
-               SubsuperscriptBox["k", 
-                StyleBox[
-                 RowBox[{"ADK1_", "2", "_", "5"}],
-                 StripOnInput->False,
-                 ShowSyntaxStyles->False,
-                 AutoSpacing->False,
-                 ZeroWidthTimes->True,
-                 LineColor->RGBColor[0, 0, 0],
-                 FrontFaceColor->RGBColor[0, 0, 0],
-                 BackFaceColor->RGBColor[0, 0, 0],
-                 GraphicsColor->RGBColor[0, 0, 0],
-                 FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
-               Toolbox`rateconst["ADK1_2_5", False],
-               Editable->False,
-               Selectable->False], " ", 
-              RowBox[{"(", 
-               RowBox[{
-                InterpretationBox[
-                 SubsuperscriptBox["k", 
-                  StyleBox[
-                   RowBox[{"ADK1_", "2", "_", "5"}],
-                   StripOnInput->False,
-                   ShowSyntaxStyles->False,
-                   AutoSpacing->False,
-                   ZeroWidthTimes->True,
-                   LineColor->RGBColor[0, 0, 0],
-                   FrontFaceColor->RGBColor[0, 0, 0],
-                   BackFaceColor->RGBColor[0, 0, 0],
-                   GraphicsColor->RGBColor[0, 0, 0],
-                   FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
-                 Toolbox`rateconst["ADK1_2_5", False],
-                 Editable->False,
-                 Selectable->False], "+", 
-                InterpretationBox[
-                 SubsuperscriptBox["k", 
-                  StyleBox["ADK17",
-                   StripOnInput->False,
-                   ShowSyntaxStyles->False,
-                   AutoSpacing->False,
-                   ZeroWidthTimes->True,
-                   LineColor->RGBColor[0, 0, 0],
-                   FrontFaceColor->RGBColor[0, 0, 0],
-                   BackFaceColor->RGBColor[0, 0, 0],
-                   GraphicsColor->RGBColor[0, 0, 0],
-                   FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
-                 Toolbox`rateconst["ADK17", False],
-                 Editable->False,
-                 Selectable->False], "+", 
-                InterpretationBox[
-                 SubsuperscriptBox["k", 
-                  StyleBox["ADK17",
-                   StripOnInput->False,
-                   ShowSyntaxStyles->False,
-                   AutoSpacing->False,
-                   ZeroWidthTimes->True,
-                   LineColor->RGBColor[0, 0, 0],
-                   FrontFaceColor->RGBColor[0, 0, 0],
-                   BackFaceColor->RGBColor[0, 0, 0],
-                   GraphicsColor->RGBColor[0, 0, 0],
-                   FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
-                 Toolbox`rateconst["ADK17", True],
-                 Editable->False,
-                 Selectable->False]}], ")"}]}]}], ")"}]}]}], ")"}]}]}], ";"}],
-      "\[IndentingNewLine]", "\[IndentingNewLine]", 
-     RowBox[{
-      RowBox[{"paramFitSub", " ", "=", " ", 
-       RowBox[{"{", 
-        RowBox[{
-         RowBox[{
-          InterpretationBox[
-           SubsuperscriptBox["k", 
-            StyleBox[
-             RowBox[{"ADK1_", "1", "_", "4"}],
-             StripOnInput->False,
-             ShowSyntaxStyles->False,
-             AutoSpacing->False,
-             ZeroWidthTimes->True,
-             LineColor->RGBColor[0, 0, 0],
-             FrontFaceColor->RGBColor[0, 0, 0],
-             BackFaceColor->RGBColor[0, 0, 0],
-             GraphicsColor->RGBColor[0, 0, 0],
-             FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
-           Toolbox`rateconst["ADK1_1_4", False],
-           Editable->False,
-           Selectable->False], "\[Rule]", "9.474822996017193`*^8"}], ",", 
-         RowBox[{
-          InterpretationBox[
-           SubsuperscriptBox["k", 
-            StyleBox[
-             RowBox[{"ADK1_", "1", "_", "4"}],
-             StripOnInput->False,
-             ShowSyntaxStyles->False,
-             AutoSpacing->False,
-             ZeroWidthTimes->True,
-             LineColor->RGBColor[0, 0, 0],
-             FrontFaceColor->RGBColor[0, 0, 0],
-             BackFaceColor->RGBColor[0, 0, 0],
-             GraphicsColor->RGBColor[0, 0, 0],
-             FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
-           Toolbox`rateconst["ADK1_1_4", True],
-           Editable->False,
-           Selectable->False], "\[Rule]", "7.503514272138983`*^8"}], ",", 
-         RowBox[{
-          InterpretationBox[
-           SubsuperscriptBox["k", 
-            StyleBox[
-             RowBox[{"ADK1_", "2", "_", "5"}],
-             StripOnInput->False,
-             ShowSyntaxStyles->False,
-             AutoSpacing->False,
-             ZeroWidthTimes->True,
-             LineColor->RGBColor[0, 0, 0],
-             FrontFaceColor->RGBColor[0, 0, 0],
-             BackFaceColor->RGBColor[0, 0, 0],
-             GraphicsColor->RGBColor[0, 0, 0],
-             FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
-           Toolbox`rateconst["ADK1_2_5", False],
-           Editable->False,
-           Selectable->False], "\[Rule]", "5.4146669498295775`*^6"}], ",", 
-         RowBox[{
-          InterpretationBox[
-           SubsuperscriptBox["k", 
-            StyleBox[
-             RowBox[{"ADK1_", "2", "_", "5"}],
-             StripOnInput->False,
-             ShowSyntaxStyles->False,
-             AutoSpacing->False,
-             ZeroWidthTimes->True,
-             LineColor->RGBColor[0, 0, 0],
-             FrontFaceColor->RGBColor[0, 0, 0],
-             BackFaceColor->RGBColor[0, 0, 0],
-             GraphicsColor->RGBColor[0, 0, 0],
-             FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
-           Toolbox`rateconst["ADK1_2_5", True],
-           Editable->False,
-           Selectable->False], "\[Rule]", "5.53039860351024`*^8"}], ",", 
-         RowBox[{
-          InterpretationBox[
-           SubsuperscriptBox["k", 
-            StyleBox[
-             RowBox[{"ADK1_", "3", "_", "6"}],
-             StripOnInput->False,
-             ShowSyntaxStyles->False,
-             AutoSpacing->False,
-             ZeroWidthTimes->True,
-             LineColor->RGBColor[0, 0, 0],
-             FrontFaceColor->RGBColor[0, 0, 0],
-             BackFaceColor->RGBColor[0, 0, 0],
-             GraphicsColor->RGBColor[0, 0, 0],
-             FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
-           Toolbox`rateconst["ADK1_3_6", False],
-           Editable->False,
-           Selectable->False], "\[Rule]", "1.7357175690684065`*^8"}], ",", 
-         RowBox[{
-          InterpretationBox[
-           SubsuperscriptBox["k", 
-            StyleBox[
-             RowBox[{"ADK1_", "3", "_", "6"}],
-             StripOnInput->False,
-             ShowSyntaxStyles->False,
-             AutoSpacing->False,
-             ZeroWidthTimes->True,
-             LineColor->RGBColor[0, 0, 0],
-             FrontFaceColor->RGBColor[0, 0, 0],
-             BackFaceColor->RGBColor[0, 0, 0],
-             GraphicsColor->RGBColor[0, 0, 0],
-             FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
-           Toolbox`rateconst["ADK1_3_6", True],
-           Editable->False,
-           Selectable->False], "\[Rule]", "2594.8036222042024`"}], ",", 
-         RowBox[{
-          InterpretationBox[
-           SubsuperscriptBox["k", 
-            StyleBox["ADK17",
-             StripOnInput->False,
-             ShowSyntaxStyles->False,
-             AutoSpacing->False,
-             ZeroWidthTimes->True,
-             LineColor->RGBColor[0, 0, 0],
-             FrontFaceColor->RGBColor[0, 0, 0],
-             BackFaceColor->RGBColor[0, 0, 0],
-             GraphicsColor->RGBColor[0, 0, 0],
-             FontColor->RGBColor[0, 0, 0]], "\[LongLeftArrow]"],
-           Toolbox`rateconst["ADK17", False],
-           Editable->False,
-           Selectable->False], "\[Rule]", "583.1266927774667`"}], ",", 
-         RowBox[{
-          InterpretationBox[
-           SubsuperscriptBox["k", 
-            StyleBox["ADK17",
-             StripOnInput->False,
-             ShowSyntaxStyles->False,
-             AutoSpacing->False,
-             ZeroWidthTimes->True,
-             LineColor->RGBColor[0, 0, 0],
-             FrontFaceColor->RGBColor[0, 0, 0],
-             BackFaceColor->RGBColor[0, 0, 0],
-             GraphicsColor->RGBColor[0, 0, 0],
-             FontColor->RGBColor[0, 0, 0]], "\[LongRightArrow]"],
-           Toolbox`rateconst["ADK17", True],
-           Editable->False,
-           Selectable->False], "\[Rule]", "7.85636568022049`*^8"}]}], "}"}]}],
-       ";"}], "\[IndentingNewLine]", 
-     RowBox[{
-      RowBox[{"assumedSaturatingConc", " ", "=", " ", "0.01"}], ";"}], 
-     "\[IndentingNewLine]", 
-     RowBox[{
-      RowBox[{"KeqName", " ", "=", " ", "\"\<GAPD\>\""}], ";"}], 
+             RowBox[{"NotebookDirectory", "[", "]"}], ",", 
+             "\"\<test_files\>\"", ",", " ", "\"\<analyze_fit_results\>\"", 
+             ",", " ", "\"\<argumentsBackCalculateKms.mx\>\""}], "}"}], ",", 
+           " ", 
+           RowBox[{"OperatingSystem", "\[Rule]", "$OperatingSystem"}]}], 
+          "]"}], ",", " ", "\"\<MX\>\""}], "]"}]}], ";"}], 
      "\[IndentingNewLine]", "\[IndentingNewLine]", 
      RowBox[{
       RowBox[{"result", "=", 
-       RowBox[{"backCalculateKms", "[", 
-        RowBox[{
-        "rxn", ",", " ", "kmList", ",", " ", "absoluteRateForward", ",", " ", 
-         "absoluteRateReverse", ",", " ", "paramFitSub", ",", " ", 
-         "assumedSaturatingConc", ",", " ", "KeqName"}], "]"}]}], ";"}], 
+       RowBox[{"backCalculateKms", "@@", "arguments"}]}], ";"}], 
      "\[IndentingNewLine]", "\[IndentingNewLine]", 
      RowBox[{
       RowBox[{"AppendTo", "[", 
@@ -4353,13 +1795,28 @@ Cell[BoxData[GridBox[{
    3.689586529361919*^9, 3.6895866772695847`*^9}, {3.6895867189994802`*^9, 
    3.689586720708034*^9}, {3.689586932026802*^9, 3.68958695388603*^9}, {
    3.703770873559363*^9, 3.703770874968392*^9}, 3.703770915294155*^9, 
-   3.703771040811174*^9, {3.704616335294839*^9, 3.704616349913495*^9}}],
+   3.703771040811174*^9, {3.704616335294839*^9, 3.704616349913495*^9}, {
+   3.737612284298664*^9, 3.737612286813428*^9}, 3.737613031021575*^9, {
+   3.737613910550561*^9, 3.737613922053151*^9}, {3.737613958014956*^9, 
+   3.737613995517247*^9}}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Solve","ratnz",
+   "\"Solve was unable to solve the system with inexact coefficients. The \
+answer was obtained by solving a corresponding exact system and numericizing \
+the result.\"",2,40,1,23067813287076177568,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.737613996321858*^9, {3.737616319020866*^9, 3.737616345017869*^9}, 
+   3.737623641302744*^9, 3.737910762077313*^9, 3.7379109510095263`*^9, 
+   3.7379112056438837`*^9}],
 
 Cell[BoxData[
  RowBox[{"{", 
   RowBox[{
    RowBox[{"{", 
-    SuperscriptBox["Null", "10"], "}"}], ",", 
+    SuperscriptBox["Null", "4"], "}"}], ",", 
    RowBox[{"{", "\[Placeholder]", "}"}]}], "}"}]], "Output",
  CellChangeTimes->{
   3.6967595006354933`*^9, 3.6983891446685123`*^9, 3.6984013082619247`*^9, 
@@ -4368,7 +1825,742 @@ Cell[BoxData[
    3.703770879933612*^9, 3.703770894148615*^9}, 3.703770932000784*^9, {
    3.703771042694317*^9, 3.703771059300668*^9}, 3.7046163040635757`*^9, {
    3.704616351263502*^9, 3.70461637697829*^9}, 3.711014462395755*^9, 
-   3.711014901511672*^9, 3.7110157495763083`*^9, 3.711109906615015*^9}]
+   3.711014901511672*^9, 3.7110157495763083`*^9, 3.711109906615015*^9, 
+   3.737611048151701*^9, {3.737613985391471*^9, 3.737613996323072*^9}, {
+   3.737616319033174*^9, 3.7376163451570587`*^9}, 3.737623641367218*^9, 
+   3.737910762171804*^9, 3.737910951074095*^9, 3.737911205710538*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "test ",
+ Cell[BoxData["backCalculateHillCoef"], "Input",
+  CellChangeTimes->{{3.689073593921864*^9, 3.689073608262086*^9}, 
+    3.6890743936720457`*^9, {3.689074482987183*^9, 3.689074524706436*^9}, {
+    3.689074681114654*^9, 3.689074682771686*^9}, {3.6890748099030647`*^9, 
+    3.689074810147764*^9}, {3.689074981362872*^9, 3.6890750134056873`*^9}}]
+}], "Subsubsection",
+ CellChangeTimes->{{3.688379404633004*^9, 3.688379429043716*^9}, {
+   3.688464189533341*^9, 3.688464194468556*^9}, {3.688464387337203*^9, 
+   3.688464392473873*^9}, 3.6890750785401487`*^9, {3.689586528144853*^9, 
+   3.689586528144923*^9}, {3.737612305063917*^9, 3.7376123050639963`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"expectedResult", "=", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+       "\"\<data value\>\"", ",", "\"\<predicted value\>\"", ",", 
+        "\"\<error in %\>\""}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+       "2.05`", ",", "1.9980593482887605`", ",", "2.533690327377527`"}], 
+       "}"}]}], "}"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"arguments", "=", 
+    RowBox[{"Import", "[", 
+     RowBox[{
+      RowBox[{"FileNameJoin", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<test_files\>\"", 
+          ",", " ", "\"\<analyze_fit_results\>\"", ",", " ", 
+          "\"\<backCalculateHillCoefFBP2Arguments.mx\>\""}], "}"}], ",", " ", 
+        
+        RowBox[{"OperatingSystem", "\[Rule]", "$OperatingSystem"}]}], "]"}], 
+      ",", " ", "\"\<MX\>\""}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"result", "=", 
+    RowBox[{"backCalculateHillCoef", "@@", "arguments"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"AppendTo", "[", 
+   RowBox[{"testResults", ",", "\[IndentingNewLine]", 
+    RowBox[{"VerificationTest", "[", 
+     RowBox[{"result", ",", "expectedResult", " ", ",", " ", 
+      RowBox[{"TestID", "\[Rule]", "\"\<backCalculateHillCoef\>\""}]}], 
+     "]"}]}], "\[IndentingNewLine]", "]"}], 
+  ";"}], "\[IndentingNewLine]"}], "Input",
+ CellChangeTimes->{
+  3.737616204611107*^9, {3.737616290388762*^9, 3.737616302635582*^9}, {
+   3.737910910830638*^9, 3.73791091972579*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "test ",
+ Cell[BoxData["backCalculateKcats"], "Input",
+  CellChangeTimes->{{3.689073593921864*^9, 3.689073608262086*^9}, 
+    3.6890743936720457`*^9, {3.689074482987183*^9, 3.689074524706436*^9}, {
+    3.689074681114654*^9, 3.689074682771686*^9}, {3.6890748099030647`*^9, 
+    3.689074810147764*^9}, {3.689074981362872*^9, 3.6890750134056873`*^9}}]
+}], "Subsubsection",
+ CellChangeTimes->{{3.688379404633004*^9, 3.688379429043716*^9}, {
+   3.688464189533341*^9, 3.688464194468556*^9}, {3.688464387337203*^9, 
+   3.688464392473873*^9}, 3.6890750785401487`*^9, {3.689586528144853*^9, 
+   3.689586528144923*^9}, {3.737612312048891*^9, 3.737612312049007*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"expectedResult", "=", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+       "\"\<data value\>\"", ",", "\"\<predicted value\>\"", ",", 
+        "\"\<error in %\>\""}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+       "10.5`", ",", "10.326195357712734`", ",", "1.655282307497768`"}], 
+       "}"}]}], "}"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"arguments", "=", 
+    RowBox[{"Import", "[", 
+     RowBox[{
+      RowBox[{"FileNameJoin", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<test_files\>\"", 
+          ",", " ", "\"\<analyze_fit_results\>\"", ",", " ", 
+          "\"\<argumentsBackCalculateKcats.mx\>\""}], "}"}], ",", " ", 
+        RowBox[{"OperatingSystem", "\[Rule]", "$OperatingSystem"}]}], "]"}], 
+      ",", " ", "\"\<MX\>\""}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"result", "=", 
+    RowBox[{"backCalculateKcats", "@@", "arguments"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"AppendTo", "[", 
+   RowBox[{"testResults", ",", "\[IndentingNewLine]", 
+    RowBox[{"VerificationTest", "[", 
+     RowBox[{"result", ",", "expectedResult", " ", ",", " ", 
+      RowBox[{"TestID", "\[Rule]", "\"\<backCalculateKcats\>\""}]}], "]"}]}], 
+   "\[IndentingNewLine]", "]"}], ";"}], "\[IndentingNewLine]"}], "Input",
+ CellChangeTimes->{{3.737614107152875*^9, 3.737614142620693*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "test ",
+ Cell[BoxData["backCalculateRatios"], "Input",
+  CellChangeTimes->{{3.689073593921864*^9, 3.689073608262086*^9}, 
+    3.6890743936720457`*^9, {3.689074482987183*^9, 3.689074524706436*^9}, {
+    3.689074681114654*^9, 3.689074682771686*^9}, {3.6890748099030647`*^9, 
+    3.689074810147764*^9}, {3.689074981362872*^9, 3.6890750134056873`*^9}}]
+}], "Subsubsection",
+ CellChangeTimes->{{3.688379404633004*^9, 3.688379429043716*^9}, {
+   3.688464189533341*^9, 3.688464194468556*^9}, {3.688464387337203*^9, 
+   3.688464392473873*^9}, 3.6890750785401487`*^9, {3.689586528144853*^9, 
+   3.689586528144923*^9}, {3.737612316214531*^9, 3.737612316214613*^9}}],
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"expectedResult", "=", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+        "\"\<data value\>\"", ",", "\"\<predicted value\>\"", ",", 
+         "\"\<error in %\>\""}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+        "0.00016`", ",", "0.00015999999986518855`", ",", 
+         "8.425716247211118`*^-8"}], "}"}]}], "}"}]}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"arguments", "=", 
+     RowBox[{"Import", "[", 
+      RowBox[{
+       RowBox[{"FileNameJoin", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<test_files\>\"",
+            ",", " ", "\"\<analyze_fit_results\>\"", ",", " ", 
+           "\"\<argumentsBackCalculateRatios.mx\>\""}], "}"}], ",", " ", 
+         RowBox[{"OperatingSystem", "\[Rule]", "$OperatingSystem"}]}], "]"}], 
+       ",", " ", "\"\<MX\>\""}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"result", "=", 
+     RowBox[{"backCalculateRatios", "@@", "arguments"}]}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"AppendTo", "[", 
+     RowBox[{"testResults", ",", "\[IndentingNewLine]", 
+      RowBox[{"VerificationTest", "[", 
+       RowBox[{"result", ",", "expectedResult", " ", ",", " ", 
+        RowBox[{"TestID", "\[Rule]", "\"\<backCalculateRatios\>\""}]}], 
+       "]"}]}], "\[IndentingNewLine]", "]"}], ";"}]}]}]], "Input",
+ CellChangeTimes->{{3.737614243961998*^9, 3.7376142645077753`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "test ",
+ Cell[BoxData["backCalculateKic"], "Input",
+  CellChangeTimes->{{3.689073593921864*^9, 3.689073608262086*^9}, 
+    3.6890743936720457`*^9, {3.689074482987183*^9, 3.689074524706436*^9}, {
+    3.689074681114654*^9, 3.689074682771686*^9}, {3.6890748099030647`*^9, 
+    3.689074810147764*^9}, {3.689074981362872*^9, 3.6890750134056873`*^9}}]
+}], "Subsubsection",
+ CellChangeTimes->{{3.688379404633004*^9, 3.688379429043716*^9}, {
+   3.688464189533341*^9, 3.688464194468556*^9}, {3.688464387337203*^9, 
+   3.688464392473873*^9}, 3.6890750785401487`*^9, {3.689586528144853*^9, 
+   3.689586528144923*^9}, {3.737612316214531*^9, 3.737612327339218*^9}}],
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"expectedResult", "=", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+        "\"\<data value\>\"", ",", "\"\<predicted value\>\"", ",", 
+         "\"\<error in %\>\""}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"0.00013`", ",", 
+         RowBox[{"{", "0.00013000782995918614`", "}"}], ",", 
+         RowBox[{"{", "0.006023045527807686`", "}"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"0.00003`", ",", 
+         RowBox[{"{", "0.000030003139722628765`", "}"}], ",", 
+         RowBox[{"{", "0.010465742095881069`", "}"}]}], "}"}]}], "}"}]}], 
+    ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"arguments", "=", 
+     RowBox[{"Import", "[", 
+      RowBox[{
+       RowBox[{"FileNameJoin", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<test_files\>\"",
+            ",", " ", "\"\<analyze_fit_results\>\"", ",", " ", 
+           "\"\<backCalculateKicFBA2Arguments.mx\>\""}], "}"}], ",", " ", 
+         RowBox[{"OperatingSystem", "\[Rule]", "$OperatingSystem"}]}], "]"}], 
+       ",", " ", "\"\<MX\>\""}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"result", "=", 
+     RowBox[{"backCalculateKic", "@@", "arguments"}]}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"AppendTo", "[", 
+     RowBox[{"testResults", ",", "\[IndentingNewLine]", 
+      RowBox[{"VerificationTest", "[", 
+       RowBox[{"result", ",", "expectedResult", " ", ",", " ", 
+        RowBox[{"TestID", "\[Rule]", "\"\<backCalculateKic\>\""}]}], "]"}]}], 
+     "\[IndentingNewLine]", "]"}], ";"}]}]}]], "Input",
+ CellChangeTimes->{{3.737623549058075*^9, 3.737623574759891*^9}, {
+  3.73791083671957*^9, 3.737910845257123*^9}}]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "test ",
+ Cell[BoxData["backCalculateKiu"], "Input",
+  CellChangeTimes->{{3.689073593921864*^9, 3.689073608262086*^9}, 
+    3.6890743936720457`*^9, {3.689074482987183*^9, 3.689074524706436*^9}, {
+    3.689074681114654*^9, 3.689074682771686*^9}, {3.6890748099030647`*^9, 
+    3.689074810147764*^9}, {3.689074981362872*^9, 3.6890750134056873`*^9}}]
+}], "Subsubsection",
+ CellChangeTimes->{{3.688379404633004*^9, 3.688379429043716*^9}, {
+   3.688464189533341*^9, 3.688464194468556*^9}, {3.688464387337203*^9, 
+   3.688464392473873*^9}, 3.6890750785401487`*^9, {3.689586528144853*^9, 
+   3.689586528144923*^9}, {3.737612316214531*^9, 3.737612333189075*^9}}],
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"expectedResult", "=", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+        "\"\<data value\>\"", ",", "\"\<predicted value\>\"", ",", 
+         "\"\<error in %\>\""}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"0.00023`", ",", 
+         RowBox[{"{", "0.0002299011617935042`", "}"}], ",", 
+         RowBox[{"{", "0.042973133259043964`", "}"}]}], "}"}]}], "}"}]}], 
+    ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"arguments", "=", 
+     RowBox[{"Import", "[", 
+      RowBox[{
+       RowBox[{"FileNameJoin", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<test_files\>\"",
+            ",", " ", "\"\<analyze_fit_results\>\"", ",", " ", 
+           "\"\<backCalculateKiuFBA2Arguments.mx\>\""}], "}"}], ",", " ", 
+         RowBox[{"OperatingSystem", "\[Rule]", "$OperatingSystem"}]}], "]"}], 
+       ",", " ", "\"\<MX\>\""}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"result", "=", 
+     RowBox[{"backCalculateKiu", "@@", "arguments"}]}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"AppendTo", "[", 
+     RowBox[{"testResults", ",", "\[IndentingNewLine]", 
+      RowBox[{"VerificationTest", "[", 
+       RowBox[{"result", ",", "expectedResult", " ", ",", " ", 
+        RowBox[{"TestID", "\[Rule]", "\"\<backCalculateKiu\>\""}]}], "]"}]}], 
+     "\[IndentingNewLine]", "]"}], ";"}]}]}]], "Input",
+ CellChangeTimes->{{3.737623541084703*^9, 3.737623578350068*^9}, {
+  3.737910800852717*^9, 3.737910819512892*^9}, {3.737910975930525*^9, 
+  3.737910977820965*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "test ",
+ Cell[BoxData["exportPredictedParametersAndErrors"], "Input",
+  CellChangeTimes->{{3.737823341393067*^9, 3.7378233421510267`*^9}, {
+    3.737823420757193*^9, 3.737823483600425*^9}, 3.737824148407848*^9, {
+    3.737908189652112*^9, 3.737908195023649*^9}, {3.737908383482667*^9, 
+    3.737908390561265*^9}, {3.737909029564506*^9, 3.737909030922151*^9}}],
+ " FBA2"
+}], "Subsubsection",
+ CellChangeTimes->{{3.688379404633004*^9, 3.688379429043716*^9}, {
+   3.688464189533341*^9, 3.688464194468556*^9}, {3.688464387337203*^9, 
+   3.688464392473873*^9}, 3.6890750785401487`*^9, {3.689586528144853*^9, 
+   3.689586528144923*^9}, {3.737612316214531*^9, 3.737612333189075*^9}, {
+   3.737910991653429*^9, 3.737911006835943*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"expectedResult", "=", 
+     RowBox[{"Import", "[", 
+      RowBox[{
+       RowBox[{"FileNameJoin", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<test_files\>\"",
+            ",", " ", "\"\<analyze_fit_results\>\"", ",", " ", 
+           "\"\<exportPredictedParametersAndErrorsFBA2Results.mx\>\""}], 
+          "}"}], ",", " ", 
+         RowBox[{"OperatingSystem", "\[Rule]", "$OperatingSystem"}]}], "]"}], 
+       ",", " ", "\"\<MX\>\""}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"arguments", "=", 
+     RowBox[{"Import", "[", 
+      RowBox[{
+       RowBox[{"FileNameJoin", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<test_files\>\"",
+            ",", " ", "\"\<analyze_fit_results\>\"", ",", " ", 
+           "\"\<exportPredictedParametersAndErrorsFBA2Arguments.mx\>\""}], 
+          "}"}], ",", " ", 
+         RowBox[{"OperatingSystem", "\[Rule]", "$OperatingSystem"}]}], "]"}], 
+       ",", " ", "\"\<MX\>\""}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"result", "=", 
+     RowBox[{"exportPredictedParametersAndErrors", "@@", "arguments"}]}], 
+    ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"AppendTo", "[", 
+     RowBox[{"testResults", ",", "\[IndentingNewLine]", 
+      RowBox[{"VerificationTest", "[", 
+       RowBox[{"result", ",", "expectedResult", " ", ",", " ", 
+        RowBox[{
+        "TestID", "\[Rule]", 
+         "\"\<exportPredictedParametersAndErrorsFBA2\>\""}]}], "]"}]}], 
+     "\[IndentingNewLine]", "]"}], ";"}]}]}]], "Input",
+ CellChangeTimes->{{3.737911144626356*^9, 3.7379111531706867`*^9}}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Solve","ratnz",
+   "\"Solve was unable to solve the system with inexact coefficients. The \
+answer was obtained by solving a corresponding exact system and numericizing \
+the result.\"",2,63,2,23067813287076177568,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.737911206005043*^9}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Solve","ratnz",
+   "\"Solve was unable to solve the system with inexact coefficients. The \
+answer was obtained by solving a corresponding exact system and numericizing \
+the result.\"",2,63,3,23067813287076177568,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.7379112061329517`*^9}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Solve","ratnz",
+   "\"Solve was unable to solve the system with inexact coefficients. The \
+answer was obtained by solving a corresponding exact system and numericizing \
+the result.\"",2,63,4,23067813287076177568,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.737911206283736*^9}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "General","stop",
+   "\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"Solve\\\", \\\"::\\\", \
+\\\"ratnz\\\"}], \\\"MessageName\\\"]\\) will be suppressed during this \
+calculation.\"",2,63,5,23067813287076177568,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.737911206401271*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "test ",
+ Cell[BoxData["exportPredictedParametersAndErrors"], "Input",
+  CellChangeTimes->{{3.737823341393067*^9, 3.7378233421510267`*^9}, {
+    3.737823420757193*^9, 3.737823483600425*^9}, 3.737824148407848*^9, {
+    3.737908189652112*^9, 3.737908195023649*^9}, {3.737908383482667*^9, 
+    3.737908390561265*^9}, {3.737909029564506*^9, 3.737909030922151*^9}}],
+ " FBA1"
+}], "Subsubsection",
+ CellChangeTimes->{{3.688379404633004*^9, 3.688379429043716*^9}, {
+   3.688464189533341*^9, 3.688464194468556*^9}, {3.688464387337203*^9, 
+   3.688464392473873*^9}, 3.6890750785401487`*^9, {3.689586528144853*^9, 
+   3.689586528144923*^9}, {3.737612316214531*^9, 3.737612333189075*^9}, {
+   3.737910991653429*^9, 3.737911008914547*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"expectedResult", "=", 
+    RowBox[{"Import", "[", 
+     RowBox[{
+      RowBox[{"FileNameJoin", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<test_files\>\"", 
+          ",", " ", "\"\<analyze_fit_results\>\"", ",", " ", 
+          "\"\<exportPredictedParametersAndErrorsFBA1Results.mx\>\""}], "}"}],
+         ",", " ", 
+        RowBox[{"OperatingSystem", "\[Rule]", "$OperatingSystem"}]}], "]"}], 
+      ",", " ", "\"\<MX\>\""}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"arguments", "=", 
+    RowBox[{"Import", "[", 
+     RowBox[{
+      RowBox[{"FileNameJoin", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<test_files\>\"", 
+          ",", " ", "\"\<analyze_fit_results\>\"", ",", " ", 
+          "\"\<exportPredictedParametersAndErrorsFBA1Arguments.mx\>\""}], 
+         "}"}], ",", " ", 
+        RowBox[{"OperatingSystem", "\[Rule]", "$OperatingSystem"}]}], "]"}], 
+      ",", " ", "\"\<MX\>\""}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"result", "=", 
+    RowBox[{"exportPredictedParametersAndErrors", "@@", "arguments"}]}], 
+   ";"}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"AppendTo", "[", 
+   RowBox[{"testResults", ",", "\[IndentingNewLine]", 
+    RowBox[{"VerificationTest", "[", 
+     RowBox[{"result", ",", "expectedResult", " ", ",", " ", 
+      RowBox[{
+      "TestID", "\[Rule]", 
+       "\"\<exportPredictedParametersAndErrorsFBA1\>\""}]}], "]"}]}], 
+   "\[IndentingNewLine]", "]"}], ";"}], "\[IndentingNewLine]"}], "Input",
+ CellChangeTimes->{
+  3.737911012022408*^9, {3.737911099588312*^9, 3.7379111082130413`*^9}}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Solve","ratnz",
+   "\"Solve was unable to solve the system with inexact coefficients. The \
+answer was obtained by solving a corresponding exact system and numericizing \
+the result.\"",2,67,6,23067813287076177568,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.737911206794959*^9}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Solve","ratnz",
+   "\"Solve was unable to solve the system with inexact coefficients. The \
+answer was obtained by solving a corresponding exact system and numericizing \
+the result.\"",2,67,7,23067813287076177568,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.737911206885158*^9}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Solve","ratnz",
+   "\"Solve was unable to solve the system with inexact coefficients. The \
+answer was obtained by solving a corresponding exact system and numericizing \
+the result.\"",2,67,8,23067813287076177568,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.7379112069612417`*^9}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "General","stop",
+   "\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"Solve\\\", \\\"::\\\", \
+\\\"ratnz\\\"}], \\\"MessageName\\\"]\\) will be suppressed during this \
+calculation.\"",2,67,9,23067813287076177568,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.737911207037315*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "test ",
+ Cell[BoxData["exportPredictedParametersAndErrors"], "Input",
+  CellChangeTimes->{{3.737823341393067*^9, 3.7378233421510267`*^9}, {
+    3.737823420757193*^9, 3.737823483600425*^9}, 3.737824148407848*^9, {
+    3.737908189652112*^9, 3.737908195023649*^9}, {3.737908383482667*^9, 
+    3.737908390561265*^9}, {3.737909029564506*^9, 3.737909030922151*^9}}],
+ " FBP2"
+}], "Subsubsection",
+ CellChangeTimes->{{3.688379404633004*^9, 3.688379429043716*^9}, {
+   3.688464189533341*^9, 3.688464194468556*^9}, {3.688464387337203*^9, 
+   3.688464392473873*^9}, 3.6890750785401487`*^9, {3.689586528144853*^9, 
+   3.689586528144923*^9}, {3.737612316214531*^9, 3.737612333189075*^9}, {
+   3.737910991653429*^9, 3.7379110232491703`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"expectedResult", "=", 
+    RowBox[{"Import", "[", 
+     RowBox[{
+      RowBox[{"FileNameJoin", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<test_files\>\"", 
+          ",", " ", "\"\<analyze_fit_results\>\"", ",", " ", 
+          "\"\<exportPredictedParametersAndErrorsFBP2Results.mx\>\""}], "}"}],
+         ",", " ", 
+        RowBox[{"OperatingSystem", "\[Rule]", "$OperatingSystem"}]}], "]"}], 
+      ",", " ", "\"\<MX\>\""}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"arguments", "=", 
+    RowBox[{"Import", "[", 
+     RowBox[{
+      RowBox[{"FileNameJoin", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<test_files\>\"", 
+          ",", " ", "\"\<analyze_fit_results\>\"", ",", " ", 
+          "\"\<exportPredictedParametersAndErrorsFBP2Arguments.mx\>\""}], 
+         "}"}], ",", " ", 
+        RowBox[{"OperatingSystem", "\[Rule]", "$OperatingSystem"}]}], "]"}], 
+      ",", " ", "\"\<MX\>\""}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"result", "=", 
+    RowBox[{"exportPredictedParametersAndErrors", "@@", "arguments"}]}], 
+   ";"}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"AppendTo", "[", 
+   RowBox[{"testResults", ",", "\[IndentingNewLine]", 
+    RowBox[{"VerificationTest", "[", 
+     RowBox[{"result", ",", "expectedResult", " ", ",", " ", 
+      RowBox[{
+      "TestID", "\[Rule]", 
+       "\"\<exportPredictedParametersAndErrorsFBP2\>\""}]}], "]"}]}], 
+   "\[IndentingNewLine]", "]"}], ";"}], "\[IndentingNewLine]"}], "Input",
+ CellChangeTimes->{
+  3.737911012022408*^9, {3.737911075194457*^9, 3.737911086636532*^9}}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Solve","ratnz",
+   "\"Solve was unable to solve the system with inexact coefficients. The \
+answer was obtained by solving a corresponding exact system and numericizing \
+the result.\"",2,71,10,23067813287076177568,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.737911207200932*^9}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Solve","ratnz",
+   "\"Solve was unable to solve the system with inexact coefficients. The \
+answer was obtained by solving a corresponding exact system and numericizing \
+the result.\"",2,71,11,23067813287076177568,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.7379112072972507`*^9}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Solve","ratnz",
+   "\"Solve was unable to solve the system with inexact coefficients. The \
+answer was obtained by solving a corresponding exact system and numericizing \
+the result.\"",2,71,12,23067813287076177568,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.7379112073803577`*^9}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "General","stop",
+   "\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"Solve\\\", \\\"::\\\", \
+\\\"ratnz\\\"}], \\\"MessageName\\\"]\\) will be suppressed during this \
+calculation.\"",2,71,13,23067813287076177568,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.737911207453347*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "test ",
+ Cell[BoxData["exportPredictedParametersAndErrors"], "Input",
+  CellChangeTimes->{{3.737823341393067*^9, 3.7378233421510267`*^9}, {
+    3.737823420757193*^9, 3.737823483600425*^9}, 3.737824148407848*^9, {
+    3.737908189652112*^9, 3.737908195023649*^9}, {3.737908383482667*^9, 
+    3.737908390561265*^9}, {3.737909029564506*^9, 3.737909030922151*^9}}],
+ " PGMd"
+}], "Subsubsection",
+ CellChangeTimes->{{3.688379404633004*^9, 3.688379429043716*^9}, {
+   3.688464189533341*^9, 3.688464194468556*^9}, {3.688464387337203*^9, 
+   3.688464392473873*^9}, 3.6890750785401487`*^9, {3.689586528144853*^9, 
+   3.689586528144923*^9}, {3.737612316214531*^9, 3.737612333189075*^9}, {
+   3.737910991653429*^9, 3.7379109933522987`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"expectedResult", "=", 
+     RowBox[{"Import", "[", 
+      RowBox[{
+       RowBox[{"FileNameJoin", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<test_files\>\"",
+            ",", " ", "\"\<analyze_fit_results\>\"", ",", " ", 
+           "\"\<exportPredictedParametersAndErrorsPGMdResults.mx\>\""}], 
+          "}"}], ",", " ", 
+         RowBox[{"OperatingSystem", "\[Rule]", "$OperatingSystem"}]}], "]"}], 
+       ",", " ", "\"\<MX\>\""}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"arguments", "=", 
+     RowBox[{"Import", "[", 
+      RowBox[{
+       RowBox[{"FileNameJoin", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<test_files\>\"",
+            ",", " ", "\"\<analyze_fit_results\>\"", ",", " ", 
+           "\"\<exportPredictedParametersAndErrorsPGMdArguments.mx\>\""}], 
+          "}"}], ",", " ", 
+         RowBox[{"OperatingSystem", "\[Rule]", "$OperatingSystem"}]}], "]"}], 
+       ",", " ", "\"\<MX\>\""}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"result", "=", 
+     RowBox[{"exportPredictedParametersAndErrors", "@@", "arguments"}]}], 
+    ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"AppendTo", "[", 
+     RowBox[{"testResults", ",", "\[IndentingNewLine]", 
+      RowBox[{"VerificationTest", "[", 
+       RowBox[{"result", ",", "expectedResult", " ", ",", " ", 
+        RowBox[{
+        "TestID", "\[Rule]", 
+         "\"\<exportPredictedParametersAndErrorsPGMd\>\""}]}], "]"}]}], 
+     "\[IndentingNewLine]", "]"}], ";"}]}]}]], "Input",
+ CellChangeTimes->{{3.737911037923476*^9, 3.737911057544355*^9}}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Solve","ratnz",
+   "\"Solve was unable to solve the system with inexact coefficients. The \
+answer was obtained by solving a corresponding exact system and numericizing \
+the result.\"",2,75,14,23067813287076177568,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.737911207573059*^9}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Solve","ratnz",
+   "\"Solve was unable to solve the system with inexact coefficients. The \
+answer was obtained by solving a corresponding exact system and numericizing \
+the result.\"",2,75,15,23067813287076177568,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.737911207611106*^9}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Solve","ratnz",
+   "\"Solve was unable to solve the system with inexact coefficients. The \
+answer was obtained by solving a corresponding exact system and numericizing \
+the result.\"",2,75,16,23067813287076177568,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.737911207650758*^9}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "General","stop",
+   "\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"Solve\\\", \\\"::\\\", \
+\\\"ratnz\\\"}], \\\"MessageName\\\"]\\) will be suppressed during this \
+calculation.\"",2,75,17,23067813287076177568,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.737911207684719*^9}]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -4385,6 +2577,9 @@ Cell[BoxData[
 Cell[BoxData[
  RowBox[{"{", 
   RowBox[{"\<\"Success\"\>", ",", "\<\"Success\"\>", ",", "\<\"Success\"\>", 
+   ",", "\<\"Success\"\>", ",", "\<\"Success\"\>", ",", "\<\"Success\"\>", 
+   ",", "\<\"Success\"\>", ",", "\<\"Success\"\>", ",", "\<\"Success\"\>", 
+   ",", "\<\"Success\"\>", ",", "\<\"Success\"\>", ",", "\<\"Success\"\>", 
    ",", "\<\"Success\"\>"}], "}"}]], "Output",
  CellChangeTimes->{{3.68907595663929*^9, 3.689076000551443*^9}, 
    3.689076775873452*^9, 3.689078634173562*^9, 3.689078686033999*^9, 
@@ -4396,12 +2591,16 @@ Cell[BoxData[
    3.698490255859476*^9}, 3.699091286488661*^9, {3.703770905190608*^9, 
    3.703770932604985*^9}, 3.703771060100999*^9, {3.7046163546746683`*^9, 
    3.70461637699789*^9}, 3.711014462616968*^9, 3.7110149015801897`*^9, 
-   3.7110157495958643`*^9, 3.711109906887561*^9}]
+   3.7110157495958643`*^9, 3.711109906887561*^9, 3.73761104832833*^9, 
+   3.7376140054453697`*^9, {3.737614137974124*^9, 3.737614145387204*^9}, 
+   3.737614266854705*^9, 3.7376163086562347`*^9, 3.7376163453837137`*^9, {
+   3.737623625233728*^9, 3.737623641468554*^9}, 3.737910764263533*^9, {
+   3.73791095149853*^9, 3.7379109796397543`*^9}, 3.73791120778929*^9}]
 }, Open  ]]
 }, Open  ]]
 },
-WindowSize->{1742, 1021},
-WindowMargins->{{39, Automatic}, {3, Automatic}},
+WindowSize->{1440, 876},
+WindowMargins->{{Automatic, 0}, {Automatic, 24}},
 FrontEndVersion->"11.0 for Linux x86 (64-bit) (September 21, 2016)",
 StyleDefinitions->"Default.nb"
 ]
@@ -4416,29 +2615,90 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[558, 20, 141, 2, 32, "Input"],
-Cell[702, 24, 1688, 34, 148, "Input"],
+Cell[558, 20, 334, 5, 32, "Input"],
+Cell[895, 27, 1688, 34, 148, "Input"],
 Cell[CellGroupData[{
-Cell[2415, 62, 685, 12, 36, "Subsubsection"],
-Cell[3103, 76, 21583, 530, 800, "Input"]
+Cell[2608, 65, 685, 12, 36, "Subsubsection"],
+Cell[3296, 79, 21583, 530, 800, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[24723, 611, 685, 12, 36, "Subsubsection"],
-Cell[25411, 625, 20719, 534, 756, "Input"]
+Cell[24916, 614, 685, 12, 36, "Subsubsection"],
+Cell[25604, 628, 20719, 534, 756, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[46167, 1164, 575, 10, 35, "Subsubsection"],
-Cell[46745, 1176, 27772, 533, 1802, "Input"]
+Cell[46360, 1167, 575, 10, 35, "Subsubsection"],
+Cell[46938, 1179, 27772, 533, 2124, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[74554, 1714, 624, 11, 35, "Subsubsection"],
+Cell[74747, 1717, 624, 11, 35, "Subsubsection"],
 Cell[CellGroupData[{
-Cell[75203, 1729, 111435, 2626, 528, "Input"],
-Cell[186641, 4357, 694, 13, 38, "Output"]
+Cell[75396, 1732, 3430, 68, 256, "Input"],
+Cell[78829, 1802, 487, 10, 23, "Message"],
+Cell[79319, 1814, 909, 16, 38, "Output"]
+}, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[187372, 4375, 297, 7, 34, "Input"],
-Cell[187672, 4384, 913, 14, 34, "Output"]
+Cell[80277, 1836, 677, 11, 35, "Subsubsection"],
+Cell[80957, 1849, 1697, 46, 260, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[82691, 1900, 672, 11, 35, "Subsubsection"],
+Cell[83366, 1913, 1596, 42, 260, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[84999, 1960, 673, 11, 35, "Subsubsection"],
+Cell[85675, 1973, 1647, 41, 260, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[87359, 2019, 670, 11, 35, "Subsubsection"],
+Cell[88032, 2032, 1914, 46, 283, "Input"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[89983, 2083, 670, 11, 29, "Subsubsection"],
+Cell[90656, 2096, 1776, 43, 260, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[92469, 2144, 744, 13, 35, "Subsubsection"],
+Cell[CellGroupData[{
+Cell[93238, 2161, 1898, 46, 283, "Input"],
+Cell[95139, 2209, 338, 7, 23, "Message"],
+Cell[95480, 2218, 340, 7, 23, "Message"],
+Cell[95823, 2227, 338, 7, 23, "Message"],
+Cell[96164, 2236, 338, 7, 23, "Message"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[96551, 2249, 744, 13, 35, "Subsubsection"],
+Cell[CellGroupData[{
+Cell[97320, 2266, 1883, 48, 283, "Input"],
+Cell[99206, 2316, 338, 7, 23, "Message"],
+Cell[99547, 2325, 338, 7, 23, "Message"],
+Cell[99888, 2334, 340, 7, 23, "Message"],
+Cell[100231, 2343, 338, 7, 23, "Message"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[100618, 2356, 746, 13, 35, "Subsubsection"],
+Cell[CellGroupData[{
+Cell[101389, 2373, 1881, 48, 283, "Input"],
+Cell[103273, 2423, 339, 7, 23, "Message"],
+Cell[103615, 2432, 341, 7, 23, "Message"],
+Cell[103959, 2441, 341, 7, 23, "Message"],
+Cell[104303, 2450, 339, 7, 23, "Message"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[104691, 2463, 746, 13, 35, "Subsubsection"],
+Cell[CellGroupData[{
+Cell[105462, 2480, 1896, 46, 283, "Input"],
+Cell[107361, 2528, 339, 7, 23, "Message"],
+Cell[107703, 2537, 339, 7, 23, "Message"],
+Cell[108045, 2546, 339, 7, 23, "Message"],
+Cell[108387, 2555, 339, 7, 23, "Message"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[108763, 2567, 297, 7, 34, "Input"],
+Cell[109063, 2576, 1454, 21, 34, "Output"]
 }, Open  ]]
 }, Open  ]]
 }

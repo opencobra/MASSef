@@ -173,6 +173,10 @@ backCalculateKic::usage="backCalculateKic[fittingData, filteredDataList, inhibCo
 backCalculateKiu::usage="backCalculateKiu[fittingData, filteredDataList, inhibConcentrations, KiuDataValue]";
 
 
+exportPredictedParametersAndErrors::usage="exportPredictedParametersAndErrors2[rxn, rxnName, fitLabel, flagFitType, nRateSets,KeqList, kmList,s05List, kcatList, inhibitionList, otherParamsList, absoluteRateForward, absoluteRateReverse, relativeRateForward, relativeRateReverse, haldaneRatiosList,  metSatForSub, metSatRevSub, rateConstsSub, assumedSaturatingConc, fittingData, filteredDataList,\[IndentingNewLine] dataHeader]";
+
+
+
 (* ::Subsection:: *)
 (*utils*)
 
