@@ -1,5 +1,9 @@
 (* ::Package:: *)
 
+
+
+
+
 (* ::Title:: *)
 (*simulateData*)
 
@@ -459,8 +463,8 @@ simulateKmData[rxn_, metsFull_, metSatForSub_, metSatRevSub_, kmList_, otherParm
 		{pt, Length @ kmFittingData}];
 
 
-	kmFittingData = fixDuplicateMetKmFittingData[rxn, kmList, kmFittingData];
-	(*kmFittingData=Table[
+(*	kmFittingData = fixDuplicateMetKmFittingData[rxn, kmList, kmFittingData];*)
+		(*kmFittingData=Table[
 		Join[{adjustedKeqVal[[pt,2]]}, kmFittingData[[pt]]],
 	{pt, Length @ kmFittingData}];*)
 

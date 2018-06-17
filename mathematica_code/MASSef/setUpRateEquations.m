@@ -381,16 +381,16 @@ getRateEqs[rxn_, enzymeModel_, absoluteFlux_, rateConstSubstitutionList_, revers
 			If[! FileExistsQ[rateFileName], (* if file with relRateFor doesnt exist, create it *)
 				Print["Generating relative rate forward equation..."];
 				repeatedMetCount = Select[getSubstrStoich@rxn, #> 1&];	
-				If[ SameQ[repeatedMetCount, {}],
+				(*If[ SameQ[repeatedMetCount, {}],*)
 				
 					If[TrueQ[simplifyFlag],
 						Print["Simplifying..."];
 						rateEq = anonymize[Simplify[(absoluteRateForward/.reverseZeroSub/.volumeSub)/((absoluteRateForward/.reverseZeroSub/.volumeSub/.metSatForSub)), TimeConstraint -> {simplifyMaxTime, 300}, Trig->False, Assumptions->posConcentrationAssumption]];,
 						rateEq = (absoluteRateForward/.reverseZeroSub/.volumeSub)/(absoluteRateForward/.reverseZeroSub/.volumeSub/.metSatForSub);
-					];,
+					];(*,
 					
 					rateEq = generateRelRateDuplicateReactants[absoluteRateForward, metSatForSub, volumeSub, getSubstrates@rxn, getSubstrStoich@rxn, repeatedMetCount];
-				];		
+				];		*)
 				Export[rateFileName, rateEq];
 				rateEq,
 				
@@ -407,17 +407,17 @@ getRateEqs[rxn_, enzymeModel_, absoluteFlux_, rateConstSubstitutionList_, revers
 			
 			If[! FileExistsQ[rateFileName], (* if file with relRateRev doesnt exist, create it *)
 				Print["Generating relative rate reverse equation..."];
-				repeatedMetCount = Select[getProdStoich@rxn, #> 1&];	
-				If[ SameQ[repeatedMetCount, {}],
+				(*repeatedMetCount = Select[getProdStoich@rxn, #> 1&];	
+				If[ SameQ[repeatedMetCount, {}],*)
 				
 					If[TrueQ[simplifyFlag],
 						Print["Simplifying..."];
 						rateEq = anonymize[Simplify[(absoluteRateReverse)/(absoluteRateReverse/.forwardZeroSub/.volumeSub/.metSatRevSub), TimeConstraint -> {simplifyMaxTime, 300}, Trig->False, Assumptions->posConcentrationAssumption]];,
 						rateEq = (absoluteRateReverse)/(absoluteRateReverse/.forwardZeroSub/.volumeSub/.metSatRevSub);
-					];,
+					];(*,
 					
 					rateEq = generateRelRateDuplicateReactants[absoluteRateReverse, metSatRevSub, volumeSub, getProducts@rxn, getProdStoich@rxn, repeatedMetCount];
-				];
+				];*)
 				Export[rateFileName, rateEq];
 				rateEq,
 				
