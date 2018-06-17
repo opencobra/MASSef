@@ -58,13 +58,14 @@ def _evaluator(candidate):
     # Actual fitness evalutation
     data_value = list()  # Data to fit to
     predicted_value = list()  # Predicted value based off of the fitted function
-
+	
     # Evaluate the Rate Values
     for row in data:
         data_value.append(row[value_row])
         predicted_value.append(functionDict[row[function_row]](newC, row[1:data_row_high])) # for weights: substitute here 0 for 1
 
     # Convert to log space
+    assert (numpy.array(predicted_value) >= 0).all(), "Some predicted data points values are negative"
     data_value = numpy.log10(data_value)
     predicted_value = numpy.log10(predicted_value)
 
