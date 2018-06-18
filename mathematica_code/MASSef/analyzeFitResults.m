@@ -413,7 +413,7 @@ backCalculateKiu[fittingData_, filteredDataList_, dataHeader_, inhibitionList_] 
 
 
 exportPredictedParametersAndErrors[rxn_, rxnName_, fitLabel_, flagFitType_, nRateSets_,KeqList_, kmList_,s05List_, kcatList_, inhibitionList_, otherParamsList_, absoluteRateForward_, absoluteRateReverse_, relativeRateForward_, relativeRateReverse_, haldaneRatiosList_,  metSatForSub_, metSatRevSub_, rateConstsSub_, assumedSaturatingConc_, fittingData_, filteredDataList_,
- dataHeader_]:=
+ dataHeader_, outputPath_:Null]:=
 	Block[{predictions, predictedParameters,predictedParameterErrors, parameterNames, parameterValues, paramFitSub, s05PredList, nHPredList, nHList,
 		trueValuesList, kicList, kiuList, enzymeSub, keqList},
 	
@@ -495,10 +495,14 @@ exportPredictedParametersAndErrors[rxn_, rxnName_, fitLabel_, flagFitType_, nRat
 	predictedParameters=Insert[predictedParameters,Flatten@{"ssd",parameterNames} , 1];
 	predictedParameters=Insert[predictedParameters,Flatten@{0,parameterValues}  ,2];
 
-	predictedParameterErrors=Insert[predictedParameterErrors,Flatten@{"ssd",parameterNames} , 1];
-	predictedParameterErrors=Insert[predictedParameterErrors,Flatten@{0,parameterValues}  ,2];
-	(*Export[outputPath<>"/treated_data/predicted_params_error_distribution_"<>fitLabel<>"_"<>flagFitType<>".csv",predictedParamsErrorList,"CSV"];*)
-
+	predictedParameterErrors=Insert[predictedParameterErrors,Flatten@{"ssd",parameterNames}, 1];
+	predictedParameterErrors=Insert[predictedParameterErrors,Flatten@{0,parameterValues}, 2];
+	
+	If[!SameQ[outputPath, Null],
+		Export[outputPath <> "/treated_data/predicted_params_error_distribution_"<>fitLabel<>"_"<>flagFitType<>".csv", predictedParameterErrors, "CSV"];
+		Export[outputPath <> "/treated_data/predicted_params_distribution_"<>fitLabel<>"_"<>flagFitType<>".csv", predictedParameters, "CSV"];
+	];
+	
 	Return[{predictedParameters, predictedParameterErrors}];
 ];
 

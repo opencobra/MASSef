@@ -58,7 +58,6 @@ getBufferInfoData[dataPath_] :=
 
 
 checkEntry[entry_, entryType_]:=Block[{},
-Print[{entry, entryType}];
 	If[SameQ[entry, {}] || SameQ[entry, ""],
 		Print[Style[entryType <> " is empty - please fill it in", FontSize->14, FontColor->Red]];
 		Abort[];
@@ -295,7 +294,7 @@ getEnzymeData[enzName_, dataPath_, assumedUncertaintyFraction_, q10KcatCorrectio
 
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*Print enzyme data*)
 
 
