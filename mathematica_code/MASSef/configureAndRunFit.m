@@ -249,17 +249,17 @@ executeFit[inputPath_, runPythonCmd_]:=Block[{runBothCmd, runBothExe},
 
 	runBothCmd = "cd \""<>inputPath<>"\" && "<>runPythonCmd;
 	runBothExe = "!"<>runBothCmd <>" 2>&1";
-
-	Import[runBothExe<>" 2>&1","Text"] 
+	
+	Import[runBothExe<>" 2>&1", "Text"] 
 
 ];
 
 
-runFit[inputPath_, pathMASSef_, psoParameterPath_ ,lmaParameterPath_,psoTrialSummaryFileName_, 
+runFit[inputPath_, pathMASSef_, psoParameterPath_, lmaParameterPath_, psoTrialSummaryFileName_, 
 		psoResultsFileName_, lmaResultsFileName_, numTrials_, dataPath_, pythonCommand_:"python"] := 
 		Block[{runFitScriptPath, runPythonCmd, runBothCmd, runBothExe},
 
-	runFitScriptPath= FileNameJoin[{pathMASSef <> "python_code", "src", "run_fit_rel.py"}, OperatingSystem->$OperatingSystem];
+	runFitScriptPath= FileNameJoin[{pathMASSef, "python_code", "src", "run_fit_rel.py"}, OperatingSystem->$OperatingSystem];
 
 	If[ListQ[dataPath],
 

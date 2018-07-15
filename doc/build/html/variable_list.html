@@ -66,7 +66,7 @@
 <li class="toctree-l1"><a class="reference internal" href="general_workflow.html">Enzyme fitting - general workflow</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="general_workflow.html#example-work-flow-for-notebook-type-1-from-g3pd2">Example work flow for notebook type 1 (from G3PD2)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="general_workflow.html#example-work-flow-for-notebook-type-2-from-g3pd2">Example work flow for notebook type 2 (from G3PD2)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="general_workflow.html#example-work-flow-for-notebook-type-3-from-g3pd2">Example work flow for notebook type 3 (from G3PD2)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="general_workflow.html#example-workflow-for-notebook-type-3-from-g3pd2">Example workflow for notebook type 3 (from G3PD2)</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">Variable list</a></li>
@@ -111,11 +111,12 @@
 <li><strong>removeInputFiles</strong> - either True or False; specifies whether input files for enzyme fitting should be removed or not;</li>
 <li><strong>removeOutputFiles</strong> - either True or False; specifies whether output files for enzyme fitting should be removed or not;</li>
 <li><strong>rxnName</strong> - string; name of reaction to be modeled, it should match the name in the kinetic data file;</li>
-<li><strong>fitLabel</strong> - string; label for the fit result files;</li>
+<li><strong>fitLabel</strong> - string; label for the fit data and result files;</li>
 <li><strong>dataFileName</strong>- string; name for the file that contains the fitting data;</li>
 <li><strong>assumedUncertaintyFraction</strong> - float between 0 and 1; if no uncertainty is specified for a given kinetic parameter, this fraction will be assumed;</li>
 <li><strong>Q10KcatCorrectionFlag</strong> - either True or False; if True the kcats will be corrected to TPhysiological temperature;</li>
 <li><strong>TPhysiological</strong> - float; temperature to which kcat should be corrected;</li>
+<li><strong>Q10</strong> - float; Q10 coefficient for the kcat temperature correction. It is optional;</li>
 <li><strong>pathMASSef</strong> - string; path to MASSef&#8217;s folder;</li>
 <li><strong>kineticDataFileName</strong> - string; name of the file that contains the kinetic data;</li>
 <li><strong>mainFolder</strong> - string; folder where all input and output files will be kept;</li>
@@ -183,6 +184,7 @@
 <ul class="simple">
 <li><strong>MWCFlag</strong> - boolean specifying whether the model is the Monod-Wyman-Changeux model or not;</li>
 <li><strong>equivalentReactionsSetsList</strong> - list with sets of reactions that are equivalent;</li>
+<li><strong>assumedSaturatingConc</strong> - assumed saturating concentration in mol/L. This is used to derive the equations to fit Kms if no co-substrate concentration, as the co-substrates are assumed to be saturating.</li>
 <li><strong>simplifyFlag</strong> - boolean specifying whether or not the equations for the absolute flux and rate equations should be simplified or not. This can be a very time consuming step, depending on how many reactions the enzyme mechanism includes;</li>
 <li><strong>simplifyMaxTime</strong> - in seconds, the maximum amount of time that Mathematica is allowed to spend on each mathematical transformation in the simplify step. Note that this doesn&#8217;t constrain the maximum amount of time the simplify step takes, but only the maximum amount of time spent on each mathematical transformation;</li>
 <li><strong>inhibitionListSubset</strong> - list of inihibition data points used to add inhibition reactions to the enzyme mechanism, by default this variable is the same as inhibitionList, but some data points lead to either repeated reactions or reactions that make no sense (e.g. 2 substrates in the same reaction that bind to the same active site);</li>
@@ -197,8 +199,8 @@
 <li><strong>rxnMets</strong> - list of metabolties that are part of the reaction being modeled;</li>
 <li><strong>reverseZeroSub</strong> - list of metabolites whose concentrations are zero in the forward rate equations;</li>
 <li><strong>forwardZeroSub</strong> - list of metabolites whose concentrations are zero in the reverse rate equations;</li>
-<li><strong>metSatForSub</strong> - list of metabolites whose concentration tend to +infinity, in the relative forward rate equations;</li>
-<li><strong>metSatRevSub</strong> - list of metabolites whose concentration tend to +infinity, in the relative reverse rate equations;</li>
+<li><strong>metSatForSub</strong> - list of metabolites whose concentration is set to <cite>assumedSaturatingConc</cite>, in the relative forward rate equations;</li>
+<li><strong>metSatRevSub</strong> - list of metabolites whose concentration is set to <cite>assumedSaturatingConc</cite>, in the relative reverse rate equations;</li>
 </ul>
 <div class="line-block">
 <div class="line"><br /></div>
