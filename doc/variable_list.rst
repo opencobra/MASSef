@@ -4,11 +4,12 @@ Variable list
 * **removeInputFiles** - either True or False; specifies whether input files for enzyme fitting should be removed or not;
 * **removeOutputFiles** - either True or False; specifies whether output files for enzyme fitting should be removed or not;
 * **rxnName** - string; name of reaction to be modeled, it should match the name in the kinetic data file;
-* **fitLabel** - string; label for the fit result files;
+* **fitLabel** - string; label for the fit data and result files;
 * **dataFileName**- string; name for the file that contains the fitting data;
 * **assumedUncertaintyFraction** - float between 0 and 1; if no uncertainty is specified for a given kinetic parameter, this fraction will be assumed;
 * **Q10KcatCorrectionFlag** - either True or False; if True the kcats will be corrected to TPhysiological temperature;
 * **TPhysiological** - float; temperature to which kcat should be corrected; 
+* **Q10** - float; Q10 coefficient for the kcat temperature correction. It is optional;
 * **pathMASSef** - string; path to MASSef's folder;
 * **kineticDataFileName** - string; name of the file that contains the kinetic data;
 * **mainFolder** - string; folder where all input and output files will be kept;
@@ -63,6 +64,7 @@ The following are updated data point lists with priority values:
 |  
 * **MWCFlag** - boolean specifying whether the model is the Monod-Wyman-Changeux model or not;
 * **equivalentReactionsSetsList** - list with sets of reactions that are equivalent;
+* **assumedSaturatingConc** - assumed saturating concentration in mol/L. This is used to derive the equations to fit Kms if no co-substrate concentration, as the co-substrates are assumed to be saturating.
 * **simplifyFlag** - boolean specifying whether or not the equations for the absolute flux and rate equations should be simplified or not. This can be a very time consuming step, depending on how many reactions the enzyme mechanism includes;
 * **simplifyMaxTime** - in seconds, the maximum amount of time that Mathematica is allowed to spend on each mathematical transformation in the simplify step. Note that this doesn't constrain the maximum amount of time the simplify step takes, but only the maximum amount of time spent on each mathematical transformation;
 * **inhibitionListSubset** - list of inihibition data points used to add inhibition reactions to the enzyme mechanism, by default this variable is the same as inhibitionList, but some data points lead to either repeated reactions or reactions that make no sense (e.g. 2 substrates in the same reaction that bind to the same active site);
@@ -74,8 +76,8 @@ The following are updated data point lists with priority values:
 * **rxnMets** - list of metabolties that are part of the reaction being modeled;
 * **reverseZeroSub** - list of metabolites whose concentrations are zero in the forward rate equations;
 * **forwardZeroSub** - list of metabolites whose concentrations are zero in the reverse rate equations;
-* **metSatForSub** - list of metabolites whose concentration tend to +infinity, in the relative forward rate equations;
-* **metSatRevSub** - list of metabolites whose concentration tend to +infinity, in the relative reverse rate equations;
+* **metSatForSub** - list of metabolites whose concentration is set to `assumedSaturatingConc`, in the relative forward rate equations;
+* **metSatRevSub** - list of metabolites whose concentration is set to `assumedSaturatingConc`, in the relative reverse rate equations;
 
 |  
 * **rates** - list with all reaction rate laws (mass action);

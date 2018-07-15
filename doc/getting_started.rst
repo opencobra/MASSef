@@ -7,7 +7,7 @@ Getting started
 To start, get the MASS toolbox from here_.
 
 Then install the required packages for python.
-Open the terminal, go to doc/other_guidelines and do
+Open the terminal, go to the MASSef base directory and do
 
 ::
 
