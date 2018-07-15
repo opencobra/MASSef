@@ -335,7 +335,7 @@ printEnzymeData[rxn_, mechanism_, structure_, nActiveSites_, KeqList_, kmList_, 
 (*Import all data*)
 
 
-importAllData[rxnName_, pathData_, kineticDataFileName_, assumedUncertaintyFraction_, q10KcatCorrectionFlag_:False, TPhysiological_:37]:=
+importAllData[rxnName_, pathData_, kineticDataFileName_, assumedUncertaintyFraction_, q10KcatCorrectionFlag_:False, TPhysiological_:37, Q10_:2.5]:=
 	Block[{rxn, mechanism, structure, nActiveSites, nAllostericSites, KeqList, kmList, s05List, 
 			kcatList, inhibitionList, activationList, otherParmsList, bufferInfo, ionCharge,
 			enzymeDataPath, bufferInfoDataPath, ionChargeDataPath},
@@ -345,7 +345,7 @@ importAllData[rxnName_, pathData_, kineticDataFileName_, assumedUncertaintyFract
 	ionChargeDataPath = FileNameJoin[{pathData, "ion_charge.csv"}, OperatingSystem->$OperatingSystem];
 
 	{rxn, mechanism, structure, nActiveSites, nAllostericSites, KeqList,kmList, s05List, kcatList, inhibitionList, activationList, otherParmsList} = 
-		getEnzymeData[rxnName, enzymeDataPath, assumedUncertaintyFraction, q10KcatCorrectionFlag, TPhysiological];
+		getEnzymeData[rxnName, enzymeDataPath, assumedUncertaintyFraction, q10KcatCorrectionFlag, TPhysiological, Q10];
 
 	bufferInfo = getBufferInfoData[bufferInfoDataPath];
 	ionCharge = getIonData[ionChargeDataPath];
