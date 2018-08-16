@@ -1,7 +1,5 @@
 # MASSef
 
-*This branch contains the code used in Marta's thesis (not yet merged with master)*
-
 This repository contains all the code to build enzyme-level kinetic models following the eMASS approach (soon to be published).
 
 To use this package you need:
