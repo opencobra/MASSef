@@ -84,9 +84,10 @@ parseSubMetLists[list_]:=Block[{parsedList, res},
 ];
 
 
+(*If the uncertainty value provided is empty, apply the default uncertainty fraction to the parameter as (1-f)*parameter for the lower bound and (1+f)*parameter for the upper bound*)
+(*If the uncertainty value provided is not empty, return this uncertainty instead, which must have two points (lower and upper bound)*)
 handleUncertainty[paramValue_, uncertainty_, defaultUncertaintyFraction_] := 
 	Block[{uncertaintyLocal, parts},
-	
 	uncertaintyLocal = If[StringMatchQ[uncertainty, ""],
 		 {paramValue - defaultUncertaintyFraction*paramValue, paramValue + defaultUncertaintyFraction*paramValue},
 		 parts = StringSplit[uncertainty, ","];
@@ -96,6 +97,9 @@ handleUncertainty[paramValue_, uncertainty_, defaultUncertaintyFraction_] :=
 	Return[uncertaintyLocal];
 ];
 
+
+(*Grabs the Keq data, metabolite list for reaction direction, uncertainty if available, and pH for the value*)
+(*Returns an ordered list in an expected format*)
 parseKeqEntry[line_, uncertaintyFraction_] := 
 	Block[{entry, substrate, value, uncertainty, coSubstrates, units, ph, 
 			temperature, buffer, salts, priority=1},
@@ -113,6 +117,9 @@ parseKeqEntry[line_, uncertaintyFraction_] :=
 	Return[entry];
 ];
 
+
+(*Grabs the Km data, metabolite list for reaction direction, uncertainty if available, cosubstrate list, units, pH, T, buffer, and salt for the value*)
+(*Returns an ordered list in an expected format*)
 parseKmS05Entry[line_, uncertaintyFraction_] := 
 	Block[{entry, substrate, value, uncertainty, coSubstrates, units, ph, 
 			temperature, buffer, salts, priority=1},
@@ -138,6 +145,9 @@ parseKmS05Entry[line_, uncertaintyFraction_] :=
 	Return[entry];
 ];
 
+
+(*Grabs the kcat data, metabolite list for reaction direction, uncertainty if available, cosubstrate list, units, pH, T, buffer, and salt for the value*)
+(*Returns an ordered list in an expected format*)
 parseKcatEntry[line_, uncertaintyFraction_] := 
 	Block[{kcatEntry, kcatValue, uncertainty, substrates, units, ph, 
 			temperature, buffer, salts, priority=1},
@@ -162,6 +172,9 @@ parseKcatEntry[line_, uncertaintyFraction_] :=
 	Return[kcatEntry];
 ];
 
+
+(*Grabs the Ki or Ka data, metabolite for the effector, uncertainty if available, cosubstrate list, units, pH, T, buffer, salta, and the action type for the value*)
+(*Returns an ordered list in an expected format*)
 parseInhibKaEntry[line_, uncertaintyFraction_] := 
 	Block[{entry, paramType, substrate, paramValue, uncertainty, coSubstrates, 
 			actionType, units, ph, temperature, buffer, salts, priority=1},
@@ -192,6 +205,10 @@ parseInhibKaEntry[line_, uncertaintyFraction_] :=
 	Return[entry];
 ];
 
+
+(*Grabs the data, metabolite list for reaction direction, uncertainty if available, cosubstrate list, units, pH, T, buffer, and salt for any other types of values*)
+(*Has special handling of the L0 parameter of the MWC allostery modeling mechanism*)
+(*Returns an ordered list in an expected format*)
 parseOtherEntry[line_, uncertaintyFraction_] := 
 	Block[{paramType,entry, substrate, value, uncertainty, coSubstrates, units, ph, 
 			temperature, buffer, salts, priority=1},
@@ -199,7 +216,7 @@ parseOtherEntry[line_, uncertaintyFraction_] :=
 	paramType= StringReplace[line[[1]], " "-> ""];
 	substrate = StringReplace[line[[2]], " "-> ""];
 	If[!StringMatchQ[paramType, "L0"],
-		checkEntry[substrate, "Other parameter susbtrate"];
+		checkEntry[substrate, "Other parameter substrate"];
 	];
 	value = line[[3]];
 	checkEntry[value, "Other parameter value"];
@@ -231,8 +248,11 @@ correctKcatForTemperature[kcatList_, TPhysiological_, Q10_:2.5] :=
 		curKcat = kcatListLocal[[i,3]]; 
 		curUncertainty = kcatListLocal[[i,4]];
 		curTemperature = kcatListLocal[[i,7]];
+		(*Define the temperature difference between in vitro and desired temperature*)
 		curTemperatureDiff = TPhysiological-curTemperature;
+		(*Apply the Q10 definition to adjust the kcat*)
 		newKcat = Q10^(curTemperatureDiff/10.) * curKcat; (*Based on the definition Q10 = (R2/R1)^(10/(T2-T1))*)
+		(*Adjust the uncertainty based on the definition of Q10 as well*)
 		newUncertainty = {Q10^(curTemperatureDiff/10.) * curUncertainty[[1]], Q10^(curTemperatureDiff/10.) * curUncertainty[[2]]};
 		kcatListLocal[[i, 3]] = newKcat;
 		kcatListLocal[[i, 4]] = newUncertainty;
@@ -243,24 +263,33 @@ correctKcatForTemperature[kcatList_, TPhysiological_, Q10_:2.5] :=
 ];
 
 
+(*Primary import data function for kinetic data*)
 getEnzymeData[enzName_, dataPath_, assumedUncertaintyFraction_, q10KcatCorrectionFlag_:False, TPhysiological_:37, Q10_:2.5] := 
 	Block[{data, enzymesInd, curEnzymeInd, nextEnzymeInd, curEnzymeData, 
 			ecNumber, organism, rxn, mechanism, structure, nActiveSites,  
 			nAllostericSites, line, dataType, kmList={}, kcatList={}, s05List={},  
 			inhibitionList={}, activationList={}, otherParmsList={}, KeqList={}},
-
+	
+	(*Import data file in CSV format*)
 	data = Import[dataPath, "CSV"];
+	
 										  
+	(*Find any non-empty values in the first column, corresponding to where enzyme names are in the data file*)								  									  									  
 	enzymesInd = Flatten@Position[Map[StringLength[#] > 1&, data[[All,1]]], True];
+	(*Look for the current enzyme name in the data (first column)*)	
 	curEnzymeInd = Flatten[Position[data[[All,1]], enzName]];
 	If[SameQ[curEnzymeInd, {}],
 		Print["Couldn't find enzyme data for enzyme name: " <> enzName];
 		Return[Null];
 	];
+	(*Flatten curEnzymeInd from a list to a value*)
 	curEnzymeInd = curEnzymeInd[[1]];
+	(*Find the index of the next enzyme, used as a stopping point for the data for the current enzyme*)
 	nextEnzymeInd = enzymesInd[[Flatten[Position[enzymesInd, curEnzymeInd]][[1]]+1]];
+	(*Identify the indices of the data as those between the start and end indices for the current enzyme*)
 	curEnzymeData = data[[curEnzymeInd;;(nextEnzymeInd-1)]];
 
+	(*Make sure that the data is organized in the expected order*)
 	Assert[StringMatchQ[StringTrim[curEnzymeData[[1,2]]], "ec_number"]];
 	Assert[StringMatchQ[StringTrim[curEnzymeData[[2,2]]], "organism"]];
 	Assert[StringMatchQ[StringTrim[curEnzymeData[[3,2]]], "reaction"]];
@@ -271,6 +300,7 @@ getEnzymeData[enzName_, dataPath_, assumedUncertaintyFraction_, q10KcatCorrectio
 	Assert[StringMatchQ[StringTrim[curEnzymeData[[8,2]]], "allosteric_sites"]];
 	Assert[StringMatchQ[StringTrim[curEnzymeData[[9,2]]], "parameter type"]];
 
+	(*Extract the data for this enzyme*)
 	ecNumber = StringReplace[curEnzymeData[[1,3]], " "-> ""];
 	rxn = str2mass[enzName <> ": " <> curEnzymeData[[3,3]]];
 	mechanism = StringTrim[curEnzymeData[[5,3]]] <> "; " <> StringTrim[curEnzymeData[[5,4]]];
@@ -278,7 +308,7 @@ getEnzymeData[enzName_, dataPath_, assumedUncertaintyFraction_, q10KcatCorrectio
 	nActiveSites = curEnzymeData[[7,3]];
 	nAllostericSites = curEnzymeData[[8,3]];
 
-
+	(*Handle data that has metadata on a case-by-base basis, using specific extraction functions*)
 	Table[
 		dataType = curEnzymeData[[i,2]];
 		line = curEnzymeData[[i]];
@@ -294,6 +324,7 @@ getEnzymeData[enzName_, dataPath_, assumedUncertaintyFraction_, q10KcatCorrectio
 		];,
 	{i, 10, Length@curEnzymeData}];
 	
+	(*If q10KcatCorrectionFlag is True, correct the kcat from its in vitro temperature to the desired temperature using the definition of Q10 and either a user-defined or assumed Q10 value (of 2.5)*)
 	If[TrueQ[q10KcatCorrectionFlag],
 		kcatList = correctKcatForTemperature[kcatList, TPhysiological, Q10];
 	];
@@ -307,6 +338,7 @@ getEnzymeData[enzName_, dataPath_, assumedUncertaintyFraction_, q10KcatCorrectio
 (*Print enzyme data*)
 
 
+(*Print a table of the extracted data for the user to view*)
 printEnzymeData[rxn_, mechanism_, structure_, nActiveSites_, KeqList_, kmList_, s05List_, kcatList_, inhibitionList_, activationList_, otherParmsList_] := Block[{},
 
 	Print[rxn];
@@ -344,21 +376,26 @@ printEnzymeData[rxn_, mechanism_, structure_, nActiveSites_, KeqList_, kmList_, 
 (*Import all data*)
 
 
+(*Parent data extraction function*)
 importAllData[rxnName_, pathData_, kineticDataFileName_, assumedUncertaintyFraction_, q10KcatCorrectionFlag_:False, TPhysiological_:37, Q10_:2.5]:=
 	Block[{rxn, mechanism, structure, nActiveSites, nAllostericSites, KeqList, kmList, s05List, 
 			kcatList, inhibitionList, activationList, otherParmsList, bufferInfo, ionCharge,
 			enzymeDataPath, bufferInfoDataPath, ionChargeDataPath},
 
+	(*Set up the file paths*)
 	enzymeDataPath = FileNameJoin[{pathData, kineticDataFileName}, OperatingSystem->$OperatingSystem];
 	bufferInfoDataPath = FileNameJoin[{pathData, "buffer_info.csv"}, OperatingSystem->$OperatingSystem];
 	ionChargeDataPath = FileNameJoin[{pathData, "ion_charge.csv"}, OperatingSystem->$OperatingSystem];
 
+	(*Extract the primary kinetic data*)
 	{rxn, mechanism, structure, nActiveSites, nAllostericSites, KeqList,kmList, s05List, kcatList, inhibitionList, activationList, otherParmsList} = 
 		getEnzymeData[rxnName, enzymeDataPath, assumedUncertaintyFraction, q10KcatCorrectionFlag, TPhysiological, Q10];
 
+	(*Extract the buffer and ion metadata*)
 	bufferInfo = getBufferInfoData[bufferInfoDataPath];
 	ionCharge = getIonData[ionChargeDataPath];
 
+	(*Print the output of extract data in a table*)
 	printEnzymeData[rxn, mechanism, structure, nActiveSites,  KeqList, kmList, s05List, kcatList, inhibitionList, activationList, otherParmsList];
 
 	Return[{rxn, mechanism, structure, nActiveSites, nAllostericSites, KeqList,kmList, s05List, 
@@ -370,18 +407,25 @@ importAllData[rxnName_, pathData_, kineticDataFileName_, assumedUncertaintyFract
 (*Update data point priorities*)
 
 
+(*Priorities are used as user-defined weights on data points during the fitting procedure. The database has default/curated priorities for the data but the notebook can update these values actively using this function*)
+(*This function also deletes the data that was set to priority 0, since it will have no bearing on the fitting procedure*)
 updateDataList[dataList_, priorityList_] := Block[{dataListLocal=dataList, indList},
 
+	(*If the priorityList exists, it can be updated*)
 	If[!SameQ[priorityList, Null] && !SameQ[priorityList,{}],
 	
+		(*Make sure the dataList and priorityList are the same length*)
 		If[Length @ dataList == Length @ priorityList,
 
+			(*Grab the previous priority list*)
 			dataListLocal[[All,1]] = priorityList;
+			(*If there are any priorities of 0, delete the data point from consideration*)
 			If[AnyTrue[priorityList, #==0 || #==0. &],
 				indList = Flatten[{Position[priorityList, 0.],Position[priorityList, 0]}, 1];
 				dataListLocal = Delete[dataListLocal, indList];				
 			];,
-		
+			
+			(*Warn the user that the data and priority lists are not the same length, if the test above fails*)
 			Print["Priorities list has a different number of entries than the data list"];
 			Print["Number of entries in priority list: " <> ToString[Length @ priorityList]];
 			Print["Number of entries in data  list: " <> ToString[Length @ dataListLocal]];
@@ -395,6 +439,7 @@ updateDataList[dataList_, priorityList_] := Block[{dataListLocal=dataList, indLi
 ];
 
 
+(*This function updates each data list based on the priorities, removing any data entries for which the priority was 0, and returning any other user-defined non-zero priorities as their updated values*)
 updateDataPriorities[KeqPriorities_, kmPriorities_, s05Priorities_, kcatPriorities_, inhibitionPriorities_, activationPriorities_, otherParamsPriorities_,
 					KeqList_, kmList_, s05List_, kcatList_, inhibitionList_, activationList_, otherParmsList_]:=
 	Block[{KeqListLocal, kmListLocal, s05ListLocal, kcatListLocal, 
@@ -412,6 +457,7 @@ updateDataPriorities[KeqPriorities_, kmPriorities_, s05Priorities_, kcatPrioriti
 	dataSets = {KeqListLocal, kmListLocal, s05ListLocal, kcatListLocal, 
 				inhibitionListLocal, activationListLocal, otherParmsListLocal};
 	
+	(*Return Null if any of the data sets are now Null due to a length mismatch between the priority list and data list*)
 	If[AnyTrue[dataSets, SameQ[#,Null]&],
 		Return[Null];,
 		Return[dataSets];
