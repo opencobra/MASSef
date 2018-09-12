@@ -15,6 +15,8 @@ Begin["`Private`"];
 (*Get ion data*)
 
 
+(*From the ion_charge.csv file, extract the data, in which the first column is ion names, and the second column is ionic charges*)
+(*This information is used in conjunction with the media composition to calculate the media charge for ion strength determination*)
 getIonData[dataPath_] := Block[{data, ionChargeData},
 	data = Import[dataPath, "CSV"];
 	ionChargeData = data[[2;;, All]];
@@ -26,6 +28,8 @@ getIonData[dataPath_] := Block[{data, ionChargeData},
 (*Get buffer data*)
 
 
+(*From the file buffer_info.csv, extract the data. First column is the buffer abbreviation, second column is the buffer name, third column is the buffer pKa, fourth column is the acid charge, and last column is the base charge*)
+(*This information is used in conjunction with the media composition to calculate the media charge for ion strength determination*)
 getBufferInfoData[dataPath_] := 
 	Block[{data, nLines, bufferInfoData, line, bufferID, bufferName, pKa, acidCharge, baseCharge, row},
 	
@@ -57,6 +61,7 @@ getBufferInfoData[dataPath_] :=
 (*Get enzyme data*)
 
 
+(*Find empty entries and requests they be completed*)
 checkEntry[entry_, entryType_]:=Block[{},
 	If[SameQ[entry, {}] || SameQ[entry, ""],
 		Print[Style[entryType <> " is empty - please fill it in", FontSize->14, FontColor->Red]];
@@ -65,9 +70,11 @@ checkEntry[entry_, entryType_]:=Block[{},
 ];
 
 
+(*Handles the metabolite lists associated with data. The list of metabolites is given in order, along with concentrations if available separated by comma(or set to Null if not)*)
 parseSubMetLists[list_]:=Block[{parsedList, res},
 	parsedList = Table[
 		res = StringSplit[entry, ","][[1]];
+		(*Some entries do not have a second element, in which case it is set to Null*)
 		If[Length[res] > 1,
 			{res[[1]], ToExpression[res[[2]]]},
 			{res[[1]], Null}],
@@ -75,6 +82,7 @@ parseSubMetLists[list_]:=Block[{parsedList, res},
 
 	Return[parsedList];
 ];
+
 
 handleUncertainty[paramValue_, uncertainty_, defaultUncertaintyFraction_] := 
 	Block[{uncertaintyLocal, parts},
@@ -214,6 +222,7 @@ parseOtherEntry[line_, uncertaintyFraction_] :=
 
 
 
+(*If Q10KcatCorrectionFlag is True, this function uses the definition of Q10 to adjust the in vitro kcat to the desired temperature from the in vitro temperature*)
 correctKcatForTemperature[kcatList_, TPhysiological_, Q10_:2.5] := 
 	Block[{kcatListLocal=kcatList, curKcat, curUncertainty, curTemperature, 
 			curTemperatureDiff, newKcat, newUncertainty},
