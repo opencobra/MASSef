@@ -15,6 +15,7 @@ Begin["`Private`"];
 (*Define PSO parameters*)
 
 
+(*Set up the parameters for the Particle Swarm Optimization in the Python ecspy package*)
 definePSOparameters[inputPath_, outputPath_, finalRateConsts_, fileList_, 
 					numTrial_, lowerParamBound_, upperParamBound_, fitLabel_:"", numCpus_:1, 
 					numGenerations_: 2000, popSize_: 20] := 
@@ -104,9 +105,13 @@ definePSOparameters[inputPath_, outputPath_, finalRateConsts_, fileList_,
    	{"data_row_high", dataRowHigh = -2}
 	};
 	
+	(*Uses London time for keeping track of optimization start time for records*)
     timeStamp = StringJoin[Map[ToString[#]&, DateList[TimeZone->  "Europe/London"][[;;-2]]]];
+    (*Location of the summary file for the PSO*)
     psoTrialSummaryFileName = FileNameJoin[{outputPath, "raw", "summary_" <> fitLabel <> "_" <> timeStamp <> ".txt"}, OperatingSystem->$OperatingSystem];
+    (*Location of the raw results for the PSO*)
     psoResultsFileName = FileNameJoin[{outputPath, "raw", "psoResults_" <> fitLabel <> "_" <> timeStamp <> ".txt"}, OperatingSystem->$OperatingSystem];
+    (*Location of the input parameters for the PSO for reference*)
 	psoParameterPath = FileNameJoin[{inputPath, "psoParameters_" <> fitLabel <> "_" <> timeStamp <> ".txt"}, OperatingSystem->$OperatingSystem];
 	Export[psoParameterPath, psoParameters, "Table"];
 	
@@ -118,6 +123,7 @@ definePSOparameters[inputPath_, outputPath_, finalRateConsts_, fileList_,
 (*Define LMA parameters*)
 
 
+(*Define parameters for the Levenberg-Marquardt algorithm in the Python lma package*)
 defineLMAparameters[inputPath_, outputPath_, finalRateConsts_, fileList_, 
 					lowerParamBound_, upperParamBound_, fitLabel_:"", numCpus_:1] := 
 	Module[{temperatureCorrect, xtolValue, ftolValue, gtolValue, epsfcnMinValue, maxfevValue, 
@@ -184,9 +190,13 @@ defineLMAparameters[inputPath_, outputPath_, finalRateConsts_, fileList_,
    				{"data_row_high", dataRowHigh = -2}
 	};
 	
+	(*Uses London time for keeping track of optimization start time for records*)
 	timeStamp = StringJoin[Map[ToString[#]&, DateList[TimeZone->  "Europe/London"][[;;-2]]]];
+	(*Location of the previous PSO results that are used as an input to create starting points for the LMA*)
 	psoResultsFileName = FileNameJoin[{outputPath, "raw", "psoResults_" <> fitLabel <> "_" <> timeStamp <> ".txt"}, OperatingSystem->$OperatingSystem];
-    lmaResultsFileName = FileNameJoin[{outputPath, "raw", "lmaResults_" <> fitLabel <> "_" <> timeStamp <> ".txt"}, OperatingSystem->$OperatingSystem];				
+	(*Location of the LMA results*)
+    lmaResultsFileName = FileNameJoin[{outputPath, "raw", "lmaResults_" <> fitLabel <> "_" <> timeStamp <> ".txt"}, OperatingSystem->$OperatingSystem];			
+    (*Location of the LMA input parameters for reference*)	
 	lmaParameterPath = FileNameJoin[{inputPath, "lmaParameters_" <> fitLabel <> "_" <> timeStamp <> ".txt"}, OperatingSystem->$OperatingSystem];
 	Export[lmaParameterPath, lmaParameters, "Table"];	
 	
@@ -198,6 +208,7 @@ defineLMAparameters[inputPath_, outputPath_, finalRateConsts_, fileList_,
 (*Create shell script to run pso and lma to fit the enzyme*)
 
 
+(*Create a bash shell script to run the PSO algorithm*)
 createPSOFitShellScript[psoScriptPath_, parameterPath_, dataFileName_, trialSummaryFileName_, resultsFileName_, numTrials_] := 
 	Module[{shebangLine, shRunPso},
 	
@@ -217,6 +228,7 @@ createPSOFitShellScript[psoScriptPath_, parameterPath_, dataFileName_, trialSumm
 ];
 
 
+(*Create a bash shell script to run the PSO and LMA algorithms sequentially*)
 createCombinedFitShellScript[runFitScriptPath_, psoParameterPath_, lmaParameterPath_, psoSummaryFilePath_, 
 							psoResultsFilePath_, lmaResultsFilePath_, numTrials_, dataFileName_] := 
 	Module[{shebangLine, shRunPso},
@@ -245,6 +257,7 @@ createCombinedFitShellScript[runFitScriptPath_, psoParameterPath_, lmaParameterP
 (*Run fit*)
 
 
+(*Changes directory to the input path and runs the python command there*)
 executeFit[inputPath_, runPythonCmd_]:=Block[{runBothCmd, runBothExe},
 
 	runBothCmd = "cd \""<>inputPath<>"\" && "<>runPythonCmd;
@@ -255,10 +268,12 @@ executeFit[inputPath_, runPythonCmd_]:=Block[{runBothCmd, runBothExe},
 ];
 
 
+(*Sets up the python commands to run the PSO and LMA algorithms*)
 runFit[inputPath_, pathMASSef_, psoParameterPath_, lmaParameterPath_, psoTrialSummaryFileName_, 
 		psoResultsFileName_, lmaResultsFileName_, numTrials_, dataPath_, pythonCommand_:"python"] := 
 		Block[{runFitScriptPath, runPythonCmd, runBothCmd, runBothExe},
 
+	(*Creates path for the fit*)
 	runFitScriptPath= FileNameJoin[{pathMASSef, "python_code", "src", "run_fit_rel.py"}, OperatingSystem->$OperatingSystem];
 
 	If[ListQ[dataPath],
