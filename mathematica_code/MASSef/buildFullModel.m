@@ -15,6 +15,7 @@ Begin["`Private`"];
 (*Build full enzyme model*)
 
 
+(*Single function to construct and fit entire enzyme module*)
 buildFullEnzymeModel[enzymeModel_, rxn_, pathMASSef_, inputPath_, outputPath_, dataFileName_, inhibitionList_,inhibitionList_, KeqList_, 
 					 kmList_, s05List_, kcatList_, inhibitionList_, activationList_, otherParmsList_, inhibitionListSubset_,bufferInfo_, ionCharge_,
 					 catalyticReactionsSetsList_, otherMetsReverseZeroSub_,  otherMetsForwardZeroSub_,   customRatiosDataList_, MWCFlag_,
@@ -30,7 +31,7 @@ buildFullEnzymeModel[enzymeModel_, rxn_, pathMASSef_, inputPath_, outputPath_, d
 			psoParameterPath,psoResultsFile, psoTrialSummaryFileName, lmaParameterPath, lmaResultsFile,
 			flagFitLocal, msgLocal, fittingData, filteredDataList, bestFitDetails},
 
-
+	(*Create the rate equations for the current enzyme module*)
 	{enzymeModelLocal, haldaneRatiosList,  metSatForSub, metSatRevSub,  finalRateConsts, metsFull, metsSub, rateConstsSub, 
 	fileList, fileListSub, eqnNameList,eqnValList, eqnValListPy, 
 	allCatalyticReactions,nonCatalyticReactions, unifiedRateConstList, 
@@ -40,8 +41,9 @@ buildFullEnzymeModel[enzymeModel_, rxn_, pathMASSef_, inputPath_, outputPath_, d
 		  				 otherMetsReverseZeroSub, otherMetsForwardZeroSub,  MWCFlag, simplifyFlag, simplifyMaxTime, nActiveSites,
 		  				 assumedSaturatingConc, equivalentReactionsSetsList];
 
-	Which[StringMatchQ[StringTrim[ToLowerCase@simulateDataFlag], "normal"],
-
+	Which[
+		StringMatchQ[StringTrim[ToLowerCase@simulateDataFlag], "normal"],
+		(*Create the simulated data to fit with no uncertainty*)
 		{allFittingData, dataPathList, fileList, fileListSub} = simulateData[enzymeModel,dataFileName, fitLabel, haldaneRatiosList, KeqList, 
 				kmList, s05List, kcatList, inhibitionList, activationList, otherParmsList, rxn, metsFull,  
 				metSatForSub, metSatRevSub,  bufferInfo, ionCharge, inputPath,  fileList, fileListSub, 
@@ -49,16 +51,16 @@ buildFullEnzymeModel[enzymeModel_, rxn_, pathMASSef_, inputPath_, outputPath_, d
 				metsSub, allCatalyticReactions ,nonCatalyticReactions, unifiedRateConstList, customRatiosDataList,
 				assumedSaturatingConc];,
 				
-
-		StringMatchQ[StringTrim[ToLowerCase@simulateDataFlag], "uncertainty"],
 		
+		StringMatchQ[StringTrim[ToLowerCase@simulateDataFlag], "uncertainty"],
+		(*Create the simulated data to fit with uncertainty*)
 		{allFittingData, dataPathList, fileList, fileListSub} = simulateDataWithUncertainty[nSamples,enzymeModel,dataFileName, fitLabel, haldaneRatiosList, KeqList, 
 				kmList, s05List, kcatList, inhibitionList, activationList, otherParmsList, rxn, metsFull,  metSatForSub, metSatRevSub, otherParmsList,  
 				bufferInfo, ionCharge, inputPath,  fileList, fileListSub, eqnNameList,eqnValList, eqnValListPy, eqnNameList, rateConstsSub, 
 				metsSub, allCatalyticReactions,nonCatalyticReactions, unifiedRateConstList,  customRatiosDataList, assumedSaturatingConc];,
 
 		StringMatchQ[StringTrim[ToLowerCase@simulateDataFlag], "param_scan"],
-		
+		(*Create the simulated data to fit with a parameter scan*)
 		{allFittingData, dataPathList, fileList, fileListSub} = simulateParameterScanData[paramScanList, enzymeModel, dataFileName, 
 			  fitLabel, haldaneRatiosList, KeqList, kmList, s05List, kcatList, inhibitionList, activationList, 
 			  otherParmsList, rxn, metsFull, metSatForSub, metSatRevSub,  bufferInfo, 
@@ -70,15 +72,17 @@ buildFullEnzymeModel[enzymeModel_, rxn_, pathMASSef_, inputPath_, outputPath_, d
 	Print["Configuring enzyme fits..."];
 	lowerParamBound=-6;
 	upperParamBound=9;
-
+	(*Set up the PSO and LMA parameters*)
 	{psoParameterPath,psoResultsFile, psoTrialSummaryFileName} = definePSOparameters[inputPath, outputPath, finalRateConsts, fileList, numTrials,lowerParamBound, upperParamBound, fitLabel];
 	{lmaParameterPath, lmaResultsFile} = defineLMAparameters[inputPath, outputPath, finalRateConsts, fileList, lowerParamBound, upperParamBound, fitLabel];
 
+	(*Run the enzyme rate constant fitting*)
 	Print["Running enzyme fit..."];
 	Print[numTrials];
 	runFit[inputPath, pathMASSef, psoParameterPath ,lmaParameterPath,psoTrialSummaryFileName, 
 			psoResultsFile, lmaResultsFile, numTrials, dataPathList];
 	
+	(*Process the fitting solution*)
 	Print["Evaluating fitness results..."];
 	{flagFitLocal, msgLocal, fittingData, filteredDataList, bestFitDetails}=getRatesWithSSD[getID@rxn, lmaResultsFile, dataPathList, inputPath, outputPath,  fileListSub, 
 				rateConstsSub, metsSub, flagFitType, Null, True, fitLabel<>"_"<>flagFitType];
