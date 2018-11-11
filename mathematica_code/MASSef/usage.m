@@ -68,15 +68,18 @@ exportRateEqs::usage="exportRateEqs[outputPath, absoluteRateForward, absoluteRat
 
 
 setUpRateEquations::usage="setUpFluxEquations[enzymeModel, rxn, rxnName, inputPath,inhibitionList, catalyticReactionsSetsList, otherMetsReverseZeroSub, 
-					otherMetsForwardZeroSub, simplifyMaxTime, nActiveSites, assumedSaturatingConc]";
+					otherMetsForwardZeroSub, simplifyMaxTime, nActiveSites, assumedSaturatingConc, mechanism]";
 
 
 (* ::Subsection:: *)
 (*buildFullModel*)
 
 
-buildFullEnzymeModel::usage"buildFullEnzymeModel[enzymeModel, rxn, pathMASSef, inputPath, outputPath, dataFileName, inhibitionList,inhibitionList, KeqList, \[IndentingNewLine]					 kmList, s05List, kcatList, inhibitionList, activationList, otherParmsList,inhibitionListSubset, bufferInfo, ionCharge,
-					 catalyticReactionsSetsList, otherMetsReverseZeroSub, otherMetsForwardZeroSub, customRatiosDataList, MWCFlag,\[IndentingNewLine]					 simplifyFlag, simplifyMaxTime, nActiveSites, fitLabel, numTrials, simulateDataFlag, nSamples, paramScanList, \[IndentingNewLine]					 flagFitType]";
+buildFullEnzymeModel::usage"buildFullEnzymeModel[enzymeModel, rxn, pathMASSef, inputPath, outputPath, dataFileName, inhibitionList,inhibitionList, KeqList, 
+					 kmList, s05List, kcatList, inhibitionList, activationList, otherParmsList, inhibitionListSubset,bufferInfo, ionCharge,
+					 catalyticReactionsSetsList, otherMetsReverseZeroSub,  otherMetsForwardZeroSub,   customRatiosDataList, MWCFlag,
+					 simplifyFlag, simplifyMaxTime, nActiveSites, fitLabel, numTrials, simulateDataFlag, nSamples, paramScanList, 
+					 assumedSaturatingConc:1, mechanism:Null, flagFitType:"abs_ssd ", equivalentReactionsSetsList:{}]";
 
 
 (* ::Subsection:: *)

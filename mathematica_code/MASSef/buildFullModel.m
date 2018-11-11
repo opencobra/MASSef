@@ -20,7 +20,7 @@ buildFullEnzymeModel[enzymeModel_, rxn_, pathMASSef_, inputPath_, outputPath_, d
 					 kmList_, s05List_, kcatList_, inhibitionList_, activationList_, otherParmsList_, inhibitionListSubset_,bufferInfo_, ionCharge_,
 					 catalyticReactionsSetsList_, otherMetsReverseZeroSub_,  otherMetsForwardZeroSub_,   customRatiosDataList_, MWCFlag_,
 					 simplifyFlag_, simplifyMaxTime_, nActiveSites_, fitLabel_, numTrials_, simulateDataFlag_, nSamples_, paramScanList_, 
-					 assumedSaturatingConc_:1, flagFitType_:"abs_ssd", equivalentReactionsSetsList_:{}]:=
+					 assumedSaturatingConc_:1, mechanism_:Null, flagFitType_:"abs_ssd", equivalentReactionsSetsList_:{}]:=
 
 	Block[{ haldaneRatiosList,  metSatForSub, metSatRevSub,  finalRateConsts, metsFull, metsSub, rateConstsSub, 
 			fileList, fileListSub, eqnNameList,eqnValList, eqnValListPy, 
@@ -39,7 +39,7 @@ buildFullEnzymeModel[enzymeModel_, rxn_, pathMASSef_, inputPath_, outputPath_, d
 	otherAbsoluteRatesForward, otherAbsoluteRatesReverse}=
 		setUpRateEquations[enzymeModel, rxn, getID@rxn, inputPath, inhibitionList, inhibitionListSubset, catalyticReactionsSetsList,   
 		  				 otherMetsReverseZeroSub, otherMetsForwardZeroSub,  MWCFlag, simplifyFlag, simplifyMaxTime, nActiveSites,
-		  				 assumedSaturatingConc, equivalentReactionsSetsList];
+		  				 assumedSaturatingConc,mechanism, equivalentReactionsSetsList];
 
 	Which[
 		StringMatchQ[StringTrim[ToLowerCase@simulateDataFlag], "normal"],

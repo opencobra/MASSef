@@ -34,7 +34,7 @@ classifyReactions[enzymeModel_]:=Block[{enzName, allCatalyticReactions={}, nonCa
 (*Get transition IDs*)
 
 
-getTransitionIDs[allCatalyticReactions_]:=Block[{transitionID={}, sumReactionStoich},
+getTransitionIDs[allCatalyticReactions_, mechanism_:Null]:=Block[{transitionID={}, sumReactionStoich},
 
 	sumReactionStoich = 
 		Table[
@@ -45,6 +45,12 @@ getTransitionIDs[allCatalyticReactions_]:=Block[{transitionID={}, sumReactionSto
 		If[sumReactionStoich[[eqn]] == 0, 
 			transitionID = Append[transitionID, allCatalyticReactions[[eqn]] // getID]], 
 	{eqn, Length[sumReactionStoich]}];
+	Print[transitionID];
+	If[StringMatchQ[mechanism, RegularExpression["[pP]ing[-_\\s]*[Pp]ong"]],
+	Print["in"];
+		transitionID = {transitionID[[1]]};
+	];
+	Print[transitionID];
 
 	Return[transitionID];
 ];
@@ -594,7 +600,7 @@ getHaldane[allCatalyticReactions_, unifiedRateConstList_, KeqName_] := Block[{ha
 setUpRateEquations[enzymeModel_, rxn_, rxnName_, inputPath_, inhibitionListFull_, inhibitionListSubset_, 
 					catalyticReactionsSetsList_, otherMetsReverseZeroSub_,  
 					otherMetsForwardZeroSub_,  MWCFlag_: False, simplifyFlag_:True, simplifyMaxTime_:300, 
-					nActiveSites_:1, assumedSaturatingConc_:1, equivalentReactionsSetsList_:{}] :=
+					nActiveSites_:1, assumedSaturatingConc_:1, mechanism_:Null, equivalentReactionsSetsList_:{}] :=
 	Block[{enzymeModelLocal=enzymeModel, rxnMets, inhibitors,prodInhibBool,reverseZeroSub, forwardZeroSub, 
 		metSatForSub, metSatRevSub, rates, KeqName, KeqVal, volumeSub,
 		allCatalyticReactions, nonCatalyticReactions, transitionID, transitionRateEqs, rateConstSubstitutionList, 
@@ -628,7 +634,7 @@ setUpRateEquations[enzymeModel_, rxn_, rxnName_, inputPath_, inhibitionListFull_
 	];
 
 	(*Identify Transition Rate Equations*)
-	transitionID = getTransitionIDs[allCatalyticReactions];
+	transitionID = getTransitionIDs[allCatalyticReactions, mechanism];
 
 	(*Extract Transition Rate Equations*)
 	transitionRateEqs = getTransitionRateEqs[transitionID, rates];
