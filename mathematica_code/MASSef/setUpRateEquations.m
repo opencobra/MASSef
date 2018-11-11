@@ -45,12 +45,10 @@ getTransitionIDs[allCatalyticReactions_, mechanism_:Null]:=Block[{transitionID={
 		If[sumReactionStoich[[eqn]] == 0, 
 			transitionID = Append[transitionID, allCatalyticReactions[[eqn]] // getID]], 
 	{eqn, Length[sumReactionStoich]}];
-	Print[transitionID];
+
 	If[StringMatchQ[mechanism, RegularExpression["[pP]ing[-_\\s]*[Pp]ong"]],
-	Print["in"];
 		transitionID = {transitionID[[1]]};
 	];
-	Print[transitionID];
 
 	Return[transitionID];
 ];
