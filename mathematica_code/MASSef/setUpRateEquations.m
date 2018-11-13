@@ -34,7 +34,7 @@ classifyReactions[enzymeModel_]:=Block[{enzName, allCatalyticReactions={}, nonCa
 (*Get transition IDs*)
 
 
-getTransitionIDs[allCatalyticReactions_, mechanism_:Null]:=Block[{transitionID={}, sumReactionStoich},
+getTransitionIDs[allCatalyticReactions_, mechanism_:""]:=Block[{transitionID={}, sumReactionStoich},
 
 	sumReactionStoich = 
 		Table[
