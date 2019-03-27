@@ -598,7 +598,7 @@ getHaldane[allCatalyticReactions_, unifiedRateConstList_, KeqName_] := Block[{ha
 setUpRateEquations[enzymeModel_, rxn_, rxnName_, inputPath_, inhibitionListFull_, inhibitionListSubset_, 
 					catalyticReactionsSetsList_, otherMetsReverseZeroSub_,  
 					otherMetsForwardZeroSub_,  MWCFlag_: False, simplifyFlag_:True, simplifyMaxTime_:300, 
-					nActiveSites_:1, assumedSaturatingConc_:1, mechanism_:Null, equivalentReactionsSetsList_:{}] :=
+					nActiveSites_:1, assumedSaturatingConc_:1, mechanism_:"", equivalentReactionsSetsList_:{}] :=
 	Block[{enzymeModelLocal=enzymeModel, rxnMets, inhibitors,prodInhibBool,reverseZeroSub, forwardZeroSub, 
 		metSatForSub, metSatRevSub, rates, KeqName, KeqVal, volumeSub,
 		allCatalyticReactions, nonCatalyticReactions, transitionID, transitionRateEqs, rateConstSubstitutionList, 
