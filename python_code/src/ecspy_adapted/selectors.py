@@ -163,7 +163,7 @@ def rank_selection(random, population, args):
     pop = list(population)
     len_pop = len(pop)
     pop.sort()
-    psum = range(len_pop)
+    psum = list(range(len_pop))
     den = (len_pop * (len_pop + 1)) / 2.0
     for i in range(len_pop):
         psum[i] = (i + 1) / den
