@@ -1,7 +1,7 @@
 import random
 import unittest
 
-from src.tests_ecspy_adapted.test_files import pso_example
+from src.tests.tests_ecspy_adapted.test_files import pso_example
 
 prng = random.Random()
 prng.seed(12345)

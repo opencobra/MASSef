@@ -1,0 +1,759 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="1d7262eb-aafc-4d24-9b9a-824c7dc60019" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/ecspy_adapted/benchmarks.py" beforeDir="false" afterPath="$PROJECT_DIR$/ecspy_adapted/benchmarks.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecspy_adapted/variators/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/ecspy_adapted/variators/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/optimization/pso_optimization.py" beforeDir="false" afterPath="$PROJECT_DIR$/optimization/pso_optimization.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_fit.py" beforeDir="false" afterPath="$PROJECT_DIR$/../run_fit.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_lma.py" beforeDir="false" afterPath="$PROJECT_DIR$/../run_lma.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_pso.py" beforeDir="false" afterPath="$PROJECT_DIR$/../run_pso.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_lma.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_lma.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_pso.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_pso.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests_ecspy_adapted/test_example.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests_ecspy_adapted/test_example.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests_ecspy_adapted/test_operators.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests_ecspy_adapted/test_operators.py" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests_ecspy_adapted/test_example.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="5" column="22" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests_ecspy_adapted/test_operators.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="425">
+              <caret line="25" selection-start-line="25" selection-end-line="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ecspy_adapted/selectors.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2674">
+              <caret line="165" column="31" selection-start-line="165" selection-start-column="31" selection-end-line="165" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ecspy_adapted/archivers.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1289">
+              <caret line="79" column="22" selection-start-line="79" selection-start-column="22" selection-end-line="79" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ecspy_adapted/benchmarks.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1220">
+              <caret line="19" selection-start-line="19" selection-end-line="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ecspy_adapted/ec.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-8791">
+              <caret line="33" column="22" selection-start-line="33" selection-start-column="22" selection-end-line="33" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests_ecspy_adapted/__init__.py">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../run_fit.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="10" column="26" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
+              <folding>
+                <element signature="e#94#104#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/optimization/lma_optimization.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-4452">
+              <caret line="68" column="30" selection-start-line="68" selection-start-column="30" selection-end-line="68" selection-end-column="30" />
+              <folding>
+                <element signature="e#125#147#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/__init__.py">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>ec</find>
+      <find>ec.</find>
+      <find>topologies</find>
+      <find>fake_ec</find>
+      <find>logging</find>
+      <find>pr</find>
+      <find>print</find>
+      <find>ecspy.</find>
+      <find>emo</find>
+      <find>benchmarks</find>
+      <find>ecspy_adapted.ec</find>
+      <find>Sphere</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>ec</replace>
+      <replace>ecspy_adapted.</replace>
+    </replaceStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/ecspy_adapted/swarm.py" />
+        <option value="$PROJECT_DIR$/ecspy_adapted/__init__.py" />
+        <option value="$PROJECT_DIR$/ecspy_adapted/ec.py" />
+        <option value="$PROJECT_DIR$/ecspy_adapted/variators/__init__.py" />
+        <option value="$PROJECT_DIR$/ecspy_adapted/terminators.py" />
+        <option value="$PROJECT_DIR$/swarm.py" />
+        <option value="$PROJECT_DIR$/ecspy_adapted/migrators.py" />
+        <option value="$PROJECT_DIR$/pso_short_ver0091_rel_marta.py" />
+        <option value="$PROJECT_DIR$/run_fit_rel.py" />
+        <option value="$PROJECT_DIR$/run_pso.py" />
+        <option value="$PROJECT_DIR$/run_lma.py" />
+        <option value="$PROJECT_DIR$/run_fit.py" />
+        <option value="$PROJECT_DIR$/tests/test_files/test_pso/utils.py" />
+        <option value="$PROJECT_DIR$/tests/test_files/test_pso/input/GAPD.dat" />
+        <option value="$PROJECT_DIR$/tests/test_files/test_pso/input/psoParameters.txt" />
+        <option value="$PROJECT_DIR$/optimization/pso_optimization.py" />
+        <option value="$PROJECT_DIR$/tests/utils_for_tests.py" />
+        <option value="$PROJECT_DIR$/optimization/lma_optimization.py" />
+        <option value="$PROJECT_DIR$/tests/test_pso.py" />
+        <option value="$PROJECT_DIR$/utils/utils.py" />
+        <option value="$PROJECT_DIR$/tests/test_utils.py" />
+        <option value="$PROJECT_DIR$/tests/test_lma.py" />
+        <option value="$PROJECT_DIR$/ecspy_adapted/ecspy_tests/__init__.py" />
+        <option value="$PROJECT_DIR$/ecspy_adapted/ecspy_tests/example_tests.py" />
+        <option value="$PROJECT_DIR$/ecspy_adapted/ecspy_tests/test_files/pso_example.py" />
+        <option value="$PROJECT_DIR$/tests_ecspy_adapted/example_tests.py" />
+        <option value="$PROJECT_DIR$/tests_ecspy_adapted/operator_tests.py" />
+        <option value="$PROJECT_DIR$/tests_ecspy_adapted/smcgp_test.py" />
+        <option value="$PROJECT_DIR$/tests_ecspy_adapted/test_example.py" />
+        <option value="$PROJECT_DIR$/ecspy_adapted/benchmarks.py" />
+        <option value="$PROJECT_DIR$/tests_ecspy_adapted/test_files/pso_example.py" />
+        <option value="$PROJECT_DIR$/ecspy_adapted/selectors.py" />
+        <option value="$PROJECT_DIR$/ecspy_adapted/archivers.py" />
+        <option value="$PROJECT_DIR$/tests_ecspy_adapted/test_operators.py" />
+        <option value="$PROJECT_DIR$/tests_ecspy_adapted/__init__.py" />
+        <option value="$PROJECT_DIR$/__init__.py" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectConfigurationFiles">
+    <option name="files">
+      <list>
+        <option value="$PROJECT_DIR$/.idea/src.iml" />
+        <option value="$PROJECT_DIR$/.idea/misc.xml" />
+        <option value="$PROJECT_DIR$/.idea/modules.xml" />
+        <option value="$PROJECT_DIR$/.idea/vcs.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-2" />
+    <option name="width" value="1924" />
+    <option name="height" value="1170" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="src" type="b2602c69:ProjectViewProjectNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="src" type="b2602c69:ProjectViewProjectNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="optimization" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyIntegratedToolsModulesConfigurable" />
+    <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/run_fit.py" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/ecspy_adapted" />
+      <recent name="$PROJECT_DIR$/ecspy_adapted/ecspy_tests/test_files" />
+      <recent name="$PROJECT_DIR$/ecspy_adapted/ecspy_tests" />
+      <recent name="$PROJECT_DIR$/tests/test_files/test_lma/output/raw" />
+      <recent name="$PROJECT_DIR$/tests/test_files/test_lma/input" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/tests/test_files/test_lma/input" />
+      <recent name="$PROJECT_DIR$/tests" />
+      <recent name="$PROJECT_DIR$/tests/test_files/test_pso/input" />
+      <recent name="$PROJECT_DIR$/optimization" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Python tests.Unittests in tests_ecspy_adapted">
+    <configuration name="Unittests for test_operators.TestArchivers.test_adaptive_grid_archiver" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <module name="src" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests_ecspy_adapted" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_operators.TestArchivers.test_adaptive_grid_archiver&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Unittests for test_operators.TestReplacers.test_simulated_annealing_replacement" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <module name="src" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests_ecspy_adapted" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_operators.TestReplacers.test_simulated_annealing_replacement&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Unittests for test_operators.TestSelectors.test_rank_selection" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <module name="src" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests_ecspy_adapted" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_operators.TestSelectors.test_rank_selection&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Unittests in test_operators.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <module name="src" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests_ecspy_adapted" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/tests_ecspy_adapted/test_operators.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Unittests in tests_ecspy_adapted" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <module name="src" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests_ecspy_adapted" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/tests_ecspy_adapted&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python tests.Unittests in tests_ecspy_adapted" />
+        <item itemvalue="Python tests.Unittests in test_operators.py" />
+        <item itemvalue="Python tests.Unittests for test_operators.TestArchivers.test_adaptive_grid_archiver" />
+        <item itemvalue="Python tests.Unittests for test_operators.TestReplacers.test_simulated_annealing_replacement" />
+        <item itemvalue="Python tests.Unittests for test_operators.TestSelectors.test_rank_selection" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1d7262eb-aafc-4d24-9b9a-824c7dc60019" name="Default Changelist" comment="" />
+      <created>1584348900479</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1584348900479</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="TestHistory">
+    <history-entry file="Unittests_for_test_operators_TestSelectors_test_rank_selection - 2020.03.16 at 16h 50m 53s.xml">
+      <configuration name="Unittests for test_operators.TestSelectors.test_rank_selection" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_test_operators_TestSelectors_test_rank_selection - 2020.03.16 at 16h 51m 27s.xml">
+      <configuration name="Unittests for test_operators.TestSelectors.test_rank_selection" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_test_operators_TestSelectors_test_rank_selection - 2020.03.16 at 16h 51m 28s.xml">
+      <configuration name="Unittests for test_operators.TestSelectors.test_rank_selection" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_test_operators_py - 2020.03.16 at 16h 51m 32s.xml">
+      <configuration name="Unittests in test_operators.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_test_operators_TestReplacers_test_simulated_annealing_replacement - 2020.03.16 at 16h 52m 23s.xml">
+      <configuration name="Unittests for test_operators.TestReplacers.test_simulated_annealing_replacement" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_test_operators_py - 2020.03.16 at 16h 52m 25s.xml">
+      <configuration name="Unittests in test_operators.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_test_operators_TestArchivers_test_adaptive_grid_archiver - 2020.03.16 at 16h 54m 08s.xml">
+      <configuration name="Unittests for test_operators.TestArchivers.test_adaptive_grid_archiver" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_test_operators_py - 2020.03.16 at 16h 54m 10s.xml">
+      <configuration name="Unittests in test_operators.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_tests_ecspy_adapted - 2020.03.16 at 16h 55m 32s.xml">
+      <configuration name="Unittests in tests_ecspy_adapted" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_tests_ecspy_adapted - 2020.03.16 at 16h 57m 03s.xml">
+      <configuration name="Unittests in tests_ecspy_adapted" configurationId="tests" />
+    </history-entry>
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-3" y="0" width="1446" height="877" extended-state="6" />
+    <layout>
+      <window_info id="Favorites" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21987315" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="Python Console" />
+      <window_info anchor="bottom" id="Terminal" sideWeight="0.49964765" visible="true" weight="0.10671937" />
+      <window_info anchor="bottom" id="Event Log" sideWeight="0.5003524" side_tool="true" weight="0.5322793" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32938075" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.29249012" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.34650856" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32806325" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/optimization/pso_optimization.py</url>
+          <line>64</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="evaluateCodeFragment">
+      <expression>
+        <expression-string>functionDict</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>row[function_row]</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>function_row</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>row</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>row[1:data_row_high]</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>functionDict[row[function_row]](newC, row[1:data_row_high])</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>functionDict[row[function_row]](newC, row[1:data_row_high]))</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/ecspy_adapted/swarm.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="48" column="11" selection-start-line="48" selection-start-column="8" selection-end-line="48" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ecspy_adapted/variators/variators.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-796" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ecspy_adapted/variators/mutators.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1242">
+          <caret line="51" column="42" lean-forward="true" selection-start-line="51" selection-start-column="42" selection-end-line="51" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/miniconda3/envs/massef/lib/python3.7/codecs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="346">
+          <caret line="332" selection-start-line="332" selection-end-line="332" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ecspy_adapted/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ecspy_adapted/observers.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ecspy_adapted/migrators.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="82">
+          <caret line="27" selection-start-line="27" selection-end-line="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ecspy_adapted/variators/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="328">
+          <caret line="53" selection-start-line="53" selection-end-line="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ecspy_adapted/terminators.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-65">
+          <caret line="236" column="21" selection-start-line="236" selection-start-column="16" selection-end-line="236" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ecspy_adapted/variators/crossovers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3">
+          <folding>
+            <element signature="e#752#763#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ecspy_adapted/topologies.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-961" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../run_pso.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="87" selection-start-line="12" selection-start-column="81" selection-end-line="12" selection-end-column="87" />
+          <folding>
+            <element signature="e#76#125#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/test_files/test_pso/input/customRatio_1.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$USER_HOME$/miniconda3/envs/massef/lib/python3.7/multiprocessing/pool.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="131">
+          <caret line="120" selection-start-line="120" selection-end-line="120" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/test_files/test_pso/input/GAPD.dat">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="71" column="65" selection-start-line="71" selection-start-column="65" selection-end-line="71" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/test_files/test_lma/input/lmaParameters.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="18" selection-start-line="10" selection-end-line="10" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/test_files/test_pso/input/psoParameters.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="226">
+          <caret line="18" column="18" lean-forward="true" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/test_files/test_pso/input/absRateFor.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="42" selection-start-column="42" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/optimization/pso_optimization.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-9364">
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/utils_for_tests.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="11" column="30" lean-forward="true" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/test_files/test_lma/output/raw/psoResults.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/test_files/test_lma/input/GAPD.dat">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/test_files/test_lma/input/absRateFor.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../run_lma.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="4" selection-start-line="17" selection-start-column="4" selection-end-line="18" selection-end-column="99" />
+          <folding>
+            <element signature="e#65#114#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/test_files/test_lma/input/haldaneRatio_1.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="65" lean-forward="true" selection-start-column="65" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/test_files/test_pso/output/raw/psoResults.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/test_files/test_pso/output/raw/psoSummary.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/test_files/test_lma/output/raw/psoSummary.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/test_pso.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="107">
+          <caret line="27" column="8" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="92" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/test_files/test_lma/output/raw/lmaResults.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/test_utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="35" selection-start-line="35" selection-end-line="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/test_lma.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="14" column="7" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests_ecspy_adapted/smcgp_test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3450">
+          <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests_ecspy_adapted/test_files/pso_example.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-620" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ecspy_adapted/swarm.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="121">
+          <caret line="19" column="2" selection-start-line="19" selection-start-column="2" selection-end-line="19" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests_ecspy_adapted/test_example.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="22" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ecspy_adapted/selectors.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2674">
+          <caret line="165" column="31" selection-start-line="165" selection-start-column="31" selection-end-line="165" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests_ecspy_adapted/test_operators.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ecspy_adapted/archivers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1289">
+          <caret line="79" column="22" selection-start-line="79" selection-start-column="22" selection-end-line="79" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ecspy_adapted/benchmarks.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1220">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ecspy_adapted/ec.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-8791">
+          <caret line="33" column="22" selection-start-line="33" selection-start-column="22" selection-end-line="33" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests_ecspy_adapted/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../run_fit.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="26" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
+          <folding>
+            <element signature="e#94#104#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/optimization/lma_optimization.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4452">
+          <caret line="68" column="30" selection-start-line="68" selection-start-column="30" selection-end-line="68" selection-end-column="30" />
+          <folding>
+            <element signature="e#125#147#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+  </component>
+</project>

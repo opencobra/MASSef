@@ -1,5 +1,5 @@
 """
-Script to run both the particle swarm and the lma optimizations outside mathematica.
+Script to run both the particle swarm and the lma optimizations.
 """
 
 import sys

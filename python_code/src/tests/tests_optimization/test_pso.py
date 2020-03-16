@@ -2,7 +2,7 @@ import os
 import unittest
 
 from src.optimization.pso_optimization import run_pso
-from src.tests.utils_for_tests import substitute_data_paths, substitute_parameter_paths
+from src.tests.tests_optimization.utils_for_tests import substitute_data_paths, substitute_parameter_paths
 from src.utils.utils import parse_function_parameters
 
 

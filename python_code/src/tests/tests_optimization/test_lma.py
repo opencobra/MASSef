@@ -2,7 +2,7 @@ import os
 import unittest
 
 from src.optimization.lma_optimization import run_lma
-from src.tests.utils_for_tests import substitute_data_paths, substitute_parameter_paths
+from src.tests.tests_optimization.utils_for_tests import substitute_data_paths, substitute_parameter_paths
 from src.utils.utils import parse_function_parameters
 
 
