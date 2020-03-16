@@ -1,4 +1,4 @@
-from pso_short_ver0091_rel_marta import run_pso
+from pso_optimization import run_pso
 
 
 def _parse_function_parameters(parameter_file_in):
