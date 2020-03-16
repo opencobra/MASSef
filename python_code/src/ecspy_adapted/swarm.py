@@ -140,7 +140,7 @@ class PSO(ec.EvolutionaryComputation):
             else:  # Actual Algorithmic Values for Candidates
                 for xi, xpi, pbi, nbi in zip(x.candidate, xprev.candidate, pbest.candidate, nbest.candidate):
                     value = xi + inertia * (xi - xpi) + cognitive_rate * random.random() * (
-                                pbi - xi) + social_rate * random.random() * (nbi - xi)
+                            pbi - xi) + social_rate * random.random() * (nbi - xi)
                     particle.append(value)
             """"""
 

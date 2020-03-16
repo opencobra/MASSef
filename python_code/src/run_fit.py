@@ -8,7 +8,6 @@ from optimization.lma_optimization import run_lma
 from optimization.pso_optimization import run_pso
 from utils.utils import parse_function_parameters
 
-
 if __name__ == '__main__':
 
     pso_parameter_file_in = sys.argv[1]  # parameter file for pso

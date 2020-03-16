@@ -21,7 +21,6 @@ class TestLMA(unittest.TestCase):
         os.remove(os.path.join(self.test_folder, 'output', 'raw', 'lmaResults.txt'))
 
     def test_run_lma(self):
-
         data_file_name = os.path.join(self.test_folder, 'input', 'GAPD.dat')
         pso_results_file = os.path.join(self.test_folder, 'output', 'raw', 'psoResults.txt')
         lma_results_file = os.path.join(self.test_folder, 'output', 'raw', 'lmaResults.txt')
