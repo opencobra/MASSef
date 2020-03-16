@@ -1,16 +1,25 @@
+"""
+Script to run the particle swarm optimization outside mathematica.
+"""
+
 from pso_optimization import run_pso
 
 
-def _parse_function_parameters(parameter_file_in):
+def _parse_function_parameters(parameter_file_in: str):
     """
+    Import inputs by parsing from an argument file
+
     These parameters are imported from a text file constructed using the accompanying mathematica notebook.
     The parser expects two tab delimited elements in each line, which are placed in a dictionary object with
     the first elemnt being the key and the second element being the value.
         --All numerical values are imported as float values, reassign the values if another data type is needed.
 
-    """
+    Args:
+        parameter_file_in: path to file with configuration options
 
-    """Import inputs by parsing from an argument file"""
+    Returns:
+        None
+    """
 
     with open(parameter_file_in) as f_in:
         lines = f_in.readlines()
@@ -22,16 +31,15 @@ def _parse_function_parameters(parameter_file_in):
             try:
                 lineList.append(float(elem))
             except:
-                if (elem == 'True' or elem == 'False'):
-                    """Assign Boolean Parameters"""
-                    if (elem == 'True'):
+                if elem == 'True' or elem == 'False':
+                    # Assign Boolean Parameters
+                    if elem == 'True':
                         lineList.append(True)
                     else:
                         lineList.append(False)
                 else:
                     lineList.append(elem)
         parameter[lineList[0]] = lineList[1]
-    """"""
 
     return parameter
 
