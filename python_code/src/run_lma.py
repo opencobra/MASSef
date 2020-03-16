@@ -2,7 +2,7 @@
 Script to run the lma optimization outside mathematica.
 """
 
-from lma_optimization import run_lma
+from optimization.lma_optimization import run_lma
 
 
 def _parse_function_parameters(parameter_file_in: str):
