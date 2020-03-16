@@ -13,6 +13,7 @@ class TestPSO(unittest.TestCase):
         self.test_folder = os.path.join(this_dir, 'test_files', 'test_pso')
         self.data_file = os.path.join(self.test_folder, 'input', 'GAPD.dat')
         self.pso_parameter_file = os.path.join(self.test_folder, 'input', 'psoParameters.txt')
+
         substitute_data_paths(self.data_file, self.test_folder)
         substitute_parameter_paths(self.pso_parameter_file, self.test_folder)
 
@@ -21,14 +22,14 @@ class TestPSO(unittest.TestCase):
             os.remove(os.path.join(self.test_folder, 'output', 'raw', file))
 
     def test_run_pso(self):
-        pso_parameter_file_in = os.path.join(self.test_folder, 'input', 'psoParameters.txt')
+
         data_file_name = os.path.join(self.test_folder, 'input', 'GAPD.dat')
         pso_summary_file = os.path.join(self.test_folder, 'output', 'raw', 'psoSummary.txt')
         pso_results_file = os.path.join(self.test_folder, 'output', 'raw', 'psoResults.txt')
 
         pso_num_trials = 2
 
-        pso_parameters = parse_function_parameters(pso_parameter_file_in)
+        pso_parameters = parse_function_parameters(self.pso_parameter_file)
         for i in range(pso_num_trials):
             run_pso(pso_parameters, data_file_name, pso_summary_file, pso_results_file)
 
