@@ -21,7 +21,9 @@ from ecspy_adapted import topologies, swarm
 
 def load_enzyme_data(path):
     """Loads the data file created in the Mathematica notebook"""
-    lines = open(path).readlines()
+    with open(path, 'r') as f_in:
+        lines = f_in.readlines()
+
     header = lines[0].strip().split("\t")
     data = list()
     for line in lines[1:]:
@@ -465,7 +467,8 @@ def run_pso(parameter, data_file_name, summary_file_name, ultimate_result_name):
     for index, path in enumerate(filesWithFunctions):
         funcName = 'f' + str(index + 1)
         path = path.replace("\"", "").strip()
-        func_template = open(path).read()
+        with open(path, 'r') as f_in:
+            func_template = f_in.read()
         mkFuncCommand = 'def %s(x,d): return %s' % (funcName, func_template)
         exec(mkFuncCommand)
         functionDict[path.replace('\\\\', '\\')] = eval(funcName)
