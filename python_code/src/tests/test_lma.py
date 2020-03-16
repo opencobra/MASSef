@@ -1,9 +1,9 @@
 import os
 import unittest
 
-from optimization.lma_optimization import run_lma
-from tests.utils_for_tests import substitute_data_paths, substitute_parameter_paths
-from utils.utils import parse_function_parameters
+from src.optimization.lma_optimization import run_lma
+from src.tests.utils_for_tests import substitute_data_paths, substitute_parameter_paths
+from src.utils.utils import parse_function_parameters
 
 
 class TestLMA(unittest.TestCase):

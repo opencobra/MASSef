@@ -15,8 +15,8 @@ import random
 
 import numpy
 
-from ecspy_adapted import observers
-from ecspy_adapted import topologies, swarm
+from src.ecspy_adapted import observers
+from src.ecspy_adapted import topologies, swarm
 
 
 def load_enzyme_data(path):

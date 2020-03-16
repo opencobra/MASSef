@@ -2,8 +2,8 @@
 Script to run the lma optimization outside mathematica.
 """
 
-from optimization.lma_optimization import run_lma
-from utils.utils import parse_function_parameters
+from src.optimization.lma_optimization import run_lma
+from src.utils.utils import parse_function_parameters
 
 
 def test_run_fit():

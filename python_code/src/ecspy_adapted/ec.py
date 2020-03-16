@@ -22,13 +22,13 @@ import itertools
 import logging
 import time
 
-from ecspy_adapted import archivers
-from ecspy_adapted import migrators
-from ecspy_adapted import observers
-from ecspy_adapted import replacers
-from ecspy_adapted import selectors
-from ecspy_adapted import terminators
-from ecspy_adapted import variators
+from src.ecspy_adapted import archivers
+from src.ecspy_adapted import migrators
+from src.ecspy_adapted import observers
+from src.ecspy_adapted import replacers
+from src.ecspy_adapted import selectors
+from src.ecspy_adapted import terminators
+from src.ecspy_adapted import variators
 
 
 class Bounder(object):

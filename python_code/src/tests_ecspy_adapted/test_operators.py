@@ -3,7 +3,7 @@ import logging
 import random
 import unittest
 
-from ecspy_adapted import ec, archivers, migrators, replacers, selectors, terminators, variators
+from src.ecspy_adapted import ec, archivers, migrators, replacers, selectors, terminators, variators
 
 
 def test_generator(random, args):

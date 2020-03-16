@@ -17,7 +17,7 @@
        along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
 
-from ecspy_adapted import ec
+from src.ecspy_adapted import ec
 
 
 class Benchmark(object):

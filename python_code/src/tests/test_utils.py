@@ -1,8 +1,8 @@
 import os
 import unittest
 
-from tests.utils_for_tests import substitute_parameter_paths
-from utils.utils import parse_function_parameters
+from src.tests.utils_for_tests import substitute_parameter_paths
+from src.utils.utils import parse_function_parameters
 
 
 class TestParseFunctionParameters(unittest.TestCase):

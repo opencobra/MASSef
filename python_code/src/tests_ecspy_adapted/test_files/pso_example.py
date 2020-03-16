@@ -1,10 +1,10 @@
 from random import Random
 from time import time
 
-from ecspy_adapted import benchmarks
-from ecspy_adapted import swarm
-from ecspy_adapted import terminators
-from ecspy_adapted import topologies
+from src.ecspy_adapted import benchmarks
+from src.ecspy_adapted import swarm
+from src.ecspy_adapted import terminators
+from src.ecspy_adapted import topologies
 
 
 def main(do_plot=True, prng=None):

@@ -2,8 +2,8 @@
 Script to run the particle swarm optimization outside mathematica.
 """
 
-from optimization.pso_optimization import run_pso
-from utils.utils import parse_function_parameters
+from src.optimization.pso_optimization import run_pso
+from src.utils.utils import parse_function_parameters
 
 if __name__ == '__main__':
 

@@ -1,9 +1,9 @@
 import os
 import unittest
 
-from optimization.pso_optimization import run_pso
-from tests.utils_for_tests import substitute_data_paths, substitute_parameter_paths
-from utils.utils import parse_function_parameters
+from src.optimization.pso_optimization import run_pso
+from src.tests.utils_for_tests import substitute_data_paths, substitute_parameter_paths
+from src.utils.utils import parse_function_parameters
 
 
 class TestPSO(unittest.TestCase):

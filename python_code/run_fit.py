@@ -4,9 +4,9 @@ Script to run both the particle swarm and the lma optimizations outside mathemat
 
 import sys
 
-from optimization.lma_optimization import run_lma
-from optimization.pso_optimization import run_pso
-from utils.utils import parse_function_parameters
+from src.optimization.lma_optimization import run_lma
+from src.optimization.pso_optimization import run_pso
+from src.utils.utils import parse_function_parameters
 
 if __name__ == '__main__':
 
