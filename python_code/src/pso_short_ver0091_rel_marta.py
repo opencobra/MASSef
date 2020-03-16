@@ -14,11 +14,11 @@ import platform
 import random
 
 import numpy
-from ecspy import topologies
+from ecspy_adapted import topologies
 
 import swarm
 # from ecspy import swarm
-from ecspy import observers
+from ecspy_adapted import observers
 from math import sqrt
 
 
@@ -91,10 +91,10 @@ def parallel_evaluation_mp(candidates, args):
     try:
         import multiprocessing
     except ImportError:
-        print '''multiprocessing is not installed...\n
-        ecspy has been designed to work with Python 2.6, which has multiprocessing as a standard library\n'''
+        print('''multiprocessing is not installed...\n
+        ecspy has been designed to work with Python 2.6, which has multiprocessing as a standard library\n''')
         raise
-    logger = args['_ec'].logger
+    logger = args['_ec']
 
     try:
         evaluator = args['mp_evaluator']
@@ -152,9 +152,7 @@ class Enzyme(object):
 
         """Create a fake class to log errors"""
 
-        class fake_ec(object):
-            def __init__(self):
-                self.logger = logging.getLogger('/dev/stdout')
+        self.logger = logging.getLogger('/dev/stdout')
 
         """"""
         if platform.system() == "Windows":
@@ -165,7 +163,7 @@ class Enzyme(object):
         else:
 
             return parallel_evaluation_mp(candidates,
-                                          {'_ec': fake_ec(), 'mp_evaluator': _evaluator, 'mp_num_cpus': num_Cpus})
+                                          {'_ec': self.logger, 'mp_evaluator': _evaluator, 'mp_num_cpus': num_Cpus})
 
 
 class Bounder(object):
