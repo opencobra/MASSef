@@ -19,7 +19,8 @@ warnings.filterwarnings("ignore", category=RuntimeWarning)
 
 def load_enzyme_data(path):
     """Loads the data file created in the Mathematica notebook"""
-    lines = open(path).readlines()
+    with open(path, 'r') as f_in:
+        lines = f_in.readlines()
     header = lines[0].strip().split("\t")
     data = list()
     for line in lines[1:]:
@@ -35,7 +36,8 @@ def load_enzyme_data(path):
 
 def load_candidates(path):
     """Loads the candidates from the pso fit"""
-    lines = open(path).readlines()
+    with open(path, 'r') as f_in:
+        lines = f_in.readlines()
     candidates = list()
     for line in lines:
         subList = list()
@@ -306,7 +308,8 @@ def run_lma(parameter, data_file_name, candidates_import_path, candidates_export
     for index, path in enumerate(filesWithFunctions):
         funcName = 'f' + str(index + 1)
         path = path.replace("\"", "").strip()
-        func_template = open(path).read()
+        with open(path, 'r') as f_in:
+            func_template = f_in.read()
         mkFuncCommand = 'def %s(x, d): return %s' % (funcName, func_template)
         exec(mkFuncCommand)
         functionDict[path.replace('\\\\', '\\')] = eval(funcName)
