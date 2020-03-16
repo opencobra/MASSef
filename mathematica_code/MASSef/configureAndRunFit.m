@@ -274,7 +274,7 @@ runFit[inputPath_, pathMASSef_, psoParameterPath_, lmaParameterPath_, psoTrialSu
 		Block[{runFitScriptPath, runPythonCmd, runBothCmd, runBothExe},
 
 	(*Creates path for the fit*)
-	runFitScriptPath= FileNameJoin[{pathMASSef, "python_code", "src", "run_fit_rel.py"}, OperatingSystem->$OperatingSystem];
+	runFitScriptPath= FileNameJoin[{pathMASSef, "python_code", "run_fit.py"}, OperatingSystem->$OperatingSystem];
 
 	If[ListQ[dataPath],
 
