@@ -19,19 +19,19 @@ def parse_function_parameters(parameter_file_in: str):
 
     parameter = dict()
     for line in lines[0:]:
-        lineList = list()  # temp variable
+        line_list = list()  # temp variable
         for elem in line.strip().split("\t"):
             try:
-                lineList.append(float(elem))
+                line_list.append(float(elem))
             except:
                 if elem == 'True' or elem == 'False':
                     # Assign Boolean Parameters
                     if elem == 'True':
-                        lineList.append(True)
+                        line_list.append(True)
                     else:
-                        lineList.append(False)
+                        line_list.append(False)
                 else:
-                    lineList.append(elem)
-        parameter[lineList[0]] = lineList[1]
+                    line_list.append(elem)
+        parameter[line_list[0]] = line_list[1]
 
     return parameter
