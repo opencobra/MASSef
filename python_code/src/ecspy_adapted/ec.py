@@ -17,17 +17,18 @@
        along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
 
-import time
 import copy
-import logging
 import itertools
-from ecspy_adapted import selectors
-from ecspy_adapted import variators
-from ecspy_adapted import replacers
-from ecspy_adapted import migrators
+import logging
+import time
+
 from ecspy_adapted import archivers
-from ecspy_adapted import terminators
+from ecspy_adapted import migrators
 from ecspy_adapted import observers
+from ecspy_adapted import replacers
+from ecspy_adapted import selectors
+from ecspy_adapted import terminators
+from ecspy_adapted import variators
 
 
 class Bounder(object):
@@ -74,6 +75,7 @@ class Bounder(object):
     - *upper_bound* -- the upper bound for a candidate
     
     """
+
     def __init__(self, lower_bound=None, upper_bound=None):
         self.lower_bound = lower_bound
         self.upper_bound = upper_bound
@@ -86,7 +88,6 @@ class Bounder(object):
                 iter(self.upper_bound)
             except TypeError:
                 self.upper_bound = itertools.repeat(self.upper_bound)
-            
 
     def __call__(self, candidate, args):
         # The default would be to leave the candidate alone
@@ -122,28 +123,30 @@ class Individual(object):
     - *maximize* -- Boolean value stating use of maximization
     
     """
+
     def __init__(self, candidate=None, maximize=True):
         self.candidate = candidate
         self.fitness = None
         self.birthdate = time.time()
         self.maximize = maximize
-    
+
     def __setattr__(self, name, val):
         if name == 'candidate':
             self.__dict__[name] = val
             self.fitness = None
         else:
             self.__dict__[name] = val
-    
+
     def __str__(self):
         return '%s : %s' % (str(self.candidate), str(self.fitness))
-        
+
     def __repr__(self):
-        return '<Individual: candidate = %s, fitness = %s, birthdate = %s>' % ( str(self.candidate), str(self.fitness), self.birthdate )
-        
+        return '<Individual: candidate = %s, fitness = %s, birthdate = %s>' % (
+        str(self.candidate), str(self.fitness), self.birthdate)
+
     def __lt__(self, other):
         if self.fitness is not None and other.fitness is not None:
-            if self.maximize: 
+            if self.maximize:
                 return self.fitness < other.fitness
             else:
                 return self.fitness > other.fitness
@@ -152,7 +155,7 @@ class Individual(object):
 
     def __le__(self, other):
         return self < other or not other < self
-            
+
     def __gt__(self, other):
         if self.fitness is not None and other.fitness is not None:
             return other < self
@@ -161,22 +164,22 @@ class Individual(object):
 
     def __ge__(self, other):
         return other < self or not self < other
-        
+
     def __lshift__(self, other):
         return self < other
-    
+
     def __rshift__(self, other):
         return other < self
-        
+
     def __ilshift__(self, other):
         raise TypeError("unsupported operand type(s) for <<=: 'Individual' and 'Individual'")
-    
+
     def __irshift__(self, other):
         raise TypeError("unsupported operand type(s) for >>=: 'Individual' and 'Individual'")
-        
+
     def __eq__(self, other):
         return self.candidate == other.candidate
-        
+
     def __ne__(self, other):
         return self.candidate != other.candidate
 
@@ -255,6 +258,7 @@ class EvolutionaryComputation(object):
       archive of individuals
     
     """
+
     def __init__(self, random):
         self.selector = selectors.default_selection
         self.variator = variators.default_variation
@@ -275,27 +279,30 @@ class EvolutionaryComputation(object):
         self.logger = logging.getLogger('ecspy.ec')
         self._random = random
         self._kwargs = dict()
-        
+
     def _should_terminate(self, pop, ng, ne):
         terminate = False
         fname = ''
         try:
             for clause in self.terminator:
-                self.logger.debug('termination test using %s at generation %d and evaluation %d' % (clause.__name__, ng, ne))
-                terminate = terminate or clause(population=pop, num_generations=ng, num_evaluations=ne, args=self._kwargs)
+                self.logger.debug(
+                    'termination test using %s at generation %d and evaluation %d' % (clause.__name__, ng, ne))
+                terminate = terminate or clause(population=pop, num_generations=ng, num_evaluations=ne,
+                                                args=self._kwargs)
                 if terminate:
                     fname = clause.__name__
                     break
         except TypeError:
-            self.logger.debug('termination test using %s at generation %d and evaluation %d' % (self.terminator.__name__, ng, ne))
+            self.logger.debug(
+                'termination test using %s at generation %d and evaluation %d' % (self.terminator.__name__, ng, ne))
             terminate = self.terminator(population=pop, num_generations=ng, num_evaluations=ne, args=self._kwargs)
             fname = self.terminator.__name__
         if terminate:
             self.termination_cause = fname
-            self.logger.debug('termination from %s at generation %d and evaluation %d' % (self.termination_cause, ng, ne))
+            self.logger.debug(
+                'termination from %s at generation %d and evaluation %d' % (self.termination_cause, ng, ne))
         return terminate
-        
-    
+
     def evolve(self, generator, evaluator, pop_size=100, seeds=[], maximize=True, bounder=Bounder(), **args):
         """Perform the evolution.
         
@@ -326,7 +333,7 @@ class EvolutionaryComputation(object):
         """
         self._kwargs = args
         self._kwargs['_ec'] = self
-        
+
         self.termination_cause = None
         self.generator = generator
         self.evaluator = evaluator
@@ -334,7 +341,7 @@ class EvolutionaryComputation(object):
         self.maximize = maximize
         self.population = []
         self.archive = []
-        
+
         # Create the initial population.
         try:
             iter(seeds)
@@ -351,82 +358,100 @@ class EvolutionaryComputation(object):
                 i += 1
         self.logger.debug('evaluating initial population')
         initial_fit = evaluator(candidates=initial_cs, args=self._kwargs)
-        
+
         for cs, fit in zip(initial_cs, initial_fit):
             ind = Individual(cs, maximize=maximize)
             ind.fitness = fit
             self.population.append(ind)
         self.logger.debug('population size is now %d' % len(self.population))
-        
+
         self.num_evaluations = len(initial_fit)
         self.num_generations = 0
-        
+
         self.logger.debug('archiving initial population')
-        self.archive = self.archiver(random=self._random, population=list(self.population), archive=list(self.archive), args=self._kwargs)
+        self.archive = self.archiver(random=self._random, population=list(self.population), archive=list(self.archive),
+                                     args=self._kwargs)
         self.logger.debug('archive size is now %d' % len(self.archive))
         self.logger.debug('population size is now %d' % len(self.population))
-                
+
         if isinstance(self.observer, (list, tuple)):
             for obs in self.observer:
-                self.logger.debug('observation using %s at generation %d and evaluation %d' % (obs.__name__, self.num_generations, self.num_evaluations))
-                obs(population=list(self.population), num_generations=self.num_generations, num_evaluations=self.num_evaluations, args=self._kwargs)
+                self.logger.debug('observation using %s at generation %d and evaluation %d' % (
+                obs.__name__, self.num_generations, self.num_evaluations))
+                obs(population=list(self.population), num_generations=self.num_generations,
+                    num_evaluations=self.num_evaluations, args=self._kwargs)
         else:
-            self.logger.debug('observation using %s at generation %d and evaluation %d' % (self.observer.__name__, self.num_generations, self.num_evaluations))
-            self.observer(population=list(self.population), num_generations=self.num_generations, num_evaluations=self.num_evaluations, args=self._kwargs)
-        
+            self.logger.debug('observation using %s at generation %d and evaluation %d' % (
+            self.observer.__name__, self.num_generations, self.num_evaluations))
+            self.observer(population=list(self.population), num_generations=self.num_generations,
+                          num_evaluations=self.num_evaluations, args=self._kwargs)
+
         while not self._should_terminate(list(self.population), self.num_generations, self.num_evaluations):
             # Select individuals.
-            self.logger.debug('selection using %s at generation %d and evaluation %d' % (self.selector.__name__, self.num_generations, self.num_evaluations))
+            self.logger.debug('selection using %s at generation %d and evaluation %d' % (
+            self.selector.__name__, self.num_generations, self.num_evaluations))
             parents = self.selector(random=self._random, population=list(self.population), args=self._kwargs)
             self.logger.debug('selected %d candidates' % len(parents))
             parent_cs = [copy.deepcopy(i.candidate) for i in parents]
             offspring_cs = parent_cs
-            
+
             if isinstance(self.variator, (list, tuple)):
                 for op in self.variator:
-                    self.logger.debug('variation using %s at generation %d and evaluation %d' % (op.__name__, self.num_generations, self.num_evaluations))
+                    self.logger.debug('variation using %s at generation %d and evaluation %d' % (
+                    op.__name__, self.num_generations, self.num_evaluations))
                     offspring_cs = op(random=self._random, candidates=offspring_cs, args=self._kwargs)
             else:
-                self.logger.debug('variation using %s at generation %d and evaluation %d' % (self.variator.__name__, self.num_generations, self.num_evaluations))
+                self.logger.debug('variation using %s at generation %d and evaluation %d' % (
+                self.variator.__name__, self.num_generations, self.num_evaluations))
                 offspring_cs = self.variator(random=self._random, candidates=offspring_cs, args=self._kwargs)
             self.logger.debug('created %d offspring' % len(offspring_cs))
-            
+
             # Evaluate offspring.
-            self.logger.debug('evaluation using %s at generation %d and evaluation %d' % (evaluator.__name__, self.num_generations, self.num_evaluations))
+            self.logger.debug('evaluation using %s at generation %d and evaluation %d' % (
+            evaluator.__name__, self.num_generations, self.num_evaluations))
             offspring_fit = evaluator(candidates=offspring_cs, args=self._kwargs)
             offspring = []
             for cs, fit in zip(offspring_cs, offspring_fit):
                 off = Individual(cs, maximize=maximize)
                 off.fitness = fit
                 offspring.append(off)
-            self.num_evaluations += len(offspring_fit)        
+            self.num_evaluations += len(offspring_fit)
 
             # Replace individuals.
-            self.logger.debug('replacement using %s at generation %d and evaluation %d' % (self.replacer.__name__, self.num_generations, self.num_evaluations))
-            self.population = self.replacer(random=self._random, population=list(self.population), parents=parents, offspring=offspring, args=self._kwargs)
+            self.logger.debug('replacement using %s at generation %d and evaluation %d' % (
+            self.replacer.__name__, self.num_generations, self.num_evaluations))
+            self.population = self.replacer(random=self._random, population=list(self.population), parents=parents,
+                                            offspring=offspring, args=self._kwargs)
             self.logger.debug('population size is now %d' % len(self.population))
-            
+
             # Migrate individuals.
-            self.logger.debug('migration using %s at generation %d and evaluation %d' % (self.migrator.__name__, self.num_generations, self.num_evaluations))
+            self.logger.debug('migration using %s at generation %d and evaluation %d' % (
+            self.migrator.__name__, self.num_generations, self.num_evaluations))
             self.population = self.migrator(random=self._random, population=list(self.population), args=self._kwargs)
             self.logger.debug('population size is now %d' % len(self.population))
-            
+
             # Archive individuals.
-            self.logger.debug('archival using %s at generation %d and evaluation %d' % (self.archiver.__name__, self.num_generations, self.num_evaluations))
-            self.archive = self.archiver(random=self._random, archive=list(self.archive), population=list(self.population), args=self._kwargs)
+            self.logger.debug('archival using %s at generation %d and evaluation %d' % (
+            self.archiver.__name__, self.num_generations, self.num_evaluations))
+            self.archive = self.archiver(random=self._random, archive=list(self.archive),
+                                         population=list(self.population), args=self._kwargs)
             self.logger.debug('archive size is now %d' % len(self.archive))
             self.logger.debug('population size is now %d' % len(self.population))
-            
+
             self.num_generations += 1
             if isinstance(self.observer, (list, tuple)):
                 for obs in self.observer:
-                    self.logger.debug('observation using %s at generation %d and evaluation %d' % (obs.__name__, self.num_generations, self.num_evaluations))
-                    obs(population=list(self.population), num_generations=self.num_generations, num_evaluations=self.num_evaluations, args=self._kwargs)
+                    self.logger.debug('observation using %s at generation %d and evaluation %d' % (
+                    obs.__name__, self.num_generations, self.num_evaluations))
+                    obs(population=list(self.population), num_generations=self.num_generations,
+                        num_evaluations=self.num_evaluations, args=self._kwargs)
             else:
-                self.logger.debug('observation using %s at generation %d and evaluation %d' % (self.observer.__name__, self.num_generations, self.num_evaluations))
-                self.observer(population=list(self.population), num_generations=self.num_generations, num_evaluations=self.num_evaluations, args=self._kwargs)
+                self.logger.debug('observation using %s at generation %d and evaluation %d' % (
+                self.observer.__name__, self.num_generations, self.num_evaluations))
+                self.observer(population=list(self.population), num_generations=self.num_generations,
+                              num_evaluations=self.num_evaluations, args=self._kwargs)
         return self.population
-        
+
 
 class GA(EvolutionaryComputation):
     """Evolutionary computation representing a canonical genetic algorithm.
@@ -447,12 +472,13 @@ class GA(EvolutionaryComputation):
     - *num_elites* -- number of elites to consider (default 0)
     
     """
+
     def __init__(self, random):
         EvolutionaryComputation.__init__(self, random)
-        self.selector = selectors.rank_selection 
+        self.selector = selectors.rank_selection
         self.variator = [variators.n_point_crossover, variators.bit_flip_mutation]
         self.replacer = replacers.generational_replacement
-        
+
     def evolve(self, generator, evaluator, pop_size=100, seeds=[], maximize=True, bounder=Bounder(), **args):
         args.setdefault('num_selected', pop_size)
         return EvolutionaryComputation.evolve(self, generator, evaluator, pop_size, seeds, maximize, bounder, **args)
@@ -475,12 +501,13 @@ class ES(EvolutionaryComputation):
     - *use_one_fifth_rule* -- whether the 1/5 rule should be used (default False)
     
     """
+
     def __init__(self, random):
         EvolutionaryComputation.__init__(self, random)
         self.selector = selectors.default_selection
         self.variator = variators.gaussian_mutation
         self.replacer = replacers.plus_replacement
-        
+
 
 class EDA(EvolutionaryComputation):
     """Evolutionary computation representing a canonical estimation of distribution algorithm.
@@ -498,12 +525,13 @@ class EDA(EvolutionaryComputation):
     - *num_elites* -- number of elites to consider (default 0)
     
     """
+
     def __init__(self, random):
         EvolutionaryComputation.__init__(self, random)
         self.selector = selectors.truncation_selection
         self.variator = variators.estimation_of_distribution_variation
         self.replacer = replacers.generational_replacement
-        
+
     def evolve(self, generator, evaluator, pop_size=100, seeds=[], maximize=True, bounder=Bounder(), **args):
         args.setdefault('num_selected', pop_size // 2)
         args.setdefault('num_offspring', pop_size)
@@ -532,12 +560,13 @@ class DEA(EvolutionaryComputation):
       (default 1.0)
 
     """
+
     def __init__(self, random):
         EvolutionaryComputation.__init__(self, random)
         self.selector = selectors.tournament_selection
         self.variator = [variators.differential_crossover, variators.gaussian_mutation]
         self.replacer = replacers.steady_state_replacement
-        
+
     def evolve(self, generator, evaluator, pop_size=100, seeds=[], maximize=True, bounder=Bounder(), **args):
         args.setdefault('num_selected', 2)
         return EvolutionaryComputation.evolve(self, generator, evaluator, pop_size, seeds, maximize, bounder, **args)
@@ -545,12 +574,13 @@ class DEA(EvolutionaryComputation):
 
 class SA(EvolutionaryComputation):
     """Evolutionary computation representing simulated annealing."""
+
     def __init__(self, random):
         EvolutionaryComputation.__init__(self, random)
         self.selector = selectors.default_selection
         self.variator = variators.gaussian_mutation
         self.replacer = replacers.simulated_annealing_replacement
-    
+
     def evolve(self, generator, evaluator, pop_size=1, seeds=[], maximize=True, bounder=Bounder(), **args):
-        pop_size=1
+        pop_size = 1
         return EvolutionaryComputation.evolve(self, generator, evaluator, pop_size, seeds, maximize, bounder, **args)

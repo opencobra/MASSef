@@ -24,15 +24,15 @@
        along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
 
-import time
 import math
+import time
 
 
 def default_observer(population, num_generations, num_evaluations, args):
-    """Do nothing."""    
+    """Do nothing."""
     pass
-    
-    
+
+
 def screen_observer(population, num_generations, num_evaluations, args):
     """Print the output of the EC to the screen.
     
@@ -60,17 +60,18 @@ def screen_observer(population, num_generations, num_evaluations, args):
     else:
         med_fit = float(population[plen / 2 - 1].fitness + population[plen / 2].fitness) / 2
     avg_fit = sum([p.fitness for p in population]) / float(plen)
-    std_fit = math.sqrt(sum([(p.fitness - avg_fit)**2 for p in population]) / float(plen - 1))
-    
+    std_fit = math.sqrt(sum([(p.fitness - avg_fit) ** 2 for p in population]) / float(plen - 1))
+
     print('Generation Evaluation Worst      Best       Median     Average    Std Dev   ')
     print('---------- ---------- ---------- ---------- ---------- ---------- ----------')
-    print('{0:10} {1:10} {2:10} {3:10} {4:10} {5:10} {6:10}\n'.format(num_generations, num_evaluations, worst_fit, best_fit, med_fit, avg_fit, std_fit))
+    print('{0:10} {1:10} {2:10} {3:10} {4:10} {5:10} {6:10}\n'.format(num_generations, num_evaluations, worst_fit,
+                                                                      best_fit, med_fit, avg_fit, std_fit))
     print('Current Population:')
     for ind in population:
         print(str(ind))
     print('----------------------------------------------------------------------------')
 
-    
+
 def file_observer(population, num_generations, num_evaluations, args):
     """Print the output of the EC to a file.
     
@@ -96,7 +97,7 @@ def file_observer(population, num_generations, num_evaluations, args):
     - *individuals_file* -- a file object (default: see text) 
     
     """
-    
+
     try:
         statistics_file = args['statistics_file']
     except KeyError:
@@ -117,14 +118,16 @@ def file_observer(population, num_generations, num_evaluations, args):
     else:
         med_fit = float(population[plen / 2 - 1].fitness + population[plen / 2].fitness) / 2
     avg_fit = sum([p.fitness for p in population]) / float(plen)
-    std_fit = math.sqrt(sum([(p.fitness - avg_fit)**2 for p in population]) / float(plen - 1))
-    
-    statistics_file.write('{0}, {1}, {2}, {3}, {4}, {5}, {6}\n'.format(num_generations, len(population), worst_fit, best_fit, med_fit, avg_fit, std_fit))
+    std_fit = math.sqrt(sum([(p.fitness - avg_fit) ** 2 for p in population]) / float(plen - 1))
+
+    statistics_file.write(
+        '{0}, {1}, {2}, {3}, {4}, {5}, {6}\n'.format(num_generations, len(population), worst_fit, best_fit, med_fit,
+                                                     avg_fit, std_fit))
     for i, p in enumerate(population):
         individuals_file.write('{0}, {1}, {2}, {3}\n'.format(num_generations, i, p.fitness, str(p.candidate)))
     statistics_file.flush()
     individuals_file.flush()
-    
+
 
 def archive_observer(population, num_generations, num_evaluations, args):
     """Print the current archive to the screen."""
@@ -135,8 +138,8 @@ def archive_observer(population, num_generations, num_evaluations, args):
         print(a)
     print('----------------------------------------------------------------------')
 
-        
-def plot_observer(population, num_generations, num_evaluations, args):    
+
+def plot_observer(population, num_generations, num_evaluations, args):
     """Plot the output of the EC as a graph.
     
     This function plots the performance of the EC as a line graph 
@@ -162,7 +165,7 @@ def plot_observer(population, num_generations, num_evaluations, args):
     """
     import pylab
     import numpy
-    
+
     population = list(population)
     population.sort(reverse=True)
     best_fitness = population[0].fitness
@@ -177,7 +180,7 @@ def plot_observer(population, num_generations, num_evaluations, args):
         data = [[num_evaluations], [average_fitness], [median_fitness], [best_fitness], [worst_fitness]]
         lines = []
         for i in range(4):
-            line, = pylab.plot(data[0], data[i+1], color=colors[i], label=labels[i])
+            line, = pylab.plot(data[0], data[i + 1], color=colors[i], label=labels[i])
             lines.append(line)
         # Add the legend when the first data is added.
         pylab.legend(loc='lower right')
@@ -195,12 +198,12 @@ def plot_observer(population, num_generations, num_evaluations, args):
         lines = args['plot_lines']
         for i, line in enumerate(lines):
             line.set_xdata(numpy.array(data[0]))
-            line.set_ydata(numpy.array(data[i+1]))
+            line.set_ydata(numpy.array(data[i + 1]))
         args['plot_data'] = data
         args['plot_lines'] = lines
     ymin = min([min(d) for d in data[1:]])
     ymax = max([max(d) for d in data[1:]])
     yrange = ymax - ymin
     pylab.xlim((0, num_evaluations))
-    pylab.ylim((ymin - 0.1*yrange, ymax + 0.1*yrange))
+    pylab.ylim((ymin - 0.1 * yrange, ymax + 0.1 * yrange))
     pylab.draw()

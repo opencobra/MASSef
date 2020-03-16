@@ -24,7 +24,10 @@
        along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
 
-import math, itertools, sys, time, warnings
+import itertools
+import math
+import sys
+import time
 
 
 def default_termination(population, num_generations, num_evaluations, args):
@@ -40,7 +43,7 @@ def default_termination(population, num_generations, num_evaluations, args):
     
     """
     return True
-    
+
 
 def diversity_termination(population, num_generations, num_evaluations, args):
     """Return True if population diversity is less than a minimum diversity.
@@ -68,13 +71,13 @@ def diversity_termination(population, num_generations, num_evaluations, args):
     for (p, q) in cart_prod:
         d = 0
         for x, y in zip(p.candidate, q.candidate):
-            d += (x - y)**2
+            d += (x - y) ** 2
         distance.append(math.sqrt(d))
     if max(distance) < min_diversity:
         return True
     return False
 
-    
+
 def average_fitness_termination(population, num_generations, num_evaluations, args):
     """Return True if the population's average fitness is near its best fitness.
     
@@ -148,7 +151,7 @@ def generation_termination(population, num_generations, num_evaluations, args):
         return True
     return False
 
-    
+
 def time_termination(population, num_generations, num_evaluations, args):
     """Return True if the elapsed time meets or exceeds a duration of time.
     
@@ -181,9 +184,11 @@ def time_termination(population, num_generations, num_evaluations, args):
     if start_time is None:
         start_time = time.time()
         args['start_time'] = start_time
-        logging.debug('time_termination terminator added without setting the start_time argument; setting start_time to current time')
+        logging.debug(
+            'time_termination terminator added without setting the start_time argument; setting start_time to current time')
     if max_time is None:
-        logging.debug('time_termination terminator added without setting the max_time argument; terminator will immediately terminate')
+        logging.debug(
+            'time_termination terminator added without setting the max_time argument; terminator will immediately terminate')
     else:
         try:
             max_time = max_time[0] * 3600.0 + max_time[1] * 60.00 + max_time[2]
@@ -222,6 +227,7 @@ def user_termination(population, num_generations, num_evaluations, args):
       cleared before allowing the user to press a key (default True)
     
     """
+
     def getch():
         unix = ('darwin', 'linux2')
         if sys.platform not in unix:
@@ -241,9 +247,10 @@ def user_termination(population, num_generations, num_evaluations, args):
                 ch = stdscr.getch()
                 stdscr.nodelay(0)
                 return ch
+
             import curses
             return curses.wrapper(_getch)
-    
+
     num_secs = args.get('termination_response_timeout', 5)
     clear_buffer = args.get('clear_termination_buffer', True)
     if clear_buffer:
@@ -261,4 +268,4 @@ def user_termination(population, num_generations, num_evaluations, args):
             sys.stdout.write('.')
             count += 1
     sys.stdout.write('\n')
-    return False    
+    return False

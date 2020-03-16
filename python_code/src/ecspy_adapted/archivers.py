@@ -26,8 +26,6 @@
        along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
 
-import math
-
 
 def default_archiver(random, population, archive, args):
     """Archive the current population.
@@ -43,7 +41,7 @@ def default_archiver(random, population, archive, args):
     for ind in population:
         new_archive.append(ind)
     return new_archive
-    
+
 
 def best_archiver(random, population, archive, args):
     """Archive only the best individual(s).
@@ -81,7 +79,7 @@ def best_archiver(random, population, archive, args):
                 new_archive.append(ind)
     return new_archive
 
-    
+
 def adaptive_grid_archiver(random, population, archive, args):
     """Archive only the best individual(s) using a fixed size grid.
     
@@ -103,6 +101,7 @@ def adaptive_grid_archiver(random, population, archive, args):
     - *num_grid_divisions* -- the number of grid divisions (default 1)
     
     """
+
     def get_grid_location(fitness, num_grid_divisions, global_smallest, global_largest):
         loc = 0
         n = 1
@@ -127,7 +126,7 @@ def adaptive_grid_archiver(random, population, archive, args):
                 inc[i] *= num_objectives * 2
                 width[i] /= 2.0
         return loc
- 
+
     def update_grid(individual, archive, num_grid_divisions, global_smallest, global_largest, grid_population):
         if len(archive) == 0:
             num_objectives = len(individual.fitness)
@@ -135,7 +134,7 @@ def adaptive_grid_archiver(random, population, archive, args):
             largest = [individual.fitness[o] for o in range(num_objectives)]
         else:
             num_objectives = min(min([len(a.fitness) for a in archive]), len(individual.fitness))
-            smallest = [min(min([a.fitness[o] for a in archive]), individual.fitness[o]) for o in range(num_objectives)] 
+            smallest = [min(min([a.fitness[o] for a in archive]), individual.fitness[o]) for o in range(num_objectives)]
             largest = [max(max([a.fitness[o] for a in archive]), individual.fitness[o]) for o in range(num_objectives)]
         for i in range(num_objectives):
             global_smallest[i] = smallest[i] - abs(0.2 * smallest[i])
@@ -152,23 +151,24 @@ def adaptive_grid_archiver(random, population, archive, args):
 
     max_archive_size = args.setdefault('max_archive_size', len(population))
     num_grid_divisions = args.setdefault('num_grid_divisions', 1)
-        
+
     if not 'grid_population' in dir(adaptive_grid_archiver):
-        adaptive_grid_archiver.grid_population = [0 for _ in range(2**(min([len(p.fitness) for p in population]) * num_grid_divisions))]
+        adaptive_grid_archiver.grid_population = [0 for _ in range(
+            2 ** (min([len(p.fitness) for p in population]) * num_grid_divisions))]
     if not 'global_smallest' in dir(adaptive_grid_archiver):
         adaptive_grid_archiver.global_smallest = [0 for _ in range(min([len(p.fitness) for p in population]))]
     if not 'global_largest' in dir(adaptive_grid_archiver):
         adaptive_grid_archiver.global_largest = [0 for _ in range(min([len(p.fitness) for p in population]))]
-     
+
     new_archive = archive
     for ind in population:
-        update_grid(ind, new_archive, num_grid_divisions, adaptive_grid_archiver.global_smallest, 
+        update_grid(ind, new_archive, num_grid_divisions, adaptive_grid_archiver.global_smallest,
                     adaptive_grid_archiver.global_largest, adaptive_grid_archiver.grid_population)
         should_be_added = True
         for a in new_archive:
             if ind == a or a > ind:
                 should_be_added = False
-                
+
         if should_be_added:
             if len(new_archive) == 0:
                 new_archive.append(ind)
@@ -181,18 +181,18 @@ def adaptive_grid_archiver(random, population, archive, args):
                         new_archive[i] = ind
                         join = True
                     elif ind > a:
-                        if not a in removal_set: 
+                        if not a in removal_set:
                             removal_set.append(a)
                     # Otherwise, the individual is nondominated against this archive member.
-                    
+
                 new_archive = list(set(new_archive) - set(removal_set))
-                
+
                 if not join and nondominated:
                     if len(new_archive) == max_archive_size:
                         replaced_index = 0
                         found_replacement = False
-                        loc = get_grid_location(ind.fitness, num_grid_divisions, 
-                                                adaptive_grid_archiver.global_smallest, 
+                        loc = get_grid_location(ind.fitness, num_grid_divisions,
+                                                adaptive_grid_archiver.global_smallest,
                                                 adaptive_grid_archiver.global_largest)
                         ind.grid_location = loc
                         if ind.grid_location >= 0:

@@ -14,10 +14,10 @@
     .. You should have received a copy of the GNU General Public License
        along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
-    
+
 import copy
-    
-    
+
+
 def mutator(mutate):
     """Return an ecspy mutator function based on the given function.
     
@@ -42,19 +42,21 @@ def mutator(mutate):
     retrieved if necessary.
     
     """
+
     def ecspy_mutator(random, candidates, args):
         mutants = list(candidates)
         for i, cs in enumerate(mutants):
             mutants[i] = mutate(random, cs, args)
         return mutants
+
     ecspy_mutator.__name__ = mutate.__name__
     ecspy_mutator.__dict__ = mutate.__dict__
     ecspy_mutator.__doc__ = mutate.__doc__
     ecspy_mutator.single_mutation = mutate
     return ecspy_mutator
-    
 
-@mutator    
+
+@mutator
 def gaussian_mutation(random, candidate, args):
     """Return the mutants created by Gaussian mutation on the candidates.
 
@@ -114,7 +116,7 @@ def bit_flip_mutation(random, candidate, args):
                 candidate[i] = (c + 1) % 2
     return candidate
 
-    
+
 @mutator
 def nonuniform_mutation(random, candidate, args):
     bounder = args['_ec'].bounder
@@ -131,7 +133,7 @@ def nonuniform_mutation(random, candidate, args):
         mutant[i] = new_value
     return mutant
 
-    
+
 @mutator
 def mptm_mutation(random, candidate, args):
     bounder = args['_ec'].bounder
@@ -148,8 +150,3 @@ def mptm_mutation(random, candidate, args):
             t_hat = t + (1 - t) * ((r - t) / (1 - t)) ^ strength
         mutant[i] = (1 - t_hat) * lo + t_hat * hi
     return mutant
-
-
-
-
-

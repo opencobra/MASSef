@@ -15,8 +15,8 @@
        along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
 
-import math
 import copy
+import math
 
 
 def crossover(cross):
@@ -49,6 +49,7 @@ def crossover(cross):
     retrieved if necessary.
 
     """
+
     def ecspy_crossover(random, candidates, args):
         cand = list(candidates)
         if len(cand) % 2 == 1:
@@ -62,6 +63,7 @@ def crossover(cross):
             for o in offspring:
                 children.append(o)
         return children
+
     ecspy_crossover.__name__ = cross.__name__
     ecspy_crossover.__dict__ = cross.__dict__
     ecspy_crossover.__doc__ = cross.__doc__
@@ -94,7 +96,7 @@ def n_point_crossover(random, mom, dad, args):
     num_crossover_points = args.setdefault('num_crossover_points', 1)
     children = []
     if random.random() < crossover_rate:
-        num_cuts = min(len(mom)-1, num_crossover_points)
+        num_cuts = min(len(mom) - 1, num_crossover_points)
         cut_points = random.sample(range(1, len(mom)), num_cuts)
         cut_points.sort()
         bro = copy.copy(dad)
@@ -201,8 +203,8 @@ def blend_crossover(random, mom, dad, args):
         children.append(mom)
         children.append(dad)
     return children
-    
-    
+
+
 def differential_crossover(random, candidates, args):
     """Return the offspring of differential crossover on the candidates.
 
@@ -229,17 +231,17 @@ def differential_crossover(random, candidates, args):
     differential_phi = args.setdefault('differential_phi', 0.1)
     crossover_rate = args.setdefault('crossover_rate', 1.0)
     bounder = args['_ec'].bounder
-        
+
     cand = list(candidates)
     if len(cand) % 2 == 1:
         cand = cand[:-1]
-        
+
     # Since we don't have fitness information in the candidates, we need 
     # to make a dictionary containing the candidate and its corresponding 
     # individual in the population.
     population = args['_ec'].population[:]
     lookup = dict(zip([tuple(p.candidate) for p in population], population))
-    
+
     moms = cand[::2]
     dads = cand[1::2]
     children = []
@@ -261,7 +263,7 @@ def differential_crossover(random, candidates, args):
             children.append(mom)
             children.append(dad)
     return children
-    
+
 
 @crossover
 def simulated_binary_crossover(random, mom, dad, args):
@@ -296,14 +298,14 @@ def simulated_binary_crossover(random, mom, dad, args):
             if m > d:
                 m, d = d, m
             beta = 1.0 + 2 * min(m - lb, ub - d) / float(d - m)
-            alpha = 2.0 - 1.0 / beta**(eta_c + 1.0)
-            u = random.random() 
+            alpha = 2.0 - 1.0 / beta ** (eta_c + 1.0)
+            u = random.random()
             if u <= (1.0 / alpha):
-                beta_q = (u * alpha)**(1.0 / float(eta_c + 1.0))
+                beta_q = (u * alpha) ** (1.0 / float(eta_c + 1.0))
             else:
-                beta_q = (1.0 / (2.0 - u * alpha))**(1.0 / float(eta_c + 1.0))
+                beta_q = (1.0 / (2.0 - u * alpha)) ** (1.0 / float(eta_c + 1.0))
             bro_val = 0.5 * ((m + d) - beta_q * (d - m))
-            bro_val = max(min(bro_val, ub), lb)        
+            bro_val = max(min(bro_val, ub), lb)
             sis_val = 0.5 * ((m + d) + beta_q * (d - m))
             sis_val = max(min(sis_val, ub), lb)
             if random.random() > 0.5:
@@ -332,11 +334,3 @@ def laplace_crossover(random, mom, dad, args):
         bro[i] = m + beta * math.abs(m - d)
         sis[i] = d + beta * math.abs(m - d)
     return [bro, sis]
-    
-
-
-
-
-
-
-

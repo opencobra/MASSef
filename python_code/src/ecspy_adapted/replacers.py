@@ -42,7 +42,7 @@ def default_replacement(random, population, parents, offspring, args):
     """
     return offspring
 
-    
+
 def truncation_replacement(random, population, parents, offspring, args):
     """Replaces population with the best of the population and offspring.
     
@@ -68,7 +68,7 @@ def truncation_replacement(random, population, parents, offspring, args):
     pool.sort(reverse=True)
     return pool[:len(population)]
 
-    
+
 def steady_state_replacement(random, population, parents, offspring, args):
     """Performs steady-state replacement for the offspring.
     
@@ -153,7 +153,7 @@ def random_replacement(random, population, parents, offspring, args):
     off = list(offspring)
     pop = list(population)
     pop.sort(reverse=True)
-    num_to_replace = min(len(off), len(pop) - num_elites) 
+    num_to_replace = min(len(off), len(pop) - num_elites)
     valid_indices = range(num_elites, len(pop))
     rep_index = random.sample(valid_indices, num_to_replace)
     for i, repind in enumerate(rep_index):
@@ -204,7 +204,7 @@ def plus_replacement(random, population, parents, offspring, args):
             try:
                 args['mutation_rate'] = args['mutation_rate'] * 1.2
             except KeyError:
-                args['use_one_fifth_rule'] = False            
+                args['use_one_fifth_rule'] = False
     return survivors
 
 
@@ -265,8 +265,10 @@ def crowding_replacement(random, population, parents, offspring, args):
       number of closest solutions to consider as a "crowd" (default 2)
        
     """
+
     def distance(x, y):
-        return math.sqrt(sum([(a - b)**2 for a, b in zip(x, y)]))
+        return math.sqrt(sum([(a - b) ** 2 for a, b in zip(x, y)]))
+
     try:
         distance_function = args['distance_function']
     except KeyError:
@@ -283,12 +285,10 @@ def crowding_replacement(random, population, parents, offspring, args):
     return survivors
 
 
-
-    
-#-------------------------------------------
+# -------------------------------------------
 # Algorithm-specific Replacement Strategies
-#-------------------------------------------
-    
+# -------------------------------------------
+
 def simulated_annealing_replacement(random, population, parents, offspring, args):
     """Replaces population using the simulated annealing schedule.
     
@@ -332,7 +332,7 @@ def simulated_annealing_replacement(random, population, parents, offspring, args
             num_gens = args['_ec'].num_generations
             max_gens = args['max_generations']
             temp = 1 - float(max_gens - num_gens) / float(max_gens)
-        
+
     new_pop = []
     for p, o in zip(parents, offspring):
         if o >= p:
@@ -341,10 +341,10 @@ def simulated_annealing_replacement(random, population, parents, offspring, args
             new_pop.append(o)
         else:
             new_pop.append(p)
-            
+
     return new_pop
 
-    
+
 def nsga_replacement(random, population, parents, offspring, args):
     """Replaces population using the non-dominated sorting technique from NSGA-II.
     
@@ -359,7 +359,7 @@ def nsga_replacement(random, population, parents, offspring, args):
     survivors = []
     combined = population[:]
     combined.extend(offspring[:])
-    
+
     # Perform the non-dominated sorting to determine the fronts.
     fronts = []
     pop = set(range(len(combined)))
@@ -375,7 +375,7 @@ def nsga_replacement(random, population, parents, offspring, args):
                 front.append(p)
         fronts.append([dict(individual=combined[f], index=f) for f in front])
         pop = pop - set(front)
-    
+
     # Go through each front and add all the elements until doing so
     # would put you above the population limit. At that point, fall
     # back to the crowding distance to determine who to put into the
@@ -392,11 +392,11 @@ def nsga_replacement(random, population, parents, offspring, args):
                 individuals.sort(key=lambda x: x['individual'].fitness[obj])
                 distance[individuals[0]['index']] = float('inf')
                 distance[individuals[-1]['index']] = float('inf')
-                for i in range(1, num_individuals-1):
-                    distance[individuals[i]['index']] = (distance[individuals[i]['index']] + 
-                                                         (individuals[i+1]['individual'].fitness[obj] - 
-                                                          individuals[i-1]['individual'].fitness[obj]))
-                
+                for i in range(1, num_individuals - 1):
+                    distance[individuals[i]['index']] = (distance[individuals[i]['index']] +
+                                                         (individuals[i + 1]['individual'].fitness[obj] -
+                                                          individuals[i - 1]['individual'].fitness[obj]))
+
             crowd = [dict(dist=distance[f['index']], index=f['index']) for f in front]
             crowd.sort(key=lambda x: x['dist'], reverse=True)
             last_rank = [combined[c['index']] for c in crowd]
@@ -418,7 +418,7 @@ def nsga_replacement(random, population, parents, offspring, args):
                     survivors.append(f['individual'])
     return survivors
 
-    
+
 def paes_replacement(random, population, parents, offspring, args):
     """Replaces population using the Pareto Archived Evolution Strategy method.
     
@@ -432,7 +432,7 @@ def paes_replacement(random, population, parents, offspring, args):
     """
     archive = args['_ec'].archive
     archiver = args['_ec'].archiver
-        
+
     survivors = []
     for p, o in zip(parents, offspring):
         if o == p:

@@ -13,7 +13,6 @@ import warnings  # Python displays a warning that is safe to ignore
 
 import numpy
 from lmfit import minimize, Parameters
-from math import sqrt
 
 warnings.filterwarnings("ignore", category=RuntimeWarning)
 
@@ -99,6 +98,7 @@ def residual_func_log(params, data, functionDict):
 
     # Return residuals
     return residuals
+
 
 def residual_func_euclid(params, data, functionDict):
     """
@@ -243,7 +243,8 @@ def run_lma(parameter, data_file_name, candidates_import_path, candidates_export
     """"""
 
     """Candidate Evaluation Dependencies"""
-    filesWithFunctions = parameter['filesWithFunctions'].strip('[]').split(',')  # Variable is read as a string instead of a list
+    filesWithFunctions = parameter['filesWithFunctions'].strip('[]').split(
+        ',')  # Variable is read as a string instead of a list
     # data_file_name = parameter['data_file_name'] now comes from the shell
     value_row = int(parameter['value_row'])
     function_row = int(parameter['function_row'])
@@ -307,7 +308,7 @@ def run_lma(parameter, data_file_name, candidates_import_path, candidates_export
         path = path.replace("\"", "").strip()
         func_template = open(path).read()
         mkFuncCommand = 'def %s(x, d): return %s' % (funcName, func_template)
-        exec (mkFuncCommand)
+        exec(mkFuncCommand)
         functionDict[path.replace('\\\\', '\\')] = eval(funcName)
     """"""
 

@@ -45,8 +45,8 @@ def star_topology(random, population, args):
     """
     neighbors = [population[:] for _ in range(len(population))]
     return neighbors
-    
-    
+
+
 def ring_topology(random, population, args):
     """Returns the neighbors using a ring topology.
     
@@ -81,4 +81,3 @@ def ring_topology(random, population, args):
             n.append(population[(start + i) % len(population)])
         neighbors.append(n)
     return neighbors
-    

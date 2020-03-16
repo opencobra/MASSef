@@ -51,18 +51,19 @@
        along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
 
-from ecspy_adapted.variators.crossovers import crossover
 from ecspy_adapted.variators.crossovers import blend_crossover
+from ecspy_adapted.variators.crossovers import crossover
 from ecspy_adapted.variators.crossovers import differential_crossover
 from ecspy_adapted.variators.crossovers import n_point_crossover
 from ecspy_adapted.variators.crossovers import simulated_binary_crossover
 from ecspy_adapted.variators.crossovers import uniform_crossover
-from ecspy_adapted.variators.mutators import mutator
 from ecspy_adapted.variators.mutators import bit_flip_mutation
 from ecspy_adapted.variators.mutators import gaussian_mutation
+from ecspy_adapted.variators.mutators import mutator
 from ecspy_adapted.variators.variators import default_variation
 from ecspy_adapted.variators.variators import estimation_of_distribution_variation
 
-__all__ = ['crossover', 'blend_crossover', 'differential_crossover', 'n_point_crossover', 'simulated_binary_crossover', 'uniform_crossover', 
+__all__ = ['crossover', 'blend_crossover', 'differential_crossover', 'n_point_crossover', 'simulated_binary_crossover',
+           'uniform_crossover',
            'mutator', 'bit_flip_mutation', 'gaussian_mutation',
            'default_variation', 'estimation_of_distribution_variation']

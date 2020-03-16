@@ -65,7 +65,7 @@ def truncation_selection(random, population, args):
     pool.sort(reverse=True)
     return pool[:num_selected]
 
-    
+
 def uniform_selection(random, population, args):
     """Return a uniform sampling of individuals from the population.
     
@@ -87,7 +87,7 @@ def uniform_selection(random, population, args):
     pop = list(population)
     selected = []
     for _ in range(num_selected):
-        selected.append(pop[random.randint(0, len(pop)-1)])
+        selected.append(pop[random.randint(0, len(pop) - 1)])
     return selected
 
 
@@ -110,12 +110,12 @@ def fitness_proportionate_selection(random, population, args):
     psum = [i for i in range(len_pop)]
     pop_max_fit = (max(pop)).fitness
     pop_min_fit = (min(pop)).fitness
-    
+
     # If we're actually doing minimimization,
     # fitness proportionate selection is not defined.
     if pop_max_fit < pop_min_fit:
         raise ValueError('Fitness proportionate selection is not valid for minimization.')
-    
+
     # Set up the roulette wheel
     if pop_max_fit == pop_min_fit:
         psum = [(index + 1) / float(len_pop) for index in range(len_pop)]
@@ -123,23 +123,23 @@ def fitness_proportionate_selection(random, population, args):
         pop.sort(reverse=True)
         psum[0] = pop[0].fitness
         for i in range(1, len_pop):
-            psum[i] = pop[i].fitness + psum[i-1]
+            psum[i] = pop[i].fitness + psum[i - 1]
         for i in range(len_pop):
-            psum[i] /= float(psum[len_pop-1])
-            
+            psum[i] /= float(psum[len_pop - 1])
+
     # Select the individuals
     selected = []
     for _ in range(num_selected):
         cutoff = random.random()
         lower = 0
         upper = len_pop - 1
-        while(upper >= lower):
+        while (upper >= lower):
             mid = (lower + upper) // 2
-            if psum[mid] > cutoff: 
+            if psum[mid] > cutoff:
                 upper = mid - 1
-            else: 
+            else:
                 lower = mid + 1
-        lower = max(0, min(len_pop-1, lower))
+        lower = max(0, min(len_pop - 1, lower))
         selected.append(pop[lower])
     return selected
 
@@ -168,21 +168,21 @@ def rank_selection(random, population, args):
     for i in range(len_pop):
         psum[i] = (i + 1) / den
     for i in range(1, len_pop):
-        psum[i] += psum[i-1]
-        
+        psum[i] += psum[i - 1]
+
     # Select the individuals
     selected = []
     for _ in range(num_selected):
         cutoff = random.random()
         lower = 0
         upper = len_pop - 1
-        while(upper >= lower):
+        while (upper >= lower):
             mid = (lower + upper) // 2
-            if psum[mid] > cutoff: 
+            if psum[mid] > cutoff:
                 upper = mid - 1
-            else: 
+            else:
                 lower = mid + 1
-        lower = max(0, min(len_pop-1, lower))
+        lower = max(0, min(len_pop - 1, lower))
         selected.append(pop[lower])
     return selected
 
@@ -209,5 +209,3 @@ def tournament_selection(random, population, args):
         tourn = random.sample(pop, tourn_size)
         selected.append(max(tourn))
     return selected
-
-
