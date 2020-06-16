@@ -1,5 +1,4 @@
-from pso_short_ver0091_rel_marta_test import run_pso
-import sys
+from pso_short_ver0091_rel_marta import run_pso
 
 
 def _parse_function_parameters(parameter_file_in):
@@ -39,15 +38,14 @@ def _parse_function_parameters(parameter_file_in):
 
 if __name__ == '__main__':
 
-    pso_parameter_file_in = '/home/mrama/Desktop/MD/kinetics/ENO/test/input/psoParameters_ENO_2017771251.txt'
-    data_file_name = '/home/mrama/Desktop/MD/kinetics/ENO/test/input/ENO_dKd.dat'  # path to file with the data to be fit
-    pso_summary_file_name = '/home/mrama/Desktop/MD/kinetics/ENO/test/output/raw/psoSummary.txt'
-    pso_ultimate_result_file_name = '/home/mrama/Desktop/MD/kinetics/ENO/test/output/raw/psoResults.txt'
+    pso_parameter_file_in = '/home/mrama/MASSef/examples/fit_GAPD_typeII/input/psoParameters_GAPD_2020316917.txt'
+    data_file_name = '/home/mrama/MASSef/examples/fit_GAPD_typeII/input/GAPD_GAPD.dat'  # path to file with the data to be fit
+    pso_summary_file_name = '/home/mrama/MASSef/examples/fit_GAPD_typeII/output/raw/psoSummary.txt'
+    pso_ultimate_result_file_name = '/home/mrama/MASSef/examples/fit_GAPD_typeII/output/raw/psoResults.txt'
 
     pso_num_trials = 1
 
     # run pso
     pso_parameters = _parse_function_parameters(pso_parameter_file_in)
-    print pso_parameters
     for i in range(pso_num_trials):
         run_pso(pso_parameters, data_file_name, pso_summary_file_name, pso_ultimate_result_file_name)

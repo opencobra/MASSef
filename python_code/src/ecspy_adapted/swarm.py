@@ -17,15 +17,8 @@
        along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
 
-
-import math
-import copy
-import random
-from ecspy import ec
-from ecspy import archivers
-from ecspy import observers
-from ecspy import terminators
-from ecspy import topologies
+from ecspy_adapted import ec
+from ecspy_adapted import topologies
 
 
 class PSO(ec.EvolutionaryComputation):
@@ -51,6 +44,7 @@ class PSO(ec.EvolutionaryComputation):
       influence its movement (default 2.1)
     
     """
+
     def __init__(self, random):
         ec.EvolutionaryComputation.__init__(self, random)
         self.topology = topologies.star_topology
@@ -58,14 +52,14 @@ class PSO(ec.EvolutionaryComputation):
         self.selector = self._swarm_selector
         self.replacer = self._swarm_replacer
         self.variator = self._swarm_variator
-        #print "blkasd"
-        #Added Values
+        # print "blkasd"
+        # Added Values
         self.percent_Rand = 0
         self.lower_bound = list()
         self.upper_bound = list()
         self.swarmGradientCutoff = 0.0  # RENAME
-        #self.MinimizedFlag = True   #True represents a swarm that has been minimized already (By default it does not minimize)
-        #self.sum_squared_errors = None
+        # self.MinimizedFlag = True   #True represents a swarm that has been minimized already (By default it does not minimize)
+        # self.sum_squared_errors = None
         self.num_func_var = 0
         self.use_Keep_Best = False
         self.inertia = 0.5
@@ -83,12 +77,11 @@ class PSO(ec.EvolutionaryComputation):
                 else:
                     new_archive.append(p)
             return new_archive
-        
+
     def _swarm_variator(self, random, candidates, args):
-        #inertia = args.setdefault('inertia', 0.5)
-        #cognitive_rate = args.setdefault('cognitive_rate', 1.0)
-        #social_rate = args.setdefault('social_rate', 1.0)
-        #print "OLA111"
+        # inertia = args.setdefault('inertia', 0.5)
+        # cognitive_rate = args.setdefault('cognitive_rate', 1.0)
+        # social_rate = args.setdefault('social_rate', 1.0)
         inertia = self.inertia
         cognitive_rate = self.cognitive_rate
         social_rate = self.social_rate
@@ -99,17 +92,16 @@ class PSO(ec.EvolutionaryComputation):
         neighbors = self.topology(self._random, self.archive, args)
         offspring = []
 
-#----------------------------------------------------------------------------------------
-#       Replaces one randomly chosen candidate (Excluding the best) with a random set
-#----------------------------------------------------------------------------------------
-        #print "OLA222"
-        #exit()
+        # ----------------------------------------------------------------------------------------
+        #       Replaces one randomly chosen candidate (Excluding the best) with a random set
+        # ----------------------------------------------------------------------------------------
+
         """Find best fitness"""
         rand_index_vals = []
-        bestFitness = 10**10
+        bestFitness = 10 ** 10
         for index, individual in enumerate(self.archive):
-          
-            #print individual.fitness
+
+            # print individual.fitness
             if individual.fitness < bestFitness:
                 bestFitness = individual.fitness
                 bestFitness_index = index
@@ -118,47 +110,49 @@ class PSO(ec.EvolutionaryComputation):
         """Extract the Number of Parameters to Replace With Random Values"""
         pop_Length = len(self.archive)
         percent_Rand = self.percent_Rand
-        num_rand_vals = int(percent_Rand*pop_Length)
+        num_rand_vals = int(percent_Rand * pop_Length)
         """"""
 
         """Shuffle the Parameter Indices to Place a Random Set at the Beginning"""
-        shuffledValues = range(pop_Length)
-        shuffledValues.remove(bestFitness_index)    # Prevent the Best fit from being replaced
+        shuffledValues = list(range(pop_Length))
+        shuffledValues.remove(bestFitness_index)  # Prevent the Best fit from being replaced
         random.shuffle(shuffledValues)
         """"""
-        
+
         """Flag the First 'num_rand_vals' in the Shuffled List for Replacement"""
         rand_index_vals = shuffledValues[0:num_rand_vals]
         """"""
 
         index_val_counter = 0
-#----------------------------------------------------------------------------------------
-#----------------------------------------------------------------------------------------
+        # ----------------------------------------------------------------------------------------
+        # ----------------------------------------------------------------------------------------
 
         for x, xprev, pbest, hood in zip(self.population, self._previous_population, self.archive, neighbors):
             nbest = max(hood)
             particle = []
 
-            """Actual Replacement""" 
-            if index_val_counter in rand_index_vals:    # Random Values for Candidates
-                for xi, xpi, pbi, nbi, lb, ub in zip(x.candidate, xprev.candidate, pbest.candidate, nbest.candidate, self.lower_bound, self.upper_bound):
+            """Actual Replacement"""
+            if index_val_counter in rand_index_vals:  # Random Values for Candidates
+                for xi, xpi, pbi, nbi, lb, ub in zip(x.candidate, xprev.candidate, pbest.candidate, nbest.candidate,
+                                                     self.lower_bound, self.upper_bound):
                     value = random.uniform(lb, ub)
                     particle.append(value)
-            else:                                       # Actual Algorithmic Values for Candidates
+            else:  # Actual Algorithmic Values for Candidates
                 for xi, xpi, pbi, nbi in zip(x.candidate, xprev.candidate, pbest.candidate, nbest.candidate):
-                    value = xi + inertia * (xi - xpi) + cognitive_rate * random.random() * (pbi - xi) + social_rate * random.random() * (nbi - xi)                
+                    value = xi + inertia * (xi - xpi) + cognitive_rate * random.random() * (
+                                pbi - xi) + social_rate * random.random() * (nbi - xi)
                     particle.append(value)
-            """"""            
+            """"""
 
             particle = self.bounder(particle, args)
             offspring.append(particle)
             index_val_counter += 1
 
-#----------------------------------------------------------------------------------------
-#       Keep the best candidate
-#----------------------------------------------------------------------------------------
+        # ----------------------------------------------------------------------------------------
+        #       Keep the best candidate
+        # ----------------------------------------------------------------------------------------
         particleBest = []
-        bestFitness = 10**10
+        bestFitness = 10 ** 10
 
         """Find the current best candidate"""
         for individual in self.archive:
@@ -169,14 +163,12 @@ class PSO(ec.EvolutionaryComputation):
                     """Keep the best candidate"""
                     offspring[0] = particleBest
         """"""
-#----------------------------------------------------------------------------------------
-#----------------------------------------------------------------------------------------
+        # ----------------------------------------------------------------------------------------
+        # ----------------------------------------------------------------------------------------
 
-
-
-#----------------------------------------------------------------------------------------
-#       Gradient Minimization of best candidate if conditions are met (Default passes through)  # REMOVE
-#---------------------------------------------------------------------------------------- 
+        # ----------------------------------------------------------------------------------------
+        #       Gradient Minimization of best candidate if conditions are met (Default passes through)  # REMOVE
+        # ----------------------------------------------------------------------------------------
         '''if (bestFitness < self.swarmGradientCutoff and self.MinimizedFlag == False):
             #Prevent memory accumulation
             reload(optimize)
@@ -204,16 +196,14 @@ class PSO(ec.EvolutionaryComputation):
 
             #Set Minimized Flag to True
             self.MinimizedFlag = True'''
-#----------------------------------------------------------------------------------------
-#----------------------------------------------------------------------------------------
+        # ----------------------------------------------------------------------------------------
+        # ----------------------------------------------------------------------------------------
 
         return offspring
-        
+
     def _swarm_selector(self, random, population, args):
         return population
-        
+
     def _swarm_replacer(self, random, population, parents, offspring, args):
         self._previous_population = population[:]
         return offspring
-
-    

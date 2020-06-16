@@ -1,6 +1,7 @@
+import sys
+
 from lma_ver0101_rel_marta import run_lma
 from pso_short_ver0091_rel_marta import run_pso
-import sys
 
 
 def _parse_function_parameters(parameter_file_in):

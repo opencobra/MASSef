@@ -14,12 +14,9 @@ import platform
 import random
 
 import numpy
-from ecspy import topologies
 
-import swarm
-# from ecspy import swarm
-from ecspy import observers
-from math import sqrt
+from ecspy_adapted import observers
+from ecspy_adapted import topologies, swarm
 
 
 def load_enzyme_data(path):
@@ -58,11 +55,12 @@ def _evaluator(candidate):
     # Actual fitness evalutation
     data_value = list()  # Data to fit to
     predicted_value = list()  # Predicted value based off of the fitted function
-	
+
     # Evaluate the Rate Values
     for row in data:
         data_value.append(row[value_row])
-        predicted_value.append(functionDict[row[function_row]](newC, row[1:data_row_high])) # for weights: substitute here 0 for 1
+        predicted_value.append(
+            functionDict[row[function_row]](newC, row[1:data_row_high]))  # for weights: substitute here 0 for 1
 
     # Convert to log space
     assert (numpy.array(predicted_value) >= 0).all(), "Some predicted data points values are negative"
@@ -91,10 +89,10 @@ def parallel_evaluation_mp(candidates, args):
     try:
         import multiprocessing
     except ImportError:
-        print '''multiprocessing is not installed...\n
-        ecspy has been designed to work with Python 2.6, which has multiprocessing as a standard library\n'''
+        print('''multiprocessing is not installed...\n
+        ecspy has been designed to work with Python 2.6, which has multiprocessing as a standard library\n''')
         raise
-    logger = args['_ec'].logger
+    logger = args['_ec']
 
     try:
         evaluator = args['mp_evaluator']
@@ -152,9 +150,7 @@ class Enzyme(object):
 
         """Create a fake class to log errors"""
 
-        class fake_ec(object):
-            def __init__(self):
-                self.logger = logging.getLogger('/dev/stdout')
+        self.logger = logging.getLogger('/dev/stdout')
 
         """"""
         if platform.system() == "Windows":
@@ -165,7 +161,7 @@ class Enzyme(object):
         else:
 
             return parallel_evaluation_mp(candidates,
-                                          {'_ec': fake_ec(), 'mp_evaluator': _evaluator, 'mp_num_cpus': num_Cpus})
+                                          {'_ec': self.logger, 'mp_evaluator': _evaluator, 'mp_num_cpus': num_Cpus})
 
 
 class Bounder(object):
@@ -471,7 +467,7 @@ def run_pso(parameter, data_file_name, summary_file_name, ultimate_result_name):
         path = path.replace("\"", "").strip()
         func_template = open(path).read()
         mkFuncCommand = 'def %s(x,d): return %s' % (funcName, func_template)
-        exec (mkFuncCommand)
+        exec(mkFuncCommand)
         functionDict[path.replace('\\\\', '\\')] = eval(funcName)
     """"""
 
@@ -568,7 +564,7 @@ def run_pso(parameter, data_file_name, summary_file_name, ultimate_result_name):
     num_generations = ea.num_generations
     sum_file = open(summary_file_name, 'a')
     sum_file.write('%s, %d, %d, %d, %s, %s, %s\n' % (
-    best.fitness, num_generations, val_pop_size, neigh_size_var, inertia_var, cogn_rate_var, soc_rate_var))
+        best.fitness, num_generations, val_pop_size, neigh_size_var, inertia_var, cogn_rate_var, soc_rate_var))
     sum_file.close()
     print('best_fit: %s' % (best.fitness))
 
