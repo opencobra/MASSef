@@ -12,7 +12,7 @@ Open the terminal, go to the MASSef base directory and do
 ::
 
 	pip install --upgrade pip
-	pip install -r python_fit_requirements.txt
+	pip install -r requirements.txt
 	
 
 Then go to mathematica_code, open the Installer.nb notebok, and run the first block of code to install MASSef.
