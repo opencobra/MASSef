@@ -105,7 +105,7 @@ deleteDirectoryContents[dir_]:= Block[{},
 
 
 (*String replaces to convert mathematical functions from Mathematica to Python*)
-ToPython[x_] := StringReplace[ToString[x,InputForm], {"*^","*10**",
+ToPython[x_] := StringReplace[ToString[x,InputForm], {"*^"->"*10**",
 				"\""->"","["->"(","]"->")","<"->"[",">"->"]",(*" "\[Rule]"",*)"Sqrt"->"sqrt","Log"->"log","List"->"list","^"->"**", "{"-> "[", "}"-> "]"}];
 
 
