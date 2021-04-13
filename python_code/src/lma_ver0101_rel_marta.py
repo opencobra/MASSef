@@ -90,13 +90,14 @@ def residual_func_log(params, data, functionDict):
         predicted_value.append(functionDict[row[function_row]](newC, row[1:data_row_high]))
 
     # Convert to log space
-    #data_value = numpy.log10(data_value)
-    #predicted_value = numpy.log10(predicted_value)
-    data_value = numpy.array(data_value)
-    predicted_value = numpy.array(predicted_value)
+    data_value = numpy.log10(data_value)
+    predicted_value = numpy.log10(predicted_value)
+    #data_value = numpy.array(data_value)
+    #predicted_value = numpy.array(predicted_value)
 
     priority_list = numpy.array([row[0] for row in data])
     residuals = (data_value - predicted_value) * priority_list
+    #residuals = numpy.log10(abs((data_value - predicted_value))* priority_list)
 
     # Return residuals
     return residuals

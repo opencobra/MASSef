@@ -63,17 +63,18 @@ def _evaluator(candidate):
             functionDict[row[function_row]](newC, row[1:data_row_high]))  # for weights: substitute here 0 for 1
 
     # Convert to log space
-    #assert (numpy.array(predicted_value) >= 0).all(), "Some predicted data points values are negative"
-    #data_value = numpy.log10(data_value)
-    #predicted_value = numpy.log10(predicted_value)
-    data_value = numpy.array(data_value)
-    predicted_value = numpy.array(predicted_value)
+    assert (numpy.array(predicted_value) >= 0).all(), "Some predicted data points values are negative"
+    data_value = numpy.log10(data_value)
+    predicted_value = numpy.log10(predicted_value)
+    #data_value = numpy.array(data_value)
+    #predicted_value = numpy.array(predicted_value)
 
     # Calculate the Residuals and SSE
     # NOTE: THIS WAS CHANGED AS A TEST TO THE OPERATOR.SUB NOTATION BECAUSE THE LISTS WERE NO LONGER NUMPY OBJECTS AND SUBTRACTING THEM THREW AN ERROR - DZ 9/7/2016
 
     priority_list = numpy.array([row[0] for row in data])
     residuals = (data_value - predicted_value) * priority_list
+    #residuals = numpy.log10(abs((data_value - predicted_value))* priority_list)
 
     sqrd_errors = numpy.power(residuals, 2)
     sse = sum(sqrd_errors)
