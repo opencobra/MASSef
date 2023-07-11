@@ -1,0 +1,53 @@
+﻿GAPD,ec_number,1.2.1.12,,,,,,,,,,,,,
+,organism,E. coli,,,,,,,,,,,,,
+,reaction,g3p[c] + nad[c] + pi[c] <-> 13dpg[c] + h[c] + nadh[c],,,,,,,,,,,,,
+,,,,experiment,reference (PMID),strain,notes,,,,,,,,
+,mechanism,Ordered Sequential Bi Bi,"[nad,g3p,pi,13dpg,nadh]",,7447472,Homo Sapiens,,,,,,,,,
+,structure,4,,Crystallography,8636984,E. coli strain DF221 w/ pBR322::EcoGAPDH,,,,,,,,,
+,active_sites,4,,Crystallography,8636984,E. coli strain DF221 w/ pBR322::EcoGAPDH,,,,,,,,,
+,allosteric_sites,0,,,,,,,,,,,,,
+,parameter type,metabolite,value,uncertainty,"cosubstrate,concentration",unit,pH,temperature,"buffer,concentration","salts,concentration",other info,experiment,reference,strain,notes
+,Keq,"g3p,Null;nad,Null;pi,Null",0.452,,,,7,,,,,,equilibrator,,
+,Km,nad,0.000045,"0.000041,0.000049","pi,0.053;g3p,0.089",M,8.9,22,"teoa,0.04",,,Not Reported,10190977,E. coli strain DS112,"Cosubtrates at saturating concentrations, assuming x100 Km"
+,Km,g3p,0.00089,"0.00072,0.00106","nad,0.0045;pi,0.053",M,8.9,22,"teoa,0.04",,,Not Reported,10190977,E. coli strain DS112,"Cosubtrates at saturating concentrations, assuming x100 Km"
+,Km,pi,0.00053,"0.00042,0.00064","nad,0.0045;g3p,0.089",M,8.9,22,"teoa,0.04",,,Not Reported,10190977,E. coli strain DS112,"Cosubtrates at saturating concentrations, assuming x100 Km"
+,kcat,"g3p,Null;nad,Null;pi,Null",268,"262.0,274.0,",,1/s,8.9,22,"teoa,0.04",,,Not Reported,10190977,E. coli strain DS112,
+,Kd,nad,0.00000032,"0.00000025,0.00000039",,M,8.9,22,"teoa,0.04",,,Not Reported,10190977,E. coli strain DS112,
+PGMd,ec_number,5.4.2.11,,,,,,,,,,,,,
+,organism,E. coli,,,,,,,,,,,,,
+,reaction,3pg[c] <-> 2pg[c],,,,,,,,,,,,,
+,,,,experiment,reference,strain,notes,,,,,,,,
+,mechanism,,,,,,,,,,,,,,
+,structure,2,,Crystallography,11038361,E. coli (K12),,,,,,,,,
+,active_sites,2,,Crystallography,11038361,E. coli (K12),,,,,,,,,
+,allosteric_sites,0,,,,,,,,,,,,,
+,parameter type,metabolite,value,uncertainty,"cosubstrate,concentration",unit,pH,temperature,"buffer,concentration","salts,concentration",other info,experiment,reference,strain,notes
+,Keq,"3pg,Null",0.189,,,,7.5,,,,,,equilibrator,,Is=0.25
+,Km,3pg,0.0002,"0.000173,0.000227","23dpg,0.0001",M,7,30,"trishcl,0.03","mg2,0.005;so4,0.005;cl,0.02;k,0.02",,Not Reported,10437801,E. coli strain BL21 (DE3) w/ pET3a containing gpmA,
+,Km,2pg,0.00019,"0.000155,0.000225","23dpg,0.0001",M,7,30,"trishcl,0.03","mg2,0.005;so4,0.005;cl,0.02;k,0.02",,Not Reported,10437801,E. coli strain BL21 (DE3) w/ pET3a containing gpmA,
+,kcat,"3pg,Null;23dpg,0.0001",330,"319.0,341.0",,1/s,7,30,"trishcl,0.03","mg2,0.005;so4,0.005;cl,0.02;k,0.02",,Not Reported,10437801,E. coli strain BL21 (DE3) w/ pET3a containing gpmA,
+,kcat,"2pg,Null;23dpg,0.0001",220,"207.0,233.0",,1/s,7,30,"trishcl,0.03","mg2,0.005;so4,0.005;cl,0.02;k,0.02",,Not Reported,10437801,E. coli strain BL21 (DE3) w/ pET3a containing gpmA,
+FBA2,ec_number,4.1.2.13,,,,,,,,,,,,,Baldwin et al; commercial fdp yields non-linear linewaver-burke plot; purified fdp yields linear plot
+,organism,E. coli,,,,,,,,,,,,,
+,reaction,fdp[c] <-> dhap[c] + g3p[c],,,,,,,,,,,,,
+,,,,experiment,reference (PMID),strain,notes,,,,,,,,
+,mechanism,Ordered Sequential Uni Bi,"[fdp,g3p,dhap]",,10712619,E. coli strain KM3 w/ pKagaY,Implied from the mechanism,,,,,,,,
+,structure,2,,Crystallography,10080900,E. coli strain JM101 w/pLC33-5 w/pKK223-3,Strain was inferred through cited methods (PMID: 2649077),,,,,,,,
+,active_sites,2,,Crystallography,10080900,E. coli strain JM101 w/pLC33-5 w/pKK223-3,Strain was inferred through cited methods (PMID: 2649077),,,,,,,,
+,allosteric_sites,,,,,,,,,,,,,,
+,parameter type,metabolite,value,uncertainty,"cosubstrate,concentration",unit,pH,temperature,"buffer,concentration","salts,concentration",other info,experiment,reference,strain,notes
+,Keq,"fdp,Null",0.00016,,,,7.5,,,,,,equilibrator,,Is=0.25
+,Km,fdp,0.00017,"0.000167,0.000173",,M,8,30,"trishcl,0.05",,,"Kaleidagraph (Unspecified, but nonlinear regression analysis in referenced methods)",10712619,E. coli strain KM3 w/ pKagaY,
+,kcat,"fdp,Null",10.5,"9.83,11.2",,1/s,8,30,"trishcl,0.05",,,"Kaleidagraph (Unspecified, but nonlinear regression analysis in referenced methods)",10712619,E. coli strain KM3 w/ pKagaY,
+,Kic,dhap,0.00013,"0.000119,0.000141",,M,8,30,"trishcl,0.05",,"Competitive,fdp,0.00017","Kaleidagraph (Unspecified, but nonlinear regression analysis in referenced methods)",10712619,E. coli strain KM3 w/ pKagaY,
+,Kincc,g3p,0.00003,"0.000025,0.000035",,M,8,30,"trishcl,0.05",,"NonCompetitive,fdp,0.00017","Kaleidagraph (Unspecified, but nonlinear regression analysis in referenced methods)",10712619,E. coli strain KM3 w/ pKagaY,
+,Kincu,g3p,0.00023,"0.000188,0.000272",,M,8,30,"trishcl,0.05",,"NonCompetitive,fdp,0.00017","Kaleidagraph (Unspecified, but nonlinear regression analysis in referenced methods)",10712619,E. coli strain KM3 w/ pKagaY,
+,kcat,"fdp,Null",8.17,"7.73,8.6",,1/s,8,30,"trishcl,0.05",,,data were fitted to the appropriate rate equations using either the computer program Kaleidagraph (Abelbeck Software) or the suite of program described by Cleland (1979),8771208,E. coli strain KM3,"Qamar, 1996"
+,Km,fdp,0.00019,"0.00016,0.00022",,M,8,30,"trishcl,0.05",,,data were fitted to the appropriate rate equations using either the computer program Kaleidagraph (Abelbeck Software) or the suite of program described by Cleland (1979),8771208,E. coli strain KM3,"Qamar, 1996"
+,Kic,dhap,0.000009,"0.0000078,0.0000102",,M,8,30,"trishcl,0.05",,"Competitive,fdp,0.00019",data were fitted to the appropriate rate equations using either the computer program Kaleidagraph (Abelbeck Software) or the suite of program described by Cleland (1979),8771208,E. coli strain KM3,"Qamar, 1996"
+,Kincc,g3p,0.000118,"0.000095,0.000141",,M,8,30,"trishcl,0.05",,"NonCompetitive,fdp,0.00019",data were fitted to the appropriate rate equations using either the computer program Kaleidagraph (Abelbeck Software) or the suite of program described by Cleland (1979),8771208,E. coli strain KM3,"Qamar, 1996"
+,Kincu,g3p,0.000221,"0.000194,0.000248",,M,8,30,"trishcl,0.05",,"NonCompetitive,fdp,0.00019",data were fitted to the appropriate rate equations using either the computer program Kaleidagraph (Abelbeck Software) or the suite of program described by Cleland (1979),8771208,E. coli strain KM3,"Qamar, 1996"
+,kcat,"fdp,Null",10.33,"10.03,10.63",,1/s,8,30,"trishcl,0.05",,,Kinetic parameters were estimated by non-linear regression analysis [22],8436219,E. coli strain KM3,"Berry, 1993"
+,Km,fdp,0.00024,"0.00021,0.00027",,M,8,30,"trishcl,0.05",,,Kinetic parameters were estimated by non-linear regression analysis [22],8436219,E. coli strain KM3,"Berry, 1993"
+,Km,fdp,0.00085,,,M,7.5,30,"trishcl,0.05",,,Lineweaver-Burk,4198624,E. coli (Crookes' strain),
+End,End,End,End,,End,End,End,End,End,End,End,End,End,,
