@@ -1,0 +1,17 @@
+num_Cpus	2
+temperature_correction	False
+xtol_value	1.e-15
+ftol_value	1.e-7
+gtol_value	1.e-7
+epsfcn_min_value	7
+maxfev_value	1000
+lower_bound	-6
+upper_bound	9
+num_func_var	11
+candidates_import_path	/home/danz/Dropbox/Kinetics/Enzymes_new/GND/Parameter_Fitting/Development/psoResults.txt
+candidates_export_path	/home/danz/Dropbox/Kinetics/Enzymes_new/GND/Parameter_Fitting/Development/lmaResults.txt
+filesWithFunctions	[/home/danz/Dropbox/Kinetics/Enzymes_new/GND/Parameter_Fitting/Development/absRateFor.txt,/home/danz/Dropbox/Kinetics/Enzymes_new/GND/Parameter_Fitting/Development/absRateRev.txt,/home/danz/Dropbox/Kinetics/Enzymes_new/GND/Parameter_Fitting/Development/relRateFor_6pgc.txt,/home/danz/Dropbox/Kinetics/Enzymes_new/GND/Parameter_Fitting/Development/relRateFor_nadp.txt,/home/danz/Dropbox/Kinetics/Enzymes_new/GND/Parameter_Fitting/Development/relRateRev_co2.txt,/home/danz/Dropbox/Kinetics/Enzymes_new/GND/Parameter_Fitting/Development/relRateRev_nadph.txt,/home/danz/Dropbox/Kinetics/Enzymes_new/GND/Parameter_Fitting/Development/relRateRev_ru5p-D.txt]
+data_file_name	/home/danz/Dropbox/Kinetics/Enzymes_new/GND/Parameter_Fitting/Development/GND.dat
+value_row	-1
+function_row	-2
+data_row_high	-2
