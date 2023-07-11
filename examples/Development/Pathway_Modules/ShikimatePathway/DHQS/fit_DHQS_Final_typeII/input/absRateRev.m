@@ -1,4 +1,4 @@
-(* Created with the Wolfram Language : www.wolfram.com *)
+(* Created with the Wolfram Language for Students - Personal Use Only : www.wolfram.com *)
 (2*metabolite["3dhq", "c"]*metabolite["pi", "c"]*parameter["DHQS_total"]*
   rateconst["DHQS1", False]*rateconst["DHQS2", False]*
   rateconst["DHQS3", False]*rateconst["DHQS4", False])/

@@ -1,4 +1,4 @@
-(* Created with the Wolfram Language : www.wolfram.com *)
+(* Created with the Wolfram Language for Students - Personal Use Only : www.wolfram.com *)
 (metabolite["6pgl", "c"]*parameter["PGL_total"]*rateconst["PGL1", True]*
   rateconst["PGL2", True]*rateconst["PGL3", True])/
  (rateconst["PGL1", False]*(rateconst["PGL2", True] + 

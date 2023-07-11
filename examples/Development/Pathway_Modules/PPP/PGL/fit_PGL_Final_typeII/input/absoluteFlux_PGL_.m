@@ -1,4 +1,4 @@
-(* Created with the Wolfram Language : www.wolfram.com *)
+(* Created with the Wolfram Language for Students - Personal Use Only : www.wolfram.com *)
 parameter["v", "PGL"] -> (parameter["PGL_total"]*parameter["Volume", "c"]*
    (-(metabolite["6pgc", "c"]*rateconst["PGL1", False]*
       rateconst["PGL2", False]*rateconst["PGL3", False]) + 

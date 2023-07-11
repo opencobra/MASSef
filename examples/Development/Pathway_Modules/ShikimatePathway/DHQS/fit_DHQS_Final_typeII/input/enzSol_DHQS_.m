@@ -1,4 +1,4 @@
-(* Created with the Wolfram Language : www.wolfram.com *)
+(* Created with the Wolfram Language for Students - Personal Use Only : www.wolfram.com *)
 {enzyme[{"ID" -> "DHQS", "Compartment" -> "c", "BoundCatalytic" -> {}, 
     "BoundActivators" -> {}, "BoundInhibitors" -> {}, 
     "CatalyticSites" -> Infinity, "ActivationSites" -> 0, 

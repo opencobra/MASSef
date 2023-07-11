@@ -283,9 +283,10 @@
       rateconst["TKT24", True]*rateconst["TKT25", True]*
       rateconst["TKT26", True])), 
  enzyme[{"ID" -> "TKT2", "Compartment" -> "c", "BoundCatalytic" -> 
-     {Toolbox`Private`wrap[metabolite]["mod", "c"]}, "BoundActivators" -> {}, 
-    "BoundInhibitors" -> {}, "CatalyticSites" -> Infinity, 
-    "ActivationSites" -> 0, "InhibitionSites" -> 0}] -> 
+     {Toolbox`Private`wrap[metabolite]["MODIFIED", "c"]}, 
+    "BoundActivators" -> {}, "BoundInhibitors" -> {}, 
+    "CatalyticSites" -> Infinity, "ActivationSites" -> 0, 
+    "InhibitionSites" -> 0}] -> 
   -((-(metabolite["f6p", "c"]*parameter["TKT2_total"]*
        rateconst["TKT21", False]*rateconst["TKT22", False]*
        rateconst["TKT23", False]*rateconst["TKT24", False]*
@@ -569,7 +570,7 @@
       rateconst["TKT24", True]*rateconst["TKT25", True]*
       rateconst["TKT26", True])), 
  enzyme[{"ID" -> "TKT2", "Compartment" -> "c", "BoundCatalytic" -> 
-     {Toolbox`Private`wrap[metabolite]["mod", "c"], 
+     {Toolbox`Private`wrap[metabolite]["MODIFIED", "c"], 
       Toolbox`Private`wrap[metabolite]["e4p", "c"]}, "BoundActivators" -> {}, 
     "BoundInhibitors" -> {}, "CatalyticSites" -> Infinity, 
     "ActivationSites" -> 0, "InhibitionSites" -> 0}] -> 
@@ -714,7 +715,7 @@
       rateconst["TKT24", True]*rateconst["TKT25", True]*
       rateconst["TKT26", True])), 
  enzyme[{"ID" -> "TKT2", "Compartment" -> "c", "BoundCatalytic" -> 
-     {Toolbox`Private`wrap[metabolite]["mod", "c"], 
+     {Toolbox`Private`wrap[metabolite]["MODIFIED", "c"], 
       Toolbox`Private`wrap[metabolite]["g3p", "c"]}, "BoundActivators" -> {}, 
     "BoundInhibitors" -> {}, "CatalyticSites" -> Infinity, 
     "ActivationSites" -> 0, "InhibitionSites" -> 0}] -> 
