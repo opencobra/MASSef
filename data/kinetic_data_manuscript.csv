@@ -50,4 +50,17 @@ FBA2,ec_number,4.1.2.13,,,,,,,,,,,,,Baldwin et al; commercial fdp yields non-lin
 ,kcat,"fdp,Null",10.33,"10.03,10.63",,1/s,8,30,"trishcl,0.05",,,Kinetic parameters were estimated by non-linear regression analysis [22],8436219,E. coli strain KM3,"Berry, 1993"
 ,Km,fdp,0.00024,"0.00021,0.00027",,M,8,30,"trishcl,0.05",,,Kinetic parameters were estimated by non-linear regression analysis [22],8436219,E. coli strain KM3,"Berry, 1993"
 ,Km,fdp,0.00085,,,M,7.5,30,"trishcl,0.05",,,Lineweaver-Burk,4198624,E. coli (Crookes' strain),
+TPI,ec_number,5.3.1.1,,,,,,,,,,,,,
+,organism,E. coli,,,,,,,,,,,,,
+,reaction,dhap[c] <-> g3p[c],,,,,,,,,,,,,
+,,type,order,experiment,reference,strain,notes,,,,,,,,
+,mechanism,,,,,,,,,,,,,,
+,structure,2,,Crystallography,15299515,E. coli over-expressing  strain (Unspecified),,,,,,,,,
+,active_sites,2,,Crystallography,15299515,E. coli over-expressing  strain (Unspecified),,,,,,,,,
+,allosteric_sites,,,,,,,,,,,,,,
+,parameter type,metabolite,value,uncertainty,"cosubstrate,concentration",unit,pH,temperature,"buffer,concentration","salts,concentration",other info,experiment,reference,strain,notes
+,Keq,"dhap,Null",0.107,,,,7.5,,,,,,equilibrator,,Is=0.25
+,Km,g3p,0.00103,"0.00093,0.00113",,M,7.6,25,"teoahcl,0.1",,,Enzfitter program (Unspecified),9442062,E. coli over-expressing  strain (Unspecified),
+,kcat,"g3p,Null",9000,"8833,9167",,1/s,7.6,25,"teoahcl,0.1",,,Enzfitter program (Unspecified),9442062,E. coli over-expressing  strain (Unspecified),
+,Ki,2-phosphoglycolate,0.006,,,M,7.6,25,"teoahcl,0.1",,"Competitive,dhap,Null",Enzfitter program (Unspecified),9442062,E. coli over-expressing  strain (Unspecified),
 End,End,End,End,,End,End,End,End,End,End,End,End,End,,
