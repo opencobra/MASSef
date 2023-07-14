@@ -1,7 +1,8 @@
 MASSef documentation
 =========================
+.. _here: https://github.com/opencobra/MASS-Toolbox/releases
 
-MASSef is an hybrid mathematica and python package based on the MASS toolbox [add link] to build enzyme-level kinetic models.
+MASSef is an hybrid mathematica and python package based on the MASS toolbox (here_) to build enzyme-level kinetic models.
 
 The key idea is to, given an enzyme mechanism and kinetic data, such as kcats and Kms, to fit the enzyme model to the data. 
 
