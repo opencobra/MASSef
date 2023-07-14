@@ -1,4 +1,4 @@
-<p align="center"><img src="https://raw.githubusercontent.com/opencobra/MASSef/master/doc/MASSef logo.png" alt="MASSef-Logo" width="200" height="100"/></p>
+<p align="left"><img src="https://raw.githubusercontent.com/opencobra/MASSef/master/doc/MASSef logo.png" alt="MASSef-Logo" width="200" height="100"/></p>
 
 # MASSef
 
