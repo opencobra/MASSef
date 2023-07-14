@@ -1,6 +1,6 @@
 <p align="center"><img src="https://raw.githubusercontent.com/opencobra/MASSef/master/doc/MASSef logo2.png" alt="MASSef-Logo" width="360" height="100"/></p>
 
-# MASSef
+# MASSef: The Mass Action Stoichiometric Simulation Enzyme Fitting package
 
 
 
