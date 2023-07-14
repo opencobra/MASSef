@@ -18,7 +18,7 @@ The user can use three types of notebook, from a more detailed one where each st
 
 
 
-Example work flow for notebook type 1 (from G3PD2)
+Example workflow for notebook type 1 (from G3PD2)
 --------------------------------------------------
 
 Initialize notebook
@@ -396,7 +396,7 @@ Back calculate all parameters for each fit and plot them in a box plot.
 
 
 
-Example work flow for notebook type 2 (from G3PD2)
+Example workflow for notebook type 2 (from G3PD2)
 --------------------------------------------------
 
 This notebook type is identical to type 1, except for the Build enzyme model section, which is decomposed into several steps: 
