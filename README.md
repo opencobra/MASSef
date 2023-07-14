@@ -1,4 +1,8 @@
+<p align="center"><img src="https://raw.githubusercontent.com/opencobra/MASSef/master/doc/MASSef logo.png" alt="MASSef-Logo" width="400" height="200"/></p>
+
 # MASSef
+
+
 
 This repository contains all the code to build enzyme-level kinetic models following the MASSef (Mass Action Stoichiometric Simulation - Enzyme Fitting) approach (soon to be published).
 
