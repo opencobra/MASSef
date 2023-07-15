@@ -1,0 +1,4 @@
+PGMd1: 23dpg[c] + E_PGMd[c] <=> E_PGMd[c]&23dpg
+PGMd2: 3pg[c] + E_PGMd[c]&23dpg <=> E_PGMd[c]&23dpg&3pg
+PGMd3: E_PGMd[c]&23dpg&2pg <=> 2pg[c] + E_PGMd[c]&23dpg
+PGMd4: E_PGMd[c]&23dpg&3pg <=> E_PGMd[c]&23dpg&2pg
