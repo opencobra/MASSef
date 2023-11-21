@@ -15,6 +15,6 @@ Open the terminal, go to the MASSef base directory and do
 	pip install -r requirements.txt
 	
 
-Then go to mathematica_code, open the Installer.nb notebok, and run the first block of code to install MASSef.
+Then go to mathematica_code, open the Installer.nb notebook, and run the first block of code to install MASSef.
 
 And you should be ready to go, enjoy!
