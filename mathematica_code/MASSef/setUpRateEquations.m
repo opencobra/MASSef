@@ -153,6 +153,7 @@ getFluxEquation[inputDir_, rxnName_, enzymeModel_, rateConstSubstitutionList_, t
 		(*Generate a System of Equations *)
 		Print[transitionRateEqs];
 		fluxEq = (*unifyRateConstants[*)Total[keq2kHT@transitionRateEqs]/.rateConstSubstitutionList(*]*);(*Flux Will Always Go through the Transition Step*)
+		fluxEq = unifyRateConstants[Total[keq2kHT@transitionRateEqs]/.rateConstSubstitutionList];(*Flux Will Always Go through the Transition Step*)
 		fluxEq = Simplify[fluxEq];
 		Print[fluxEq];
 		
@@ -163,7 +164,8 @@ getFluxEquation[inputDir_, rxnName_, enzymeModel_, rateConstSubstitutionList_, t
 
 		enzPos = Flatten[Position[enzymeModel["Species"],_enzyme]];
 		ssEq = stripTime[enzymeModel["ODE"][[enzPos]]/._'[t]->0];(*Steady State Equations*)
-		ssEq = (*unifyRateConstants*)keq2kHT[ssEq]/.rateConstSubstitutionList;
+		(*ssEq = (*unifyRateConstants*)keq2kHT[ssEq]/.rateConstSubstitutionList;*)
+		ssEq = unifyRateConstants[keq2kHT[ssEq]/.rateConstSubstitutionList];
 		
 		(*Print[ssEq];
 		Print[Length@ssEq];*)
@@ -172,7 +174,8 @@ getFluxEquation[inputDir_, rxnName_, enzymeModel_, rateConstSubstitutionList_, t
 		(*Solve the System for Each Enzyme Form (This May Take Some Time)*)
 		enzSol = anonymize[Solve[Join[ssEq,{enzConservationEq}],enzForms]];
 
-		enzSol = keq2kHT[enzSol[[1]]];
+		(*enzSol = keq2kHT[enzSol[[1]]];*)
+		enzSol = unifyRateConstants[keq2kHT[enzSol[[1]]]];
 		
 		(*Apply the Solution to the Flux Equation*)
 		absoluteFlux=fluxEq/.enzSol;(*In terms of E_total*)
@@ -180,9 +183,11 @@ getFluxEquation[inputDir_, rxnName_, enzymeModel_, rateConstSubstitutionList_, t
 		absoluteFlux = If[ TrueQ[simplifyFlag],
 
 			posConcentractionAssumption = Map[# >= 0. &, enzymeModel["Species"]];
-			Print["Simplifying..."];
-			parameter["v", rxnName] -> nActiveSites * keq2kHT[anonymize[Simplify[absoluteFlux, TimeConstraint -> {simplifyMaxTime, 300}, Trig->False, Assumptions->posConcentractionAssumption]]],
-			parameter["v", rxnName] -> nActiveSites * keq2kHT[absoluteFlux]
+			Print["Simplifying edited..."];
+			(*parameter["v", rxnName] -> nActiveSites * keq2kHT[anonymize[Simplify[absoluteFlux, TimeConstraint -> {simplifyMaxTime, 300}, Trig->False, Assumptions->posConcentractionAssumption]]],
+			parameter["v", rxnName] -> nActiveSites * keq2kHT[absoluteFlux]*)
+			parameter["v", rxnName] -> nActiveSites * unifyRateConstants[keq2kHT[anonymize[Simplify[absoluteFlux, TimeConstraint -> {simplifyMaxTime, 300}, Trig->False, Assumptions->posConcentractionAssumption]]]],
+			parameter["v", rxnName] -> nActiveSites * unifyRateConstants[keq2kHT[absoluteFlux]]
 		];
 
 		(*Cache the Results*)
@@ -672,7 +677,8 @@ setUpRateEquations[enzymeModel_, rxn_, rxnName_, inputPath_, inhibitionListFull_
 	
 	(* set up haldane relations *)
 	haldaneRatiosList  = Table[
-				haldane = haldaneRelation[KeqName,catalyticReactionsSet]/.rateConstSubstitutionList;
+				(*haldane = haldaneRelation[KeqName,catalyticReactionsSet]/.rateConstSubstitutionList;*)
+				haldane = unifyRateConstants[haldaneRelation[KeqName,catalyticReactionsSet]/.rateConstSubstitutionList];
 				haldane[[2]],
 		{catalyticReactionsSet, catalyticReactionsSetsList}] // DeleteDuplicates;
 	
